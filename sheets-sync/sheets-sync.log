@@ -1,3 +1,9 @@
 [2026-03-02 19:19:07] === Google Sheets sync start ===
 [2026-03-02 19:19:07] [ERROR] credentials not found: C:\Users\tmizu\マイドライブ\GitHub\data\sheets-sync\credentials\service-account.json
 [2026-03-02 19:19:07] [ERROR] See SETUP.md for instructions
+[2026-03-02 19:24:05] === Google Sheets sync start ===
+[2026-03-02 19:24:05] [SKIP] sample: not configured yet
+[2026-03-02 19:24:05] === Google Sheets sync complete ===
+[2026-03-02 19:24:55] === Google Sheets sync start ===
+[2026-03-02 19:24:58] [ERROR] 入金管理/シート1: <HttpError 403 when requesting https://sheets.googleapis.com/v4/spreadsheets/1Q1W3Uf01-0Sp780M2lhjxO84D212dBZu7OvWoOsv9ws/values/%E3%82%B7%E3%83%BC%E3%83%881?alt=json returned "The caller does not have permission". Details: "The caller does not have permission">
+[2026-03-02 19:24:58] === Google Sheets sync complete ===

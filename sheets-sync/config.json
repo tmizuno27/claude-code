@@ -1,10 +1,10 @@
 {
   "sheets": [
     {
-      "name": "sample",
-      "spreadsheet_id": "ここにスプレッドシートのIDを入れる",
+      "name": "入金管理",
+      "spreadsheet_id": "1Q1W3Uf01-0Sp780M2lhjxO84D212dBZu7OvWoOsv9ws",
       "ranges": ["シート1"],
-      "comment": "スプレッドシートURLの /d/ と /edit の間がID"
+      "comment": "入金管理シート"
     }
   ],
   "output_dir": "output",
