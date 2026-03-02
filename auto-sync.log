@@ -122,3 +122,6 @@
 [2026-03-02 19:33:03] Commit OK
 [2026-03-02 19:33:03] Push OK - synced to GitHub
 [2026-03-02 19:34:03] Changes detected:  M auto-sync.log  M sheets-sync/output/metadata.json ?? sheets-sync/output/12.csv ?? sheets-sync/output/2601.csv ?? sheets-sync/output/2602.csv ?? sheets-sync/output/summary.txt ?? "sheets-sync/output/\343\200\220\345\216\237\346\234\254\343\200\221.csv" ?? "sheets-sync/output/\343\203\255\343\202\26411.csv" ?? "sheets-sync/output/\345\256\205\351\214\262.csv" ?? "sheets-sync/output/\345\256\205\351\214\26204.csv" ?? "sheets-sync/output/\345\256\205\351\214\26205.csv" ?? "sheets-sync/output/\345\256\205\351\214\26206.csv" ?? "sheets-sync/output/\345\256\205\351\214\26207.csv" ?? "sheets-sync/output/\345\256\205\351\214\26208.csv" ?? "sheets-sync/output/\345\256\205\351\214\26209.csv" ?? "sheets-sync/output/\345\256\205\351\214\26210.csv" ?? "sheets-sync/output/\345\256\205\351\214\26211.csv"
+[2026-03-02 19:34:04] Commit OK
+[2026-03-02 19:34:04] Push OK - synced to GitHub
+[2026-03-02 19:35:03] Changes detected:  M auto-sync.log  M sheets-sync/config.json  M sheets-sync/output/metadata.json  M sheets-sync/sheets-sync.log
