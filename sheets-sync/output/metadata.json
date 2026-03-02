@@ -1,6 +1,76 @@
 {
-  "last_sync": "2026-03-02T19:34:08.453417",
+  "spreadsheet_id": "1ZNOFUPwDu64Oyp47tdvsOdgRO5_l9YxmQE3FkIttGxE",
+  "title": "入金管理",
   "sheets": [
-    "入金管理"
+    {
+      "name": "【原本】",
+      "file": "【原本】.csv",
+      "rows": 38
+    },
+    {
+      "name": "2602",
+      "file": "2602.csv",
+      "rows": 38
+    },
+    {
+      "name": "2601",
+      "file": "2601.csv",
+      "rows": 38
+    },
+    {
+      "name": "宅録",
+      "file": "宅録.csv",
+      "rows": 174
+    },
+    {
+      "name": "宅録04",
+      "file": "宅録04.csv",
+      "rows": 57
+    },
+    {
+      "name": "宅録05",
+      "file": "宅録05.csv",
+      "rows": 55
+    },
+    {
+      "name": "宅録06",
+      "file": "宅録06.csv",
+      "rows": 57
+    },
+    {
+      "name": "宅録07",
+      "file": "宅録07.csv",
+      "rows": 55
+    },
+    {
+      "name": "宅録08",
+      "file": "宅録08.csv",
+      "rows": 53
+    },
+    {
+      "name": "宅録09",
+      "file": "宅録09.csv",
+      "rows": 53
+    },
+    {
+      "name": "宅録10",
+      "file": "宅録10.csv",
+      "rows": 54
+    },
+    {
+      "name": "宅録11",
+      "file": "宅録11.csv",
+      "rows": 46
+    },
+    {
+      "name": "ロゴ11",
+      "file": "ロゴ11.csv",
+      "rows": 46
+    },
+    {
+      "name": "12",
+      "file": "12.csv",
+      "rows": 38
+    }
   ]
 }
