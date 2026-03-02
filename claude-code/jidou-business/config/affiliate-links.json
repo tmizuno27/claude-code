@@ -1,0 +1,157 @@
+{
+  "strategy_note": "高単価案件を優先。キラー記事に集中配置する。",
+  "categories": {
+    "server_hosting": {
+      "description": "レンタルサーバー系（最優先：1件5,000-12,000円）",
+      "priority": 1,
+      "links": [
+        {
+          "name": "ConoHa WING",
+          "url": "https://YOUR-AFFILIATE-LINK/conoha",
+          "anchor_text": ["ConoHa WING", "コノハウィング", "ConoHa WINGの公式サイト"],
+          "commission": "5,000〜12,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "ブログ開設、WordPress、海外からのサーバー選びの文脈で使用",
+          "killer_article": "海外在住者におすすめのレンタルサーバー比較"
+        },
+        {
+          "name": "エックスサーバー",
+          "url": "https://YOUR-AFFILIATE-LINK/xserver",
+          "anchor_text": ["エックスサーバー", "Xserver"],
+          "commission": "5,000〜10,000円/件",
+          "asp": "A8.net",
+          "context": "ConoHaとの比較記事で使用。安定性重視の選択肢として",
+          "killer_article": "海外在住者におすすめのレンタルサーバー比較"
+        }
+      ]
+    },
+    "programming_school": {
+      "description": "プログラミングスクール系（高単価：1件10,000-50,000円）",
+      "priority": 2,
+      "links": [
+        {
+          "name": "TechAcademy",
+          "url": "https://YOUR-AFFILIATE-LINK/techacademy",
+          "anchor_text": ["TechAcademy", "テックアカデミー"],
+          "commission": "10,000〜30,000円/件",
+          "asp": "A8.net",
+          "context": "AI時代のスキルアップ、プログラミング学習、副業スキル習得の文脈で使用"
+        },
+        {
+          "name": "DMM WEBCAMP",
+          "url": "https://YOUR-AFFILIATE-LINK/dmm-webcamp",
+          "anchor_text": ["DMM WEBCAMP", "DMMウェブキャンプ"],
+          "commission": "15,000〜50,000円/件",
+          "asp": "A8.net",
+          "context": "転職×AI、本格的なプログラミング学習の文脈で使用"
+        }
+      ]
+    },
+    "vpn": {
+      "description": "VPN系（海外生活必須：1件3,000-5,000円）",
+      "priority": 3,
+      "links": [
+        {
+          "name": "NordVPN",
+          "url": "https://YOUR-AFFILIATE-LINK/nordvpn",
+          "anchor_text": ["NordVPN", "ノードVPN"],
+          "commission": "3,000〜5,000円/件",
+          "asp": "A8.net",
+          "context": "海外生活でVPN必須、日本のサービス利用、セキュリティの文脈で使用",
+          "killer_article": "パラグアイ生活で必須のVPN おすすめ3選"
+        },
+        {
+          "name": "ExpressVPN",
+          "url": "https://YOUR-AFFILIATE-LINK/expressvpn",
+          "anchor_text": ["ExpressVPN", "エクスプレスVPN"],
+          "commission": "3,000〜5,000円/件",
+          "asp": "A8.net",
+          "context": "NordVPNとの比較対象として使用"
+        },
+        {
+          "name": "Surfshark",
+          "url": "https://YOUR-AFFILIATE-LINK/surfshark",
+          "anchor_text": ["Surfshark", "サーフシャーク"],
+          "commission": "2,000〜4,000円/件",
+          "asp": "A8.net",
+          "context": "コスパ重視の選択肢として使用"
+        }
+      ]
+    },
+    "online_learning": {
+      "description": "オンライン学習系（中単価）",
+      "priority": 4,
+      "links": [
+        {
+          "name": "Udemy",
+          "url": "https://YOUR-AFFILIATE-LINK/udemy",
+          "anchor_text": ["Udemy", "ユーデミー"],
+          "commission": "購入額の10%",
+          "asp": "もしもアフィリエイト",
+          "context": "AI講座、スキルアップ、プログラミング学習の文脈で使用"
+        }
+      ]
+    },
+    "crowdsourcing": {
+      "description": "クラウドソーシング系（低単価だが登録率が高い）",
+      "priority": 5,
+      "links": [
+        {
+          "name": "ランサーズ",
+          "url": "https://YOUR-AFFILIATE-LINK/lancers",
+          "anchor_text": ["ランサーズ", "Lancers"],
+          "commission": "会員登録で500円",
+          "asp": "A8.net",
+          "context": "フリーランス、副業案件獲得の文脈で使用"
+        },
+        {
+          "name": "クラウドワークス",
+          "url": "https://YOUR-AFFILIATE-LINK/crowdworks",
+          "anchor_text": ["クラウドワークス", "CrowdWorks"],
+          "commission": "会員登録で500円",
+          "asp": "A8.net",
+          "context": "在宅ワーク、副業、業務委託の文脈で使用"
+        },
+        {
+          "name": "ココナラ",
+          "url": "https://YOUR-AFFILIATE-LINK/coconala",
+          "anchor_text": ["ココナラ", "coconala"],
+          "commission": "会員登録で300円",
+          "asp": "A8.net",
+          "context": "スキル販売、サービス出品の文脈で使用"
+        }
+      ]
+    },
+    "ai_tools": {
+      "description": "AIツール系（直接アフィリエイトは少ないが信頼構築に有効）",
+      "priority": 6,
+      "links": [
+        {
+          "name": "ChatGPT Plus",
+          "url": "https://YOUR-AFFILIATE-LINK/chatgpt",
+          "anchor_text": ["ChatGPT Plus", "ChatGPT有料版"],
+          "commission": "記載なし（紹介リンクのみ）",
+          "asp": "直接",
+          "context": "AI文章生成、業務効率化の文脈で使用。アフィリ報酬は低いがツールレビューでの信頼構築用"
+        },
+        {
+          "name": "Canva Pro",
+          "url": "https://YOUR-AFFILIATE-LINK/canva",
+          "anchor_text": ["Canva Pro", "Canva有料版"],
+          "commission": "記載なし",
+          "asp": "A8.net",
+          "context": "デザイン、サムネイル作成、SNS画像の文脈で使用"
+        }
+      ]
+    }
+  },
+  "insertion_rules": {
+    "max_affiliate_links_per_article": 5,
+    "min_distance_between_links": 300,
+    "natural_insertion": true,
+    "disclosure_required": true,
+    "disclosure_text": "※この記事にはアフィリエイトリンクが含まれています。リンクを経由してご購入いただいた場合、当サイトに紹介料が発生しますが、読者の皆様への費用負担は一切ありません。",
+    "priority_order": "server_hosting > programming_school > vpn > online_learning > crowdsourcing > ai_tools",
+    "killer_article_rule": "キラー記事では対象案件のリンクを本文中2箇所+比較表内+まとめCTA の計4箇所に配置"
+  }
+}

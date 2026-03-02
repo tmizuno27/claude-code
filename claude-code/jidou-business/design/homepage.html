@@ -1,0 +1,729 @@
+<!-- wp:html -->
+<style>
+/* ============================================
+   南米おやじのAI実践ラボ — Homepage Design
+   ============================================ */
+
+/* CSS Variables */
+:root {
+  --nao-green-dark: #1B5E20;
+  --nao-green: #2E7D32;
+  --nao-green-light: #43A047;
+  --nao-orange: #EF6C00;
+  --nao-orange-light: #FF9800;
+  --nao-gold: #FFB300;
+  --nao-dark: #1A1A1A;
+  --nao-text: #333333;
+  --nao-text-light: #666666;
+  --nao-bg: #FAFAF5;
+  --nao-white: #FFFFFF;
+  --nao-border: #E0DED6;
+  --nao-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  --nao-radius: 12px;
+}
+
+/* Base Reset for Homepage */
+.nao-home {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--nao-text);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.nao-home *, .nao-home *::before, .nao-home *::after {
+  box-sizing: border-box;
+}
+
+/* Full-width helper */
+.nao-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Section base */
+.nao-section {
+  padding: 80px 20px;
+}
+
+.nao-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.nao-hero {
+  background: linear-gradient(135deg, #0D3B0F 0%, var(--nao-green-dark) 40%, #1A472A 100%);
+  padding: 100px 20px 90px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nao-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255,179,0,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(67,160,71,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.nao-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.nao-hero-badge {
+  display: inline-block;
+  background: rgba(255,179,0,0.15);
+  border: 1px solid rgba(255,179,0,0.3);
+  color: var(--nao-gold);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.nao-hero h1 {
+  color: var(--nao-white);
+  font-size: clamp(32px, 6vw, 52px);
+  font-weight: 900;
+  line-height: 1.3;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.nao-hero h1 span {
+  background: linear-gradient(90deg, var(--nao-gold), var(--nao-orange-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nao-hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: clamp(15px, 2.5vw, 18px);
+  line-height: 1.9;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.nao-hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nao-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.nao-btn-primary {
+  background: linear-gradient(135deg, var(--nao-orange), var(--nao-orange-light));
+  color: var(--nao-white);
+  box-shadow: 0 4px 20px rgba(239,108,0,0.35);
+}
+
+.nao-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(239,108,0,0.45);
+}
+
+.nao-btn-outline {
+  background: transparent;
+  color: var(--nao-white);
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.nao-btn-outline:hover {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Hero Stats */
+.nao-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.nao-hero-stat {
+  text-align: center;
+}
+
+.nao-hero-stat-num {
+  display: block;
+  color: var(--nao-gold);
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.nao-hero-stat-label {
+  color: rgba(255,255,255,0.5);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* ============================================
+   FEATURES SECTION
+   ============================================ */
+.nao-features {
+  background: var(--nao-bg);
+  padding: 72px 20px;
+}
+
+.nao-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.nao-feature-card {
+  background: var(--nao-white);
+  border: 1px solid var(--nao-border);
+  border-radius: var(--nao-radius);
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.nao-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--nao-shadow);
+}
+
+.nao-feature-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.nao-feature-card h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--nao-dark);
+}
+
+.nao-feature-card p {
+  font-size: 14px;
+  color: var(--nao-text-light);
+  line-height: 1.8;
+}
+
+/* ============================================
+   PILLARS SECTION (Two Content Pillars)
+   ============================================ */
+.nao-pillars {
+  background: var(--nao-white);
+  padding: 80px 20px;
+}
+
+.nao-section-header {
+  text-align: center;
+  margin-bottom: 52px;
+}
+
+.nao-section-label {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--nao-green);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.nao-section-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 900;
+  color: var(--nao-dark);
+  line-height: 1.4;
+}
+
+.nao-section-desc {
+  font-size: 15px;
+  color: var(--nao-text-light);
+  max-width: 600px;
+  margin: 12px auto 0;
+}
+
+.nao-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.nao-pillar-card {
+  border-radius: var(--nao-radius);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.nao-pillar-card:hover {
+  transform: translateY(-4px);
+}
+
+.nao-pillar-card.--paraguay {
+  background: linear-gradient(145deg, #E8F5E9 0%, #F1F8E9 100%);
+  border: 1px solid #C8E6C9;
+}
+
+.nao-pillar-card.--ai {
+  background: linear-gradient(145deg, #FFF3E0 0%, #FFF8E1 100%);
+  border: 1px solid #FFE0B2;
+}
+
+.nao-pillar-emoji {
+  font-size: 48px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.nao-pillar-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--nao-dark);
+}
+
+.nao-pillar-card > p {
+  font-size: 14px;
+  color: var(--nao-text-light);
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+
+.nao-pillar-topics {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nao-pillar-topics li {
+  font-size: 14px;
+  color: var(--nao-text);
+  padding-left: 24px;
+  position: relative;
+}
+
+.nao-pillar-topics li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+}
+
+.nao-pillar-card.--paraguay .nao-pillar-topics li::before {
+  color: var(--nao-green);
+}
+
+.nao-pillar-card.--ai .nao-pillar-topics li::before {
+  color: var(--nao-orange);
+}
+
+/* ============================================
+   ABOUT / PROFILE SECTION
+   ============================================ */
+.nao-about {
+  background: var(--nao-bg);
+  padding: 80px 20px;
+}
+
+.nao-about-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.nao-about-avatar {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--nao-green-dark), var(--nao-green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 72px;
+  box-shadow: 0 8px 32px rgba(46,125,50,0.2);
+}
+
+.nao-about-text h2 {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--nao-dark);
+  margin-bottom: 16px;
+}
+
+.nao-about-text p {
+  font-size: 15px;
+  color: var(--nao-text-light);
+  line-height: 2;
+  margin-bottom: 12px;
+}
+
+.nao-about-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.nao-about-tag {
+  display: inline-block;
+  background: var(--nao-white);
+  border: 1px solid var(--nao-border);
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: 13px;
+  color: var(--nao-text-light);
+  font-weight: 500;
+}
+
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.nao-cta {
+  background: linear-gradient(135deg, var(--nao-dark) 0%, #2C2C2C 100%);
+  padding: 72px 20px;
+  text-align: center;
+}
+
+.nao-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.nao-cta h2 {
+  color: var(--nao-white);
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.nao-cta p {
+  color: rgba(255,255,255,0.6);
+  font-size: 15px;
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+.nao-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nao-btn-x {
+  background: #000;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+}
+
+.nao-btn-x:hover {
+  background: #1A1A1A;
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   EXPERIMENT LOG SECTION
+   ============================================ */
+.nao-log {
+  background: var(--nao-white);
+  padding: 80px 20px;
+}
+
+.nao-log-timeline {
+  max-width: 720px;
+  margin: 0 auto;
+  position: relative;
+  padding-left: 40px;
+}
+
+.nao-log-timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--nao-green), var(--nao-orange));
+  border-radius: 2px;
+}
+
+.nao-log-item {
+  position: relative;
+  margin-bottom: 36px;
+  padding: 24px;
+  background: var(--nao-bg);
+  border-radius: var(--nao-radius);
+  border: 1px solid var(--nao-border);
+}
+
+.nao-log-item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 30px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--nao-green);
+  border: 3px solid var(--nao-white);
+}
+
+.nao-log-date {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--nao-green);
+  margin-bottom: 8px;
+}
+
+.nao-log-item h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--nao-dark);
+  margin-bottom: 8px;
+}
+
+.nao-log-item p {
+  font-size: 14px;
+  color: var(--nao-text-light);
+  line-height: 1.8;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .nao-features-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .nao-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nao-about-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nao-about-tags {
+    justify-content: center;
+  }
+
+  .nao-about-avatar {
+    width: 140px;
+    height: 140px;
+    font-size: 56px;
+  }
+
+  .nao-hero-stats {
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .nao-hero {
+    padding: 72px 20px 64px;
+  }
+
+  .nao-section {
+    padding: 56px 20px;
+  }
+
+  .nao-log-timeline {
+    padding-left: 32px;
+  }
+}
+</style>
+
+<div class="nao-home">
+
+  <!-- ========== HERO ========== -->
+  <section class="nao-hero nao-full">
+    <div class="nao-hero-content">
+      <div class="nao-hero-badge">🇵🇾 パラグアイから発信中</div>
+      <h1>南米おやじの<br><span>AI実践ラボ</span></h1>
+      <p class="nao-hero-sub">
+        パラグアイ在住の日本人が、AIを使って副業でどこまで稼げるか。<br>
+        成功も失敗も、リアルな数字で全部見せる実験ログ。
+      </p>
+      <div class="nao-hero-buttons">
+        <a href="/category/ai活用/" class="nao-btn nao-btn-primary">📖 記事を読む</a>
+        <a href="#about" class="nao-btn nao-btn-outline">このサイトについて</a>
+      </div>
+      <div class="nao-hero-stats">
+        <div class="nao-hero-stat">
+          <span class="nao-hero-stat-num">🇵🇾</span>
+          <span class="nao-hero-stat-label">パラグアイ在住</span>
+        </div>
+        <div class="nao-hero-stat">
+          <span class="nao-hero-stat-num">AI</span>
+          <span class="nao-hero-stat-label">完全AI活用</span>
+        </div>
+        <div class="nao-hero-stat">
+          <span class="nao-hero-stat-num">¥0→</span>
+          <span class="nao-hero-stat-label">ゼロから挑戦中</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="nao-features nao-full">
+    <div class="nao-features-grid">
+      <div class="nao-feature-card">
+        <span class="nao-feature-icon">📊</span>
+        <h3>リアルな数字で公開</h3>
+        <p>収益・PV・かかった時間。都合の悪い数字も隠さず公開します。「月収○万円達成！」の裏側まで全部見せます。</p>
+      </div>
+      <div class="nao-feature-card">
+        <span class="nao-feature-icon">🤖</span>
+        <h3>AI徹底活用の実践記</h3>
+        <p>ChatGPT、Claude、画像生成AI…最新ツールを片っ端から試して、本当に使えるものだけを紹介。</p>
+      </div>
+      <div class="nao-feature-card">
+        <span class="nao-feature-icon">🌎</span>
+        <h3>海外ならではの視点</h3>
+        <p>南米パラグアイで暮らすからこそ見える世界がある。時差・言語・文化の壁を超えた副業のリアル。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TWO PILLARS ========== -->
+  <section class="nao-pillars nao-full">
+    <div class="nao-container">
+      <div class="nao-section-header">
+        <div class="nao-section-label">Contents</div>
+        <h2 class="nao-section-title">2つのテーマで発信中</h2>
+        <p class="nao-section-desc">パラグアイの生活情報と、AI副業の実践記録。この2本柱でお届けします。</p>
+      </div>
+      <div class="nao-pillars-grid">
+        <div class="nao-pillar-card --paraguay">
+          <span class="nao-pillar-emoji">🇵🇾</span>
+          <h3>パラグアイ生活ガイド</h3>
+          <p>移住10年超の経験を元に、ネットに出てこないリアルな情報を発信。</p>
+          <ul class="nao-pillar-topics">
+            <li>パラグアイ移住の費用とリアルな手続き</li>
+            <li>現地の生活費を徹底公開（2026年版）</li>
+            <li>永住権の取り方を完全ガイド</li>
+            <li>日本人コミュニティと現地での暮らし</li>
+          </ul>
+        </div>
+        <div class="nao-pillar-card --ai">
+          <span class="nao-pillar-emoji">🚀</span>
+          <h3>AI副業チャレンジ</h3>
+          <p>AIツールを駆使して、海外から日本語で稼ぐ方法を実験中。</p>
+          <ul class="nao-pillar-topics">
+            <li>AI × ブログで月5万円を目指す全過程</li>
+            <li>海外在住者におすすめの副業比較</li>
+            <li>使って分かったAIツール正直レビュー</li>
+            <li>デジタル商品の作り方と売り方</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIMENT LOG ========== -->
+  <section class="nao-log nao-full">
+    <div class="nao-container">
+      <div class="nao-section-header">
+        <div class="nao-section-label">Experiment Log</div>
+        <h2 class="nao-section-title">実験ログ</h2>
+        <p class="nao-section-desc">このサイト自体が実験です。立ち上げから収益化までの道のりを時系列で記録。</p>
+      </div>
+      <div class="nao-log-timeline">
+        <div class="nao-log-item">
+          <div class="nao-log-date">2026年3月 — Month 0</div>
+          <h4>🔧 プロジェクト始動</h4>
+          <p>WordPressでサイト構築開始。AI（Claude）でコンテンツ自動生成の仕組みを作り、7つのAIエージェントを準備。目標は3ヶ月でデジタル商品2つ販売開始。</p>
+        </div>
+        <div class="nao-log-item">
+          <div class="nao-log-date">Coming Soon — Month 1</div>
+          <h4>📝 最初の記事群を公開予定</h4>
+          <p>パラグアイ系5記事 + AI副業系10記事を目標に執筆中。SEOで上位を取れるか？リアルタイムで報告します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="nao-about nao-full" id="about">
+    <div class="nao-container">
+      <div class="nao-about-inner">
+        <div class="nao-about-avatar">🧔</div>
+        <div class="nao-about-text">
+          <h2>南米おやじ について</h2>
+          <p>
+            パラグアイ在住の日本人。南米での生活も10年を超え、現地でビジネスを営みながら、
+            2026年からAIを活用した副業実験をスタート。
+          </p>
+          <p>
+            「海外に住んでるおっさんが、AIの力を借りてどこまでやれるのか？」
+            ——その答えを、このサイトで探していきます。
+          </p>
+          <div class="nao-about-tags">
+            <span class="nao-about-tag">🇵🇾 パラグアイ在住</span>
+            <span class="nao-about-tag">🤖 AI活用</span>
+            <span class="nao-about-tag">💰 副業実験中</span>
+            <span class="nao-about-tag">📊 数字で証明</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA ========== -->
+  <section class="nao-cta nao-full">
+    <div class="nao-cta-inner">
+      <h2>実験の続きが気になったら</h2>
+      <p>毎週の実験報告・収益レポート・AI活用のTipsをXで発信中。<br>フォローして一緒に実験を見届けてください。</p>
+      <div class="nao-cta-buttons">
+        <a href="https://x.com/" class="nao-btn nao-btn-x" target="_blank" rel="noopener">𝕏 Xでフォローする</a>
+        <a href="/category/ai活用/" class="nao-btn nao-btn-primary">記事一覧を見る →</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- /wp:html -->
