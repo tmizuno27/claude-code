@@ -1,0 +1,12 @@
+{
+  "sheets": [
+    {
+      "name": "sample",
+      "spreadsheet_id": "ここにスプレッドシートのIDを入れる",
+      "ranges": ["シート1"],
+      "comment": "スプレッドシートURLの /d/ と /edit の間がID"
+    }
+  ],
+  "output_dir": "output",
+  "credentials_file": "credentials/service-account.json"
+}
