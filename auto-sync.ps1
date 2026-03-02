@@ -1,19 +1,12 @@
-# GitHub auto-sync script (PowerShell)
+﻿# GitHub auto-sync script (PowerShell)
 # Checks for changes and auto commit & push
 # Runs every 1 minute via Task Scheduler
 
-$RepoDir = "C:\Users\tmizu\マイドライブ\GitHub\data"
-$Branch = "main"
-$LogFile = Join-Path $RepoDir "auto-sync.log"
+$RepoDir = 'C:\Users\tmizu\マイドライブ\GitHub\data'
+$Branch = 'main'
+$LogFile = Join-Path $RepoDir 'auto-sync.log'
 
 Set-Location $RepoDir
-
-$gitCheck = git --version 2>&1
-if ($LASTEXITCODE -ne 0) {
-    $ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    Add-Content -Path $LogFile -Value "[$ts] [ERROR] git not found" -Encoding UTF8
-    exit 1
-}
 
 $changes = git status --porcelain 2>&1
 
@@ -21,12 +14,12 @@ if ([string]::IsNullOrWhiteSpace($changes)) {
     exit 0
 }
 
-$ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 Add-Content -Path $LogFile -Value "[$ts] Changes detected: $changes" -Encoding UTF8
 
 git add -A
 
-$ts = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+$ts = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 $commitResult = git commit -m "auto-sync: $ts" 2>&1
 
 if ($LASTEXITCODE -eq 0) {
