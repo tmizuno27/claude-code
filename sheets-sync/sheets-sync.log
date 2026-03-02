@@ -7,3 +7,6 @@
 [2026-03-02 19:24:55] === Google Sheets sync start ===
 [2026-03-02 19:24:58] [ERROR] 入金管理/シート1: <HttpError 403 when requesting https://sheets.googleapis.com/v4/spreadsheets/1Q1W3Uf01-0Sp780M2lhjxO84D212dBZu7OvWoOsv9ws/values/%E3%82%B7%E3%83%BC%E3%83%881?alt=json returned "The caller does not have permission". Details: "The caller does not have permission">
 [2026-03-02 19:24:58] === Google Sheets sync complete ===
+[2026-03-02 19:25:46] === Google Sheets sync start ===
+[2026-03-02 19:25:48] [ERROR] 入金管理/シート1: <HttpError 403 when requesting https://sheets.googleapis.com/v4/spreadsheets/1Q1W3Uf01-0Sp780M2lhjxO84D212dBZu7OvWoOsv9ws/values/%E3%82%B7%E3%83%BC%E3%83%881?alt=json returned "The caller does not have permission". Details: "The caller does not have permission">
+[2026-03-02 19:25:48] === Google Sheets sync complete ===
