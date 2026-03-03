@@ -73,3 +73,6 @@
 [2026-03-02 21:09:11] === Google Sheets sync start ===
 [2026-03-02 21:09:16] [ERROR] 入金管理/シート1: <HttpError 400 when requesting https://sheets.googleapis.com/v4/spreadsheets/1ZNOFUPwDu64Oyp47tdvsOdgRO5_l9YxmQE3FkIttGxE/values/%E3%82%B7%E3%83%BC%E3%83%881?alt=json returned "Unable to parse range: シート1". Details: "Unable to parse range: シート1">
 [2026-03-02 21:09:16] === Google Sheets sync complete ===
+[2026-03-02 21:14:04] === Google Sheets sync start ===
+[2026-03-02 21:14:07] [ERROR] 入金管理/シート1: <HttpError 400 when requesting https://sheets.googleapis.com/v4/spreadsheets/1ZNOFUPwDu64Oyp47tdvsOdgRO5_l9YxmQE3FkIttGxE/values/%E3%82%B7%E3%83%BC%E3%83%881?alt=json returned "Unable to parse range: シート1". Details: "Unable to parse range: シート1">
+[2026-03-02 21:14:07] === Google Sheets sync complete ===
