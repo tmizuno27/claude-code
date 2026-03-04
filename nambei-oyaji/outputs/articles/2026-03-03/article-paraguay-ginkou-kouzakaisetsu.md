@@ -4,9 +4,10 @@ slug: "paraguay-ginkou-kouza"
 date: 2026-03-03
 update: 2026-03-03
 focus_keyword: "パラグアイ 銀行口座 開設"
-pillar: pillar_1_paraguay
+pillar: pillar_1_paraguay_life
 article_type: 集客記事
 category: パラグアイ生活
+affiliate_disclosure: true
 tags:
   - パラグアイ
   - 銀行口座

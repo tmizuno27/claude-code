@@ -4,7 +4,7 @@ slug: "paraguay-seikatsuhi"
 date: 2026-03-03
 update: 2026-03-03
 focus_keyword: "パラグアイ 生活費"
-pillar: pillar_1_paraguay
+pillar: pillar_1_paraguay_life
 article_type: 集客記事
 category: パラグアイ生活
 tags:
@@ -118,7 +118,7 @@ seo_notes: |
 
 | 費目 | 金額（円換算） | 備考 |
 |------|-------------|------|
-| 家賃 | 約35,000円 | ランバレ市の2LDKアパート |
+| 家賃 | 約35,000円 | ランバレ市の3LDKアパート |
 | 食費（自炊中心） | 約25,000円 | スーパー購入+たまに市場 |
 | 光熱費 | 約5,000円 | 夏はエアコン代がかかる |
 | 通信費 | 約4,000円 | Tigo Wi-Fi + 携帯SIM |
