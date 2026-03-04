@@ -371,42 +371,80 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== VALUE PROPS ===== */
 .nao-value-section {
-  background: #48484a;
-  padding: 0;
+  background-color: #1a1a2e;
+  background-image:
+    radial-gradient(ellipse 70% 50% at 15% 25%, rgba(234, 88, 12, 0.14) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 85% 65%, rgba(22, 163, 74, 0.10) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 5%, rgba(202, 138, 4, 0.08) 0%, transparent 60%);
+  padding: 100px 0;
   overflow: hidden;
+  position: relative;
+}
+.nao-value-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
 }
 .nao-value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,.08);
-  max-width: 100%;
-  margin: 0;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
 }
 .nao-value-card {
-  padding: 88px 48px;
+  padding: 48px 36px;
   text-align: center;
-  background: #48484a;
-  transition: background 0.5s var(--ease-out);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.05) inset,
+    0 4px 24px rgba(0, 0, 0, 0.3);
 }
-.nao-value-card:hover { background: #525256; }
+.nao-value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 1px 0 0 rgba(255,255,255,0.08) inset,
+    0 8px 40px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(234, 88, 12, 0.06);
+}
 .nao-value-icon {
-  font-size: 56px;
-  display: block;
-  margin-bottom: 28px;
+  font-size: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 24px;
+  background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(202, 138, 4, 0.08) 100%);
+  border: 1px solid rgba(234, 88, 12, 0.2);
+  border-radius: 20px;
+  filter: drop-shadow(0 0 12px rgba(251, 146, 60, 0.25));
 }
 .nao-value-card h3 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
-  color: #f5f5f7;
+  color: rgba(255, 255, 255, 0.93);
   margin-bottom: 14px;
   letter-spacing: -.01em;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 .nao-value-card p {
   font-size: 15px;
-  color: #c7c7cc;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
   max-width: 300px;
   margin: 0 auto;
   letter-spacing: -.01em;
@@ -414,7 +452,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== STATS RIBBON ===== */
 .nao-stats-ribbon {
-  background: linear-gradient(135deg, #48484a 0%, #58585e 50%, #636366 100%);
+  background-color: #0f0f1a;
   padding: 96px 0;
   position: relative;
   overflow: hidden;
@@ -422,16 +460,23 @@ body.home, body.page, body { overflow-x: hidden !important; }
 .nao-stats-ribbon::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.12) 50%, transparent 90%);
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgba(234, 88, 12, 0.10) 0%, transparent 70%);
+  pointer-events: none;
 }
 .nao-stats-ribbon::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.12) 50%, transparent 90%);
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 .nao-stats-inner {
   max-width: 980px;
@@ -440,34 +485,49 @@ body.home, body.page, body { overflow-x: hidden !important; }
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 80px;
+  gap: 0;
+  position: relative;
 }
-.nao-stat-item { text-align: center; }
+.nao-stat-item {
+  text-align: center;
+  flex: 1;
+  padding: 32px 24px;
+  position: relative;
+}
+.nao-stat-item:not(:last-child) {
+  border-right: 1px solid rgba(255,255,255,0.06);
+}
 .nao-stat-number {
-  font-size: 80px;
-  font-weight: 700;
-  color: #fff;
+  font-size: 72px;
+  font-weight: 800;
   line-height: 1;
-  letter-spacing: -.03em;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(160deg, #ffffff 30%, rgba(251, 146, 60, 0.85) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
 }
 .nao-stat-unit {
-  font-size: 36px;
-  font-weight: 600;
-  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
   letter-spacing: -.01em;
+  background: linear-gradient(160deg, #ffffff 30%, rgba(251, 146, 60, 0.85) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .nao-stat-desc {
   display: block;
-  font-size: 14px;
-  font-weight: 400;
-  color: #aeaeb2;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.40);
   margin-top: 12px;
-  letter-spacing: -.01em;
+  letter-spacing: 0.02em;
 }
 .nao-stat-divider {
-  width: 1px;
-  height: 60px;
-  background: rgba(255,255,255,.12);
+  display: none;
 }
 
 /* ===== FEATURE TILES ===== */
@@ -1304,18 +1364,20 @@ html { scroll-behavior: smooth; }
   .nao-scroll-indicator { display: none; }
 
   /* Value props */
-  .nao-value-grid { grid-template-columns: 1fr; }
-  .nao-value-card { padding: 48px 28px; }
-  .nao-value-icon { font-size: 40px; margin-bottom: 16px; }
-  .nao-value-card h3 { font-size: 20px; }
+  .nao-value-section { padding: 64px 0; }
+  .nao-value-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
+  .nao-value-card { padding: 36px 24px; }
+  .nao-value-icon { font-size: 36px; width: 64px; height: 64px; margin-bottom: 16px; border-radius: 16px; }
+  .nao-value-card h3 { font-size: 19px; }
   .nao-value-card p { font-size: 14px; }
 
   /* Stats ribbon */
   .nao-stats-ribbon { padding: 56px 0; }
-  .nao-stats-inner { flex-direction: column; gap: 32px; }
-  .nao-stat-divider { width: 48px; height: 1px; }
-  .nao-stat-number { font-size: 52px; }
-  .nao-stat-unit { font-size: 24px; }
+  .nao-stats-inner { flex-direction: column; gap: 0; padding: 0 24px; }
+  .nao-stat-item { padding: 24px 16px; }
+  .nao-stat-item:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .nao-stat-number { font-size: 48px; }
+  .nao-stat-unit { font-size: 22px; }
   .nao-stat-desc { font-size: 12px; }
 
   /* Sections */
