@@ -1319,10 +1319,10 @@ html { scroll-behavior: smooth; }
   .nao-stat-label { font-size: 11px; }
 
   /* Tiles */
-  .nao-grid { margin-top: 28px; gap: 10px; padding: 0; }
+  .nao-grid { margin-top: 28px; gap: var(--card-gap); padding: 0; }
   .nao-grid--2, .nao-grid--3 { grid-template-columns: 1fr; }
-  .nao-tile { border-radius: 20px; padding: 36px 28px 32px; }
-  .nao-tile:hover { transform: none; box-shadow: none; }
+  .nao-tile { border-radius: var(--card-radius); padding: 36px 24px 32px; }
+  .nao-tile:hover { transform: none; }
   .nao-tile-icon { font-size: 40px; margin-bottom: 12px; }
   .nao-tile h3 { font-size: 20px; }
   .nao-tile p { font-size: 14px; }
@@ -1330,10 +1330,10 @@ html { scroll-behavior: smooth; }
   /* Showcase */
   .nao-showcase-card {
     min-height: 380px;
-    padding: 36px 28px 32px;
-    border-radius: 20px;
+    padding: 36px 24px 32px;
+    border-radius: var(--card-radius);
   }
-  .nao-showcase-card:hover { transform: none; box-shadow: none; }
+  .nao-showcase-card:hover { transform: none; }
   .nao-showcase-emoji { font-size: 48px; margin-bottom: 16px; }
   .nao-showcase-card h3 { font-size: 28px; }
   .nao-showcase-card > p { font-size: 14px; }
@@ -1418,11 +1418,11 @@ html { scroll-behavior: smooth; }
   .nao-link-sm { font-size: 14px; }
 
   /* Global Nav mobile */
-  .nao-globalnav { height: 52px; }
+  .nao-globalnav { height: 44px; }
   .nao-globalnav-inner { padding: 0 16px; }
   .nao-globalnav-logo { font-size: 15px; }
   .nao-globalnav-links { gap: 14px; }
-  .nao-globalnav-links a { font-size: 12px; }
+  .nao-globalnav-links a { font-size: 11px; }
   body.admin-bar header.wp-block-template-part { top: 0; }
 
   /* Footer mobile */
