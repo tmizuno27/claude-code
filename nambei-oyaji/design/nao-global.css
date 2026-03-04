@@ -284,12 +284,12 @@ body.home, body.page, body { overflow-x: hidden !important; }
   flex-shrink: 0;
 }
 .nao-hero-logo {
-  max-width: 520px;
-  width: 72%;
+  max-width: 720px;
+  width: 90%;
   height: auto;
-  margin: 0 auto 44px;
+  margin: 0 auto 48px;
   display: block;
-  border-radius: 16px;
+  border-radius: 20px;
 }
 .nao-hero-eyebrow {
   display: block;
