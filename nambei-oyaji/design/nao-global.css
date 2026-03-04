@@ -1141,34 +1141,34 @@ body.admin-bar header.wp-block-template-part { top: 32px; }
   justify-content: space-between;
 }
 .nao-globalnav-logo {
-  color: #f5f5f7;
-  font-size: 16px;
-  font-weight: 600;
+  color: #1d1d1f;
+  font-size: 17px;
+  font-weight: 700;
   text-decoration: none;
   letter-spacing: -.01em;
   white-space: nowrap;
   transition: opacity 0.3s ease;
 }
-.nao-globalnav-logo:hover { opacity: .8; }
+.nao-globalnav-logo:hover { opacity: .6; }
 .nao-globalnav-links {
   display: flex;
   gap: 28px;
   align-items: center;
 }
 .nao-globalnav-links a {
-  color: #d1d1d6;
-  font-size: 12px;
-  font-weight: 400;
+  color: #6e6e73;
+  font-size: 13px;
+  font-weight: 500;
   text-decoration: none;
   letter-spacing: -.01em;
   transition: color 0.3s ease;
   white-space: nowrap;
 }
-.nao-globalnav-links a:hover { color: #fff; }
+.nao-globalnav-links a:hover { color: #1d1d1f; }
 
 /* ===== FOOTER ===== */
 footer.wp-block-template-part {
-  background: #f5f5f7;
+  background: linear-gradient(180deg, #f5f5f7 0%, #ebebf0 100%);
   font-family: var(--sf-pro);
   border-top: 1px solid #d2d2d7;
 }
@@ -1178,28 +1178,28 @@ footer.wp-block-template-part .wp-block-group {
 .nao-footer {
   max-width: 980px;
   margin: 0 auto;
-  padding: 20px 22px;
+  padding: 32px 22px 28px;
 }
 .nao-footer-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-bottom: 16px;
+  padding-bottom: 24px;
   border-bottom: 1px solid #d2d2d7;
 }
 .nao-footer-col h4 {
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   color: #1d1d1f;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   letter-spacing: -.01em;
 }
 .nao-footer-col a {
   display: block;
-  font-size: 12px;
-  color: #424245;
+  font-size: 13px;
+  color: #515154;
   text-decoration: none;
-  line-height: 2;
+  line-height: 2.2;
   letter-spacing: -.01em;
 }
 .nao-footer-col a:hover {
@@ -1213,14 +1213,14 @@ footer.wp-block-template-part .wp-block-group {
   align-items: center;
 }
 .nao-footer-copy {
-  font-size: 12px;
+  font-size: 13px;
   color: #86868b;
   letter-spacing: -.01em;
 }
 .nao-footer-legal { display: flex; gap: 20px; }
 .nao-footer-legal a {
-  font-size: 12px;
-  color: #424245;
+  font-size: 13px;
+  color: #515154;
   text-decoration: none;
   letter-spacing: -.01em;
 }
@@ -1430,11 +1430,11 @@ html { scroll-behavior: smooth; }
   .nao-link-sm { font-size: 14px; }
 
   /* Global Nav mobile */
-  .nao-globalnav { height: 48px; }
+  .nao-globalnav { height: 52px; }
   .nao-globalnav-inner { padding: 0 16px; }
-  .nao-globalnav-logo { font-size: 14px; }
+  .nao-globalnav-logo { font-size: 15px; }
   .nao-globalnav-links { gap: 14px; }
-  .nao-globalnav-links a { font-size: 11px; }
+  .nao-globalnav-links a { font-size: 12px; }
   body.admin-bar header.wp-block-template-part { top: 0; }
 
   /* Footer mobile */
