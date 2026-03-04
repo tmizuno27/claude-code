@@ -239,25 +239,25 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== SECTION SYSTEM ===== */
 .nao-section {
-  padding: 110px 0;
+  padding: 100px 0;
   text-align: center;
   overflow: hidden;
 }
 .nao-section--white { background: var(--bg-white); }
 .nao-section--gray { background: var(--bg-gray); }
 .nao-section--black {
-  background: var(--bg-black);
-  color: #fff;
+  background: #000;
+  color: var(--text-on-dark);
 }
-.nao-section--black .nao-headline { color: #fff; }
-.nao-section--black .nao-subhead { color: #c7c7cc; }
+.nao-section--black .nao-headline { color: var(--text-on-dark); }
+.nao-section--black .nao-subhead { color: var(--text-on-dark-secondary); }
 .nao-section--black .nao-eyebrow { color: #2997ff; }
 .nao-section--black .nao-link { color: #2997ff; }
 
 .nao-section-inner {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 22px;
 }
 .nao-section-inner--wide { max-width: 100%; }
 
@@ -468,7 +468,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 /* ===== FEATURE TILES ===== */
 .nao-grid {
   display: grid;
-  gap: 16px;
+  gap: var(--card-gap);
   max-width: 100%;
   margin: 56px auto 0;
   padding: 0;
@@ -477,17 +477,17 @@ body.home, body.page, body { overflow-x: hidden !important; }
 .nao-grid--3 { grid-template-columns: repeat(3, 1fr); }
 
 .nao-tile {
-  background: var(--bg-white);
-  border-radius: 28px;
-  padding: 52px 40px 48px;
+  background: var(--bg-gray);
+  border-radius: var(--card-radius);
+  padding: 48px 36px 44px;
   text-align: center;
   overflow: hidden;
   position: relative;
-  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  transition: transform 0.4s var(--ease-out);
 }
 .nao-section--gray .nao-tile { background: var(--bg-white); }
 .nao-section--white .nao-tile { background: var(--bg-gray); }
-.nao-section--black .nao-tile { background: #58585e; }
+.nao-section--black .nao-tile { background: #1d1d1f; }
 .nao-tile:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 40px rgba(0,0,0,.08);
