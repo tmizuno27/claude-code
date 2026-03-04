@@ -8,9 +8,19 @@
 - **VBSランチャー**: `C:\Users\tmizu\scripts\auto-sync-hidden.vbs`
 - **タスク名**: `GitAutoSync-Data` (Windows Task Scheduler)
 - **頻度**: 1分おき / バッテリー駆動時も動作
-- **動作**: 変更検知 → git add -A → commit → push origin main
+- **動作**: settings.jsonバックアップ → 変更検知 → git add -A → commit → push origin main
 - **ログ**: `claude-code/auto-sync.log`
 - 詳細: [auto-sync-setup.md](auto-sync-setup.md)
+
+## Claude Code データのGitHubバックアップ
+- **バックアップ先**: `claude-code/claude-backup/` （auto-syncで自動push）
+- **メモリ（ジャンクション）**: 各プロジェクトの memory/ の実体が `claude-backup/memory/` 内に置かれ、Claude Codeが直接読み書き → 自動でGitHubへ
+  - `GitHub/` ← `c--Users-tmizu--------GitHub/memory`
+  - `cloude-code-business/` ← `c--Users-tmizu--------cloude-code-business/memory`
+  - `cloude-code-jidou-business/` ← `c--Users-tmizu--------cloude-code-jidou-business/memory`
+  - `cloude-code-upwork-fiverr/` ← `c--Users-tmizu--------cloude-code-upwork-fiverr/memory`
+- **設定ファイル（コピー）**: auto-sync.ps1が1分おきに `settings.json`, `.credentials.json` を `claude-backup/settings/` へコピー
+- **PC復旧時**: ジャンクションを再作成すれば復元完了（PowerShellの `New-Item -ItemType Junction` を使用）
 
 ## パス関連の注意
 - Google Drive: `C:\Users\tmizu\マイドライブ\` (G: ドライブ)
