@@ -985,6 +985,128 @@ body.home, body.page, body { overflow-x: hidden !important; }
   border-radius: 20px;
 }
 
+/* ===== APPLE-STYLE GLOBAL NAV ===== */
+header.wp-block-template-part {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+body.admin-bar header.wp-block-template-part {
+  top: 32px;
+}
+.nao-globalnav {
+  background: rgba(29,29,31,.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  height: 44px;
+  font-family: var(--sf-pro);
+}
+.nao-globalnav-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 22px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nao-globalnav-logo {
+  color: #f5f5f7;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: -.01em;
+  white-space: nowrap;
+}
+.nao-globalnav-logo:hover {
+  color: #fff;
+}
+.nao-globalnav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+.nao-globalnav-links a {
+  color: #d1d1d6;
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: -.01em;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.nao-globalnav-links a:hover {
+  color: #fff;
+}
+
+/* ===== APPLE-STYLE FOOTER ===== */
+footer.wp-block-template-part {
+  background: #f5f5f7;
+  font-family: var(--sf-pro);
+  border-top: 1px solid #d2d2d7;
+}
+footer.wp-block-template-part .wp-block-group {
+  background: transparent !important;
+}
+.nao-footer {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 20px 22px;
+}
+.nao-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #d2d2d7;
+}
+.nao-footer-col h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1d1d1f;
+  margin-bottom: 8px;
+  letter-spacing: -.01em;
+}
+.nao-footer-col a {
+  display: block;
+  font-size: 12px;
+  color: #424245;
+  text-decoration: none;
+  line-height: 2;
+  letter-spacing: -.01em;
+}
+.nao-footer-col a:hover {
+  color: #0066CC;
+  text-decoration: underline;
+}
+.nao-footer-bottom {
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nao-footer-copy {
+  font-size: 12px;
+  color: #86868b;
+  letter-spacing: -.01em;
+}
+.nao-footer-legal {
+  display: flex;
+  gap: 20px;
+}
+.nao-footer-legal a {
+  font-size: 12px;
+  color: #424245;
+  text-decoration: none;
+  letter-spacing: -.01em;
+}
+.nao-footer-legal a:hover {
+  color: #0066CC;
+  text-decoration: underline;
+}
+
 /* ============================================
    DESKTOP EXTRAS (applied globally, mobile overridden below)
    ============================================ */
@@ -1174,3 +1296,16 @@ html { scroll-behavior: smooth; }
   .nao-link-sm { font-size: 14px; }
   .nao-family-banner { padding: 0; }
   .nao-family-img { border-radius: 0; }
+
+  /* Global Nav mobile */
+  .nao-globalnav { height: 48px; }
+  .nao-globalnav-inner { padding: 0 16px; }
+  .nao-globalnav-logo { font-size: 14px; }
+  .nao-globalnav-links { gap: 14px; }
+  .nao-globalnav-links a { font-size: 11px; }
+  body.admin-bar header.wp-block-template-part { top: 0; }
+
+  /* Footer mobile */
+  .nao-footer-top { flex-direction: column; gap: 20px; }
+  .nao-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .nao-footer-legal { flex-wrap: wrap; justify-content: center; gap: 12px; }
