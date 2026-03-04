@@ -36,7 +36,7 @@ affiliate_disclosure: true
 
 [読者の悩みに共感する1-2文]
 
-私はパラグアイに住みながらAIを使った副業に挑戦しています。{{topic_intro}}
+私はパラグアイに家族で移住して暮らしています。{{topic_intro}}
 
 この記事では、以下のことがわかります：
 - {{learning_point_1}}
@@ -130,7 +130,7 @@ A. {{faq_answer_3}}
 
 **関連するおすすめ:**
 - 📘 [パラグアイ移住完全ガイド2026]({{note_url}}) — 移住の費用・手続きを網羅
-- 📝 [AI副業スタートキット]({{brain_url}}) — プロンプト30選付き
+- 📝 [海外移住準備チェックリスト＆テンプレート集]({{brain_url}}) — 移住準備に必要な手続き・書類を網羅
 - 🔗 [{{related_article_title}}]({{related_article_url}})
 
 ---
@@ -139,10 +139,10 @@ A. {{faq_answer_3}}
 
 **Tatsuya Mizuno（南米おやじ）**
 
-パラグアイ在住。AIを活用した副業に挑戦中。このブログではその過程をリアルに発信しています。
+パラグアイ・アスンシオン在住。海外移住のリアルな情報をこのブログで発信しています。
 
 - X: [@{{twitter_handle}}](https://twitter.com/{{twitter_handle}})
-- ブログ: [南米おやじのAI実践ラボ](https://nambei-oyaji.com)
+- ブログ: [南米おやじの海外生活ラボ](https://nambei-oyaji.com)
 
 ---
 
