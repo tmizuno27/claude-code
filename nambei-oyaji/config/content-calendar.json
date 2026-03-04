@@ -1,0 +1,220 @@
+{
+  "meta": {
+    "generated_at": "2026-03-03",
+    "updated_at": "2026-03-03",
+    "version": "3.0",
+    "strategy": "パラグアイ移住・海外生活を主軸に、生活に必要なサービスを自然に紹介",
+    "strategy_note": "AIは「便利なツール」として触れることはあるが、記事の主題にしない。あくまで海外移住・パラグアイ生活がメインテーマ。",
+    "articles_per_month": "6-8（Phase1: 週2記事ペース）"
+  },
+  "content_pillars": {
+    "pillar_1_paraguay_life": {
+      "name": "パラグアイ移住・生活情報（メインコンテンツ）",
+      "role": "低競合KWでSEO上位→ドメインパワー強化→デジタル商品＆アフィリエイト導線",
+      "frequency": "月4-6記事",
+      "seed_keywords": [
+        "パラグアイ 移住",
+        "パラグアイ 生活費",
+        "パラグアイ 永住権",
+        "パラグアイ 治安",
+        "パラグアイ 銀行口座",
+        "パラグアイ 不動産",
+        "パラグアイ 日本人",
+        "パラグアイ 医療",
+        "パラグアイ スペイン語",
+        "パラグアイ リモートワーク",
+        "南米 移住 おすすめ",
+        "パラグアイ 物価",
+        "海外移住 準備",
+        "海外送金 比較"
+      ],
+      "required_elements": [
+        "オーナーの実体験（具体的なエピソード）",
+        "【写真: ○○】の指示（現地写真）",
+        "デジタル商品（移住ガイド）への自然な導線",
+        "生活に必要なサービス（VPN・送金・保険等）への自然な言及"
+      ]
+    },
+    "pillar_2_overseas_work": {
+      "name": "海外移住後の働き方・収入確保（サブコンテンツ）",
+      "role": "移住検討者の最大の不安「収入」に応える記事群。スクール・クラウドソーシング系アフィリエイト導線",
+      "frequency": "月2-3記事",
+      "seed_keywords": [
+        "海外在住 副業",
+        "海外 リモートワーク",
+        "海外在住 Webライター",
+        "海外 ブログ 始め方",
+        "海外移住 スキル",
+        "海外在住 クレジットカード",
+        "海外移住 準備リスト",
+        "スペイン語 オンライン 学習",
+        "海外移住 保険"
+      ],
+      "required_elements": [
+        "「パラグアイから実際にやってみた」の切り口",
+        "具体的な数字（収入、生活費、コスト比較）",
+        "比較表＋アフィリエイトリンク",
+        "関連デジタル商品への導線"
+      ]
+    }
+  },
+  "phase1_schedule": {
+    "description": "Phase 1（Month 1-3）の詳細スケジュール（方向転換後）",
+    "weeks": [
+      {
+        "week": "W1-2",
+        "articles": [
+          {"pillar": "paraguay_life", "id": 1, "topic": "パラグアイ移住のリアルな費用", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-ijuu-hiyou.md"},
+          {"pillar": "paraguay_life", "id": 2, "topic": "パラグアイの永住権の取り方", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-eijuuken.md"},
+          {"pillar": "overseas_work", "id": 3, "topic": "海外移住後の働き方・収入源5選", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-ijuu-hatarakikata.md"}
+        ]
+      },
+      {
+        "week": "W3-4",
+        "articles": [
+          {"pillar": "overseas_work", "id": 4, "topic": "海外移住後のリモートワーク完全ガイド", "type": "収益記事", "status": "ドラフト", "filename": "article-kaigai-remote-work-guide.md"},
+          {"pillar": "overseas_work", "id": 5, "topic": "海外生活ブログの始め方【サーバー比較あり】", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-blog-hajimekata.md"},
+          {"pillar": "paraguay_life", "id": 6, "topic": "パラグアイの生活費を公開", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-seikatsuhi.md"}
+        ]
+      },
+      {
+        "week": "W5-6",
+        "articles": [
+          {"pillar": "paraguay_life", "id": 7, "topic": "海外生活で必須のVPN おすすめ3選", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-vpn-osusume.md"},
+          {"pillar": "overseas_work", "id": 8, "topic": "海外生活ブログの始め方【WordPress開設から収益化まで】", "type": "収益記事", "status": "ドラフト", "filename": "article-kaigai-blog-shunyu.md"},
+          {"pillar": "paraguay_life", "id": 9, "topic": "パラグアイで銀行口座を開設する方法", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-ginkou-kouzakaisetsu.md"},
+          {"pillar": "overseas_work", "id": 10, "topic": "海外送金サービス徹底比較【Wise vs PayPal vs 銀行送金】", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-soukin-hikaku.md"}
+        ]
+      },
+      {
+        "week": "W7-8",
+        "articles": [
+          {"pillar": "overseas_work", "id": 11, "topic": "海外移住前に受けておくべきオンラインスクール5選", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-online-school.md"},
+          {"pillar": "overseas_work", "id": 12, "topic": "海外在住者向けクレジットカード比較【2026年版】", "type": "キラー記事", "status": "ドラフト", "filename": "article-kaigai-credit-card-hikaku.md"},
+          {"pillar": "paraguay_life", "id": 13, "topic": "パラグアイの治安は本当に危険？", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-chian.md"}
+        ]
+      },
+      {
+        "week": "W9-10",
+        "articles": [
+          {"pillar": "overseas_work", "id": 14, "topic": "パラグアイ移住後のリアルな収入事情", "type": "実験記事", "status": "ドラフト", "filename": "article-paraguay-shuunyuu-jijou.md"},
+          {"pillar": "paraguay_life", "id": 15, "topic": "パラグアイの医療・保険事情【在住者が解説】", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-iryou-hoken.md"},
+          {"pillar": "overseas_work", "id": 16, "topic": "パラグアイから日本の仕事をリモートでやる方法", "type": "収益記事", "status": "ドラフト", "filename": "article-paraguay-remote-work.md"}
+        ]
+      },
+      {
+        "week": "W11-12",
+        "articles": [
+          {"pillar": "paraguay_life", "id": 17, "topic": "海外移住前の準備リスト完全版", "type": "集客記事", "status": "ドラフト", "filename": "article-kaigai-ijuu-junbi-list.md"},
+          {"pillar": "overseas_work", "id": 18, "topic": "海外移住者が身につけるべきスキル3選", "type": "収益記事", "status": "ドラフト", "filename": "article-kaigai-ijuusha-skill.md"}
+        ]
+      },
+      {
+        "week": "W13-14",
+        "articles": [
+          {"pillar": "paraguay_life", "id": 19, "topic": "パラグアイの日本人コミュニティ事情", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-nihonjin-community.md"},
+          {"pillar": "overseas_work", "id": 20, "topic": "海外在住Webライターの始め方", "type": "収益記事", "status": "ドラフト", "filename": "article-kaigai-web-writer.md"},
+          {"pillar": "overseas_work", "id": 21, "topic": "オンラインスペイン語学習サービス比較【2026年版】", "type": "キラー記事", "status": "ドラフト", "filename": "article-spanish-online-hikaku.md"}
+        ]
+      },
+      {
+        "week": "W15-16",
+        "articles": [
+          {"pillar": "paraguay_life", "id": 22, "topic": "パラグアイの不動産事情", "type": "集客記事", "status": "ドラフト", "filename": "article-paraguay-fudousan.md"},
+          {"pillar": "overseas_work", "id": 23, "topic": "パラグアイからリモート事務代行で稼ぐ方法", "type": "実験記事", "status": "ドラフト", "filename": "article-paraguay-remote-jimu.md"}
+        ]
+      }
+    ]
+  },
+  "product_schedule": [
+    {
+      "month": 1,
+      "product": "パラグアイ移住 完全ガイド2026",
+      "price": 1980,
+      "platform": ["note"],
+      "role": "名刺商品（競合ゼロ市場）",
+      "status": "planned"
+    },
+    {
+      "month": 2,
+      "product": "海外移住準備チェックリスト＆テンプレート集",
+      "price": 980,
+      "platform": ["brain"],
+      "role": "名刺商品（移住検討者向け）",
+      "status": "planned"
+    },
+    {
+      "month": 3,
+      "product": "海外在住者のためのリモートワーク完全ロードマップ",
+      "price": 2980,
+      "platform": ["note", "gumroad"],
+      "role": "主力商品",
+      "status": "planned"
+    },
+    {
+      "month": 4,
+      "product": "パラグアイ移住 Q&A 100問",
+      "price": 1480,
+      "platform": ["gumroad"],
+      "role": "主力商品",
+      "status": "planned"
+    },
+    {
+      "month": 6,
+      "product": "南米生活スタートアップキット（パラグアイ編）",
+      "price": 2980,
+      "platform": ["brain"],
+      "role": "主力商品",
+      "status": "planned"
+    },
+    {
+      "month": 9,
+      "product": "パラグアイ移住＆海外リモートワーク プレミアムパック",
+      "price": 4980,
+      "platform": ["gumroad"],
+      "role": "プレミアム商品",
+      "status": "planned"
+    }
+  ],
+  "killer_articles": {
+    "description": "特に収益性が高いため最優先で作成する記事",
+    "articles": [
+      {
+        "title": "海外送金サービス徹底比較【Wise vs PayPal vs 銀行送金】",
+        "target_affiliate": ["Wise", "Revolut", "Sony Bank WALLET"],
+        "expected_commission": "3,000-5,000円/件",
+        "priority": 1
+      },
+      {
+        "title": "海外生活で必須のVPN おすすめ3選",
+        "target_affiliate": ["NordVPN", "ExpressVPN", "Surfshark"],
+        "expected_commission": "3,000-5,000円/件",
+        "priority": 2
+      },
+      {
+        "title": "海外生活ブログの始め方【サーバー比較あり】",
+        "target_affiliate": ["ConoHa WING", "エックスサーバー"],
+        "expected_commission": "5,000-12,000円/件",
+        "priority": 3
+      },
+      {
+        "title": "海外移住前に受けておくべきオンラインスクール5選",
+        "target_affiliate": ["TechAcademy", "DMM WEBCAMP"],
+        "expected_commission": "10,000-50,000円/件",
+        "priority": 4
+      },
+      {
+        "title": "海外在住者向けクレジットカード比較【2026年版】",
+        "target_affiliate": ["エポスカード", "楽天プレミアムカード"],
+        "expected_commission": "5,000-10,000円/件",
+        "priority": 5
+      },
+      {
+        "title": "オンラインスペイン語学習サービス比較【2026年版】",
+        "target_affiliate": ["スパニッシモ", "DMM英会話", "ベルリッツ"],
+        "expected_commission": "2,000-5,000円/件",
+        "priority": 6
+      }
+    ]
+  }
+}

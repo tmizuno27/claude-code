@@ -1,0 +1,65 @@
+{
+  "project": {
+    "name": "南米おやじのAI実践ラボ",
+    "concept": "パラグアイ在住の日本人がAIで副業に挑戦する実験ログ型メディア",
+    "niche": "パラグアイ × AI副業 × 海外実践",
+    "language": "ja",
+    "target_revenue": {
+      "phase1_month3": 15000,
+      "phase2_month12": 80000,
+      "phase3_month24": 200000,
+      "note": "新規事業のみ。既存事業（ココナラ等）は別計上"
+    }
+  },
+  "claude_api": {
+    "api_key": "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",
+    "model": "claude-sonnet-4-6",
+    "max_tokens": 4096,
+    "monthly_budget_usd": 5
+  },
+  "wordpress": {
+    "url": "https://nambei-oyaji.com",
+    "rest_api_url": "https://nambei-oyaji.com/wp-json/wp/v2",
+    "username": "t.mizuno27@gmail.com",
+    "app_password": "agNg 2624 4lL4 QoT9 EOOZ OEZr",
+    "theme": "cocoon",
+    "seo_plugin": "rank-math",
+    "default_category": "AI活用",
+    "categories": ["AI活用", "パラグアイ生活", "副業・稼ぎ方", "ツール比較"],
+    "default_status": "draft"
+  },
+  "google_analytics": {
+    "property_id": "YOUR_GA4_PROPERTY_ID",
+    "measurement_id": "G-QXW9N8ZRLK",
+    "credentials_file": "config/ga4-credentials.json"
+  },
+  "search_console": {
+    "site_url": "https://nambei-oyaji.com",
+    "credentials_file": "config/gsc-credentials.json"
+  },
+  "gumroad": {
+    "api_key": "YOUR_GUMROAD_API_KEY",
+    "note": "API UIが変更されたため後日取得"
+  },
+  "x_twitter": {
+    "account": "YOUR_TWITTER_HANDLE",
+    "role": "初期のメイン集客チャネル。SEOが効くまでの6ヶ月間は最重要",
+    "daily_posts": 3,
+    "note": "自動投稿ツールは後日検討。Phase1はコピペ運用"
+  },
+  "schedule": {
+    "keyword_research": "monday 09:00",
+    "article_generation": ["tuesday 09:00", "thursday 09:00"],
+    "internal_linking": "friday 09:00",
+    "analytics_report": "monday 08:00",
+    "sns_content": "sunday 09:00"
+  },
+  "article": {
+    "min_words": 2500,
+    "max_words": 3500,
+    "keywords_per_batch": 20,
+    "articles_per_week": 2,
+    "articles_per_month_target": "6-8",
+    "pillar_ratio": "パラグアイ系30% : AI副業系70%"
+  }
+}

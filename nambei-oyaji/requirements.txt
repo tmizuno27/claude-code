@@ -1,0 +1,24 @@
+# AI副業自動化ビジネス - Python依存パッケージ
+# pip install -r requirements.txt
+
+# Claude API
+anthropic>=0.40.0
+
+# HTTP リクエスト
+requests>=2.31.0
+
+# Markdown → HTML変換
+markdown>=3.5
+
+# PDF生成
+weasyprint>=62.0
+
+# Google Analytics 4 API
+google-analytics-data>=0.18.0
+
+# Google認証
+google-auth>=2.25.0
+google-auth-oauthlib>=1.2.0
+
+# 環境変数管理
+python-dotenv>=1.0.0
