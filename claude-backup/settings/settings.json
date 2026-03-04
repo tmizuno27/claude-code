@@ -1,0 +1,47 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Read",
+      "Edit",
+      "Write",
+      "WebFetch",
+      "WebSearch",
+      "Bash(*)",
+      "Agent",
+      "NotebookEdit",
+      "ToolSearch",
+      "Glob",
+      "Grep",
+      "TodoWrite",
+      "Skill",
+      "mcp__*",
+      "mcp__claude_ai_Google_Calendar__gcal_list_events",
+      "mcp__claude_ai_Google_Calendar__gcal_list_calendars",
+      "mcp__claude_ai_Slack__slack_search_users",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_read_user_profile",
+      "mcp__claude_ai_Gmail__gmail_search_messages",
+      "mcp__claude_ai_Gmail__gmail_read_message",
+      "mcp__claude_ai_Excalidraw__read_me",
+      "mcp__claude_ai_Excalidraw__create_view",
+      "mcp__claude_ai_Excalidraw__read_checkpoint",
+      "mcp__claude_ai_Excalidraw__export_to_excalidraw"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(./secrets/**)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\tmizu\\マイドライブ\\cloude-code\\business\\outputs",
+      "C:\\Users\\tmizu\\.claude\\projects\\c--Users-tmizu--------cloude-code-jidou-business",
+      "c:\\Users\\tmizu\\マイドライブ\\cloude-code",
+      "C:\\Users\\tmizu\\.claude",
+      "C:\\Users\\tmizu"
+    ]
+  },
+  "autoUpdatesChannel": "latest"
+}
