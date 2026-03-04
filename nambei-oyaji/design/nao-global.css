@@ -284,7 +284,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 .nao-hero-content {
   max-width: 100%;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 22px 140px;
   flex-shrink: 0;
 }
 .nao-hero-logo {
@@ -335,15 +335,15 @@ body.home, body.page, body { overflow-x: hidden !important; }
 }
 .nao-hero-buttons {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   justify-content: center;
-  margin-top: 48px;
+  margin-top: 56px;
 }
 
 /* Scroll indicator */
 .nao-scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 64px;
   left: 50%;
   transform: translateX(-50%);
 }
