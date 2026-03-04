@@ -18,7 +18,7 @@ HEADERS = {'Authorization': f'Basic {CREDS}', 'Content-Type': 'application/json'
 
 CSS_FILE = Path(__file__).parent.parent / 'design' / 'nao-global.css'
 
-OLD_BLOCK_IDS = [754, 755, 756, 757, 758, 759, 760, 761, 762, 763, 764, 765, 766, 767, 768, 769, 770, 771]
+OLD_BLOCK_IDS = [788, 789, 790, 791, 792, 793, 794, 795, 796, 797, 798, 799, 800, 801, 802, 803, 804, 805, 806, 807]
 
 
 def minify_css(raw):
