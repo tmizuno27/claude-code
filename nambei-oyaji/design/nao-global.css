@@ -521,43 +521,35 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== SHOWCASE CARDS ===== */
 .nao-showcase-card {
-  border-radius: 28px;
-  padding: 64px 48px 56px;
+  border-radius: var(--card-radius);
+  padding: 56px 40px 48px;
   text-align: left;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 580px;
-  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  min-height: 540px;
+  transition: transform 0.4s var(--ease-out);
 }
 .nao-showcase-card:hover {
-  transform: scale(1.01);
-  box-shadow: 0 20px 60px rgba(0,0,0,.15);
-}
-.nao-showcase-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 15%; right: 15%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  transform: scale(1.02);
 }
 .nao-showcase-card.--dark {
-  background: linear-gradient(160deg, #48484a 0%, #636366 100%);
+  background: #1d1d1f;
 }
 .nao-showcase-card.--warm {
-  background: linear-gradient(160deg, #3a3a5c 0%, #4a4a7a 100%);
+  background: #000;
 }
 .nao-showcase-emoji {
-  font-size: 72px;
-  margin-bottom: 28px;
+  font-size: 64px;
+  margin-bottom: 24px;
 }
 .nao-showcase-card h3 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -.015em;
-  color: #fff;
+  letter-spacing: -.005em;
+  color: var(--text-on-dark);
   margin-bottom: 12px;
 }
 .nao-showcase-card > p {
@@ -565,7 +557,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   font-weight: 400;
   line-height: 1.47;
   letter-spacing: -.022em;
-  color: #c7c7cc;
+  color: var(--text-on-dark-secondary);
   margin-bottom: 24px;
 }
 .nao-showcase-list {
@@ -576,12 +568,10 @@ body.home, body.page, body { overflow-x: hidden !important; }
   font-size: 17px;
   color: #d1d1d6;
   padding: 14px 0;
-  border-top: 1px solid rgba(255,255,255,.12);
+  border-top: 1px solid rgba(255,255,255,.1);
   letter-spacing: -.022em;
-  transition: color 0.3s ease;
 }
 .nao-showcase-list li:first-child { border-top: none; }
-.nao-showcase-list li:hover { color: #d1d1d6; }
 
 .nao-card-link {
   display: inline-block;
@@ -630,7 +620,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   gap: 80px;
   align-items: center;
   text-align: left;
-  padding: 0 48px;
+  padding: 0 22px;
 }
 .nao-about-avatar {
   flex-shrink: 0;
@@ -640,8 +630,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   overflow: hidden;
 }
 .nao-about--dark .nao-about-avatar {
-  border: 3px solid rgba(255,255,255,.12);
-  box-shadow: 0 0 60px rgba(255,255,255,.08);
+  border: 3px solid rgba(255,255,255,.1);
 }
 .nao-about-avatar .nao-avatar-img,
 .nao-about-avatar > div {
@@ -660,7 +649,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   color: var(--text-primary);
   margin-bottom: 20px;
 }
-.nao-about--dark .nao-about-text h2 { color: #f5f5f7; }
+.nao-about--dark .nao-about-text h2 { color: var(--text-on-dark); }
 .nao-about-text p {
   font-size: 21px;
   font-weight: 400;
@@ -669,7 +658,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   color: var(--text-secondary);
   margin-bottom: 14px;
 }
-.nao-about--dark .nao-about-text p { color: #c7c7cc; }
+.nao-about--dark .nao-about-text p { color: var(--text-on-dark-secondary); }
 .nao-about-tags {
   display: flex;
   gap: 10px;
@@ -686,9 +675,9 @@ body.home, body.page, body { overflow-x: hidden !important; }
   border: none;
 }
 .nao-about-tag.--dark {
-  background: rgba(255,255,255,.1);
-  color: #d1d1d6;
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.08);
+  color: var(--text-on-dark-secondary);
+  border: 1px solid rgba(255,255,255,.1);
 }
 
 /* ===== EXPERIMENT LOG ===== */
@@ -1301,21 +1290,21 @@ html { scroll-behavior: smooth; }
   .nao-scroll-indicator { display: none; }
 
   /* Value props */
-  .nao-value-section { padding: 64px 0; }
-  .nao-value-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 20px; }
-  .nao-value-card { padding: 36px 24px; }
-  .nao-value-icon { font-size: 36px; width: 64px; height: 64px; margin-bottom: 16px; border-radius: 16px; }
-  .nao-value-card h3 { font-size: 19px; }
+  .nao-value-section { padding: 60px 0; }
+  .nao-value-grid { grid-template-columns: 1fr; gap: var(--card-gap); padding: 0 16px; }
+  .nao-value-card { padding: 40px 24px; }
+  .nao-value-icon { font-size: 44px; margin-bottom: 16px; }
+  .nao-value-card h3 { font-size: 21px; }
   .nao-value-card p { font-size: 14px; }
 
   /* Stats ribbon */
-  .nao-stats-ribbon { padding: 56px 0; }
-  .nao-stats-inner { flex-direction: column; gap: 0; padding: 0 24px; }
-  .nao-stat-item { padding: 24px 16px; }
-  .nao-stat-item:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
-  .nao-stat-number { font-size: 48px; }
-  .nao-stat-unit { font-size: 22px; }
-  .nao-stat-desc { font-size: 12px; }
+  .nao-stats-ribbon { padding: 48px 0; }
+  .nao-stats-inner { flex-direction: column; gap: 0; padding: 0 16px; }
+  .nao-stat-item { padding: 20px 16px; }
+  .nao-stat-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border-light); }
+  .nao-stat-number { font-size: 56px; }
+  .nao-stat-unit { font-size: 28px; }
+  .nao-stat-desc { font-size: 14px; }
 
   /* Sections */
   .nao-section { padding: 64px 0; }
