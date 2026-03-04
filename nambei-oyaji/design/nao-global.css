@@ -246,7 +246,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   color: #fff;
 }
 .nao-section--black .nao-headline { color: #fff; }
-.nao-section--black .nao-subhead { color: var(--text-secondary); }
+.nao-section--black .nao-subhead { color: #c7c7cc; }
 .nao-section--black .nao-eyebrow { color: #2997ff; }
 .nao-section--black .nao-link { color: #2997ff; }
 
@@ -405,7 +405,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 }
 .nao-value-card p {
   font-size: 15px;
-  color: #86868b;
+  color: #c7c7cc;
   line-height: 1.6;
   max-width: 300px;
   margin: 0 auto;
@@ -460,7 +460,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   display: block;
   font-size: 14px;
   font-weight: 400;
-  color: #6e6e73;
+  color: #aeaeb2;
   margin-top: 12px;
   letter-spacing: -.01em;
 }
@@ -570,7 +570,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   font-weight: 400;
   line-height: 1.47;
   letter-spacing: -.022em;
-  color: var(--text-secondary);
+  color: #c7c7cc;
   margin-bottom: 24px;
 }
 .nao-showcase-list {
@@ -674,7 +674,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   color: var(--text-secondary);
   margin-bottom: 14px;
 }
-.nao-about--dark .nao-about-text p { color: #86868b; }
+.nao-about--dark .nao-about-text p { color: #c7c7cc; }
 .nao-about-tags {
   display: flex;
   gap: 10px;
