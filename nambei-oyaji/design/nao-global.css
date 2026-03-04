@@ -10,15 +10,19 @@
   --text-tertiary: #6e6e73;
   --bg-white: #fff;
   --bg-gray: #f5f5f7;
-  --bg-black: #48484a;
+  --bg-black: #000;
   --link-blue: #0066CC;
   --link-blue-hover: #0077ED;
   --btn-blue: #0071e3;
   --btn-blue-hover: #0077ED;
   --border-light: #d2d2d7;
+  --text-on-dark: #f5f5f7;
+  --text-on-dark-secondary: #a1a1a6;
   --sf-pro: "Meiryo","メイリオ","Hiragino Kaku Gothic ProN","Hiragino Sans",sans-serif;
   --transition: 0.3s ease;
-  --ease-out: cubic-bezier(.22,1,.36,1);
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --card-radius: 18px;
+  --card-gap: 12px;
 }
 
 /* ===== THEME OVERRIDE ===== */
@@ -1184,12 +1188,12 @@ header.wp-block-template-part {
 }
 body.admin-bar header.wp-block-template-part { top: 32px; }
 .nao-globalnav {
-  background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.88) 100%);
+  background: rgba(22, 22, 23, 0.9);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  height: 56px;
+  height: 44px;
   font-family: var(--sf-pro);
-  border-bottom: 1px solid rgba(0,0,0,.08);
+  border-bottom: none;
 }
 .nao-globalnav-inner {
   max-width: 980px;
