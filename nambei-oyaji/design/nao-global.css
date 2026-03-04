@@ -284,12 +284,12 @@ body.home, body.page, body { overflow-x: hidden !important; }
   flex-shrink: 0;
 }
 .nao-hero-logo {
-  max-width: 220px;
-  width: 40%;
+  max-width: 520px;
+  width: 72%;
   height: auto;
-  margin: 0 auto 40px;
+  margin: 0 auto 44px;
   display: block;
-  opacity: 0.8;
+  border-radius: 16px;
 }
 .nao-hero-eyebrow {
   display: block;
@@ -1286,7 +1286,7 @@ html { scroll-behavior: smooth; }
 
   /* Hero */
   .nao-hero { padding: 80px 0 60px; min-height: auto; }
-  .nao-hero-logo { max-width: 160px; margin-bottom: 24px; }
+  .nao-hero-logo { max-width: 320px; width: 85%; margin-bottom: 24px; border-radius: 12px; }
   .nao-hero-eyebrow { font-size: 14px; }
   .nao-hero h1 { font-size: 44px; letter-spacing: -.02em; }
   .nao-gradient-text {
