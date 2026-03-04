@@ -375,160 +375,91 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== VALUE PROPS ===== */
 .nao-value-section {
-  background-color: #1a1a2e;
-  background-image:
-    radial-gradient(ellipse 70% 50% at 15% 25%, rgba(234, 88, 12, 0.14) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 40% at 85% 65%, rgba(22, 163, 74, 0.10) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 50% 5%, rgba(202, 138, 4, 0.08) 0%, transparent 60%);
+  background: #000;
   padding: 100px 0;
   overflow: hidden;
-  position: relative;
-}
-.nao-value-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
 }
 .nao-value-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  max-width: 1100px;
+  gap: var(--card-gap);
+  max-width: 980px;
   margin: 0 auto;
-  padding: 0 48px;
-  position: relative;
+  padding: 0 22px;
 }
 .nao-value-card {
-  padding: 48px 36px;
+  padding: 56px 32px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 1px 0 0 rgba(255,255,255,0.05) inset,
-    0 4px 24px rgba(0, 0, 0, 0.3);
+  background: #1d1d1f;
+  border-radius: var(--card-radius);
+  transition: transform 0.4s var(--ease-out);
 }
 .nao-value-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow:
-    0 1px 0 0 rgba(255,255,255,0.08) inset,
-    0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 60px rgba(234, 88, 12, 0.06);
+  transform: scale(1.02);
 }
 .nao-value-icon {
-  font-size: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 24px;
-  background: linear-gradient(135deg, rgba(234, 88, 12, 0.15) 0%, rgba(202, 138, 4, 0.08) 100%);
-  border: 1px solid rgba(234, 88, 12, 0.2);
-  border-radius: 20px;
-  filter: drop-shadow(0 0 12px rgba(251, 146, 60, 0.25));
+  font-size: 56px;
+  display: block;
+  margin-bottom: 24px;
 }
 .nao-value-card h3 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.93);
-  margin-bottom: 14px;
-  letter-spacing: -.01em;
-  line-height: 1.3;
+  color: var(--text-on-dark);
+  margin-bottom: 12px;
+  letter-spacing: -.005em;
+  line-height: 1.14;
 }
 .nao-value-card p {
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.55);
-  line-height: 1.7;
-  max-width: 300px;
+  font-size: 14px;
+  color: var(--text-on-dark-secondary);
+  line-height: 1.5;
+  max-width: 280px;
   margin: 0 auto;
   letter-spacing: -.01em;
 }
 
 /* ===== STATS RIBBON ===== */
 .nao-stats-ribbon {
-  background-color: #0f0f1a;
-  padding: 96px 0;
-  position: relative;
-  overflow: hidden;
-}
-.nao-stats-ribbon::before {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 300px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse, rgba(234, 88, 12, 0.10) 0%, transparent 70%);
-  pointer-events: none;
-}
-.nao-stats-ribbon::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
+  background: var(--bg-gray);
+  padding: 80px 0;
 }
 .nao-stats-inner {
   max-width: 980px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 22px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0;
-  position: relative;
 }
 .nao-stat-item {
   text-align: center;
   flex: 1;
-  padding: 32px 24px;
-  position: relative;
+  padding: 20px 24px;
 }
 .nao-stat-item:not(:last-child) {
-  border-right: 1px solid rgba(255,255,255,0.06);
+  border-right: 1px solid var(--border-light);
 }
 .nao-stat-number {
-  font-size: 72px;
-  font-weight: 800;
+  font-size: 80px;
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1;
-  letter-spacing: -.04em;
-  font-variant-numeric: tabular-nums;
-  background: linear-gradient(160deg, #ffffff 30%, rgba(251, 146, 60, 0.85) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline;
+  letter-spacing: -.025em;
 }
 .nao-stat-unit {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 40px;
+  font-weight: 600;
+  color: var(--text-primary);
   letter-spacing: -.01em;
-  background: linear-gradient(160deg, #ffffff 30%, rgba(251, 146, 60, 0.85) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .nao-stat-desc {
   display: block;
-  font-size: 13px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.40);
-  margin-top: 12px;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--text-tertiary);
+  margin-top: 8px;
 }
 .nao-stat-divider {
   display: none;
@@ -1205,30 +1136,32 @@ body.admin-bar header.wp-block-template-part { top: 32px; }
   justify-content: space-between;
 }
 .nao-globalnav-logo {
-  color: #1d1d1f;
+  color: #f5f5f7;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: none;
   letter-spacing: -.01em;
   white-space: nowrap;
+  opacity: 0.9;
   transition: opacity 0.3s ease;
 }
-.nao-globalnav-logo:hover { opacity: .6; }
+.nao-globalnav-logo:hover { opacity: 1; }
 .nao-globalnav-links {
   display: flex;
   gap: 28px;
   align-items: center;
 }
 .nao-globalnav-links a {
-  color: #6e6e73;
-  font-size: 13px;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  font-weight: 400;
   text-decoration: none;
   letter-spacing: -.01em;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
   white-space: nowrap;
+  opacity: 0.85;
 }
-.nao-globalnav-links a:hover { color: #1d1d1f; }
+.nao-globalnav-links a:hover { opacity: 1; }
 
 /* ===== FOOTER ===== */
 footer.wp-block-template-part {
