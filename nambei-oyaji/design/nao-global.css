@@ -284,8 +284,8 @@ body.home, body.page, body { overflow-x: hidden !important; }
   flex-shrink: 0;
 }
 .nao-hero-logo {
-  max-width: 720px;
-  width: 90%;
+  max-width: 1080px;
+  width: 95%;
   height: auto;
   margin: 0 auto 48px;
   display: block;
@@ -1286,7 +1286,7 @@ html { scroll-behavior: smooth; }
 
   /* Hero */
   .nao-hero { padding: 80px 0 60px; min-height: auto; }
-  .nao-hero-logo { max-width: 320px; width: 85%; margin-bottom: 24px; border-radius: 12px; }
+  .nao-hero-logo { max-width: 480px; width: 92%; margin-bottom: 24px; border-radius: 14px; }
   .nao-hero-eyebrow { font-size: 14px; }
   .nao-hero h1 { font-size: 44px; letter-spacing: -.02em; }
   .nao-gradient-text {
