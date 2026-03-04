@@ -389,7 +389,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   background: #48484a;
   transition: background 0.5s var(--ease-out);
 }
-.nao-value-card:hover { background: #0a0a0a; }
+.nao-value-card:hover { background: #525256; }
 .nao-value-icon {
   font-size: 56px;
   display: block;
@@ -414,7 +414,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== STATS RIBBON ===== */
 .nao-stats-ribbon {
-  background: linear-gradient(135deg, #161617 0%, #1d1d1f 50%, #232325 100%);
+  background: linear-gradient(135deg, #48484a 0%, #58585e 50%, #636366 100%);
   padding: 96px 0;
   position: relative;
   overflow: hidden;
@@ -424,14 +424,14 @@ body.home, body.page, body { overflow-x: hidden !important; }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.06) 50%, transparent 90%);
+  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.12) 50%, transparent 90%);
 }
 .nao-stats-ribbon::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.06) 50%, transparent 90%);
+  background: linear-gradient(90deg, transparent 10%, rgba(255,255,255,.12) 50%, transparent 90%);
 }
 .nao-stats-inner {
   max-width: 980px;
@@ -467,7 +467,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 .nao-stat-divider {
   width: 1px;
   height: 60px;
-  background: rgba(255,255,255,.06);
+  background: rgba(255,255,255,.12);
 }
 
 /* ===== FEATURE TILES ===== */
@@ -492,7 +492,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 }
 .nao-section--gray .nao-tile { background: var(--bg-white); }
 .nao-section--white .nao-tile { background: var(--bg-gray); }
-.nao-section--black .nao-tile { background: #1d1d1f; }
+.nao-section--black .nao-tile { background: #58585e; }
 .nao-tile:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 40px rgba(0,0,0,.08);
@@ -538,7 +538,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
 }
 .nao-showcase-card:hover {
   transform: scale(1.01);
-  box-shadow: 0 20px 60px rgba(0,0,0,.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,.15);
 }
 .nao-showcase-card::before {
   content: '';
@@ -548,10 +548,10 @@ body.home, body.page, body { overflow-x: hidden !important; }
   background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
 }
 .nao-showcase-card.--dark {
-  background: linear-gradient(160deg, #1d1d1f 0%, #2c2c30 100%);
+  background: linear-gradient(160deg, #48484a 0%, #636366 100%);
 }
 .nao-showcase-card.--warm {
-  background: linear-gradient(160deg, #000 0%, #1a1a2e 100%);
+  background: linear-gradient(160deg, #3a3a5c 0%, #4a4a7a 100%);
 }
 .nao-showcase-emoji {
   font-size: 72px;
@@ -579,9 +579,9 @@ body.home, body.page, body { overflow-x: hidden !important; }
 }
 .nao-showcase-list li {
   font-size: 17px;
-  color: #a1a1a6;
+  color: #d1d1d6;
   padding: 14px 0;
-  border-top: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(255,255,255,.12);
   letter-spacing: -.022em;
   transition: color 0.3s ease;
 }
@@ -645,8 +645,8 @@ body.home, body.page, body { overflow-x: hidden !important; }
   overflow: hidden;
 }
 .nao-about--dark .nao-about-avatar {
-  border: 3px solid rgba(255,255,255,.06);
-  box-shadow: 0 0 60px rgba(255,255,255,.04);
+  border: 3px solid rgba(255,255,255,.12);
+  box-shadow: 0 0 60px rgba(255,255,255,.08);
 }
 .nao-about-avatar .nao-avatar-img,
 .nao-about-avatar > div {
@@ -691,9 +691,9 @@ body.home, body.page, body { overflow-x: hidden !important; }
   border: none;
 }
 .nao-about-tag.--dark {
-  background: rgba(255,255,255,.05);
-  color: #a1a1a6;
-  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.1);
+  color: #d1d1d6;
+  border: 1px solid rgba(255,255,255,.12);
 }
 
 /* ===== EXPERIMENT LOG ===== */
@@ -725,7 +725,7 @@ body.home, body.page, body { overflow-x: hidden !important; }
   margin-bottom: 10px;
 }
 .nao-section--black .nao-log-item h4 { color: #fff; }
-.nao-section--black .nao-log-item { border-color: rgba(255,255,255,.12); }
+.nao-section--black .nao-log-item { border-color: rgba(255,255,255,.18); }
 .nao-log-item p {
   font-size: 17px;
   font-weight: 400;
@@ -1124,11 +1124,12 @@ header.wp-block-template-part {
 }
 body.admin-bar header.wp-block-template-part { top: 32px; }
 .nao-globalnav {
-  background: rgba(29,29,31,.82);
+  background: linear-gradient(180deg, rgba(255,255,255,.95) 0%, rgba(255,255,255,.88) 100%);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
-  height: 44px;
+  height: 56px;
   font-family: var(--sf-pro);
+  border-bottom: 1px solid rgba(0,0,0,.08);
 }
 .nao-globalnav-inner {
   max-width: 980px;
