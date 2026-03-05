@@ -1,13 +1,14 @@
 """
-SNS写真の自動タグ付けスクリプト（Claude Vision API）
+SNS写真の自動タグ付け＆仕分けスクリプト（Claude Vision API）
 
-sns-photos/ 内の画像をClaude Visionで分析し、tags.jsonにタグ情報を保存する。
-新しい画像のみ処理する（既にタグ付け済みの画像はスキップ）。
+sns-photos/ 直下に画像を入れるだけで、Claude Visionが分析し：
+  1. 適切なサブフォルダ (food/street/nature/kids/daily) に自動移動
+  2. tags.json にタグ情報を保存
 
 使い方:
-  python image_tagger.py              # 未処理の画像をタグ付け
+  python image_tagger.py              # 未処理の画像をタグ付け＆仕分け
   python image_tagger.py --force      # 全画像を再タグ付け
-  python image_tagger.py --dry-run    # タグ付けをプレビュー（APIコール無し）
+  python image_tagger.py --dry-run    # タグ付け・仕分けをプレビュー（APIコール無し）
 """
 
 import argparse
