@@ -1272,7 +1272,8 @@ html { scroll-behavior: smooth; }
      PC用<br>をモバイルで非表示にし、テキストを自然に流す
      hero h1 と showcase h3 のbrだけ維持
      ============================================= */
-  .nao-hero-sub br,
+  .nao-hero-sub br { display: none; }
+  .nao-hero-sub br:first-of-type { display: inline; }
   .nao-hero-eyebrow br,
   .nao-headline br,
   .nao-subhead br,
