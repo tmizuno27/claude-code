@@ -1274,14 +1274,9 @@ html { scroll-behavior: smooth; }
      ============================================= */
   .nao-hero-sub br { display: inline; }
   .nao-hero-eyebrow br,
-  .nao-subhead br,
-  .nao-value-card p br,
-  .nao-showcase-card > p br,
   .nao-tile p br,
   .nao-about-text p br,
-  .nao-log-item p br,
-  .nao-cta p br,
-  .nao-cta-inner .nao-subhead br { display: none; }
+  .nao-log-item p br { display: none; }
 
   /* これらのbrは意味のある改行なので維持 */
   .nao-hero h1 br { display: inline; }
