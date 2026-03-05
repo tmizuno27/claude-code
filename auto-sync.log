@@ -5207,3 +5207,6 @@
 [2026-03-05 14:50:36] Commit OK
 [2026-03-05 14:50:36] Push OK - synced to GitHub
 [2026-03-05 14:51:35] Changes detected:  M auto-sync.log
+[2026-03-05 14:51:35] Commit OK
+[2026-03-05 14:51:35] Push OK - synced to GitHub
+[2026-03-05 14:52:35] Changes detected:  M auto-sync.log  M blog/scripts/wp_publisher.py ?? blog/scripts/blog_image_pipeline.py

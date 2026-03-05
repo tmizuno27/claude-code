@@ -37,6 +37,7 @@ PROJECT_ROOT = Path(__file__).parent.parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
 ARTICLES_DIR = PROJECT_ROOT / "outputs" / "articles"
 WP_LOG_PATH = PROJECT_ROOT / "published" / "wordpress-log.json"
+MEDIA_MAPPING_PATH = PROJECT_ROOT / "images" / "media-mapping.json"
 
 
 def load_config():
@@ -126,6 +127,39 @@ def markdown_to_html(md_text):
     return markdown.markdown(md_text, extensions=extensions)
 
 
+def find_featured_media(title, keyword):
+    """media-mapping.json からタイトル/キーワードに一致する画像のメディアIDを検索"""
+    if not MEDIA_MAPPING_PATH.exists():
+        return None
+    try:
+        with open(MEDIA_MAPPING_PATH, "r", encoding="utf-8") as f:
+            mapping = json.load(f)
+        for media_id, info in mapping.get("media", {}).items():
+            if info.get("title") == title or info.get("keyword") == keyword:
+                logger.info(f"アイキャッチ画像発見: media_id={media_id}")
+                return int(media_id)
+    except Exception as e:
+        logger.warning(f"media-mapping.json の読み込みに失敗: {e}")
+    return None
+
+
+def update_post_featured_image(mapping_path, post_id, media_id, title):
+    """media-mapping.json の post_featured_images を更新"""
+    try:
+        with open(mapping_path, "r", encoding="utf-8") as f:
+            mapping = json.load(f)
+        if "post_featured_images" not in mapping:
+            mapping["post_featured_images"] = {}
+        mapping["post_featured_images"][str(post_id)] = {
+            "media_id": media_id,
+            "post_title": title,
+        }
+        with open(mapping_path, "w", encoding="utf-8") as f:
+            json.dump(mapping, f, ensure_ascii=False, indent=2)
+    except Exception as e:
+        logger.warning(f"post_featured_images の更新に失敗: {e}")
+
+
 def publish_to_wordpress(config, article, status="draft"):
     """記事をWordPressに投稿する"""
     wp_config = config["wordpress"]
@@ -150,6 +184,12 @@ def publish_to_wordpress(config, article, status="draft"):
         "status": status,
     }
 
+    # アイキャッチ画像の自動設定
+    media_id = find_featured_media(title, keyword)
+    if media_id:
+        post_data["featured_media"] = media_id
+        logger.info(f"アイキャッチ画像を設定: media_id={media_id}")
+
     logger.info(f"投稿中 (status={status}): {title}")
 
     response = requests.post(url, headers=headers, json=post_data, timeout=30)
@@ -168,6 +208,11 @@ def publish_to_wordpress(config, article, status="draft"):
         }
         logger.info(f"投稿成功! ID: {post['id']} (status: {status})")
         logger.info(f"  URL: {result['url']}")
+
+        # post_featured_images を更新
+        if media_id:
+            update_post_featured_image(MEDIA_MAPPING_PATH, post["id"], media_id, title)
+
         return result
     else:
         logger.error(f"投稿失敗: {response.status_code} - {response.text}")
