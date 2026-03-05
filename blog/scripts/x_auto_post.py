@@ -1,12 +1,13 @@
 """
-X (Twitter) 自動投稿スクリプト（Claude API連携）
-毎回Claude APIで投稿文を生成し、自動でXに投稿する
+X (Twitter) 自動投稿スクリプト（Claude API連携 + 画像自動添付）
+毎回Claude APIで投稿文を生成し、最適な画像を自動選定して投稿する
 
 使い方:
   python x_auto_post.py --slot morning   # 朝の投稿（JST 7:00-8:00向け）
   python x_auto_post.py --slot noon      # 昼の投稿（JST 12:00-13:00向け）
   python x_auto_post.py --slot evening   # 夜の投稿（JST 20:00-21:00向け）
-  python x_auto_post.py --slot morning --dry-run  # 生成のみ、投稿しない
+  python x_auto_post.py --slot morning --dry-run    # 生成のみ、投稿しない
+  python x_auto_post.py --slot noon --no-image      # 画像なしで投稿
 """
 
 import argparse
@@ -40,6 +41,8 @@ CONFIG_DIR = Path(__file__).parent.parent / "config"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
 X_CREDS_FILE = CONFIG_DIR / "x-credentials.json"
 LOG_DIR = Path(__file__).parent.parent / "outputs" / "social"
+PHOTOS_DIR = Path(__file__).parent.parent / "assets" / "sns-photos"
+TAGS_FILE = PHOTOS_DIR / "tags.json"
 
 # 時間帯ごとのカテゴリ設定
 SLOT_CONFIG = {
@@ -165,8 +168,94 @@ def generate_post(api_key: str, slot: str) -> str:
     return text
 
 
-def post_to_x(creds: dict, text: str) -> str | None:
-    """Xに投稿（v1.1 API使用）"""
+def find_best_image(post_text: str, slot: str) -> Path | None:
+    """投稿文に最も合う画像をtags.jsonから選定する"""
+    if not TAGS_FILE.exists():
+        print("画像タグファイルが見つかりません（image_tagger.py を先に実行してください）")
+        return None
+
+    with open(TAGS_FILE, "r", encoding="utf-8") as f:
+        tags_db = json.load(f)
+
+    if not tags_db:
+        print("タグ付き画像がありません")
+        return None
+
+    post_lower = post_text.lower()
+    candidates = []
+
+    for key, info in tags_db.items():
+        # 使用回数が少ない画像を優先（同じ写真の連続使用防止）
+        used_count = info.get("used_count", 0)
+
+        # タグマッチングスコアを計算
+        score = 0
+        tags = info.get("tags", [])
+        for tag in tags:
+            if tag in post_text:
+                score += 3  # 完全一致は高スコア
+            elif tag.lower() in post_lower:
+                score += 2
+
+        # 説明文とのマッチ
+        desc = info.get("description", "")
+        for word in desc:
+            if word in post_text:
+                score += 1
+
+        # 時間帯マッチ（best_time が slot と一致すればボーナス）
+        if info.get("best_time") == slot:
+            score += 2
+
+        # 使用回数でペナルティ（よく使われた画像は優先度下げる）
+        score -= used_count * 2
+
+        if score > 0:
+            candidates.append((key, score, used_count))
+
+    if not candidates:
+        # スコアが付かなかった場合、未使用 or 使用回数最少の画像をランダムに選ぶ
+        unused = [(k, v.get("used_count", 0)) for k, v in tags_db.items()]
+        unused.sort(key=lambda x: x[1])
+        if unused:
+            # 使用回数が最少のグループからランダム選択
+            min_count = unused[0][1]
+            least_used = [k for k, c in unused if c == min_count]
+            key = random.choice(least_used)
+            image_path = PHOTOS_DIR / key
+            if image_path.exists():
+                print(f"画像選定: タグマッチなし → 未使用画像からランダム選択: {key}")
+                return image_path
+        return None
+
+    # スコア順にソート（同スコアなら使用回数が少ない方を優先）
+    candidates.sort(key=lambda x: (-x[1], x[2]))
+    best_key = candidates[0][0]
+    best_score = candidates[0][1]
+
+    image_path = PHOTOS_DIR / best_key
+    if not image_path.exists():
+        print(f"WARNING: タグDBに存在するが画像ファイルがない: {best_key}")
+        return None
+
+    print(f"画像選定: {best_key} (スコア: {best_score})")
+    return image_path
+
+
+def mark_image_used(image_key: str):
+    """画像の使用回数をインクリメント"""
+    if not TAGS_FILE.exists():
+        return
+    with open(TAGS_FILE, "r", encoding="utf-8") as f:
+        tags_db = json.load(f)
+    if image_key in tags_db:
+        tags_db[image_key]["used_count"] = tags_db[image_key].get("used_count", 0) + 1
+        with open(TAGS_FILE, "w", encoding="utf-8") as f:
+            json.dump(tags_db, f, ensure_ascii=False, indent=2)
+
+
+def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
+    """Xに投稿（v1.1 API使用、画像添付対応）"""
     auth = tweepy.OAuth1UserHandler(
         creds["api_key"],
         creds["api_key_secret"],
@@ -176,7 +265,12 @@ def post_to_x(creds: dict, text: str) -> str | None:
     api = tweepy.API(auth)
 
     try:
-        status = api.update_status(status=text)
+        if image_path:
+            media = api.media_upload(filename=str(image_path))
+            status = api.update_status(status=text, media_ids=[media.media_id])
+            print(f"OK: 画像付き投稿成功 (画像: {image_path.name})")
+        else:
+            status = api.update_status(status=text)
         tweet_id = str(status.id)
         print(f"OK: 投稿成功 (ID: {tweet_id})")
         return tweet_id
