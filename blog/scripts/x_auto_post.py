@@ -305,7 +305,7 @@ def notify_discord(message: str):
         req = urllib.request.Request(
             webhook_url,
             data=payload,
-            headers={"Content-Type": "application/json"},
+            headers={"Content-Type": "application/json", "User-Agent": "X-AutoPost/1.0"},
         )
         urllib.request.urlopen(req)
         print("Discord通知を送信しました")
