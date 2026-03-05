@@ -255,23 +255,34 @@ def mark_image_used(image_key: str):
 
 
 def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
-    """Xに投稿（v1.1 API使用、画像添付対応）"""
+    """Xに投稿（v2 API + v1.1 media upload）"""
     auth = tweepy.OAuth1UserHandler(
         creds["api_key"],
         creds["api_key_secret"],
         creds["access_token"],
         creds["access_token_secret"],
     )
-    api = tweepy.API(auth)
+
+    # v2 Client（テキスト投稿用）
+    client = tweepy.Client(
+        consumer_key=creds["api_key"],
+        consumer_secret=creds["api_key_secret"],
+        access_token=creds["access_token"],
+        access_token_secret=creds["access_token_secret"],
+    )
 
     try:
+        kwargs = {"text": text}
+
+        # 画像がある場合は v1.1 で media upload してから v2 で投稿
         if image_path:
+            api = tweepy.API(auth)
             media = api.media_upload(filename=str(image_path))
-            status = api.update_status(status=text, media_ids=[media.media_id])
-            print(f"OK: 画像付き投稿成功 (画像: {image_path.name})")
-        else:
-            status = api.update_status(status=text)
-        tweet_id = str(status.id)
+            kwargs["media_ids"] = [media.media_id]
+            print(f"OK: 画像アップロード成功 (画像: {image_path.name})")
+
+        response = client.create_tweet(**kwargs)
+        tweet_id = response.data["id"]
         print(f"OK: 投稿成功 (ID: {tweet_id})")
         return tweet_id
     except tweepy.errors.TweepyException as e:

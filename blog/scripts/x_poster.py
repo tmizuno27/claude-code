@@ -179,6 +179,7 @@ def main():
     parser.add_argument("--thread", type=str, help="スレッド投稿（\\n\\nで区切り）")
     parser.add_argument("--schedule", type=str, help="スケジュールMDファイルのパス")
     parser.add_argument("--hour", type=int, help="スケジュールから特定の時間帯の投稿のみ実行")
+    parser.add_argument("--image", type=str, help="添付する画像ファイルのパス")
     parser.add_argument("--dry-run", action="store_true", help="実際には投稿しない")
     args = parser.parse_args()
 
@@ -186,11 +187,15 @@ def main():
         parser.print_help()
         sys.exit(1)
 
+    if args.image and not Path(args.image).exists():
+        print(f"ERROR: 画像ファイルが見つかりません: {args.image}")
+        sys.exit(1)
+
     creds = load_credentials()
-    client = get_api(creds)
+    api = get_api(creds)
 
     if args.text:
-        tweet_id = post_tweet(api, args.text, dry_run=args.dry_run)
+        tweet_id = post_tweet(api, args.text, image_path=args.image, dry_run=args.dry_run)
         if tweet_id and not args.dry_run:
             log_post(args.text, tweet_id)
 
