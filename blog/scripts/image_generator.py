@@ -39,7 +39,7 @@ SECRETS_FILE = CONFIG_DIR / "secrets.json"
 MEDIA_MAPPING_FILE = ASSETS_DIR / "media-mapping.json"
 
 # 画像生成モデル
-MODEL_NAME = "gemini-2.0-flash-preview-image-generation"
+MODEL_NAME = "gemini-2.0-flash"
 
 # デフォルトのスタイルプリセット
 STYLE_PRESETS = {
@@ -163,10 +163,7 @@ def generate_image(
             model=MODEL_NAME,
             contents=full_prompt,
             config=types.GenerateContentConfig(
-                response_modalities=["IMAGE"],
-                image_config=types.ImageConfig(
-                    aspect_ratio=aspect_ratio,
-                ),
+                response_modalities=["TEXT", "IMAGE"],
             ),
         )
 
