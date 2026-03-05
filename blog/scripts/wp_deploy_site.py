@@ -376,7 +376,7 @@ def get_homepage_html():
         <div class="nao-about-avatar">&#129492;</div>
         <div class="nao-about-text">
           <h2>南米おやじ について</h2>
-          <p>パラグアイ在住の日本人。南米での生活も10年を超え、現地でビジネスを営みながら、2026年からAIを活用した副業実験をスタート。</p>
+          <p>パラグアイ在住の日本人。妻と娘2人の家族4人で南米に移住し、現地で暮らしています。</p>
           <p>「海外に住んでるおっさんが、AIの力を借りてどこまでやれるのか？」&mdash;&mdash;その答えを、このサイトで探していきます。</p>
           <div class="nao-about-tags">
             <span class="nao-about-tag">&#127477;&#127486; パラグアイ在住</span>
