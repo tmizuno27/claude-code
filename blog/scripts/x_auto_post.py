@@ -279,7 +279,7 @@ def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
         return None
 
 
-def log_post(text: str, tweet_id: str, slot: str, category: str = "auto"):
+def log_post(text: str, tweet_id: str, slot: str, category: str = "auto", image: str = None):
     """投稿ログを保存"""
     LOG_DIR.mkdir(parents=True, exist_ok=True)
     log_file = LOG_DIR / "x-post-log.jsonl"
@@ -291,6 +291,7 @@ def log_post(text: str, tweet_id: str, slot: str, category: str = "auto"):
         "category": category,
         "text": text,
         "char_count": len(text),
+        "image": image,
     }
 
     with open(log_file, "a", encoding="utf-8") as f:
@@ -298,10 +299,11 @@ def log_post(text: str, tweet_id: str, slot: str, category: str = "auto"):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="X自動投稿（Claude API連携）")
+    parser = argparse.ArgumentParser(description="X自動投稿（Claude API連携 + 画像自動添付）")
     parser.add_argument("--slot", required=True, choices=["morning", "noon", "evening"],
                         help="投稿時間帯: morning/noon/evening")
     parser.add_argument("--dry-run", action="store_true", help="生成のみ、投稿しない")
+    parser.add_argument("--no-image", action="store_true", help="画像なしで投稿")
     args = parser.parse_args()
 
     print(f"[{datetime.now().isoformat()}] X自動投稿開始 (slot: {args.slot})")
@@ -317,16 +319,30 @@ def main():
         print(f"WARNING: 文字数超過 ({len(text)}文字)。投稿をスキップします")
         sys.exit(1)
 
+    # 最適な画像を選定
+    image_path = None
+    image_key = None
+    if not args.no_image:
+        image_path = find_best_image(text, args.slot)
+        if image_path:
+            image_key = str(image_path.relative_to(PHOTOS_DIR)).replace("\\", "/")
+        else:
+            print("画像なしで投稿します")
+
     if args.dry_run:
         print("[DRY RUN] 投稿はスキップされました")
+        if image_path:
+            print(f"[DRY RUN] 添付予定の画像: {image_key}")
         return
 
     # Xに投稿
     x_creds = load_x_credentials()
-    tweet_id = post_to_x(x_creds, text)
+    tweet_id = post_to_x(x_creds, text, image_path=image_path)
 
     if tweet_id:
-        log_post(text, tweet_id, args.slot)
+        log_post(text, tweet_id, args.slot, image=image_key)
+        if image_key:
+            mark_image_used(image_key)
         print("完了")
     else:
         sys.exit(1)

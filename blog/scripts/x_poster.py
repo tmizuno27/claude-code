@@ -1,10 +1,13 @@
 """
-X (Twitter) 自動投稿スクリプト
+X (Twitter) 自動投稿スクリプト（画像添付対応）
 nambei_oyaji アカウント用
 
 使い方:
   # 単発投稿
   python x_poster.py --text "投稿内容"
+
+  # 画像付き投稿
+  python x_poster.py --text "投稿内容" --image path/to/image.jpg
 
   # スケジュールファイルから投稿（現在時刻に合う投稿を実行）
   python x_poster.py --schedule outputs/social/x-schedule-2026-03-05.md
@@ -66,7 +69,7 @@ def get_api(creds: dict) -> tweepy.API:
     return tweepy.API(auth)
 
 
-def post_tweet(api: tweepy.API, text: str, reply_to: str = None, dry_run: bool = False) -> str | None:
+def post_tweet(api: tweepy.API, text: str, reply_to: str = None, image_path: str = None, dry_run: bool = False) -> str | None:
     """1つのツイートを投稿する。成功時はtweet IDを返す"""
     if len(text) > 280:
         print(f"WARNING: 文字数が280を超えています ({len(text)}文字)。投稿をスキップします")
@@ -75,6 +78,8 @@ def post_tweet(api: tweepy.API, text: str, reply_to: str = None, dry_run: bool =
     if dry_run:
         print(f"[DRY RUN] 投稿内容 ({len(text)}文字):")
         print(f"  {text}")
+        if image_path:
+            print(f"  (画像: {image_path})")
         if reply_to:
             print(f"  (リプライ先: {reply_to})")
         return "dry-run-id"
@@ -83,6 +88,10 @@ def post_tweet(api: tweepy.API, text: str, reply_to: str = None, dry_run: bool =
         kwargs = {"status": text}
         if reply_to:
             kwargs["in_reply_to_status_id"] = reply_to
+        if image_path:
+            media = api.media_upload(filename=image_path)
+            kwargs["media_ids"] = [media.media_id]
+            print(f"画像アップロード完了: {Path(image_path).name}")
         status = api.update_status(**kwargs)
         tweet_id = str(status.id)
         print(f"OK: 投稿成功 (ID: {tweet_id})")
