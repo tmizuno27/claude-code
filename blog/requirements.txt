@@ -20,6 +20,9 @@ google-analytics-data>=0.18.0
 google-auth>=2.25.0
 google-auth-oauthlib>=1.2.0
 
+# Google Gemini API（画像生成）
+google-genai>=1.0.0
+
 # 環境変数管理
 python-dotenv>=1.0.0
 
