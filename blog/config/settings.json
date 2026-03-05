@@ -67,8 +67,15 @@
     "notify_on": ["x_post_success", "x_post_failure"]
   },
   "schedule": {
+    "blog_auto_publish": {
+      "days_jst": ["Monday", "Thursday"],
+      "time_jst": "06:00-07:00 (中心06:30 ±30分ランダム)",
+      "holiday_skip": true,
+      "pipeline": "article_generator.py → wp_publisher.py --status publish --limit 1",
+      "note": "月曜=PV最多日(43%), 木曜=被リンク獲得最適日。朝6時台公開→9-10時のPVピークにインデックス済み",
+      "task_scheduler": "BlogAutoPublish (毎日PYT 18:00発火、PS1で月木のみ実行)"
+    },
     "keyword_research": "monday 09:00",
-    "article_generation": ["tuesday 09:00", "thursday 09:00"],
     "internal_linking": "friday 09:00",
     "analytics_report": "monday 08:00",
     "sns_content": "sunday 09:00"
