@@ -55,17 +55,18 @@ def load_credentials() -> dict:
     return creds
 
 
-def get_client(creds: dict) -> tweepy.Client:
-    """Tweepy v2 Client を取得"""
-    return tweepy.Client(
-        consumer_key=creds["api_key"],
-        consumer_secret=creds["api_key_secret"],
-        access_token=creds["access_token"],
-        access_token_secret=creds["access_token_secret"],
+def get_api(creds: dict) -> tweepy.API:
+    """Tweepy v1.1 API を取得"""
+    auth = tweepy.OAuth1UserHandler(
+        creds["api_key"],
+        creds["api_key_secret"],
+        creds["access_token"],
+        creds["access_token_secret"],
     )
+    return tweepy.API(auth)
 
 
-def post_tweet(client: tweepy.Client, text: str, reply_to: str = None, dry_run: bool = False) -> str | None:
+def post_tweet(api: tweepy.API, text: str, reply_to: str = None, dry_run: bool = False) -> str | None:
     """1つのツイートを投稿する。成功時はtweet IDを返す"""
     if len(text) > 280:
         print(f"WARNING: 文字数が280を超えています ({len(text)}文字)。投稿をスキップします")
@@ -79,11 +80,11 @@ def post_tweet(client: tweepy.Client, text: str, reply_to: str = None, dry_run: 
         return "dry-run-id"
 
     try:
-        kwargs = {"text": text}
+        kwargs = {"status": text}
         if reply_to:
-            kwargs["in_reply_to_tweet_id"] = reply_to
-        response = client.create_tweet(**kwargs)
-        tweet_id = response.data["id"]
+            kwargs["in_reply_to_status_id"] = reply_to
+        status = api.update_status(**kwargs)
+        tweet_id = str(status.id)
         print(f"OK: 投稿成功 (ID: {tweet_id})")
         return tweet_id
     except tweepy.errors.TweepyException as e:
@@ -91,14 +92,14 @@ def post_tweet(client: tweepy.Client, text: str, reply_to: str = None, dry_run: 
         return None
 
 
-def post_thread(client: tweepy.Client, texts: list[str], dry_run: bool = False) -> list[str]:
+def post_thread(api: tweepy.API, texts: list[str], dry_run: bool = False) -> list[str]:
     """スレッド形式で連続投稿"""
     tweet_ids = []
     reply_to = None
 
     for i, text in enumerate(texts, 1):
         print(f"\n--- スレッド {i}/{len(texts)} ---")
-        tweet_id = post_tweet(client, text, reply_to=reply_to, dry_run=dry_run)
+        tweet_id = post_tweet(api, text, reply_to=reply_to, dry_run=dry_run)
         if tweet_id:
             tweet_ids.append(tweet_id)
             reply_to = tweet_id
@@ -177,16 +178,16 @@ def main():
         sys.exit(1)
 
     creds = load_credentials()
-    client = get_client(creds)
+    client = get_api(creds)
 
     if args.text:
-        tweet_id = post_tweet(client, args.text, dry_run=args.dry_run)
+        tweet_id = post_tweet(api, args.text, dry_run=args.dry_run)
         if tweet_id and not args.dry_run:
             log_post(args.text, tweet_id)
 
     elif args.thread:
         texts = [t.strip() for t in args.thread.split("\\n\\n") if t.strip()]
-        tweet_ids = post_thread(client, texts, dry_run=args.dry_run)
+        tweet_ids = post_thread(api, texts, dry_run=args.dry_run)
         if tweet_ids and not args.dry_run:
             for text, tid in zip(texts, tweet_ids):
                 log_post(text, tid, category="thread")
@@ -200,7 +201,7 @@ def main():
         print(f"{len(posts)} 件の投稿が見つかりました")
         for post in posts:
             print(f"\n--- [{post['category']}] {post['hour']}時台 ---")
-            tweet_id = post_tweet(client, post["text"], dry_run=args.dry_run)
+            tweet_id = post_tweet(api, post["text"], dry_run=args.dry_run)
             if tweet_id and not args.dry_run:
                 log_post(post["text"], tweet_id, category=post["category"])
 
