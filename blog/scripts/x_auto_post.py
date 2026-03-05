@@ -10,11 +10,16 @@ X (Twitter) 自動投稿スクリプト（Claude API連携）
 """
 
 import argparse
+import io
 import json
 import random
 import sys
 from datetime import datetime
 from pathlib import Path
+
+# Windows cp932 で絵文字が出力できない問題を回避
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
 
 try:
     import anthropic
