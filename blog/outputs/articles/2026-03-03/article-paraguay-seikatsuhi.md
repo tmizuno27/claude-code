@@ -26,8 +26,6 @@ seo_notes: |
 
 # 【2026年最新】パラグアイの生活費を完全公開！1ヶ月の家計簿と物価を日本と徹底比較
 
-<span id="パラグアイの生活費ぶっちゃけいくら"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -47,6 +45,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイの生活費ぶっちゃけいくら"></span>
 
 ## パラグアイの生活費、ぶっちゃけいくら？
 

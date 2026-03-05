@@ -20,8 +20,6 @@ seo_notes: |
 
 # パラグアイの医療・保険事情【在住者が解説】病院の選び方から保険加入まで
 
-<span id="病気になったらどうする-という不安について"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -42,6 +40,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="病気になったらどうする-という不安について"></span>
 
 ## 病気になったらどうする？ という不安について
 

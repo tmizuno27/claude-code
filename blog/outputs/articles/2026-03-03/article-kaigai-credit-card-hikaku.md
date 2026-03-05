@@ -33,8 +33,6 @@ seo_notes: |
 - おすすめカード3枚の徹底比較（保険・手数料・ATM対応）
 - パラグアイでのカード利用のリアルな注意点
 
-<span id="カード選びの3つのポイント"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -55,6 +53,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="カード選びの3つのポイント"></span>
 
 ## カード選びの3つのポイント
 

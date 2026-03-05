@@ -26,8 +26,6 @@ seo_notes: |
 
 私はパラグアイのランバレに家族4人で住んでいて、日本の仕事で得た報酬を日本の銀行口座で受け取り、生活費をパラグアイの口座に送金してる。Wise、PayPal、銀行送金の3つを全部使い比べてきたから、それぞれの本音レビューをまとめる。
 
-<span id="3サービスの比較表"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -53,6 +51,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="3サービスの比較表"></span>
 
 ## 3サービスの比較表
 

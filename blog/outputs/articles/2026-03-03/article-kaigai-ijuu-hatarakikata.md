@@ -35,8 +35,6 @@ seo_notes: |
 - パラグアイ在住者が実際にやってみたリアルな体験談
 - 移住前に準備すべきことと、おすすめの始め方ステップ
 
-<span id="方法1-リモートワーク日本企業との業務委託"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -59,6 +57,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="方法1-リモートワーク日本企業との業務委託"></span>
 
 ## 方法1: リモートワーク（日本企業との業務委託）
 

@@ -29,8 +29,6 @@ seo_notes: |
 2. **現地語の基礎（英語+現地語）**
 3. **お金の管理スキル（海外送金・確定申告・為替）**
 
-<span id="スキル1-リモートで稼げるwebスキル"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -51,6 +49,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="スキル1-リモートで稼げるwebスキル"></span>
 
 ## スキル1: リモートで稼げるWebスキル
 

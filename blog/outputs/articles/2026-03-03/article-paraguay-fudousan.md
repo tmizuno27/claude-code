@@ -29,8 +29,6 @@ seo_notes: |
 
 この記事では、外国人がパラグアイで不動産を買うための手順、エリア別の相場感、投資としてのメリットとリスクを、在住者の目線でまとめた。
 
-<span id="パラグアイの不動産市場の概要"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -55,6 +53,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイの不動産市場の概要"></span>
 
 ## パラグアイの不動産市場の概要
 

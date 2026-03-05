@@ -25,8 +25,6 @@ seo_notes: |
 
 この記事では、海外からブログを始める具体的な手順、サーバー選び（海外から使えるかが最重要）、収益化の方法まで、パラグアイ在住の私の実体験ベースで全部解説する。
 
-<span id="step-1-サーバーを契約してwordpressを開設する"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -45,6 +43,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="step-1-サーバーを契約してwordpressを開設する"></span>
 
 ## Step 1: サーバーを契約してWordPressを開設する
 

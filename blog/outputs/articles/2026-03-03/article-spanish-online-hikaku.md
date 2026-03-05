@@ -32,8 +32,6 @@ seo_notes: |
 - 中南米スペイン語とスペインのスペイン語の違い
 - パラグアイで実際にスペイン語を使って感じたこと
 
-<span id="スペイン語学習サービスの選び方失敗しない3つのポイント"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -57,6 +55,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="スペイン語学習サービスの選び方失敗しない3つのポイント"></span>
 
 ## スペイン語学習サービスの選び方（失敗しない3つのポイント）
 

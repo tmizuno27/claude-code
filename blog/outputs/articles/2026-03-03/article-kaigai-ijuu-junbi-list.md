@@ -29,8 +29,6 @@ seo_notes: |
 - 各手続きの注意点と優先順位
 - 見落としがちな準備項目（私も見落とした）
 
-<span id="6ヶ月前〜3ヶ月前にやること"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -55,6 +53,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="6ヶ月前〜3ヶ月前にやること"></span>
 
 ## 6ヶ月前〜3ヶ月前にやること
 

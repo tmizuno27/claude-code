@@ -21,8 +21,6 @@ seo_notes: |
 
 # 子連れ海外移住の準備と注意点【在住者が解説】家族4人でパラグアイに移住した体験談
 
-<span id="子連れ移住は準備次第で普通にできる"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -46,6 +44,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="子連れ移住は準備次第で普通にできる"></span>
 
 ## 子連れ移住は「準備次第」で普通にできる
 

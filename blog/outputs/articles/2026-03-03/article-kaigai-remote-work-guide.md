@@ -30,8 +30,6 @@ seo_notes: |
 - 税金・ビザ・保険の注意点
 - 海外在住者に向いている仕事の種類
 
-<span id="移住前の準備チェックリスト"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -54,6 +52,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="移住前の準備チェックリスト"></span>
 
 ## 移住前の準備チェックリスト
 

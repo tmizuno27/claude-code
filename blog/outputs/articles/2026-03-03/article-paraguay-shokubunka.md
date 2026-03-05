@@ -19,8 +19,6 @@ seo_notes: |
 
 # パラグアイの食文化を在住者が解説｜アサード（南米BBQ）から家庭料理まで【2026年版】
 
-<span id="パラグアイの食文化はアサードを中心に回っている"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -49,6 +47,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイの食文化はアサードを中心に回っている"></span>
 
 ## パラグアイの食文化はアサードを中心に回っている
 

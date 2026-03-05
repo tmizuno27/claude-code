@@ -3,13 +3,20 @@
 - <details>/<summary>タグで開閉式
 - H2/H3見出しからアンカーリンク付き目次を生成
 - 記事本文の各見出しにid属性を付与
-- 既に目次がある記事はスキップ
+- 既存の目次・アンカーがある場合はクリーンアップして再生成
 """
 
 import os
 import re
 import glob
-import unicodedata
+
+
+# 目次から除外する見出しパターン
+EXCLUDE_HEADINGS = [
+    '著者プロフィール',
+    'Rank Math 設定用',
+    'Rank Math 設定用メタ情報',
+]
 
 ARTICLES_DIR = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -19,10 +26,8 @@ ARTICLES_DIR = os.path.join(
 
 def slugify(text: str) -> str:
     """日本語対応のスラッグ生成。見出しテキストからアンカーIDを作る。"""
-    # 記号・装飾を除去
     text = re.sub(r'[【】\[\]「」『』（）\(\)：:、。！!？?・\u2014\u2015\u2026]', '', text)
     text = text.strip()
-    # 半角英数とハイフンに正規化
     text = text.lower()
     text = re.sub(r'\s+', '-', text)
     text = re.sub(r'-+', '-', text)
@@ -31,7 +36,7 @@ def slugify(text: str) -> str:
 
 
 def extract_headings(content: str) -> list:
-    """Markdown本文からH2/H3見出しを抽出する。"""
+    """Markdown本文からH2/H3見出しを抽出する（既存のspan/TOCを除外）。"""
     headings = []
     for line in content.split('\n'):
         m = re.match(r'^(#{2,3})\s+(.+)$', line)
@@ -58,74 +63,35 @@ def generate_toc_html(headings: list) -> str:
         if level == 2:
             lines.append(f'  <li><a href="#{anchor}">{text}</a></li>')
         elif level == 3:
-            # H3はインデント
             lines.append(f'  <li class="toc-h3"><a href="#{anchor}">{text}</a></li>')
 
     lines.append('</ol>')
     lines.append('</nav>')
     lines.append('</details>')
-    lines.append('')
 
     return '\n'.join(lines)
 
 
-def add_heading_ids(content: str, headings: list) -> str:
-    """各見出し行の前にHTMLアンカーを挿入する。"""
-    for level, text in headings:
-        anchor = slugify(text)
-        prefix = '#' * level
-        # 見出し行を探してアンカー付きに変換
-        old_line = f'{prefix} {text}'
-        new_line = f'<span id="{anchor}"></span>\n\n{prefix} {text}'
-        # 最初の出現のみ置換
-        content = content.replace(old_line, new_line, 1)
-    return content
-
-
-def find_toc_insert_position(body: str) -> int:
-    """目次の挿入位置を決定する。
-    アフィリエイト開示文の後、または導入段落の後に挿入。
-    """
-    lines = body.split('\n')
-
-    # H1タイトルの位置を見つける
-    h1_idx = -1
-    for i, line in enumerate(lines):
-        if re.match(r'^#\s+', line):
-            h1_idx = i
-            break
-
-    if h1_idx == -1:
-        return 0
-
-    # H1の後の最初の空行の後、最初のH2の前に挿入
-    # アフィリエイト開示文があればその段落の後
-    first_h2_idx = -1
-    for i in range(h1_idx + 1, len(lines)):
-        if re.match(r'^##\s+', lines[i]):
-            first_h2_idx = i
-            break
-
-    if first_h2_idx == -1:
-        return len('\n'.join(lines))
-
-    # 最初のH2の直前（空行を1つ残す）
-    insert_idx = first_h2_idx
-    # 直前の空行を保持
-    while insert_idx > 0 and lines[insert_idx - 1].strip() == '':
-        insert_idx -= 1
-
-    return len('\n'.join(lines[:insert_idx]))
+def clean_existing_toc(body: str) -> str:
+    """既存の目次ブロックとアンカーspanを除去する。"""
+    # 目次ブロック除去
+    body = re.sub(
+        r'\n*<details class="toc-container">.*?</details>\n*',
+        '\n\n',
+        body,
+        flags=re.DOTALL
+    )
+    # アンカーspan除去
+    body = re.sub(r'\n*<span id="[^"]*"></span>\n*', '\n\n', body)
+    # 連続空行を2つまでに
+    body = re.sub(r'\n{3,}', '\n\n', body)
+    return body
 
 
 def process_article(filepath: str) -> bool:
     """1記事を処理する。目次を挿入してファイルを上書き。"""
     with open(filepath, 'r', encoding='utf-8') as f:
         content = f.read()
-
-    # 既に目次がある場合はスキップ
-    if '<details class="toc-container">' in content:
-        return False
 
     # frontmatterとbodyを分離
     parts = content.split('---', 2)
@@ -135,33 +101,44 @@ def process_article(filepath: str) -> bool:
     frontmatter = parts[1]
     body = parts[2]
 
+    # 既存のTOC・アンカーをクリーンアップ
+    body = clean_existing_toc(body)
+
     # 見出し抽出
     headings = extract_headings(body)
     if not headings:
         return False
 
-    # 見出しにアンカーIDを付与
-    body = add_heading_ids(body, headings)
-
     # 目次HTML生成
     toc = generate_toc_html(headings)
 
-    # 挿入位置を決定（最初のH2の直前）
+    # 本文を行ごとに処理
     lines = body.split('\n')
-    first_h2_idx = -1
-    for i, line in enumerate(lines):
-        # spanタグの次の空行の次がH2
-        if re.match(r'^##\s+', line):
-            first_h2_idx = i
-            break
+    result_lines = []
+    first_h2_found = False
+    toc_inserted = False
 
-    if first_h2_idx == -1:
-        return False
+    for line in lines:
+        # 最初のH2の直前にTOCを挿入
+        if not toc_inserted and re.match(r'^##\s+', line):
+            result_lines.append(toc)
+            result_lines.append('')
+            toc_inserted = True
 
-    # H2の直前に目次を挿入
-    before = '\n'.join(lines[:first_h2_idx])
-    after = '\n'.join(lines[first_h2_idx:])
-    body = before.rstrip('\n') + '\n\n' + toc + '\n' + after
+        # H2/H3にアンカーspanを付与
+        m = re.match(r'^(#{2,3})\s+(.+)$', line)
+        if m:
+            anchor = slugify(m.group(2).strip())
+            result_lines.append(f'<span id="{anchor}"></span>')
+            result_lines.append('')
+            result_lines.append(line)
+        else:
+            result_lines.append(line)
+
+    body = '\n'.join(result_lines)
+
+    # 連続空行を整理
+    body = re.sub(r'\n{3,}', '\n\n', body)
 
     # 再構築
     new_content = '---' + frontmatter + '---' + body
@@ -177,10 +154,10 @@ def main():
     files = sorted(glob.glob(pattern))
 
     if not files:
-        print(f"記事が見つかりません: {pattern}")
+        print(f"No articles found: {pattern}")
         return
 
-    print(f"対象記事: {len(files)}本")
+    print(f"Target: {len(files)} articles")
     processed = 0
     skipped = 0
 
@@ -190,10 +167,10 @@ def main():
             print(f"  OK: {filename}")
             processed += 1
         else:
-            print(f"  - {filename} (スキップ)")
+            print(f"  SKIP: {filename}")
             skipped += 1
 
-    print(f"\n完了: {processed}本に目次を挿入、{skipped}本スキップ")
+    print(f"\nDone: {processed} processed, {skipped} skipped")
 
 
 if __name__ == "__main__":

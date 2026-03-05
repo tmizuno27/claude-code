@@ -25,8 +25,6 @@ seo_notes: |
 
 この記事では、ブログ収益化の3つの方法（アフィリエイト・アドセンス・デジタル商品）とそれぞれの収益目安、海外生活ブログと相性の良いアフィリエイト案件、月5万円達成までの具体的なロードマップを紹介する。
 
-<span id="収益化の3本柱"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -47,6 +45,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="収益化の3本柱"></span>
 
 ## 収益化の3本柱
 

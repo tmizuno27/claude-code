@@ -20,8 +20,6 @@ seo_notes: |
 
 # パラグアイ移住後のリアルな収入事情【在住者が公開】月いくら稼いで生活している？
 
-<span id="ぶっちゃけパラグアイで暮らせてるの"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -39,6 +37,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="ぶっちゃけパラグアイで暮らせてるの"></span>
 
 ## ぶっちゃけ、パラグアイで暮らせてるの？
 

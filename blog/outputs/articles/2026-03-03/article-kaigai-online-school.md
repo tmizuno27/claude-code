@@ -33,8 +33,6 @@ seo_notes: |
 - おすすめオンラインスクール5選の比較（料金・サポート・海外対応）
 - スクール選びで失敗しないポイント
 
-<span id="海外移住前にスキルを身につけるべき理由"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -55,6 +53,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="海外移住前にスキルを身につけるべき理由"></span>
 
 ## 海外移住前にスキルを身につけるべき理由
 

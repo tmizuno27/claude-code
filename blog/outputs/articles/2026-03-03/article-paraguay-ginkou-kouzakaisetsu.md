@@ -29,8 +29,6 @@ seo_notes: |
 
 # パラグアイで銀行口座を開設する方法【外国人向け完全ガイド2026年版】
 
-<span id="パラグアイで外国人が口座を作るには"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -65,6 +63,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイで外国人が口座を作るには"></span>
 
 ## パラグアイで外国人が口座を作るには？
 

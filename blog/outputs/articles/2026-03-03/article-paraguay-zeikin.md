@@ -21,8 +21,6 @@ seo_notes: |
 
 # パラグアイの税金が安い理由を在住者が解説｜所得税・法人税・消費税を日本と比較【2026年版】
 
-<span id="パラグアイは税金が安いは本当なのか"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -53,6 +51,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイは税金が安いは本当なのか"></span>
 
 ## 「パラグアイは税金が安い」は本当なのか
 

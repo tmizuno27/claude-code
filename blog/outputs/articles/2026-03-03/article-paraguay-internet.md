@@ -21,8 +21,6 @@ seo_notes: |
 
 # パラグアイのインターネット・通信事情を在住者が解説｜速度・料金・SIMカード【2026年版】
 
-<span id="結論リモートワークは問題なくできる"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -49,6 +47,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="結論リモートワークは問題なくできる"></span>
 
 ## 結論：リモートワークは問題なくできる
 

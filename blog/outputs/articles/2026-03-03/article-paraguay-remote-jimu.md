@@ -25,8 +25,6 @@ seo_notes: |
 
 この記事では、リモート事務代行の仕事内容から、案件の探し方、どれくらい稼げるのかまで具体的に書いた。
 
-<span id="リモート事務代行の仕事内容"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -50,6 +48,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="リモート事務代行の仕事内容"></span>
 
 ## リモート事務代行の仕事内容
 

@@ -18,8 +18,6 @@ seo_notes: |
 
 # パラグアイの気候と天気を在住者が解説｜一年中温暖で自然災害ゼロの国【2026年版】
 
-<span id="結論から言うパラグアイは温暖で自然災害がほぼゼロの国"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -49,6 +47,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="結論から言うパラグアイは温暖で自然災害がほぼゼロの国"></span>
 
 ## 結論から言う：パラグアイは「温暖で自然災害がほぼゼロの国」
 

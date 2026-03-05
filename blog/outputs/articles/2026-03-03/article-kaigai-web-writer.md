@@ -28,8 +28,6 @@ seo_notes: |
 - 未経験から月5万円に到達するロードマップ
 - 海外在住ライターならではの強みと注意点
 
-<span id="webライターを始める5つのステップ"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -50,6 +48,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="webライターを始める5つのステップ"></span>
 
 ## Webライターを始める5つのステップ
 

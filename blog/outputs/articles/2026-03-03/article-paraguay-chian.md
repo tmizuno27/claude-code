@@ -21,8 +21,6 @@ seo_notes: |
 
 # パラグアイの治安は本当に危険？【在住者が語る】2026年最新の治安事情と対策
 
-<span id="南米＝超危険は本当なのか"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -43,6 +41,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="南米＝超危険は本当なのか"></span>
 
 ## 「南米＝超危険」は本当なのか
 

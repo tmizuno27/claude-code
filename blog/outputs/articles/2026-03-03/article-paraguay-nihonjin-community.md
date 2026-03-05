@@ -18,8 +18,6 @@ seo_notes: |
 
 # パラグアイの日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法
 
-<span id="パラグアイには意外と日本人がいる"></span>
-
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
 <nav class="toc">
@@ -43,6 +41,8 @@ seo_notes: |
 </ol>
 </nav>
 </details>
+
+<span id="パラグアイには意外と日本人がいる"></span>
 
 ## パラグアイには意外と日本人がいる
 
