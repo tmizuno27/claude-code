@@ -58,8 +58,18 @@
 - **権限**: 管理者（記事投稿・ページ編集・メディアアップロード可能）
 - **トップページID**: 47（固定ページ、カスタムHTML）
 - **再利用ブロック**: ref 932-961（CSS定義等）
-- **トップページ構造**: Hero → Value Props → Stats → Two Pillars → Topics(8タイル) → About → Experiment Log → CTA
+- **トップページ構造**: Hero → Latest Articles → Value Props → Stats → Three Pillars → Topics(6タイル) → About → Experiment Log → CTA
 - **ローカルバックアップ**: `C:\Users\tmizu\wp-home-raw.html`
+- **カテゴリースラッグ**: paraguay(パラグアイ生活), side-business(副業・稼ぎ方), ijuu-junbi(移住準備)
+- **Apple風CSS**: ヘッダー・フッター・記事本文のCSS適用済み（ブロック948-949 + singleテンプレート内インラインCSS）
+- **テンプレート**: single/page/index/homeにブロック932-954の参照を追加済み
+- **ダミー記事（6本）**: 正式記事が投稿されたら削除すること
+  - paraguay-ijuu-hiyou (ID:1065) → 移住費用・手続き
+  - paraguay-seikatsuhi (ID:1066) → 生活費・物価
+  - paraguay-chian (ID:1067) → 治安・安全情報
+  - kaigai-kosodate (ID:1068) → 子育て・教育
+  - kaigai-ijuu-hatarakikata (ID:1069) → 海外からの仕事
+  - kaigai-soukin-hikaku (ID:1070) → お金・送金・銀行
 
 ## ブログ「南米おやじの海外生活ラボ」（nambei-oyaji.com）
 - **旧名**: 南米おやじのAI実践ラボ → **2026-03-03に方向転換完了**
