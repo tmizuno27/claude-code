@@ -166,17 +166,18 @@ def generate_post(api_key: str, slot: str) -> str:
 
 
 def post_to_x(creds: dict, text: str) -> str | None:
-    """Xに投稿"""
-    client = tweepy.Client(
-        consumer_key=creds["api_key"],
-        consumer_secret=creds["api_key_secret"],
-        access_token=creds["access_token"],
-        access_token_secret=creds["access_token_secret"],
+    """Xに投稿（v1.1 API使用）"""
+    auth = tweepy.OAuth1UserHandler(
+        creds["api_key"],
+        creds["api_key_secret"],
+        creds["access_token"],
+        creds["access_token_secret"],
     )
+    api = tweepy.API(auth)
 
     try:
-        response = client.create_tweet(text=text)
-        tweet_id = response.data["id"]
+        status = api.update_status(status=text)
+        tweet_id = str(status.id)
         print(f"OK: 投稿成功 (ID: {tweet_id})")
         return tweet_id
     except tweepy.errors.TweepyException as e:
