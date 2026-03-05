@@ -42,10 +42,12 @@
     "note": "API UIが変更されたため後日取得"
   },
   "x_twitter": {
-    "account": "YOUR_TWITTER_HANDLE",
+    "account": "nambei_oyaji",
+    "credentials_file": "config/x-credentials.json",
     "role": "初期のメイン集客チャネル。SEOが効くまでの6ヶ月間は最重要",
     "daily_posts": 3,
-    "note": "自動投稿ツールは後日検討。Phase1はコピペ運用"
+    "auto_post_script": "scripts/x_poster.py",
+    "posting_times_jst": ["07:30", "12:00", "20:00"]
   },
   "schedule": {
     "keyword_research": "monday 09:00",

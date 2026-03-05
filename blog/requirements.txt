@@ -22,3 +22,6 @@ google-auth-oauthlib>=1.2.0
 
 # 環境変数管理
 python-dotenv>=1.0.0
+
+# X (Twitter) API
+tweepy>=4.14.0

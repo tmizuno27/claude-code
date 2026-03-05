@@ -1,6 +1,7 @@
 # 認証情報・シークレット
 **/secrets.json
 **/wp-credentials.json
+**/x-credentials.json
 **/credentials/
 **/service-account.json
 
