@@ -12,7 +12,7 @@
     }
   },
   "claude_api": {
-    "api_key": "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",
+    "api_key": "SEE secrets.json",
     "model": "claude-sonnet-4-6",
     "max_tokens": 4096,
     "monthly_budget_usd": 5
@@ -20,8 +20,8 @@
   "wordpress": {
     "url": "https://nambei-oyaji.com",
     "rest_api_url": "https://nambei-oyaji.com/wp-json/wp/v2",
-    "username": "t.mizuno27@gmail.com",
-    "app_password": "agNg 2624 4lL4 QoT9 EOOZ OEZr",
+    "username": "SEE secrets.json",
+    "app_password": "SEE secrets.json",
     "theme": "cocoon",
     "seo_plugin": "rank-math",
     "default_category": "AI活用",
@@ -38,7 +38,7 @@
     "credentials_file": "config/gsc-credentials.json"
   },
   "gumroad": {
-    "api_key": "YOUR_GUMROAD_API_KEY",
+    "api_key": "SEE secrets.json",
     "note": "API UIが変更されたため後日取得"
   },
   "x_twitter": {

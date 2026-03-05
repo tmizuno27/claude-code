@@ -48,30 +48,23 @@
 ## ディレクトリ構成
 
 ```
-jidou-business/
+blog/                      ← このプロジェクト（リポジトリ内 claude-code/blog/）
 ├── CLAUDE.md              ← このファイル
 ├── config/                ← 設定ファイル
-│   ├── settings.json          ← API鍵・WordPress認証情報
+│   ├── settings.json          ← プロジェクト設定（認証情報は secrets.json に分離）
+│   ├── secrets.json           ← APIキー・パスワード（.gitignore対象）
 │   ├── affiliate-links.json   ← アフィリエイトリンク管理
 │   └── content-calendar.json  ← コンテンツスケジュール
-├── agents/                ← 7つのAIエージェント定義
-│   ├── seo-research-agent.md    ← KW調査（二本柱対応）
-│   ├── article-writer-agent.md  ← SEO記事生成（実験ログ型）
-│   ├── product-creator-agent.md ← デジタル商品生成
-│   ├── publisher-agent.md       ← WordPress投稿
-│   ├── sns-scheduler-agent.md   ← X（Twitter）コンテンツ生成
-│   ├── analytics-agent.md       ← 分析レポート
-│   └── master-prompt.md         ← オーナー用コマンド集
+├── agents/                ← エージェント詳細ルール（参照用）
 ├── scripts/               ← Python自動化スクリプト
 ├── templates/             ← 記事・商品テンプレート
 ├── inputs/                ← キーワード・商品アイデア
 ├── outputs/               ← AI生成物の出力先
-├── published/             ← 投稿・販売履歴ログ
 └── docs/                  ← 事業計画書・運用マニュアル
-    ├── business-plan-v2.md    ← S級事業計画書
-    ├── setup-guide.md         ← セットアップガイド
-    └── daily-operation.md     ← 日次運用マニュアル
 ```
+
+**エージェント呼び出し**: `.claude/agents/` にネイティブ定義を配置済み。
+Claude Code のスラッシュコマンドで直接起動可能。
 
 ## 自動化パイプライン
 
@@ -145,7 +138,8 @@ jidou-business/
 
 ## 設定ファイル
 
-- `config/settings.json` — API鍵、WordPress URL、各種認証情報
+- `config/settings.json` — プロジェクト設定（認証情報は含まない）
+- `config/secrets.json` — APIキー・パスワード（`.gitignore` 対象、Git非追跡）
 - `config/affiliate-links.json` — アフィリエイトリンク管理（高単価案件優先）
 - `config/content-calendar.json` — コンテンツスケジュール（二本柱対応）
 

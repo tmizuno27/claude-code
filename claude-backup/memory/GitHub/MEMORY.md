@@ -1,7 +1,7 @@
 # Memory - GitHub ワークスペース
 
 ## リポジトリ構成
-- `c:\Users\tmizu\マイドライブ\GitHub\claude-code` → https://github.com/tmizuno27/data.git (branch: main)
+- `c:\Users\tmizu\マイドライブ\GitHub\claude-code` → https://github.com/tmizuno27/claude-code.git (branch: main)
 
 ## GitHub自動同期 (data リポジトリ)
 - **メインスクリプト**: `C:\Users\tmizu\scripts\auto-sync.ps1` (Unicodeコードポイントでパス構築)
@@ -27,13 +27,13 @@
 - **重要**: Task Scheduler経由でPowerShellを実行する場合、日本語パスはファイルに直書きせず `[char]0x30DE` 等のUnicodeコードポイントで構築する必要がある（UTF-8 BOMでも文字化けする）
 
 ## Google Sheets → CSV → GitHub 自動連携
-- **スクリプト**: `claude-code/sheets-sync/fetch_sheets.py`
-- **設定**: `claude-code/sheets-sync/config.json` (同期するスプレッドシートを登録)
-- **認証**: サービスアカウント (`claude-code/sheets-sync/credentials/service-account.json`) ※.gitignoreで除外
-- **出力先**: `claude-code/sheets-sync/output/` (CSV + metadata.json)
+- **スクリプト**: `claude-code/tools/sheets-sync/fetch_sheets.py`
+- **設定**: `claude-code/tools/sheets-sync/config.json` (同期するスプレッドシートを登録)
+- **認証**: サービスアカウント (`claude-code/tools/sheets-sync/credentials/service-account.json`) ※.gitignoreで除外
+- **出力先**: `claude-code/tools/sheets-sync/output/` (CSV + metadata.json)
 - **Task Scheduler**: `GoogleSheetsSync` (5分おき)
 - **セットアップ状態**: 要初回セットアップ（Google Cloud サービスアカウント）
-- **手順書**: `claude-code/sheets-sync/SETUP.md`
+- **手順書**: `claude-code/tools/sheets-sync/SETUP.md`
 - **フロー**: Sheets更新 → 5分おきにCSV取得 → auto-sync.ps1が1分おきにGitHubへpush
 
 ## 職務経歴書
@@ -53,7 +53,7 @@
 - **ポジウィルとの契約**: 終了済み（2025年頃）
 
 ## WordPress REST API連携（nambei-oyaji.com）
-- **認証情報**: `claude-code/nambei-oyaji/config/wp-credentials.json`（.gitignoreで除外済み）
+- **認証情報**: `claude-code/blog/config/secrets.json` + `claude-code/blog/config/wp-credentials.json`（.gitignoreで除外済み）
 - **ユーザー名**: メールアドレス（slugではない）
 - **権限**: 管理者（記事投稿・ページ編集・メディアアップロード可能）
 - **トップページID**: 47（固定ページ、カスタムHTML）
@@ -63,6 +63,7 @@
 - **カテゴリースラッグ**: paraguay(パラグアイ生活), side-business(副業・稼ぎ方), ijuu-junbi(移住準備)
 - **Apple風CSS**: ヘッダー・フッター・記事本文のCSS適用済み（ブロック948-949 + singleテンプレート内インラインCSS）
 - **テンプレート**: single/page/index/homeにブロック932-954の参照を追加済み
+- **画像管理**: `claude-code/blog/assets/images/` に全画像+メディアIDマッピング(`media-mapping.json`)を格納
 - **ダミー記事（6本）**: 正式記事が投稿されたら削除すること
   - paraguay-ijuu-hiyou (ID:1065) → 移住費用・手続き
   - paraguay-seikatsuhi (ID:1066) → 生活費・物価
@@ -80,13 +81,13 @@
 - **必須**: 記事作成時は毎回WebSearchで最新SEOトレンド（直近2-3年）をリサーチしてから執筆
 - **参考**: ウェブ職TV（なかじ）のSEO手法をベースに、最新Googleアルゴリズムに対応
 - **E-E-A-T重視**: パラグアイ在住の実体験（一次情報）を必ず含める
-- **プロジェクトパス**: `claude-code/nambei-oyaji/`
+- **プロジェクトパス**: `claude-code/blog/`
 - **注意**: AIを記事の主題にしない。「AI副業」「ChatGPT」「Claude」等のKWは使わない
 - **記事管理スプレッドシート**: `1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8`
   - URL: https://docs.google.com/spreadsheets/d/1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8
   - タブ: 「記事一覧」（タイプ別色分け・フィルター付き）+ 「サマリー」（自動集計）
-  - 更新スクリプト: `claude-code/nambei-oyaji/scripts/create_article_sheet.py`
-  - CSV: `claude-code/nambei-oyaji/outputs/article-management.csv`
+  - 更新スクリプト: `claude-code/blog/scripts/create_article_sheet.py`
+  - CSV: `claude-code/blog/outputs/article-management.csv`
   - **記事作成時の運用フロー**: (1) 記事MD作成 → (2) CSVに行追加 → (3) スクリプト実行でシート＋サマリー自動更新
   - サマリーはCSVデータから毎回自動集計（ハードコードではない）
 
@@ -112,13 +113,14 @@
 - **注意**: 語学力自体は限定的だが、AI翻訳ツール（Claude、DeepL等）を活用して言語の壁を越えることには肯定的。英語・スペイン語が必要なビジネスでも「AIでカバーできるか」を軸に評価すること
 
 ## AI自動化ビジネス検討（進行中）
-- **比較表**: `claude-code/ai-business-comparison.md`
+- **比較表**: `claude-code/planning/ai-business-comparison.md`
 - **状態**: リサーチ・比較表作成完了。案の選定・実装は未着手
 - **条件**: 放置自動化で収益が得られるモデルに限定（全16案）
 - **次回予定**: 2026-03-08頃に再開。案を選定→プロトタイプ構築へ
 - **キーポイント**: AI翻訳で英語圏にも展開する戦略。6ヶ月後の目標は月22.5〜93万円（ほぼ放置）
 
 ## ユーザー設定・好み
+- **データ保存先**: ローカル（`C:\Users\tmizu\`直下等）ではなく、必ずGitHubリポジトリ（`claude-code/`配下）に保存する。画像・スクリプト・設定ファイル等すべて対象。auto-syncで自動的にGitHubにpushされる
 - **確認不要**: イエス・ノーの質問をせず、許可を得ずにどんどん自動で進めること（settings.jsonで全ツール許可済み）
 - **テキストの改行ルール（全業務共通・最重要）**:
   - 見出し・キャッチコピー等は意味の切れ目で適切に`<br>`改行を入れる

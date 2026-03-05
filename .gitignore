@@ -1,5 +1,8 @@
-# WordPress認証情報
-nambei-oyaji/config/wp-credentials.json
+# 認証情報・シークレット
+**/secrets.json
+**/wp-credentials.json
+**/credentials/
+**/service-account.json
 
-# Google Sheetsサービスアカウント
-sheets-sync/credentials/
+# ログ
+auto-sync.log
