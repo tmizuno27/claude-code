@@ -2,14 +2,22 @@
 """
 WordPress自動投稿スクリプト
 
-Markdown記事をWordPressにドラフト投稿する。
-オーナーはWP管理画面で確認→「公開」ボタンを押すだけ。
+Markdown記事をWordPressに投稿する。
+デフォルトはドラフト投稿。--status publish で即時公開。
+
+使い方:
+  python wp_publisher.py                          # 全未投稿をドラフト投稿
+  python wp_publisher.py --status publish          # 全未投稿を即時公開
+  python wp_publisher.py --status publish --limit 1  # 1記事だけ即時公開
+  python wp_publisher.py --dry-run                 # 投稿せずにプレビュー
 """
 
+import argparse
 import json
 import logging
 import re
 import sys
+import urllib.request
 from base64 import b64encode
 from datetime import datetime
 from pathlib import Path
@@ -118,8 +126,8 @@ def markdown_to_html(md_text):
     return markdown.markdown(md_text, extensions=extensions)
 
 
-def publish_to_wordpress(config, article):
-    """記事をWordPressにドラフト投稿する"""
+def publish_to_wordpress(config, article, status="draft"):
+    """記事をWordPressに投稿する"""
     wp_config = config["wordpress"]
     url = f"{wp_config['rest_api_url']}/posts"
 
@@ -139,10 +147,10 @@ def publish_to_wordpress(config, article):
     post_data = {
         "title": title,
         "content": html_content,
-        "status": wp_config.get("default_status", "draft"),
+        "status": status,
     }
 
-    logger.info(f"投稿中: {title}")
+    logger.info(f"投稿中 (status={status}): {title}")
 
     response = requests.post(url, headers=headers, json=post_data, timeout=30)
 
@@ -154,16 +162,37 @@ def publish_to_wordpress(config, article):
             "keyword": keyword,
             "url": post["link"],
             "edit_url": f"{wp_config['url']}/wp-admin/post.php?post={post['id']}&action=edit",
-            "status": "draft",
+            "status": status,
             "source_file": article["relative_path"],
             "published_at": datetime.now().isoformat()
         }
-        logger.info(f"投稿成功! ID: {post['id']}")
-        logger.info(f"  編集URL: {result['edit_url']}")
+        logger.info(f"投稿成功! ID: {post['id']} (status: {status})")
+        logger.info(f"  URL: {result['url']}")
         return result
     else:
         logger.error(f"投稿失敗: {response.status_code} - {response.text}")
         return None
+
+
+def notify_discord(message):
+    """Discord Webhookで通知を送信"""
+    try:
+        settings_file = CONFIG_PATH
+        with open(settings_file, "r", encoding="utf-8") as f:
+            settings = json.load(f)
+        webhook_url = settings.get("discord", {}).get("webhook_url")
+        if not webhook_url:
+            return
+        payload = json.dumps({"content": message}).encode("utf-8")
+        req = urllib.request.Request(
+            webhook_url,
+            data=payload,
+            headers={"Content-Type": "application/json", "User-Agent": "BlogPublisher/1.0"},
+        )
+        urllib.request.urlopen(req)
+        logger.info("Discord通知を送信しました")
+    except Exception as e:
+        logger.warning(f"Discord通知の送信に失敗: {e}")
 
 
 def main():
