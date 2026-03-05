@@ -47,7 +47,19 @@
     "role": "初期のメイン集客チャネル。SEOが効くまでの6ヶ月間は最重要",
     "daily_posts": 3,
     "auto_post_script": "scripts/x_auto_post.py",
-    "posting_times_jst": ["07:30", "12:00", "20:00"]
+    "posting_times_jst": {
+      "weekday": {
+        "morning": "07:00-08:00 (中心07:30 ±30分ランダム)",
+        "noon": "11:30-12:30 (中心12:00 ±30分ランダム)",
+        "evening": "20:30-21:30 (中心21:00 ±30分ランダム)"
+      },
+      "weekend_holiday": {
+        "morning": "09:00-10:00 (中心09:30 ±30分ランダム)",
+        "noon": "11:30-12:30 (中心12:00 ±30分ランダム)",
+        "evening": "20:30-21:30 (中心21:00 ±30分ランダム)"
+      },
+      "note": "Task Schedulerがベース時刻で発火→PS1で0-60分ランダム遅延。土日祝の朝は+2hシフト。祝日判定はjp-holidays.jsonを参照"
+    }
   },
   "discord": {
     "webhook_url": "https://discord.com/api/webhooks/1479163439627636748/O7qkAFxrN1rLMJ8zOn3SRx6SZfNBjnxzpdJnbHNZYmcNH3OIA_Ou_DU1E7oNAt_yCzHP",

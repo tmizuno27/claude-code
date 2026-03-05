@@ -5117,3 +5117,6 @@
 [2026-03-05 14:20:34] Commit OK
 [2026-03-05 14:20:34] Push OK - synced to GitHub
 [2026-03-05 14:21:35] Changes detected:  M auto-sync.log  M blog/scripts/x_auto_post.py ?? blog/config/jp-holidays.json
+[2026-03-05 14:21:35] Commit OK
+[2026-03-05 14:21:35] Push OK - synced to GitHub
+[2026-03-05 14:22:35] Changes detected:  M auto-sync.log  M blog/config/settings.json
