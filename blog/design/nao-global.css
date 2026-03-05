@@ -1346,13 +1346,9 @@ html { scroll-behavior: smooth; }
   .nao-home, .nao-page { padding-bottom: 80px; }
 
   /* =============================================
-     3. Global Nav
+     3. Global Nav（デスクトップ版を非表示にする）
      ============================================= */
-  .nao-globalnav { height: 44px; }
-  .nao-globalnav-inner { padding: 0 16px; }
-  .nao-globalnav-logo { font-size: 14px; }
-  .nao-globalnav-links { gap: 16px; }
-  .nao-globalnav-links a { font-size: 11px; }
+  .nao-globalnav { display: none !important; }
   body.admin-bar header.wp-block-template-part { top: 0; }
 
   /* =============================================
