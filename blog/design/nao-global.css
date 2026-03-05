@@ -1217,11 +1217,13 @@ footer.wp-block-template-part .wp-block-group {
 
 html { scroll-behavior: smooth; }
 
-/* @mobile */
 /* ============================================
-   MOBILE (768px and below)
+   MOBILE — 768px and below
+   スマホファースト・Apple品質のモバイル体験
    ============================================ */
+@media (max-width: 768px) {
 
+  /* --- Mobile Header & Bottom Bar --- */
   .nao-m-header {
     display: flex;
     align-items: center;
@@ -1229,203 +1231,433 @@ html { scroll-behavior: smooth; }
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(255,255,255,.8);
+    background: rgba(255,255,255,.88);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(0,0,0,.08);
+    padding: 14px 20px;
+    border-bottom: 0.5px solid rgba(0,0,0,.06);
   }
-  .nao-m-header img { height: 20px; width: auto; }
-  .nao-m-header-nav { display: flex; gap: 16px; }
+  .nao-m-header img { height: 18px; width: auto; }
+  .nao-m-header-nav { display: flex; gap: 18px; }
   .nao-m-header-nav a {
     color: var(--text-tertiary);
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 400;
     text-decoration: none;
   }
+
   .nao-m-bottom {
     display: flex;
     position: fixed;
     bottom: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(255,255,255,.92);
+    background: rgba(255,255,255,.94);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
     padding: 10px 16px;
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
-    border-top: 1px solid rgba(0,0,0,.08);
+    border-top: 0.5px solid rgba(0,0,0,.06);
     gap: 8px;
   }
   .nao-m-bottom a {
     flex: 1;
     text-align: center;
-    padding: 10px 0;
+    padding: 12px 0;
     border-radius: 980px;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
     text-decoration: none;
-    min-height: 44px;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .nao-m-bottom .nao-m-btn-primary { background: var(--btn-blue); color: #fff; }
   .nao-m-bottom .nao-m-btn-ghost { background: var(--bg-gray); color: var(--text-primary); }
-  .nao-home, .nao-page { padding-bottom: 72px; }
 
-  /* Hero */
-  .nao-hero { padding: 80px 0 60px; min-height: auto; }
-  .nao-hero-logo { max-width: 480px; width: 92%; margin-bottom: 24px; border-radius: 14px; }
-  .nao-hero-eyebrow { font-size: 14px; }
-  .nao-hero h1 { font-size: 44px; letter-spacing: -.02em; }
+  /* ボトムバー分の余白 */
+  .nao-home, .nao-page { padding-bottom: 80px; }
+
+  /* --- Global Nav --- */
+  .nao-globalnav { height: 44px; }
+  .nao-globalnav-inner { padding: 0 16px; }
+  .nao-globalnav-logo { font-size: 14px; }
+  .nao-globalnav-links { gap: 16px; }
+  .nao-globalnav-links a { font-size: 11px; }
+  body.admin-bar header.wp-block-template-part { top: 0; }
+
+  /* --- 改行制御（モバイルでは不要な<br>を非表示） --- */
+  .nao-hero h1 br,
+  .nao-hero-sub br { display: none; }
+  .nao-headline br { display: none; }
+  .nao-subhead br { display: none; }
+  .nao-showcase-card h3 br { display: inline; }
+
+  /* --- Hero --- */
+  .nao-hero {
+    padding: 56px 0 48px;
+    min-height: auto;
+    background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 60%, #e8e8ed 100%);
+  }
+  .nao-hero-content { padding: 0 20px 0; }
+  .nao-hero-logo {
+    max-width: 320px;
+    width: 85%;
+    margin-bottom: 20px;
+    border-radius: 12px;
+  }
+  .nao-hero-eyebrow {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    letter-spacing: .01em;
+    margin-bottom: 10px;
+  }
+  .nao-hero h1 {
+    font-size: 36px;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+  }
   .nao-gradient-text {
     background: none;
     -webkit-text-fill-color: var(--text-primary);
   }
-  .nao-hero-sub { font-size: 17px; margin-top: 16px; max-width: 100%; }
+  .nao-hero-sub {
+    font-size: 15px;
+    margin-top: 14px;
+    max-width: 100%;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
   .nao-hero-links { gap: 20px; margin-top: 16px; }
   .nao-hero-links .nao-link { font-size: 17px; }
-  .nao-hero-buttons { margin-top: 28px; flex-direction: column; align-items: center; }
-  .nao-hero-buttons .nao-btn { min-width: 200px; }
+  .nao-hero-buttons {
+    margin-top: 24px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .nao-hero-buttons .nao-btn {
+    min-width: 220px;
+    padding: 14px 32px;
+  }
   .nao-scroll-indicator { display: none; }
 
-  /* Value props */
-  .nao-value-section { padding: 60px 0; }
-  .nao-value-grid { grid-template-columns: 1fr; gap: var(--card-gap); padding: 0 16px; }
-  .nao-value-card { padding: 40px 24px; }
-  .nao-value-icon { font-size: 44px; margin-bottom: 16px; }
-  .nao-value-card h3 { font-size: 21px; }
-  .nao-value-card p { font-size: 14px; }
+  /* --- Latest Articles --- */
+  .nao-post-card:hover { transform: none; }
+  .nao-post-card h3 { font-size: 15px; line-height: 1.5; }
+  .nao-post-body { padding: 14px 16px 18px; }
+  .nao-post-excerpt { font-size: 13px; -webkit-line-clamp: 2; }
+  .nao-post-date { font-size: 11px; margin-top: 10px; padding-top: 10px; }
 
-  /* Stats ribbon */
-  .nao-stats-ribbon { padding: 48px 0; }
-  .nao-stats-inner { flex-direction: column; gap: 0; padding: 0 16px; }
-  .nao-stat-item { padding: 20px 16px; }
-  .nao-stat-item:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border-light); }
-  .nao-stat-number { font-size: 56px; }
-  .nao-stat-unit { font-size: 28px; }
-  .nao-stat-desc { font-size: 14px; }
+  /* --- Value Props --- */
+  .nao-value-section { padding: 48px 0; }
+  .nao-value-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  .nao-value-card {
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .nao-value-icon { font-size: 40px; margin-bottom: 12px; }
+  .nao-value-card h3 { font-size: 19px; margin-bottom: 8px; }
+  .nao-value-card p { font-size: 13px; line-height: 1.6; }
 
-  /* Sections */
-  .nao-section { padding: 64px 0; }
-  .nao-section-inner { padding: 0 24px; }
-  .nao-headline { font-size: 32px; }
-  .nao-subhead { font-size: 17px; margin-top: 8px; }
-  .nao-eyebrow { font-size: 12px; }
+  /* --- Stats Ribbon --- */
+  .nao-stats-ribbon { padding: 40px 0; }
+  .nao-stats-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0 20px;
+  }
+  .nao-stat-item {
+    flex: 1 1 33%;
+    padding: 16px 8px;
+    min-width: 0;
+  }
+  .nao-stat-item:not(:last-child) {
+    border-right: 1px solid var(--border-light);
+    border-bottom: none;
+  }
+  .nao-stat-number { font-size: 36px; }
+  .nao-stat-unit { font-size: 18px; }
+  .nao-stat-desc { font-size: 11px; margin-top: 4px; }
 
-  /* Stats */
-  .nao-stats { gap: 20px; flex-wrap: wrap; }
-  .nao-stat-num { font-size: 32px; }
+  /* --- Sections 共通 --- */
+  .nao-section { padding: 56px 0; }
+  .nao-section-inner { padding: 0 20px; }
+  .nao-headline {
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+  }
+  .nao-subhead {
+    font-size: 15px;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  .nao-eyebrow { font-size: 12px; letter-spacing: .08em; }
+
+  /* --- Stats (legacy) --- */
+  .nao-stats { gap: 16px; flex-wrap: wrap; }
+  .nao-stat-num { font-size: 28px; }
   .nao-stat-label { font-size: 11px; }
 
-  /* Tiles */
-  .nao-grid { margin-top: 28px; gap: var(--card-gap); padding: 0; }
-  .nao-grid--2, .nao-grid--3 { grid-template-columns: 1fr; }
-  .nao-tile { border-radius: var(--card-radius); padding: 36px 24px 32px; }
-  .nao-tile:hover { transform: none; }
-  .nao-tile-icon { font-size: 40px; margin-bottom: 12px; }
-  .nao-tile h3 { font-size: 20px; }
-  .nao-tile p { font-size: 14px; }
+  /* --- Tiles (トピック) --- */
+  .nao-grid {
+    margin-top: 24px;
+    gap: 10px;
+    padding: 0;
+  }
+  .nao-grid--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nao-grid--2 {
+    grid-template-columns: 1fr;
+  }
+  .nao-tile {
+    border-radius: 14px;
+    padding: 28px 16px 24px;
+  }
+  .nao-tile:hover { transform: none; box-shadow: none; }
+  .nao-tile-icon { font-size: 32px; margin-bottom: 8px; }
+  .nao-tile h3 {
+    font-size: 16px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .nao-tile p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .nao-tile p br { display: none; }
+  .nao-tile .nao-link { font-size: 13px; margin-top: 8px; }
 
-  /* Showcase */
+  /* --- Showcase Cards (2〜3本柱) --- */
   .nao-showcase-card {
-    min-height: 380px;
-    padding: 36px 24px 32px;
-    border-radius: var(--card-radius);
+    min-height: auto;
+    padding: 28px 20px 24px;
+    border-radius: 14px;
   }
   .nao-showcase-card:hover { transform: none; }
-  .nao-showcase-emoji { font-size: 48px; margin-bottom: 16px; }
-  .nao-showcase-card h3 { font-size: 28px; }
-  .nao-showcase-card > p { font-size: 14px; }
-  .nao-showcase-list li { font-size: 14px; padding: 10px 0; }
+  .nao-showcase-emoji { font-size: 36px; margin-bottom: 12px; }
+  .nao-showcase-card h3 {
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .nao-showcase-card > p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .nao-showcase-card > p br { display: none; }
+  .nao-showcase-list li {
+    font-size: 13px;
+    padding: 8px 0;
+  }
+  .nao-card-link {
+    font-size: 15px;
+    margin-top: 16px;
+  }
 
-  /* About */
+  /* --- About --- */
   .nao-about-inner {
     flex-direction: column;
     text-align: center;
-    gap: 28px;
-    padding: 0 24px;
+    gap: 24px;
+    padding: 0 20px;
   }
-  .nao-about-avatar { width: 140px; height: 140px; }
-  .nao-about-text h2 { font-size: 28px; }
-  .nao-about-text p { font-size: 17px; }
-  .nao-about-tags { justify-content: center; }
-  .nao-about-tag { font-size: 12px; padding: 6px 14px; }
+  .nao-about-avatar { width: 120px; height: 120px; }
+  .nao-about-text h2 { font-size: 26px; margin-bottom: 14px; }
+  .nao-about-text p {
+    font-size: 15px;
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  .nao-about-text p br { display: none; }
+  .nao-about-tags { justify-content: center; gap: 8px; }
+  .nao-about-tag {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
 
-  /* Log */
-  .nao-log-timeline { margin-top: 28px; }
-  .nao-log-item { padding: 24px 0; }
-  .nao-log-item h4 { font-size: 19px; }
-  .nao-log-item p { font-size: 14px; }
+  /* --- Experiment Log --- */
+  .nao-log-timeline {
+    margin-top: 24px;
+    padding: 0 4px;
+  }
+  .nao-log-item { padding: 20px 0; }
+  .nao-log-date { font-size: 12px; }
+  .nao-log-item h4 { font-size: 18px; }
+  .nao-log-item p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .nao-log-item p br { display: none; }
 
-  /* CTA */
-  .nao-cta { padding: 56px 0; }
-  .nao-cta h2 { font-size: 32px; }
-  .nao-cta p { font-size: 17px; margin-bottom: 24px; }
-  .nao-cta-buttons { flex-direction: column; align-items: center; }
-  .nao-cta-buttons .nao-btn { width: 100%; max-width: 320px; }
-  .nao-cta-inner { padding: 0 24px; }
-  .nao-about-cta { padding: 56px 22px; }
-  .nao-about-cta h2 { font-size: 28px; }
-  .nao-about-cta p { font-size: 17px; }
+  /* --- CTA --- */
+  .nao-cta { padding: 48px 0; }
+  .nao-cta h2 { font-size: 28px; }
+  .nao-cta p { font-size: 15px; margin-bottom: 24px; }
+  .nao-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .nao-cta-buttons .nao-btn {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px 24px;
+  }
+  .nao-cta-inner { padding: 0 20px; }
+  .nao-about-cta { padding: 48px 20px; }
+  .nao-about-cta h2 { font-size: 26px; }
+  .nao-about-cta p { font-size: 15px; }
 
-  /* Family */
+  /* --- Family Banner --- */
   .nao-family-banner { padding: 0; }
   .nao-family-img { border-radius: 0; box-shadow: none; }
 
-  /* Profile */
-  .nao-profile-hero { padding: 48px 22px; }
-  .nao-profile-avatar { width: 100px; height: 100px; margin-bottom: 20px; }
-  .nao-profile-hero h1 { font-size: 32px; }
-  .nao-profile-hero .nao-subtitle { font-size: 17px; }
+  /* --- Profile --- */
+  .nao-profile-hero { padding: 40px 20px; }
+  .nao-profile-avatar { width: 96px; height: 96px; margin-bottom: 16px; }
+  .nao-profile-hero h1 { font-size: 28px; }
+  .nao-profile-hero .nao-subtitle { font-size: 15px; }
   .nao-profile-tag { font-size: 12px; padding: 6px 14px; }
 
-  /* Bio + Career */
-  .nao-bio { padding: 48px 22px; }
-  .nao-bio h2 { font-size: 24px; margin: 36px 0 12px; }
-  .nao-career { padding: 48px 22px; }
-  .nao-career h2 { font-size: 28px; margin-bottom: 28px; }
-  .nao-career-item { flex-direction: column; gap: 2px; padding: 20px 0; }
+  /* --- Bio + Career --- */
+  .nao-bio { padding: 40px 20px; }
+  .nao-bio h2 { font-size: 22px; margin: 32px 0 10px; }
+  .nao-bio p { font-size: 15px; }
+  .nao-career { padding: 40px 20px; }
+  .nao-career h2 { font-size: 26px; margin-bottom: 24px; }
+  .nao-career-item {
+    flex-direction: column;
+    gap: 2px;
+    padding: 18px 0;
+  }
   .nao-career-year { font-size: 12px; min-width: auto; }
-  .nao-career-item h3 { font-size: 14px; }
-  .nao-career-item p { font-size: 14px; }
+  .nao-career-item h3 { font-size: 15px; }
+  .nao-career-item p { font-size: 13px; }
 
-  /* Info + Contact + Legal */
-  .nao-site-info { padding: 48px 22px; }
-  .nao-site-info h2 { font-size: 28px; margin-bottom: 24px; }
+  /* --- Info + Contact + Legal --- */
+  .nao-site-info { padding: 40px 20px; }
+  .nao-site-info h2 { font-size: 26px; margin-bottom: 20px; }
   .nao-info-grid { grid-template-columns: 1fr; gap: 8px; }
-  .nao-info-card { padding: 20px; border-radius: 14px; }
-  .nao-contact { padding: 48px 22px; }
-  .nao-contact h2 { font-size: 28px; }
-  .nao-contact > p { font-size: 14px; margin-bottom: 28px; }
-  .nao-cf { padding: 24px 20px; border-radius: 16px; }
-  .nao-fg input, .nao-fg textarea, .nao-fg select { font-size: 16px; }
-  .nao-fs { border-radius: 10px; }
-  .nao-legal, .nao-sitemap { padding: 48px 22px; }
-  .nao-legal h1, .nao-sitemap h1 { font-size: 28px; }
-  .nao-legal h2 { font-size: 19px; margin: 28px 0 10px; }
+  .nao-info-card { padding: 20px 16px; border-radius: 14px; }
+  .nao-info-card .icon { font-size: 28px; margin-bottom: 8px; }
+  .nao-info-card h3 { font-size: 15px; }
+  .nao-info-card p { font-size: 13px; }
+
+  .nao-contact { padding: 40px 20px; }
+  .nao-contact h2 { font-size: 26px; }
+  .nao-contact > p { font-size: 14px; margin-bottom: 24px; }
+  .nao-cf { padding: 24px 18px; border-radius: 14px; }
+  .nao-fg label { font-size: 13px; }
+  .nao-fg input, .nao-fg textarea, .nao-fg select {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 10px;
+  }
+  .nao-fg textarea { min-height: 120px; }
+  .nao-fs {
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 14px;
+  }
+  .nao-cn { padding: 16px; margin-top: 20px; }
+
+  .nao-legal, .nao-sitemap { padding: 40px 20px; }
+  .nao-legal h1, .nao-sitemap h1 { font-size: 26px; }
+  .nao-legal .updated { margin-bottom: 36px; }
+  .nao-legal h2 { font-size: 18px; margin: 24px 0 8px; }
   .nao-legal p, .nao-legal li { font-size: 14px; }
-  .nao-sitemap h1 { margin-bottom: 32px; }
-  .nao-sitemap-section a { font-size: 14px; }
+  .nao-sitemap h1 { margin-bottom: 28px; }
+  .nao-sitemap-section a { font-size: 15px; }
   .nao-sitemap-section .desc {
     display: block;
     margin-left: 0;
     margin-top: 4px;
     font-size: 12px;
   }
-  .nao-links-row { gap: 20px; margin-top: 16px; }
-  .nao-link { font-size: 17px; }
-  .nao-link-sm { font-size: 14px; }
 
-  /* Global Nav mobile */
-  .nao-globalnav { height: 44px; }
-  .nao-globalnav-inner { padding: 0 16px; }
-  .nao-globalnav-logo { font-size: 15px; }
-  .nao-globalnav-links { gap: 14px; }
-  .nao-globalnav-links a { font-size: 11px; }
-  body.admin-bar header.wp-block-template-part { top: 0; }
+  /* --- Links --- */
+  .nao-links-row {
+    gap: 16px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .nao-link { font-size: 15px; }
+  .nao-link-sm { font-size: 13px; }
 
-  /* Footer mobile */
-  .nao-footer-top { flex-direction: column; gap: 20px; }
-  .nao-footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .nao-footer-legal { flex-wrap: wrap; justify-content: center; gap: 12px; }
+  /* --- Footer --- */
+  .nao-footer { padding: 28px 20px 24px; }
+  .nao-footer-top {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  .nao-footer-col h4 { font-size: 12px; margin-bottom: 8px; }
+  .nao-footer-col a { font-size: 13px; line-height: 2; }
+  .nao-footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding-top: 12px;
+  }
+  .nao-footer-copy { font-size: 12px; }
+  .nao-footer-legal {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .nao-footer-legal a { font-size: 12px; }
+
+  /* --- Animations: モバイルは控えめに --- */
+  .nao-anim {
+    transform: translateY(20px);
+    transition-duration: 0.6s;
+  }
+  .nao-anim[data-anim="scale"] { transform: scale(0.98); }
+
+  /* --- Buttons 共通: タッチ最適化 --- */
+  .nao-btn {
+    min-height: 48px;
+    font-size: 15px;
+    padding: 12px 24px;
+  }
+
+  /* --- インラインstyle上書き（ホームページ固有） --- */
+  [style*="margin-top:-120px"] { margin-top: 0 !important; }
+  [style*="margin-bottom:-80px"] { margin-bottom: 0 !important; }
+  [style*="font-size:40px"] { font-size: 15px !important; font-weight: 600 !important; }
+  [style*="font-size:48px"] { font-size: 26px !important; }
+
+} /* end @media 768px */
+
+/* ============================================
+   SMALL PHONES — 375px and below
+   iPhone SE等の小型画面向け追加調整
+   ============================================ */
+@media (max-width: 375px) {
+  .nao-hero h1 { font-size: 30px; }
+  .nao-hero-sub { font-size: 14px; }
+  .nao-headline { font-size: 24px; }
+  .nao-subhead { font-size: 14px; }
+  .nao-grid--3 { grid-template-columns: 1fr; }
+  .nao-tile { padding: 24px 16px 20px; }
+  .nao-tile h3 { font-size: 16px; }
+  .nao-showcase-card h3 { font-size: 20px; }
+  .nao-stat-number { font-size: 28px; }
+  .nao-stat-unit { font-size: 14px; }
+  .nao-value-card { padding: 24px 16px; }
+  .nao-value-card h3 { font-size: 17px; }
+  .nao-about-text h2 { font-size: 22px; }
+  .nao-cta h2 { font-size: 24px; }
+}
