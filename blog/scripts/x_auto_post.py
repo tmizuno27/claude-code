@@ -15,6 +15,7 @@ import io
 import json
 import random
 import sys
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -38,6 +39,7 @@ except ImportError:
 
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
+SETTINGS_FILE = CONFIG_DIR / "settings.json"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
 X_CREDS_FILE = CONFIG_DIR / "x-credentials.json"
 LOG_DIR = Path(__file__).parent.parent / "outputs" / "social"
@@ -290,6 +292,27 @@ def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
         return None
 
 
+def notify_discord(message: str):
+    """Discord Webhookで通知を送信"""
+    try:
+        with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
+            settings = json.load(f)
+        webhook_url = settings.get("discord", {}).get("webhook_url")
+        if not webhook_url:
+            print("Discord Webhook URLが設定されていません")
+            return
+        payload = json.dumps({"content": message}).encode("utf-8")
+        req = urllib.request.Request(
+            webhook_url,
+            data=payload,
+            headers={"Content-Type": "application/json"},
+        )
+        urllib.request.urlopen(req)
+        print("Discord通知を送信しました")
+    except Exception as e:
+        print(f"WARNING: Discord通知の送信に失敗 - {e}")
+
+
 def log_post(text: str, tweet_id: str, slot: str, category: str = "auto", image: str = None):
     """投稿ログを保存"""
     LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -354,8 +377,13 @@ def main():
         log_post(text, tweet_id, args.slot, image=image_key)
         if image_key:
             mark_image_used(image_key)
+        # Discord通知（成功）
+        img_info = f"\n画像: {image_key}" if image_key else ""
+        notify_discord(f"✅ X投稿完了 ({args.slot})\n\n{text}\n\nhttps://x.com/nambei_oyaji/status/{tweet_id}{img_info}")
         print("完了")
     else:
+        # Discord通知（失敗）
+        notify_discord(f"❌ X投稿失敗 ({args.slot})\n\n{text}")
         sys.exit(1)
 
 
