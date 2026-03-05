@@ -39,7 +39,7 @@ SECRETS_FILE = CONFIG_DIR / "secrets.json"
 MEDIA_MAPPING_FILE = ASSETS_DIR / "media-mapping.json"
 
 # 画像生成モデル
-MODEL_NAME = "gemini-2.0-flash"
+MODEL_NAME = "gemini-2.5-flash-image"
 
 # デフォルトのスタイルプリセット
 STYLE_PRESETS = {
