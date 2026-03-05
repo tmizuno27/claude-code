@@ -1,0 +1,52 @@
+.nao-profile-tag{font-size:12px;padding:5px 12px;}
+.nao-bio{padding:40px 20px;}
+.nao-bio h2{font-size:22px;margin:28px 0 10px;}
+.nao-bio p{font-size:14px;}
+.nao-career{padding:40px 20px;}
+.nao-career h2{font-size:24px;margin-bottom:20px;}
+.nao-career-item{flex-direction:column;gap:2px;padding:16px 0;}
+.nao-career-year{font-size:12px;min-width:auto;}
+.nao-career-item h3{font-size:15px;}
+.nao-career-item p{font-size:13px;}
+.nao-site-info{padding:40px 20px;}
+.nao-site-info h2{font-size:24px;margin-bottom:20px;}
+.nao-info-grid{grid-template-columns:1fr;gap:8px;}
+.nao-info-card{padding:18px 16px;border-radius:14px;}
+.nao-info-card .icon{font-size:24px;margin-bottom:6px;}
+.nao-info-card h3{font-size:15px;}
+.nao-info-card p{font-size:13px;}
+.nao-contact{padding:40px 20px;}
+.nao-contact h2{font-size:24px;}
+.nao-contact > p{font-size:13px;margin-bottom:20px;}
+.nao-cf{padding:20px 16px;border-radius:14px;}
+.nao-fg{margin-bottom:18px;}
+.nao-fg label{font-size:13px;}
+.nao-fg input,.nao-fg textarea,.nao-fg select{font-size:16px;padding:11px 12px;border-radius:10px;}
+.nao-fg textarea{min-height:120px;}
+.nao-fs{border-radius:10px;font-size:16px;padding:14px;}
+.nao-cn{padding:14px;margin-top:16px;}
+.nao-cn h3{font-size:13px;}
+.nao-cn p{font-size:13px;}
+.nao-legal,.nao-sitemap{padding:40px 20px;}
+.nao-legal h1,.nao-sitemap h1{font-size:24px;}
+.nao-legal .updated{margin-bottom:32px;}
+.nao-legal h2{font-size:18px;margin:24px 0 8px;}
+.nao-legal p,.nao-legal li{font-size:14px;}
+.nao-sitemap h1{margin-bottom:24px;}
+.nao-sitemap-section a{font-size:14px;}
+.nao-sitemap-section .desc{display:block;margin-left:0;margin-top:4px;font-size:12px;}
+.nao-links-row{gap:16px;margin-top:12px;flex-wrap:wrap;}
+.nao-link{font-size:14px;}
+.nao-link-sm{font-size:13px;}
+.nao-footer{padding:24px 20px 20px;}
+.nao-footer-top{flex-direction:column;gap:16px;padding-bottom:16px;}
+.nao-footer-col h4{font-size:12px;margin-bottom:6px;}
+.nao-footer-col a{font-size:12px;line-height:2;}
+.nao-footer-bottom{flex-direction:column;gap:6px;text-align:center;padding-top:12px;}
+.nao-footer-copy{font-size:11px;}
+.nao-footer-legal{flex-wrap:wrap;justify-content:center;gap:8px;}
+.nao-footer-legal a{font-size:11px;}
+.nao-anim{transform:translateY(16px);transition-duration:0.5s;}
+.nao-anim[data-anim="scale"]{transform:scale(0.98);}
+.nao-btn{min-height:48px;font-size:15px;padding:12px 24px;}
+}
