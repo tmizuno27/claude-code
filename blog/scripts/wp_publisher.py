@@ -197,7 +197,17 @@ def notify_discord(message):
 
 def main():
     """メイン処理"""
+    parser = argparse.ArgumentParser(description="WordPress自動投稿スクリプト")
+    parser.add_argument("--status", default="draft", choices=["draft", "publish"],
+                        help="投稿ステータス: draft(下書き) / publish(即時公開)")
+    parser.add_argument("--limit", type=int, default=0,
+                        help="投稿する記事数の上限 (0=全件)")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="投稿せずにプレビューのみ")
+    args = parser.parse_args()
+
     logger.info("=== WordPress自動投稿スクリプト開始 ===")
+    logger.info(f"  ステータス: {args.status} / 上限: {'全件' if args.limit == 0 else f'{args.limit}件'}")
 
     # 設定読み込み
     try:
@@ -218,18 +228,30 @@ def main():
         logger.info("未投稿の記事はありません。")
         return
 
-    logger.info(f"未投稿の記事: {len(articles)}件")
+    # limit が指定されている場合は制限
+    if args.limit > 0:
+        articles = articles[:args.limit]
+
+    logger.info(f"投稿対象の記事: {len(articles)}件")
+
+    if args.dry_run:
+        for article in articles:
+            title = article["front_matter"].get("title", "無題")
+            logger.info(f"  [DRY RUN] {title} → {args.status}")
+        return
 
     # 投稿履歴の読み込み
     wp_log = load_wp_log()
 
     # 各記事を投稿
     success_count = 0
+    published_posts = []
     for article in articles:
         try:
-            result = publish_to_wordpress(config, article)
+            result = publish_to_wordpress(config, article, status=args.status)
             if result:
                 wp_log["posts"].append(result)
+                published_posts.append(result)
                 success_count += 1
         except requests.RequestException as e:
             logger.error(f"ネットワークエラー: {e}")
@@ -241,10 +263,19 @@ def main():
 
     # サマリー
     logger.info(f"\n=== 結果サマリー ===")
-    logger.info(f"投稿成功: {success_count}/{len(articles)}件")
-    if success_count > 0:
+    logger.info(f"投稿成功: {success_count}/{len(articles)}件 (status: {args.status})")
+
+    # Discord通知
+    if success_count > 0 and args.status == "publish":
+        for post in published_posts:
+            notify_discord(
+                f"📝 ブログ記事を公開しました\n\n"
+                f"**{post['title']}**\n"
+                f"{post['url']}"
+            )
+    elif success_count > 0:
         logger.info(f"\nWordPress管理画面でドラフトを確認し、「公開」ボタンを押してください。")
-        for post in wp_log["posts"][-success_count:]:
+        for post in published_posts:
             logger.info(f"  → {post['title']}")
             logger.info(f"    編集: {post['edit_url']}")
 
