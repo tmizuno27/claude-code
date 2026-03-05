@@ -39,8 +39,6 @@ seo_notes: |
   <li><a href="#子どもの心理面のケア">子どもの心理面のケア</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#子連れ移住やって後悔はない">子連れ移住、やって後悔はない</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

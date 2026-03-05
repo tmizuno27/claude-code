@@ -50,8 +50,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#半年後に変わったこと">半年後に変わったこと</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#holaから始めよう">「Hola!」から始めよう</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

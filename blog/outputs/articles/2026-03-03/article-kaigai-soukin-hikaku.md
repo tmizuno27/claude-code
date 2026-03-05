@@ -46,8 +46,6 @@ seo_notes: |
   <li><a href="#sony-bank-walletとの併用">Sony Bank WALLETとの併用</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#アカウント開設は無料試すのはタダ">アカウント開設は無料、試すのはタダ</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

@@ -52,8 +52,6 @@ seo_notes: |
   <li><a href="#パラグアイから実際に稼いでみた感想">パラグアイから実際に稼いでみた感想</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#まず一歩を踏み出すなら">まず一歩を踏み出すなら</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

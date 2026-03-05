@@ -32,8 +32,6 @@ seo_notes: |
   <li><a href="#収入を安定させるために私がやっていること">収入を安定させるために私がやっていること</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#数字を知った上で判断してほしい">数字を知った上で判断してほしい</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

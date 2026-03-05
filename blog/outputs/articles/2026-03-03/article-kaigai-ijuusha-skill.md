@@ -44,8 +44,6 @@ seo_notes: |
   <li><a href="#あると便利だけど必須ではないスキル">「あると便利」だけど必須ではないスキル</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#移住前の準備が移住後の生活を決める">移住前の準備が移住後の生活を決める</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

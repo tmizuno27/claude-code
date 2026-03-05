@@ -48,8 +48,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#リスク">リスク</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#パラグアイ不動産は情報格差が大きい">パラグアイ不動産は「情報格差」が大きい</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

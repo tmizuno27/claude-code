@@ -58,8 +58,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#私のお金の流れ">私のお金の流れ</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#銀行口座は移住生活の土台になる">銀行口座は移住生活の土台になる</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用メタ情報">Rank Math 設定用メタ情報</a></li>
 </ol>
 </nav>
 </details>

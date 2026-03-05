@@ -59,8 +59,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#失敗5到着後の住居が決まっていない">失敗5：到着後の住居が決まっていない</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#永住権取得は日本での書類準備が9割">永住権取得は「日本での書類準備」が9割</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

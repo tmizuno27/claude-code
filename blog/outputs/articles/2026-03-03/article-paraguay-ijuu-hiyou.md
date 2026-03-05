@@ -70,8 +70,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#3.-一時帰国の費用年間20〜30万円">3. 一時帰国の費用：年間20〜30万円</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#パラグアイ移住はお金の心配が少ない移住先">パラグアイ移住は「お金の心配」が少ない移住先</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

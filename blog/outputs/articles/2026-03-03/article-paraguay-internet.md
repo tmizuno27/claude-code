@@ -42,8 +42,6 @@ seo_notes: |
   <li><a href="#デメリット正直に書いておくこと">デメリット：正直に書いておくこと</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#パラグアイのネット環境総評">パラグアイのネット環境：総評</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

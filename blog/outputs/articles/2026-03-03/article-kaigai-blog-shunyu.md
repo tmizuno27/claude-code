@@ -40,8 +40,6 @@ seo_notes: |
   <li><a href="#サーバー選びのポイント">サーバー選びのポイント</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#ブログは海外在住者の不労所得マシン">ブログは海外在住者の「不労所得マシン」</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

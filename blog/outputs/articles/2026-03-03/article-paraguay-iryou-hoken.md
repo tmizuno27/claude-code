@@ -35,8 +35,6 @@ seo_notes: |
   <li><a href="#正直パラグアイの医療をどう感じているか">正直、パラグアイの医療をどう感じているか</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#まずは保険に入ること話はそこから">まずは保険に入ること。話はそこから</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

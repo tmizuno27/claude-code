@@ -43,8 +43,6 @@ seo_notes: |
   <li><a href="#始めるためのロードマップ">始めるためのロードマップ</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#時差を味方にする翌朝完了の事務代行">時差を味方にする「翌朝完了」の事務代行</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

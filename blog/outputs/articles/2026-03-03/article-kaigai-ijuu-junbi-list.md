@@ -48,8 +48,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#到着後1ヶ月以内">到着後1ヶ月以内</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#準備はリストがあれば怖くない">準備はリストがあれば怖くない</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

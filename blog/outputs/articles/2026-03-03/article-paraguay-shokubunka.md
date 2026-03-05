@@ -42,8 +42,6 @@ seo_notes: |
   <li><a href="#正直なデメリット気になる点">正直なデメリット・気になる点</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#パラグアイの食文化まとめ">パラグアイの食文化まとめ</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

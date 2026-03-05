@@ -36,8 +36,6 @@ seo_notes: |
   <li><a href="#注意点デメリット">注意点・デメリット</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#パラグアイの治安は知識で乗り越えられる">パラグアイの治安は「知識」で乗り越えられる</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

@@ -55,8 +55,6 @@ seo_notes: |
   <li><a href="#国選びの判断基準何を優先するかで決める">国選びの判断基準：何を優先するかで決める</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#海外ノマドの第一歩は住んでみること">海外ノマドの第一歩は「住んでみること」</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>

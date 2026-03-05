@@ -35,15 +35,31 @@ def slugify(text: str) -> str:
     return text
 
 
+def should_exclude(text: str) -> bool:
+    """目次から除外すべき見出しかチェック。"""
+    for pattern in EXCLUDE_HEADINGS:
+        if pattern in text:
+            return True
+    return False
+
+
 def extract_headings(content: str) -> list:
-    """Markdown本文からH2/H3見出しを抽出する（既存のspan/TOCを除外）。"""
+    """Markdown本文からH2/H3見出しを抽出する（メタ系セクション除外）。"""
     headings = []
+    exclude_mode = False
     for line in content.split('\n'):
         m = re.match(r'^(#{2,3})\s+(.+)$', line)
         if m:
             level = len(m.group(1))
             text = m.group(2).strip()
-            headings.append((level, text))
+            # 除外対象のH2以降はすべて除外
+            if level == 2 and should_exclude(text):
+                exclude_mode = True
+                continue
+            if level == 2:
+                exclude_mode = False
+            if not exclude_mode:
+                headings.append((level, text))
     return headings
 
 

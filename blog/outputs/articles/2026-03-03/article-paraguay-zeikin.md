@@ -46,8 +46,6 @@ seo_notes: |
   <li class="toc-h3"><a href="#節税目的だけの移住は長続きしない">「節税目的だけの移住」は長続きしない</a></li>
   <li><a href="#よくある質問faq">よくある質問（FAQ）</a></li>
   <li><a href="#総合評価税金の安さはパラグアイ移住の理由のひとつ">総合評価：税金の安さはパラグアイ移住の「理由のひとつ」</a></li>
-  <li><a href="#著者プロフィール">著者プロフィール</a></li>
-  <li><a href="#rank-math-設定用">Rank Math 設定用</a></li>
 </ol>
 </nav>
 </details>
