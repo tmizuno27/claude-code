@@ -71,7 +71,7 @@
       "days_jst": ["Monday", "Thursday"],
       "time_jst": "06:00-07:00 (中心06:30 ±30分ランダム)",
       "holiday_skip": true,
-      "pipeline": "article_generator.py → wp_publisher.py --status publish --limit 1",
+      "pipeline": "article_generator.py → blog_image_pipeline.py --limit 1 → wp_publisher.py --status publish --limit 1 → create_article_sheet.py",
       "note": "月曜=PV最多日(43%), 木曜=被リンク獲得最適日。朝6時台公開→9-10時のPVピークにインデックス済み",
       "task_scheduler": "BlogAutoPublish (毎日PYT 18:00発火、PS1で月木のみ実行)"
     },
