@@ -1218,6 +1218,138 @@ footer.wp-block-template-part .wp-block-group {
 html { scroll-behavior: smooth; }
 
 /* ============================================
+   ARTICLE — 記事本文の視覚エンゲージメント装飾
+   収益化のための太字ハイライト・CTA・見出しボーダー等
+   ============================================ */
+
+/* --- 太字 → 蛍光マーカー風ハイライト --- */
+body.single .entry-content strong,
+body.single .nao-page strong {
+  font-weight: 700 !important;
+  background: linear-gradient(transparent 60%, #fff9c4 60%) !important;
+  padding: 0 2px !important;
+}
+
+/* --- リンク装飾強化 --- */
+body.single .entry-content a:not(.nao-btn):not(.wp-block-button__link),
+body.single .nao-page a:not(.nao-btn) {
+  color: #0066CC !important;
+  text-decoration: none !important;
+  background-image: linear-gradient(#0066CC, #0066CC) !important;
+  background-size: 100% 1px !important;
+  background-position: 0 100% !important;
+  background-repeat: no-repeat !important;
+  transition: color 0.2s ease, background-size 0.2s ease !important;
+}
+body.single .entry-content a:not(.nao-btn):not(.wp-block-button__link):hover,
+body.single .nao-page a:not(.nao-btn):hover {
+  color: #0077ED !important;
+  background-image: linear-gradient(#0077ED, #0077ED) !important;
+  background-size: 100% 2px !important;
+}
+
+/* --- CTA自動ボタン化（段落内に単独リンク） --- */
+body.single .entry-content p > a:only-child:not(.nao-btn):not(.wp-block-button__link),
+body.single .nao-page p > a:only-child:not(.nao-btn) {
+  display: inline-block !important;
+  background: #0071e3 !important;
+  background-image: none !important;
+  color: #fff !important;
+  padding: 14px 32px !important;
+  border-radius: 980px !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  transition: background 0.3s ease, transform 0.2s ease !important;
+  margin: 8px 0 !important;
+}
+body.single .entry-content p > a:only-child:not(.nao-btn):not(.wp-block-button__link):hover,
+body.single .nao-page p > a:only-child:not(.nao-btn):hover {
+  background: #0077ED !important;
+  transform: scale(1.02) !important;
+  color: #fff !important;
+}
+
+/* --- H2: 下ボーダーライン --- */
+body.single .entry-content h2,
+body.single .nao-page h2 {
+  padding-bottom: 16px !important;
+  border-bottom: 3px solid #0071e3 !important;
+}
+
+/* --- H3: 左ボーダーライン --- */
+body.single .entry-content h3,
+body.single .nao-page h3 {
+  padding-left: 38px !important;
+  border-left: 4px solid #0071e3 !important;
+}
+
+/* --- リスト装飾: 青丸 --- */
+body.single .entry-content > ul,
+body.single .nao-page ul {
+  list-style: none !important;
+}
+body.single .entry-content > ul li::before,
+body.single .nao-page ul li::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: #0071e3 !important;
+  border-radius: 50% !important;
+  margin-right: 10px !important;
+  margin-left: -18px !important;
+  vertical-align: middle !important;
+}
+
+/* --- 番号リスト: 青丸白抜き数字 --- */
+body.single .entry-content > ol,
+body.single .nao-page ol {
+  list-style: none !important;
+  counter-reset: nao-ol !important;
+}
+body.single .entry-content > ol li,
+body.single .nao-page ol li {
+  counter-increment: nao-ol !important;
+}
+body.single .entry-content > ol li::before,
+body.single .nao-page ol li::before {
+  content: counter(nao-ol) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 24px !important;
+  height: 24px !important;
+  background: #0071e3 !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  margin-right: 10px !important;
+  margin-left: -34px !important;
+  vertical-align: middle !important;
+  flex-shrink: 0 !important;
+}
+
+/* --- テーブル: ダークブルーヘッダー --- */
+body.single .entry-content table thead,
+body.single .nao-page table thead,
+body.single .wp-block-table table thead {
+  background: #1d3557 !important;
+}
+body.single .entry-content table th,
+body.single .nao-page table th,
+body.single .wp-block-table table th {
+  color: #fff !important;
+  background: #1d3557 !important;
+}
+body.single .entry-content table tr:nth-child(even) td,
+body.single .nao-page table tr:nth-child(even) td,
+body.single .wp-block-table table tr:nth-child(even) td {
+  background: #f8f9fa !important;
+}
+
+/* ============================================
    MOBILE — 768px以下
    全セクション完全対応・インラインstyle強制上書き
    ============================================ */
@@ -1746,6 +1878,35 @@ html { scroll-behavior: smooth; }
     min-height: 48px;
     font-size: 15px;
     padding: 12px 24px;
+  }
+
+  /* =============================================
+     22. 記事装飾モバイル調整
+     ============================================= */
+
+  /* H3左ボーダー: パディング調整 */
+  body.single .entry-content h3,
+  body.single .nao-page h3 {
+    padding-left: 28px !important;
+  }
+
+  /* CTA自動ボタン: フル幅 */
+  body.single .entry-content p > a:only-child:not(.nao-btn):not(.wp-block-button__link),
+  body.single .nao-page p > a:only-child:not(.nao-btn) {
+    display: block !important;
+    text-align: center !important;
+    padding: 14px 24px !important;
+    font-size: 15px !important;
+    margin: 8px 16px !important;
+  }
+
+  /* 番号リスト: マージン調整 */
+  body.single .entry-content > ol li::before,
+  body.single .nao-page ol li::before {
+    width: 22px !important;
+    height: 22px !important;
+    font-size: 12px !important;
+    margin-left: -30px !important;
   }
 
 } /* end @media 768px */
