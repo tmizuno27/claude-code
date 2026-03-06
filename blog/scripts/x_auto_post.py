@@ -49,19 +49,19 @@ TAGS_FILE = PHOTOS_DIR / "tags.json"
 # 時間帯ごとのカテゴリ設定
 SLOT_CONFIG = {
     "morning": {
-        "categories": ["実験報告", "AI Tips"],
-        "weights": [0.5, 0.5],
-        "description": "朝の投稿（JST 7:00-8:00）通勤時間帯、情報収集モード",
+        "categories": ["パラグアイ生活Tips", "移住準備・手続き"],
+        "weights": [0.6, 0.4],
+        "description": "朝の投稿（JST 7:00-8:00）通勤時間帯。パラグアイの生活情報や移住ノウハウで「こんな暮らしがあるんだ」と興味を引く",
     },
     "noon": {
         "categories": ["パラグアイ日常", "記事告知"],
-        "weights": [0.7, 0.3],
-        "description": "昼の投稿（JST 12:00-13:00）昼休み、リラックスモード",
+        "weights": [0.6, 0.4],
+        "description": "昼の投稿（JST 12:00-13:00）昼休み。パラグアイの食事・風景・日常の一コマで癒し＆興味喚起。記事告知の場合はブログ記事の紹介",
     },
     "evening": {
-        "categories": ["実験報告", "AI Tips"],
+        "categories": ["海外からの稼ぎ方", "パラグアイ子育て・家族"],
         "weights": [0.5, 0.5],
-        "description": "夜の投稿（JST 20:30-21:30）帰宅後、副業検討モード",
+        "description": "夜の投稿（JST 20:30-21:30）帰宅後。海外移住後の仕事・収入の話や、家族4人のパラグアイ生活エピソードで共感を得る",
     },
 }
 
