@@ -16,7 +16,7 @@ URL = 'https://nambei-oyaji.com/wp-json/wp/v2'
 CREDS = b64encode('t.mizuno27@gmail.com:agNg 2624 4lL4 QoT9 EOOZ OEZr'.encode()).decode()
 HEADERS = {'Authorization': f'Basic {CREDS}', 'Content-Type': 'application/json'}
 
-CSS_FILE = Path(__file__).parent.parent / 'design' / 'nao-global.css'
+CSS_FILE = Path(__file__).parent.parent.parent / 'design' / 'nao-global.css'
 
 OLD_BLOCK_IDS = [932, 933, 934, 935, 936, 937, 938, 939, 940, 941, 942, 943, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 960, 961]
 

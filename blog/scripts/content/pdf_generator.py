@@ -46,7 +46,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # プロジェクトルート
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 PDF_OUTPUT_DIR = PROJECT_ROOT / "outputs" / "products" / "pdf"
 
 # ---------------------------------------------------------------------------

@@ -34,7 +34,7 @@ logger = logging.getLogger(__name__)
 # ==============================================================================
 # パス定数 (プロジェクトルートを基準にする)
 # ==============================================================================
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_DIR = BASE_DIR / "config"
 INPUTS_KEYWORDS_DIR = BASE_DIR / "inputs" / "keywords"
 PUBLISHED_LOG = BASE_DIR / "published" / "wordpress-log.json"

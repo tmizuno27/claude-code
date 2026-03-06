@@ -38,12 +38,12 @@ except ImportError:
     sys.exit(1)
 
 
-CONFIG_DIR = Path(__file__).parent.parent / "config"
+CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
 X_CREDS_FILE = CONFIG_DIR / "x-credentials.json"
-LOG_DIR = Path(__file__).parent.parent / "outputs" / "social"
-PHOTOS_DIR = Path(__file__).parent.parent / "assets" / "sns-photos"
+LOG_DIR = Path(__file__).parent.parent.parent / "outputs" / "social"
+PHOTOS_DIR = Path(__file__).parent.parent.parent / "images" / "sns-photos"
 TAGS_FILE = PHOTOS_DIR / "tags.json"
 
 # 時間帯ごとのカテゴリ設定

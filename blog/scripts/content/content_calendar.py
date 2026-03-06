@@ -19,7 +19,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # プロジェクトルート
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
 CALENDAR_PATH = PROJECT_ROOT / "config" / "content-calendar.json"
 KEYWORDS_DIR = PROJECT_ROOT / "inputs" / "keywords"

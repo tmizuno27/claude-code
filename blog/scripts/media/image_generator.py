@@ -32,7 +32,7 @@ from google.genai import types
 # 設定
 # ==============================================================================
 SCRIPT_DIR = Path(__file__).resolve().parent
-BLOG_DIR = SCRIPT_DIR.parent
+BLOG_DIR = SCRIPT_DIR.parent.parent
 CONFIG_DIR = BLOG_DIR / "config"
 ASSETS_DIR = BLOG_DIR / "images" / "branding"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"

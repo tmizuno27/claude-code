@@ -8,7 +8,7 @@ from pathlib import Path
 URL = 'https://nambei-oyaji.com/wp-json/wp/v2'
 CREDS = b64encode('t.mizuno27@gmail.com:agNg 2624 4lL4 QoT9 EOOZ OEZr'.encode()).decode()
 
-ASSETS = Path(__file__).parent.parent / 'assets'
+ASSETS = Path(__file__).parent.parent.parent / 'images'
 
 # Files to upload with descriptive names
 FILES = {

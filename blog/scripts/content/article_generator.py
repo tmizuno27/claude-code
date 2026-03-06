@@ -35,7 +35,7 @@ logger = logging.getLogger(__name__)
 # ==============================================================================
 # パス定数
 # ==============================================================================
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CONFIG_DIR = BASE_DIR / "config"
 INPUTS_KEYWORDS_DIR = BASE_DIR / "inputs" / "keywords"
 OUTPUTS_ARTICLES_DIR = BASE_DIR / "outputs" / "articles"

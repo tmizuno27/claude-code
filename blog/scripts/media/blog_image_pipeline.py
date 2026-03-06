@@ -35,7 +35,7 @@ from google.genai import types
 # 設定
 # ==============================================================================
 SCRIPT_DIR = Path(__file__).resolve().parent
-BLOG_DIR = SCRIPT_DIR.parent
+BLOG_DIR = SCRIPT_DIR.parent.parent
 CONFIG_DIR = BLOG_DIR / "config"
 IMAGES_DIR = BLOG_DIR / "images"
 ARTICLES_DIR = BLOG_DIR / "outputs" / "articles"

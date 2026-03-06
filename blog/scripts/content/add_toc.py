@@ -19,7 +19,7 @@ EXCLUDE_HEADINGS = [
 ]
 
 ARTICLES_DIR = os.path.join(
-    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))),
     "outputs", "articles", "2026-03-03"
 )
 

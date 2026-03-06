@@ -57,9 +57,13 @@ blog/                      ← このプロジェクト（リポジトリ内 cla
 │   └── content-calendar.json  ← コンテンツスケジュール
 ├── docs/                  ← エージェント詳細ルール・事業計画書・運用マニュアル
 ├── scripts/               ← Python自動化スクリプト
+│   ├── content/           ← 記事生成・KW調査・内部リンク
+│   ├── publishing/        ← WordPress投稿・ページ更新
+│   ├── analytics/         ← GA4レポート・シート連携
+│   ├── social/            ← X投稿
+│   ├── media/             ← 画像生成・アップロード
+│   └── scheduler.py       ← タスクスケジューラ登録
 ├── templates/             ← 記事・商品テンプレート
-├── inputs/                ← キーワード・商品アイデア
-├── outputs/               ← AI生成物の出力先
 ├── images/                ← 全画像（branding/ + カテゴリ別）
 ├── inputs/                ← キーワード・商品アイデア
 └── outputs/               ← AI生成物の出力先

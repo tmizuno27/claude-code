@@ -29,7 +29,7 @@ TASK_PREFIX = "JidouBiz"
 TASKS = [
     {
         "name": f"{TASK_PREFIX}_AnalyticsReport",
-        "script": "analytics_reporter.py",
+        "script": "analytics/analytics_reporter.py",
         "schedule": "WEEKLY",
         "day": "MON",
         "time": "08:00",
@@ -37,7 +37,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_KeywordResearch",
-        "script": "keyword_research.py",
+        "script": "content/keyword_research.py",
         "schedule": "WEEKLY",
         "day": "MON",
         "time": "09:00",
@@ -45,7 +45,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_Article_Tue",
-        "script": "article_generator.py",
+        "script": "content/article_generator.py",
         "schedule": "WEEKLY",
         "day": "TUE",
         "time": "09:00",
@@ -53,7 +53,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_Article_Thu",
-        "script": "article_generator.py",
+        "script": "content/article_generator.py",
         "schedule": "WEEKLY",
         "day": "THU",
         "time": "09:00",
@@ -61,7 +61,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_Article_Sat",
-        "script": "article_generator.py",
+        "script": "content/article_generator.py",
         "schedule": "WEEKLY",
         "day": "SAT",
         "time": "09:00",
@@ -69,7 +69,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_InternalLinker",
-        "script": "internal_linker.py",
+        "script": "content/internal_linker.py",
         "schedule": "WEEKLY",
         "day": "FRI",
         "time": "09:00",
@@ -77,7 +77,7 @@ TASKS = [
     },
     {
         "name": f"{TASK_PREFIX}_ContentCalendar",
-        "script": "content_calendar.py",
+        "script": "content/content_calendar.py",
         "schedule": "WEEKLY",
         "day": "SUN",
         "time": "09:00",

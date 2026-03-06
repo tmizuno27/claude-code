@@ -40,7 +40,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # パス定義
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 CONFIG_DIR = PROJECT_ROOT / "config"
 SECRETS_PATH = CONFIG_DIR / "secrets.json"
 CSV_PATH = PROJECT_ROOT / "outputs" / "article-management.csv"

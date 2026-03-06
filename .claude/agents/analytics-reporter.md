@@ -13,4 +13,4 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep"]
 - 二本柱別のKPI追跡（パラグアイ系 vs 海外仕事系）
 
 ## スクリプト
-- `blog/scripts/analytics_reporter.py` を使用
+- `blog/scripts/analytics/analytics_reporter.py` を使用

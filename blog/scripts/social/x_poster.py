@@ -34,9 +34,9 @@ except ImportError:
     sys.exit(1)
 
 
-CONFIG_DIR = Path(__file__).parent.parent / "config"
+CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
 CREDENTIALS_FILE = CONFIG_DIR / "x-credentials.json"
-LOG_DIR = Path(__file__).parent.parent / "outputs" / "social"
+LOG_DIR = Path(__file__).parent.parent.parent / "outputs" / "social"
 
 
 def load_credentials() -> dict:

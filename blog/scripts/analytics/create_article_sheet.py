@@ -11,8 +11,8 @@ import os
 from collections import Counter, OrderedDict
 
 # 設定
-CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
-CSV_PATH = os.path.join(os.path.dirname(__file__), '..', 'outputs', 'article-management.csv')
+CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
+CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'outputs', 'article-management.csv')
 SHEET_ID = os.environ.get('ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
 
 SCOPES = [

@@ -20,7 +20,7 @@ import requests
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
 
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
 
 
