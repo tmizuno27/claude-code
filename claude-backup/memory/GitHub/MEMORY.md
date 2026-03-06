@@ -118,6 +118,22 @@
 - **スペイン語**: 挨拶程度
 - **注意**: 語学力自体は限定的だが、AI翻訳ツール（Claude、DeepL等）を活用して言語の壁を越えることには肯定的。英語・スペイン語が必要なビジネスでも「AIでカバーできるか」を軸に評価すること
 
+## Notion連携（ブログ管理ダッシュボード）
+- **用途**: 記事管理・公開スケジュール・ステータス追跡
+- **Notionワークスペース**: Mizuno TatsuyaのNotion (旧ドメイン: tmizuno)
+- **親ページ**: 「【南米おやじ】ブログ管理」(ID: 31be2be6f3228050ace6e3e25ddf4a00)
+- **データベースID**: 31be2be6-f322-81fd-8d66-c0348a3fc2ac
+- **Integration名**: 南米おやじ ブログ管理（内部インテグレーション）
+- **APIキー**: secrets.json の `notion.api_key` に格納
+- **同期スクリプト**: `C:\Users\tmizu\run_notion_init.py`（日本語パス回避のためホームに配置）
+  - `python C:/Users/tmizu/run_notion_init.py` — 全同期（CSV→Notion + WPステータス）
+  - `python C:/Users/tmizu/run_notion_init.py --init` — DB新規作成
+  - `python C:/Users/tmizu/run_notion_init.py --status` — WPステータスのみ更新
+- **参照コピー**: `claude-code/blog/scripts/notion_sync.py`（実体はホーム版を使用）
+- **notion-config.json**: `claude-code/blog/config/notion-config.json` にDB IDを保存
+- **プロパティ**: タイトル, ステータス, 公開日, 公開順, 柱, 記事タイプ, カテゴリ, メインKW, 文字数, アフィリ数, 内部リンク数, ファイル名, WordPress URL, 備考
+- **注意**: notion-clientライブラリはAPI互換問題あり。requestsで直接API呼び出しする方式を採用
+
 ## AI自動化ビジネス検討（進行中）
 - **比較表**: `claude-code/planning/ai-business-comparison.md`
 - **状態**: リサーチ・比較表作成完了。案の選定・実装は未着手
