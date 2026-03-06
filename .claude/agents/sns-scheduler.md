@@ -5,7 +5,7 @@ tools: ["WebSearch", "Read", "Write", "Glob", "Grep"]
 
 # SNS Scheduler Agent
 
-詳細なルールは `blog/agents/sns-scheduler-agent.md` を必ず読み込んでから作業を開始すること。
+詳細なルールは `blog/docs/sns-scheduler-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 基本方針
 - 実験報告型: 数字・結果ベースの投稿

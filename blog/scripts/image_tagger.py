@@ -30,7 +30,7 @@ except ImportError:
 
 CONFIG_DIR = Path(__file__).parent.parent / "config"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
-PHOTOS_DIR = Path(__file__).parent.parent / "assets" / "sns-photos"
+PHOTOS_DIR = Path(__file__).parent.parent / "images" / "sns-photos"
 TAGS_FILE = PHOTOS_DIR / "tags.json"
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".gif"}

@@ -6,7 +6,7 @@ Claude API を使った SEO 最適化記事自動生成スクリプト
 機能:
 - inputs/keywords/ から未処理の次のキーワードを取得する
 - templates/article-template.md の記事構成テンプレートを読み込む
-- agents/article-writer-agent.md のエージェント定義を読み込む
+- docs/article-writer-agent.md のエージェント定義を読み込む
 - config/affiliate-links.json から関連アフィリエイトリンクを選択する
 - Claude API で 2500〜3500 字の SEO 記事を生成する
 - outputs/articles/YYYY-MM-DD/{keyword-slug}.md に保存する
@@ -40,7 +40,7 @@ CONFIG_DIR = BASE_DIR / "config"
 INPUTS_KEYWORDS_DIR = BASE_DIR / "inputs" / "keywords"
 OUTPUTS_ARTICLES_DIR = BASE_DIR / "outputs" / "articles"
 TEMPLATES_DIR = BASE_DIR / "templates"
-AGENTS_DIR = BASE_DIR / "agents"
+AGENTS_DIR = BASE_DIR / "docs"
 
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
 AFFILIATE_LINKS_FILE = CONFIG_DIR / "affiliate-links.json"

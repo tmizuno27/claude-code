@@ -5,7 +5,7 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep", "WebFetch"]
 
 # WordPress Publisher Agent
 
-詳細な変換ルール・カテゴリマッピングは `blog/agents/publisher-agent.md` を必ず読み込んでから作業を開始すること。
+詳細な変換ルール・カテゴリマッピングは `blog/docs/publisher-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 接続設定
 - 認証情報: `blog/config/secrets.json` + `blog/config/wp-credentials.json`

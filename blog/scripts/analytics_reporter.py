@@ -185,7 +185,7 @@ def generate_report_with_claude(config, ga4_data, gumroad_data, manual_revenue, 
         model = config.get("claude_api", {}).get("model", "claude-sonnet-4-6")
 
         # エージェント定義を読み込む
-        agent_path = PROJECT_ROOT / "agents" / "analytics-agent.md"
+        agent_path = PROJECT_ROOT / "docs" / "analytics-agent.md"
         system_prompt = ""
         if agent_path.exists():
             system_prompt = agent_path.read_text(encoding="utf-8")

@@ -5,7 +5,7 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep"]
 
 # Analytics Reporter Agent
 
-詳細なKPI定義・レポートフォーマットは `blog/agents/analytics-agent.md` を必ず読み込んでから作業を開始すること。
+詳細なKPI定義・レポートフォーマットは `blog/docs/analytics-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 対象
 - GA4: nambei-oyaji.com

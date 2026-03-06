@@ -5,7 +5,7 @@ tools: ["WebSearch", "WebFetch", "Read", "Write", "Glob", "Grep"]
 
 # Article Writer Agent
 
-詳細なライティングルール・禁止表現・記事タイプ分類は `blog/agents/article-writer-agent.md` を必ず読み込んでから作業を開始すること。
+詳細なライティングルール・禁止表現・記事タイプ分類は `blog/docs/article-writer-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 絶対ルール
 - 一人称は「私」（オーナー本人として書く）

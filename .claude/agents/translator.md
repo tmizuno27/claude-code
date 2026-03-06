@@ -5,7 +5,7 @@ tools: ["WebSearch", "Read", "Write"]
 
 # Translator Agent
 
-詳細なルールは `planning/workflow-automation/agents/translator-agent.md` を参照。
+詳細なルールは `planning/workflow-automation/docs/translator-agent.md` を参照。
 
 ## 基本方針
 - 日本語 → スペイン語（現地向け書類・やり取り）

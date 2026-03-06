@@ -59,11 +59,11 @@
 - **トップページID**: 47（固定ページ、カスタムHTML）
 - **再利用ブロック**: ref 932-961（CSS定義等）
 - **トップページ構造**: Hero → Latest Articles → Value Props → Stats → Three Pillars → Topics(6タイル) → About → Experiment Log → CTA
-- **ローカルバックアップ**: `C:\Users\tmizu\wp-home-raw.html`
+- **ローカルバックアップ**: `claude-code/blog/wp-article-raw.html`
 - **カテゴリースラッグ**: paraguay(パラグアイ生活), side-business(副業・稼ぎ方), ijuu-junbi(移住準備)
 - **Apple風CSS**: ヘッダー・フッター・記事本文のCSS適用済み（ブロック948-949 + singleテンプレート内インラインCSS）
 - **テンプレート**: single/page/index/homeにブロック932-954の参照を追加済み
-- **画像管理**: `claude-code/blog/assets/images/` に全画像+メディアIDマッピング(`media-mapping.json`)を格納
+- **画像管理**: `claude-code/blog/images/` に全画像を格納（branding/ にロゴ等、カテゴリ別サブフォルダに記事用画像）。メディアIDマッピングは `media-mapping.json`
 - **ダミー記事（6本）**: 正式記事が投稿されたら削除すること
   - paraguay-ijuu-hiyou (ID:1065) → 移住費用・手続き
   - paraguay-seikatsuhi (ID:1066) → 生活費・物価

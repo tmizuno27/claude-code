@@ -17,7 +17,7 @@ business/
 ├── business-plan.md       ← 事業計画書（収益モデル、KPI等）
 ├── phase1-roadmap.md      ← フェーズ1実行ロードマップ（ネタ50選含む）
 ├── workflows.md           ← 半自動化ワークフローガイド（7つのWF定義）
-├── agents/                ← Agentプロンプト定義
+├── docs/                  ← Agentプロンプト定義・参照ドキュメント
 │   ├── master-prompt.md   ← コピペ用コマンド集（7コマンド）
 │   ├── writer-agent.md    ← 記事執筆Agent
 │   ├── sns-agent.md       ← X投稿作成Agent
@@ -34,10 +34,10 @@ business/
 
 オーナーの作業は1日40分。残りはAIが処理する。
 
-**基本の流れ**: `inputs/YYYY-MM-DD.md` にメモを書く → Claudeが `agents/` のルールに従い処理 → `outputs/YYYY-MM-DD/` に出力
+**基本の流れ**: `inputs/YYYY-MM-DD.md` にメモを書く → Claudeが `docs/` のルールに従い処理 → `outputs/YYYY-MM-DD/` に出力
 
-各Agentの詳細なプロンプトは `agents/` フォルダ内のファイルを参照。
-コピペで使えるコマンド集は `agents/master-prompt.md` を参照。
+各Agentの詳細なプロンプトは `docs/` フォルダ内のファイルを参照。
+コピペで使えるコマンド集は `docs/master-prompt.md` を参照。
 
 ## 言語・表記ルール
 
@@ -49,10 +49,10 @@ business/
 
 | エージェント | 担当業務 | プロンプト定義 |
 |---|---|---|
-| Writer Agent | 記事の構成案・下書き作成、SEO最適化 | `agents/writer-agent.md` |
-| SNS Agent | X投稿文の作成、ハッシュタグ戦略 | `agents/sns-agent.md` |
-| Research Agent | 市場調査、トレンド分析、競合分析 | `agents/research-agent.md` |
-| Translator Agent | スペイン語↔日本語の翻訳 | `agents/translator-agent.md` |
+| Writer Agent | 記事の構成案・下書き作成、SEO最適化 | `docs/writer-agent.md` |
+| SNS Agent | X投稿文の作成、ハッシュタグ戦略 | `docs/sns-agent.md` |
+| Research Agent | 市場調査、トレンド分析、競合分析 | `docs/research-agent.md` |
+| Translator Agent | スペイン語↔日本語の翻訳 | `docs/translator-agent.md` |
 
 ## ライティングルール（全Agent共通）
 

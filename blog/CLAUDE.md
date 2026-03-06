@@ -55,12 +55,14 @@ blog/                      ← このプロジェクト（リポジトリ内 cla
 │   ├── secrets.json           ← APIキー・パスワード（.gitignore対象）
 │   ├── affiliate-links.json   ← アフィリエイトリンク管理
 │   └── content-calendar.json  ← コンテンツスケジュール
-├── agents/                ← エージェント詳細ルール（参照用）
+├── docs/                  ← エージェント詳細ルール・事業計画書・運用マニュアル
 ├── scripts/               ← Python自動化スクリプト
 ├── templates/             ← 記事・商品テンプレート
 ├── inputs/                ← キーワード・商品アイデア
 ├── outputs/               ← AI生成物の出力先
-└── docs/                  ← 事業計画書・運用マニュアル
+├── images/                ← 全画像（branding/ + カテゴリ別）
+├── inputs/                ← キーワード・商品アイデア
+└── outputs/               ← AI生成物の出力先
 ```
 
 **エージェント呼び出し**: `.claude/agents/` にネイティブ定義を配置済み。
