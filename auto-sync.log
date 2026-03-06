@@ -8497,3 +8497,7 @@
 [2026-03-06 19:54:35] Changes detected: ?? blog/config/notion-config.json
 [2026-03-06 19:54:36] Changes detected: M  auto-sync.log A  blog/config/notion-config.json
 [2026-03-06 19:54:35] Commit OK
+[2026-03-06 19:54:36] Commit OK
+[2026-03-06 19:54:36] [ERROR] Push failed: To https://github.com/tmizuno27/claude-code.git  ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 586783326c31d1bc851c4ab2700f3db27eb19747 but expected 0dd71af9337ac32ffe35886f01eccd1526cab552) error: failed to push some refs to 'https://github.com/tmizuno27/claude-code.git'
+[2026-03-06 19:54:35] Push OK - synced to GitHub
+[2026-03-06 19:55:34] Changes detected:  M auto-sync.log
