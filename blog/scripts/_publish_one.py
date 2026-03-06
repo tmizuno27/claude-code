@@ -15,6 +15,14 @@ article = {
     "body": body,
 }
 config = load_config()
+
+# secrets.json から認証情報をマージ
+secrets_path = Path(__file__).parent.parent / "config" / "secrets.json"
+with open(secrets_path, "r", encoding="utf-8") as f:
+    secrets = __import__("json").load(f)
+config["wordpress"]["username"] = secrets["wordpress"]["username"]
+config["wordpress"]["app_password"] = secrets["wordpress"]["app_password"]
+
 result = publish_to_wordpress(config, article, status="publish")
 if result:
     wp_log = load_wp_log()

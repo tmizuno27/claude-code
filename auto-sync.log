@@ -8282,3 +8282,6 @@
 [2026-03-06 17:54:35] Commit OK
 [2026-03-06 17:54:35] Push OK - synced to GitHub
 [2026-03-06 17:55:35] Changes detected:  M auto-sync.log ?? blog/scripts/__pycache__/wp_publisher.cpython-313.pyc ?? blog/scripts/_publish_one.py
+[2026-03-06 17:55:35] Commit OK
+[2026-03-06 17:55:35] Push OK - synced to GitHub
+[2026-03-06 17:56:36] Changes detected:  M auto-sync.log  M blog/scripts/_publish_one.py ?? blog/published/
