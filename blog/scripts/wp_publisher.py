@@ -35,15 +35,23 @@ logger = logging.getLogger(__name__)
 # プロジェクトルート
 PROJECT_ROOT = Path(__file__).parent.parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
+SECRETS_PATH = PROJECT_ROOT / "config" / "secrets.json"
 ARTICLES_DIR = PROJECT_ROOT / "outputs" / "articles"
 WP_LOG_PATH = PROJECT_ROOT / "published" / "wordpress-log.json"
 MEDIA_MAPPING_PATH = PROJECT_ROOT / "images" / "media-mapping.json"
 
 
 def load_config():
-    """設定ファイルを読み込む"""
+    """設定ファイルを読み込み、secrets.json の認証情報をマージする"""
     with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        config = json.load(f)
+    if SECRETS_PATH.exists():
+        with open(SECRETS_PATH, "r", encoding="utf-8") as f:
+            secrets = json.load(f)
+        for section, values in secrets.items():
+            if isinstance(values, dict) and section in config:
+                config[section].update(values)
+    return config
 
 
 def load_wp_log():
