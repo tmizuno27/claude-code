@@ -15,6 +15,7 @@ import io
 import json
 import random
 import sys
+import time
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -355,7 +356,17 @@ def main():
                         help="投稿時間帯: morning/noon/evening")
     parser.add_argument("--dry-run", action="store_true", help="生成のみ、投稿しない")
     parser.add_argument("--no-image", action="store_true", help="画像なしで投稿")
+    parser.add_argument("--no-delay", action="store_true", help="ランダム遅延をスキップ")
     args = parser.parse_args()
+
+    # ランダム遅延: 0〜60分（Task Schedulerが基準時刻の30分前に起動するため、
+    # 結果的に基準時刻の前後30分にバラける。自動投稿感を消す）
+    if not args.dry_run and not args.no_delay:
+        delay_seconds = random.randint(0, 60 * 60)
+        delay_min = delay_seconds // 60
+        delay_sec = delay_seconds % 60
+        print(f"[{datetime.now().isoformat()}] ランダム遅延: {delay_min}分{delay_sec}秒後に投稿開始")
+        time.sleep(delay_seconds)
 
     print(f"[{datetime.now().isoformat()}] X自動投稿開始 (slot: {args.slot})")
 
