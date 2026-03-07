@@ -263,7 +263,7 @@ A. うちの娘たち（8歳・6歳）は意外とすぐ慣れました。チパ
 
 「野菜が少ない」「味付けがシンプル」というデメリットはあるものの、慣れれば普通に楽しく生活できる食環境が整っている。日本食への渇望感は時間が解決してくれます。
 
-パラグアイへの移住を検討している方は、食文化とあわせて[毎月の生活費](https://nambei-oyaji.com/paraguay-seikatsuhi/)や[治安事情](https://nambei-oyaji.com/paraguay-chian/)も確認してみてください。移住の第一歩は、まず[費用の全体像](https://nambei-oyaji.com/paraguay-ijuu-hiyou/)を把握することです。
+パラグアイの食文化に興味を持った方は、まず[移住にかかる費用の全体像](https://nambei-oyaji.com/paraguay-ijuu-hiyou/)を確認してみてください。具体的に移住準備を始めるなら、無犯罪証明書の取得が最初の一歩です（申請から届くまで2〜3週間かかるので、早めに動くのが吉）。あわせて[毎月の生活費](https://nambei-oyaji.com/paraguay-seikatsuhi/)や[治安事情](https://nambei-oyaji.com/paraguay-chian/)もチェックしておくと、移住後の生活がイメージしやすくなります。
 
 ---
 

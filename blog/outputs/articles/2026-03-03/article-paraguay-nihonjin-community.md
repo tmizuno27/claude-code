@@ -1,12 +1,16 @@
 ---
-title: パラグアイの日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法
-focus_keyword: パラグアイ 日本人 コミュニティ
-meta_description: パラグアイの日本人コミュニティ事情を在住者が解説。約1万人の日系社会の構成、移住後の日本人ネットワーク活用法、イグアス移住地の今を紹介。
+title: "パラグアイ 日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法"
+slug: "paraguay-nihonjin-community"
+date: 2026-03-03
+update: 2026-03-07
+focus_keyword: "パラグアイ 日本人 コミュニティ"
+meta_description: "パラグアイの日本人コミュニティ事情を在住者が解説。約1万人の日系社会の構成、移住後の日本人ネットワーク活用法、イグアス移住地の今を紹介。"
 category: パラグアイ生活
 tags: [パラグアイ, 日本人, コミュニティ, 移住, 日系社会, アスンシオン]
 article_type: 集客記事
 pillar: pillar_1_paraguay_life
 affiliate_disclosure: false
+author: Tatsuya Mizuno
 seo_notes: |
   - 「パラグアイ 日本人」は低競合ロングテールKW
   - 結論ファーストでLLMO対策
@@ -16,7 +20,7 @@ seo_notes: |
   - 2026年2月コアアップデート対応：E-E-A-T重視、在住者の実体験で独自性確保
 ---
 
-# パラグアイの日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法
+# パラグアイ 日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法
 
 <details class="toc-container">
 <summary>目次（クリックで開閉）</summary>
