@@ -63,7 +63,7 @@ seo_notes: |
 
 ### お金・金融関連
 
-- [ ] **クレジットカードを作る**: [エポスカード](https://YOUR-AFFILIATE-LINK/epos-card)（海外旅行保険自動付帯）+ [楽天プレミアムカード](https://YOUR-AFFILIATE-LINK/rakuten-premium)（プライオリティ・パス付き）。海外では新規発行できないので、日本にいるうちに必ず作る
+- [ ] **クレジットカードを作る**: [エポスカード](https://YOUR-AFFILIATE-LINK/epos-card)（海外旅行保険自動付帯）+ [楽天プレミアムカード](https://YOUR-AFFILIATE-LINK/rakuten-premium)（プライオリティ・パス付き）。海外では新規発行できないので、日本にいるうちに必ず作る。詳しくは「[海外在住者向けクレジットカード比較](https://nambei-oyaji.com/kaigai-credit-card-hikaku/)」を参照
 - [ ] **銀行口座の整理**: ネットバンキング対応の銀行口座を1〜2口座に集約。三菱UFJ、ソニー銀行が海外対応◎
 - [ ] **[Wise](https://YOUR-AFFILIATE-LINK/wise)のアカウント開設**: 海外送金の定番サービス。本人確認に数日かかるので早めに
 - [ ] **投資・保険の見直し**: NISA、iDeCo、生命保険は非居住者になると制限がかかるものがある。証券会社に確認
@@ -114,7 +114,7 @@ seo_notes: |
 
 ### デジタル準備
 
-- [ ] **[NordVPN](https://YOUR-AFFILIATE-LINK/nordvpn)の契約**: 海外から日本のサービスにアクセスするのに必須。2年プランがコスパ最強
+- [ ] **[NordVPN](https://YOUR-AFFILIATE-LINK/nordvpn)の契約**: 海外から日本のサービスにアクセスするのに必須。2年プランがコスパ最強。選び方は「[海外VPNおすすめ3選](https://nambei-oyaji.com/kaigai-vpn-osusume/)」を参照
 - [ ] **クラウドストレージの整理**: Google Drive、Dropbox等に重要書類のバックアップ
 - [ ] **パスワード管理**: 1PasswordやBitwardenで全アカウントのパスワードを一元管理
 - [ ] **二段階認証の確認**: SMS認証が海外番号で受けられないサービスがある。認証アプリ（Google Authenticator）に切り替え
@@ -162,6 +162,8 @@ seo_notes: |
 - [ ] ネット回線の契約（光回線の開通に1〜2週間かかる場合あり）
 
 【要追記】自分が準備で特に苦労したこと、見落としていたことの実体験を記入
+
+【写真: 移住前に準備した書類一式やパスポートの写真を挿入】
 
 > 💬 「完璧に準備してから移住しよう」とすると永遠に移住できません。このリストの8割くらいできたら「もう行ける」のサインです。残りは現地で対応できます。
 

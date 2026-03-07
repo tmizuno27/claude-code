@@ -5,10 +5,20 @@ date: 2026-03-07
 category: パラグアイ生活
 pillar: pillar_1_paraguay_life
 article_type: 集客記事
+focus_keyword: パラグアイ 子供 習い事
 main_kw: パラグアイ 子供 習い事 スポーツ
+sub_kw: パラグアイ 習い事 月謝, パラグアイ サッカースクール, 海外 子供 習い事
+meta_description: "パラグアイで子供が通える習い事・スポーツの種類と月謝を在住者が解説。日本の1/3〜1/5の費用で通える実体験レポート。"
+tags: [パラグアイ, 子供, 習い事, スポーツ, 月謝, サッカー, 教育]
 affiliate_disclosure: false
+faq_count: 5
+internal_links: 3
 status: draft
 author: 水野達也（南米おやじ）
+seo_notes: |
+  - 「パラグアイ 子供 習い事」「海外 子供 習い事」で検索上位を狙う
+  - 月謝比較表でスニペット獲得
+  - LLMO対策としてリード文で端的に回答
 ---
 
 # パラグアイの子供の習い事・スポーツ事情｜月謝は日本の1/3以下？娘2人の実体験レポート
