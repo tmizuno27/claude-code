@@ -31,3 +31,9 @@
 [2026-03-07 08:30:04] JST: 2026-03-07 20:30:04 / PYT: 2026-03-07 08:30:04
 [2026-03-07 08:30:04] Random delay: 11.3min (base: 11.3min + shift: 0min)
 [2026-03-07 08:30:04] Waiting 11.3min before posting...
+[2026-03-07 18:30:05] ========== X Auto-Post START (slot: morning) ==========
+[2026-03-07 18:30:05] Day check: Sunday (weekend) - 2026-03-08
+[2026-03-07 18:30:05] JST: 2026-03-08 06:30:05 / PYT: 2026-03-07 18:30:05
+[2026-03-07 18:30:05] Weekend/holiday morning: +2h shift applied
+[2026-03-07 18:30:05] Random delay: 155.4min (base: 35.4min + shift: 120min)
+[2026-03-07 18:30:05] Waiting 155.4min before posting...
