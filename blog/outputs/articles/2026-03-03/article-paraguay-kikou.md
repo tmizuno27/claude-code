@@ -251,7 +251,7 @@ A. 夏物中心でOKです。パラグアイで最も使うのは半袖・短パ
 
 8歳と6歳の娘を育てながら「自然災害のリスクなく子供を育てられる」という安心感は、移住してから一番良かったと思えることの一つです。
 
-パラグアイへの移住を検討している方は、気候とあわせて生活費や治安も確認しておくことをおすすめします。
+パラグアイへの移住を検討している方は、まず[移住にかかる費用](https://nambei-oyaji.com/paraguay-ijuu-hiyou/)を確認し、[生活費のリアルな内訳](https://nambei-oyaji.com/paraguay-seikatsuhi/)や[治安事情](https://nambei-oyaji.com/paraguay-chian/)もあわせてチェックしてみてください。具体的な準備を始めるなら、無犯罪証明書の取得からスタートするのがおすすめです。
 
 ---
 
@@ -259,6 +259,7 @@ A. 夏物中心でOKです。パラグアイで最も使うのは半袖・短パ
 - 🔗 [パラグアイ移住のリアルな費用](https://nambei-oyaji.com/paraguay-ijuu-hiyou/)
 - 🔗 [パラグアイの治安は本当に危険？在住者が語るリアル](https://nambei-oyaji.com/paraguay-chian/)
 - 🔗 [パラグアイの生活費を公開](https://nambei-oyaji.com/paraguay-seikatsuhi/)
+- 🔗 [パラグアイの食文化を在住者が解説](https://nambei-oyaji.com/paraguay-shokubunka/)
 
 ---
 
