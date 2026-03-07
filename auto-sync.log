@@ -8780,3 +8780,6 @@
 [2026-03-06 21:27:34] Commit OK
 [2026-03-06 21:27:34] [ERROR] Push failed: fatal: unable to access 'https://github.com/tmizuno27/claude-code.git/': Failed to connect to github.com port 443 after 21157 ms: Could not connect to server
 [2026-03-06 21:28:34] Changes detected:  M auto-sync.log
+[2026-03-06 21:28:34] Commit OK
+[2026-03-06 21:28:34] [ERROR] Push failed: fatal: unable to access 'https://github.com/tmizuno27/claude-code.git/': Could not resolve host: github.com
+[2026-03-06 21:29:34] Changes detected:  M auto-sync.log
