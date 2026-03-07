@@ -1,12 +1,16 @@
 ---
-title: パラグアイの税金が安い理由を在住者が解説｜所得税・法人税・消費税を日本と比較【2026年版】
-focus_keyword: パラグアイ 税金 安い
-meta_description: パラグアイの税金が安い理由を在住者が解説。所得税・法人税を日本と比較。テリトリアル課税の仕組み、フリーランスのメリットと注意点も紹介。
+title: "パラグアイ 税金が安い理由を在住者が解説｜所得税・法人税・消費税を日本と比較【2026年版】"
+slug: "paraguay-zeikin"
+date: 2026-03-03
+update: 2026-03-04
+focus_keyword: "パラグアイ 税金 安い"
+meta_description: "パラグアイの税金が安い理由を在住者が解説。所得税・法人税を日本と比較。テリトリアル課税の仕組み、フリーランスのメリットと注意点も紹介。"
 category: パラグアイ生活
 tags: [パラグアイ, 税金, 節税, 海外移住, 所得税, フリーランス, テリトリアル課税]
 article_type: 集客記事
 pillar: pillar_1_paraguay_life
 affiliate_disclosure: true
+author: Tatsuya Mizuno
 seo_notes: |
   - 結論ファーストでLLMO対策（「パラグアイ個人所得税は最大10%」を冒頭で明示）
   - 日本との比較表でGEO対策・スキャン読み対応

@@ -1,12 +1,16 @@
 ---
-title: パラグアイの医療・保険事情【在住者が解説】病院の選び方から保険加入まで
-focus_keyword: パラグアイ 医療 保険
-meta_description: パラグアイの医療・保険事情を在住者が解説。病院の種類と選び方、民間保険の費用、日本語が通じる医療機関、緊急時の対応方法を紹介。
+title: "パラグアイ 医療・保険事情【在住者が解説】病院の選び方から保険加入まで"
+slug: "paraguay-iryou-hoken"
+date: 2026-03-03
+update: 2026-03-07
+focus_keyword: "パラグアイ 医療 保険"
+meta_description: "パラグアイの医療・保険事情を在住者が解説。病院の種類と選び方、民間保険の費用、日本語が通じる医療機関、緊急時の対応方法を紹介。"
 category: パラグアイ生活
 tags: [パラグアイ, 医療, 保険, 海外移住, 病院, 海外在住]
 article_type: 集客記事
 pillar: pillar_1_paraguay_life
 affiliate_disclosure: true
+author: Tatsuya Mizuno
 seo_notes: |
   - 「パラグアイ 医療」「パラグアイ 保険」「パラグアイ 病院」で検索するユーザーを想定
   - 結論ファーストでLLMO対策
