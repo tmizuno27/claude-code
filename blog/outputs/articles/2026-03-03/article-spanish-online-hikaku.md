@@ -79,7 +79,7 @@ seo_notes: |
 
 ## おすすめ3サービスの比較
 
-| 項目 | [スパニッシモ](https://YOUR-AFFILIATE-LINK/spanisimo) | [DMM英会話](https://YOUR-AFFILIATE-LINK/dmm-eikaiwa) | [ベルリッツ](https://YOUR-AFFILIATE-LINK/berlitz) |
+| 項目 | スパニッシモ | DMM英会話 | ベルリッツ |
 |------|------|------|------|
 | 月額料金 | 約4,980円〜 | 約7,900円〜 | 約6,000円〜/回 |
 | レッスン頻度 | 週2〜毎日 | 毎日1回 | 週1〜 |
