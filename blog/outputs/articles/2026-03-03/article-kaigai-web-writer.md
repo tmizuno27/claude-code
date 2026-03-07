@@ -59,9 +59,9 @@ seo_notes: |
 
 | サイト | 特徴 | 海外在住者の使いやすさ |
 |--------|------|-----------|
-| [クラウドワークス](https://YOUR-AFFILIATE-LINK/crowdworks) | 国内最大手。案件数が最も多い | ◎ |
-| [ランサーズ](https://YOUR-AFFILIATE-LINK/lancers) | 大手2番手。高単価案件が多め | ◎ |
-| [ココナラ](https://YOUR-AFFILIATE-LINK/coconala) | 自分からスキルを出品できる | ◎ |
+| クラウドワークス | 国内最大手。案件数が最も多い | ◎ |
+| ランサーズ | 大手2番手。高単価案件が多め | ◎ |
+| ココナラ | 自分からスキルを出品できる | ◎ |
 | Shinobiライティング | 初心者向け。タスク型案件が中心 | ○ |
 
 **まずは[クラウドワークス](https://YOUR-AFFILIATE-LINK/crowdworks)と[ランサーズ](https://YOUR-AFFILIATE-LINK/lancers)の2つに登録すればOK。** 登録は無料で、海外の住所でも登録可能。5分で終わる。
