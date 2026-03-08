@@ -172,6 +172,17 @@
 - **プロパティ**: タイトル, ステータス, 公開日, 公開順, 柱, 記事タイプ, カテゴリ, メインKW, 文字数, アフィリ数, 内部リンク数, ファイル名, WordPress URL, 備考
 - **注意**: notion-clientライブラリはAPI互換問題あり。requestsで直接API呼び出しする方式を採用
 
+## アフィリエイトリンク管理（TODO）
+- **現状**: `config/affiliate-links.json` のURLは全て `https://YOUR-AFFILIATE-LINK/xxx` のプレースホルダー
+- **対象記事（プレースホルダーのまま公開済み）**:
+  - `international-money-transfer-comparison` (WP ID:1070) — Wise, Revolut, Sony Bank WALLET
+- **やるべきこと**: ASP（A8.net, もしもアフィリエイト, 各社直接紹介プログラム）でアフィリエイトリンクを取得したら:
+  1. `config/affiliate-links.json` のURLを実際のリンクに更新
+  2. 公開済み全記事のWordPress投稿内のプレースホルダーURLを一括置換（スクリプト化推奨）
+  3. CSVのアフィリ数を確認・更新
+- **優先度**: Wise（3,000-5,000円/件）> NordVPN（3,000-5,000円/件）> ConoHa WING（5,000-12,000円/件）
+- **自動化案**: `affiliate-links.json` 更新時に全WP記事のリンクを自動置換するスクリプトを作成する
+
 ## AI自動化ビジネス検討（進行中）
 - **比較表**: `claude-code/planning/ai-business-comparison.md`
 - **状態**: リサーチ・比較表作成完了。案の選定・実装は未着手
