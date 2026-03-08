@@ -488,7 +488,7 @@ def get_about_html():
     <h1>南米おやじ（水野 達也）</h1>
     <p class="nao-subtitle">パラグアイ在住 / AI副業実験家 / ブロガー</p>
     <div class="nao-profile-tags">
-      <span class="nao-profile-tag">&#127477;&#127486; パラグアイ・ランバレ在住</span>
+      <span class="nao-profile-tag">&#127477;&#127486; パラグアイ在住</span>
       <span class="nao-profile-tag">&#129302; AI活用歴 1年</span>
       <span class="nao-profile-tag">&#128176; 副業収益公開中</span>
     </div>
