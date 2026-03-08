@@ -173,6 +173,67 @@ def update_post_featured_image(mapping_path, post_id, media_id, title):
         logger.warning(f"post_featured_images の更新に失敗: {e}")
 
 
+ARTICLE_FACT_CHECK_PROMPT = """あなたはファクトチェッカーです。以下のブログ記事に事実誤認がないか検証してください。
+
+## 検証基準（パラグアイ関連の正しい情報）
+- 生活費が日本の1/3〜1/2（ランチ200-300円、牛肉1kg 700-900円、鶏肉1kg 300円）
+- 家賃：一軒家3LDKで月3-5万円
+- 所得税が最大10%、法人税10%
+- 地震・台風・津波なし。一年中温暖（冬の平均気温17-19℃）
+- 花粉ゼロ
+- インターナショナルスクール学費月約3万円（日本なら15-20万円）
+- アサード：牛肉2kgで約1,500-1,800円
+- 永住権：まず2年の一時滞在ビザ→その後永住権申請。費用は書類+銀行預金$5,000程度
+- 外国人でも土地・不動産を購入可能
+- 日系社会90年の歴史
+- 時差12-13時間（日本との）
+- 家族4人（夫婦+娘2人、8歳・6歳）
+- 著者: 水野達也（パラグアイ在住）
+
+## 判定ルール
+1. 上記基準と矛盾する数字・事実があれば「NG」
+2. 基準にない具体的な数字・統計・法律・手続き・料金が記載されており、正確性が確認できない場合も「NG」
+3. 一般的に正しい情報（例: クラウドソーシングの説明、ツールの基本的な説明）は「OK」
+4. 「【要確認】」マーカーが残っている場合は「NG」（未検証の情報が残っている）
+
+## 出力形式（厳守）
+1行目に「OK」または「NG」のみ。
+NGの場合、2行目以降に問題箇所と理由を箇条書きで記載。"""
+
+
+def fact_check_article(config, body_text):
+    """記事本文をファクトチェックする。(passed, reason) を返す"""
+    if anthropic is None:
+        logger.warning("anthropicライブラリ未インストール。ファクトチェックをスキップします")
+        return True, ""
+
+    api_key = config.get("claude_api", {}).get("api_key", "")
+    if not api_key or "YOUR" in api_key:
+        logger.warning("Claude API キー未設定。ファクトチェックをスキップします")
+        return True, ""
+
+    # 記事が長い場合は先頭5000文字に制限（コスト抑制）
+    check_text = body_text[:5000] if len(body_text) > 5000 else body_text
+
+    try:
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=512,
+            system=ARTICLE_FACT_CHECK_PROMPT,
+            messages=[{"role": "user", "content": f"記事本文:\n{check_text}"}],
+        )
+        result = response.content[0].text.strip()
+        lines = result.split("\n", 1)
+        verdict = lines[0].strip().upper()
+        reason = lines[1].strip() if len(lines) > 1 else ""
+        return verdict == "OK", reason
+    except Exception as e:
+        logger.error(f"ファクトチェックAPI呼び出し失敗: {e}")
+        # API失敗時は安全側に倒してNGとする
+        return False, f"ファクトチェックAPI呼び出し失敗: {e}"
+
+
 def publish_to_wordpress(config, article, status="draft"):
     """記事をWordPressに投稿する"""
     wp_config = config["wordpress"]
@@ -303,8 +364,25 @@ def main():
 
     # 各記事を投稿
     success_count = 0
+    skip_count = 0
     published_posts = []
     for article in articles:
+        # publish時はファクトチェック必須
+        if args.status == "publish":
+            title = article["front_matter"].get("title", "無題")
+            logger.info(f"ファクトチェック中: {title}")
+            passed, reason = fact_check_article(config, article["body"])
+            if not passed:
+                logger.warning(f"ファクトチェックNG — スキップ: {title}")
+                logger.warning(f"  理由: {reason}")
+                notify_discord(
+                    f"⚠️ ファクトチェックNG — 公開スキップ\n\n"
+                    f"**{title}**\n理由: {reason}"
+                )
+                skip_count += 1
+                continue
+            logger.info(f"ファクトチェックOK: {title}")
+
         try:
             result = publish_to_wordpress(config, article, status=args.status)
             if result:
@@ -322,6 +400,8 @@ def main():
     # サマリー
     logger.info(f"\n=== 結果サマリー ===")
     logger.info(f"投稿成功: {success_count}/{len(articles)}件 (status: {args.status})")
+    if skip_count > 0:
+        logger.warning(f"ファクトチェックNGでスキップ: {skip_count}件")
 
     # Discord通知
     if success_count > 0 and args.status == "publish":
