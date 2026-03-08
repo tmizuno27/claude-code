@@ -83,6 +83,14 @@ TASKS = [
         "time": "09:00",
         "description": "コンテンツカレンダー更新"
     },
+    {
+        "name": f"{TASK_PREFIX}_FactCheck",
+        "script": "content/periodic_fact_checker.py",
+        "schedule": "WEEKLY",
+        "day": "WED",
+        "time": "10:00",
+        "description": "定期ファクトチェック＆リライト"
+    },
 ]
 
 

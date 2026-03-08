@@ -36,6 +36,16 @@
 - **手順書**: `claude-code/tools/sheets-sync/SETUP.md`
 - **フロー**: Sheets更新 → 5分おきにCSV取得 → auto-sync.ps1が1分おきにGitHubへpush
 
+## 定期ファクトチェック（BlogFactCheck）
+- **Pythonスクリプト**: `claude-code/blog/scripts/content/periodic_fact_checker.py`
+- **PSランチャー**: `C:\Users\tmizu\scripts\blog-fact-check.ps1`
+- **VBS**: `C:\Users\tmizu\scripts\blog-fact-check-hidden.vbs`
+- **Task Scheduler**: `BlogFactCheck` (毎週水曜 10:00)
+- **動作**: ドラフト記事を自動修正(--mode fix) + 投稿済み記事をチェック(--mode check)
+- **レポート出力**: `claude-code/blog/outputs/fact-check-reports/`
+- **モード**: check(チェックのみ), fix(自動修正), rewrite(リライト提案)
+- **コスト管理**: --limit で処理記事数を制限（デフォルト10）
+
 ## 職務経歴書
 - **氏名**: 水野 達也
 - **詳細**: [resume.md](resume.md)
