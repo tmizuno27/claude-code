@@ -102,13 +102,8 @@
 - **Apple風CSS**: ヘッダー・フッター・記事本文のCSS適用済み（ブロック948-949 + singleテンプレート内インラインCSS）
 - **テンプレート**: single/page/index/homeにブロック932-954の参照を追加済み
 - **画像管理**: `claude-code/blog/images/` に全画像を格納（branding/ にロゴ等、カテゴリ別サブフォルダに記事用画像）。メディアIDマッピングは `media-mapping.json`
-- **ダミー記事（6本）**: 正式記事が投稿されたら削除すること
-  - paraguay-ijuu-hiyou (ID:1065) → 移住費用・手続き
-  - paraguay-seikatsuhi (ID:1066) → 生活費・物価
-  - paraguay-chian (ID:1067) → 治安・安全情報
-  - kaigai-kosodate (ID:1068) → 子育て・教育
-  - kaigai-ijuu-hatarakikata (ID:1069) → 海外からの仕事
-  - kaigai-soukin-hikaku (ID:1070) → お金・送金・銀行
+- **旧ダミー記事（全6本正式公開済み 2026-03-08）**:
+  - ID:1065 移住費用 / ID:1066 生活費 / ID:1067 治安 / ID:1068 子連れ移住 / ID:1069 働き方 / ID:1070 海外送金
 
 ## ブログ記事管理表の運用ルール（最重要）
 - **常時連動**: ブログ記事に修正・訂正・新規投稿・ステータス変更など少しでも変更が入った場合、必ず `claude-code/blog/outputs/article-management.csv` を同時に更新すること
