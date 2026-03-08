@@ -57,6 +57,16 @@
 - **モード**: check(チェックのみ), fix(自動修正), rewrite(リライト提案)
 - **コスト管理**: --limit で処理記事数を制限（デフォルト10）
 
+## 記事別PV自動更新（BlogUpdatePV）
+- **Pythonスクリプト**: `claude-code/blog/scripts/analytics/update_pv.py`
+- **PSランチャー**: `C:\Users\tmizu\scripts\blog-update-pv.ps1`
+- **VBS**: `C:\Users\tmizu\scripts\blog-update-pv-hidden.vbs`
+- **Task Scheduler**: `BlogUpdatePV` (毎朝 05:00 PYT)
+- **動作**: GA4 Data API → 記事別累計PV取得 → CSV更新 → Google Sheets同期
+- **GA4 property_id**: 526536377（secrets.jsonのga4.property_id）
+- **ログ**: `claude-code/blog/outputs/update-pv.log`
+- **オプション**: `--no-sheets`（Sheets同期スキップ）
+
 ## 職務経歴書
 - **氏名**: 水野 達也
 - **詳細**: [resume.md](resume.md)
