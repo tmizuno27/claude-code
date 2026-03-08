@@ -12484,3 +12484,6 @@
 [2026-03-08 13:35:36] Commit OK
 [2026-03-08 13:35:36] Push OK - synced to GitHub
 [2026-03-08 13:36:37] Changes detected:  M auto-sync.log
+[2026-03-08 13:36:37] Commit OK
+[2026-03-08 13:36:37] Push OK - synced to GitHub
+[2026-03-08 13:37:37] Changes detected:  M auto-sync.log ?? blog/config/ga4-credentials.json ?? blog/config/gsc-credentials.json ?? blog/scripts/analytics/setup_ga4.py
