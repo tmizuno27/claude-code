@@ -92,6 +92,8 @@
 - **トップページ構造**: Hero → Latest Articles → Value Props → Stats → Three Pillars → Topics(6タイル) → About → Experiment Log → CTA
 - **ローカルバックアップ**: `claude-code/blog/wp-article-raw.html`
 - **カテゴリースラッグ**: paraguay(パラグアイ生活), side-business(副業・稼ぎ方), ijuu-junbi(移住準備)
+- **リスト丸数字問題**: Cocoonテーマがul/olにデフォルトで丸数字装飾を付ける。REST APIではwp_block作成・編集が403で拒否されるため、各記事のコンテンツ先頭にインラインCSSを挿入して対処。新記事投稿時も必ず同じCSSを挿入すること
+- **REST API権限制限**: wp_block（再利用ブロック）の作成・編集は403。記事(post)とページ(page)の作成・編集は可能
 - **Apple風CSS**: ヘッダー・フッター・記事本文のCSS適用済み（ブロック948-949 + singleテンプレート内インラインCSS）
 - **テンプレート**: single/page/index/homeにブロック932-954の参照を追加済み
 - **画像管理**: `claude-code/blog/images/` に全画像を格納（branding/ にロゴ等、カテゴリ別サブフォルダに記事用画像）。メディアIDマッピングは `media-mapping.json`
