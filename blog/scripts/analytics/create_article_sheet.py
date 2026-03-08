@@ -123,13 +123,13 @@ def write_article_list(sh, rows):
         sh.del_worksheet(ws)
     except gspread.exceptions.WorksheetNotFound:
         pass
-    ws = sh.add_worksheet(title='記事一覧', rows=max(len(rows) + 5, 30), cols=17)
+    ws = sh.add_worksheet(title='記事一覧', rows=max(len(rows) + 5, 30), cols=18)
 
     print(f"データ書き込み中...（{len(rows)-1}記事）")
     ws.update(rows, value_input_option='USER_ENTERED')
 
     # ヘッダーフォーマット
-    ws.format('A1:Q1', {
+    ws.format('A1:R1', {
         'backgroundColor': {'red': 0.2, 'green': 0.4, 'blue': 0.7},
         'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
         'horizontalAlignment': 'CENTER',
@@ -140,7 +140,7 @@ def write_article_list(sh, rows):
     for i, row in enumerate(rows[1:], start=2):
         atype = row[3] if len(row) > 3 else ''
         color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
-        ws.format(f'A{i}:Q{i}', {'backgroundColor': color})
+        ws.format(f'A{i}:R{i}', {'backgroundColor': color})
         status = row[7] if len(row) > 7 else ''
         if status == 'ドラフト':
             ws.format(f'H{i}', {
