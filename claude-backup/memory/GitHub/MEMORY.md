@@ -36,6 +36,17 @@
 - **手順書**: `claude-code/tools/sheets-sync/SETUP.md`
 - **フロー**: Sheets更新 → 5分おきにCSV取得 → auto-sync.ps1が1分おきにGitHubへpush
 
+## 日次アクセス分析（BlogDailyAnalytics）
+- **Pythonスクリプト**: `claude-code/blog/scripts/analytics/daily_analytics.py`
+- **PSランチャー**: `C:\Users\tmizu\scripts\blog-daily-analytics.ps1`
+- **VBS**: `C:\Users\tmizu\scripts\blog-daily-analytics-hidden.vbs`
+- **Task Scheduler**: `BlogDailyAnalytics` (毎日 07:00)
+- **データソース**: GA4 Data API + Search Console API + WordPress REST API
+- **レポート出力**: `claude-code/blog/outputs/daily-reports/daily-YYYY-MM-DD.md`
+- **Discord通知**: サマリーを自動送信
+- **前提**: GA4 property_id + ga4-credentials.json セットアップが必要
+- **オプション**: `--days N`(N日分), `--compare`(前週比較), `--no-discord`
+
 ## 定期ファクトチェック（BlogFactCheck）
 - **Pythonスクリプト**: `claude-code/blog/scripts/content/periodic_fact_checker.py`
 - **PSランチャー**: `C:\Users\tmizu\scripts\blog-fact-check.ps1`

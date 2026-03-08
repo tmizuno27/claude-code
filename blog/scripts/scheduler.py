@@ -91,6 +91,14 @@ TASKS = [
         "time": "10:00",
         "description": "定期ファクトチェック＆リライト"
     },
+    {
+        "name": f"{TASK_PREFIX}_DailyAnalytics",
+        "script": "analytics/daily_analytics.py",
+        "schedule": "DAILY",
+        "day": "*",
+        "time": "07:00",
+        "description": "日次アクセス分析レポート"
+    },
 ]
 
 

@@ -78,6 +78,7 @@
     "keyword_research": "monday 09:00",
     "internal_linking": "friday 09:00",
     "analytics_report": "monday 08:00",
+    "daily_analytics": "daily 07:00 (BlogDailyAnalytics)",
     "sns_content": "sunday 09:00"
   },
   "article": {
