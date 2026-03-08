@@ -123,13 +123,15 @@ def write_article_list(sh, rows):
         sh.del_worksheet(ws)
     except gspread.exceptions.WorksheetNotFound:
         pass
-    ws = sh.add_worksheet(title='記事一覧', rows=max(len(rows) + 5, 30), cols=18)
+    num_cols = len(rows[0]) if rows else 19
+    last_col = chr(ord('A') + num_cols - 1)  # 動的に最終列を算出
+    ws = sh.add_worksheet(title='記事一覧', rows=max(len(rows) + 5, 30), cols=num_cols)
 
     print(f"データ書き込み中...（{len(rows)-1}記事）")
     ws.update(rows, value_input_option='USER_ENTERED')
 
     # ヘッダーフォーマット
-    ws.format('A1:R1', {
+    ws.format(f'A1:{last_col}1', {
         'backgroundColor': {'red': 0.2, 'green': 0.4, 'blue': 0.7},
         'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
         'horizontalAlignment': 'CENTER',
@@ -140,7 +142,7 @@ def write_article_list(sh, rows):
     for i, row in enumerate(rows[1:], start=2):
         atype = row[3] if len(row) > 3 else ''
         color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
-        ws.format(f'A{i}:R{i}', {'backgroundColor': color})
+        ws.format(f'A{i}:{last_col}{i}', {'backgroundColor': color})
         status = row[7] if len(row) > 7 else ''
         if status == 'ドラフト':
             ws.format(f'H{i}', {
@@ -149,9 +151,12 @@ def write_article_list(sh, rows):
             })
 
     # フィルター
-    ws.set_basic_filter(f'A1:R{len(rows)}')
+    ws.set_basic_filter(f'A1:{last_col}{len(rows)}')
 
     # 列幅・ヘッダー固定
+    # A:#, B:公開順, C:柱, D:記事タイプ, E:カテゴリ, F:メインKW, G:記事タイトル,
+    # H:ステータス, I:文字数, J:要追記, K:写真指示, L:アフィリ数, M:内部リンク数,
+    # N:ファイル名, O:パーマリンク, P:累計PV, Q:作成日, R:公開日, S:備考
     sh.batch_update({'requests': [
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 0, 'endIndex': 1}, 'properties': {'pixelSize': 40}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 1, 'endIndex': 2}, 'properties': {'pixelSize': 65}, 'fields': 'pixelSize'}},
@@ -165,8 +170,9 @@ def write_article_list(sh, rows):
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 9, 'endIndex': 13}, 'properties': {'pixelSize': 80}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 13, 'endIndex': 14}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 14, 'endIndex': 15}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 15, 'endIndex': 17}, 'properties': {'pixelSize': 95}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 17, 'endIndex': 18}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 15, 'endIndex': 16}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 16, 'endIndex': 18}, 'properties': {'pixelSize': 95}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 18, 'endIndex': 19}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
         {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}},
     ]})
 
