@@ -115,7 +115,7 @@ YouTube・TikTok・Instagram Reelsの市場は拡大を続けています。
 
 2. **編集ソフトをインストール**
    - 初期費用を抑えたいならDaVinci Resolve（無料）
-   - 本格的にやるならAdobe Premiere Pro（月額【要確認】約2,700円〜）
+   - 本格的にやるならAdobe Premiere Pro（年間プラン月額約$22.99〜、月額プラン$34.49）
 
 3. **練習作品を3〜5本作る**
    - 自分のVlog、家族の動画、フリー素材を使って練習
