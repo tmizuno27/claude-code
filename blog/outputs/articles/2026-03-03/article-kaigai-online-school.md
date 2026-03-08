@@ -71,7 +71,7 @@ seo_notes: |
 
 | 項目 | [TechAcademy](https://YOUR-AFFILIATE-LINK/techacademy) | [DMM WEBCAMP](https://YOUR-AFFILIATE-LINK/dmm-webcamp) | [SHElikes](https://YOUR-AFFILIATE-LINK/shelikes) | [デイトラ](https://YOUR-AFFILIATE-LINK/daily-trial) | [Udemy](https://YOUR-AFFILIATE-LINK/udemy) |
 |------|------|------|------|------|------|
-| 料金 | 月約16,000円〜 | 月約15,500円〜 | 月約16,000円〜 | 約99,800円（買い切り） | 1講座1,200〜24,000円 |
+| 料金 | 99,000円〜（Liteプラン） | 169,800円〜（コースにより変動） | 入会金162,800円＋月16,280円〜 | 129,800円（税込・買い切り） | 1講座1,200〜24,000円 |
 | 期間 | 4〜16週間 | 4〜16週間 | 1〜12ヶ月 | 無期限閲覧 | 自分のペース |
 | 学べるスキル | Web制作, プログラミング | Web制作, プログラミング | Web, ライティング, デザイン | Web制作, 動画編集 | ほぼ全ジャンル |
 | メンターサポート | ◎ 週2回 | ◎ 週2回 | ○ 月1回 | △ 質問のみ | × なし |
