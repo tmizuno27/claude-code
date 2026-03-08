@@ -143,6 +143,11 @@ def strip_rank_math_section(md_text):
     return cleaned
 
 
+def strip_h1_from_html(html):
+    """本文内のH1タグを除去する（テンプレート側のタイトルと重複するため）"""
+    return re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html, flags=re.DOTALL)
+
+
 def markdown_to_html(md_text):
     """MarkdownをHTMLに変換する"""
     md_text = strip_rank_math_section(md_text)
@@ -152,7 +157,8 @@ def markdown_to_html(md_text):
         'markdown.extensions.toc',
         'markdown.extensions.nl2br'
     ]
-    return markdown.markdown(md_text, extensions=extensions)
+    html = markdown.markdown(md_text, extensions=extensions)
+    return strip_h1_from_html(html)
 
 
 def find_featured_media(title, keyword):
