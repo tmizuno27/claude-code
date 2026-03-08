@@ -25,6 +25,11 @@ from pathlib import Path
 import markdown
 import requests
 
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
+
 # ログ設定
 logging.basicConfig(
     level=logging.INFO,
