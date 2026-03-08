@@ -86,7 +86,8 @@ def fetch_ga4_data(settings, start_date, end_date):
     """GA4 Data API からアクセスデータを取得"""
     ga_config = settings.get("google_analytics", {})
     property_id = ga_config.get("property_id", "")
-    cred_file = CONFIG_DIR / ga_config.get("credentials_file", "ga4-credentials.json")
+    cred_path = ga_config.get("credentials_file", "ga4-credentials.json")
+    cred_file = PROJECT_ROOT / cred_path if "/" in cred_path else CONFIG_DIR / cred_path
 
     if not property_id or "YOUR" in property_id:
         logger.info("GA4 property_id 未設定。スキップ")
@@ -219,7 +220,8 @@ def fetch_search_console_data(settings, start_date, end_date):
     """Search Console API から検索パフォーマンスデータを取得"""
     sc_config = settings.get("search_console", {})
     site_url = sc_config.get("site_url", "")
-    cred_file = CONFIG_DIR / sc_config.get("credentials_file", "gsc-credentials.json")
+    cred_path = sc_config.get("credentials_file", "gsc-credentials.json")
+    cred_file = PROJECT_ROOT / cred_path if "/" in cred_path else CONFIG_DIR / cred_path
 
     if not site_url or not cred_file.exists():
         logger.info("Search Console 未設定。スキップ")
