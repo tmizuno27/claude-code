@@ -149,7 +149,7 @@ def write_article_list(sh, rows):
             })
 
     # フィルター
-    ws.set_basic_filter(f'A1:Q{len(rows)}')
+    ws.set_basic_filter(f'A1:R{len(rows)}')
 
     # 列幅・ヘッダー固定
     sh.batch_update({'requests': [
@@ -164,8 +164,9 @@ def write_article_list(sh, rows):
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 8, 'endIndex': 9}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 9, 'endIndex': 13}, 'properties': {'pixelSize': 80}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 13, 'endIndex': 14}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 14, 'endIndex': 16}, 'properties': {'pixelSize': 95}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 16, 'endIndex': 17}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 14, 'endIndex': 15}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 15, 'endIndex': 17}, 'properties': {'pixelSize': 95}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 17, 'endIndex': 18}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
         {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}},
     ]})
 
