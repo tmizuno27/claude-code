@@ -19,3 +19,14 @@
 2026-03-08 13:48:38,833 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
 2026-03-08 13:48:38,909 - INFO - レポート保存: C:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\outputs\daily-reports\daily-2026-03-07.md
 2026-03-08 13:48:38,909 - INFO - === 日次アクセス分析完了 ===
+2026-03-08 13:50:39,820 - INFO - === 日次アクセス分析開始 (days=1) ===
+2026-03-08 13:50:39,821 - INFO - GA4 データ取得中...
+2026-03-08 13:50:47,287 - INFO - Search Console データ取得中...
+2026-03-08 13:50:47,801 - INFO - file_cache is only supported with oauth2client<4.0.0
+2026-03-08 13:50:50,942 - WARNING - Encountered 403 Forbidden with reason "forbidden"
+2026-03-08 13:50:50,943 - ERROR - Search Console API エラー: <HttpError 403 when requesting https://searchconsole.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fnambei-oyaji.com/searchAnalytics/query?alt=json returned "User does not have sufficient permission for site 'https://nambei-oyaji.com'. See also: https://support.google.com/webmasters/answer/2451999.". Details: "[{'message': "User does not have sufficient permission for site 'https://nambei-oyaji.com'. See also: https://support.google.com/webmasters/answer/2451999.", 'domain': 'global', 'reason': 'forbidden'}]">
+2026-03-08 13:50:50,943 - INFO - WordPress データ取得中...
+2026-03-08 13:50:57,134 - INFO - レポート生成中...
+2026-03-08 13:51:36,307 - INFO - HTTP Request: POST https://api.anthropic.com/v1/messages "HTTP/1.1 200 OK"
+2026-03-08 13:51:36,391 - INFO - レポート保存: C:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\outputs\daily-reports\daily-2026-03-07.md
+2026-03-08 13:51:36,391 - INFO - === 日次アクセス分析完了 ===
