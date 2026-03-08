@@ -188,6 +188,48 @@ def generate_post(api_key: str, slot: str) -> str:
     return text
 
 
+FACT_CHECK_PROMPT = """あなたはファクトチェッカーです。以下のX投稿文に事実誤認がないか検証してください。
+
+## 検証基準（正しい情報）
+- 生活費が日本の1/3〜1/2（ランチ200-300円、牛肉1kg 700-900円、鶏肉1kg 300円）
+- 家賃：一軒家3LDKで月3-5万円
+- 所得税が最大10%、法人税10%
+- 地震・台風・津波なし。一年中温暖（冬の平均気温17-19℃、最低12-14℃程度）
+- 花粉ゼロ（日本では薬代年2万円→ゼロに）
+- 娘2人（8歳・6歳）がインターナショナルスクールに通学中。学費月約3万円
+- アサード：牛肉2kgで約1,500-1,800円
+- 永住権：まず2年の一時滞在ビザ→その後永住権申請。費用は書類+銀行預金$5,000程度
+- 外国人でも土地・不動産を購入可能
+- 日系社会90年の歴史
+- 時差12-13時間（日本との）
+- 家族4人（夫婦+娘2人）
+
+## 判定ルール
+1. 上記の基準と矛盾する数字・事実があれば「NG」
+2. 基準にない数字・統計・法律・手続きの記載があり、正確性が確認できない場合も「NG」
+3. 数字を含まない感想・日常ツイートや、基準と一致する情報のみの場合は「OK」
+
+## 出力形式（厳守）
+1行目に「OK」または「NG」のみ。
+NGの場合、2行目に理由を簡潔に記載。"""
+
+
+def fact_check_post(api_key: str, text: str) -> tuple[bool, str]:
+    """生成された投稿文をファクトチェックする。(passed, reason) を返す"""
+    client = anthropic.Anthropic(api_key=api_key)
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=128,
+        system=FACT_CHECK_PROMPT,
+        messages=[{"role": "user", "content": f"投稿文:\n{text}"}],
+    )
+    result = response.content[0].text.strip()
+    lines = result.split("\n", 1)
+    verdict = lines[0].strip().upper()
+    reason = lines[1].strip() if len(lines) > 1 else ""
+    return verdict == "OK", reason
+
+
 def find_best_image(post_text: str, slot: str) -> Path | None:
     """投稿文に最も合う画像をtags.jsonから選定する"""
     if not TAGS_FILE.exists():
@@ -380,6 +422,21 @@ def main():
     if len(text) > 280:
         print(f"WARNING: 文字数超過 ({len(text)}文字)。投稿をスキップします")
         sys.exit(1)
+
+    # ファクトチェック（最大3回再生成）
+    for attempt in range(3):
+        passed, reason = fact_check_post(api_key, text)
+        if passed:
+            print(f"ファクトチェック: OK (attempt {attempt + 1})")
+            break
+        print(f"ファクトチェック: NG (attempt {attempt + 1}) - {reason}")
+        if attempt < 2:
+            print("再生成します...")
+            text = generate_post(api_key, args.slot)
+            print(f"再生成された投稿 ({len(text)}文字): {text}")
+        else:
+            print("ERROR: 3回ファクトチェックに失敗。投稿をスキップします")
+            sys.exit(1)
 
     # 最適な画像を選定
     image_path = None
