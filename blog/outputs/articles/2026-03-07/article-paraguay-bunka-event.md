@@ -40,18 +40,18 @@ seo_notes: |
 
 | 日付 | 祝日名（日本語） | 祝日名（スペイン語） | 種別 |
 |------|------------------|---------------------|------|
-| 1月1日 | 元日 | Ano Nuevo | 固定 |
-| 3月1日 | 英雄の日 | Dia de los Heroes | 移動可 |
+| 1月1日 | 元日 | Año Nuevo | 固定 |
+| 3月1日 | 英雄の日 | Día de los Héroes | 移動可 |
 | 4月2日 | 聖木曜日 | Jueves Santo | 変動 |
 | 4月3日 | 聖金曜日 | Viernes Santo | 変動 |
-| 5月1日 | メーデー（労働者の日） | Dia del Trabajador | 固定 |
-| 5月14日 | 独立記念日 | Dia de la Independencia | 固定 |
-| 5月15日 | 独立記念日・母の日 | Dia de la Independencia / Dia de la Madre | 固定 |
-| 6月12日 | チャコ和平の日 | Dia de la Paz del Chaco | 移動可 |
-| 6月20日 | 憲法宣誓の日 | Dia de la Jura de la Constitucion | 固定 |
-| 8月15日 | アスンシオン建市記念日 | Fundacion de Asuncion | 固定 |
-| 9月29日 | ボケロンの戦い記念日 | Batalla de Boqueron | 移動可 |
-| 12月8日 | カアクペの聖母の日 | Dia de la Virgen de Caacupe | 固定 |
+| 5月1日 | メーデー（労働者の日） | Día del Trabajador | 固定 |
+| 5月14日 | 独立記念日 | Día de la Independencia | 固定 |
+| 5月15日 | 独立記念日・母の日 | Día de la Independencia / Día de la Madre | 固定 |
+| 6月12日 | チャコ和平の日 | Día de la Paz del Chaco | 移動可 |
+| 6月20日 | 憲法宣誓の日 | Día de la Jura de la Constitución | 固定（2026年新設） |
+| 8月15日 | アスンシオン建市記念日 | Fundación de Asunción | 固定 |
+| 9月29日 | ボケロンの戦い記念日 | Batalla de Boquerón | 移動可 |
+| 12月8日 | カアクペの聖母の日 | Día de la Virgen de Caacupé | 固定 |
 | 12月25日 | クリスマス | Navidad | 固定 |
 
 **ポイント:** 「移動可」と書いた祝日は、政府の決定で近い月曜日に移動し、3連休（fin de semana largo）になることがあります。2026年は5回の3連休が発生する見込みです。
