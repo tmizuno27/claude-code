@@ -25,11 +25,16 @@
     "theme": "cocoon",
     "seo_plugin": "rank-math",
     "default_category": "AI活用",
-    "categories": ["AI活用", "パラグアイ生活", "副業・稼ぎ方", "ツール比較"],
+    "categories": [
+      "AI活用",
+      "パラグアイ生活",
+      "副業・稼ぎ方",
+      "ツール比較"
+    ],
     "default_status": "draft"
   },
   "google_analytics": {
-    "property_id": "YOUR_GA4_PROPERTY_ID",
+    "property_id": "526536377",
     "measurement_id": "G-QXW9N8ZRLK",
     "credentials_file": "config/ga4-credentials.json"
   },
@@ -64,11 +69,17 @@
   "discord": {
     "webhook_url": "https://discord.com/api/webhooks/1479163439627636748/O7qkAFxrN1rLMJ8zOn3SRx6SZfNBjnxzpdJnbHNZYmcNH3OIA_Ou_DU1E7oNAt_yCzHP",
     "channel": "#x-auto-post",
-    "notify_on": ["x_post_success", "x_post_failure"]
+    "notify_on": [
+      "x_post_success",
+      "x_post_failure"
+    ]
   },
   "schedule": {
     "blog_auto_publish": {
-      "days_jst": ["Monday", "Thursday"],
+      "days_jst": [
+        "Monday",
+        "Thursday"
+      ],
       "time_jst": "06:00-07:00 (中心06:30 ±30分ランダム)",
       "holiday_skip": true,
       "pipeline": "article_generator.py → blog_image_pipeline.py --limit 1 → wp_publisher.py --status publish --limit 1 → create_article_sheet.py",
