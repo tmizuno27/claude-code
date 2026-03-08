@@ -129,8 +129,23 @@ def find_unpublished_articles():
     return unpublished
 
 
+def strip_rank_math_section(md_text):
+    """Rank Math 設定用セクションを本文から除去する（メタ情報であり本文に不要）"""
+    # "## Rank Math 設定用" 以降を削除（直前の --- 区切りも含む）
+    pattern = r'\n---\s*\n\s*<span id="rank-math-設定用"></span>\s*\n## Rank Math 設定用.*'
+    cleaned = re.sub(pattern, '', md_text, flags=re.DOTALL)
+    if cleaned == md_text:
+        # アンカーなしパターン
+        cleaned = re.sub(r'\n---\s*\n\s*## Rank Math 設定用.*', '', cleaned, flags=re.DOTALL)
+    if cleaned == md_text:
+        # 区切りなしパターン
+        cleaned = re.sub(r'\n## Rank Math 設定用.*', '', cleaned, flags=re.DOTALL)
+    return cleaned
+
+
 def markdown_to_html(md_text):
     """MarkdownをHTMLに変換する"""
+    md_text = strip_rank_math_section(md_text)
     extensions = [
         'markdown.extensions.tables',
         'markdown.extensions.fenced_code',
