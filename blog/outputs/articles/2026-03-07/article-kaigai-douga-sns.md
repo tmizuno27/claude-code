@@ -17,7 +17,7 @@ affiliates:
   - name: Udemy
     reward: 10%
 status: draft
-author: 水野達也（南米おやじ）
+author: 南米おやじ
 focus_keyword: 海外在住 動画編集 SNS運用 副業
 meta_description: "海外在住でも動画編集・SNS運用代行で月5万円稼ぐロードマップ。時差を活かした翌朝納品の強みとクラウドソーシング活用法を解説。"
 tags: [海外在住, 動画編集, SNS運用代行, 副業, クラウドソーシング, リモートワーク]
@@ -228,4 +228,4 @@ YouTube・TikTok・Instagram Reelsの市場は拡大を続けています。
 
 ---
 
-*この記事はパラグアイ・ランバレ在住の筆者（[@nambei_oyaji](https://x.com/nambei_oyaji)）が、実際の副業経験をもとに執筆しています。情報は2026年3月時点のものです。*
+*この記事はパラグアイ・アスンシオン在住の筆者（[@nambei_oyaji](https://x.com/nambei_oyaji)）が、実際の副業経験をもとに執筆しています。情報は2026年3月時点のものです。*

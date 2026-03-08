@@ -20,7 +20,7 @@ internal_links:
   - /paraguay-seikatsuhi/
   - /kaigai-ijuu-kosodate/
 date: 2026-03-07
-author: 水野達也（南米おやじ）
+author: 南米おやじ
 status: draft
 seo_notes: |
   - 「海外移住 持ち物」「海外移住 日本から持っていくもの」で検索上位を狙う
@@ -283,4 +283,4 @@ seo_notes: |
 
 ---
 
-*この記事はパラグアイ・ランバレ在住の筆者（[@nambei_oyaji](https://x.com/nambei_oyaji)）が、2回の海外移住経験をもとに執筆しています。情報は2026年3月時点のものです。*
+*この記事はパラグアイ・アスンシオン在住の筆者（[@nambei_oyaji](https://x.com/nambei_oyaji)）が、2回の海外移住経験をもとに執筆しています。情報は2026年3月時点のものです。*

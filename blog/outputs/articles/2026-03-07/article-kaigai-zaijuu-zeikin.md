@@ -15,7 +15,7 @@ affiliate_disclosure: true
 internal_links: 3
 faq_count: 5
 word_count_target: 3000-5000
-author: 水野達也（南米おやじ）
+author: 南米おやじ
 seo_notes: |
   - 「海外在住 確定申告」「非居住者 確定申告」で検索上位を狙う
   - パラグアイ税制の具体的数字でスニペット獲得
