@@ -28,9 +28,9 @@ body.single {
 
 /* ===== LAYOUT OVERRIDE — Widen main content (keep sidebar) ===== */
 body.single .wp-site-blocks {
-  max-width: 1300px !important;
+  max-width: 1400px !important;
   margin: 0 auto !important;
-  gap: 40px !important;
+  gap: 30px !important;
 }
 /* Content area full width within its grid column */
 body.single .wp-block-post-content,
