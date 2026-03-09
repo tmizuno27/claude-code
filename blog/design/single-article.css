@@ -33,13 +33,29 @@ body.single .wp-site-blocks {
   margin: 0 auto !important;
   gap: 30px !important;
 }
-/* Content block centered within main column */
+/* Main column — center all content */
+body.single main.wp-block-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+/* Title, featured image, content — full width within centered main */
+body.single .wp-block-post-title,
+body.single .wp-block-post-featured-image,
 body.single .wp-block-post-content,
 body.single .wp-block-post-content.is-layout-constrained {
   max-width: 100% !important;
   width: 100% !important;
-  margin: 0 auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding: 0 !important;
+}
+/* Inner content blocks also full width */
+body.single .wp-block-post-content > *,
+body.single .wp-block-post-content.is-layout-constrained > * {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
 /* Remove Cocoon default shadows/borders */
 .single .article {
