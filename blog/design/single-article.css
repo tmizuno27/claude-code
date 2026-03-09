@@ -1140,6 +1140,18 @@ body.single footer {
 
 /* ===== MOBILE TAKEOVER (TCD-style) ===== */
 
+/* --- TCD Global Reset --- */
+.nao-m-page *, .nao-m-page *::before, .nao-m-page *::after {
+  box-sizing: border-box;
+  word-break: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+}
+.nao-m-page * { -webkit-tap-highlight-color: transparent; }
+
 /* --- Page container --- */
 .nao-m-page {
   width: 100%;
@@ -1147,10 +1159,14 @@ body.single footer {
   margin: 0;
   padding: 0;
   background: #f5f5f5;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", -apple-system, BlinkMacSystemFont, Meiryo, sans-serif;
-  color: #333;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  color: #222;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 100%;
+  line-height: 1;
 }
 
 /* ======== HEADER (TCD: white, thin border, logo left, hamburger right) ======== */
@@ -1170,7 +1186,7 @@ body.single footer {
 }
 .nao-m-hdr-logo {
   text-decoration: none;
-  color: #1a1a1a;
+  color: #222;
 }
 .nao-m-hdr-logo-main {
   font-size: 14px;
@@ -1280,7 +1296,7 @@ body.single footer {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.6;
-  color: #1a1a1a;
+  color: #222;
 }
 
 /* ======== CONTENT ======== */
@@ -1291,7 +1307,7 @@ body.single footer {
   max-width: 100%;
   font-size: 16px;
   line-height: 2.1;
-  color: #333;
+  color: #222;
   word-break: break-word;
   overflow-wrap: break-word;
 }
@@ -1313,8 +1329,8 @@ body.single footer {
   line-height: 1.5;
   margin: 56px 0 20px;
   padding: 0 0 12px;
-  border-bottom: 3px solid #333;
-  color: #1a1a1a;
+  border-bottom: 3px solid #222;
+  color: #222;
 }
 .nao-m-content h3 {
   font-size: 17px;
@@ -1323,14 +1339,14 @@ body.single footer {
   margin: 44px 0 14px;
   padding: 0 0 0 12px;
   border-left: 4px solid #333;
-  color: #1a1a1a;
+  color: #222;
 }
 .nao-m-content h4 {
   font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
   margin: 32px 0 10px;
-  color: #1a1a1a;
+  color: #222;
 }
 
 /* Images */
@@ -1395,13 +1411,13 @@ body.single footer {
   font-weight: 600;
 }
 
-/* Links */
+/* Links (TCD: #1E73BE) */
 .nao-m-content a {
-  color: #1a6dcc;
+  color: #1E73BE;
   text-decoration: none;
-  border-bottom: 1px solid rgba(26,109,204,0.3);
+  border-bottom: 1px solid rgba(30,115,190,0.3);
 }
-.nao-m-content a:hover { border-bottom-color: #1a6dcc; }
+.nao-m-content a:hover { border-bottom-color: #1E73BE; }
 
 /* TOC */
 .nao-m-content .tcd-toc {
