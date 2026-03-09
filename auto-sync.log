@@ -15794,3 +15794,6 @@
 [2026-03-09 20:29:35] Commit OK
 [2026-03-09 20:29:35] Push OK - synced to GitHub
 [2026-03-09 20:30:35] Changes detected:  M auto-sync.log  M blog/scripts/publishing/deploy_single_article_design.py
+[2026-03-09 20:30:35] Commit OK
+[2026-03-09 20:30:35] Push OK - synced to GitHub
+[2026-03-09 20:31:35] Changes detected:  M auto-sync.log  M blog/design/single-article.css  M blog/scripts/publishing/deploy_single_article_design.py

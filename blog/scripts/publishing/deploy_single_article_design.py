@@ -115,8 +115,8 @@ def main():
         return
 
     # Adjust sidebar width in template inline styles
-    content = content.replace('grid-template-columns:1fr 320px', 'grid-template-columns:1fr 380px')
-    content = content.replace('grid-template-columns:1fr 280px', 'grid-template-columns:1fr 380px')
+    content = content.replace('grid-template-columns:1fr 380px', 'grid-template-columns:1fr 360px')
+    content = content.replace('grid-template-columns:1fr 280px', 'grid-template-columns:1fr 360px')
 
     # Remove old injected blocks (current + legacy markers)
     content_clean = remove_old_blocks(content, CSS_MARKER)
