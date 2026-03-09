@@ -429,17 +429,6 @@
 
     page.appendChild(article);
 
-    // --- Footer (TCD-style: dark bg, links, copyright) ---
-    var mFooter = el('footer', 'nao-m-ftr');
-    mFooter.innerHTML =
-      '<div class="nao-m-ftr-links">' +
-        '<a href="/">\u30db\u30fc\u30e0</a>' +
-        '<a href="/category/paraguay/">\u30d1\u30e9\u30b0\u30a2\u30a4\u751f\u6d3b</a>' +
-        '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
-        '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>' +
-      '</div>' +
-      '<div class="nao-m-ftr-copy">&copy; ' + new Date().getFullYear() + ' \u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</div>';
-    page.appendChild(mFooter);
 
     // 3. Hide everything in body except our page + floating overlays
     var bodyChildren = document.body.children;

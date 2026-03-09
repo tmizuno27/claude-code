@@ -1153,7 +1153,13 @@ body.single footer {
   .nao-site-hdr,
   body > div > header,
   .wp-site-blocks > header,
-  .wp-site-blocks > .wp-block-template-part:first-child {
+  .wp-site-blocks > .wp-block-template-part:first-child,
+  footer.wp-block-template-part,
+  .wp-site-blocks > footer,
+  .wp-site-blocks > .wp-block-template-part:last-child,
+  footer#colophon,
+  .site-footer,
+  .nao-m-ftr {
     display: none !important;
     height: 0 !important;
     overflow: hidden !important;
