@@ -1407,7 +1407,13 @@ body.single footer {
   display: none;
 }
 
-/* Yellow marker / highlight — re-apply on mobile */
+/* Yellow marker on <strong> — matches PC rule (body.single .entry-content strong) */
+.nao-m-content strong {
+  font-weight: 700 !important;
+  background: linear-gradient(transparent 60%, #fff9c4 60%) !important;
+  padding: 0 2px !important;
+}
+/* mark tag */
 .nao-m-content mark {
   background-color: #fcf69f !important;
   padding: 0 2px;
