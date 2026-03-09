@@ -868,9 +868,11 @@ body.single .article p {
   max-height: calc(100vh - 130px);
   overflow-y: auto;
 }
-/* Limit sidebar height to match main content */
+/* Limit sidebar to match main content height — override theme grid-row: 2/99 */
 body.single .nao-tcd-sidebar {
   align-self: start !important;
+  grid-row: auto !important;
+  overflow: hidden !important;
 }
 .nao-tcd-widget-title {
   font-size: 14px;

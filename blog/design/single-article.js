@@ -212,24 +212,17 @@
     w.style.position = 'sticky';
     w.style.top = '100px';
 
-    // Stop TOC sticky when article content ends
-    var marker = document.getElementById('nao-article-end-marker');
-    if (marker) {
-      var tocWidget = w;
-      function checkTocSticky() {
-        var markerRect = marker.getBoundingClientRect();
-        // When article end marker scrolls above the TOC bottom, un-stick
-        if (markerRect.top < tocWidget.offsetHeight + 100) {
-          tocWidget.style.position = 'relative';
-          tocWidget.style.top = '0';
-        } else {
-          tocWidget.style.position = 'sticky';
-          tocWidget.style.top = '100px';
-        }
-      }
-      window.addEventListener('scroll', checkTocSticky, { passive: true });
-      checkTocSticky();
+    // Match sidebar height to main article content
+    function matchSidebarToArticle() {
+      var mainEl = document.querySelector('main.wp-block-group');
+      if (!mainEl) return;
+      var mainH = mainEl.offsetHeight;
+      sb.style.height = mainH + 'px';
+      sb.style.overflow = 'hidden';
     }
+    window.addEventListener('load', matchSidebarToArticle);
+    setTimeout(matchSidebarToArticle, 500);
+    window.addEventListener('resize', matchSidebarToArticle);
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */
