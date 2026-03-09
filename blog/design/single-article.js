@@ -62,7 +62,7 @@
     }
 
     // 6. Sidebar TOC
-    insertSidebarTOC(content);
+    try { insertSidebarTOC(content); } catch(e) { console.error('SidebarTOC error:', e); }
 
     // 7. Share buttons (bottom)
     content.appendChild(createShareButtons('tcd-share tcd-share--bottom'));
