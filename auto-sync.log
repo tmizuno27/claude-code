@@ -13102,3 +13102,6 @@
 [2026-03-08 21:36:49] Commit OK
 [2026-03-08 21:36:49] Push OK - synced to GitHub
 [2026-03-08 21:37:46] Changes detected:  M auto-sync.log  M blog/design/nao-global.css
+[2026-03-08 21:37:47] Commit OK
+[2026-03-08 21:37:47] Push OK - synced to GitHub
+[2026-03-08 21:38:39] Changes detected:  M auto-sync.log ?? blog/scripts/publishing/deploy_single_design.py
