@@ -1402,9 +1402,31 @@ body.single footer {
 }
 .nao-m-content a:hover { border-bottom-color: #1E73BE; }
 
-/* TOC — hidden on mobile (use floating button instead) */
+/* TOC — hidden on mobile */
 .nao-m-content .tcd-toc {
   display: none;
+}
+
+/* Yellow marker / highlight (preserve WP inline styles on mobile) */
+.nao-m-content mark,
+.nao-m-content .marker-yellow,
+.nao-m-content .has-luminous-vivid-amber-background-color,
+.nao-m-content .has-pale-cyan-blue-background-color,
+.nao-m-content .has-vivid-green-cyan-background-color,
+.nao-m-content [style*="background"],
+.nao-m-content .nao-yellow-marker,
+.nao-m-content .nao-highlight {
+  background: inherit;
+}
+.nao-m-page mark {
+  background-color: #fcf69f;
+  padding: 0 2px;
+}
+.nao-m-page .has-luminous-vivid-amber-background-color {
+  background-color: #fcb900;
+}
+.nao-m-page .marker-yellow {
+  background: linear-gradient(transparent 60%, #fff799 60%);
 }
 
 /* Author box */
