@@ -118,10 +118,6 @@ def main():
     content_clean = remove_old_blocks(content, CSS_MARKER)
     content_clean = remove_old_blocks(content_clean, JS_MARKER)
     content_clean = remove_legacy_blocks(content_clean)
-    # One-time fix: restore grid-row:2 / 99 in template
-    if 'grid-row:2 / 3' in content_clean:
-        content_clean = content_clean.replace('grid-row:2 / 3', 'grid-row:2 / 99')
-        print('  Restored grid-row:2 / 99 in template')
     removed = len(content) - len(content_clean)
     if removed > 0:
         print(f'  Removed old blocks: {removed:,} chars')
