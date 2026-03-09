@@ -1159,12 +1159,13 @@ body.single footer {
   margin: 0;
   padding: 0;
   background: #f5f5f5;
-  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  font-family: Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   color: #222;
   overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 60px;
+  padding-top: 0;
   font-size: 100%;
   line-height: 1;
 }
@@ -1306,7 +1307,7 @@ body.single footer {
   width: 100%;
   max-width: 100%;
   font-size: 16px;
-  line-height: 2.1;
+  line-height: 2;
   color: #222;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -1333,7 +1334,7 @@ body.single footer {
   color: #222;
 }
 .nao-m-content h3 {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.5;
   margin: 44px 0 14px;
