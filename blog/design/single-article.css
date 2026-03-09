@@ -12,7 +12,7 @@ body.single {
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
 .single .wp-block-post-content {
-  max-width: 960px !important;
+  max-width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
   font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif !important;
@@ -26,28 +26,17 @@ body.single {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== LAYOUT OVERRIDE — Force 1-column on single posts ===== */
-/* Hide TCD sidebar */
-.single .nao-tcd-sidebar {
-  display: none !important;
-}
-/* Override grid to single column */
+/* ===== LAYOUT OVERRIDE — Widen main content (keep sidebar) ===== */
 body.single .wp-site-blocks {
-  grid-template-columns: 1fr !important;
-}
-body.single main.wp-block-group {
-  max-width: 960px !important;
-  width: 100% !important;
+  max-width: 1300px !important;
   margin: 0 auto !important;
-  padding: 0 20px !important;
-  box-sizing: border-box !important;
+  gap: 40px !important;
 }
-/* Content area full width within main */
+/* Content area full width within its grid column */
 body.single .wp-block-post-content,
 body.single .wp-block-post-content.is-layout-constrained {
   max-width: 100% !important;
   width: 100% !important;
-  margin: 0 auto !important;
   padding: 0 !important;
 }
 /* Remove Cocoon default shadows/borders */
