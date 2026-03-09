@@ -183,7 +183,7 @@
 
   /* ===== Sidebar TOC ===== */
   function insertSidebarTOC(ct) {
-    var sb = document.getElementById('nao-tcd-sidebar') || document.querySelector('.sidebar, #sidebar, aside');
+    var sb = document.querySelector('.nao-tcd-sidebar') || document.getElementById('nao-tcd-sidebar') || document.querySelector('.sidebar, #sidebar, aside');
     if (!sb) return;
     var hs = ct.querySelectorAll('h2, h3');
     if (hs.length < 3) return;
