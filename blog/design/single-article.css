@@ -9,6 +9,12 @@ body.single {
   background-color: #fafafa !important;
 }
 
+/* ===== POST LIST DATE — prevent wrapping ===== */
+.wp-block-post-date {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+}
+
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
 .single .wp-block-post-content {
