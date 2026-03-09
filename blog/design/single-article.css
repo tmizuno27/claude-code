@@ -26,6 +26,15 @@ body.single {
 .comment-form .comment-form-url {
   display: none !important;
 }
+.comment-form-cookies-consent {
+  display: none !important;
+}
+/* "コメント" heading — 2px larger + bold */
+.wp-block-comments h2.wp-block-heading,
+.comments-area h2.wp-block-heading {
+  font-weight: 700 !important;
+  font-size: calc(1em + 2px) !important;
+}
 
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
