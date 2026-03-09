@@ -208,6 +208,21 @@
     // Make sidebar TOC sticky
     w.style.position = 'sticky';
     w.style.top = '100px';
+
+    // Limit sidebar height to article content so TOC stops at article end
+    function limitSidebarHeight() {
+      var articleContent = ct;
+      if (!articleContent) return;
+      var rect = articleContent.getBoundingClientRect();
+      var articleBottom = rect.bottom + window.scrollY;
+      var sidebarTop = sb.getBoundingClientRect().top + window.scrollY;
+      var h = articleBottom - sidebarTop;
+      if (h > 0) sb.style.maxHeight = h + 'px';
+    }
+    limitSidebarHeight();
+    window.addEventListener('resize', limitSidebarHeight);
+    // Recalculate after images load
+    window.addEventListener('load', limitSidebarHeight);
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */
