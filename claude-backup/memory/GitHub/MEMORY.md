@@ -41,36 +41,11 @@
 - **手順書**: `claude-code/tools/sheets-sync/SETUP.md`
 - **フロー**: Sheets更新 → 5分おきにCSV取得 → auto-sync.ps1が1分おきにGitHubへpush
 
-## 日次アクセス分析（BlogDailyAnalytics）
-- **Pythonスクリプト**: `claude-code/blog/scripts/analytics/daily_analytics.py`
-- **PSランチャー**: `C:\Users\tmizu\scripts\blog-daily-analytics.ps1`
-- **VBS**: `C:\Users\tmizu\scripts\blog-daily-analytics-hidden.vbs`
-- **Task Scheduler**: `BlogDailyAnalytics` (毎日 07:00)
-- **データソース**: GA4 Data API + Search Console API + WordPress REST API
-- **レポート出力**: `claude-code/blog/outputs/daily-reports/daily-YYYY-MM-DD.md`
-- **Discord通知**: サマリーを自動送信
-- **前提**: GA4 property_id + ga4-credentials.json セットアップが必要
-- **オプション**: `--days N`(N日分), `--compare`(前週比較), `--no-discord`
-
-## 定期ファクトチェック（BlogFactCheck）
-- **Pythonスクリプト**: `claude-code/blog/scripts/content/periodic_fact_checker.py`
-- **PSランチャー**: `C:\Users\tmizu\scripts\blog-fact-check.ps1`
-- **VBS**: `C:\Users\tmizu\scripts\blog-fact-check-hidden.vbs`
-- **Task Scheduler**: `BlogFactCheck` (毎週水曜 10:00)
-- **動作**: ドラフト記事を自動修正(--mode fix) + 投稿済み記事をチェック(--mode check)
-- **レポート出力**: `claude-code/blog/outputs/fact-check-reports/`
-- **モード**: check(チェックのみ), fix(自動修正), rewrite(リライト提案)
-- **コスト管理**: --limit で処理記事数を制限（デフォルト10）
-
-## 記事別PV自動更新（BlogUpdatePV）
-- **Pythonスクリプト**: `claude-code/blog/scripts/analytics/update_pv.py`
-- **PSランチャー**: `C:\Users\tmizu\scripts\blog-update-pv.ps1`
-- **VBS**: `C:\Users\tmizu\scripts\blog-update-pv-hidden.vbs`
-- **Task Scheduler**: `BlogUpdatePV` (毎朝 05:00 PYT)
-- **動作**: GA4 Data API → 記事別累計PV取得 → CSV更新 → Google Sheets同期
+## 全自動定期タスク（16タスク）
+- **詳細一覧**: [scheduled-tasks.md](scheduled-tasks.md)
+- **ランチャー**: `C:\Users\tmizu\scripts\` (PS1 + VBS ペア)
+- **登録**: `register-all-tasks.ps1` (新規タスク一括), `register-x-tasks.ps1` (X系)
 - **GA4 property_id**: 526536377（secrets.jsonのga4.property_id）
-- **ログ**: `claude-code/blog/outputs/update-pv.log`
-- **オプション**: `--no-sheets`（Sheets同期スキップ）
 
 ## 職務経歴書
 - **氏名**: 水野 達也
