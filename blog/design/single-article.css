@@ -1014,24 +1014,28 @@ body.single footer {
 }
 .tcd-mtoc-btn {
   position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 12px 28px;
-  background: rgba(0,0,0,.75);
+  bottom: 24px;
+  right: 20px;
+  left: auto;
+  transform: none;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  background: #222;
   color: #fff;
   border: none;
-  font-size: 13px;
-  font-weight: 600;
-  font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
   cursor: pointer;
   z-index: 90;
   display: none;
-  letter-spacing: .06em;
-  transition: opacity .2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  transition: opacity .2s ease, transform .2s ease;
 }
-.tcd-mtoc-btn:hover {
-  opacity: .8;
+.tcd-mtoc-btn:active {
+  transform: scale(0.92);
 }
 
 /* ===== TCD UNDERLINE DECORATION CLASSES ===== */
@@ -1398,19 +1402,9 @@ body.single footer {
 }
 .nao-m-content a:hover { border-bottom-color: #1E73BE; }
 
-/* TOC */
+/* TOC — hidden on mobile (use floating button instead) */
 .nao-m-content .tcd-toc {
-  padding: 20px;
-  margin: 24px 0 36px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background: #fafafa;
-  font-size: 14px;
-}
-.nao-m-content .tcd-toc-title {
-  font-weight: 700;
-  font-size: 15px;
-  margin-bottom: 10px;
+  display: none;
 }
 
 /* Author box */
