@@ -36,7 +36,7 @@ body.single .wp-site-blocks {
 /* Content block centered within main column */
 body.single .wp-block-post-content,
 body.single .wp-block-post-content.is-layout-constrained {
-  max-width: 500px !important;
+  max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto !important;
   padding: 0 !important;
