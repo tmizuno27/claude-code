@@ -49,6 +49,7 @@ body.single .wp-site-blocks {
   max-width: 1400px !important;
   margin: 0 auto !important;
   gap: 30px !important;
+  overflow-x: hidden !important;
 }
 /* Main column — center all content */
 body.single main.wp-block-group {
@@ -906,6 +907,9 @@ body.single .nao-tcd-sidebar {
   align-self: start !important;
   grid-row-start: 2 !important;
   grid-row-end: auto !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
 }
 /* Footer covers sidebar — prevent sidebar from bleeding into footer */
 body.single footer.wp-block-template-part,
