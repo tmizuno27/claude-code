@@ -1297,7 +1297,7 @@ body.single footer {
 
 /* --- Info bar (category badge + date) --- */
 .nao-m-info {
-  padding: 16px 20px 0;
+  padding: 16px 30px 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1329,7 +1329,7 @@ body.single footer {
 
 /* --- Title --- */
 .nao-m-title {
-  padding: 12px 20px 20px;
+  padding: 12px 30px 20px;
   margin: 0;
   font-size: 20px;
   font-weight: 700;
@@ -1339,7 +1339,7 @@ body.single footer {
 
 /* ======== CONTENT ======== */
 .nao-m-content {
-  padding: 0 20px 40px;
+  padding: 0 30px 40px;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
