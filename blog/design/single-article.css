@@ -1138,15 +1138,16 @@ body.single footer {
   color: #333;
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+/* ===== MOBILE RESPONSIVE (TCD-style) ===== */
 @media (max-width: 768px) {
-  /* Single column — hide sidebar, full width on mobile */
+  /* --- Layout: single column, full width --- */
   body.single .wp-site-blocks {
     display: block !important;
     max-width: 100vw !important;
     width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    overflow-x: hidden !important;
   }
   body.single .nao-tcd-sidebar {
     display: none !important;
@@ -1159,66 +1160,143 @@ body.single footer {
     padding: 0 !important;
     margin: 0 !important;
   }
+  body.single header,
+  body.single header.wp-block-template-part {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* --- Article Title (TCD: 20px, tight line-height) --- */
   body.single .wp-block-post-title {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 16px !important;
+    padding: 15px 20px 10px !important;
     box-sizing: border-box !important;
-    font-size: 22px !important;
-    line-height: 1.45 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.02em !important;
   }
+
+  /* --- Featured Image: edge-to-edge --- */
   body.single .wp-block-post-featured-image {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
+    margin: 0 0 20px !important;
   }
+  body.single .wp-block-post-featured-image img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* --- Post Content (TCD: 16px, line-height 2.3, padding 20px) --- */
   body.single .wp-block-post-content,
   body.single .wp-block-post-content.is-layout-constrained {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 0 16px !important;
+    padding: 0 20px !important;
     box-sizing: border-box !important;
-    font-size: 15px !important;
-    line-height: 2.2 !important;
+    font-size: 16px !important;
+    line-height: 2.3 !important;
+    color: #333 !important;
+    word-break: break-word !important;
   }
+  /* Remove inner constraints */
   body.single .wp-block-post-content > *,
   body.single .wp-block-post-content.is-layout-constrained > * {
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-
-  .tcd-breadcrumb {
-    padding: 15px 20px 8px;
-    font-size: 10px;
+  /* Paragraphs: generous bottom margin (TCD: 40px) */
+  body.single .wp-block-post-content p {
+    margin-bottom: 35px !important;
   }
 
-  .single .entry-title,
-  .single .article-title {
-    font-size: 22px;
-    padding: 0 20px;
-    line-height: 1.45;
+  /* --- Headings (TCD-style spacing) --- */
+  body.single .wp-block-post-content h2 {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    margin: 80px 0 20px !important;
+    padding-bottom: 14px !important;
+    line-height: 1.5 !important;
+  }
+  body.single .wp-block-post-content h3 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin: 60px 0 15px !important;
+    line-height: 1.5 !important;
+  }
+  body.single .wp-block-post-content h4 {
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin: 40px 0 12px !important;
+    line-height: 1.5 !important;
   }
 
+  /* --- Images in content --- */
+  body.single .wp-block-post-content img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 15px 0 !important;
+  }
+  body.single .wp-block-post-content figure {
+    margin: 25px 0 !important;
+  }
+
+  /* --- Lists --- */
+  body.single .wp-block-post-content ul,
+  body.single .wp-block-post-content ol {
+    padding-left: 1.5em !important;
+    margin-bottom: 35px !important;
+  }
+  body.single .wp-block-post-content li {
+    margin-bottom: 10px !important;
+    line-height: 2.0 !important;
+  }
+
+  /* --- Blockquote --- */
+  body.single .wp-block-post-content blockquote {
+    margin: 30px 0 !important;
+    padding: 20px !important;
+    font-size: 15px !important;
+    line-height: 2.0 !important;
+  }
+
+  /* --- Tables --- */
+  body.single .wp-block-post-content .wp-block-table,
+  .tcd-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    margin: 25px 0 !important;
+  }
+  body.single .wp-block-post-content table {
+    min-width: 500px !important;
+    font-size: 14px !important;
+  }
+
+  /* --- Meta info (date, category) --- */
+  body.single .wp-block-post-date,
+  body.single .wp-block-post-terms {
+    font-size: 13px !important;
+    padding: 0 20px !important;
+  }
   .tcd-meta {
     flex-wrap: wrap;
     gap: 10px;
+    padding: 0 20px;
+    font-size: 13px;
   }
 
-  .single .entry-content h2 {
-    font-size: 20px;
-    margin: 60px 0 25px;
-    padding-bottom: 16px;
-  }
-  .single .entry-content h3 {
-    font-size: 18px;
-    margin: 45px 0 18px;
-  }
-  .single .entry-content h4 {
-    font-size: 16px;
-    margin: 30px 0 12px;
+  /* --- Breadcrumb --- */
+  .tcd-breadcrumb {
+    padding: 12px 20px 8px;
+    font-size: 11px;
   }
 
+  /* --- TOC (in-article) --- */
   .tcd-toc {
     padding: 20px;
     margin: 30px 0 40px;
@@ -1227,27 +1305,26 @@ body.single footer {
     font-size: 15px;
   }
 
-  .tcd-share-btn {
-    padding: 12px 0;
-    font-size: 11px;
-  }
-
+  /* --- Author box --- */
   .tcd-author {
-    padding: 20px;
+    padding: 25px 20px;
+    margin: 40px 0 !important;
   }
   .tcd-author-inner {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
-  .tcd-author-avatar {
-    width: 70px;
-    height: 70px;
+  .tcd-author-avatar,
+  .nao-author-avatar-wrap {
+    width: 70px !important;
+    height: 70px !important;
   }
   .tcd-author-sns {
     justify-content: center;
   }
 
+  /* --- Related posts --- */
   .tcd-related-grid {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1264,6 +1341,7 @@ body.single footer {
     padding: 10px 12px;
   }
 
+  /* --- Link cards --- */
   .tcd-link-card {
     padding: 12px;
     gap: 12px;
@@ -1272,6 +1350,7 @@ body.single footer {
     width: 100px;
   }
 
+  /* --- CTA banner --- */
   .tcd-cta-banner {
     padding: 30px 20px;
   }
@@ -1279,34 +1358,30 @@ body.single footer {
     font-size: 18px;
   }
 
+  /* --- Floating buttons --- */
   .tcd-totop {
     bottom: 80px;
     right: 16px;
     width: 44px;
     height: 44px;
   }
-
   .tcd-mtoc-btn {
     display: block;
     bottom: 24px;
   }
 
-  /* Table horizontal scroll */
-  .tcd-table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin: 2em 0;
-  }
-  .tcd-table-wrap table {
-    margin: 0;
-    min-width: 500px;
-  }
-
+  /* --- FAQ --- */
   .tcd-faq-item {
     padding: 20px;
   }
 
-  /* Hide bottom bar on single pages */
+  /* --- Share buttons --- */
+  .tcd-share-btn {
+    padding: 12px 0;
+    font-size: 11px;
+  }
+
+  /* --- Hide bottom bar & sidebar on single pages --- */
   body.single .nao-m-bottom { display: none !important; }
 }
 
