@@ -389,23 +389,30 @@
     // 2. Build the new mobile page
     var page = el('div', 'nao-m-page');
 
-    // Mobile header bar
-    var mHeader = el('div', 'nao-m-hdr');
-    mHeader.innerHTML = '<a href="/" class="nao-m-hdr-logo">\u5357\u7c73\u304a\u3084\u3058\u306e<br>\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</a>' +
-      '<button class="nao-m-hdr-menu" aria-label="\u30e1\u30cb\u30e5\u30fc">\u2630</button>';
+    // --- Header (TCD-style: white bg, logo left, hamburger right) ---
+    var mHeader = el('header', 'nao-m-hdr');
+    mHeader.innerHTML =
+      '<div class="nao-m-hdr-inner">' +
+        '<a href="/" class="nao-m-hdr-logo">' +
+          '<span class="nao-m-hdr-logo-main">\u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</span>' +
+        '</a>' +
+        '<button class="nao-m-hdr-menu" aria-label="\u30e1\u30cb\u30e5\u30fc">' +
+          '<span></span><span></span><span></span>' +
+        '</button>' +
+      '</div>';
     page.appendChild(mHeader);
 
-    // Article wrapper
+    // --- Article ---
     var article = el('article', 'nao-m-art');
 
-    // Featured image (full bleed, before title like TCD)
+    // Eyecatch (full bleed, TCD: above title)
     if (featImgSrc) {
       var imgWrap = el('div', 'nao-m-eyecatch');
-      imgWrap.innerHTML = '<img src="' + featImgSrc + '" alt="' + featImgAlt + '" loading="eager">';
+      imgWrap.innerHTML = '<img src="' + featImgSrc + '" alt="' + featImgAlt + '">';
       article.appendChild(imgWrap);
     }
 
-    // Category + date
+    // Category + date bar
     if (catHTML || metaHTML) {
       var infoBar = el('div', 'nao-m-info');
       infoBar.innerHTML = catHTML + metaHTML;
@@ -417,41 +424,48 @@
     titleWrap.innerHTML = titleHTML;
     article.appendChild(titleWrap);
 
-    // Content — MOVE the actual DOM node (preserves event listeners for TOC etc.)
+    // Content (move actual DOM node — preserves event listeners)
     contentEl.className = 'nao-m-content';
     article.appendChild(contentEl);
 
     page.appendChild(article);
 
-    // Footer — at the bottom of page (after article)
-    if (footerEl) {
-      footerEl.className = 'nao-m-footer';
-      page.appendChild(footerEl);
-    }
+    // --- Footer (TCD-style: dark bg, links, copyright) ---
+    var mFooter = el('footer', 'nao-m-ftr');
+    mFooter.innerHTML =
+      '<div class="nao-m-ftr-links">' +
+        '<a href="/">\u30db\u30fc\u30e0</a>' +
+        '<a href="/category/paraguay/">\u30d1\u30e9\u30b0\u30a2\u30a4\u751f\u6d3b</a>' +
+        '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
+        '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>' +
+      '</div>' +
+      '<div class="nao-m-ftr-copy">&copy; ' + new Date().getFullYear() + ' \u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</div>';
+    page.appendChild(mFooter);
 
-    // 3. Hide EVERYTHING in body except our new page + floating elements
+    // 3. Hide everything in body except our page + floating overlays
     var bodyChildren = document.body.children;
     for (var i = 0; i < bodyChildren.length; i++) {
       var child = bodyChildren[i];
       if (child === page) continue;
       if (child.tagName === 'SCRIPT' || child.tagName === 'STYLE' || child.tagName === 'LINK') continue;
-      // Keep floating overlays (mobile TOC, back-to-top)
       if (child.classList.contains('tcd-mtoc-overlay') || child.classList.contains('tcd-mtoc-btn') || child.classList.contains('tcd-totop')) continue;
       child.setAttribute('data-nao-hidden', '1');
       child.style.display = 'none';
     }
 
-    // 4. Insert our page
+    // 4. Insert page
     document.body.prepend(page);
     document.body.classList.add('nao-mobile-active');
 
-    // 5. Mobile menu toggle
+    // 5. Hamburger menu toggle
     var menuBtn = page.querySelector('.nao-m-hdr-menu');
     if (menuBtn) {
       menuBtn.addEventListener('click', function() {
         var nav = page.querySelector('.nao-m-nav');
         if (nav) {
-          nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+          var open = nav.style.maxHeight !== '0px';
+          nav.style.maxHeight = open ? '0px' : '300px';
+          menuBtn.classList.toggle('is-open', !open);
         } else {
           nav = el('nav', 'nao-m-nav');
           nav.innerHTML =
@@ -460,7 +474,9 @@
             '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
             '<a href="/category/ijuu-junbi/">\u79fb\u4f4f\u6e96\u5099</a>' +
             '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>';
+          nav.style.maxHeight = '300px';
           mHeader.after(nav);
+          menuBtn.classList.add('is-open');
         }
       });
     }
