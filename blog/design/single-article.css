@@ -720,7 +720,7 @@ body.single .article p {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  transform: scale(1.15) translateY(-4px) !important;
+  transform: scale(1.15) translateY(-8px) !important;
 }
 .tcd-author-avatar-fallback {
   width: 100%;
