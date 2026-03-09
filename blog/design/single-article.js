@@ -136,58 +136,6 @@
     if (catLabel) catLabel.after(meta); else ct.prepend(meta);
   }
 
-  /* ===== Mobile Reorder (TCD-style) ===== */
-  function reorderForMobile() {
-    if (window.innerWidth > 768) return;
-
-    var main = document.querySelector('main, .main, #main, .site-main, .wp-block-group');
-    if (!main) return;
-
-    var titleEl = main.querySelector('.wp-block-post-title');
-    var featImg = main.querySelector('.wp-block-post-featured-image');
-    var contentEl = main.querySelector('.wp-block-post-content, .entry-content');
-    var breadcrumb = main.querySelector('.tcd-breadcrumb');
-
-    // Move category label and meta info OUT of content, into main level
-    var catLabel = contentEl ? contentEl.querySelector('.tcd-cat-label') : null;
-    var metaInfo = contentEl ? contentEl.querySelector('.tcd-meta') : null;
-
-    // TCD order: breadcrumb → category → meta → featured image → title → content
-    // Insert after breadcrumb (or at top of main)
-    var anchor = breadcrumb || main.firstChild;
-
-    if (catLabel) {
-      if (breadcrumb) breadcrumb.after(catLabel);
-      else main.prepend(catLabel);
-      // Style adjustments for outside-content position
-      catLabel.style.padding = '10px 20px 0';
-      catLabel.style.display = 'inline-block';
-    }
-
-    if (metaInfo) {
-      var afterCat = catLabel || breadcrumb;
-      if (afterCat) afterCat.after(metaInfo);
-      else main.prepend(metaInfo);
-      metaInfo.style.padding = '8px 20px';
-    }
-
-    // Move featured image before title (TCD: image comes before title)
-    if (featImg && titleEl && featImg.previousElementSibling !== titleEl) {
-      // Ensure order: ... meta → featImg → title → content
-      var metaOrCat = metaInfo || catLabel || breadcrumb;
-      if (metaOrCat) {
-        metaOrCat.after(featImg);
-        featImg.after(titleEl);
-      }
-    }
-
-    // Hide WP default date/terms blocks on mobile (we show our own)
-    var wpDate = main.querySelector('.wp-block-post-date');
-    var wpTerms = main.querySelector('.wp-block-post-terms');
-    if (wpDate) wpDate.style.display = 'none';
-    if (wpTerms) wpTerms.style.display = 'none';
-  }
-
   /* ===== TOC ===== */
   function createTOC(ct) {
     var hs = ct.querySelectorAll('h2, h3, h4');
@@ -229,8 +177,7 @@
   /* ===== Sidebar TOC ===== */
   function insertSidebarTOC(ct) {
     var sb = document.querySelector('.nao-tcd-sidebar') || document.getElementById('nao-tcd-sidebar') || document.querySelector('.sidebar, #sidebar, aside');
-    console.log('SidebarTOC: sb=', sb, 'headings=', ct.querySelectorAll('h2, h3').length);
-    if (!sb) { console.warn('SidebarTOC: No sidebar found'); return; }
+    if (!sb) return;
     var hs = ct.querySelectorAll('h2, h3');
     if (hs.length < 3) return;
 
