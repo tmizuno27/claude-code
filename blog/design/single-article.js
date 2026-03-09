@@ -226,7 +226,7 @@
     var box = el('div', 'tcd-author');
     box.innerHTML =
       '<div class="tcd-author-inner">' +
-        '<div class="tcd-author-avatar" style="width:80px;height:80px;border-radius:50%;overflow:hidden;flex-shrink:0"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/profile-nambei-oyaji.png" alt="' + AUTHOR_NAME + '" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block" loading="lazy"></div>' +
+        '<div class="nao-author-avatar-wrap"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/profile-nambei-oyaji.png" alt="' + AUTHOR_NAME + '" class="nao-author-avatar-img" loading="lazy"></div>' +
         '<div class="tcd-author-text">' +
           '<div class="tcd-author-label">WRITER</div>' +
           '<div class="tcd-author-name">' + AUTHOR_NAME + '</div>' +
