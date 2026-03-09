@@ -1288,7 +1288,9 @@ body.single footer {
 
 /* --- Eyecatch: full bleed --- */
 .nao-m-eyecatch {
-  width: 100%;
+  width: calc(100% + 32px);
+  margin-left: -16px;
+  margin-right: -16px;
   line-height: 0;
 }
 .nao-m-eyecatch img {
@@ -1299,7 +1301,7 @@ body.single footer {
 
 /* --- Info bar (category badge + date) --- */
 .nao-m-info {
-  padding: 16px 30px 0;
+  padding: 16px 0 0;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -1331,7 +1333,7 @@ body.single footer {
 
 /* --- Title --- */
 .nao-m-title {
-  padding: 12px 30px 20px;
+  padding: 12px 0 20px;
   margin: 0;
   font-size: 20px;
   font-weight: 700;
