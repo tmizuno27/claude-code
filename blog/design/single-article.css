@@ -917,6 +917,7 @@ body.single .nao-tcd-sidebar {
   align-self: start !important;
   grid-row-start: 2 !important;
   grid-row-end: auto !important;
+  overflow: hidden !important;
 }
 /* Footer covers sidebar — prevent sidebar from bleeding into footer */
 body.single footer.wp-block-template-part,
@@ -924,6 +925,7 @@ body.single footer {
   position: relative !important;
   z-index: 10 !important;
   background-color: #1a1a1a !important;
+  grid-column: 1 / -1 !important;
 }
 .nao-tcd-widget-title {
   font-size: 14px;
