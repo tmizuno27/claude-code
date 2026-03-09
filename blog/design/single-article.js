@@ -36,12 +36,9 @@
     // 1. Breadcrumbs
     insertBreadcrumbs();
 
-    // 2. Category label + Meta info (inside content for desktop)
+    // 2. Category label + Meta info
     insertCategoryLabel(content);
     insertMetaInfo(content);
-
-    // 2b. Mobile reorder: TCD order = breadcrumbs → category → meta → featured image → title → content
-    reorderForMobile();
 
     // 5. TOC
     var tocBox = createTOC(content);
