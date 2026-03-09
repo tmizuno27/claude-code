@@ -322,7 +322,8 @@
     document.body.appendChild(ov);
 
     var btn = el('button', 'tcd-mtoc-btn');
-    btn.innerHTML = '\u2630 \u76ee\u6b21';
+    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="15" y2="18"/></svg>';
+    btn.setAttribute('aria-label', '\u76ee\u6b21');
     document.body.appendChild(btn);
 
     btn.addEventListener('click', function () { ov.style.display = 'flex'; document.body.style.overflow = 'hidden'; });
