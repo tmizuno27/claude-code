@@ -226,7 +226,7 @@
     var box = el('div', 'tcd-author');
     box.innerHTML =
       '<div class="tcd-author-inner">' +
-        '<div class="tcd-author-avatar"><div class="tcd-author-avatar-fallback">\ud83e\uddd1</div></div>' +
+        '<div class="tcd-author-avatar"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/profile-nambei-oyaji.png" alt="' + AUTHOR_NAME + '" width="80" height="80" loading="lazy"></div>' +
         '<div class="tcd-author-text">' +
           '<div class="tcd-author-label">WRITER</div>' +
           '<div class="tcd-author-name">' + AUTHOR_NAME + '</div>' +
