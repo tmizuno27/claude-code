@@ -67,7 +67,6 @@
 
     // 10. Floating elements
     createBackToTop();
-    createMobileTocButton(content);
 
     // 11. Scroll spy
     activateScrollSpy();
