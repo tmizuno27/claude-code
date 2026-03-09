@@ -212,19 +212,24 @@
     w.style.position = 'sticky';
     w.style.top = '100px';
 
-    // Limit sidebar height to article content so TOC stops at article end
-    function limitSidebarHeight() {
-      var marker = document.getElementById('nao-article-end-marker');
-      if (!marker) return;
-      var markerTop = marker.getBoundingClientRect().top + window.scrollY;
-      var sidebarTop = sb.getBoundingClientRect().top + window.scrollY;
-      var h = markerTop - sidebarTop;
-      if (h > 0) sb.style.maxHeight = h + 'px';
+    // Stop TOC sticky when article content ends
+    var marker = document.getElementById('nao-article-end-marker');
+    if (marker) {
+      var tocWidget = w;
+      function checkTocSticky() {
+        var markerRect = marker.getBoundingClientRect();
+        // When article end marker scrolls above the TOC bottom, un-stick
+        if (markerRect.top < tocWidget.offsetHeight + 100) {
+          tocWidget.style.position = 'relative';
+          tocWidget.style.top = '0';
+        } else {
+          tocWidget.style.position = 'sticky';
+          tocWidget.style.top = '100px';
+        }
+      }
+      window.addEventListener('scroll', checkTocSticky, { passive: true });
+      checkTocSticky();
     }
-    limitSidebarHeight();
-    window.addEventListener('resize', limitSidebarHeight);
-    // Recalculate after images load
-    window.addEventListener('load', limitSidebarHeight);
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */
