@@ -43,7 +43,7 @@ PUBLISHED_DIR = BLOG_DIR / "published"
 
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
-MEDIA_MAPPING_FILE = IMAGES_DIR / "media-mapping.json"
+MEDIA_MAPPING_FILE = CONFIG_DIR / "media-mapping.json"
 WP_LOG_FILE = PUBLISHED_DIR / "wordpress-log.json"
 
 # Gemini 画像生成モデル

@@ -43,7 +43,7 @@ CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
 SECRETS_PATH = PROJECT_ROOT / "config" / "secrets.json"
 ARTICLES_DIR = PROJECT_ROOT / "outputs" / "articles"
 WP_LOG_PATH = PROJECT_ROOT / "published" / "wordpress-log.json"
-MEDIA_MAPPING_PATH = PROJECT_ROOT / "images" / "media-mapping.json"
+MEDIA_MAPPING_PATH = PROJECT_ROOT / "config" / "media-mapping.json"
 
 
 def load_config():

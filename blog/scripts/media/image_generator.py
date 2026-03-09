@@ -36,7 +36,7 @@ BLOG_DIR = SCRIPT_DIR.parent.parent
 CONFIG_DIR = BLOG_DIR / "config"
 ASSETS_DIR = BLOG_DIR / "images" / "branding"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
-MEDIA_MAPPING_FILE = ASSETS_DIR / "media-mapping.json"
+MEDIA_MAPPING_FILE = CONFIG_DIR / "media-mapping.json"
 
 # 画像生成モデル
 MODEL_NAME = "gemini-2.5-flash-image"

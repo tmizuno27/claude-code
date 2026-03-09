@@ -5,5 +5,10 @@
 **/credentials/
 **/service-account.json
 
+# Python
+**/__pycache__/
+*.pyc
+
 # ログ
 auto-sync.log
+*.log
