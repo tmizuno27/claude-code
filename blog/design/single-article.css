@@ -15,6 +15,7 @@ body.single {
   max-width: 750px !important;
   margin: 0 auto !important;
   padding: 0 !important;
+  margin-right: -40px !important;
   font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif !important;
   color: #333 !important;
   font-size: 16px !important;
