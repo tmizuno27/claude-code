@@ -45,7 +45,7 @@ body.single {
 
 /* ===== LAYOUT OVERRIDE — Widen main content (keep sidebar) ===== */
 body.single .wp-site-blocks {
-  grid-template-columns: 1fr 400px !important;
+  grid-template-columns: 1fr 380px !important;
   max-width: 1400px !important;
   margin: 0 auto !important;
   gap: 30px !important;
