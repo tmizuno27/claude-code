@@ -300,40 +300,6 @@
     }, { passive: true });
   }
 
-  /* ===== Mobile TOC Button ===== */
-  function createMobileTocButton(ct) {
-    var hs = ct.querySelectorAll('h2, h3');
-    if (hs.length < 3) return;
-
-    var ov = el('div', 'tcd-mtoc-overlay');
-    ov.style.display = 'none';
-    var inner = el('div', 'tcd-mtoc-inner');
-    inner.innerHTML = '<div class="tcd-mtoc-header"><span>\u76ee\u6b21</span><button class="tcd-mtoc-close">\u2715</button></div>';
-
-    var list = el('ol', 'tcd-mtoc-list');
-    for (var i = 0; i < hs.length; i++) {
-      var h = hs[i];
-      if (!h.id) h.id = 'tcd-h-' + i;
-      list.appendChild(el('li', h.tagName === 'H3' ? 'tcd-mtoc-h3' : 'tcd-mtoc-h2',
-        '<a href="#' + h.id + '">' + h.textContent.trim() + '</a>'));
-    }
-    inner.appendChild(list);
-    ov.appendChild(inner);
-    document.body.appendChild(ov);
-
-    var btn = el('button', 'tcd-mtoc-btn');
-    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="15" y2="18"/></svg>';
-    btn.setAttribute('aria-label', '\u76ee\u6b21');
-    document.body.appendChild(btn);
-
-    btn.addEventListener('click', function () { ov.style.display = 'flex'; document.body.style.overflow = 'hidden'; });
-    ov.addEventListener('click', function (e) {
-      if (e.target === ov || e.target.classList.contains('tcd-mtoc-close')) { ov.style.display = 'none'; document.body.style.overflow = ''; }
-    });
-    list.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') { ov.style.display = 'none'; document.body.style.overflow = ''; }
-    });
-  }
 
   /* ===== Scroll Spy ===== */
   function activateScrollSpy() {
