@@ -20,15 +20,12 @@ JS_FILE = Path(__file__).parent.parent.parent / 'design' / 'single-article.js'
 
 def minify_js(raw):
     """Basic JS minification: remove comments and extra whitespace."""
-    # Remove single-line comments (but not URLs with //)
-    js = re.sub(r'(?<!:)//[^\n]*', '', raw)
     # Remove multi-line comments
-    js = re.sub(r'/\*.*?\*/', '', js, flags=re.DOTALL)
+    js = re.sub(r'/\*.*?\*/', '', raw, flags=re.DOTALL)
+    # Remove single-line comments (but not URLs with //)
+    js = re.sub(r'(?<!:)//[^\n]*', '', js)
     # Collapse whitespace
     js = re.sub(r'\s+', ' ', js)
-    # Remove spaces around operators (careful version)
-    for ch in '{}();,=+':
-        js = re.sub(rf'\s*\{re.escape(ch)}\s*', ch, js)
     return js.strip()
 
 
