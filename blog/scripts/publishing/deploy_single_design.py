@@ -37,77 +37,73 @@ def main():
     mini_js = minify_js(raw_js)
     print(f'JS size: {len(raw_js)} -> {len(mini_js)} chars (minified)')
 
-    # 2. Find existing JS block or create new one
-    print('\n[1/3] Looking for existing JS block...')
-    r = requests.get(f'{URL}/blocks', headers=HEADERS,
-                     params={'search': 'TCD Single JS', 'per_page': 10}, timeout=15)
-    existing_id = None
-    if r.status_code == 200:
-        blocks = r.json()
-        for b in blocks:
-            if 'TCD Single JS' in b.get('title', {}).get('rendered', ''):
-                existing_id = b['id']
-                print(f'  Found existing block ID={existing_id}')
-                break
+    # WAF blocks <script> tags in wp_block creation.
+    # Strategy: Inject JS directly into the single post template content.
+    print('\n[1/2] Getting single template...')
 
-    # 3. Create or update JS block
-    print('\n[2/3] Creating/updating JS block...')
-    content = f'<!-- wp:html --><script>{mini_js}</script><!-- /wp:html -->'
+    template_id = None
+    raw_content = ''
 
-    if existing_id:
-        r = requests.post(f'{URL}/blocks/{existing_id}', headers=HEADERS,
-                          json={'content': content}, timeout=30)
+    for slug in ['twentytwentyfive//single', 'single']:
+        url = f'https://nambei-oyaji.com/wp-json/wp/v2/templates/{slug}'
+        r = requests.get(url, headers=HEADERS, params={'context': 'edit'}, timeout=15)
         if r.status_code == 200:
-            block_id = existing_id
-            print(f'  Updated block ID={block_id}')
+            template = r.json()
+            template_id = slug
+            raw_content = template.get('content', {}).get('raw', '')
+            print(f'  Found template: {slug}')
+            break
+
+    if not template_id:
+        # Try listing all templates
+        r = requests.get('https://nambei-oyaji.com/wp-json/wp/v2/templates',
+                         headers=HEADERS, params={'per_page': 50}, timeout=15)
+        if r.status_code == 200:
+            for t in r.json():
+                if 'single' in t.get('slug', ''):
+                    template_id = t['id']
+                    raw_content = t.get('content', {}).get('raw', '')
+                    print(f'  Found template: {template_id}')
+                    break
+
+    if not template_id:
+        print('  ERROR: Could not find single template!')
+        return
+
+    print(f'\n[2/2] Injecting JS into template...')
+
+    # Remove any existing TCD JS injection
+    cleaned = re.sub(
+        r'<!-- wp:html -->\s*<script>\s*/\* TCD-SINGLE \*/.*?</script>\s*<!-- /wp:html -->\s*',
+        '', raw_content, flags=re.DOTALL
+    )
+
+    # Build the JS block with a marker comment for future updates
+    js_block = f'<!-- wp:html --><script>/* TCD-SINGLE */{mini_js}</script><!-- /wp:html -->'
+
+    # Insert after the last template-part closing tag (after footer)
+    # or at the end of the template
+    footer_pattern = r'(<!-- /wp:template-part\s*-->)\s*$'
+    if re.search(footer_pattern, cleaned.strip()):
+        new_content = cleaned.rstrip() + '\n' + js_block
+    else:
+        # Insert before footer template-part if present
+        parts = cleaned.rsplit('<!-- wp:template-part', 1)
+        if len(parts) == 2:
+            new_content = parts[0] + js_block + '\n<!-- wp:template-part' + parts[1]
         else:
-            print(f'  Update failed ({r.status_code}), creating new...')
-            existing_id = None
+            new_content = cleaned + '\n' + js_block
 
-    if not existing_id:
-        # Try creating - may need to split if WAF blocks it
-        r = requests.post(f'{URL}/blocks', headers=HEADERS,
-                          json={'title': 'TCD Single JS', 'content': content, 'status': 'publish'},
-                          timeout=30)
-        if r.status_code == 201:
-            block_id = r.json()['id']
-            print(f'  Created block ID={block_id}')
-        elif r.status_code in (403, 406):
-            # WAF blocking - try splitting JS
-            print(f'  WAF blocked ({r.status_code}), splitting JS...')
-            mid = len(mini_js) // 2
-            # Find a safe split point (after a semicolon)
-            sp = mini_js.find(';', mid) + 1
-            if sp == 0:
-                sp = mid
+    # Update template
+    url = f'https://nambei-oyaji.com/wp-json/wp/v2/templates/{template_id}'
+    r = requests.post(url, headers=HEADERS,
+                      json={'content': new_content}, timeout=30)
+    if r.status_code == 200:
+        print(f'  Template updated OK!')
+    else:
+        print(f'  Update failed: {r.status_code}')
+        print(f'  Response: {r.text[:500]}')
 
-            block_ids = []
-            for label, part in [('a', mini_js[:sp]), ('b', mini_js[sp:])]:
-                c = f'<!-- wp:html --><script>{part}</script><!-- /wp:html -->'
-                r2 = requests.post(f'{URL}/blocks', headers=HEADERS,
-                                   json={'title': f'TCD Single JS-{label}', 'content': c, 'status': 'publish'},
-                                   timeout=30)
-                if r2.status_code == 201:
-                    block_ids.append(r2.json()['id'])
-                    print(f'  Created JS-{label}: ID={block_ids[-1]}')
-                else:
-                    print(f'  FAILED JS-{label}: {r2.status_code}')
-                time.sleep(0.5)
-
-            if block_ids:
-                # Update single template with multiple block refs
-                update_single_template(block_ids)
-                print('\n=== Done! Check a single post on https://nambei-oyaji.com/ ===')
-                return
-            else:
-                print('  All splits failed!')
-                return
-        else:
-            print(f'  Create failed: {r.status_code} - {r.text[:200]}')
-            return
-
-    # 4. Update single post template
-    update_single_template([block_id])
     print('\n=== Done! Check a single post on https://nambei-oyaji.com/ ===')
 
 
