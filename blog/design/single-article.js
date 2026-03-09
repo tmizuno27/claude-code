@@ -1,13 +1,16 @@
 /**
- * TCD-Style Single Article Enhancement
- * Works WITH existing template structure (sidebar, 2-col grid).
- * Adds: breadcrumbs, TOC, SNS share, author info, floating buttons.
+ * TCD-Style Single Article Enhancement v2.0
+ * Works WITH existing Cocoon/WordPress template structure.
+ * Adds: breadcrumbs, category label, meta info, TOC, SNS share,
+ *       author info, related articles, floating buttons, scroll spy.
  */
 (function () {
   if (!document.body.classList.contains('single')) return;
 
-  var AUTHOR_NAME = '\u5357\u7c73\u304a\u3084\u3058';
-  var AUTHOR_DESC = '\u30d1\u30e9\u30b0\u30a2\u30a4\u5728\u4f4f\u306e\u65e5\u672c\u4eba\u30d6\u30ed\u30ac\u30fc\u3002\u6d77\u5916\u79fb\u4f4f\u30fb\u6d77\u5916\u751f\u6d3b\u306e\u30ea\u30a2\u30eb\u3092\u767a\u4fe1\u4e2d\u3002\u30a2\u30b5\u30f3\u30b7\u30aa\u30f3\u304b\u3089\u304a\u5c4a\u3051\u3057\u307e\u3059\u3002';
+  var AUTHOR_NAME = '南米おやじ';
+  var AUTHOR_DESC = 'パラグアイ・アスンシオン在住の日本人ブロガー。家族4人で2025年に南米移住。海外移住・海外生活のリアルを、実体験ベースで発信しています。';
+  var AUTHOR_URL = 'https://nambei-oyaji.com/profile/';
+  var SITE_NAME = '南米おやじの海外生活ラボ';
 
   function ready(fn) {
     if (document.readyState !== 'loading') fn();
@@ -28,46 +31,69 @@
     // ===== 1. Breadcrumbs =====
     insertBreadcrumbs();
 
-    // ===== 2. TOC in content =====
+    // ===== 2. Category Label =====
+    insertCategoryLabel(content);
+
+    // ===== 3. Meta Info (date + tags) =====
+    insertMetaInfo(content);
+
+    // ===== 4. SNS share buttons (top) =====
+    var topShare = createShareButtons('tcd-share tcd-share--top');
+    var firstP = content.querySelector('p');
+    if (firstP) {
+      firstP.before(topShare);
+    } else {
+      content.prepend(topShare);
+    }
+
+    // ===== 5. TOC in content =====
     var tocBox = createTOC(content);
     if (tocBox) {
-      // Insert after the first paragraph or at the beginning
-      var firstP = content.querySelector('p');
-      if (firstP && firstP.nextElementSibling) {
-        firstP.after(tocBox);
+      // Insert after lead text (first 1-3 paragraphs)
+      var paragraphs = content.querySelectorAll(':scope > p');
+      var insertAfter = paragraphs.length >= 3 ? paragraphs[2] : (paragraphs[0] || null);
+      if (insertAfter && insertAfter.nextElementSibling) {
+        insertAfter.after(tocBox);
       } else {
-        content.prepend(tocBox);
+        // fallback: before first h2
+        var firstH2 = content.querySelector('h2');
+        if (firstH2) firstH2.before(tocBox);
+        else content.prepend(tocBox);
       }
     }
 
-    // ===== 3. TOC in sidebar =====
+    // ===== 6. TOC in sidebar =====
     insertSidebarTOC(content);
 
-    // ===== 4. SNS share buttons =====
-    var topShare = createShareButtons('tcd-share tcd-share--top');
-    content.prepend(topShare);
-
+    // ===== 7. SNS share buttons (bottom) =====
     var bottomShare = createShareButtons('tcd-share tcd-share--bottom');
     content.appendChild(bottomShare);
 
-    // ===== 5. Author info =====
+    // ===== 8. Author info =====
     var authorBox = createAuthorInfo();
     content.appendChild(authorBox);
 
-    // ===== 6. Floating elements =====
+    // ===== 9. Related articles =====
+    insertRelatedArticles(content);
+
+    // ===== 10. Floating elements =====
     createBackToTop();
     createMobileTocButton(content);
 
-    // ===== 7. Scroll spy =====
+    // ===== 11. Scroll spy =====
     activateScrollSpy();
+
+    // ===== 12. Enhance content elements =====
+    enhanceContentElements(content);
   });
 
   // ===== Breadcrumbs =====
   function insertBreadcrumbs() {
-    var main = document.querySelector('main.wp-block-group');
+    var main = document.querySelector('main, .main, #main, .site-main');
+    if (!main) main = document.querySelector('.wp-block-group');
     if (!main) return;
 
-    var catLinks = document.querySelectorAll('a[rel="category tag"], .wp-block-post-terms a');
+    var catLinks = document.querySelectorAll('a[rel="category tag"], .wp-block-post-terms a, .cat-links a');
     var catName = '', catHref = '/';
     if (catLinks.length > 0) {
       catName = catLinks[0].textContent.trim();
@@ -76,28 +102,86 @@
 
     var titleText = document.title.split('|')[0].split('\u2013')[0].trim();
     var bc = el('nav', 'tcd-breadcrumb');
-    var html = '<a href="/">\u30db\u30fc\u30e0</a>';
+    bc.setAttribute('aria-label', 'パンくずリスト');
+    var html = '<a href="/">ホーム</a>';
+    html += ' <span class="tcd-bc-sep">›</span> <a href="/blog/">ブログ</a>';
     if (catName) {
-      html += ' <span class="tcd-bc-sep">\u203a</span> <a href="' + catHref + '">' + catName + '</a>';
+      html += ' <span class="tcd-bc-sep">›</span> <a href="' + catHref + '">' + catName + '</a>';
     }
-    html += ' <span class="tcd-bc-sep">\u203a</span> <span class="tcd-bc-current">' + titleText + '</span>';
+    html += ' <span class="tcd-bc-sep">›</span> <span class="tcd-bc-current">' + titleText + '</span>';
     bc.innerHTML = html;
 
     main.prepend(bc);
   }
 
+  // ===== Category Label =====
+  function insertCategoryLabel(contentEl) {
+    var catLinks = document.querySelectorAll('a[rel="category tag"], .wp-block-post-terms a, .cat-links a');
+    if (catLinks.length === 0) return;
+
+    var label = el('a', 'tcd-cat-label');
+    label.href = catLinks[0].href;
+    label.textContent = catLinks[0].textContent.trim();
+    contentEl.prepend(label);
+  }
+
+  // ===== Meta Info =====
+  function insertMetaInfo(contentEl) {
+    var meta = el('div', 'tcd-meta');
+
+    // Date
+    var dateEl = document.querySelector('.date, time, .post-date, .entry-date, .wp-block-post-date');
+    var dateText = '';
+    if (dateEl) {
+      var timeEl = dateEl.querySelector('time') || dateEl;
+      dateText = timeEl.getAttribute('datetime') || timeEl.textContent.trim();
+      // Format as YYYY.MM.DD
+      if (dateText) {
+        var d = new Date(dateText);
+        if (!isNaN(d.getTime())) {
+          dateText = d.getFullYear() + '.' +
+            String(d.getMonth() + 1).padStart(2, '0') + '.' +
+            String(d.getDate()).padStart(2, '0');
+        }
+      }
+    }
+    if (dateText) {
+      meta.innerHTML += '<span class="tcd-meta-date">' + dateText + '</span>';
+    }
+
+    // Tags
+    var tagLinks = document.querySelectorAll('.tag-links a, a[rel="tag"], .wp-block-post-terms:not(:first-of-type) a');
+    if (tagLinks.length > 0) {
+      var tagsHtml = '<span class="tcd-meta-tags">';
+      for (var i = 0; i < tagLinks.length && i < 5; i++) {
+        tagsHtml += '<a href="' + tagLinks[i].href + '" class="tcd-meta-tag">' + tagLinks[i].textContent.trim() + '</a>';
+      }
+      tagsHtml += '</span>';
+      meta.innerHTML += tagsHtml;
+    }
+
+    // Insert after category label or at top
+    var catLabel = contentEl.querySelector('.tcd-cat-label');
+    if (catLabel) {
+      catLabel.after(meta);
+    } else {
+      contentEl.prepend(meta);
+    }
+  }
+
   // ===== TOC (in-content) =====
   function createTOC(contentEl) {
-    var headings = contentEl.querySelectorAll('h2, h3');
+    var headings = contentEl.querySelectorAll('h2, h3, h4');
     if (headings.length < 3) return null;
 
     var toc = el('div', 'tcd-toc');
     var titleBar = el('div', 'tcd-toc-title');
-    titleBar.innerHTML = '<span>\u76ee\u6b21</span><button class="tcd-toc-toggle" aria-label="\u76ee\u6b21\u3092\u958b\u9589">\u25bc</button>';
+    titleBar.innerHTML = '<span>目次</span><button class="tcd-toc-toggle" aria-label="目次を開閉">▼</button>';
     toc.appendChild(titleBar);
 
     var list = el('ol', 'tcd-toc-list');
-    var currentSub = null;
+    var currentH2Sub = null;
+    var currentH3Sub = null;
 
     for (var i = 0; i < headings.length; i++) {
       var h = headings[i];
@@ -108,14 +192,26 @@
       if (h.tagName === 'H2') {
         li.className = 'tcd-toc-h2';
         list.appendChild(li);
-        currentSub = null;
-      } else {
-        if (!currentSub) {
-          currentSub = el('ol', 'tcd-toc-sub');
-          list.appendChild(currentSub);
+        currentH2Sub = null;
+        currentH3Sub = null;
+      } else if (h.tagName === 'H3') {
+        if (!currentH2Sub) {
+          currentH2Sub = el('ol', 'tcd-toc-sub');
+          list.appendChild(currentH2Sub);
         }
         li.className = 'tcd-toc-h3';
-        currentSub.appendChild(li);
+        currentH2Sub.appendChild(li);
+        currentH3Sub = null;
+      } else if (h.tagName === 'H4') {
+        // H4 nesting under H3
+        var parentSub = currentH2Sub || list;
+        if (!currentH3Sub) {
+          currentH3Sub = el('ol', 'tcd-toc-sub');
+          parentSub.appendChild(currentH3Sub);
+        }
+        li.className = 'tcd-toc-h3';
+        li.style.paddingLeft = '12px';
+        currentH3Sub.appendChild(li);
       }
     }
     toc.appendChild(list);
@@ -123,7 +219,7 @@
     titleBar.addEventListener('click', function () {
       toc.classList.toggle('tcd-toc--closed');
       titleBar.querySelector('.tcd-toc-toggle').textContent =
-        toc.classList.contains('tcd-toc--closed') ? '\u25b6' : '\u25bc';
+        toc.classList.contains('tcd-toc--closed') ? '▶' : '▼';
     });
 
     return toc;
@@ -131,14 +227,15 @@
 
   // ===== Sidebar TOC =====
   function insertSidebarTOC(contentEl) {
-    var sidebar = document.getElementById('nao-tcd-sidebar');
+    var sidebar = document.getElementById('nao-tcd-sidebar') ||
+                  document.querySelector('.sidebar, #sidebar, aside');
     if (!sidebar) return;
 
     var headings = contentEl.querySelectorAll('h2, h3');
     if (headings.length < 3) return;
 
     var wrap = el('div', 'nao-tcd-widget tcd-sidebar-toc');
-    var title = el('h4', 'nao-tcd-widget-title', '\u76ee\u6b21');
+    var title = el('h4', 'nao-tcd-widget-title', '目次');
     wrap.appendChild(title);
 
     var list = el('ol', 'tcd-sidebar-toc-list');
@@ -165,13 +262,8 @@
     }
     wrap.appendChild(list);
 
-    // Insert TOC as first widget (after existing widgets)
-    var inner = sidebar.querySelector('.nao-tcd-sidebar-inner');
-    if (inner) {
-      inner.prepend(wrap);
-    } else {
-      sidebar.prepend(wrap);
-    }
+    var inner = sidebar.querySelector('.nao-tcd-sidebar-inner') || sidebar;
+    inner.prepend(wrap);
   }
 
   // ===== SNS Share Buttons =====
@@ -180,12 +272,12 @@
     var title = encodeURIComponent(document.title);
     var wrap = el('div', className);
     wrap.innerHTML =
-      '<span class="tcd-share-label">\u30b7\u30a7\u30a2</span>' +
+      '<span class="tcd-share-label">シェア</span>' +
       '<div class="tcd-share-buttons">' +
-      '<a href="https://twitter.com/intent/tweet?url=' + url + '&text=' + title + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-x" aria-label="X\u3067\u30b7\u30a7\u30a2">X</a>' +
-      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-fb" aria-label="Facebook\u3067\u30b7\u30a7\u30a2">Facebook</a>' +
-      '<a href="https://b.hatena.ne.jp/entry/' + location.href + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-hatena" aria-label="\u306f\u3066\u30d6\u3067\u30b7\u30a7\u30a2">\u306f\u3066\u30d6</a>' +
-      '<button class="tcd-share-btn tcd-share-copy" aria-label="URL\u3092\u30b3\u30d4\u30fc">\u30b3\u30d4\u30fc</button>' +
+      '<a href="https://twitter.com/intent/tweet?url=' + url + '&text=' + title + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-x" aria-label="Xでシェア">X</a>' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-fb" aria-label="Facebookでシェア">Facebook</a>' +
+      '<a href="https://b.hatena.ne.jp/entry/' + location.href + '" target="_blank" rel="noopener" class="tcd-share-btn tcd-share-hatena" aria-label="はてブでシェア">はてブ</a>' +
+      '<button class="tcd-share-btn tcd-share-copy" aria-label="URLをコピー">コピー</button>' +
       '</div>';
 
     setTimeout(function () {
@@ -193,8 +285,8 @@
       if (copyBtn) {
         copyBtn.addEventListener('click', function () {
           navigator.clipboard.writeText(location.href).then(function () {
-            copyBtn.textContent = '\u30b3\u30d4\u30fc\u6e08\u307f';
-            setTimeout(function () { copyBtn.textContent = '\u30b3\u30d4\u30fc'; }, 2000);
+            copyBtn.textContent = 'コピー済み';
+            setTimeout(function () { copyBtn.textContent = 'コピー'; }, 2000);
           });
         });
       }
@@ -208,20 +300,85 @@
     var box = el('div', 'tcd-author');
     box.innerHTML =
       '<div class="tcd-author-inner">' +
-      '<div class="tcd-author-avatar"><div class="tcd-author-avatar-fallback">\ud83e\uddd1</div></div>' +
+      '<div class="tcd-author-avatar"><div class="tcd-author-avatar-fallback">🧑</div></div>' +
       '<div class="tcd-author-text">' +
-      '<div class="tcd-author-label">\u3053\u306e\u8a18\u4e8b\u3092\u66f8\u3044\u305f\u4eba</div>' +
+      '<div class="tcd-author-label">この記事を書いた人</div>' +
       '<div class="tcd-author-name">' + AUTHOR_NAME + '</div>' +
       '<p class="tcd-author-desc">' + AUTHOR_DESC + '</p>' +
+      '<a href="' + AUTHOR_URL + '" class="tcd-author-link">プロフィールを見る</a>' +
       '</div></div>';
     return box;
+  }
+
+  // ===== Related Articles =====
+  function insertRelatedArticles(contentEl) {
+    // Try to find existing related posts from Cocoon or WP
+    var existingRelated = document.querySelector('.related-entries, .related-list, .wp-block-query');
+    if (existingRelated) return; // Already has related articles
+
+    // Create a placeholder section — actual content populated by WP/Cocoon
+    var section = el('div', 'tcd-related');
+    section.innerHTML = '<h3 class="tcd-related-title">関連記事</h3>' +
+      '<div class="tcd-related-grid" id="tcd-related-grid"></div>';
+
+    // Fetch related posts via WP REST API
+    var catLinks = document.querySelectorAll('a[rel="category tag"], .cat-links a');
+    if (catLinks.length === 0) return;
+
+    var catSlug = catLinks[0].href.split('/').filter(Boolean).pop();
+    var currentUrl = location.pathname;
+
+    fetch('/wp-json/wp/v2/posts?per_page=7&_embed&categories_slug=' + catSlug)
+      .then(function (r) { return r.ok ? r.json() : []; })
+      .then(function (posts) {
+        if (!posts || posts.length === 0) return;
+
+        var grid = document.getElementById('tcd-related-grid');
+        if (!grid) return;
+
+        var count = 0;
+        for (var i = 0; i < posts.length && count < 6; i++) {
+          var p = posts[i];
+          // Skip current post
+          var postPath = new URL(p.link).pathname;
+          if (postPath === currentUrl) continue;
+
+          var thumb = '';
+          try {
+            thumb = p._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url;
+          } catch (e) { thumb = ''; }
+
+          var dateObj = new Date(p.date);
+          var dateStr = dateObj.getFullYear() + '.' +
+            String(dateObj.getMonth() + 1).padStart(2, '0') + '.' +
+            String(dateObj.getDate()).padStart(2, '0');
+
+          var card = el('a', 'tcd-related-card');
+          card.href = p.link;
+          card.innerHTML =
+            '<div class="tcd-related-card-thumb">' +
+            (thumb ? '<img src="' + thumb + '" alt="" loading="lazy">' : '') +
+            '</div>' +
+            '<div class="tcd-related-card-body">' +
+            '<div class="tcd-related-card-title">' + p.title.rendered + '</div>' +
+            '<div class="tcd-related-card-date">' + dateStr + '</div>' +
+            '</div>';
+          grid.appendChild(card);
+          count++;
+        }
+
+        if (count > 0) {
+          contentEl.appendChild(section);
+        }
+      })
+      .catch(function () { /* silently fail */ });
   }
 
   // ===== Floating Back to Top =====
   function createBackToTop() {
     var btn = el('button', 'tcd-totop');
-    btn.innerHTML = '\u2191';
-    btn.setAttribute('aria-label', '\u30da\u30fc\u30b8\u4e0a\u90e8\u306b\u623b\u308b');
+    btn.innerHTML = '↑';
+    btn.setAttribute('aria-label', 'ページ上部に戻る');
     btn.style.display = 'none';
     document.body.appendChild(btn);
 
@@ -242,7 +399,7 @@
     var overlay = el('div', 'tcd-mtoc-overlay');
     overlay.style.display = 'none';
     var overlayInner = el('div', 'tcd-mtoc-inner');
-    overlayInner.innerHTML = '<div class="tcd-mtoc-header"><span>\u76ee\u6b21</span><button class="tcd-mtoc-close">\u2715</button></div>';
+    overlayInner.innerHTML = '<div class="tcd-mtoc-header"><span>目次</span><button class="tcd-mtoc-close">✕</button></div>';
 
     var list = el('ol', 'tcd-mtoc-list');
     for (var i = 0; i < headings.length; i++) {
@@ -257,7 +414,7 @@
     document.body.appendChild(overlay);
 
     var btn = el('button', 'tcd-mtoc-btn');
-    btn.innerHTML = '\u2630 \u76ee\u6b21';
+    btn.innerHTML = '☰ 目次';
     document.body.appendChild(btn);
 
     btn.addEventListener('click', function () {
@@ -291,6 +448,7 @@
       if (target) items.push({ el: target, link: tocLinks[i] });
     }
 
+    var ticking = false;
     function update() {
       var scrollY = window.scrollY + 120;
       var active = null;
@@ -301,10 +459,42 @@
         items[j].link.classList.remove('tcd-stoc-active');
       }
       if (active) active.link.classList.add('tcd-stoc-active');
+      ticking = false;
     }
 
-    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
     update();
+  }
+
+  // ===== Enhance Content Elements =====
+  function enhanceContentElements(contentEl) {
+    // Add smooth scroll offset for anchor links
+    var style = document.createElement('style');
+    style.textContent = 'html { scroll-padding-top: 80px; }';
+    document.head.appendChild(style);
+
+    // Add loading="lazy" to all content images
+    var imgs = contentEl.querySelectorAll('img:not([loading])');
+    for (var i = 0; i < imgs.length; i++) {
+      imgs[i].setAttribute('loading', 'lazy');
+    }
+
+    // Wrap tables for horizontal scroll on mobile
+    var tables = contentEl.querySelectorAll('table');
+    for (var j = 0; j < tables.length; j++) {
+      if (!tables[j].parentElement.classList.contains('tcd-table-wrap')) {
+        var wrapper = el('div', 'tcd-table-wrap');
+        wrapper.style.overflowX = 'auto';
+        wrapper.style.webkitOverflowScrolling = 'touch';
+        tables[j].parentNode.insertBefore(wrapper, tables[j]);
+        wrapper.appendChild(tables[j]);
+      }
+    }
   }
 
 })();
