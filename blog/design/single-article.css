@@ -917,7 +917,8 @@ body.single .nao-tcd-sidebar {
   align-self: start !important;
   grid-row-start: 2 !important;
   grid-row-end: auto !important;
-  overflow: hidden !important;
+  background: transparent !important;
+  border: none !important;
 }
 /* Footer covers sidebar — prevent sidebar from bleeding into footer */
 body.single footer.wp-block-template-part,
