@@ -15,6 +15,18 @@ body.single {
   flex-shrink: 0 !important;
 }
 
+/* ===== COMMENT FORM ===== */
+/* Hide "コメントを残す", notes text, サイト field */
+.comment-reply-title {
+  display: none !important;
+}
+.comment-form .comment-notes {
+  display: none !important;
+}
+.comment-form .comment-form-url {
+  display: none !important;
+}
+
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
 .single .wp-block-post-content {
