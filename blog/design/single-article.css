@@ -868,9 +868,11 @@ body.single .article p {
   max-height: calc(100vh - 130px);
   overflow-y: auto;
 }
-/* Sidebar — JS sets height to match article content */
+/* Sidebar — keep start position at row 2, but end auto so it doesn't stretch */
 body.single .nao-tcd-sidebar {
   align-self: start !important;
+  grid-row-start: 2 !important;
+  grid-row-end: auto !important;
 }
 .nao-tcd-widget-title {
   font-size: 14px;
