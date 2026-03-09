@@ -1587,8 +1587,29 @@ body.single footer {
   letter-spacing: 0.02em;
 }
 
-/* ======== FLOATING BUTTONS ======== */
+/* ======== MOBILE: hide WP header/footer, prevent overflow ======== */
 @media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw !important;
+  }
+  body.nao-mobile-active header.wp-block-template-part,
+  body.nao-mobile-active footer.wp-block-template-part,
+  body.nao-mobile-active .wp-site-blocks > header,
+  body.nao-mobile-active .wp-site-blocks > footer {
+    display: none !important;
+  }
+  body.nao-mobile-active .wp-site-blocks {
+    display: block !important;
+    overflow-x: hidden !important;
+  }
+  body.nao-mobile-active [data-nao-hidden="1"] {
+    display: none !important;
+  }
+  .nao-m-page {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
   body.nao-mobile-active .tcd-totop {
     bottom: 24px;
     right: 16px;
