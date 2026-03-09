@@ -861,10 +861,12 @@ body.single .article p {
 /* ===== SIDEBAR TOC — TCD sticky ===== */
 .tcd-sidebar-toc {
   position: sticky;
-  top: 20px;
+  top: 100px;
   padding: 20px;
   background: #f9f9f9;
   border: 1px solid #e5e5e5;
+  max-height: calc(100vh - 130px);
+  overflow-y: auto;
 }
 .nao-tcd-widget-title {
   font-size: 14px;

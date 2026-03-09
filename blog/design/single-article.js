@@ -201,7 +201,11 @@
       else { if (!sub) { sub = el('ol', 'tcd-stoc-sub'); list.appendChild(sub); } li.className = 'tcd-stoc-h3'; sub.appendChild(li); }
     }
     w.appendChild(list);
-    (sb.querySelector('.nao-tcd-sidebar-inner') || sb).prepend(w);
+    var sbi = sb.querySelector('.nao-tcd-sidebar-inner') || sb;
+    sbi.appendChild(w);
+    // Make sidebar TOC sticky
+    w.style.position = 'sticky';
+    w.style.top = '100px';
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */
