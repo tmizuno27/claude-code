@@ -1166,6 +1166,24 @@ body.single footer {
     max-width: 100% !important;
   }
 
+  /* --- Category badge (moved outside content on mobile) --- */
+  body.single .tcd-cat-label {
+    margin: 10px 20px 0 !important;
+    font-size: 11px !important;
+    padding: 4px 12px !important;
+  }
+  body.single .tcd-meta {
+    padding: 8px 20px !important;
+    font-size: 13px !important;
+    color: #888 !important;
+  }
+
+  /* --- WP default date/terms hidden on mobile (replaced by TCD-meta) --- */
+  body.single .wp-block-post-date,
+  body.single .wp-block-post-terms {
+    display: none !important;
+  }
+
   /* --- Article Title (TCD: 20px, tight line-height) --- */
   body.single .wp-block-post-title {
     width: 100% !important;
