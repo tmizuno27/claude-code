@@ -402,27 +402,54 @@
       '</div>';
     page.appendChild(mHeader);
 
+    // --- Breadcrumb (TCD-style) ---
+    var breadcrumb = el('div', 'nao-m-breadcrumb');
+    // Build from category info
+    var bcHTML = '<ul>';
+    bcHTML += '<li><a href="/">\u30db\u30fc\u30e0</a></li>';
+    if (catEl) {
+      var catLink = catEl.getAttribute('href') || '#';
+      var catText = catEl.textContent || '';
+      bcHTML += '<li><a href="' + catLink + '">' + catText + '</a></li>';
+    }
+    bcHTML += '<li class="last">' + (titleEl ? titleEl.textContent.substring(0, 40) + (titleEl.textContent.length > 40 ? '...' : '') : '') + '</li>';
+    bcHTML += '</ul>';
+    breadcrumb.innerHTML = bcHTML;
+    page.appendChild(breadcrumb);
+
     // --- Article ---
     var article = el('article', 'nao-m-art');
 
-    // Eyecatch (full bleed, TCD: above title)
+    // Single post header (TCD: category → image → title → meta)
+    var postHeader = el('div', 'nao-m-post-header');
+
+    // Category label
+    if (catHTML) {
+      var catWrap = el('div', 'nao-m-category');
+      catWrap.innerHTML = catHTML;
+      postHeader.appendChild(catWrap);
+    }
+
+    // Eyecatch (full bleed)
     if (featImgSrc) {
       var imgWrap = el('div', 'nao-m-eyecatch');
       imgWrap.innerHTML = '<img src="' + featImgSrc + '" alt="' + featImgAlt + '">';
-      article.appendChild(imgWrap);
-    }
-
-    // Category + date bar
-    if (catHTML || metaHTML) {
-      var infoBar = el('div', 'nao-m-info');
-      infoBar.innerHTML = catHTML + metaHTML;
-      article.appendChild(infoBar);
+      postHeader.appendChild(imgWrap);
     }
 
     // Title
     var titleWrap = el('h1', 'nao-m-title');
     titleWrap.innerHTML = titleHTML;
-    article.appendChild(titleWrap);
+    postHeader.appendChild(titleWrap);
+
+    // Meta (date + tags)
+    if (metaHTML) {
+      var metaWrap = el('ul', 'nao-m-meta');
+      metaWrap.innerHTML = metaHTML;
+      postHeader.appendChild(metaWrap);
+    }
+
+    article.appendChild(postHeader);
 
     // Content (move actual DOM node — preserves event listeners)
     contentEl.className = 'nao-m-content';

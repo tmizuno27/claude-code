@@ -1241,10 +1241,67 @@ body.single footer {
 .nao-m-nav a:first-child { border-top: none; }
 .nao-m-nav a:active { background: #f5f5f5; }
 
+/* ======== BREADCRUMB (TCD-style) ======== */
+.nao-m-breadcrumb {
+  padding: 10px 20px;
+  background: #f5f5f5;
+  font-size: 11px;
+  color: #999;
+  line-height: 1.4;
+}
+.nao-m-breadcrumb ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nao-m-breadcrumb li {
+  display: inline;
+  white-space: nowrap;
+}
+.nao-m-breadcrumb li:not(:last-child)::after {
+  content: ">";
+  margin: 0 6px;
+  color: #ccc;
+}
+.nao-m-breadcrumb li.last {
+  color: #666;
+  white-space: normal;
+}
+.nao-m-breadcrumb a {
+  color: #999;
+  text-decoration: none;
+}
+
 /* ======== ARTICLE ======== */
 .nao-m-art {
   width: 100%;
   background: #fff;
+}
+
+/* --- Post header (TCD: category → image → title → meta) --- */
+.nao-m-post-header {
+  width: 100%;
+}
+
+/* Category label */
+.nao-m-category {
+  padding: 16px 20px 10px;
+}
+.nao-m-category .tcd-cat-label,
+.nao-m-post-header .tcd-cat-label {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 10px;
+  background: #222;
+  color: #fff;
+  border-radius: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* --- Eyecatch: full bleed --- */
@@ -1258,27 +1315,29 @@ body.single footer {
   display: block;
 }
 
-/* --- Info bar (category badge + date) --- */
-.nao-m-info {
-  padding: 16px 20px 0;
+/* --- Title --- */
+.nao-m-title {
+  padding: 14px 20px 10px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #222;
+}
+
+/* --- Meta (date + tags, TCD-style) --- */
+.nao-m-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0 20px 16px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+  font-size: 12px;
+  color: #aaa;
 }
-.nao-m-info .tcd-cat-label {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 10px;
-  background: #222;
-  color: #fff;
-  border-radius: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.nao-m-info .tcd-meta {
+.nao-m-meta .tcd-meta {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1288,16 +1347,6 @@ body.single footer {
   padding: 0;
   border: none;
   background: none;
-}
-
-/* --- Title --- */
-.nao-m-title {
-  padding: 12px 20px 20px;
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
-  color: #222;
 }
 
 /* ======== CONTENT ======== */
