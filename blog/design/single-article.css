@@ -1184,6 +1184,12 @@ body.single footer {
   padding: 4px 8px;
 }
 
+/* --- Footer moved to top --- */
+.nao-m-footer {
+  width: 100%;
+  display: block;
+}
+
 /* --- Mobile nav dropdown --- */
 .nao-m-nav {
   background: #222;
