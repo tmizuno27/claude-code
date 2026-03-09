@@ -1218,17 +1218,10 @@ footer.wp-block-template-part .wp-block-group {
 html { scroll-behavior: smooth; }
 
 /* ============================================
-   ARTICLE — TCD-Style Single Post Design
-   2カラムレイアウト・目次・SNSシェア・関連記事
+   ARTICLE — 記事ページスタイル
+   ※ 主要なスタイルはテンプレートのインラインCSSで管理
+   ※ ここには nao-global.css 固有の補助スタイルのみ
    ============================================ */
-
-/* --- Layout: 2-column on desktop --- */
-body.single .wp-site-blocks { padding: 0 !important; }
-body.single main {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: 0 30px !important;
-}
 
 .tcd-layout {
   display: grid;
