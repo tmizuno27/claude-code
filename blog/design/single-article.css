@@ -1407,27 +1407,23 @@ body.single footer {
   display: none;
 }
 
-/* Yellow marker / highlight (preserve WP inline styles on mobile) */
-.nao-m-content mark,
-.nao-m-content .marker-yellow,
-.nao-m-content .has-luminous-vivid-amber-background-color,
-.nao-m-content .has-pale-cyan-blue-background-color,
-.nao-m-content .has-vivid-green-cyan-background-color,
-.nao-m-content [style*="background"],
-.nao-m-content .nao-yellow-marker,
-.nao-m-content .nao-highlight {
-  background: inherit;
-}
-.nao-m-page mark {
-  background-color: #fcf69f;
+/* Yellow marker / highlight — re-apply on mobile */
+.nao-m-content mark {
+  background-color: #fcf69f !important;
   padding: 0 2px;
 }
-.nao-m-page .has-luminous-vivid-amber-background-color {
-  background-color: #fcb900;
-}
-.nao-m-page .marker-yellow {
-  background: linear-gradient(transparent 60%, #fff799 60%);
-}
+/* Cocoon marker classes */
+.nao-m-content .marker-yellow { background: linear-gradient(transparent 60%, #fff799 60%) !important; }
+.nao-m-content .marker-under-yellow { background: linear-gradient(transparent 60%, #fff799 60%) !important; }
+.nao-m-content .marker-blue { background: linear-gradient(transparent 60%, #a8d8ff 60%) !important; }
+.nao-m-content .marker-under-blue { background: linear-gradient(transparent 60%, #a8d8ff 60%) !important; }
+.nao-m-content .marker-red { background: linear-gradient(transparent 60%, #ffb0b0 60%) !important; }
+.nao-m-content .marker-under-red { background: linear-gradient(transparent 60%, #ffb0b0 60%) !important; }
+.nao-m-content .marker-under { background: linear-gradient(transparent 60%, #fff799 60%) !important; }
+/* WP block editor highlight */
+.nao-m-content .has-luminous-vivid-amber-background-color { background-color: #fcb900 !important; }
+.nao-m-content .has-pale-cyan-blue-background-color { background-color: #8ed1fc !important; }
+.nao-m-content .has-vivid-red-background-color { background-color: #cf2e2e !important; color: #fff; }
 
 /* Author box */
 .nao-m-content .tcd-author {
