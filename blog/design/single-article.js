@@ -430,25 +430,32 @@
     }
   }
 
-  // Debug: find and log all visible elements between post-list and footer
-  // that might appear as a black rectangle
-  var siteBlocks = document.querySelector('.wp-site-blocks');
-  if (siteBlocks) {
-    var children = siteBlocks.children;
-    for (var ci = 0; ci < children.length; ci++) {
-      var child = children[ci];
-      var tag = child.tagName.toLowerCase();
-      // Skip known elements
-      if (tag === 'header' || tag === 'main' || tag === 'footer' || tag === 'style' || tag === 'script') continue;
-      if (child.classList.contains('nao-tcd-sidebar')) continue;
-      if (child.classList.contains('wp-block-template-part')) continue;
-      // Any other direct child of wp-site-blocks — hide it
-      var rect = child.getBoundingClientRect();
-      if (rect.height > 0 || rect.width > 0) {
-        console.log('Hidden stray grid child:', tag, child.className, rect);
-        child.style.display = 'none';
+  // Debug: find dark-colored elements near footer boundary
+  setTimeout(function() {
+    var footer = document.querySelector('footer.wp-block-template-part, footer');
+    if (!footer) return;
+    var footerTop = footer.getBoundingClientRect().top + window.scrollY;
+    // Scan ALL elements on the page
+    var allEls = document.querySelectorAll('*');
+    for (var di = 0; di < allEls.length; di++) {
+      var elem = allEls[di];
+      var tag = elem.tagName.toLowerCase();
+      if (tag === 'html' || tag === 'body' || tag === 'head' || tag === 'style' || tag === 'script' || tag === 'main' || tag === 'footer' || tag === 'header') continue;
+      var r = elem.getBoundingClientRect();
+      var elemTop = r.top + window.scrollY;
+      var elemBot = r.bottom + window.scrollY;
+      // Check if element is near footer boundary (within 100px above footer)
+      if (elemBot > footerTop - 100 && elemTop < footerTop + 50 && r.width > 5 && r.height > 2 && r.height < 50) {
+        var cs = window.getComputedStyle(elem);
+        var bg = cs.backgroundColor;
+        var borderB = cs.borderBottomColor;
+        var hasDark = (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') || (borderB && borderB !== 'rgba(0, 0, 0, 0)' && borderB !== 'rgb(255, 255, 255)');
+        if (hasDark) {
+          elem.style.outline = '3px solid red';
+          console.log('DARK ELEMENT near footer:', tag, elem.className || elem.id, 'size:', Math.round(r.width) + 'x' + Math.round(r.height), 'bg:', bg, 'border-bottom:', borderB, 'top:', Math.round(elemTop), 'footerTop:', Math.round(footerTop));
+        }
       }
     }
-  }
+  }, 2000);
 
 })();
