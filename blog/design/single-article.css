@@ -26,6 +26,18 @@ body.single {
   font-size: calc(1em + 2px) !important;
 }
 
+/* ===== HEADER LOGO — 1.5x scale ===== */
+header .wp-block-site-logo img {
+  transform: scale(1.5) !important;
+  transform-origin: center center !important;
+}
+header .wp-block-site-title {
+  font-size: 2.4em !important;
+}
+header .wp-block-site-tagline {
+  font-size: 1.35em !important;
+}
+
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
 .single .wp-block-post-content {
