@@ -1140,6 +1140,15 @@ body.single footer {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
+  /* Single column — hide sidebar on mobile */
+  body.single .wp-site-blocks {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  body.single .nao-tcd-sidebar {
+    display: none !important;
+  }
+
   .single .entry-content,
   .single .wp-block-post-content {
     padding: 0 20px;
