@@ -32,11 +32,12 @@ body.single .wp-site-blocks {
   margin: 0 auto !important;
   gap: 30px !important;
 }
-/* Content area full width within its grid column */
+/* Content block centered within main column */
 body.single .wp-block-post-content,
 body.single .wp-block-post-content.is-layout-constrained {
-  max-width: 100% !important;
+  max-width: 860px !important;
   width: 100% !important;
+  margin: 0 auto !important;
   padding: 0 !important;
 }
 /* Remove Cocoon default shadows/borders */
