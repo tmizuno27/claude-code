@@ -118,6 +118,8 @@ def main():
     content_clean = remove_old_blocks(content, CSS_MARKER)
     content_clean = remove_old_blocks(content_clean, JS_MARKER)
     content_clean = remove_legacy_blocks(content_clean)
+    # Restore sidebar grid-row if it was previously modified
+    content_clean = content_clean.replace('grid-row:2 / 3', 'grid-row:2 / 99')
     removed = len(content) - len(content_clean)
     if removed > 0:
         print(f'  Removed old blocks: {removed:,} chars')
@@ -135,13 +137,17 @@ def main():
             print('  Template preview:', content_clean[:500])
             return
 
-    # Insert CSS at end (after all existing styles) so it wins cascade, JS also at end
+    # Insert CSS before main, JS at end of template
     print('\n[4/4] Deploying to WordPress...')
+    parts = content_clean.split(main_marker, 1)
 
-    # CSS and JS both go at the very end of template (after all existing inline styles)
-    css_injection = '\n'.join(css_blocks)
-    js_injection = '\n'.join(js_blocks)
-    new_content = content_clean + '\n' + css_injection + '\n' + js_injection
+    # CSS goes before main
+    css_injection = '\n'.join(css_blocks) + '\n'
+
+    # JS goes at the very end of template
+    js_injection = '\n' + '\n'.join(js_blocks)
+
+    new_content = parts[0] + css_injection + main_marker + parts[1] + js_injection
 
     print(f'  New template size: {len(new_content):,} chars')
 
@@ -160,9 +166,9 @@ def main():
             css_blocks = split_into_chunks(css_minified, 'style', CSS_MARKER, max_size=1200)
             js_blocks = split_into_chunks(js_content, 'script', JS_MARKER, max_size=1200)
 
-            css_injection = '\n'.join(css_blocks)
-            js_injection = '\n'.join(js_blocks)
-            new_content = content_clean + '\n' + css_injection + '\n' + js_injection
+            css_injection = '\n'.join(css_blocks) + '\n'
+            js_injection = '\n' + '\n'.join(js_blocks)
+            new_content = parts[0] + css_injection + main_marker + parts[1] + js_injection
 
             try:
                 api_call('templates/twentytwentyfive//single', {'content': new_content}, 'POST')
