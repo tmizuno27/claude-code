@@ -100,7 +100,7 @@ body.single .wp-block-post-content.is-layout-constrained > * {
   font-weight: 600;
   letter-spacing: .08em;
   color: #fff;
-  background: #333;
+  background: #222;
   border-radius: 2px;
   text-decoration: none;
   transition: opacity .2s ease;
@@ -774,7 +774,7 @@ body.single .article p {
   justify-content: center;
   width: 32px;
   height: 32px;
-  background: #333;
+  background: #222;
   color: #fff;
   border-radius: 50%;
   font-size: 13px;
@@ -1105,7 +1105,7 @@ body.single footer {
   top: 18px;
   width: 36px;
   height: 36px;
-  background: #333;
+  background: #222;
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -1211,7 +1211,7 @@ body.single footer {
   display: block;
   width: 20px;
   height: 2px;
-  background: #333;
+  background: #222;
   border-radius: 1px;
   transition: transform 0.25s, opacity 0.25s;
 }
@@ -1270,7 +1270,7 @@ body.single footer {
   font-size: 10px;
   font-weight: 700;
   padding: 3px 10px;
-  background: #333;
+  background: #222;
   color: #fff;
   border-radius: 2px;
   text-decoration: none;
@@ -1338,7 +1338,7 @@ body.single footer {
   line-height: 1.5;
   margin: 44px 0 14px;
   padding: 0 0 0 12px;
-  border-left: 4px solid #333;
+  border-left: 4px solid #222;
   color: #222;
 }
 .nao-m-content h4 {
@@ -1476,7 +1476,7 @@ body.single footer {
   font-weight: 700;
   margin: 0 0 16px;
   padding: 0 0 10px;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #222;
 }
 .nao-m-content .tcd-related-grid {
   display: flex;
