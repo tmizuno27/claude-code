@@ -30,15 +30,23 @@ def minify_css(raw):
 
 
 def chunk_css(css, max_len=1500):
-    rules = re.split(r'(})', css)
-    chunks, temp = [], ''
-    for i in range(0, len(rules) - 1, 2):
-        rule = rules[i] + (rules[i + 1] if i + 1 < len(rules) else '')
-        if len(temp) + len(rule) > max_len and temp:
-            chunks.append(temp)
-            temp = rule
-        else:
-            temp += rule
+    """Split CSS into chunks, respecting nested braces (e.g. @media blocks)."""
+    chunks, temp, rule, depth = [], '', '', 0
+    for ch in css:
+        rule += ch
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0:
+                if len(temp) + len(rule) > max_len and temp:
+                    chunks.append(temp)
+                    temp = rule
+                else:
+                    temp += rule
+                rule = ''
+    if rule.strip():
+        temp += rule
     if temp.strip():
         chunks.append(temp)
     return chunks
