@@ -76,6 +76,12 @@ def remove_old_blocks(content, marker):
     pattern = r'<!-- wp:html -->\s*<(?:style|script)>\s*' + re.escape(marker) + r'.*?</(?:style|script)>\s*<!-- /wp:html -->'
     return re.sub(pattern, '', content, flags=re.DOTALL)
 
+def remove_legacy_blocks(content):
+    """Remove old TCD-SINGLE blocks from previous deployments."""
+    # Old marker: /* TCD-SINGLE */ (without -ARTICLE-CSS/-JS suffix)
+    pattern = r'<!-- wp:html\s*-->\s*<(?:style|script)>\s*/\* TCD-SINGLE \*/.*?</(?:style|script)>\s*<!-- /wp:html\s*-->'
+    return re.sub(pattern, '', content, flags=re.DOTALL)
+
 def main():
     print('=' * 60)
     print('TCD Article Design Deployer')
@@ -108,9 +114,10 @@ def main():
         print(f'  ERROR: Failed to fetch template: {e}')
         return
 
-    # Remove old injected blocks
+    # Remove old injected blocks (current + legacy markers)
     content_clean = remove_old_blocks(content, CSS_MARKER)
     content_clean = remove_old_blocks(content_clean, JS_MARKER)
+    content_clean = remove_legacy_blocks(content_clean)
     removed = len(content) - len(content_clean)
     if removed > 0:
         print(f'  Removed old blocks: {removed:,} chars')
