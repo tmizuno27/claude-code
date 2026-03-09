@@ -90,11 +90,13 @@ def main():
     print(f'  JS:  {len(js_content):,} bytes')
 
     # Create blocks
+    # CSS is split into chunks (WAF safe), JS must stay as ONE block (IIFE pattern)
     print('\n[2/4] Splitting into blocks...')
     css_blocks = split_into_chunks(css_minified, 'style', CSS_MARKER, max_size=2500)
-    js_blocks = split_into_chunks(js_content, 'script', JS_MARKER, max_size=2500)
+    # JS as single block — IIFE cannot be split across <script> tags
+    js_blocks = [f'<!-- wp:html -->\n<script>\n{JS_MARKER}\n{js_content}\n</script>\n<!-- /wp:html -->']
     print(f'  CSS blocks: {len(css_blocks)}')
-    print(f'  JS blocks:  {len(js_blocks)}')
+    print(f'  JS blocks:  {len(js_blocks)} (single IIFE)')
 
     # Fetch current single template
     print('\n[3/4] Fetching single template...')
