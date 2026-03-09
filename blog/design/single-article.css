@@ -60,6 +60,11 @@ body.single .wp-site-blocks {
   margin: 0 auto !important;
   gap: 30px !important;
 }
+/* Hide stray grid children (style blocks etc.) that leak into the grid */
+body.single .wp-site-blocks > style,
+body.single .wp-site-blocks > script {
+  display: none !important;
+}
 /* Main column — center all content */
 body.single main.wp-block-group {
   display: flex !important;
