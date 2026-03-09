@@ -61,7 +61,10 @@
       }
     }
 
-    // 6. Sidebar TOC
+    // 6. Sidebar TOC — insert end-of-article marker BEFORE appending extras
+    var articleEndMarker = el('div', '');
+    articleEndMarker.id = 'nao-article-end-marker';
+    content.appendChild(articleEndMarker);
     try { insertSidebarTOC(content); } catch(e) { console.error('SidebarTOC error:', e); }
 
     // 7. Share buttons (bottom)
@@ -211,12 +214,11 @@
 
     // Limit sidebar height to article content so TOC stops at article end
     function limitSidebarHeight() {
-      var articleContent = ct;
-      if (!articleContent) return;
-      var rect = articleContent.getBoundingClientRect();
-      var articleBottom = rect.bottom + window.scrollY;
+      var marker = document.getElementById('nao-article-end-marker');
+      if (!marker) return;
+      var markerTop = marker.getBoundingClientRect().top + window.scrollY;
       var sidebarTop = sb.getBoundingClientRect().top + window.scrollY;
-      var h = articleBottom - sidebarTop;
+      var h = markerTop - sidebarTop;
       if (h > 0) sb.style.maxHeight = h + 'px';
     }
     limitSidebarHeight();
