@@ -160,9 +160,9 @@ def main():
             css_blocks = split_into_chunks(css_minified, 'style', CSS_MARKER, max_size=1200)
             js_blocks = split_into_chunks(js_content, 'script', JS_MARKER, max_size=1200)
 
-            css_injection = '\n'.join(css_blocks) + '\n'
-            js_injection = '\n' + '\n'.join(js_blocks)
-            new_content = parts[0] + css_injection + main_marker + parts[1] + js_injection
+            css_injection = '\n'.join(css_blocks)
+            js_injection = '\n'.join(js_blocks)
+            new_content = content_clean + '\n' + css_injection + '\n' + js_injection
 
             try:
                 api_call('templates/twentytwentyfive//single', {'content': new_content}, 'POST')
