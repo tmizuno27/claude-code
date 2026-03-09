@@ -12,10 +12,9 @@ body.single {
 /* ===== ARTICLE LAYOUT — TCD 1col 750px ===== */
 .single .entry-content,
 .single .wp-block-post-content {
-  max-width: 750px !important;
+  max-width: 960px !important;
   margin: 0 auto !important;
   padding: 0 !important;
-  margin-right: -40px !important;
   font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","Meiryo",sans-serif !important;
   color: #333 !important;
   font-size: 16px !important;
@@ -49,7 +48,7 @@ body.single {
 
 /* ===== BREADCRUMBS — TCD Style ===== */
 .tcd-breadcrumb {
-  max-width: 750px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 20px 0 10px;
   font-size: 11px;
@@ -104,7 +103,7 @@ body.single h1.entry-title {
   letter-spacing: .02em !important;
   color: #000 !important;
   margin: 0 0 20px !important;
-  max-width: 750px !important;
+  max-width: 960px !important;
   padding: 0 !important;
 }
 
@@ -153,7 +152,7 @@ body.single h1.entry-title {
 
 /* ===== EYECATCH / FEATURED IMAGE ===== */
 .single .eye-catch {
-  max-width: 750px;
+  max-width: 960px;
   margin: 0 auto 30px;
 }
 .single .eye-catch img {
