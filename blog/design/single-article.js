@@ -8,7 +8,7 @@
   if (!document.body.classList.contains('single')) return;
 
   var AUTHOR_NAME = '\u5357\u7c73\u304a\u3084\u3058';
-  var AUTHOR_DESC = '\u30d1\u30e9\u30b0\u30a2\u30a4\u30fb\u30a2\u30b9\u30f3\u30b7\u30aa\u30f3\u5728\u4f4f\u306e\u65e5\u672c\u4eba\u30d6\u30ed\u30ac\u30fc\u3002\u5bb6\u65cf4\u4eba\u30672025\u5e74\u306b\u5357\u7c73\u79fb\u4f4f\u3002<br>\u6d77\u5916\u79fb\u4f4f\u30fb\u6d77\u5916\u751f\u6d3b\u306e\u30ea\u30a2\u30eb\u3092\u3001\u5b9f\u4f53\u9a13\u30d9\u30fc\u30b9\u3067\u767a\u4fe1\u3057\u3066\u3044\u307e\u3059\u3002';
+  var AUTHOR_DESC = '\u30d1\u30e9\u30b0\u30a2\u30a4\u30fb\u30a2\u30b9\u30f3\u30b7\u30aa\u30f3\u5728\u4f4f\u306e\u65e5\u672c\u4eba\u30d6\u30ed\u30ac\u30fc\u3002\u5bb6\u65cf4\u4eba\u30672025\u5e74\u306b\u5357\u7c73\u79fb\u4f4f\u3002\u6d77\u5916\u79fb\u4f4f\u30fb\u6d77\u5916\u751f\u6d3b\u306e\u30ea\u30a2\u30eb\u3092\u3001\u5b9f\u4f53\u9a13\u30d9\u30fc\u30b9\u3067\u767a\u4fe1\u3057\u3066\u3044\u307e\u3059\u3002';
   var AUTHOR_URL = 'https://nambei-oyaji.com/profile/';
   var SITE_RSS = 'https://nambei-oyaji.com/feed/';
 
@@ -67,6 +67,7 @@
 
     // 10. Floating elements
     createBackToTop();
+    createMobileTocButton(content);
 
     // 11. Scroll spy
     activateScrollSpy();
@@ -299,6 +300,39 @@
     }, { passive: true });
   }
 
+  /* ===== Mobile TOC Button ===== */
+  function createMobileTocButton(ct) {
+    var hs = ct.querySelectorAll('h2, h3');
+    if (hs.length < 3) return;
+
+    var ov = el('div', 'tcd-mtoc-overlay');
+    ov.style.display = 'none';
+    var inner = el('div', 'tcd-mtoc-inner');
+    inner.innerHTML = '<div class="tcd-mtoc-header"><span>\u76ee\u6b21</span><button class="tcd-mtoc-close">\u2715</button></div>';
+
+    var list = el('ol', 'tcd-mtoc-list');
+    for (var i = 0; i < hs.length; i++) {
+      var h = hs[i];
+      if (!h.id) h.id = 'tcd-h-' + i;
+      list.appendChild(el('li', h.tagName === 'H3' ? 'tcd-mtoc-h3' : 'tcd-mtoc-h2',
+        '<a href="#' + h.id + '">' + h.textContent.trim() + '</a>'));
+    }
+    inner.appendChild(list);
+    ov.appendChild(inner);
+    document.body.appendChild(ov);
+
+    var btn = el('button', 'tcd-mtoc-btn');
+    btn.innerHTML = '\u2630 \u76ee\u6b21';
+    document.body.appendChild(btn);
+
+    btn.addEventListener('click', function () { ov.style.display = 'flex'; document.body.style.overflow = 'hidden'; });
+    ov.addEventListener('click', function (e) {
+      if (e.target === ov || e.target.classList.contains('tcd-mtoc-close')) { ov.style.display = 'none'; document.body.style.overflow = ''; }
+    });
+    list.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { ov.style.display = 'none'; document.body.style.overflow = ''; }
+    });
+  }
 
   /* ===== Scroll Spy ===== */
   function activateScrollSpy() {
@@ -355,39 +389,40 @@
     // 2. Build the new mobile page
     var page = el('div', 'nao-m-page');
 
+    // --- Header (TCD-style: white bg, logo left, hamburger right) ---
+    var mHeader = el('header', 'nao-m-hdr');
+    mHeader.innerHTML =
+      '<div class="nao-m-hdr-inner">' +
+        '<a href="/" class="nao-m-hdr-logo">' +
+          '<span class="nao-m-hdr-logo-main">\u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</span>' +
+        '</a>' +
+        '<button class="nao-m-hdr-menu" aria-label="\u30e1\u30cb\u30e5\u30fc">' +
+          '<span></span><span></span><span></span>' +
+        '</button>' +
+      '</div>';
+    page.appendChild(mHeader);
+
     // --- Article ---
     var article = el('article', 'nao-m-art');
 
-    // Single post header (TCD: category → image → title → meta)
-    var postHeader = el('div', 'nao-m-post-header');
-
-    // Category label
-    if (catHTML) {
-      var catWrap = el('div', 'nao-m-category');
-      catWrap.innerHTML = catHTML;
-      postHeader.appendChild(catWrap);
-    }
-
-    // Eyecatch (full bleed)
+    // Eyecatch (full bleed, TCD: above title)
     if (featImgSrc) {
       var imgWrap = el('div', 'nao-m-eyecatch');
       imgWrap.innerHTML = '<img src="' + featImgSrc + '" alt="' + featImgAlt + '">';
-      postHeader.appendChild(imgWrap);
+      article.appendChild(imgWrap);
+    }
+
+    // Category + date bar
+    if (catHTML || metaHTML) {
+      var infoBar = el('div', 'nao-m-info');
+      infoBar.innerHTML = catHTML + metaHTML;
+      article.appendChild(infoBar);
     }
 
     // Title
     var titleWrap = el('h1', 'nao-m-title');
     titleWrap.innerHTML = titleHTML;
-    postHeader.appendChild(titleWrap);
-
-    // Meta (date + tags)
-    if (metaHTML) {
-      var metaWrap = el('ul', 'nao-m-meta');
-      metaWrap.innerHTML = metaHTML;
-      postHeader.appendChild(metaWrap);
-    }
-
-    article.appendChild(postHeader);
+    article.appendChild(titleWrap);
 
     // Content (move actual DOM node — preserves event listeners)
     contentEl.className = 'nao-m-content';
@@ -395,6 +430,17 @@
 
     page.appendChild(article);
 
+    // --- Footer (TCD-style: dark bg, links, copyright) ---
+    var mFooter = el('footer', 'nao-m-ftr');
+    mFooter.innerHTML =
+      '<div class="nao-m-ftr-links">' +
+        '<a href="/">\u30db\u30fc\u30e0</a>' +
+        '<a href="/category/paraguay/">\u30d1\u30e9\u30b0\u30a2\u30a4\u751f\u6d3b</a>' +
+        '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
+        '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>' +
+      '</div>' +
+      '<div class="nao-m-ftr-copy">&copy; ' + new Date().getFullYear() + ' \u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</div>';
+    page.appendChild(mFooter);
 
     // 3. Hide everything in body except our page + floating overlays
     var bodyChildren = document.body.children;
@@ -411,6 +457,29 @@
     document.body.prepend(page);
     document.body.classList.add('nao-mobile-active');
 
+    // 5. Hamburger menu toggle
+    var menuBtn = page.querySelector('.nao-m-hdr-menu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', function() {
+        var nav = page.querySelector('.nao-m-nav');
+        if (nav) {
+          var open = nav.style.maxHeight !== '0px';
+          nav.style.maxHeight = open ? '0px' : '300px';
+          menuBtn.classList.toggle('is-open', !open);
+        } else {
+          nav = el('nav', 'nao-m-nav');
+          nav.innerHTML =
+            '<a href="/">\u30db\u30fc\u30e0</a>' +
+            '<a href="/category/paraguay/">\u30d1\u30e9\u30b0\u30a2\u30a4\u751f\u6d3b</a>' +
+            '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
+            '<a href="/category/ijuu-junbi/">\u79fb\u4f4f\u6e96\u5099</a>' +
+            '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>';
+          nav.style.maxHeight = '300px';
+          mHeader.after(nav);
+          menuBtn.classList.add('is-open');
+        }
+      });
+    }
   }
 
   /* ===== Enhance Content ===== */
@@ -428,14 +497,6 @@
         w.appendChild(tables[j]);
       }
     }
-  }
-
-  // Hide black line artifact above footer by inserting a cover div
-  var footerEl = document.querySelector('footer.wp-block-template-part');
-  if (footerEl && footerEl.parentNode) {
-    var cover = document.createElement('div');
-    cover.style.cssText = 'grid-column:1/-1;height:20px;margin-bottom:-20px;background:#f5f5f5;position:relative;z-index:50;';
-    footerEl.parentNode.insertBefore(cover, footerEl);
   }
 
 })();
