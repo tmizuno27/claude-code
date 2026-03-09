@@ -423,10 +423,10 @@
 
     page.appendChild(article);
 
-    // Footer — move to top of page (after header bar)
+    // Footer — at the bottom of page (after article)
     if (footerEl) {
       footerEl.className = 'nao-m-footer';
-      mHeader.after(footerEl);
+      page.appendChild(footerEl);
     }
 
     // 3. Hide EVERYTHING in body except our new page + floating elements
