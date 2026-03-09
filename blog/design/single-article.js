@@ -430,5 +430,12 @@
     }
   }
 
+  // Hide black line artifact above footer by inserting a cover div
+  var footerEl = document.querySelector('footer.wp-block-template-part');
+  if (footerEl && footerEl.parentNode) {
+    var cover = document.createElement('div');
+    cover.style.cssText = 'grid-column:1/-1;height:20px;margin-bottom:-20px;background:#f5f5f5;position:relative;z-index:50;';
+    footerEl.parentNode.insertBefore(cover, footerEl);
+  }
 
 })();

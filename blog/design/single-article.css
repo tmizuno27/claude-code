@@ -60,11 +60,6 @@ body.single .wp-site-blocks {
   margin: 0 auto !important;
   gap: 30px !important;
 }
-/* Hide stray grid children (style blocks etc.) that leak into the grid */
-body.single .wp-site-blocks > style,
-body.single .wp-site-blocks > script {
-  display: none !important;
-}
 /* Main column — center all content */
 body.single main.wp-block-group {
   display: flex !important;
@@ -918,30 +913,8 @@ body.single .article p {
   overflow-y: auto;
 }
 /* Sidebar positioning */
-body.single .nao-tcd-sidebar,
-body.single aside.nao-tcd-sidebar,
-aside#nao-tcd-sidebar.nao-tcd-sidebar {
+body.single .nao-tcd-sidebar {
   align-self: start !important;
-  grid-row: 2 / 3 !important;
-}
-/* Footer covers sidebar — prevent sidebar from bleeding into footer */
-body.single footer.wp-block-template-part,
-body.single footer {
-  position: relative !important;
-  z-index: 10 !important;
-  background-color: #1a1a1a !important;
-  grid-column: 1 / -1 !important;
-  border-top: none !important;
-}
-/* Cover any artifact above footer with page background */
-body.single footer.wp-block-template-part::before {
-  content: '' !important;
-  display: block !important;
-  height: 30px !important;
-  margin-top: -30px !important;
-  background: #f5f5f5 !important;
-  position: relative !important;
-  z-index: 999 !important;
 }
 .nao-tcd-widget-title {
   font-size: 14px;

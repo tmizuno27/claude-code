@@ -118,8 +118,6 @@ def main():
     content_clean = remove_old_blocks(content, CSS_MARKER)
     content_clean = remove_old_blocks(content_clean, JS_MARKER)
     content_clean = remove_legacy_blocks(content_clean)
-    # Fix sidebar grid-row in existing template styles (prevent bleeding into footer)
-    content_clean = content_clean.replace('grid-row:2 / 99', 'grid-row:2 / 3')
     removed = len(content) - len(content_clean)
     if removed > 0:
         print(f'  Removed old blocks: {removed:,} chars')
