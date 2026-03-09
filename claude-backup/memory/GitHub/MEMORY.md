@@ -183,3 +183,6 @@
 - **スケジュール表示**: Claude Code内ではパラグアイ時間(PYT)に換算して表示する。全カレンダー（Primary, プライベート, Block, SEK PARAGUAY, 祝日）を統合し、プライベートの予定も必ず含めて表示すること
 - **Googleカレンダー**: 日本時間(JST/Asia/Tokyo)で設定されている（日本の企業・顧客との仕事が多いため）
 - **時差**: JST - PYT = 12時間（パラグアイ夏時間時）/ 13時間（標準時時）
+
+## セーブポイント（Gitタグ）
+- **savepoint-article-design-v1** (2026-03-09 15:10 PYT): 記事ページデザイン完成。サイドバーTOC・フッター遮蔽・中央揃え。復元: `git checkout savepoint-article-design-v1 -- blog/design/single-article.css blog/design/single-article.js`
