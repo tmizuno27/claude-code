@@ -29,6 +29,16 @@
 | BlogInternalLinker | 木曜 | 20:00 | 09:00金曜 | 内部リンク最適化 |
 | BlogFactCheck | 水曜 | 10:00 | 23:00水曜 | ファクトチェック(fix+check) |
 
+## メンテナンス系
+
+| タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
+|---------|------|----------|---------|------|
+| BlogUptimeMonitor | 30分おき | 常時 | 常時 | サイト死活監視→Discord通知 |
+| BlogBrokenLinks | 日曜 | 21:00 | 10:00月曜 | リンク切れチェック（外部+アフィリ） |
+| BlogNewKeywords | 月曜 | 20:30 | 09:30火曜 | GSC新規KW検出→記事ネタ |
+| BlogRewriteDetector | 月曜 | 21:30 | 10:30火曜 | リライト候補抽出（PV低下+古い記事） |
+| BlogWpBackup | 土曜 | 22:00 | 11:00日曜 | WP全記事+固定ページHTML保存(4世代) |
+
 ## X (Twitter) 系
 
 | タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
