@@ -42,12 +42,6 @@
     // 3. Meta info
     insertMetaInfo(content);
 
-    // 4. Share buttons (top)
-    var topShare = createShareButtons('tcd-share tcd-share--top');
-    var firstP = content.querySelector('p');
-    if (firstP) firstP.before(topShare);
-    else content.prepend(topShare);
-
     // 5. TOC
     var tocBox = createTOC(content);
     if (tocBox) {
