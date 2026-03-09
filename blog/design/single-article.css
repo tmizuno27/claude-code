@@ -94,15 +94,17 @@ body.single {
 
 /* ===== ARTICLE TITLE — TCD h1 ===== */
 .single .entry-title,
-.single .article-title {
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 1.5;
-  letter-spacing: .02em;
-  color: #000;
-  margin: 0 0 20px;
-  max-width: 750px;
-  padding: 0 30px;
+.single .article-title,
+body.single .article-title,
+body.single h1.entry-title {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  line-height: 1.5 !important;
+  letter-spacing: .02em !important;
+  color: #000 !important;
+  margin: 0 0 20px !important;
+  max-width: 750px !important;
+  padding: 0 30px !important;
 }
 
 /* ===== META INFO — TCD post date ===== */
@@ -347,11 +349,12 @@ body.single .article h4::before {
 }
 
 /* ===== PARAGRAPHS ===== */
-.single .entry-content p {
-  margin: 0 0 2em;
-  font-size: 16px;
-  line-height: 2.3;
-  color: #333;
+.single .entry-content p,
+body.single .article p {
+  margin: 0 0 2em !important;
+  font-size: 16px !important;
+  line-height: 2.3 !important;
+  color: #333 !important;
 }
 
 /* ===== LINKS — TCD style ===== */
