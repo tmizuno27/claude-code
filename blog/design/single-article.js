@@ -212,23 +212,7 @@
     w.style.position = 'sticky';
     w.style.top = '100px';
 
-    // Limit sidebar height to stop before footer
-    function matchSidebarToArticle() {
-      var footer = document.querySelector('footer.wp-block-template-part');
-      if (!footer) footer = document.querySelector('footer');
-      if (!footer) return;
-      var footerY = footer.getBoundingClientRect().top + window.scrollY;
-      var sbY = sb.getBoundingClientRect().top + window.scrollY;
-      var h = footerY - sbY - 30;
-      if (h > 100) {
-        sb.style.height = h + 'px';
-        sb.style.overflow = 'hidden';
-      }
-    }
-    window.addEventListener('load', matchSidebarToArticle);
-    setTimeout(matchSidebarToArticle, 1000);
-    setTimeout(matchSidebarToArticle, 3000);
-    window.addEventListener('resize', matchSidebarToArticle);
+    // Footer z-index covers sidebar, no JS height needed
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */
