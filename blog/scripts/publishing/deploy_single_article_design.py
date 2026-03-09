@@ -118,6 +118,10 @@ def main():
     content = content.replace('grid-template-columns:1fr 380px', 'grid-template-columns:1fr 360px')
     content = content.replace('grid-template-columns:1fr 280px', 'grid-template-columns:1fr 360px')
 
+    # Fix sidebar grid-row to prevent huge gap before footer
+    content = content.replace('grid-row:2/99', 'grid-row:2/3')
+    content = content.replace('grid-row:2 / 99', 'grid-row:2 / 3')
+
     # Remove old injected blocks (current + legacy markers)
     content_clean = remove_old_blocks(content, CSS_MARKER)
     content_clean = remove_old_blocks(content_clean, JS_MARKER)
