@@ -114,8 +114,9 @@ def main():
         print(f'  ERROR: Failed to fetch template: {e}')
         return
 
-    # Shrink sidebar: change template's inline 280px → 260px
-    content = content.replace('grid-template-columns:1fr 280px', 'grid-template-columns:1fr 260px')
+    # Adjust sidebar width in template inline styles
+    content = content.replace('grid-template-columns:1fr 260px', 'grid-template-columns:1fr 290px')
+    content = content.replace('grid-template-columns:1fr 280px', 'grid-template-columns:1fr 290px')
 
     # Remove old injected blocks (current + legacy markers)
     content_clean = remove_old_blocks(content, CSS_MARKER)
