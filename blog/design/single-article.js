@@ -430,4 +430,25 @@
     }
   }
 
+  // Debug: find and log all visible elements between post-list and footer
+  // that might appear as a black rectangle
+  var siteBlocks = document.querySelector('.wp-site-blocks');
+  if (siteBlocks) {
+    var children = siteBlocks.children;
+    for (var ci = 0; ci < children.length; ci++) {
+      var child = children[ci];
+      var tag = child.tagName.toLowerCase();
+      // Skip known elements
+      if (tag === 'header' || tag === 'main' || tag === 'footer' || tag === 'style' || tag === 'script') continue;
+      if (child.classList.contains('nao-tcd-sidebar')) continue;
+      if (child.classList.contains('wp-block-template-part')) continue;
+      // Any other direct child of wp-site-blocks — hide it
+      var rect = child.getBoundingClientRect();
+      if (rect.height > 0 || rect.width > 0) {
+        console.log('Hidden stray grid child:', tag, child.className, rect);
+        child.style.display = 'none';
+      }
+    }
+  }
+
 })();
