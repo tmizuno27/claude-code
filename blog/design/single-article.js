@@ -212,13 +212,14 @@
     w.style.position = 'sticky';
     w.style.top = '100px';
 
-    // Limit sidebar height to end-of-article marker
+    // Limit sidebar height to stop before footer
     function matchSidebarToArticle() {
-      var marker = document.getElementById('nao-article-end-marker');
-      if (!marker) return;
-      var markerY = marker.getBoundingClientRect().top + window.scrollY;
+      var footer = document.querySelector('footer.wp-block-template-part');
+      if (!footer) footer = document.querySelector('footer');
+      if (!footer) return;
+      var footerY = footer.getBoundingClientRect().top + window.scrollY;
       var sbY = sb.getBoundingClientRect().top + window.scrollY;
-      var h = markerY - sbY;
+      var h = footerY - sbY - 30;
       if (h > 100) {
         sb.style.height = h + 'px';
         sb.style.overflow = 'hidden';
