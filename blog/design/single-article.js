@@ -133,7 +133,8 @@
     var tags = document.querySelectorAll('.tag-links a, a[rel="tag"]');
     if (tags.length) {
       var th = '<span class="tcd-meta-tags">';
-      for (var i = 0; i < tags.length && i < 5; i++) {
+      var tagMax = Math.min(tags.length, 5);
+      for (var i = 0; i < tagMax; i++) {
         th += '<a href="' + tags[i].href + '" class="tcd-meta-tag">' + tags[i].textContent.trim() + '</a>';
       }
       meta.innerHTML += th + '</span>';
@@ -261,7 +262,8 @@
         if (!grid) return;
 
         var n = 0;
-        for (var i = 0; i < posts.length && n < 6; i++) {
+        for (var i = 0; i < posts.length; i++) {
+          if (n >= 6) break;
           var p = posts[i];
           if (new URL(p.link).pathname === cur) continue;
 
