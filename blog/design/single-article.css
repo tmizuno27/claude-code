@@ -26,19 +26,53 @@ body.single {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Cocoon override */
+/* Cocoon override — force 1-column layout (hide sidebar) */
 .single .article,
 .single .article-body {
   max-width: none !important;
   padding: 0 !important;
   background: transparent !important;
 }
-.single #main,
-.single .main,
+/* Hide sidebar on single posts */
+.single #sidebar,
+.single .sidebar,
+.single .sidebar-in {
+  display: none !important;
+}
+/* Make content area full-width and centered */
+.single .wrap,
 .single .content-in {
-  max-width: 1100px;
-  margin: 0 auto;
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  float: none !important;
+}
+.single #main,
+.single .main {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  float: none !important;
   background: transparent !important;
+}
+.single .content,
+.single #content {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  float: none !important;
+}
+/* Cocoon 2-column grid override */
+.single .column-wrap {
+  display: block !important;
+}
+.single .column-main {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  flex: none !important;
 }
 /* Remove Cocoon default shadows/borders */
 .single .article {
