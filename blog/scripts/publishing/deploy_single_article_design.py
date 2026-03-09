@@ -135,17 +135,13 @@ def main():
             print('  Template preview:', content_clean[:500])
             return
 
-    # Insert CSS before main, JS at end of template
+    # Insert CSS at end (after all existing styles) so it wins cascade, JS also at end
     print('\n[4/4] Deploying to WordPress...')
-    parts = content_clean.split(main_marker, 1)
 
-    # CSS goes before main
-    css_injection = '\n'.join(css_blocks) + '\n'
-
-    # JS goes at the very end of template
-    js_injection = '\n' + '\n'.join(js_blocks)
-
-    new_content = parts[0] + css_injection + main_marker + parts[1] + js_injection
+    # CSS and JS both go at the very end of template (after all existing inline styles)
+    css_injection = '\n'.join(css_blocks)
+    js_injection = '\n'.join(js_blocks)
+    new_content = content_clean + '\n' + css_injection + '\n' + js_injection
 
     print(f'  New template size: {len(new_content):,} chars')
 
