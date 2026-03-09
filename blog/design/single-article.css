@@ -1140,41 +1140,52 @@ body.single footer {
 
 /* ===== MOBILE RESPONSIVE ===== */
 @media (max-width: 768px) {
-  /* Single column — hide sidebar on mobile */
+  /* Single column — hide sidebar, full width on mobile */
   body.single .wp-site-blocks {
-    grid-template-columns: 1fr !important;
-    gap: 0 !important;
-    max-width: 100% !important;
+    display: block !important;
+    max-width: 100vw !important;
+    width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
   body.single .nao-tcd-sidebar {
     display: none !important;
   }
-  /* Full-width main on mobile */
+  body.single main,
   body.single main.wp-block-group {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
+    margin: 0 !important;
   }
-  body.single .wp-block-post-title,
-  body.single .wp-block-post-featured-image,
+  body.single .wp-block-post-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 16px !important;
+    box-sizing: border-box !important;
+    font-size: 22px !important;
+    line-height: 1.45 !important;
+  }
+  body.single .wp-block-post-featured-image {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
   body.single .wp-block-post-content,
   body.single .wp-block-post-content.is-layout-constrained {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 16px !important;
     box-sizing: border-box !important;
+    font-size: 15px !important;
+    line-height: 2.2 !important;
   }
   body.single .wp-block-post-content > *,
   body.single .wp-block-post-content.is-layout-constrained > * {
     max-width: 100% !important;
-  }
-
-  .single .entry-content,
-  .single .wp-block-post-content {
-    font-size: 15px;
-    line-height: 2.2;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
 
   .tcd-breadcrumb {
