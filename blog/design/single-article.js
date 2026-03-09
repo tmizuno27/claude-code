@@ -231,7 +231,7 @@
           '<div class="tcd-author-label">WRITER</div>' +
           '<div class="tcd-author-name">' + AUTHOR_NAME + '</div>' +
           '<p class="tcd-author-desc">' + AUTHOR_DESC + '</p>' +
-          '<a href="' + AUTHOR_URL + '" class="tcd-author-link">Web\u30b5\u30a4\u30c8</a>' +
+          '' +
         '</div>' +
       '</div>';
     return box;
