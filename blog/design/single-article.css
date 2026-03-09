@@ -1138,13 +1138,14 @@ body.single footer {
   color: #333;
 }
 
-/* ===== MOBILE RESPONSIVE (TCD-style) ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  /* --- Layout: single column, full width --- */
+
+  /* ---- 1. Layout reset: single column, no sidebar ---- */
   body.single .wp-site-blocks {
     display: block !important;
-    max-width: 100vw !important;
     width: 100% !important;
+    max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
     overflow-x: hidden !important;
@@ -1160,48 +1161,38 @@ body.single footer {
     padding: 0 !important;
     margin: 0 !important;
   }
-  body.single header,
-  body.single header.wp-block-template-part {
-    width: 100% !important;
-    max-width: 100% !important;
-  }
 
-  /* --- Category badge (moved outside content on mobile) --- */
-  body.single .tcd-cat-label {
-    margin: 10px 20px 0 !important;
-    font-size: 11px !important;
-    padding: 4px 12px !important;
+  /* ---- 2. Hide clutter: breadcrumbs, WP default date/terms ---- */
+  body.single .tcd-breadcrumb {
+    display: none !important;
   }
-  body.single .tcd-meta {
-    padding: 8px 20px !important;
-    font-size: 13px !important;
-    color: #888 !important;
-  }
-
-  /* --- WP default date/terms hidden on mobile (replaced by TCD-meta) --- */
   body.single .wp-block-post-date,
   body.single .wp-block-post-terms {
     display: none !important;
   }
+  body.single .nao-m-bottom {
+    display: none !important;
+  }
 
-  /* --- Article Title (TCD: 20px, tight line-height) --- */
+  /* ---- 3. Title ---- */
   body.single .wp-block-post-title {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 15px 20px 10px !important;
     box-sizing: border-box !important;
-    font-size: 20px !important;
+    padding: 20px 20px 12px !important;
+    margin: 0 !important;
+    font-size: 22px !important;
     font-weight: 700 !important;
-    line-height: 1.5 !important;
-    letter-spacing: 0.02em !important;
+    line-height: 1.55 !important;
+    color: #1a1a1a !important;
   }
 
-  /* --- Featured Image: edge-to-edge --- */
+  /* ---- 4. Featured image: full bleed ---- */
   body.single .wp-block-post-featured-image {
     width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
-    margin: 0 0 20px !important;
+    margin: 0 0 24px !important;
   }
   body.single .wp-block-post-featured-image img {
     width: 100% !important;
@@ -1209,7 +1200,18 @@ body.single footer {
     display: block !important;
   }
 
-  /* --- Post Content (TCD: 16px, line-height 2.3, padding 20px) --- */
+  /* ---- 5. Category badge + meta (inside content) ---- */
+  body.single .tcd-cat-label {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+  }
+  body.single .tcd-meta {
+    font-size: 13px !important;
+    color: #999 !important;
+    margin-bottom: 24px !important;
+  }
+
+  /* ---- 6. Post content ---- */
   body.single .wp-block-post-content,
   body.single .wp-block-post-content.is-layout-constrained {
     width: 100% !important;
@@ -1217,206 +1219,139 @@ body.single footer {
     padding: 0 20px !important;
     box-sizing: border-box !important;
     font-size: 16px !important;
-    line-height: 2.3 !important;
+    line-height: 2.0 !important;
     color: #333 !important;
     word-break: break-word !important;
   }
-  /* Remove inner constraints */
   body.single .wp-block-post-content > *,
   body.single .wp-block-post-content.is-layout-constrained > * {
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-  /* Paragraphs: generous bottom margin (TCD: 40px) */
+
+  /* Paragraphs */
   body.single .wp-block-post-content p {
-    margin-bottom: 35px !important;
+    margin-bottom: 28px !important;
   }
 
-  /* --- Headings (TCD-style spacing) --- */
+  /* ---- 7. Headings ---- */
   body.single .wp-block-post-content h2 {
-    font-size: 20px !important;
+    font-size: 19px !important;
     font-weight: 700 !important;
-    margin: 80px 0 20px !important;
-    padding-bottom: 14px !important;
     line-height: 1.5 !important;
+    margin: 56px 0 16px !important;
+    padding-bottom: 12px !important;
   }
   body.single .wp-block-post-content h3 {
-    font-size: 18px !important;
+    font-size: 17px !important;
     font-weight: 700 !important;
-    margin: 60px 0 15px !important;
     line-height: 1.5 !important;
+    margin: 44px 0 12px !important;
   }
   body.single .wp-block-post-content h4 {
     font-size: 16px !important;
     font-weight: 700 !important;
-    margin: 40px 0 12px !important;
     line-height: 1.5 !important;
+    margin: 32px 0 10px !important;
   }
 
-  /* --- Images in content --- */
+  /* ---- 8. Images & figures ---- */
   body.single .wp-block-post-content img {
     max-width: 100% !important;
     height: auto !important;
-    margin: 15px 0 !important;
   }
   body.single .wp-block-post-content figure {
-    margin: 25px 0 !important;
+    margin: 24px 0 !important;
   }
 
-  /* --- Lists --- */
+  /* ---- 9. Lists ---- */
   body.single .wp-block-post-content ul,
   body.single .wp-block-post-content ol {
-    padding-left: 1.5em !important;
-    margin-bottom: 35px !important;
+    padding-left: 1.4em !important;
+    margin-bottom: 28px !important;
   }
   body.single .wp-block-post-content li {
-    margin-bottom: 10px !important;
-    line-height: 2.0 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.9 !important;
   }
 
-  /* --- Blockquote --- */
+  /* ---- 10. Blockquote ---- */
   body.single .wp-block-post-content blockquote {
-    margin: 30px 0 !important;
-    padding: 20px !important;
+    margin: 28px 0 !important;
+    padding: 16px 20px !important;
     font-size: 15px !important;
-    line-height: 2.0 !important;
+    line-height: 1.9 !important;
   }
 
-  /* --- Tables --- */
-  body.single .wp-block-post-content .wp-block-table,
-  .tcd-table-wrap {
+  /* ---- 11. Tables (horizontal scroll) ---- */
+  body.single .wp-block-post-content .wp-block-table {
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    margin: 25px 0 !important;
+    margin: 24px 0 !important;
   }
   body.single .wp-block-post-content table {
-    min-width: 500px !important;
     font-size: 14px !important;
   }
 
-  /* --- Meta info (date, category) --- */
-  body.single .wp-block-post-date,
-  body.single .wp-block-post-terms {
-    font-size: 13px !important;
-    padding: 0 20px !important;
-  }
-  .tcd-meta {
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 0 20px;
-    font-size: 13px;
+  /* ---- 12. TOC ---- */
+  body.single .tcd-toc {
+    padding: 16px 20px !important;
+    margin: 24px 0 32px !important;
+    font-size: 14px !important;
   }
 
-  /* --- Breadcrumb --- */
-  .tcd-breadcrumb {
-    padding: 12px 20px 8px;
-    font-size: 11px;
-  }
-
-  /* --- TOC (in-article) --- */
-  .tcd-toc {
-    padding: 20px;
-    margin: 30px 0 40px;
-  }
-  .tcd-toc-title {
-    font-size: 15px;
-  }
-
-  /* --- Author box --- */
-  .tcd-author {
-    padding: 25px 20px;
+  /* ---- 13. Author box ---- */
+  body.single .tcd-author {
+    padding: 24px 20px !important;
     margin: 40px 0 !important;
   }
-  .tcd-author-inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  body.single .tcd-author-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 12px !important;
   }
-  .tcd-author-avatar,
-  .nao-author-avatar-wrap {
-    width: 70px !important;
-    height: 70px !important;
+  body.single .nao-author-avatar-wrap {
+    width: 64px !important;
+    height: 64px !important;
   }
-  .tcd-author-sns {
-    justify-content: center;
-  }
-
-  /* --- Related posts --- */
-  .tcd-related-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .tcd-related-card {
-    flex-direction: row;
-  }
-  .tcd-related-card-thumb {
-    width: 120px;
-    min-width: 120px;
-    aspect-ratio: 1/1;
-  }
-  .tcd-related-card-body {
-    padding: 10px 12px;
+  body.single .tcd-author-desc {
+    font-size: 13px !important;
+    line-height: 1.8 !important;
   }
 
-  /* --- Link cards --- */
-  .tcd-link-card {
-    padding: 12px;
-    gap: 12px;
+  /* ---- 14. Related posts ---- */
+  body.single .tcd-related-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
   }
-  .tcd-link-card-thumb {
-    width: 100px;
+  body.single .tcd-related-card {
+    flex-direction: row !important;
   }
-
-  /* --- CTA banner --- */
-  .tcd-cta-banner {
-    padding: 30px 20px;
+  body.single .tcd-related-card-thumb {
+    width: 110px !important;
+    min-width: 110px !important;
+    aspect-ratio: 1/1 !important;
   }
-  .tcd-cta-banner h3 {
-    font-size: 18px;
+  body.single .tcd-related-card-body {
+    padding: 8px 12px !important;
   }
-
-  /* --- Floating buttons --- */
-  .tcd-totop {
-    bottom: 80px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-  }
-  .tcd-mtoc-btn {
-    display: block;
-    bottom: 24px;
+  body.single .tcd-related-card-title {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
   }
 
-  /* --- FAQ --- */
-  .tcd-faq-item {
-    padding: 20px;
+  /* ---- 15. Floating buttons ---- */
+  body.single .tcd-totop {
+    bottom: 24px !important;
+    right: 16px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
-
-  /* --- Share buttons --- */
-  .tcd-share-btn {
-    padding: 12px 0;
-    font-size: 11px;
-  }
-
-  /* --- Hide bottom bar & sidebar on single pages --- */
-  body.single .nao-m-bottom { display: none !important; }
-}
-
-@media (max-width: 375px) {
-  .single .entry-title,
-  .single .article-title {
-    font-size: 20px;
-  }
-  .single .entry-content h2 {
-    font-size: 18px;
-  }
-  .single .entry-content h3 {
-    font-size: 16px;
-  }
-  .tcd-related-card-thumb {
-    width: 100px;
-    min-width: 100px;
+  body.single .tcd-mtoc-btn {
+    display: block !important;
+    bottom: 24px !important;
   }
 }
 
