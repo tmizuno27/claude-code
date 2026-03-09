@@ -868,6 +868,10 @@ body.single .article p {
   max-height: calc(100vh - 130px);
   overflow-y: auto;
 }
+/* Limit sidebar height to match main content */
+body.single .nao-tcd-sidebar {
+  align-self: start !important;
+}
 .nao-tcd-widget-title {
   font-size: 14px;
   font-weight: 700;
