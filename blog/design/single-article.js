@@ -389,34 +389,6 @@
     // 2. Build the new mobile page
     var page = el('div', 'nao-m-page');
 
-    // --- Header (TCD-style: white bg, logo left, hamburger right) ---
-    var mHeader = el('header', 'nao-m-hdr');
-    mHeader.innerHTML =
-      '<div class="nao-m-hdr-inner">' +
-        '<a href="/" class="nao-m-hdr-logo">' +
-          '<span class="nao-m-hdr-logo-main">\u5357\u7c73\u304a\u3084\u3058\u306e\u6d77\u5916\u751f\u6d3b\u30e9\u30dc</span>' +
-        '</a>' +
-        '<button class="nao-m-hdr-menu" aria-label="\u30e1\u30cb\u30e5\u30fc">' +
-          '<span></span><span></span><span></span>' +
-        '</button>' +
-      '</div>';
-    page.appendChild(mHeader);
-
-    // --- Breadcrumb (TCD-style) ---
-    var breadcrumb = el('div', 'nao-m-breadcrumb');
-    // Build from category info
-    var bcHTML = '<ul>';
-    bcHTML += '<li><a href="/">\u30db\u30fc\u30e0</a></li>';
-    if (catEl) {
-      var catLink = catEl.getAttribute('href') || '#';
-      var catText = catEl.textContent || '';
-      bcHTML += '<li><a href="' + catLink + '">' + catText + '</a></li>';
-    }
-    bcHTML += '<li class="last">' + (titleEl ? titleEl.textContent.substring(0, 40) + (titleEl.textContent.length > 40 ? '...' : '') : '') + '</li>';
-    bcHTML += '</ul>';
-    breadcrumb.innerHTML = bcHTML;
-    page.appendChild(breadcrumb);
-
     // --- Article ---
     var article = el('article', 'nao-m-art');
 
@@ -484,29 +456,6 @@
     document.body.prepend(page);
     document.body.classList.add('nao-mobile-active');
 
-    // 5. Hamburger menu toggle
-    var menuBtn = page.querySelector('.nao-m-hdr-menu');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', function() {
-        var nav = page.querySelector('.nao-m-nav');
-        if (nav) {
-          var open = nav.style.maxHeight !== '0px';
-          nav.style.maxHeight = open ? '0px' : '300px';
-          menuBtn.classList.toggle('is-open', !open);
-        } else {
-          nav = el('nav', 'nao-m-nav');
-          nav.innerHTML =
-            '<a href="/">\u30db\u30fc\u30e0</a>' +
-            '<a href="/category/paraguay/">\u30d1\u30e9\u30b0\u30a2\u30a4\u751f\u6d3b</a>' +
-            '<a href="/category/side-business/">\u526f\u696d\u30fb\u7a3c\u304e\u65b9</a>' +
-            '<a href="/category/ijuu-junbi/">\u79fb\u4f4f\u6e96\u5099</a>' +
-            '<a href="/about/">\u30d7\u30ed\u30d5\u30a3\u30fc\u30eb</a>';
-          nav.style.maxHeight = '300px';
-          mHeader.after(nav);
-          menuBtn.classList.add('is-open');
-        }
-      });
-    }
   }
 
   /* ===== Enhance Content ===== */
