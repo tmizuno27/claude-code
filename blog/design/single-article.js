@@ -184,7 +184,8 @@
   /* ===== Sidebar TOC ===== */
   function insertSidebarTOC(ct) {
     var sb = document.querySelector('.nao-tcd-sidebar') || document.getElementById('nao-tcd-sidebar') || document.querySelector('.sidebar, #sidebar, aside');
-    if (!sb) return;
+    console.log('SidebarTOC: sb=', sb, 'headings=', ct.querySelectorAll('h2, h3').length);
+    if (!sb) { console.warn('SidebarTOC: No sidebar found'); return; }
     var hs = ct.querySelectorAll('h2, h3');
     if (hs.length < 3) return;
 
