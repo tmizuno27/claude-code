@@ -212,16 +212,21 @@
     w.style.position = 'sticky';
     w.style.top = '100px';
 
-    // Match sidebar height to main article content
+    // Limit sidebar height to end-of-article marker
     function matchSidebarToArticle() {
-      var mainEl = document.querySelector('main.wp-block-group');
-      if (!mainEl) return;
-      var mainH = mainEl.offsetHeight;
-      sb.style.height = mainH + 'px';
-      sb.style.overflow = 'hidden';
+      var marker = document.getElementById('nao-article-end-marker');
+      if (!marker) return;
+      var markerY = marker.getBoundingClientRect().top + window.scrollY;
+      var sbY = sb.getBoundingClientRect().top + window.scrollY;
+      var h = markerY - sbY;
+      if (h > 100) {
+        sb.style.height = h + 'px';
+        sb.style.overflow = 'hidden';
+      }
     }
     window.addEventListener('load', matchSidebarToArticle);
-    setTimeout(matchSidebarToArticle, 500);
+    setTimeout(matchSidebarToArticle, 1000);
+    setTimeout(matchSidebarToArticle, 3000);
     window.addEventListener('resize', matchSidebarToArticle);
   }
 
