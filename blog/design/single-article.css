@@ -1282,6 +1282,8 @@ body.single footer {
 .nao-m-art {
   width: 100%;
   background: #fff;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 /* --- Eyecatch: full bleed --- */
@@ -1339,7 +1341,7 @@ body.single footer {
 
 /* ======== CONTENT ======== */
 .nao-m-content {
-  padding: 0 30px 40px;
+  padding: 0 0 40px;
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
