@@ -1,17 +1,16 @@
 """
 Add <strong> emphasis to key phrases in published WordPress articles.
-Targets: important numbers, conclusions, warnings, service names.
-Conservative approach: 3-6 per section, short phrases only.
+Targets: important numbers/costs, key conclusions, warnings, service names.
+Conservative: 3-5 per section max, short phrases (5-25 chars).
 """
 
 import requests
 import re
-import json
 import base64
 import time
 
 WP_API = "https://nambei-oyaji.com/wp-json/wp/v2"
-AUTH = base64.b64encode(b"t.mizuno27@gmail.com:WutS MaRq ukGx OcQ8 uhBj Ej0D").decode()
+AUTH = base64.b64encode(b"t.mizuno27@gmail.com:agNg 2624 4lL4 QoT9 EOOZ OEZr").decode()
 HEADERS = {
     "Authorization": f"Basic {AUTH}",
     "Content-Type": "application/json"
@@ -19,44 +18,51 @@ HEADERS = {
 
 ARTICLE_IDS = [1214, 1070, 1069, 1068, 1067, 1066, 1065, 1008]
 
-# Patterns to emphasize - Japanese key phrases with numbers, costs, warnings
-# Each pattern: (regex, max_per_section)
-EMPHASIS_PATTERNS = [
-    # Money amounts: 月XX万円, XX万円, XX円, XX万ドル etc.
-    (r'(?<![<>/a-zA-Z])(?:約|月|年間?|毎月|合計|最大|最低|総額)?[\d,\.]+(?:万)?(?:円|ドル|USD|Gs|グアラニー|ガラニー)(?:前後|程度|以上|以下|～|〜)?', None),
-    # Percentages
-    (r'(?<![<>/a-zA-Z])[\d,\.]+(?:%|パーセント)', None),
-    # Time periods with numbers
-    (r'(?:約)?[\d,]+(?:年|ヶ月|か月|カ月|週間|日間|日|時間)', None),
-    # Specific important phrases that commonly appear in these articles
-    (r'永住権(?:取得|の取得)', None),
-    (r'ビザ(?:なし|免除|不要)', None),
-    (r'治安(?:が[良悪]い|の[良悪]さ)', None),
-    (r'(?:最大の)?(?:メリット|デメリット)', None),
-    (r'要注意', None),
-    (r'(?:絶対|必ず)(?:に)?(?:必要|確認|注意)', None),
-    (r'無料', None),
-    (r'(?:手数料|送料)(?:無料|ゼロ|なし)', None),
+# Patterns: money with context prefix (月15万円, 約100万円, etc.)
+MONEY_PATTERN = r'(?:約|月(?:々|額)?|年間?|毎月|合計|最大|最低|最小|総額|初期費用)?[\d,]+(?:万)?(?:円|ドル|USD)(?:前後|程度|以上|以下|～[\d,]+(?:万)?(?:円|ドル))?'
+# Guarani amounts
+GUARANI_PATTERN = r'[\d,]+(?:万)?(?:グアラニー|ガラニー|Gs)'
+# Percentages with context
+PERCENT_PATTERN = r'(?:約)?[\d,\.]+(?:%|パーセント)'
+# Time periods - only with context prefix to avoid bare "1年" etc.
+TIME_PATTERN = r'(?:約|最短|最長)[\d,]+(?:ヶ月|か月|カ月|年|週間|日間|時間)'
+# Important keyword phrases
+KEYWORD_PHRASES = [
+    r'永住権(?:の)?取得',
+    r'ビザ(?:なし|免除|不要)',
+    r'要注意',
+    r'必ず確認',
+    r'手数料(?:無料|ゼロ|なし|0円)',
+    r'送金手数料(?:が)?(?:無料|安い|最安)',
+    r'為替手数料',
+    r'自然災害(?:が)?(?:ない|ゼロ|ほぼない)',
+    r'治安(?:が)?(?:良い|悪い|改善)',
+    r'(?:最大の)?メリット',
+    r'(?:最大の)?デメリット',
 ]
 
+ALL_PATTERNS = (
+    [MONEY_PATTERN, GUARANI_PATTERN, PERCENT_PATTERN, TIME_PATTERN]
+    + KEYWORD_PHRASES
+)
+
+
 def fetch_article(post_id):
-    """Fetch article raw content."""
     url = f"{WP_API}/posts/{post_id}?context=edit"
     resp = requests.get(url, headers=HEADERS)
     resp.raise_for_status()
     data = resp.json()
     return data["title"]["raw"], data["content"]["raw"]
 
+
 def update_article(post_id, content):
-    """PUT updated content back."""
     url = f"{WP_API}/posts/{post_id}"
-    resp = requests.put(url, headers=HEADERS, json={"content": content})
+    resp = requests.post(url, headers=HEADERS, json={"content": content})
     resp.raise_for_status()
     return resp.status_code
 
+
 def is_inside_tag(text, pos):
-    """Check if position is inside an HTML tag (between < and >)."""
-    # Look backward for < or >
     i = pos - 1
     while i >= 0:
         if text[i] == '>':
@@ -66,137 +72,135 @@ def is_inside_tag(text, pos):
         i -= 1
     return False
 
-def split_into_sections(content):
-    """Split content by h2 headings, preserving the split points."""
-    # Split on h2 tags but keep them
-    parts = re.split(r'(<h2[^>]*>.*?</h2>)', content, flags=re.DOTALL)
-    return parts
 
-def is_in_protected_context(content, match_start, match_end):
-    """Check if a match is inside a heading, link, strong, th, style, or HTML attribute."""
-    # Check various protected contexts by looking at surrounding HTML
-    text_before = content[max(0, match_start - 500):match_start]
-    text_after = content[match_end:match_end + 500]
+def is_in_protected_context(content, start, end):
+    """Check if match is inside heading, link, strong, th, style, td, caption, or HTML attr."""
+    before = content[max(0, start - 2000):start]
 
-    # Inside <style> block
-    style_opens = len(re.findall(r'<style', text_before, re.IGNORECASE))
-    style_closes = len(re.findall(r'</style', text_before, re.IGNORECASE))
-    if style_opens > style_closes:
+    # Style block
+    if len(re.findall(r'<style', before, re.I)) > len(re.findall(r'</style', before, re.I)):
         return True
 
-    # Inside heading tags
-    for tag in ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']:
-        opens = len(re.findall(rf'<{tag}[\s>]', text_before, re.IGNORECASE))
-        closes = len(re.findall(rf'</{tag}>', text_before, re.IGNORECASE))
-        if opens > closes:
+    # Headings
+    for t in ['h1','h2','h3','h4','h5','h6']:
+        if len(re.findall(rf'<{t}[\s>]', before, re.I)) > len(re.findall(rf'</{t}>', before, re.I)):
             return True
 
-    # Inside <a> tags
-    a_opens = len(re.findall(r'<a[\s>]', text_before, re.IGNORECASE))
-    a_closes = len(re.findall(r'</a>', text_before, re.IGNORECASE))
-    if a_opens > a_closes:
+    # Links
+    if len(re.findall(r'<a[\s>]', before, re.I)) > len(re.findall(r'</a>', before, re.I)):
         return True
 
-    # Inside <strong> tags already
-    s_opens = len(re.findall(r'<strong', text_before, re.IGNORECASE))
-    s_closes = len(re.findall(r'</strong>', text_before, re.IGNORECASE))
-    if s_opens > s_closes:
+    # Already strong
+    if len(re.findall(r'<strong', before, re.I)) > len(re.findall(r'</strong>', before, re.I)):
         return True
 
-    # Inside <th> tags
-    th_opens = len(re.findall(r'<th[\s>]', text_before, re.IGNORECASE))
-    th_closes = len(re.findall(r'</th>', text_before, re.IGNORECASE))
-    if th_opens > th_closes:
+    # Table headers
+    if len(re.findall(r'<th[\s>]', before, re.I)) > len(re.findall(r'</th>', before, re.I)):
         return True
 
-    # Inside HTML tag attributes
-    if is_inside_tag(content, match_start):
+    # Table cells (td) - skip to avoid messing with table formatting
+    if len(re.findall(r'<td[\s>]', before, re.I)) > len(re.findall(r'</td>', before, re.I)):
         return True
 
-    # Inside <!-- comments -->
-    comment_opens = len(re.findall(r'<!--', text_before))
-    comment_closes = len(re.findall(r'-->', text_before))
-    if comment_opens > comment_closes:
+    # Inside HTML tag
+    if is_inside_tag(content, start):
+        return True
+
+    # HTML comments
+    if len(re.findall(r'<!--', before)) > len(re.findall(r'-->', before)):
+        return True
+
+    # figcaption
+    if len(re.findall(r'<figcaption', before, re.I)) > len(re.findall(r'</figcaption', before, re.I)):
         return True
 
     return False
 
-def add_emphasis_to_content(content):
-    """Add <strong> tags to key phrases in content."""
-    changes = []
 
-    # Collect all candidate matches with their positions
+def add_emphasis(content):
+    changes = []
     candidates = []
-    for pattern, _ in EMPHASIS_PATTERNS:
+
+    for pattern in ALL_PATTERNS:
         for m in re.finditer(pattern, content):
             text = m.group()
-            start = m.start()
-            end = m.end()
-
-            # Skip very short matches (1-2 chars) or very long (>30 chars)
-            if len(text) < 2 or len(text) > 30:
+            # Skip too short/long
+            if len(text) < 3 or len(text) > 25:
                 continue
-
-            # Skip if just a bare number without context
+            # Skip bare numbers
             if re.match(r'^[\d,\.]+$', text):
                 continue
+            # Skip year-only matches like "2026年", "2025年" - not meaningful emphasis
+            if re.match(r'^(?:約)?(?:19|20)\d{2}年$', text):
+                continue
+            # Skip "100%" alone (often just filler)
+            if text == '100%':
+                continue
+            if not is_in_protected_context(content, m.start(), m.end()):
+                candidates.append((m.start(), m.end(), text))
 
-            if not is_in_protected_context(content, start, end):
-                candidates.append((start, end, text))
-
-    # Remove overlapping candidates (keep longer ones)
+    # Deduplicate overlapping, keep longer
     candidates.sort(key=lambda x: x[0])
     filtered = []
     for c in candidates:
         if filtered and c[0] < filtered[-1][1]:
-            # Overlap - keep the longer one
             if len(c[2]) > len(filtered[-1][2]):
                 filtered[-1] = c
             continue
         filtered.append(c)
 
-    # Limit per section: find h2 boundaries
-    h2_positions = [m.start() for m in re.finditer(r'<h2', content, re.IGNORECASE)]
-    h2_positions.append(len(content))  # end sentinel
+    # Deduplicate same text in same section (only keep first occurrence per section)
+    h2_positions = [m.start() for m in re.finditer(r'<h2', content, re.I)]
+    h2_positions.append(len(content))
 
-    # Group candidates by section
+    def get_section(pos):
+        for i, h2 in enumerate(h2_positions):
+            if pos < h2:
+                return i
+        return len(h2_positions) - 1
+
+    seen_in_section = {}  # (section, text) -> True
+    deduped = []
+    for s, e, t in filtered:
+        sec = get_section(s)
+        key = (sec, t)
+        if key in seen_in_section:
+            continue
+        seen_in_section[key] = True
+        deduped.append((s, e, t))
+
+    # Limit: max 4 per section
     section_counts = {}
-    final_candidates = []
-    for start, end, text in filtered:
-        # Find which section this belongs to
-        section_idx = 0
-        for i, h2_pos in enumerate(h2_positions):
-            if start < h2_pos:
-                section_idx = i
-                break
+    final = []
+    for s, e, t in deduped:
+        sec = get_section(s)
+        cnt = section_counts.get(sec, 0)
+        if cnt < 4:
+            section_counts[sec] = cnt + 1
+            final.append((s, e, t))
 
-        count = section_counts.get(section_idx, 0)
-        if count < 5:  # max 5 per section
-            section_counts[section_idx] = count + 1
-            final_candidates.append((start, end, text))
-
-    # Apply changes in reverse order to preserve positions
-    final_candidates.sort(key=lambda x: x[0], reverse=True)
-
-    for start, end, text in final_candidates:
-        content = content[:start] + f"<strong>{text}</strong>" + content[end:]
-        changes.append(text)
+    # Apply in reverse
+    final.sort(key=lambda x: x[0], reverse=True)
+    for s, e, t in final:
+        content = content[:s] + f"<strong>{t}</strong>" + content[e:]
+        changes.append(t)
 
     changes.reverse()
     return content, changes
+
 
 def main():
     for post_id in ARTICLE_IDS:
         print(f"\n{'='*60}")
         print(f"Processing article ID: {post_id}")
-        print(f"{'='*60}")
+        print('='*60)
 
         try:
             title, content = fetch_article(post_id)
             print(f"Title: {title}")
             print(f"Content length: {len(content)} chars")
 
-            new_content, changes = add_emphasis_to_content(content)
+            new_content, changes = add_emphasis(content)
 
             if not changes:
                 print("  No changes needed.")
@@ -204,18 +208,17 @@ def main():
 
             print(f"  Adding {len(changes)} emphasis tags:")
             for i, c in enumerate(changes, 1):
-                print(f"    {i}. 「{c}」")
+                print(f"    {i}. [{c}]")
 
-            # Update
             status = update_article(post_id, new_content)
             print(f"  Updated! Status: {status}")
-
-            time.sleep(1)  # Be nice to the server
+            time.sleep(1)
 
         except Exception as e:
             print(f"  ERROR: {e}")
             import traceback
             traceback.print_exc()
+
 
 if __name__ == "__main__":
     main()
