@@ -1591,6 +1591,17 @@ body.single footer {
   letter-spacing: 0.02em;
 }
 
+/* Hide duplicate TOC on mobile (keep only first) */
+.nao-m-content .tcd-toc ~ .tcd-toc {
+  display: none !important;
+}
+/* Hide Cocoon default TOC when our custom TOC exists */
+.nao-m-content .toc,
+.nao-m-content #toc_container,
+.nao-m-content .toc-content {
+  display: none !important;
+}
+
 /* ======== MOBILE: hide WP header/footer, prevent overflow ======== */
 @media (max-width: 768px) {
   html, body {
