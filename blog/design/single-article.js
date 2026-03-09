@@ -53,7 +53,7 @@
     if (tocBox) {
       var paras = content.querySelectorAll(':scope > p');
       var after = paras.length >= 3 ? paras[2] : (paras[0] || null);
-      if (after && after.nextElementSibling) after.after(tocBox);
+      if (after) { if (after.nextElementSibling) after.after(tocBox); }
       else {
         var h2 = content.querySelector('h2');
         if (h2) h2.before(tocBox);
