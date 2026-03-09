@@ -87,6 +87,56 @@
   padding: 0 !important;
   margin: 0 !important;
 }
+
+/* ===== SINGLE POST: 全幅レイアウト ===== */
+.has-global-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+body.single .entry-content,
+body.single .wp-block-post-content,
+body.single .article,
+body.single .article-body {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+body.single #main, body.single .main, body.single .content, body.single .content-in,
+body.single #content, body.single #content-in, body.single .wrap, body.single .container,
+body.single .site, body.single #page, body.single #wrapper {
+  max-width: none !important;
+  width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  float: none !important;
+}
+body.single #sidebar, body.single .sidebar, body.single .sidebar-in, body.single #sidebar-in,
+body.single .widget-area, body.single aside, body.single .sidebars {
+  display: none !important;
+  width: 0 !important;
+}
+/* 記事内画像: 全幅表示 */
+body.single .entry-content img,
+body.single .nao-page img,
+body.single .wp-block-image,
+body.single .wp-block-image img,
+body.single .entry-content figure,
+body.single .nao-page figure {
+  max-width: 100% !important;
+  width: 100% !important;
+  height: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  display: block !important;
+}
+body.single .wp-block-image figcaption {
+  text-align: center;
+}
 body.home, body.page, body { overflow-x: hidden !important; }
 
 /* ===== SCROLL REVEAL ANIMATIONS ===== */
