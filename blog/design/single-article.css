@@ -1370,6 +1370,28 @@ body.single footer {
   margin: 0 0 30px;
 }
 
+/* Bold, highlight, markers — ensure visibility on mobile */
+.nao-m-content strong,
+.nao-m-content b {
+  font-weight: 700 !important;
+  color: #000;
+}
+.nao-m-content mark,
+.nao-m-content .has-inline-color,
+.nao-m-content .marker-under,
+.nao-m-content .marker-under-red,
+.nao-m-content .marker-under-blue {
+  background-color: inherit;
+}
+/* Cocoon marker classes */
+.nao-m-content .marker-under { background: linear-gradient(transparent 60%, #ff9 60%) !important; }
+.nao-m-content .marker-under-red { background: linear-gradient(transparent 60%, #fcc 60%) !important; }
+.nao-m-content .marker-under-blue { background: linear-gradient(transparent 60%, #cdf 60%) !important; }
+/* WordPress block highlight */
+.nao-m-content .has-luminous-vivid-amber-background-color { background-color: #fcb900 !important; }
+.nao-m-content .has-luminous-vivid-orange-background-color { background-color: #ff6900 !important; }
+.nao-m-content .has-vivid-red-color { color: #cf2e2e !important; }
+
 /* Headings (TCD: h2 has bottom border, h3 has left accent) */
 .nao-m-content h2 {
   font-size: 19px;
