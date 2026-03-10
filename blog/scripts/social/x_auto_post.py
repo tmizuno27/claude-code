@@ -392,6 +392,140 @@ def notify_discord(message: str):
         print(f"WARNING: Discord通知の送信に失敗 - {e}")
 
 
+def save_pending_tweet(text: str, slot: str, image_key: str | None, image_path: Path | None):
+    """承認待ちツイートをJSONファイルに保存"""
+    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    auto_post_at = datetime.now() + timedelta(minutes=APPROVAL_TIMEOUT_MIN)
+
+    pending = {
+        "status": "pending",  # pending / approved / skip
+        "text": text,
+        "slot": slot,
+        "image_key": image_key,
+        "image_path": str(image_path) if image_path else None,
+        "created_at": datetime.now().isoformat(),
+        "auto_post_at": auto_post_at.isoformat(),
+        "note": "編集方法: text を変更→編集後の内容で投稿。status を skip に変更→キャンセル。何もしなければ30分後に自動投稿。",
+    }
+
+    with open(PENDING_FILE, "w", encoding="utf-8") as f:
+        json.dump(pending, f, ensure_ascii=False, indent=2)
+    print(f"承認待ちツイートを保存: {PENDING_FILE}")
+
+
+def load_pending_tweet() -> dict | None:
+    """承認待ちツイートを読み込む"""
+    if not PENDING_FILE.exists():
+        return None
+    try:
+        with open(PENDING_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def clear_pending_tweet():
+    """承認待ちファイルをクリア"""
+    if PENDING_FILE.exists():
+        PENDING_FILE.unlink()
+
+
+def git_pull():
+    """GitHubからの変更を取得（スマホ編集を反映するため）"""
+    repo_dir = BLOG_DIR.parent  # claude-code/
+    try:
+        result = subprocess.run(
+            ["git", "pull", "--no-rebase", "origin", "main"],
+            cwd=str(repo_dir),
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        if result.returncode == 0 and "Already up to date" not in result.stdout:
+            print(f"git pull: 変更を取得しました")
+        return result.returncode == 0
+    except Exception as e:
+        print(f"WARNING: git pull 失敗 - {e}")
+        return False
+
+
+def notify_pending_tweet(text: str, slot: str, image_key: str | None):
+    """Discordに承認待ちツイートのプレビューを送信"""
+    img_info = f"\n📷 画像: {image_key}" if image_key else "\n📷 画像なし"
+    auto_time = (datetime.now() + timedelta(minutes=APPROVAL_TIMEOUT_MIN)).strftime("%H:%M")
+
+    message = (
+        f"📝 **X投稿プレビュー** ({slot})\n"
+        f"━━━━━━━━━━━━━━━\n"
+        f"{text}\n"
+        f"━━━━━━━━━━━━━━━\n"
+        f"{img_info}\n"
+        f"⏰ **{auto_time}** に自動投稿（{APPROVAL_TIMEOUT_MIN}分後）\n\n"
+        f"✏️ 編集・キャンセルはこちら:\n{GITHUB_EDIT_URL}\n\n"
+        f"・textを変更 → 編集後の内容で投稿\n"
+        f"・statusを「skip」に変更 → キャンセル"
+    )
+    notify_discord(message)
+
+
+def wait_for_approval(original_text: str) -> tuple[str, str]:
+    """
+    承認を待つ。戻り値: (最終テキスト, ステータス)
+    ステータス: "approved"(変更なし/テキスト編集) or "skip"(キャンセル)
+    """
+    deadline = datetime.now() + timedelta(minutes=APPROVAL_TIMEOUT_MIN)
+    check_count = 0
+
+    print(f"承認待ち開始（{APPROVAL_TIMEOUT_MIN}分後に自動投稿）...")
+
+    while datetime.now() < deadline:
+        time.sleep(APPROVAL_CHECK_INTERVAL)
+        check_count += 1
+
+        # 2回に1回 git pull（約1分間隔）
+        if check_count % 2 == 0:
+            git_pull()
+
+        # pendingファイルを再読み込み
+        pending = load_pending_tweet()
+        if pending is None:
+            print("WARNING: pending-tweets.json が見つかりません。自動投稿します")
+            return original_text, "approved"
+
+        status = pending.get("status", "pending")
+
+        if status == "skip":
+            print("ユーザーがキャンセルしました")
+            return pending.get("text", original_text), "skip"
+
+        if status == "approved":
+            final_text = pending.get("text", original_text)
+            if final_text != original_text:
+                print(f"ユーザーが承認（テキスト編集あり）: {final_text}")
+            else:
+                print("ユーザーが承認しました")
+            return final_text, "approved"
+
+        # テキストが編集されていないかチェック
+        current_text = pending.get("text", original_text)
+        if current_text != original_text:
+            remaining = int((deadline - datetime.now()).total_seconds() / 60)
+            print(f"テキストが編集されました（残り{remaining}分で自動投稿）: {current_text}")
+            original_text = current_text  # 以降はこのテキストが基準
+
+    # タイムアウト → 自動承認
+    pending = load_pending_tweet()
+    if pending:
+        final_text = pending.get("text", original_text)
+        status = pending.get("status", "pending")
+        if status == "skip":
+            print("タイムアウト直前にキャンセルされました")
+            return final_text, "skip"
+        return final_text, "approved"
+
+    return original_text, "approved"
+
+
 def log_post(text: str, tweet_id: str, slot: str, category: str = "auto", image: str = None):
     """投稿ログを保存"""
     LOG_DIR.mkdir(parents=True, exist_ok=True)
@@ -412,12 +546,13 @@ def log_post(text: str, tweet_id: str, slot: str, category: str = "auto", image:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="X自動投稿（Claude API連携 + 画像自動添付）")
+    parser = argparse.ArgumentParser(description="X自動投稿（Claude API連携 + 画像自動添付 + 承認フロー）")
     parser.add_argument("--slot", required=True, choices=["morning", "noon", "evening"],
                         help="投稿時間帯: morning/noon/evening")
     parser.add_argument("--dry-run", action="store_true", help="生成のみ、投稿しない")
     parser.add_argument("--no-image", action="store_true", help="画像なしで投稿")
     parser.add_argument("--no-delay", action="store_true", help="ランダム遅延をスキップ")
+    parser.add_argument("--no-approval", action="store_true", help="承認フローをスキップして即投稿")
     args = parser.parse_args()
 
     # ランダム遅延: 0〜60分（Task Schedulerが基準時刻の30分前に起動するため、
@@ -473,7 +608,47 @@ def main():
             print(f"[DRY RUN] 添付予定の画像: {image_key}")
         return
 
-    # Xに投稿
+    # === 承認フロー ===
+    if not args.no_approval:
+        # 1. pending-tweets.json に保存
+        save_pending_tweet(text, args.slot, image_key, image_path)
+
+        # 2. Discordにプレビュー送信
+        notify_pending_tweet(text, args.slot, image_key)
+
+        # 3. 承認を待つ（30分間、git pullしながらファイル変更を監視）
+        final_text, status = wait_for_approval(text)
+
+        # 4. キャンセルされた場合
+        if status == "skip":
+            clear_pending_tweet()
+            notify_discord(f"⏭️ X投稿キャンセル ({args.slot})\n\nユーザーによりスキップされました")
+            print("投稿がキャンセルされました")
+            return
+
+        # テキストが編集されていた場合、ファクトチェック再実行
+        if final_text != text:
+            print("テキストが編集されたため、ファクトチェックを再実行...")
+            passed, reason = fact_check_post(api_key, final_text)
+            if not passed:
+                clear_pending_tweet()
+                notify_discord(f"❌ X投稿中止 ({args.slot})\n\n編集後のテキストがファクトチェックNG: {reason}\n\n{final_text}")
+                print(f"ERROR: 編集後テキストのファクトチェックNG - {reason}")
+                sys.exit(1)
+            text = final_text
+            # 編集後テキストで画像を再選定
+            if not args.no_image:
+                image_path = find_best_image(text, args.slot)
+                if image_path:
+                    image_key = str(image_path.relative_to(PHOTOS_DIR)).replace("\\", "/")
+                else:
+                    image_key = None
+        else:
+            text = final_text
+
+        clear_pending_tweet()
+
+    # === Xに投稿 ===
     x_creds = load_x_credentials()
     tweet_id = post_to_x(x_creds, text, image_path=image_path)
 
