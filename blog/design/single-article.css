@@ -218,7 +218,9 @@ body.single h1.entry-title {
 }
 
 /* ===== TABLE OF CONTENTS — hidden (using sidebar TOC on PC, floating button on mobile) ===== */
-.tcd-toc {
+.tcd-toc,
+.tcd-mtoc-btn,
+.tcd-mtoc-overlay {
   display: none !important;
 }
 /* Original styles kept for reference */
