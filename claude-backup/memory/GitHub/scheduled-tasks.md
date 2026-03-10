@@ -48,6 +48,12 @@
 | XAutoPost-Evening | 毎日 | 08:00 | 20:30 | X夜投稿 |
 | XAnalyticsDaily | 毎日 | 10:00 | 23:00 | Xアカウント指標レポート |
 
+## 統合レポート系
+
+| タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
+|---------|------|----------|---------|------|
+| AllBusinessWeeklyKPI | 日曜 | 19:30 | 08:30月曜 | 全事業統合KPIレポート（ブログ+X+eBay+FL+財務）→Discord |
+
 ## ファイル配置
 
 全ランチャー: `C:\Users\tmizu\scripts\`
