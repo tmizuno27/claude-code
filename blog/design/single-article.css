@@ -1591,15 +1591,23 @@ body.single footer {
   letter-spacing: 0.02em;
 }
 
-/* Hide duplicate TOC on mobile (keep only first) */
-.nao-m-content .tcd-toc ~ .tcd-toc {
+/* Hide sidebar TOC and duplicate TOCs on mobile */
+.tcd-sidebar-toc,
+.nao-tcd-widget.tcd-sidebar-toc {
   display: none !important;
 }
-/* Hide Cocoon default TOC when our custom TOC exists */
+.nao-m-content .tcd-toc ~ .tcd-toc,
 .nao-m-content .toc,
 .nao-m-content #toc_container,
 .nao-m-content .toc-content {
   display: none !important;
+}
+/* Restore sidebar TOC on PC only */
+@media (min-width: 1080px) {
+  .tcd-sidebar-toc,
+  .nao-tcd-widget.tcd-sidebar-toc {
+    display: block !important;
+  }
 }
 
 /* ======== MOBILE: hide WP header/footer, prevent overflow ======== */
