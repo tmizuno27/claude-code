@@ -425,7 +425,7 @@
     article.appendChild(titleWrap);
 
     // Content (move actual DOM node — preserves event listeners)
-    contentEl.className = 'nao-m-content';
+    contentEl.classList.add('nao-m-content');
     article.appendChild(contentEl);
 
     page.appendChild(article);
