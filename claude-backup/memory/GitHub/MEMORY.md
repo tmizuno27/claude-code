@@ -47,11 +47,16 @@
 - **手順書**: `claude-code/tools/sheets-sync/SETUP.md`
 - **フロー**: Sheets更新 → 5分おきにCSV取得 → auto-sync.ps1が1分おきにGitHubへpush
 
-## 全自動定期タスク（16タスク）
+## 全自動定期タスク（22タスク）
 - **詳細一覧**: [scheduled-tasks.md](scheduled-tasks.md)
 - **ランチャー**: `C:\Users\tmizu\scripts\` (PS1 + VBS ペア)
 - **登録**: `register-all-tasks.ps1` (新規タスク一括), `register-x-tasks.ps1` (X系)
 - **GA4 property_id**: 526536377（secrets.jsonのga4.property_id）
+- **タスク監視**: Healthchecks.io（20チェック、無料プラン上限）
+  - 設定: `claude-code/tools/healthchecks/config.json`（ping URL一覧）
+  - Discord連携済み: 失敗/未実行時に通知
+  - 全PS1に開始/成功/失敗ping埋め込み済み
+  - 監視対象外: GoogleSheetsSync, XAnalyticsDaily（枠不足）
 
 ## 職務経歴書
 - **氏名**: 水野 達也
