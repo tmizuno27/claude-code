@@ -1394,13 +1394,15 @@ body.single footer {
 
 /* Headings (TCD: h2 has bottom border, h3 has left accent) */
 .nao-m-content h2 {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin: 56px 0 20px;
-  padding: 0 0 12px;
-  border-bottom: 3px solid #222;
-  color: #222;
+  font-size: 19px !important;
+  font-weight: 700 !important;
+  line-height: 1.6 !important;
+  margin: 56px 0 20px !important;
+  padding: 0 0 12px !important;
+  border-bottom: 3px solid #222 !important;
+  color: #222 !important;
+  overflow: visible !important;
+  display: block !important;
 }
 .nao-m-content h3 {
   font-size: 18px;
