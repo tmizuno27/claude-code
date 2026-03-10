@@ -1,6 +1,6 @@
 {
   "generated": "setup_healthchecks.py",
-  "total_checks": 19,
+  "total_checks": 20,
   "checks": {
     "GitAutoSync-Data": {
       "name": "GitAutoSync-Data",
@@ -134,6 +134,13 @@
       "uuid": "4ad5a0b1-f8ae-4cb3-87d3-83da1316b079",
       "status": "created",
       "ps1": "x-auto-post.ps1:noon"
+    },
+    "XAutoPost-Evening": {
+      "name": "XAutoPost-Evening",
+      "ping_url": "https://hc-ping.com/d02de2d3-c8d2-4526-8c76-e1e4143160cd",
+      "uuid": "d02de2d3-c8d2-4526-8c76-e1e4143160cd",
+      "ps1": "x-auto-post.ps1:evening",
+      "status": "created"
     }
   }
 }
