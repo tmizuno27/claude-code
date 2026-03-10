@@ -75,7 +75,6 @@ seo_notes: |
 4. テーマを選択（無料ならCocoon、有料ならSWELL）
 5. 約10分で開設完了
 
-【写真: ConoHa WINGのWordPressかんたんセットアップ画面を挿入】
 
 <span id="step-2-ブログのジャンルとネタを決める"></span>
 

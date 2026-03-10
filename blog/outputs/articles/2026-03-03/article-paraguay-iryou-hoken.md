@@ -86,7 +86,6 @@ seo_notes: |
 | Sanatorio San Roque | アスンシオン | 地元住民に信頼されている |
 | Centro Medico La Costa | アスンシオン | 比較的新しい施設 |
 
-【写真: アスンシオンのプライベート病院の外観写真を挿入】
 
 <span id="保険はどれに入ればいい"></span>
 
