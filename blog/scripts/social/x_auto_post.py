@@ -1,23 +1,32 @@
 """
-X (Twitter) 自動投稿スクリプト（Claude API連携 + 画像自動添付）
-毎回Claude APIで投稿文を生成し、最適な画像を自動選定して投稿する
+X (Twitter) 自動投稿スクリプト（Claude API連携 + 画像自動添付 + 承認フロー）
+毎回Claude APIで投稿文を生成し、Discordで承認後に投稿する
 
 使い方:
-  python x_auto_post.py --slot morning   # 朝の投稿（JST 7:00-8:00向け）
-  python x_auto_post.py --slot noon      # 昼の投稿（JST 12:00-13:00向け）
-  python x_auto_post.py --slot evening   # 夜の投稿（JST 20:30-21:30向け）
+  python x_auto_post.py --slot morning   # 朝の投稿（承認フロー付き）
+  python x_auto_post.py --slot noon      # 昼の投稿（承認フロー付き）
+  python x_auto_post.py --slot evening   # 夜の投稿（承認フロー付き）
   python x_auto_post.py --slot morning --dry-run    # 生成のみ、投稿しない
   python x_auto_post.py --slot noon --no-image      # 画像なしで投稿
+  python x_auto_post.py --slot morning --no-approval  # 承認なしで即投稿（旧動作）
+
+承認フロー:
+  1. ツイート生成 → pending-tweets.json に保存 → Discordにプレビュー送信
+  2. 30分間待機（スマホからGitHub経由で編集・キャンセル可能）
+  3. 30分後に自動投稿（何もしなければそのまま投稿）
+  4. pending-tweets.json の status を "skip" にするとキャンセル
+  5. text を編集すると編集後の内容で投稿
 """
 
 import argparse
 import io
 import json
 import random
+import subprocess
 import sys
 import time
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 # Windows cp932 で絵文字が出力できない問題を回避
@@ -39,13 +48,23 @@ except ImportError:
     sys.exit(1)
 
 
-CONFIG_DIR = Path(__file__).parent.parent.parent / "config"
+BLOG_DIR = Path(__file__).parent.parent.parent
+CONFIG_DIR = BLOG_DIR / "config"
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
 X_CREDS_FILE = CONFIG_DIR / "x-credentials.json"
-LOG_DIR = Path(__file__).parent.parent.parent / "outputs" / "social"
-PHOTOS_DIR = Path(__file__).parent.parent.parent / "images" / "sns-photos"
+LOG_DIR = BLOG_DIR / "outputs" / "social"
+PENDING_FILE = LOG_DIR / "pending-tweets.json"
+PHOTOS_DIR = BLOG_DIR / "images" / "sns-photos"
 TAGS_FILE = PHOTOS_DIR / "tags.json"
+
+# 承認フロー設定
+APPROVAL_TIMEOUT_MIN = 30  # 自動承認までの待機時間（分）
+APPROVAL_CHECK_INTERVAL = 30  # チェック間隔（秒）
+
+# GitHub上のpending-tweets.jsonへの直接編集リンク
+GITHUB_EDIT_URL = "https://github.com/tmizuno27/claude-code/edit/main/blog/outputs/social/pending-tweets.json"
+GITHUB_VIEW_URL = "https://github.com/tmizuno27/claude-code/blob/main/blog/outputs/social/pending-tweets.json"
 
 # 時間帯ごとのカテゴリ設定
 SLOT_CONFIG = {
