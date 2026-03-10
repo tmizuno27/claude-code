@@ -9,13 +9,6 @@
       "status": "created",
       "ps1": "auto-sync.ps1"
     },
-    "GoogleSheetsSync": {
-      "name": "GoogleSheetsSync",
-      "ping_url": "https://hc-ping.com/91021a7a-0986-486c-99fc-8f90e181347c",
-      "uuid": "91021a7a-0986-486c-99fc-8f90e181347c",
-      "status": "created",
-      "ps1": null
-    },
     "BlogUpdatePV": {
       "name": "BlogUpdatePV",
       "ping_url": "https://hc-ping.com/3e4c0353-ed5c-43a4-b47f-cc5e053ab520",
@@ -140,6 +133,13 @@
       "ping_url": "https://hc-ping.com/d02de2d3-c8d2-4526-8c76-e1e4143160cd",
       "uuid": "d02de2d3-c8d2-4526-8c76-e1e4143160cd",
       "ps1": "x-auto-post.ps1:evening",
+      "status": "created"
+    },
+    "AllBusinessWeeklyKPI": {
+      "name": "AllBusinessWeeklyKPI",
+      "ping_url": "https://hc-ping.com/691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
+      "uuid": "691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
+      "ps1": "all-business-kpi.ps1",
       "status": "created"
     }
   }
