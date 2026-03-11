@@ -16,22 +16,27 @@ body.single {
   body.single .wp-site-blocks {
     display: flex !important;
     flex-wrap: wrap !important;
-    justify-content: space-between !important;
+    gap: 30px !important;
     max-width: 1300px !important;
     margin: 0 auto !important;
     padding: 65px 20px 0 !important;
   }
   body.single .wp-site-blocks > header,
-  body.single .wp-site-blocks > footer,
   body.single .wp-site-blocks > .wp-block-template-part {
     width: 100% !important;
     flex-basis: 100% !important;
+    order: 0 !important;
+  }
+  body.single .wp-site-blocks > footer,
+  body.single .wp-site-blocks > .wp-block-template-part:last-child {
+    width: 100% !important;
+    flex-basis: 100% !important;
+    order: 99 !important;
   }
   body.single main.wp-block-group {
-    width: calc(100% - 390px) !important;
+    flex: 1 !important;
     max-width: none !important;
     min-width: 0 !important;
-    flex-shrink: 1 !important;
     margin-top: 0 !important;
     order: 1 !important;
   }
