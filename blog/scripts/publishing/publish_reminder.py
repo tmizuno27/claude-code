@@ -1,22 +1,18 @@
 """
-ブログ公開リマインダー — 前日に記事生成→WPドラフト投稿→Discord通知
+ブログ公開リマインダー — 公開前日にDiscordで既存ドラフト記事の確認通知
 Task Scheduler から毎日 PYT 12:00 に発火
 
 フロー:
   1. 翌日がJST公開日(月/木)か判定
-  2. 公開日なら article_generator.py で記事生成
-  3. blog_image_pipeline.py でアイキャッチ生成
-  4. wp_publisher.py --status draft で WP にドラフト投稿
-  5. Discord に記事プレビュー + WP編集リンク + WPプレビューリンクを通知
-  6. 翌朝 blog-auto-publish.ps1 がドラフトを公開に変更
-
-これにより、オーナーは前日にスマホからWPアプリで記事を確認・編集できる
+  2. WordPress REST API でドラフト記事を取得
+  3. Discord に記事タイトル + プレビューリンク + 編集リンクを送信
+  4. オーナーがスマホから記事を確認・編集（WPアプリ or ブラウザ）
+  5. 翌朝 blog-auto-publish.ps1 が自動公開
 """
 
-import csv
+import base64
 import io
 import json
-import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timedelta
@@ -30,17 +26,7 @@ CONFIG_DIR = BLOG_DIR / "config"
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
 SECRETS_FILE = CONFIG_DIR / "secrets.json"
 HOLIDAY_FILE = CONFIG_DIR / "jp-holidays.json"
-OUTPUTS_DIR = BLOG_DIR / "outputs"
-CSV_FILE = OUTPUTS_DIR / "article-management.csv"
-KW_QUEUE_FILE = BLOG_DIR / "inputs" / "keyword-queue.json"
 
-# スクリプトパス
-GENERATOR_SCRIPT = BLOG_DIR / "scripts" / "content" / "article_generator.py"
-IMAGE_PIPELINE = BLOG_DIR / "scripts" / "media" / "blog_image_pipeline.py"
-PUBLISHER_SCRIPT = BLOG_DIR / "scripts" / "publishing" / "wp_publisher.py"
-SHEET_UPDATER = BLOG_DIR / "scripts" / "analytics" / "create_article_sheet.py"
-
-WP_SITE_URL = "https://nambei-oyaji.com"
 PUBLISH_DAYS_JST = [0, 3]  # Monday=0, Thursday=3
 
 
@@ -64,56 +50,72 @@ def is_holiday(date_str: str) -> bool:
         return False
 
 
-def run_script(script_path: str, args: list[str] = None) -> tuple[int, str]:
-    """Pythonスクリプトを実行して結果を返す"""
-    cmd = ["python", str(script_path)]
-    if args:
-        cmd.extend(args)
-    import os
+def load_wp_credentials() -> tuple[str, str, str]:
+    """WordPress認証情報を読み込む。(site_url, username, app_password)"""
+    with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
+        settings = json.load(f)
+    site_url = settings.get("wordpress", {}).get("url", "")
+
+    with open(SECRETS_FILE, "r", encoding="utf-8") as f:
+        secrets = json.load(f)
+    wp = secrets.get("wordpress", {})
+    username = wp.get("username", "")
+    app_password = wp.get("app_password", "")
+    return site_url, username, app_password
+
+
+def get_wp_drafts() -> list[dict]:
+    """WordPress REST API でドラフト記事を取得"""
     try:
-        env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            timeout=600,
-            env=env,
+        site_url, username, app_password = load_wp_credentials()
+        api_url = f"{site_url}/wp-json/wp/v2/posts?status=draft&per_page=10&orderby=modified&order=desc"
+
+        # Basic認証
+        credentials = base64.b64encode(f"{username}:{app_password}".encode()).decode()
+        req = urllib.request.Request(
+            api_url,
+            headers={
+                "Authorization": f"Basic {credentials}",
+                "User-Agent": "BlogReminder/1.0",
+            },
         )
-        output = result.stdout.decode("utf-8", errors="replace") + result.stderr.decode("utf-8", errors="replace")
-        return result.returncode, output
+        with urllib.request.urlopen(req, timeout=30) as response:
+            posts = json.loads(response.read().decode("utf-8"))
+
+        drafts = []
+        for post in posts:
+            drafts.append({
+                "id": post["id"],
+                "title": post["title"]["rendered"] or "(無題)",
+                "modified": post["modified"],
+                "link": post.get("link", ""),
+            })
+        return drafts
     except Exception as e:
-        return 1, f"ERROR: {e}"
+        print(f"WARNING: WordPress API エラー - {e}")
+        return []
 
 
-def get_latest_draft_wp_id() -> tuple[int | None, str | None, str | None]:
-    """CSVから最新のドラフト記事のWP ID、タイトル、パーマリンクを取得"""
-    if not CSV_FILE.exists():
-        return None, None, None
+def get_wp_published_recent() -> list[dict]:
+    """最近公開された記事を取得（確認用）"""
     try:
-        with open(CSV_FILE, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            drafts = []
-            for row in reader:
-                status = row.get("ステータス", "")
-                if "ドラフト" in status or "draft" in status.lower():
-                    drafts.append(row)
-            if not drafts:
-                return None, None, None
-            # 最新のドラフト（最後の行）
-            latest = drafts[-1]
-            # 備考からWP IDを抽出
-            notes = latest.get("備考", "")
-            wp_id = None
-            if "WP ID:" in notes:
-                try:
-                    wp_id = int(notes.split("WP ID:")[1].split()[0].strip())
-                except (ValueError, IndexError):
-                    pass
-            title = latest.get("記事タイトル", "タイトル不明")
-            permalink = latest.get("パーマリンク", "")
-            return wp_id, title, permalink
-    except Exception as e:
-        print(f"WARNING: CSV読み込みエラー - {e}")
-        return None, None, None
+        site_url, username, app_password = load_wp_credentials()
+        api_url = f"{site_url}/wp-json/wp/v2/posts?status=publish&per_page=3&orderby=date&order=desc"
+
+        credentials = base64.b64encode(f"{username}:{app_password}".encode()).decode()
+        req = urllib.request.Request(
+            api_url,
+            headers={
+                "Authorization": f"Basic {credentials}",
+                "User-Agent": "BlogReminder/1.0",
+            },
+        )
+        with urllib.request.urlopen(req, timeout=30) as response:
+            posts = json.loads(response.read().decode("utf-8"))
+
+        return [{"id": p["id"], "title": p["title"]["rendered"]} for p in posts]
+    except Exception:
+        return []
 
 
 def notify_discord(message: str):
@@ -155,58 +157,52 @@ def main():
         print(f"明日は祝日 ({date_str})。スキップ")
         return
 
-    print(f"明日は公開日！記事の事前準備を開始します...")
+    # WordPress からドラフト記事を取得
+    site_url = ""
+    try:
+        with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
+            site_url = json.load(f).get("wordpress", {}).get("url", "")
+    except Exception:
+        pass
 
-    # === Step 1: 記事生成 ===
-    print("--- Step 1: 記事生成 ---")
-    gen_code, gen_output = run_script(GENERATOR_SCRIPT)
-    print(f"article_generator.py: exit code {gen_code}")
-    if gen_code != 0:
-        print(f"WARNING: 記事生成が異常終了\n{gen_output}")
+    drafts = get_wp_drafts()
+    print(f"ドラフト記事: {len(drafts)}件")
 
-    # === Step 2: アイキャッチ画像生成 ===
-    print("--- Step 2: 画像生成 ---")
-    img_code, img_output = run_script(IMAGE_PIPELINE, ["--limit", "1"])
-    print(f"blog_image_pipeline.py: exit code {img_code}")
-
-    # === Step 3: WPにドラフト投稿 ===
-    print("--- Step 3: WPドラフト投稿 ---")
-    pub_code, pub_output = run_script(PUBLISHER_SCRIPT, ["--status", "draft", "--limit", "1"])
-    print(f"wp_publisher.py (draft): exit code {pub_code}")
-
-    # === Step 4: スプレッドシート更新 ===
-    print("--- Step 4: スプレッドシート更新 ---")
-    sheet_code, sheet_output = run_script(SHEET_UPDATER)
-    print(f"create_article_sheet.py: exit code {sheet_code}")
-
-    # === Step 5: Discord通知 ===
-    wp_id, title, permalink = get_latest_draft_wp_id()
-
-    if wp_id:
-        edit_url = f"{WP_SITE_URL}/wp-admin/post.php?post={wp_id}&action=edit"
-        preview_url = f"{WP_SITE_URL}/?p={wp_id}&preview=true"
+    if drafts:
+        # ドラフト記事がある場合 → 各記事のリンクを送信
+        draft_lines = ""
+        for i, d in enumerate(drafts[:5], 1):
+            title = d["title"]
+            wp_id = d["id"]
+            preview_url = f"{site_url}/?p={wp_id}&preview=true"
+            edit_url = f"{site_url}/wp-admin/post.php?post={wp_id}&action=edit"
+            draft_lines += (
+                f"\n**{i}. {title}**\n"
+                f"👀 プレビュー: {preview_url}\n"
+                f"✏️ 編集: {edit_url}\n"
+            )
 
         message = (
             f"📅 **明日はブログ公開日！** ({date_str} {dow_ja}曜日)\n"
             f"━━━━━━━━━━━━━━━\n"
-            f"📝 **{title}**\n"
-            f"━━━━━━━━━━━━━━━\n\n"
-            f"👀 **プレビュー（読者視点で確認）:**\n{preview_url}\n\n"
-            f"✏️ **編集（体験談の追記・修正）:**\n{edit_url}\n\n"
+            f"📝 公開予定のドラフト記事 ({len(drafts)}件):\n"
+            f"{draft_lines}\n"
+            f"━━━━━━━━━━━━━━━\n"
             f"**やること（15-30分）:**\n"
-            f"・記事を読んで内容を確認\n"
+            f"・プレビューリンクから記事を確認\n"
             f"・【要追記】の箇所に体験談を追記\n"
             f"・問題なければ何もしなくてOK\n\n"
             f"⏰ 翌朝 JST 6:00-7:00 に自動公開されます"
         )
     else:
+        # ドラフトがない場合 → 管理画面リンクを送信
         message = (
             f"📅 **明日はブログ公開日！** ({date_str} {dow_ja}曜日)\n"
             f"━━━━━━━━━━━━━━━\n"
-            f"⚠️ ドラフト記事のWP IDが取得できませんでした\n"
-            f"WordPress管理画面で直接確認してください:\n"
-            f"{WP_SITE_URL}/wp-admin/edit.php?post_status=draft\n\n"
-            f"⏰ 翌朝 JST 6:00-7:00 に自動公開されます"
+            f"⚠️ ドラフト記事がありません\n\n"
+            f"WordPress管理画面:\n"
+            f"{site_url}/wp-admin/edit.php\n\n"
+            f"翌朝の自動公開で新規記事が生成・公開されます"
         )
 
     notify_discord(message)
