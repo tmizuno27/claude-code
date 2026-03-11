@@ -26,18 +26,49 @@ body.single {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* ===== LAYOUT OVERRIDE — Widen main content (keep sidebar) ===== */
-body.single .wp-site-blocks {
-  grid-template-columns: 1fr 400px !important;
-  max-width: 1400px !important;
-  margin: 0 auto !important;
-  gap: 30px !important;
+/* ===== LAYOUT OVERRIDE — Desktop 2-column grid ===== */
+@media (min-width: 1080px) {
+  body.single .wp-site-blocks {
+    display: grid !important;
+    grid-template-columns: 1fr 300px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    gap: 36px !important;
+    padding: 0 30px !important;
+    align-items: start !important;
+  }
+  body.single .wp-site-blocks > header,
+  body.single .wp-site-blocks > footer,
+  body.single .wp-site-blocks > .wp-block-template-part {
+    grid-column: 1 / -1 !important;
+  }
+  body.single main.wp-block-group {
+    grid-column: 1 / 2 !important;
+    background: #fff !important;
+    border-radius: 4px !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+    padding: 40px !important;
+    min-width: 0 !important;
+  }
+  .nao-tcd-sidebar {
+    grid-column: 2 / 3 !important;
+    grid-row: 2 / 99 !important;
+    position: sticky !important;
+    top: 64px !important;
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
+    display: block !important;
+  }
 }
-/* Main column — center all content */
-body.single main.wp-block-group {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
+/* Mobile — single column */
+@media (max-width: 1079px) {
+  body.single .wp-site-blocks {
+    display: block !important;
+    padding: 0 16px !important;
+  }
+  .nao-tcd-sidebar {
+    display: none !important;
+  }
 }
 /* Title, featured image, content — full width within centered main */
 body.single .wp-block-post-title,
@@ -884,12 +915,7 @@ body.single .article p {
   max-height: calc(100vh - 130px);
   overflow-y: auto;
 }
-/* Sidebar positioning */
-body.single .nao-tcd-sidebar {
-  align-self: start !important;
-  grid-row-start: 2 !important;
-  grid-row-end: auto !important;
-}
+/* Sidebar positioning — handled in media query above */
 /* Footer covers sidebar — prevent sidebar from bleeding into footer */
 body.single footer.wp-block-template-part,
 body.single footer {
