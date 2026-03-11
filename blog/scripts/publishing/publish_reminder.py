@@ -9,9 +9,8 @@ import io
 import json
 import sys
 import urllib.request
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='replace')
@@ -27,9 +26,8 @@ PUBLISH_DAYS_JST = [0, 3]  # Monday=0, Thursday=3
 
 
 def get_jst_tomorrow() -> datetime:
-    """JST基準で明日の日時を取得"""
-    jst = ZoneInfo("Asia/Tokyo")
-    now_jst = datetime.now(jst)
+    """JST基準で明日の日時を取得（PYT+12h=JST近似）"""
+    now_jst = datetime.now() + timedelta(hours=12)
     tomorrow_jst = now_jst + timedelta(days=1)
     return tomorrow_jst
 
