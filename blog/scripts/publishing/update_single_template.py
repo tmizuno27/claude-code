@@ -171,24 +171,28 @@ body.single .entry-content a:not(.tcd-share-btn):not(.tcd-related-card):not(.tcd
   background-image: none !important;
 }
 
-/* --- CTA: single link → button --- */
+/* --- Links: always inline text, never button --- */
 body.single .entry-content p > a:only-child:not(.tcd-share-btn):not(.wp-block-button__link) {
-  display: inline-block !important;
-  background: #333 !important;
+  display: inline !important;
+  background: none !important;
   background-image: none !important;
-  color: #fff !important;
-  padding: 14px 32px !important;
-  border-radius: 4px !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  color: #0066cc !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
   text-decoration: none !important;
   border: none !important;
-  transition: background 0.3s ease !important;
-  margin: 12px 0 !important;
+  border-bottom: 1px solid rgba(0,102,204,0.3) !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  width: auto !important;
+  height: auto !important;
 }
 body.single .entry-content p > a:only-child:not(.tcd-share-btn):not(.wp-block-button__link):hover {
-  background: #555 !important;
-  color: #fff !important;
+  color: #004499 !important;
+  text-decoration: underline !important;
+  background: none !important;
 }
 
 /* --- Lists: clean dots --- */
