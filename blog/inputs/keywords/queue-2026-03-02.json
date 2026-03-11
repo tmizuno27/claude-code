@@ -11,8 +11,10 @@
     "keyword": "パラグアイ 移住 メリット デメリット",
     "type": "longtail",
     "priority": 2,
-    "status": "pending",
-    "pillar": "pillar_1_paraguay_life"
+    "status": "processed",
+    "pillar": "pillar_1_paraguay_life",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\blog\\outputs\\articles\\2026-03-10\\article-60940.md",
+    "processed_date": "2026-03-10"
   },
   {
     "keyword": "データ 入力 副業 自動化",
