@@ -198,10 +198,7 @@
     }
     w.appendChild(list);
     var sbi = sb.querySelector('.nao-tcd-sidebar-inner') || sb;
-    sbi.appendChild(w);
-    // Make sidebar TOC sticky
-    w.style.position = 'sticky';
-    w.style.top = '100px';
+    sbi.prepend(w);
 
     // Footer z-index covers sidebar, no JS height needed
   }
