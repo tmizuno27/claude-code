@@ -25,14 +25,18 @@
 
         <?php
         // デバッグ用（確認後削除）
-        $test = new WP_Query(['post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 5]);
-        echo '<!-- DEBUG: found ' . $test->found_posts . ' posts -->';
+        $debug_query = new WP_Query([
+            'post_type'      => 'post',
+            'post_status'    => 'publish',
+            'posts_per_page' => 5,
+        ]);
+        echo '<p style="color:red;font-size:24px;padding:20px;">DEBUG: ' . $debug_query->found_posts . ' posts found</p>';
         wp_reset_postdata();
 
         $featured = new WP_Query([
             'post_type'      => 'post',
-            'posts_per_page' => 5,
             'post_status'    => 'publish',
+            'posts_per_page' => 5,
             'orderby'        => 'date',
             'order'          => 'DESC',
         ]);
