@@ -719,7 +719,7 @@ def main() -> None:
 
     # --- Claude API 呼び出し ---
     try:
-        client = anthropic.Anthropic(api_key=api_key)
+        client = anthropic.Anthropic(api_key=api_key, timeout=600.0)
         generated_article = call_claude_api(
             client=client,
             model=model,
