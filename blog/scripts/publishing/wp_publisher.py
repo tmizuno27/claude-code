@@ -336,6 +336,73 @@ def notify_discord(message):
         logger.warning(f"Discord通知の送信に失敗: {e}")
 
 
+TWEET_GENERATION_PROMPT = """あなたはX（Twitter）投稿のコピーライターです。
+ブログ記事のタイトルと本文の冒頭から、クリックしたくなるX投稿文を1つ生成してください。
+
+## ルール（厳守）
+1. 「ブログ更新しました」「記事書きました」等の告知型は絶対禁止
+2. 記事の一番刺さるポイント（数字・意外性・共感）を1〜2文で書く
+3. 最後に「👇」や「詳しくはこちら」等でURLへ誘導（URLは{url}と書く）
+4. ハッシュタグは2個（#パラグアイ移住 #海外生活 を固定）
+5. 全体で140文字以内（URL・ハッシュタグ含まず）
+6. 一人称は「私」、カジュアルだが信頼感のあるトーン
+7. 絵文字は0〜1個
+
+## 出力形式
+投稿文のみを出力。説明や前置きは不要。"""
+
+
+def generate_tweet_text(config, post):
+    """記事内容からClaude APIでX投稿文を生成する。失敗時はフォールバック"""
+    url = post["url"]
+    title = post["title"]
+
+    # フォールバック用
+    fallback = f"{title}\n{url}\n\n#パラグアイ移住 #海外生活"
+
+    if anthropic is None:
+        return fallback
+
+    api_key = config.get("claude_api", {}).get("api_key", "")
+    if not api_key or "YOUR" in api_key:
+        return fallback
+
+    # 投稿済み記事の本文冒頭を取得（published_postsのsource_fileから）
+    source_file = post.get("source_file", "")
+    body_preview = ""
+    if source_file:
+        source_path = PROJECT_ROOT / source_file
+        if source_path.exists():
+            content = source_path.read_text(encoding="utf-8")
+            _, body = parse_front_matter(content)
+            body_preview = body[:1500]
+
+    try:
+        client = anthropic.Anthropic(api_key=api_key)
+        prompt = TWEET_GENERATION_PROMPT.replace("{url}", url)
+        user_msg = f"タイトル: {title}\n\n本文冒頭:\n{body_preview}" if body_preview else f"タイトル: {title}"
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=256,
+            system=prompt,
+            messages=[{"role": "user", "content": user_msg}],
+        )
+        tweet = response.content[0].text.strip().strip('"')
+        # {url}プレースホルダーを実際のURLに置換
+        tweet = tweet.replace("{url}", url)
+        # URLが含まれていなければ追加
+        if url not in tweet:
+            tweet = f"{tweet}\n{url}"
+        # ハッシュタグが含まれていなければ追加
+        if "#パラグアイ移住" not in tweet:
+            tweet = f"{tweet}\n\n#パラグアイ移住 #海外生活"
+        logger.info(f"X投稿文を生成しました: {tweet[:50]}...")
+        return tweet
+    except Exception as e:
+        logger.warning(f"X投稿文の生成に失敗、フォールバック使用: {e}")
+        return fallback
+
+
 def main():
     """メイン処理"""
     parser = argparse.ArgumentParser(description="WordPress自動投稿スクリプト")
