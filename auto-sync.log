@@ -20174,3 +20174,6 @@
 [2026-03-11 04:59:39] Commit OK
 [2026-03-11 04:59:39] Push OK - synced to GitHub
 [2026-03-11 05:00:42] Changes detected:  M auto-sync.log  M blog/outputs/update-pv.log
+[2026-03-11 05:00:42] Commit OK
+[2026-03-11 05:00:42] Push OK - synced to GitHub
+[2026-03-11 05:01:39] Changes detected:  M auto-sync.log  M blog/scripts/publishing/wp_publisher.py

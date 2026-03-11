@@ -433,10 +433,10 @@ def main():
                 f"**{post['title']}**\n"
                 f"{post['url']}"
             )
-            # X (Twitter) に自動投稿
+            # X (Twitter) に自動投稿（Claude APIでキャッチコピー生成）
             x_poster_path = Path(__file__).parent.parent / "social" / "x_poster.py"
             if x_poster_path.exists():
-                tweet_text = f"ブログ更新しました！\n\n{post['title']}\n{post['url']}\n\n#パラグアイ移住 #海外生活"
+                tweet_text = generate_tweet_text(config, post)
                 try:
                     result = subprocess.run(
                         [sys.executable, str(x_poster_path), "--text", tweet_text],
