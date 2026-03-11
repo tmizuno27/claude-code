@@ -24,6 +24,11 @@
         <h2 class="fp-section__heading">注目の記事</h2>
 
         <?php
+        // デバッグ用（確認後削除）
+        $test = new WP_Query(['post_type' => 'post', 'post_status' => 'publish', 'posts_per_page' => 5]);
+        echo '<!-- DEBUG: found ' . $test->found_posts . ' posts -->';
+        wp_reset_postdata();
+
         $featured = new WP_Query([
             'post_type'      => 'post',
             'posts_per_page' => 5,
@@ -56,12 +61,12 @@
                         <span class="fp-hero-card__date"><?php echo get_the_date('Y.m.d'); ?></span>
                     </div>
                 </a>
+                <?php else : ?>
 
-                <?php if ($count === 1) : ?>
+                <?php if ($count === 2) : ?>
                 <div class="fp-sub-grid">
                 <?php endif; ?>
 
-                <?php else : ?>
                 <!-- 2-5件目：2列グリッド -->
                 <a href="<?php the_permalink(); ?>" class="fp-sub-card scroll-fade"
                    <?php if (has_post_thumbnail()) : ?>
@@ -80,7 +85,10 @@
                 <?php endif; ?>
 
             <?php endwhile; ?>
+
+            <?php if ($count > 1) : ?>
             </div><!-- .fp-sub-grid -->
+            <?php endif; ?>
         </div><!-- .fp-featured-layout -->
 
         <?php else : ?>
