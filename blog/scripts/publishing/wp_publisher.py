@@ -24,6 +24,7 @@ from pathlib import Path
 
 import markdown
 import requests
+import subprocess
 
 try:
     import anthropic
@@ -424,7 +425,7 @@ def main():
     if skip_count > 0:
         logger.warning(f"ファクトチェックNGでスキップ: {skip_count}件")
 
-    # Discord通知
+    # Discord通知 + X自動投稿
     if success_count > 0 and args.status == "publish":
         for post in published_posts:
             notify_discord(
@@ -432,6 +433,33 @@ def main():
                 f"**{post['title']}**\n"
                 f"{post['url']}"
             )
+            # X (Twitter) に自動投稿
+            x_poster_path = Path(__file__).parent.parent / "social" / "x_poster.py"
+            if x_poster_path.exists():
+                tweet_text = f"ブログ更新しました！\n\n{post['title']}\n{post['url']}\n\n#パラグアイ移住 #海外生活"
+                try:
+                    result = subprocess.run(
+                        [sys.executable, str(x_poster_path), "--text", tweet_text],
+                        capture_output=True, text=True, timeout=30
+                    )
+                    if result.returncode == 0:
+                        logger.info(f"X投稿成功: {post['title']}")
+                        notify_discord(
+                            f"🐦 X自動投稿しました\n\n"
+                            f"**{post['title']}**\n"
+                            f"{post['url']}"
+                        )
+                    else:
+                        logger.warning(f"X投稿失敗: {result.stderr}")
+                        notify_discord(
+                            f"⚠️ X自動投稿に失敗しました\n\n"
+                            f"**{post['title']}**\n"
+                            f"エラー: {result.stderr[:200]}"
+                        )
+                except Exception as e:
+                    logger.warning(f"X投稿エラー: {e}")
+            else:
+                logger.warning(f"x_poster.py が見つかりません: {x_poster_path}")
     elif success_count > 0:
         logger.info(f"\nWordPress管理画面でドラフトを確認し、「公開」ボタンを押してください。")
         for post in published_posts:
