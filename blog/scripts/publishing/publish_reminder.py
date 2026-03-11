@@ -1,15 +1,25 @@
 """
-ブログ公開リマインダー — 公開前日にDiscordで事前通知
-Task Scheduler から毎日 PYT 12:00 に発火し、翌日がJST公開日(月/木)なら通知
+ブログ公開リマインダー — 前日に記事生成→WPドラフト投稿→Discord通知
+Task Scheduler から毎日 PYT 12:00 に発火
 
-PYT 12:00 = JST 翌日 00:00 なので、翌日のJST曜日で判定する
+フロー:
+  1. 翌日がJST公開日(月/木)か判定
+  2. 公開日なら article_generator.py で記事生成
+  3. blog_image_pipeline.py でアイキャッチ生成
+  4. wp_publisher.py --status draft で WP にドラフト投稿
+  5. Discord に記事プレビュー + WP編集リンク + WPプレビューリンクを通知
+  6. 翌朝 blog-auto-publish.ps1 がドラフトを公開に変更
+
+これにより、オーナーは前日にスマホからWPアプリで記事を確認・編集できる
 """
 
+import csv
 import io
 import json
+import subprocess
 import sys
 import urllib.request
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta
 from pathlib import Path
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
@@ -18,18 +28,26 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8', errors='repla
 BLOG_DIR = Path(__file__).parent.parent.parent
 CONFIG_DIR = BLOG_DIR / "config"
 SETTINGS_FILE = CONFIG_DIR / "settings.json"
+SECRETS_FILE = CONFIG_DIR / "secrets.json"
 HOLIDAY_FILE = CONFIG_DIR / "jp-holidays.json"
 OUTPUTS_DIR = BLOG_DIR / "outputs"
+CSV_FILE = OUTPUTS_DIR / "article-management.csv"
 KW_QUEUE_FILE = BLOG_DIR / "inputs" / "keyword-queue.json"
 
+# スクリプトパス
+GENERATOR_SCRIPT = BLOG_DIR / "scripts" / "content" / "article_generator.py"
+IMAGE_PIPELINE = BLOG_DIR / "scripts" / "media" / "blog_image_pipeline.py"
+PUBLISHER_SCRIPT = BLOG_DIR / "scripts" / "publishing" / "wp_publisher.py"
+SHEET_UPDATER = BLOG_DIR / "scripts" / "analytics" / "create_article_sheet.py"
+
+WP_SITE_URL = "https://nambei-oyaji.com"
 PUBLISH_DAYS_JST = [0, 3]  # Monday=0, Thursday=3
 
 
 def get_jst_tomorrow() -> datetime:
     """JST基準で明日の日時を取得（PYT+12h=JST近似）"""
     now_jst = datetime.now() + timedelta(hours=12)
-    tomorrow_jst = now_jst + timedelta(days=1)
-    return tomorrow_jst
+    return now_jst + timedelta(days=1)
 
 
 def is_holiday(date_str: str) -> bool:
@@ -46,35 +64,55 @@ def is_holiday(date_str: str) -> bool:
         return False
 
 
-def get_next_article_info() -> str:
-    """次に公開予定の記事情報を取得（キューから）"""
-    if not KW_QUEUE_FILE.exists():
-        return "（キュー情報なし）"
+def run_script(script_path: str, args: list[str] = None) -> tuple[int, str]:
+    """Pythonスクリプトを実行して結果を返す"""
+    cmd = ["python", str(script_path)]
+    if args:
+        cmd.extend(args)
     try:
-        with open(KW_QUEUE_FILE, "r", encoding="utf-8") as f:
-            queue = json.load(f)
-        if isinstance(queue, list) and queue:
-            next_item = queue[0]
-            kw = next_item.get("keyword", "不明")
-            pillar = next_item.get("pillar", "")
-            return f"KW: {kw}" + (f" ({pillar})" if pillar else "")
-        return "（キューが空です）"
-    except Exception:
-        return "（キュー読み込みエラー）"
+        result = subprocess.run(
+            cmd,
+            capture_output=True,
+            text=True,
+            timeout=600,
+            env={**__import__('os').environ, "PYTHONIOENCODING": "utf-8"},
+        )
+        output = result.stdout + result.stderr
+        return result.returncode, output
+    except Exception as e:
+        return 1, f"ERROR: {e}"
 
 
-def get_pending_drafts() -> str:
-    """outputs/ 内の未公開ドラフト記事を確認"""
-    articles_dir = OUTPUTS_DIR / "articles"
-    if not articles_dir.exists():
-        return "ドラフト記事なし"
-    drafts = list(articles_dir.glob("*.md"))
-    if not drafts:
-        return "ドラフト記事なし"
-    # 最新3件のファイル名を表示
-    drafts.sort(key=lambda p: p.stat().st_mtime, reverse=True)
-    names = [d.stem for d in drafts[:3]]
-    return f"ドラフト{len(drafts)}件: " + ", ".join(names)
+def get_latest_draft_wp_id() -> tuple[int | None, str | None, str | None]:
+    """CSVから最新のドラフト記事のWP ID、タイトル、パーマリンクを取得"""
+    if not CSV_FILE.exists():
+        return None, None, None
+    try:
+        with open(CSV_FILE, "r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            drafts = []
+            for row in reader:
+                status = row.get("ステータス", "")
+                if "ドラフト" in status or "draft" in status.lower():
+                    drafts.append(row)
+            if not drafts:
+                return None, None, None
+            # 最新のドラフト（最後の行）
+            latest = drafts[-1]
+            # 備考からWP IDを抽出
+            notes = latest.get("備考", "")
+            wp_id = None
+            if "WP ID:" in notes:
+                try:
+                    wp_id = int(notes.split("WP ID:")[1].split()[0].strip())
+                except (ValueError, IndexError):
+                    pass
+            title = latest.get("記事タイトル", "タイトル不明")
+            permalink = latest.get("パーマリンク", "")
+            return wp_id, title, permalink
+    except Exception as e:
+        print(f"WARNING: CSV読み込みエラー - {e}")
+        return None, None, None
 
 
 def notify_discord(message: str):
@@ -113,25 +151,62 @@ def main():
 
     # 祝日チェック
     if is_holiday(date_str):
-        print(f"明日は祝日 ({date_str})。リマインダーをスキップ")
+        print(f"明日は祝日 ({date_str})。スキップ")
         return
 
-    # 記事情報を収集
-    draft_info = get_pending_drafts()
-    next_article = get_next_article_info()
+    print(f"明日は公開日！記事の事前準備を開始します...")
 
-    message = (
-        f"📅 **明日はブログ公開日です！** ({date_str} {dow_ja}曜日)\n"
-        f"━━━━━━━━━━━━━━━\n"
-        f"📝 {draft_info}\n"
-        f"🔑 次の記事: {next_article}\n"
-        f"━━━━━━━━━━━━━━━\n\n"
-        f"**やること（15-30分）:**\n"
-        f"1. 自動生成された記事ドラフトを確認\n"
-        f"2. 体験談・一次情報を追記\n"
-        f"3. 翌朝JST 6:00-7:00に自動公開されます\n\n"
-        f"※ 記事が問題なければ何もしなくてOK（自動公開）"
-    )
+    # === Step 1: 記事生成 ===
+    print("--- Step 1: 記事生成 ---")
+    gen_code, gen_output = run_script(GENERATOR_SCRIPT)
+    print(f"article_generator.py: exit code {gen_code}")
+    if gen_code != 0:
+        print(f"WARNING: 記事生成が異常終了\n{gen_output}")
+
+    # === Step 2: アイキャッチ画像生成 ===
+    print("--- Step 2: 画像生成 ---")
+    img_code, img_output = run_script(IMAGE_PIPELINE, ["--limit", "1"])
+    print(f"blog_image_pipeline.py: exit code {img_code}")
+
+    # === Step 3: WPにドラフト投稿 ===
+    print("--- Step 3: WPドラフト投稿 ---")
+    pub_code, pub_output = run_script(PUBLISHER_SCRIPT, ["--status", "draft", "--limit", "1"])
+    print(f"wp_publisher.py (draft): exit code {pub_code}")
+
+    # === Step 4: スプレッドシート更新 ===
+    print("--- Step 4: スプレッドシート更新 ---")
+    sheet_code, sheet_output = run_script(SHEET_UPDATER)
+    print(f"create_article_sheet.py: exit code {sheet_code}")
+
+    # === Step 5: Discord通知 ===
+    wp_id, title, permalink = get_latest_draft_wp_id()
+
+    if wp_id:
+        edit_url = f"{WP_SITE_URL}/wp-admin/post.php?post={wp_id}&action=edit"
+        preview_url = f"{WP_SITE_URL}/?p={wp_id}&preview=true"
+
+        message = (
+            f"📅 **明日はブログ公開日！** ({date_str} {dow_ja}曜日)\n"
+            f"━━━━━━━━━━━━━━━\n"
+            f"📝 **{title}**\n"
+            f"━━━━━━━━━━━━━━━\n\n"
+            f"👀 **プレビュー（読者視点で確認）:**\n{preview_url}\n\n"
+            f"✏️ **編集（体験談の追記・修正）:**\n{edit_url}\n\n"
+            f"**やること（15-30分）:**\n"
+            f"・記事を読んで内容を確認\n"
+            f"・【要追記】の箇所に体験談を追記\n"
+            f"・問題なければ何もしなくてOK\n\n"
+            f"⏰ 翌朝 JST 6:00-7:00 に自動公開されます"
+        )
+    else:
+        message = (
+            f"📅 **明日はブログ公開日！** ({date_str} {dow_ja}曜日)\n"
+            f"━━━━━━━━━━━━━━━\n"
+            f"⚠️ ドラフト記事のWP IDが取得できませんでした\n"
+            f"WordPress管理画面で直接確認してください:\n"
+            f"{WP_SITE_URL}/wp-admin/edit.php?post_status=draft\n\n"
+            f"⏰ 翌朝 JST 6:00-7:00 に自動公開されます"
+        )
 
     notify_discord(message)
     print("リマインダー送信完了")
