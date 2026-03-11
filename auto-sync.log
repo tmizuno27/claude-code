@@ -21389,3 +21389,6 @@
 [2026-03-11 18:39:37] Changes detected:  M auto-sync.log
 [2026-03-11 18:39:37] Commit OK
 [2026-03-11 18:40:37] Changes detected:  M auto-sync.log  M blog/outputs/social/x-auto-post.log
+[2026-03-11 18:40:37] Commit OK
+[2026-03-11 18:40:37] Push OK - synced to GitHub
+[2026-03-11 18:41:36] Changes detected:  M auto-sync.log ?? blog/outputs/social/pending-tweets.json
