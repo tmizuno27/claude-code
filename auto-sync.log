@@ -18977,3 +18977,6 @@
 [2026-03-10 22:20:38] Commit OK
 [2026-03-10 22:20:38] Push OK - synced to GitHub
 [2026-03-10 22:21:37] Changes detected:  M auto-sync.log M  blog/scripts/publishing/update_single_template.py
+[2026-03-10 22:21:37] Commit OK
+[2026-03-10 22:21:37] Push OK - synced to GitHub
+[2026-03-10 22:22:37] Changes detected:  M auto-sync.log M  blog/design/single-article.css M  blog/design/single-article.js
