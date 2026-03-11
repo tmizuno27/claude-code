@@ -17,7 +17,7 @@ body.single {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: space-between !important;
-    max-width: 1200px !important;
+    max-width: 1300px !important;
     margin: 0 auto !important;
     padding: 65px 20px 0 !important;
   }
@@ -28,17 +28,19 @@ body.single {
     flex-basis: 100% !important;
   }
   body.single main.wp-block-group {
-    width: calc(100% - 340px) !important;
+    width: calc(100% - 390px) !important;
     max-width: none !important;
     min-width: 0 !important;
     flex-shrink: 1 !important;
     margin-top: 0 !important;
+    order: 1 !important;
   }
   .nao-tcd-sidebar {
-    width: 300px !important;
+    width: 350px !important;
     flex-shrink: 0 !important;
     position: relative !important;
     display: block !important;
+    order: 2 !important;
   }
 }
 @media (max-width:1079px) {
