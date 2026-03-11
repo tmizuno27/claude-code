@@ -492,9 +492,13 @@ def call_claude_api(
     Raises:
         anthropic.APIError: API エラーが発生した場合
     """
-    logger.info("Claude API 呼び出し中... (モデル: %s, 最大トークン: %d)", model, max_tokens)
+    logger.info("Claude API 呼び出し中 (streaming)... (モデル: %s, 最大トークン: %d)", model, max_tokens)
 
-    response = client.messages.create(
+    generated_text = ""
+    input_tokens = 0
+    output_tokens = 0
+
+    with client.messages.stream(
         model=model,
         max_tokens=max_tokens,
         system=system_prompt,
@@ -504,20 +508,19 @@ def call_claude_api(
                 "content": user_prompt,
             }
         ],
-    )
+    ) as stream:
+        for text in stream.text_stream:
+            generated_text += text
 
-    # レスポンスからテキストを抽出
-    generated_text = ""
-    for block in response.content:
-        if block.type == "text":
-            generated_text += block.text
+        # ストリーム完了後にusageを取得
+        response = stream.get_final_message()
+        input_tokens = response.usage.input_tokens
+        output_tokens = response.usage.output_tokens
 
-    # 使用トークン数をログ出力
-    usage = response.usage
     logger.info(
         "API レスポンス受信: 入力 %d トークン / 出力 %d トークン",
-        usage.input_tokens,
-        usage.output_tokens,
+        input_tokens,
+        output_tokens,
     )
 
     return generated_text
