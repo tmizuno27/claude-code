@@ -1036,16 +1036,35 @@ def main():
     print(f'  JS: {len(mini_js)} chars')
 
     # Split CSS into chunks to avoid WAF (max ~3000 chars per block)
+    # IMPORTANT: Never split inside @media blocks — that breaks the query scope
     css_chunks = []
-    rules = re.split(r'(})', mini_css)
+    # First, split into top-level blocks (respecting @media nesting)
+    top_blocks = []
+    depth = 0
+    current = ''
+    i = 0
+    while i < len(mini_css):
+        ch = mini_css[i]
+        current += ch
+        if ch == '{':
+            depth += 1
+        elif ch == '}':
+            depth -= 1
+            if depth == 0:
+                top_blocks.append(current)
+                current = ''
+        i += 1
+    if current.strip():
+        top_blocks.append(current)
+
+    # Now group top-level blocks into chunks of ~2800 chars
     temp = ''
-    for i in range(0, len(rules) - 1, 2):
-        rule = rules[i] + (rules[i + 1] if i + 1 < len(rules) else '')
-        if len(temp) + len(rule) > 2800 and temp:
+    for block in top_blocks:
+        if len(temp) + len(block) > 2800 and temp:
             css_chunks.append(temp)
-            temp = rule
+            temp = block
         else:
-            temp += rule
+            temp += block
     if temp.strip():
         css_chunks.append(temp)
 
