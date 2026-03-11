@@ -69,15 +69,16 @@ def run_script(script_path: str, args: list[str] = None) -> tuple[int, str]:
     cmd = ["python", str(script_path)]
     if args:
         cmd.extend(args)
+    import os
     try:
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
         result = subprocess.run(
             cmd,
             capture_output=True,
-            text=True,
             timeout=600,
-            env={**__import__('os').environ, "PYTHONIOENCODING": "utf-8"},
+            env=env,
         )
-        output = result.stdout + result.stderr
+        output = result.stdout.decode("utf-8", errors="replace") + result.stderr.decode("utf-8", errors="replace")
         return result.returncode, output
     except Exception as e:
         return 1, f"ERROR: {e}"
