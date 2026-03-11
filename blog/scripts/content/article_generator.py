@@ -69,12 +69,20 @@ def load_settings() -> dict:
     with open(SETTINGS_FILE, encoding="utf-8") as f:
         settings: dict = json.load(f)
 
-    # Claude API キーの存在チェック
+    # Claude API キーを secrets.json から読み込む
+    secrets_file = SETTINGS_FILE.parent / "secrets.json"
+    if secrets_file.exists():
+        with open(secrets_file, encoding="utf-8") as sf:
+            secrets = json.load(sf)
+        api_key = secrets.get("claude_api", {}).get("api_key", "")
+        if api_key:
+            settings.setdefault("claude_api", {})["api_key"] = api_key
+
     api_key = settings.get("claude_api", {}).get("api_key", "")
-    if not api_key or api_key == "YOUR_CLAUDE_API_KEY_HERE":
+    if not api_key or api_key.startswith("SEE ") or api_key == "YOUR_CLAUDE_API_KEY_HERE":
         raise ValueError(
             "Claude API キーが設定されていません。"
-            "config/settings.json の claude_api.api_key を設定してください。"
+            "config/secrets.json の claude_api.api_key を確認してください。"
         )
 
     logger.info("設定ファイルを読み込みました")
