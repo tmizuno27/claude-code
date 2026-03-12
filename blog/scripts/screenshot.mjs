@@ -22,8 +22,8 @@ const url = 'https://nambei-oyaji.com/paraguay-food-culture/';
   await page.screenshot({ path: path.join(outDir, 'screenshot-desktop-top.png'), fullPage: false });
   console.log('Desktop top screenshot saved');
 
-  // Scroll down to see sidebar TOC
-  await page.evaluate(() => window.scrollTo(0, 1500));
+  // Scroll down to see sidebar TOC (sticky)
+  await page.evaluate(() => window.scrollTo(0, 3000));
   await new Promise(r => setTimeout(r, 1000));
   await page.screenshot({ path: path.join(outDir, 'screenshot-desktop-mid.png'), fullPage: false });
   console.log('Desktop mid screenshot saved');
