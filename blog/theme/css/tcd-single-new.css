@@ -366,5 +366,4 @@ body.single footer.wp-block-template-part,body.single footer { position:relative
 .q_underline2 { font-weight:600;background-image:linear-gradient(to right,transparent 50%,#99f9ff 50%);background-position:-100% 0.8em;background-repeat:repeat-x;background-size:200% 0.5em; }
 .q_underline3 { font-weight:600;background-image:linear-gradient(to right,transparent 50%,#ff99b8 50%);background-position:-100% 0.8em;background-repeat:repeat-x;background-size:200% 0.5em; }
 
-/* --- Cocoon default sidebar hide --- */
-body.single #sidebar,body.single .sidebar,body.single .sidebar-in,body.single #sidebar-in,body.single .widget-area { display:none !important; }
+/* --- Cocoon sidebar: visible (2-column layout) --- */
