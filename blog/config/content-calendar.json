@@ -11,7 +11,7 @@
     "pillar_1_paraguay_life": {
       "name": "パラグアイ移住・生活情報（メインコンテンツ）",
       "role": "低競合KWでSEO上位→ドメインパワー強化→デジタル商品＆アフィリエイト導線",
-      "frequency": "月4-6記事",
+      "frequency": "月5-6記事（月曜固定 + 金曜の半分）",
       "seed_keywords": [
         "パラグアイ 移住",
         "パラグアイ 生活費",
@@ -37,7 +37,7 @@
     "pillar_2_overseas_work": {
       "name": "海外移住後の働き方・収入確保（サブコンテンツ）",
       "role": "移住検討者の最大の不安「収入」に応える記事群。スクール・クラウドソーシング系アフィリエイト導線",
-      "frequency": "月2-3記事",
+      "frequency": "月5-6記事（水曜固定 + 金曜の半分）",
       "seed_keywords": [
         "海外在住 副業",
         "海外 リモートワーク",
@@ -56,6 +56,12 @@
         "関連デジタル商品への導線"
       ]
     }
+  },
+  "weekly_schedule": {
+    "description": "週3回投稿スケジュール（2026-03-12〜）",
+    "monday": {"pillar": "pillar_1_paraguay_life", "note": "パラグアイ生活記事（固定）"},
+    "wednesday": {"pillar": "pillar_2_overseas_work", "note": "海外からの仕事・副業記事（固定）"},
+    "friday": {"pillar": "alternating", "note": "柱1と柱2を交互、またはKWキュー優先順"}
   },
   "phase1_schedule": {
     "description": "Phase 1（Month 1-3）の詳細スケジュール（方向転換後）",
