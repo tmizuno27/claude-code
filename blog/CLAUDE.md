@@ -59,15 +59,18 @@ blog/                      ← このプロジェクト（リポジトリ内 cla
 ├── docs/                  ← エージェント詳細ルール・事業計画書・運用マニュアル
 ├── scripts/               ← Python自動化スクリプト
 │   ├── content/           ← 記事生成・KW調査・内部リンク
-│   ├── publishing/        ← WordPress投稿・ページ更新
+│   ├── publishing/        ← WordPress投稿・スケジューラ
 │   ├── analytics/         ← GA4レポート・シート連携
-│   ├── social/            ← X投稿
+│   ├── social/            ← X投稿・分析
 │   ├── media/             ← 画像生成・アップロード
-│   └── scheduler.py       ← タスクスケジューラ登録
-├── templates/             ← 記事・商品テンプレート
-├── images/                ← 全画像（branding/ + カテゴリ別）
-├── inputs/                ← キーワード・商品アイデア
-└── outputs/               ← AI生成物の出力先
+│   └── maintenance/       ← リンクチェック・バックアップ
+├── theme/                 ← CSS/JS/HTMLデザインファイル一式
+│   ├── css/               ← 全CSSファイル
+│   └── assets/js/         ← JavaScriptファイル
+├── templates/             ← 記事テンプレート
+├── images/                ← 全画像（branding/ + カテゴリ別 + stock/）
+├── inputs/                ← キーワード・X分析データ
+└── outputs/               ← 生成記事・レポート・SNS投稿
 ```
 
 **エージェント呼び出し**: `.claude/agents/` にネイティブ定義を配置済み。
