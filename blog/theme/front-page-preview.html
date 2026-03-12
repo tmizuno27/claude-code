@@ -113,22 +113,13 @@
             width: 100%;
             max-width: 980px;
             margin: 0 auto;
-            aspect-ratio: 16 / 7;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px 20px 0 0;
             position: relative;
             overflow: hidden;
         }
-        .fp-hero__visual-text {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(255,255,255,0.15);
-            font-size: 120px;
-            font-weight: 700;
-            letter-spacing: -4px;
+        .fp-hero__visual img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* ===== Section 2: Stats ===== */
@@ -364,8 +355,12 @@
         .fp-author__avatar {
             width: 120px; height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
             margin: 0 auto 24px;
+            overflow: hidden;
+        }
+        .fp-author__avatar img {
+            width: 100%; height: 100%;
+            object-fit: cover;
         }
         .fp-author__name {
             font-size: 32px;
@@ -589,7 +584,7 @@
 <!-- Header -->
 <header class="site-header">
     <div class="header-inner">
-        <a href="/"><span class="logo-accent">南米おやじ</span></a>
+        <a href="/"><img src="images/logo-black.png" alt="南米おやじ" style="height:24px;width:auto;"></a>
         <nav class="nav-primary">
             <ul>
                 <li><a href="#">パラグアイ生活</a></li>
@@ -616,7 +611,7 @@
         </div>
     </div>
     <div class="fp-hero__visual">
-        <div class="fp-hero__visual-text">PARAGUAY</div>
+        <img src="images/top.png" alt="南米おやじ — 家族4人で南米移住" loading="eager">
     </div>
 </section>
 
@@ -775,7 +770,7 @@
 <section class="fp-author">
     <div class="fp-author__inner scroll-fade">
         <p class="fp-author__overtitle">このブログを書いている人</p>
-        <div class="fp-author__avatar"></div>
+        <div class="fp-author__avatar"><img src="images/profile.png" alt="南米おやじ"></div>
         <h2 class="fp-author__name">南米おやじ</h2>
         <p class="fp-author__bio">
             南米パラグアイ・アスンシオン在住。<br class="pc-only">
