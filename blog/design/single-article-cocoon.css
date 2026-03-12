@@ -131,9 +131,9 @@ body.single .entry-content a:not(.tcd-share-btn):not(.tcd-related-card):not(.tcd
 body.single .entry-content ul { list-style:circle outside none !important;padding-left:1em !important;margin-bottom:2em !important; }
 body.single .entry-content ul li { margin-bottom:8px !important;line-height:2.4 !important; }
 body.single .entry-content ul li::before { content:none !important;display:none !important; }
-body.single .entry-content ol { list-style:decimal outside none !important;padding-left:1em !important;margin-bottom:2em !important;counter-reset:none !important; }
-body.single .entry-content ol li { margin-bottom:8px !important;line-height:2.4 !important;counter-increment:none !important; }
-body.single .entry-content ol li::before { content:none !important;display:none !important; }
+body.single .entry-content ol:not(.tcd-toc-list):not(.tcd-toc-sub) { list-style:decimal outside none !important;padding-left:1em !important;margin-bottom:2em !important;counter-reset:none !important; }
+body.single .entry-content ol:not(.tcd-toc-list):not(.tcd-toc-sub) li:not(.tcd-toc-h2):not(.tcd-toc-h3) { margin-bottom:8px !important;line-height:2.4 !important;counter-increment:none !important; }
+body.single .entry-content ol:not(.tcd-toc-list):not(.tcd-toc-sub) li:not(.tcd-toc-h2):not(.tcd-toc-h3)::before { content:none !important;display:none !important; }
 
 /* --- TABLE --- */
 body.single .entry-content table { width:100% !important;border-collapse:collapse !important;margin:0 0 24px !important; }
@@ -180,7 +180,8 @@ body.single .entry-content blockquote p { color:#333 !important;font-size:16px !
 .tcd-toc-h3 a:hover { color:#04c !important; }
 
 /* --- Hide Cocoon's own TOC --- */
-body.single .toc { display:none !important; }
+body.single .toc,
+body.single #toc { display:none !important; }
 
 /* --- AUTHOR --- */
 .tcd-author { border:1px solid #ddd !important;margin:40px 0 50px !important;padding:35px 40px !important;position:relative !important;display:flex !important;flex-wrap:wrap !important;justify-content:center !important;align-items:center !important;max-width:none !important;background:#fff !important;border-radius:0 !important; }
