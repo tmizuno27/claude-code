@@ -179,33 +179,103 @@
     return toc;
   }
 
-  /* ===== Sidebar TOC ===== */
+  /* ===== Sidebar (TCD style: search → new posts → popular → categories → TOC) ===== */
   function insertSidebarTOC(ct) {
     var sb = document.querySelector('.nao-tcd-sidebar') || document.getElementById('nao-tcd-sidebar') || document.querySelector('.sidebar, #sidebar, aside');
     if (!sb) return;
-    var hs = ct.querySelectorAll('h2, h3');
-    if (hs.length < 3) return;
 
-    var w = el('div', 'nao-tcd-widget tcd-sidebar-toc');
-    w.appendChild(el('h4', 'nao-tcd-widget-title', '\u76ee\u6b21'));
-    var list = el('ol', 'tcd-sidebar-toc-list');
-    var sub = null;
-
-    for (var i = 0; i < hs.length; i++) {
-      var h = hs[i];
-      if (!h.id) h.id = 'tcd-h-' + i;
-      var li = el('li', '', '<a href="#' + h.id + '" data-toc-id="' + h.id + '">' + h.textContent.trim() + '</a>');
-      if (h.tagName === 'H2') { li.className = 'tcd-stoc-h2'; list.appendChild(li); sub = null; }
-      else { if (!sub) { sub = el('ol', 'tcd-stoc-sub'); list.appendChild(sub); } li.className = 'tcd-stoc-h3'; sub.appendChild(li); }
-    }
-    w.appendChild(list);
     var sbi = sb.querySelector('.nao-tcd-sidebar-inner') || sb;
-    sbi.appendChild(w);
-    // Make sidebar TOC sticky
-    w.style.position = 'sticky';
-    w.style.top = '100px';
 
-    // Footer z-index covers sidebar, no JS height needed
+    // 1. Search widget
+    var searchW = el('div', 'nao-tcd-widget');
+    searchW.innerHTML =
+      '<h4 class="nao-tcd-widget-title">\u691c\u7d22</h4>' +
+      '<form class="nao-tcd-search" action="/" method="get">' +
+        '<input type="text" name="s" class="nao-tcd-search-input" placeholder="\u8a18\u4e8b\u3092\u691c\u7d22...">' +
+        '<button type="submit" class="nao-tcd-search-btn">\ud83d\udd0d</button>' +
+      '</form>';
+    sbi.appendChild(searchW);
+
+    // 2. New posts widget
+    var newW = el('div', 'nao-tcd-widget');
+    newW.innerHTML = '<h4 class="nao-tcd-widget-title">\u65b0\u7740\u8a18\u4e8b</h4><ul class="nao-tcd-post-list" id="nao-sidebar-new"></ul>';
+    sbi.appendChild(newW);
+
+    fetch('/wp-json/wp/v2/posts?per_page=5&_embed&_fields=id,title,link,date,_embedded')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(posts) {
+        var ul = document.getElementById('nao-sidebar-new');
+        if (!ul || !posts.length) return;
+        posts.forEach(function(p) {
+          var catName = '';
+          try { catName = p._embedded['wp:term'][0][0].name; } catch(e) {}
+          var li = el('li', '');
+          li.innerHTML = '<a href="' + p.link + '">' +
+            (catName ? '<span class="nao-tcd-post-cat">' + catName + '</span>' : '') +
+            '<span class="nao-tcd-post-title">' + p.title.rendered + '</span></a>';
+          ul.appendChild(li);
+        });
+      }).catch(function(){});
+
+    // 3. Popular posts widget (uses page views or fallback to recent)
+    var popW = el('div', 'nao-tcd-widget');
+    popW.innerHTML = '<h4 class="nao-tcd-widget-title">\u4eba\u6c17\u8a18\u4e8b</h4><ul class="nao-tcd-post-list" id="nao-sidebar-popular"></ul>';
+    sbi.appendChild(popW);
+
+    fetch('/wp-json/wp/v2/posts?per_page=5&_embed&orderby=date&_fields=id,title,link,date,_embedded')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(posts) {
+        var ul = document.getElementById('nao-sidebar-popular');
+        if (!ul || !posts.length) return;
+        posts.forEach(function(p, idx) {
+          var catName = '';
+          try { catName = p._embedded['wp:term'][0][0].name; } catch(e) {}
+          var li = el('li', '');
+          li.innerHTML = '<a href="' + p.link + '">' +
+            '<span class="nao-tcd-post-rank">' + (idx + 1) + '</span>' +
+            (catName ? '<span class="nao-tcd-post-cat">' + catName + '</span>' : '') +
+            '<span class="nao-tcd-post-title">' + p.title.rendered + '</span></a>';
+          ul.appendChild(li);
+        });
+      }).catch(function(){});
+
+    // 4. Categories widget
+    var catW = el('div', 'nao-tcd-widget');
+    catW.innerHTML = '<h4 class="nao-tcd-widget-title">\u30ab\u30c6\u30b4\u30ea\u30fc</h4><ul class="nao-tcd-cat-list" id="nao-sidebar-cats"></ul>';
+    sbi.appendChild(catW);
+
+    fetch('/wp-json/wp/v2/categories?per_page=20&_fields=id,name,slug,count,link&hide_empty=true')
+      .then(function(r) { return r.ok ? r.json() : []; })
+      .then(function(cats) {
+        var ul = document.getElementById('nao-sidebar-cats');
+        if (!ul || !cats.length) return;
+        cats.filter(function(c) { return c.slug !== 'uncategorized'; }).forEach(function(c) {
+          var li = el('li', '');
+          li.innerHTML = '<a href="' + c.link + '"><span class="nao-tcd-cat-name">' + c.name + '</span><span class="nao-tcd-cat-count">(' + c.count + ')</span></a>';
+          ul.appendChild(li);
+        });
+      }).catch(function(){});
+
+    // 5. TOC widget (sticky)
+    var hs = ct.querySelectorAll('h2, h3');
+    if (hs.length >= 3) {
+      var w = el('div', 'nao-tcd-widget tcd-sidebar-toc');
+      w.appendChild(el('h4', 'nao-tcd-widget-title', '\u76ee\u6b21'));
+      var list = el('ol', 'tcd-sidebar-toc-list');
+      var sub = null;
+
+      for (var i = 0; i < hs.length; i++) {
+        var h = hs[i];
+        if (!h.id) h.id = 'tcd-h-' + i;
+        var li = el('li', '', '<a href="#' + h.id + '" data-toc-id="' + h.id + '">' + h.textContent.trim() + '</a>');
+        if (h.tagName === 'H2') { li.className = 'tcd-stoc-h2'; list.appendChild(li); sub = null; }
+        else { if (!sub) { sub = el('ol', 'tcd-stoc-sub'); list.appendChild(sub); } li.className = 'tcd-stoc-h3'; sub.appendChild(li); }
+      }
+      w.appendChild(list);
+      sbi.appendChild(w);
+      w.style.position = 'sticky';
+      w.style.top = '100px';
+    }
   }
 
   /* ===== Share Buttons — TCD text style (Tweet/Share/Hatena/RSS) ===== */

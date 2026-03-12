@@ -320,6 +320,7 @@ body.single .wp-block-post-navigation-link a:hover { color:#04c !important; }
 .nao-tcd-cat-list a:hover .nao-tcd-cat-name { color:#04c; }
 .nao-tcd-about p { font-size:13px;color:#666;line-height:1.7;margin:0 0 8px; }
 .nao-tcd-about-link { font-size:13px;color:#04c !important;text-decoration:none !important;border-bottom:none !important;background:none !important; }
+.nao-tcd-post-rank { display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;background:#333;color:#fff;font-size:11px;font-weight:700;border-radius:2px;margin-right:6px;flex-shrink:0; }
 
 /* --- TIP / WARN BOX --- */
 .nao-tip { max-width:none !important;margin:32px 0 !important;padding:24px 28px !important;background:#f0f7ff !important;border-radius:4px !important;border-left:4px solid #04c !important; }
