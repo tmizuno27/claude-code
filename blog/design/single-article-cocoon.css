@@ -168,20 +168,21 @@ body.single .entry-content blockquote p { color:#333 !important;font-size:16px !
 .tcd-toc-toggle { background:none !important;border:none !important;font-size:12px !important;color:#999 !important;cursor:pointer !important;padding:4px 8px !important;margin-left:8px !important; }
 .tcd-toc--closed .tcd-toc-list { display:none !important; }
 .tcd-toc--closed .tcd-toc-title { margin-bottom:0 !important;padding-bottom:0 !important; }
-.tcd-toc-list { list-style:none !important;padding:0 !important;margin:0 !important;counter-reset:toc-counter !important; }
-.tcd-toc-h2 { counter-increment:toc-counter !important;padding:5px 0 !important;margin-bottom:20px !important; }
+ol.tcd-toc-list { list-style:none !important;padding:0 !important;margin:0 !important;counter-reset:toc-counter !important; }
+li.tcd-toc-h2 { counter-increment:toc-counter !important;padding:5px 0 !important;margin-bottom:20px !important; }
 .tcd-toc-h2:last-child { margin-bottom:0 !important; }
 .tcd-toc-h2 > a { font-size:16px !important;font-weight:600 !important;color:#333 !important;text-decoration:none !important;line-height:1.7 !important;border-bottom:none !important;background:none !important; }
-.tcd-toc-h2 > a::before { content:counter(toc-counter) ". " !important;color:#999 !important; }
+li.tcd-toc-h2 > a::before { content:counter(toc-counter) ". " !important;color:#999 !important; }
 .tcd-toc-h2 > a:hover { color:#04c !important; }
 .tcd-toc-sub { list-style:none !important;padding:0 0 0 20px !important;margin:0 !important; }
 .tcd-toc-h3 { padding:3px 0 !important; }
 .tcd-toc-h3 a { font-size:14px !important;font-weight:400 !important;color:#666 !important;text-decoration:none !important;line-height:1.7 !important;border-bottom:none !important;background:none !important; }
 .tcd-toc-h3 a:hover { color:#04c !important; }
 
-/* --- Hide Cocoon's own TOC --- */
+/* --- Hide Cocoon's own TOC + old details TOC --- */
 body.single .toc,
-body.single #toc { display:none !important; }
+body.single #toc,
+body.single .entry-content > details { display:none !important; }
 
 /* --- AUTHOR --- */
 .tcd-author { border:1px solid #ddd !important;margin:40px 0 50px !important;padding:35px 40px !important;position:relative !important;display:flex !important;flex-wrap:wrap !important;justify-content:center !important;align-items:center !important;max-width:none !important;background:#fff !important;border-radius:0 !important; }
