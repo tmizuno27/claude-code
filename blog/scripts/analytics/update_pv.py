@@ -12,6 +12,7 @@ import csv
 import json
 import os
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import unquote
@@ -28,8 +29,16 @@ def log(msg):
     ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     line = f"[{ts}] {msg}"
     print(line)
-    with open(LOG_PATH, "a", encoding="utf-8") as f:
-        f.write(line + "\n")
+    for attempt in range(3):
+        try:
+            with open(LOG_PATH, "a", encoding="utf-8") as f:
+                f.write(line + "\n")
+            return
+        except PermissionError:
+            if attempt < 2:
+                time.sleep(1)
+    # ログ書き込み失敗は無視して処理を継続
+    print(f"[WARNING] Could not write to log file: {LOG_PATH}")
 
 
 def fetch_pv():
