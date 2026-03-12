@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南米おやじの海外生活ラボ</title>
+    <style>
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            color: #1d1d1f;
+            background: #fff;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ===== Header (simplified for preview) ===== */
+        .site-header {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            height: 60px;
+            display: flex; align-items: center;
+        }
+        .header-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 24px;
+            width: 100%; display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo-accent { font-size: 18px; font-weight: 700; color: #1d1d1f; }
+        .nav-primary ul { list-style: none; display: flex; gap: 28px; }
+        .nav-primary a { font-size: 14px; font-weight: 500; color: #6e6e73; transition: color 0.2s; }
+        .nav-primary a:hover { color: #1d1d1f; }
+
+        /* ===== Scroll Fade Animation ===== */
+        .scroll-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .scroll-fade.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== Section Common ===== */
+        .fp-section-label {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #6e6e73;
+            margin-bottom: 8px;
+        }
+        .fp-section-heading {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 48px;
+        }
+
+        /* ===== Section 1: Hero ===== */
+        .fp-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 24px 100px;
+        }
+        .fp-hero::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, transparent 70%);
+            top: -100px; right: -100px;
+            border-radius: 50%;
+        }
+        .fp-hero::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(168,85,247,0.1) 0%, transparent 70%);
+            bottom: -50px; left: -50px;
+            border-radius: 50%;
+        }
+        .fp-hero__inner {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .fp-hero__label {
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 24px;
+        }
+        .fp-hero__title {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        .fp-hero__desc {
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 40px;
+            max-width: 560px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .fp-hero__buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .fp-hero__btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .fp-hero__btn--primary {
+            background: #fff;
+            color: #1d1d1f;
+        }
+        .fp-hero__btn--primary:hover { background: #f0f0f0; transform: translateY(-1px); }
+        .fp-hero__btn--outline {
+            border: 1.5px solid rgba(255,255,255,0.4);
+            color: #fff;
+        }
+        .fp-hero__btn--outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+        /* ===== Section 2: Numbers Bar ===== */
+        .fp-numbers {
+            background: #f5f5f7;
+            padding: 48px 24px;
+        }
+        .fp-numbers__inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+        .fp-numbers__item {
+            text-align: center;
+        }
+        .fp-numbers__value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 4px;
+        }
+        .fp-numbers__label {
+            font-size: 13px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        /* ===== Section 3: Content Pillars ===== */
+        .fp-pillars {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .fp-pillars__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        .fp-pillar-card {
+            position: relative;
+            min-height: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 48px;
+            color: #fff;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fp-pillar-card:hover { transform: scale(1.02); }
+        .fp-pillar-card--1 {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+        }
+        .fp-pillar-card--2 {
+            background: linear-gradient(135deg, #2d1b69, #11998e);
+        }
+        .fp-pillar-card__label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 12px;
+        }
+        .fp-pillar-card__icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .fp-pillar-card__title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .fp-pillar-card__desc {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 360px;
+        }
+        .fp-pillar-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            transition: gap 0.3s;
+        }
+        .fp-pillar-card__link:hover { gap: 14px; }
+
+        /* ===== Section 4: Featured Articles ===== */
+        .fp-featured {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .fp-featured__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .fp-article-card {
+            display: block;
+            position: relative;
+            min-height: 380px;
+            border-radius: 20px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fp-article-card:hover { transform: scale(1.02); }
+        .fp-article-card__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+        }
+        .fp-article-card__body {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            padding: 32px;
+            z-index: 1;
+        }
+        .fp-article-card__cat {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+        .fp-article-card__title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .fp-article-card__date {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+        }
+        /* Gradient fallback for cards without thumbnails */
+        .fp-article-card--grad-1 { background: linear-gradient(135deg, #0f0c29, #302b63, #24243e); }
+        .fp-article-card--grad-2 { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
+        .fp-article-card--grad-3 { background: linear-gradient(135deg, #2d1b69, #11998e); }
+        .fp-article-card--grad-4 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
+        .fp-article-card--grad-5 { background: linear-gradient(135deg, #0a1628, #1a3a5c); }
+        .fp-article-card--grad-6 { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
+
+        .fp-featured__more {
+            text-align: center;
+        }
+        .fp-featured__more a {
+            font-size: 15px;
+            font-weight: 600;
+            color: #0066CC;
+            transition: color 0.2s;
+        }
+        .fp-featured__more a:hover { color: #004499; }
+
+        /* ===== Section 5: Popular Articles ===== */
+        .fp-popular {
+            background: #f5f5f7;
+            padding: 80px 24px;
+        }
+        .fp-popular__inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .fp-popular__list {
+            list-style: none;
+        }
+        .fp-popular__item {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            padding: 24px 0;
+            border-bottom: 1px solid #e5e5e7;
+            transition: background 0.2s;
+        }
+        .fp-popular__item:first-child { border-top: 1px solid #e5e5e7; }
+        .fp-popular__item:hover { background: rgba(255,255,255,0.6); }
+        .fp-popular__num {
+            font-size: 36px;
+            font-weight: 700;
+            color: #d2d2d7;
+            min-width: 56px;
+            text-align: center;
+            font-feature-settings: 'tnum';
+        }
+        .fp-popular__body { flex: 1; }
+        .fp-popular__title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+            line-height: 1.5;
+        }
+        .fp-popular__meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .fp-popular__cat {
+            background: #fff;
+            color: #1d1d1f;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .fp-popular__date {
+            font-size: 13px;
+            color: #86868b;
+        }
+        .fp-popular__thumb {
+            flex-shrink: 0;
+            width: 80px; height: 80px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #e5e5e7;
+        }
+        .fp-popular__thumb img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== Section 6: Author Profile ===== */
+        .fp-author {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+        .fp-author__inner {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+        }
+        .fp-author__avatar {
+            flex-shrink: 0;
+        }
+        .fp-author__img {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            background: #e5e5e7;
+            object-fit: cover;
+        }
+        .fp-author__name {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+        }
+        .fp-author__bio {
+            font-size: 15px;
+            color: #6e6e73;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        .fp-author__badges {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .fp-author__badge {
+            font-size: 13px;
+            color: #6e6e73;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .fp-author__links {
+            display: flex;
+            gap: 12px;
+        }
+        .fp-author__link {
+            display: inline-block;
+            padding: 10px 24px;
+            border: 1.5px solid #d2d2d7;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1d1d1f;
+            transition: all 0.3s;
+        }
+        .fp-author__link:hover {
+            background: #1d1d1f;
+            color: #fff;
+            border-color: #1d1d1f;
+        }
+
+        /* ===== Section 7: Category Topics ===== */
+        .fp-topics {
+            background: #f5f5f7;
+            padding: 80px 24px;
+        }
+        .fp-topics__inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .fp-topics__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+        .fp-topic-tile {
+            background: #fff;
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        .fp-topic-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-color: #e5e5e7;
+        }
+        .fp-topic-tile__icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .fp-topic-tile__name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 4px;
+        }
+        .fp-topic-tile__count {
+            font-size: 12px;
+            color: #86868b;
+        }
+
+        /* ===== Section 8: CTA ===== */
+        .fp-cta {
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            color: #fff;
+            text-align: center;
+            padding: 100px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .fp-cta::before {
+            content: '';
+            position: absolute;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+            bottom: -150px; left: -100px;
+            border-radius: 50%;
+        }
+        .fp-cta__inner {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .fp-cta__heading {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        .fp-cta__desc {
+            font-size: 15px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 36px;
+        }
+        .fp-cta__buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ===== Footer (simplified for preview) ===== */
+        .site-footer {
+            background: #1d1d1f;
+            color: rgba(255,255,255,0.6);
+            padding: 48px 24px 32px;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-columns {
+            display: flex;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+        .footer-column__title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        .footer-column ul { list-style: none; }
+        .footer-column li { margin-bottom: 8px; }
+        .footer-column a { font-size: 14px; color: rgba(255,255,255,0.6); transition: color 0.2s; }
+        .footer-column a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1080px) {
+            .fp-featured__grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .fp-hero { min-height: 80vh; padding: 100px 24px 80px; }
+            .fp-hero__title { font-size: 32px; }
+            .fp-hero__label { font-size: 12px; }
+            .fp-section-heading { font-size: 28px; margin-bottom: 32px; }
+
+            .fp-numbers__inner { flex-wrap: wrap; gap: 32px; }
+            .fp-numbers__item { flex: 0 0 calc(50% - 16px); }
+
+            .fp-pillars__grid { grid-template-columns: 1fr; }
+            .fp-pillar-card { min-height: 320px; padding: 32px; }
+            .fp-pillar-card__title { font-size: 24px; }
+
+            .fp-featured__grid { grid-template-columns: 1fr; }
+            .fp-article-card { min-height: 320px; }
+
+            .fp-popular__num { font-size: 28px; min-width: 40px; }
+            .fp-popular__title { font-size: 15px; }
+
+            .fp-author__inner { flex-direction: column; text-align: center; }
+            .fp-author__badges { justify-content: center; }
+            .fp-author__links { justify-content: center; }
+
+            .fp-topics__grid { grid-template-columns: repeat(2, 1fr); }
+
+            .fp-cta__heading { font-size: 24px; }
+            .fp-cta { padding: 80px 24px; }
+
+            .footer-columns { flex-direction: column; gap: 32px; }
+            .nav-primary { display: none; }
+        }
+
+        .pc-only { display: inline; }
+        @media (max-width: 768px) { .pc-only { display: none; } }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="site-logo">
+            <a href="/"><span class="logo-accent">南米おやじ</span></a>
+        </div>
+        <nav class="nav-primary">
+            <ul>
+                <li><a href="#">パラグアイ生活</a></li>
+                <li><a href="#">副業・稼ぎ方</a></li>
+                <li><a href="#">移住準備</a></li>
+                <li><a href="#">プロフィール</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Section 1: Hero -->
+<section class="fp-hero">
+    <div class="fp-hero__inner">
+        <p class="fp-hero__label">Life from Paraguay</p>
+        <h1 class="fp-hero__title">南米パラグアイから、<br>家族4人の海外生活リアル。</h1>
+        <p class="fp-hero__desc">
+            移住費用・生活費・働き方——<br class="pc-only">
+            在住者だけが書ける一次情報をお届けします。
+        </p>
+        <div class="fp-hero__buttons">
+            <a href="#fp-featured" class="fp-hero__btn fp-hero__btn--primary">人気記事を読む</a>
+            <a href="#" class="fp-hero__btn fp-hero__btn--outline">パラグアイ移住ガイド</a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 2: Numbers Bar -->
+<section class="fp-numbers scroll-fade">
+    <div class="fp-numbers__inner">
+        <div class="fp-numbers__item">
+            <div class="fp-numbers__value">2年目</div>
+            <div class="fp-numbers__label">パラグアイ在住</div>
+        </div>
+        <div class="fp-numbers__item">
+            <div class="fp-numbers__value">4人家族</div>
+            <div class="fp-numbers__label">で海外移住</div>
+        </div>
+        <div class="fp-numbers__item">
+            <div class="fp-numbers__value">23本+</div>
+            <div class="fp-numbers__label">公開記事数</div>
+        </div>
+        <div class="fp-numbers__item">
+            <div class="fp-numbers__value">3カ国</div>
+            <div class="fp-numbers__label">の海外経験</div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Content Pillars -->
+<section class="fp-pillars">
+    <div class="scroll-fade" style="text-align:center; margin-bottom:48px;">
+        <p class="fp-section-label">Explore</p>
+        <h2 class="fp-section-heading" style="margin-bottom:0;">2つのテーマで発信中</h2>
+    </div>
+    <div class="fp-pillars__grid">
+        <a href="#" class="fp-pillar-card fp-pillar-card--1 scroll-fade">
+            <div class="fp-pillar-card__label">Pillar 1</div>
+            <div class="fp-pillar-card__icon">&#127477;&#127486;</div>
+            <h3 class="fp-pillar-card__title">パラグアイ生活ガイド</h3>
+            <p class="fp-pillar-card__desc">気候・治安・生活費・食文化…<br>在住者だけが知るリアルな情報。</p>
+            <span class="fp-pillar-card__link">記事を見る <span>&rarr;</span></span>
+        </a>
+        <a href="#" class="fp-pillar-card fp-pillar-card--2 scroll-fade">
+            <div class="fp-pillar-card__label">Pillar 2</div>
+            <div class="fp-pillar-card__icon">&#128187;</div>
+            <h3 class="fp-pillar-card__title">海外からの働き方</h3>
+            <p class="fp-pillar-card__desc">リモートワーク・副業・ブログ…<br>場所に縛られない稼ぎ方を実践中。</p>
+            <span class="fp-pillar-card__link">記事を見る <span>&rarr;</span></span>
+        </a>
+    </div>
+</section>
+
+<!-- Section 4: Featured Articles -->
+<section class="fp-featured" id="fp-featured">
+    <div class="scroll-fade">
+        <p class="fp-section-label">Featured</p>
+        <h2 class="fp-section-heading">注目の記事</h2>
+    </div>
+    <div class="fp-featured__grid">
+        <a href="#" class="fp-article-card fp-article-card--grad-1 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">パラグアイ生活</span>
+                <h3 class="fp-article-card__title">パラグアイ移住の初期費用を全公開｜家族4人でいくらかかった？</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+        <a href="#" class="fp-article-card fp-article-card--grad-2 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">パラグアイ生活</span>
+                <h3 class="fp-article-card__title">パラグアイの生活費を完全公開｜家族4人の1ヶ月のリアルな支出</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+        <a href="#" class="fp-article-card fp-article-card--grad-3 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">パラグアイ生活</span>
+                <h3 class="fp-article-card__title">パラグアイの治安は危険？｜在住者が体感した安全レベルと対策</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+        <a href="#" class="fp-article-card fp-article-card--grad-4 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">移住準備</span>
+                <h3 class="fp-article-card__title">子連れ海外移住のリアル｜パラグアイで子育てする4つのメリット</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+        <a href="#" class="fp-article-card fp-article-card--grad-5 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">副業・稼ぎ方</span>
+                <h3 class="fp-article-card__title">海外在住者の働き方5選｜パラグアイから実践している仕事を紹介</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+        <a href="#" class="fp-article-card fp-article-card--grad-6 scroll-fade">
+            <div class="fp-article-card__overlay"></div>
+            <div class="fp-article-card__body">
+                <span class="fp-article-card__cat">副業・稼ぎ方</span>
+                <h3 class="fp-article-card__title">海外送金おすすめ比較｜Wise・Revolut・銀行を手数料で徹底比較</h3>
+                <span class="fp-article-card__date">2026.03.08</span>
+            </div>
+        </a>
+    </div>
+    <div class="fp-featured__more scroll-fade">
+        <a href="#">すべての記事を見る &rarr;</a>
+    </div>
+</section>
+
+<!-- Section 5: Popular Articles -->
+<section class="fp-popular">
+    <div class="fp-popular__inner">
+        <div class="scroll-fade">
+            <p class="fp-section-label">Popular</p>
+            <h2 class="fp-section-heading">よく読まれている記事</h2>
+        </div>
+        <ol class="fp-popular__list">
+            <li class="fp-popular__item scroll-fade">
+                <span class="fp-popular__num">01</span>
+                <div class="fp-popular__body">
+                    <a href="#">
+                        <h3 class="fp-popular__title">パラグアイ移住の初期費用を全公開｜家族4人でいくらかかった？</h3>
+                    </a>
+                    <div class="fp-popular__meta">
+                        <span class="fp-popular__cat">パラグアイ生活</span>
+                        <span class="fp-popular__date">2026.03.08</span>
+                    </div>
+                </div>
+                <div class="fp-popular__thumb"></div>
+            </li>
+            <li class="fp-popular__item scroll-fade">
+                <span class="fp-popular__num">02</span>
+                <div class="fp-popular__body">
+                    <a href="#">
+                        <h3 class="fp-popular__title">パラグアイの生活費を完全公開｜家族4人の1ヶ月のリアルな支出</h3>
+                    </a>
+                    <div class="fp-popular__meta">
+                        <span class="fp-popular__cat">パラグアイ生活</span>
+                        <span class="fp-popular__date">2026.03.08</span>
+                    </div>
+                </div>
+                <div class="fp-popular__thumb"></div>
+            </li>
+            <li class="fp-popular__item scroll-fade">
+                <span class="fp-popular__num">03</span>
+                <div class="fp-popular__body">
+                    <a href="#">
+                        <h3 class="fp-popular__title">パラグアイの治安は危険？｜在住者が体感した安全レベルと対策</h3>
+                    </a>
+                    <div class="fp-popular__meta">
+                        <span class="fp-popular__cat">パラグアイ生活</span>
+                        <span class="fp-popular__date">2026.03.08</span>
+                    </div>
+                </div>
+                <div class="fp-popular__thumb"></div>
+            </li>
+            <li class="fp-popular__item scroll-fade">
+                <span class="fp-popular__num">04</span>
+                <div class="fp-popular__body">
+                    <a href="#">
+                        <h3 class="fp-popular__title">海外在住者の働き方5選｜パラグアイから実践している仕事を紹介</h3>
+                    </a>
+                    <div class="fp-popular__meta">
+                        <span class="fp-popular__cat">副業・稼ぎ方</span>
+                        <span class="fp-popular__date">2026.03.08</span>
+                    </div>
+                </div>
+                <div class="fp-popular__thumb"></div>
+            </li>
+            <li class="fp-popular__item scroll-fade">
+                <span class="fp-popular__num">05</span>
+                <div class="fp-popular__body">
+                    <a href="#">
+                        <h3 class="fp-popular__title">子連れ海外移住のリアル｜パラグアイで子育てする4つのメリット</h3>
+                    </a>
+                    <div class="fp-popular__meta">
+                        <span class="fp-popular__cat">移住準備</span>
+                        <span class="fp-popular__date">2026.03.08</span>
+                    </div>
+                </div>
+                <div class="fp-popular__thumb"></div>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- Section 6: Author Profile -->
+<section class="fp-author">
+    <div class="fp-author__inner scroll-fade">
+        <div class="fp-author__avatar">
+            <div class="fp-author__img" style="background: linear-gradient(135deg, #667eea, #764ba2);"></div>
+        </div>
+        <div class="fp-author__content">
+            <p class="fp-section-label">About</p>
+            <h2 class="fp-author__name">南米おやじ</h2>
+            <p class="fp-author__bio">
+                南米パラグアイ・アスンシオン在住。家族4人で海外移住し、<br class="pc-only">
+                リモートワークと副業で場所に縛られない生き方を実践中。<br class="pc-only">
+                このブログでは移住のリアルと海外からの稼ぎ方を発信しています。
+            </p>
+            <div class="fp-author__badges">
+                <span class="fp-author__badge">&#127477;&#127486; アスンシオン在住</span>
+                <span class="fp-author__badge">&#128104;&#8205;&#128105;&#8205;&#128103;&#8205;&#128103; 2児のパパ</span>
+                <span class="fp-author__badge">&#127758; 3カ国の海外経験</span>
+            </div>
+            <div class="fp-author__links">
+                <a href="#" class="fp-author__link">プロフィールを読む</a>
+                <a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener" class="fp-author__link">&#120143; をフォロー</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: Category Topics -->
+<section class="fp-topics">
+    <div class="fp-topics__inner">
+        <div class="scroll-fade" style="text-align:center; margin-bottom:48px;">
+            <p class="fp-section-label">Topics</p>
+            <h2 class="fp-section-heading" style="margin-bottom:0;">トピックから探す</h2>
+        </div>
+        <div class="fp-topics__grid">
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128176;</div>
+                <div class="fp-topic-tile__name">移住費用・生活費</div>
+                <div class="fp-topic-tile__count">5記事</div>
+            </a>
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128196;</div>
+                <div class="fp-topic-tile__name">永住権・ビザ</div>
+                <div class="fp-topic-tile__count">3記事</div>
+            </a>
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128737;</div>
+                <div class="fp-topic-tile__name">治安・安全</div>
+                <div class="fp-topic-tile__count">2記事</div>
+            </a>
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128118;</div>
+                <div class="fp-topic-tile__name">子育て・教育</div>
+                <div class="fp-topic-tile__count">3記事</div>
+            </a>
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128187;</div>
+                <div class="fp-topic-tile__name">リモートワーク</div>
+                <div class="fp-topic-tile__count">4記事</div>
+            </a>
+            <a href="#" class="fp-topic-tile scroll-fade">
+                <div class="fp-topic-tile__icon">&#128178;</div>
+                <div class="fp-topic-tile__name">副業・稼ぎ方</div>
+                <div class="fp-topic-tile__count">6記事</div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 8: CTA -->
+<section class="fp-cta">
+    <div class="fp-cta__inner scroll-fade">
+        <h2 class="fp-cta__heading">パラグアイ移住の<br>最新情報を受け取る</h2>
+        <p class="fp-cta__desc">
+            Xで毎日発信中。フォローすると<br class="pc-only">
+            最新記事・移住Tipsが届きます。
+        </p>
+        <div class="fp-cta__buttons">
+            <a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener" class="fp-hero__btn fp-hero__btn--primary">&#120143; @nambei_oyaji をフォロー</a>
+            <a href="#" class="fp-hero__btn fp-hero__btn--outline">記事一覧を見る</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h3 class="footer-column__title">カテゴリ</h3>
+                <ul>
+                    <li><a href="#">パラグアイ生活</a></li>
+                    <li><a href="#">副業・稼ぎ方</a></li>
+                    <li><a href="#">移住準備</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column__title">サイト情報</h3>
+                <ul>
+                    <li><a href="#">運営者について</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-column__title">フォローする</h3>
+                <div><a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener" style="font-size:24px;">&#120143;</a></div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 南米おやじの海外生活ラボ All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scroll Animation -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.scroll-fade').forEach(function(el) {
+        observer.observe(el);
+    });
+});
+</script>
+
+</body>
+</html>
