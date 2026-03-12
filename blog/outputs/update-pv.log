@@ -25,3 +25,23 @@ PermissionError: [Errno 13] Permission denied: 'C:\\Users\\tmizu\\マイドラ�
 .log'
 [2026-03-11 05:00:11] PS launcher completed
 [2026-03-12 06:02:19] PS launcher started
+[2026-03-12 06:02:24] === PV Update Start ===
+python : Traceback (most recent call last):
+発生場所 C:\Users\tmizu\scripts\blog-update-pv.ps1:37 文字:5
++     python $scriptPath 2>&1 | Out-File -Append -FilePath $logPath -En ...
++     ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\scripts\analytics\update_pv.py", line 175, in <module>
+    main()
+    ~~~~^^
+  File "C:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\scripts\analytics\update_pv.py", line 159, in main
+    log("=== PV Update Start ===")
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\scripts\analytics\update_pv.py", line 31, in log
+    with open(LOG_PATH, "a", encoding="utf-8") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\blog\\outputs\\update-pv
+.log'
+[2026-03-12 06:02:25] PS launcher completed
