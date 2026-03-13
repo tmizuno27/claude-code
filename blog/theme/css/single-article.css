@@ -200,7 +200,119 @@ body.single h1.entry-title {
   background: #e8e8e8;
 }
 
-/* ===== EYECATCH / FEATURED IMAGE ===== */
+/* ===== HERO HEADER ===== */
+.nao-hero {
+  position: relative;
+  width: 100%;
+  margin: 0 0 40px;
+  overflow: hidden;
+}
+.nao-hero-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  overflow: hidden;
+}
+.nao-hero-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0 !important;
+}
+.nao-hero-img-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 30%,
+    rgba(0,0,0,0.65) 100%
+  );
+  pointer-events: none;
+}
+.nao-hero-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 36px 32px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nao-hero-cat {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background .2s;
+}
+.nao-hero-cat:hover {
+  background: rgba(255,255,255,0.3);
+}
+.nao-hero-title {
+  font-size: 30px !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  color: #fff !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  letter-spacing: .01em !important;
+  background: none !important;
+  border: none !important;
+  max-width: 90%;
+}
+.nao-hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 4px;
+}
+.nao-hero-meta svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+  opacity: .7;
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+.nao-hero-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nao-hero-meta-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+}
+
+/* Hide original Cocoon title/eyecatch when hero is active */
+body.single.nao-hero-active .article-header .entry-title,
+body.single.nao-hero-active .article-header .eye-catch-wrap {
+  display: none !important;
+}
+body.single.nao-hero-active .article-header .cat-label {
+  display: none !important;
+}
+
+/* ===== EYECATCH / FEATURED IMAGE (fallback) ===== */
 .single .eye-catch {
   max-width: 960px;
   margin: 0 auto 30px;
