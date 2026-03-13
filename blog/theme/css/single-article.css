@@ -203,14 +203,16 @@ body.single h1.entry-title {
 /* ===== HERO HEADER ===== */
 .nao-hero {
   position: relative;
-  width: 100%;
-  margin: 0 0 40px;
+  width: calc(100% + 60px);
+  margin: -20px -30px 40px;
   overflow: hidden;
 }
 .nao-hero-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 16 / 6.5;
+  min-height: 380px;
+  max-height: 480px;
   overflow: hidden;
 }
 .nao-hero-img-wrap img {
