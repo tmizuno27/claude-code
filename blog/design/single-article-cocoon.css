@@ -9,9 +9,21 @@ body.single {
   -webkit-font-smoothing: antialiased !important;
 }
 
-/* --- Cocoon sidebar styling override --- */
+/* --- Cocoon layout: flex for sticky sidebar --- */
+body.single #content-in {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+}
+body.single #main {
+  flex: 1 !important;
+  min-width: 0 !important;
+  float: none !important;
+}
 body.single #sidebar {
+  float: none !important;
   background: #fff !important;
+  align-self: stretch !important;
 }
 body.single #sidebar .nao-tcd-sidebar-inner {
   display: flex;
