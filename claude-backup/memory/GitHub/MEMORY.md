@@ -206,6 +206,12 @@
 ## X API認証
 - 詳細: [x-api-credentials.md](x-api-credentials.md)
 
+## トップページデザイン（PC版完成 2026-03-14）
+- **詳細**: [blog-frontpage-design.md](blog-frontpage-design.md)
+- Cocoonがh1-h3のfont-sizeを強制上書き → 全見出しに`!important`必須
+- 参考デザイン: `blog/theme/front-page-preview.html`、本番: `blog/theme/new-front-page.html` → WP page 47
+- モバイル対応は未完了（次のタスク）
+
 ## セーブポイント（Gitタグ）
 - **savepoint-article-design-v1** (2026-03-09 15:10 PYT): 記事ページデザイン完成。サイドバーTOC・フッター遮蔽・中央揃え
 - **savepoint-article-design-v2** (2026-03-09 16:00 PYT): PC表示完成。アバター画像修正・シェアボタン削除・フッター遮蔽・サイドバーTOC
