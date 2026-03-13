@@ -318,9 +318,18 @@
         .fp-card__img {
             width: 100%;
             aspect-ratio: 16 / 10;
-            background: linear-gradient(135deg, #2d1b69 0%, #11998e 100%);
             position: relative;
             overflow: hidden;
+            background: #1a1a2e;
+        }
+        .fp-card__img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .fp-card:hover .fp-card__img img {
+            transform: scale(1.06);
         }
         .fp-card__img::after {
             content: '';
@@ -328,12 +337,8 @@
             bottom: 0; left: 0; right: 0;
             height: 60%;
             background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+            z-index: 1;
         }
-        .fp-card__img--2 { background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460); }
-        .fp-card__img--3 { background: linear-gradient(135deg, #1e3c72, #2a5298); }
-        .fp-card__img--4 { background: linear-gradient(135deg, #0a1628, #1a3a5c); }
-        .fp-card__img--5 { background: linear-gradient(135deg, #2c3e50, #4ca1af); }
-        .fp-card__img--6 { background: linear-gradient(135deg, #0f0c29, #302b63); }
         .fp-card__body {
             padding: 24px 24px 28px;
         }
@@ -800,7 +805,7 @@
         </div>
         <div class="fp-featured__grid">
             <a href="https://nambei-oyaji.com/paraguay-immigration-cost/" class="fp-card scroll-fade">
-                <div class="fp-card__img"></div>
+                <div class="fp-card__img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-passport1.jpg" alt="パラグアイ移住の費用" loading="lazy"></div>
                 <div class="fp-card__body">
                     <p class="fp-card__cat">パラグアイ生活</p>
                     <h3 class="fp-card__title">パラグアイ移住の費用はいくら？<br>初期費用から月々の生活費まで全公開</h3>
@@ -808,7 +813,7 @@
                 </div>
             </a>
             <a href="https://nambei-oyaji.com/paraguay-living-cost/" class="fp-card scroll-fade delay-1">
-                <div class="fp-card__img fp-card__img--2"></div>
+                <div class="fp-card__img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-latin-st.jpg" alt="パラグアイの生活費" loading="lazy"></div>
                 <div class="fp-card__body">
                     <p class="fp-card__cat">パラグアイ生活</p>
                     <h3 class="fp-card__title">パラグアイの生活費を完全公開！<br>1ヶ月の家計簿と物価を日本と徹底比較</h3>
@@ -816,7 +821,7 @@
                 </div>
             </a>
             <a href="https://nambei-oyaji.com/paraguay-safety-security/" class="fp-card scroll-fade delay-2">
-                <div class="fp-card__img fp-card__img--3"></div>
+                <div class="fp-card__img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-asuncion-city.jpg" alt="パラグアイの治安" loading="lazy"></div>
                 <div class="fp-card__body">
                     <p class="fp-card__cat">パラグアイ生活</p>
                     <h3 class="fp-card__title">パラグアイの治安は本当に危険？<br>在住者が語る2026年最新の治安事情と対策</h3>
@@ -824,7 +829,7 @@
                 </div>
             </a>
             <a href="https://nambei-oyaji.com/moving-abroad-with-kids/" class="fp-card scroll-fade">
-                <div class="fp-card__img fp-card__img--4"></div>
+                <div class="fp-card__img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-intl-school.jpg" alt="子連れ海外移住" loading="lazy"></div>
                 <div class="fp-card__body">
                     <p class="fp-card__cat">パラグアイ生活</p>
                     <h3 class="fp-card__title">子連れ海外移住の準備と注意点<br>家族4人でパラグアイに移住した体験談</h3>
@@ -832,7 +837,7 @@
                 </div>
             </a>
             <a href="https://nambei-oyaji.com/working-after-moving-abroad/" class="fp-card scroll-fade delay-1">
-                <div class="fp-card__img fp-card__img--5"></div>
+                <div class="fp-card__img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-rw-laptop.jpg" alt="海外移住後の働き方" loading="lazy"></div>
                 <div class="fp-card__body">
                     <p class="fp-card__cat">副業・稼ぎ方</p>
                     <h3 class="fp-card__title">海外移住後の働き方・収入源5選<br>パラグアイ在住者が実践中の方法</h3>
