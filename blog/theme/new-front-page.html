@@ -554,25 +554,63 @@
 }
 
 /* ===== Responsive ===== */
-@media (max-width: 768px) {
-  .nao-hero { padding: 64px 24px 0; }
+@media (max-width: 734px) {
+  /* Hero */
+  .nao-hero { padding: 48px 24px 0; }
   .nao-hero h1 { font-size: 40px !important; }
   .nao-hero-eyebrow { font-size: 17px; }
   .nao-hero-sub { font-size: 17px; }
+  .nao-hero-visual { margin-top: 32px; }
 
+  /* Section common */
+  .nao-section-head { margin-bottom: 48px; }
   .nao-section-head h2 { font-size: 36px !important; }
-  :root { --nao-section-py: 64px; }
+  :root { --nao-section-py: 48px; }
 
-  .nao-themes-grid,
+  /* Three Themes */
+  .nao-themes-grid { grid-template-columns: 1fr; gap: 16px; }
+  .nao-theme-card { padding: 32px 32px 28px; }
+  .nao-theme-card .nao-tc-icon-wrap {
+    width: 56px; height: 56px; border-radius: 14px;
+    margin-bottom: 16px;
+  }
+  .nao-theme-card .nao-tc-icon-wrap svg { transform: scale(0.8); }
+  .nao-theme-card h3 { font-size: 22px !important; }
+  .nao-theme-card p { font-size: 14px; }
+
+  /* Latest Stories */
   .nao-posts-grid { grid-template-columns: 1fr; gap: 16px; }
+  .nao-post-card { aspect-ratio: auto; }
+  .nao-pc-title { font-size: 15px !important; font-weight: 600 !important; }
 
-  .nao-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  /* Popular */
+  .nao-popular-num { font-size: 36px; min-width: 48px; }
+  .nao-popular-title { font-size: 15px !important; }
+  .nao-popular-item { gap: 16px; padding: 20px 0; }
 
+  /* Topics */
+  .nao-topics-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .nao-topic-tile { padding: 32px 16px 28px; }
+  .nao-topic-tile .nao-tt-icon { width: 48px; height: 48px; border-radius: 14px; font-size: 24px; }
+  .nao-topic-tile .nao-tt-name { font-size: 15px; }
+
+  /* Author */
+  .nao-author-avatar { width: 120px; height: 120px; }
+  .nao-author-name { font-size: 28px !important; }
+  .nao-author-desc { font-size: 15px; }
+  .nao-author-tags { gap: 8px; }
+  .nao-author-tag { font-size: 12px; padding: 6px 14px; }
+  .nao-author-links { gap: 20px; }
+  .nao-author-links a { font-size: 13px; }
+
+  /* CTA */
+  .nao-cta { padding: 48px 24px; }
   .nao-cta h2 { font-size: 36px !important; }
-  .nao-topics-grid { grid-template-columns: repeat(2, 1fr); }
+  .nao-cta p { font-size: 15px; margin-bottom: 32px; }
   .nao-cta-buttons { flex-direction: column; align-items: center; }
 
-  .nao-popular-num { font-size: 24px; min-width: 36px; }
+  /* Footer */
+  .nao-footer-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 </style>
 
