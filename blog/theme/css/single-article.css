@@ -254,9 +254,10 @@ body.single h1.entry-title {
 /* ===== HERO HEADER ===== */
 .nao-hero {
   position: relative;
-  width: calc(100% + 60px);
-  margin: -20px -30px 40px;
+  width: calc(100% + 58px);
+  margin: -36px -29px 40px;
   overflow: hidden;
+  border-radius: 0;
 }
 .nao-hero-img-wrap {
   position: relative;
@@ -279,8 +280,9 @@ body.single h1.entry-title {
   inset: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0) 30%,
-    rgba(0,0,0,0.65) 100%
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.15) 40%,
+    rgba(0,0,0,0.7) 100%
   );
   pointer-events: none;
 }
@@ -322,7 +324,7 @@ body.single h1.entry-title {
   color: #fff !important;
   margin: 0 !important;
   padding: 0 !important;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  text-shadow: 0 2px 16px rgba(0,0,0,0.6), 0 0 40px rgba(0,0,0,0.3);
   letter-spacing: .01em !important;
   background: none !important;
   border: none !important;
