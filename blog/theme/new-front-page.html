@@ -175,47 +175,60 @@
   margin: 0 auto;
 }
 .nao-post-card {
-  background: var(--nao-white);
-  border-radius: var(--nao-radius);
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: var(--nao-shadow);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
   text-decoration: none;
   color: inherit;
-  display: block;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .nao-post-card:hover {
-  box-shadow: var(--nao-shadow-hover);
-  transform: translateY(-4px);
+  transform: scale(1.02) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
 }
 .nao-post-card .nao-pc-thumb {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/10;
   object-fit: cover;
   display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nao-post-card:hover .nao-pc-thumb {
+  transform: scale(1.06);
+}
+.nao-post-card .nao-pc-img {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .nao-post-card .nao-pc-body {
-  padding: 20px 24px 24px;
+  padding: 24px 24px 28px;
 }
 .nao-pc-cat {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--nao-blue);
-  background: rgba(0,113,227,0.08);
-  padding: 3px 10px;
-  border-radius: 100px;
+  color: var(--nao-gray-500);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin-bottom: 10px;
 }
 .nao-pc-title {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.5;
-  margin-bottom: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.47;
+  margin-bottom: 16px;
 }
 .nao-pc-date {
   font-size: 12px;
   color: var(--nao-gray-500);
+  font-feature-settings: 'tnum';
 }
 /* Skeleton loading */
 .nao-skeleton {
@@ -276,7 +289,7 @@
 
 /* ===== 5. Topics ===== */
 .nao-topics {
-  background: var(--nao-gray-100);
+  background: var(--nao-white);
   padding: var(--nao-section-py) 24px;
 }
 .nao-topics-grid {
@@ -420,14 +433,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 44px;
-  border-radius: 100px;
-  font-size: 16px;
-  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
   border: none;
+  min-width: 180px;
 }
 .nao-btn-primary {
   background: var(--nao-blue);
@@ -502,7 +516,7 @@
   .nao-hero-sub { font-size: 15px; }
   .nao-hero-img { max-width: 90%; }
 
-  .nao-section-head h2 { font-size: 26px; }
+  .nao-section-head h2 { font-size: 36px; }
   :root { --nao-section-py: 64px; }
 
   .nao-themes-grid,
