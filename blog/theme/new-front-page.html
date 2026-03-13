@@ -129,10 +129,10 @@
   margin: 0 auto;
 }
 .nao-theme-card {
-  background: var(--nao-white);
-  border: 1px solid var(--nao-gray-300);
-  border-radius: var(--nao-radius);
-  padding: 36px 28px;
+  background: var(--nao-gray-100);
+  border: none;
+  border-radius: 28px;
+  padding: 40px 48px 36px;
   text-align: center;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -280,9 +280,9 @@
   margin: 0 auto;
 }
 .nao-topic-tile {
-  background: var(--nao-white);
-  border-radius: var(--nao-radius);
-  padding: 36px 20px;
+  background: var(--nao-gray-100);
+  border-radius: 24px;
+  padding: 44px 24px 40px;
   text-align: center;
   text-decoration: none;
   color: var(--nao-black);
@@ -299,9 +299,10 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  background: var(--nao-gray-100);
-  border-radius: 50%;
-  margin: 0 auto 12px;
+  background: var(--nao-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin: 0 auto 20px;
 }
 .nao-topic-tile .nao-tt-name {
   font-size: 14px;
@@ -310,7 +311,7 @@
 
 /* ===== 6. Author ===== */
 .nao-author {
-  background: var(--nao-white);
+  background: linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 100%) !important;
   padding: var(--nao-section-py) 24px;
 }
 .nao-author-inner {
@@ -326,14 +327,16 @@
   margin-bottom: 24px;
 }
 .nao-author-avatar {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  border: 4px solid rgba(255,255,255,0.9);
 }
 .nao-author-name {
-  font-size: 28px;
+  font-size: 36px;
   font-weight: 700;
   margin-bottom: 18px;
   border: none !important;
@@ -656,6 +659,14 @@
           <span class="nao-tt-icon">👶</span>
           <span class="nao-tt-name">子育て・教育</span>
         </a>
+        <a href="/category/side-business/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">💻</span>
+          <span class="nao-tt-name">リモートワーク</span>
+        </a>
+        <a href="/category/side-business/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">💰</span>
+          <span class="nao-tt-name">副業・稼ぎ方</span>
+        </a>
       </div>
     </div>
   </section>
@@ -693,7 +704,7 @@
       <p>Xで毎日発信中。フォローすると、<br>最新記事・移住Tipsが届きます。</p>
       <div class="nao-cta-buttons">
         <a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener" class="nao-btn nao-btn-primary">X をフォローする</a>
-        <a href="/category/paraguay/" class="nao-btn nao-btn-outline">記事一覧を見る</a>
+        <a href="/category/paraguay/" class="nao-btn nao-btn-primary">記事一覧を見る</a>
       </div>
     </div>
   </section>
