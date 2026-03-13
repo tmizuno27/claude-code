@@ -6,8 +6,59 @@
 
 /* ===== PAGE BACKGROUND ===== */
 body.single {
-  background-color: #fafafa !important;
+  background: #fff !important;
+  font-family: Arial,"Hiragino Kaku Gothic ProN","ヒラギノ角ゴ ProN W3","游ゴシック",YuGothic,"メイリオ",Meiryo,sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
 }
+
+/* ===== COCOON LAYOUT — 2-column flex ===== */
+body.single #content-in {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+}
+body.single #main {
+  flex: 1 !important;
+  min-width: 0 !important;
+  float: none !important;
+}
+body.single #sidebar {
+  float: none !important;
+  background: #fff !important;
+  position: sticky !important;
+  top: 20px !important;
+  align-self: flex-start !important;
+  max-height: calc(100vh - 40px) !important;
+  overflow-y: auto !important;
+}
+body.single #sidebar .nao-tcd-sidebar-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+body.single #sidebar aside.widget_custom_html {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+}
+body.single #sidebar .textwidget {
+  padding: 0 !important;
+}
+
+/* ===== HIDE COCOON DEFAULTS ===== */
+body.single .sns-share,
+body.single .sns-share.ss-top,
+body.single .sns-share.ss-bottom,
+body.single .date-tags,
+body.single .breadcrumb,
+body.single .eye-catch-wrap.display-none,
+body.single .under-entry-content .sns-share,
+body.single .toc,
+body.single .toc-content,
+body.single #toc_container { display: none !important; }
+body.single .entry-content > p:has(> span:only-child:empty) { display: none !important; }
+body.single .entry-content > p:has(> span[id]:only-child) { display: none !important; }
 
 /* ===== POST LIST DATE — prevent wrapping ===== */
 .wp-block-post-date {

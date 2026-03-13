@@ -196,6 +196,9 @@
 - **Googleカレンダー**: 日本時間(JST/Asia/Tokyo)で設定されている（日本の企業・顧客との仕事が多いため）
 - **時差**: JST - PYT = 常に12時間（2024年10月サマータイム廃止、通年UTC-3）
 
+## X API認証
+- 詳細: [x-api-credentials.md](x-api-credentials.md)
+
 ## セーブポイント（Gitタグ）
 - **savepoint-article-design-v1** (2026-03-09 15:10 PYT): 記事ページデザイン完成。サイドバーTOC・フッター遮蔽・中央揃え
 - **savepoint-article-design-v2** (2026-03-09 16:00 PYT): PC表示完成。アバター画像修正・シェアボタン削除・フッター遮蔽・サイドバーTOC
