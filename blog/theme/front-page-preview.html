@@ -152,49 +152,6 @@
             display: block;
         }
 
-        /* ===== Section 2: Stats ===== */
-        .fp-stats {
-            background: linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 100%);
-            padding: 72px 24px;
-            text-align: center;
-        }
-        .fp-stats__inner {
-            max-width: 960px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-            background: rgba(255,255,255,0.8);
-            border-radius: 24px;
-            padding: 40px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .fp-stats__item {
-            padding: 12px 24px;
-            position: relative;
-        }
-        .fp-stats__item:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0; top: 15%; bottom: 15%;
-            width: 1px;
-            background: linear-gradient(180deg, transparent, #d2d2d7, transparent);
-        }
-        .fp-stats__value {
-            font-size: 36px;
-            font-weight: 700;
-            color: #1d1d1f;
-            letter-spacing: -0.5px;
-            line-height: 1.2;
-        }
-        .fp-stats__label {
-            font-size: 14px;
-            color: #86868b;
-            margin-top: 6px;
-            font-weight: 500;
-        }
-
         /* ===== Section 3: Pillars ===== */
         .fp-pillars {
             padding: 120px 24px;
@@ -717,15 +674,6 @@
             .fp-hero__overtitle { font-size: 17px; }
             .fp-hero__title { font-size: 40px; }
             .fp-hero__desc { font-size: 17px; }
-
-            .fp-stats { padding: 48px 24px; }
-            .fp-stats__inner {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px 0;
-                padding: 32px 0;
-            }
-            .fp-stats__item:nth-child(2)::after { display: none; }
-            .fp-stats__value { font-size: 28px; }
 
             .fp-pillars { padding: 80px 24px; }
             .fp-pillars__heading { font-size: 36px; }
