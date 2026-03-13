@@ -177,8 +177,6 @@
       }
       w.appendChild(list);
       sbi.appendChild(w);
-      w.style.position = 'sticky';
-      w.style.top = '100px';
     }
   }
 

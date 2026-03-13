@@ -23,7 +23,11 @@ body.single #main {
 body.single #sidebar {
   float: none !important;
   background: #fff !important;
-  align-self: stretch !important;
+  position: sticky !important;
+  top: 20px !important;
+  align-self: flex-start !important;
+  max-height: calc(100vh - 40px) !important;
+  overflow-y: auto !important;
 }
 body.single #sidebar .nao-tcd-sidebar-inner {
   display: flex;
