@@ -78,6 +78,10 @@
     var eyeImg = header.querySelector('.eye-catch img');
     if (!titleEl || !eyeImg) return;
 
+    // Skip hero for Cocoon no-image placeholder
+    var src = eyeImg.src || '';
+    if (src.indexOf('no-image') !== -1 || src.indexOf('noimage') !== -1 || src.indexOf('screenshot') !== -1) return;
+
     // Get category
     var catLabel = header.querySelector('.cat-label') || document.querySelector('.cat-label');
     var catName = catLabel ? catLabel.textContent.trim() : '';
