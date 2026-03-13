@@ -162,8 +162,10 @@
 
 /* ===== 3. Latest Stories ===== */
 .nao-latest {
-  background: var(--nao-gray-100);
+  background: linear-gradient(180deg, #e8e8ed 0%, #d2d2d7 40%, #c7c7cc 100%);
   padding: var(--nao-section-py) 24px;
+  position: relative;
+  overflow: hidden;
 }
 .nao-posts-grid {
   display: grid;
@@ -245,7 +247,7 @@
   align-items: center;
   gap: 20px;
   padding: 20px 0;
-  border-bottom: 1px solid var(--nao-gray-300);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
   text-decoration: none;
   color: inherit;
   transition: opacity 0.2s;
@@ -253,19 +255,23 @@
 .nao-popular-item:hover { opacity: 0.7; }
 .nao-popular-item:last-child { border-bottom: none; }
 .nao-popular-num {
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--nao-gray-300);
-  min-width: 48px;
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d2d2d7, #e8e8ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 60px;
   text-align: center;
   line-height: 1;
+  font-feature-settings: 'tnum';
 }
 .nao-popular-body { flex: 1; }
 .nao-popular-title {
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 600;
-  line-height: 1.5;
-  margin-bottom: 4px;
+  line-height: 1.47;
+  margin-bottom: 6px;
 }
 
 /* ===== 5. Topics ===== */
@@ -306,8 +312,8 @@
   margin: 0 auto 20px;
 }
 .nao-topic-tile .nao-tt-name {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 17px;
+  font-weight: 600;
 }
 
 /* ===== 6. Author ===== */
@@ -321,11 +327,12 @@
   text-align: center;
 }
 .nao-author-label {
-  font-size: 13px;
+  font-size: 17px;
   color: var(--nao-gray-500);
   font-weight: 600;
   letter-spacing: 0.05em;
   margin-bottom: 24px;
+  text-transform: uppercase;
 }
 .nao-author-avatar {
   width: 140px;
