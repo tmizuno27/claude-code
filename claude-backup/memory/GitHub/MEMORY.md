@@ -202,4 +202,5 @@
 ## セーブポイント（Gitタグ）
 - **savepoint-article-design-v1** (2026-03-09 15:10 PYT): 記事ページデザイン完成。サイドバーTOC・フッター遮蔽・中央揃え
 - **savepoint-article-design-v2** (2026-03-09 16:00 PYT): PC表示完成。アバター画像修正・シェアボタン削除・フッター遮蔽・サイドバーTOC
+- **savepoint-frontpage-v1** (2026-03-13 14:56 PYT): トップページApple風デザイン完成。コミット`a90ce7f8`。詳細: [front-page-savepoint.md](front-page-savepoint.md)
 - 復元方法: `git checkout <タグ名> -- blog/design/single-article.css blog/design/single-article.js`
