@@ -1,6 +1,6 @@
 {
   "description": "WordPress Media ID mapping for nambei-oyaji.com",
-  "updated": "2026-03-05",
+  "updated": "2026-03-13",
   "media": {
     "1095": {
       "file": "immigration/airplane-window.jpg",
@@ -312,6 +312,156 @@
       "file": "stock/food-culture/outdoor-barbecue_1440105.jpg",
       "wp_name": "outdoor-barbecue_1440105.jpg",
       "title": "屋外でのBBQ風景"
+    },
+    "1858": {
+      "file": "stock/immigration-visa/customs-border_1143485.jpg",
+      "wp_name": "customs-border_1143485.jpg",
+      "title": "パラグアイの永住権の取り方完全ガイド"
+    },
+    "1859": {
+      "file": "stock/immigration-visa/airport-departure_6911566.jpg",
+      "wp_name": "airport-departure_6911566.jpg",
+      "title": "パラグアイのビザの種類と取得方法"
+    },
+    "1860": {
+      "file": "stock/finance-money/online-banking_4287684.jpg",
+      "wp_name": "online-banking_4287684.jpg",
+      "title": "パラグアイで銀行口座を開設する方法"
+    },
+    "1861": {
+      "file": "stock/internet-vpn/fiber-optic-cable_502894.jpg",
+      "wp_name": "fiber-optic-cable_502894.jpg",
+      "title": "パラグアイのインターネット・通信事情"
+    },
+    "1862": {
+      "file": "stock/internet-vpn/cybersecurity-lock_3998798.jpg",
+      "wp_name": "cybersecurity-lock_3998798.jpg",
+      "title": "海外生活で必須のVPN おすすめ3選"
+    },
+    "1863": {
+      "file": "stock/remote-work/freelancer-laptop_581131.jpg",
+      "wp_name": "freelancer-laptop_581131.jpg",
+      "title": "海外移住者が身につけるべきスキル"
+    },
+    "1864": {
+      "file": "stock/blog-writing/content-creation_5366803.jpg",
+      "wp_name": "content-creation_5366803.jpg",
+      "title": "海外移住前のオンラインスクール"
+    },
+    "1865": {
+      "file": "stock/family-education/children-learning_286245.jpg",
+      "wp_name": "children-learning_286245.jpg",
+      "title": "パラグアイの教育事情"
+    },
+    "1866": {
+      "file": "stock/healthcare/family-healthcare_1531059.jpg",
+      "wp_name": "family-healthcare_1531059.jpg",
+      "title": "パラグアイの医療・保険事情"
+    },
+    "1867": {
+      "file": "stock/healthcare/doctor-patient_4099432.jpg",
+      "wp_name": "doctor-patient_4099432.jpg",
+      "title": "海外在住者向け保険徹底比較"
+    },
+    "1868": {
+      "file": "stock/blog-writing/seo-marketing_1725340.jpg",
+      "wp_name": "seo-marketing_1725340.jpg",
+      "title": "海外生活ブログで収益化する方法"
+    },
+    "1869": {
+      "file": "stock/language-learning/conversation-people_2805643.jpg",
+      "wp_name": "conversation-people_2805643.jpg",
+      "title": "パラグアイの言語事情"
+    },
+    "1870": {
+      "file": "stock/language-learning/language-learning-book_1106196.jpg",
+      "wp_name": "language-learning-book_1106196.jpg",
+      "title": "オンラインスペイン語学習サービス比較"
+    },
+    "1871": {
+      "file": "stock/mental-health/cultural-exchange-people_641632.jpg",
+      "wp_name": "cultural-exchange-people_641632.jpg",
+      "title": "パラグアイの日本人コミュニティ"
+    },
+    "1872": {
+      "file": "stock/mental-health/happy-family-outdoor_7318667.jpg",
+      "wp_name": "happy-family-outdoor_7318667.jpg",
+      "title": "海外移住のホームシック対策"
+    },
+    "1873": {
+      "file": "stock/immigration-visa/checklist-notebook_2313804.jpg",
+      "wp_name": "checklist-notebook_2313804.jpg",
+      "title": "海外移住の持ち物リスト"
+    },
+    "1874": {
+      "file": "stock/finance-money/budget-spreadsheet_10144715.jpg",
+      "wp_name": "budget-spreadsheet_10144715.jpg",
+      "title": "海外在住者の年金・社会保険ガイド"
+    },
+    "1875": {
+      "file": "stock/finance-money/tax-calculator_4097292.jpg",
+      "wp_name": "tax-calculator_4097292.jpg",
+      "title": "海外在住者の確定申告・税金ガイド"
+    },
+    "1876": {
+      "file": "stock/remote-work/coworking-space_1702639.jpg",
+      "wp_name": "coworking-space_1702639.jpg",
+      "title": "海外移住後のリモートワーク完全ガイド"
+    },
+    "1877": {
+      "file": "stock/blog-writing/content-creation_6479291.jpg",
+      "wp_name": "content-creation_6479291.jpg",
+      "title": "動画編集・SNS運用代行で稼ぐ方法"
+    },
+    "1878": {
+      "file": "stock/shopping-supermarket/grocery-shopping-cart_1275480.jpg",
+      "wp_name": "grocery-shopping-cart_1275480.jpg",
+      "title": "オンライン物販で稼ぐ方法"
+    },
+    "1879": {
+      "file": "stock/remote-work/coworking-space_6952917.jpg",
+      "wp_name": "coworking-space_6952917.jpg",
+      "title": "リモート事務代行で稼ぐ方法"
+    },
+    "1880": {
+      "file": "stock/real-estate/apartment-building_5585737.jpg",
+      "wp_name": "apartment-building_5585737.jpg",
+      "title": "パラグアイの賃貸・住まい事情"
+    },
+    "1881": {
+      "file": "stock/real-estate/house-garden-tropical_169540.jpg",
+      "wp_name": "house-garden-tropical_169540.jpg",
+      "title": "パラグアイの不動産事情"
+    },
+    "1882": {
+      "file": "stock/finance-money/coins-money-jar_968302.jpg",
+      "wp_name": "coins-money-jar_968302.jpg",
+      "title": "パラグアイで起業する方法"
+    },
+    "1883": {
+      "file": "stock/transportation/bus-city-public_2730653.jpg",
+      "wp_name": "bus-city-public_2730653.jpg",
+      "title": "パラグアイの交通事情"
+    },
+    "1884": {
+      "file": "stock/lifestyle-general/blue-sky-clouds_5080909.jpg",
+      "wp_name": "blue-sky-clouds_5080909.jpg",
+      "title": "パラグアイの水道・電気・ガス事情"
+    },
+    "1885": {
+      "file": "stock/food-culture/street-food-latin_6056846.jpg",
+      "wp_name": "street-food-latin_6056846.jpg",
+      "title": "パラグアイの日本食事情"
+    },
+    "1886": {
+      "file": "stock/kids-activities/children-soccer-playing_4380909.jpg",
+      "wp_name": "children-soccer-playing_4380909.jpg",
+      "title": "パラグアイの子供の習い事・スポーツ"
+    },
+    "1887": {
+      "file": "stock/lifestyle-general/colorful-flowers_3518967.jpg",
+      "wp_name": "colorful-flowers_3518967.jpg",
+      "title": "パラグアイの祝日・文化・イベント"
     }
   },
   "post_featured_images": {
@@ -342,6 +492,260 @@
     "1070": {
       "media_id": 1120,
       "post_title": "海外送金"
+    }
+  },
+  "draft_featured_images": {
+    "6": {
+      "media_id": 1685,
+      "image_file": "stock/immigration-visa/suitcase-packing_3414018.jpg",
+      "title": "パラグアイ移住で失敗しないための注意点",
+      "alt": "パラグアイ移住の注意点"
+    },
+    "7": {
+      "media_id": 1690,
+      "image_file": "stock/finance-money/savings-money_1264856.jpg",
+      "title": "パラグアイの税金が安い理由",
+      "alt": "パラグアイの税金・節税"
+    },
+    "8": {
+      "media_id": 1700,
+      "image_file": "stock/remote-work/laptop-tropical_3931996.jpg",
+      "title": "パラグアイ移住後のリアルな収入事情",
+      "alt": "パラグアイでの収入事情"
+    },
+    "9": {
+      "media_id": 1858,
+      "image_file": "stock/immigration-visa/customs-border_1143485.jpg",
+      "title": "パラグアイの永住権の取り方完全ガイド",
+      "alt": "パラグアイの永住権取得"
+    },
+    "10": {
+      "media_id": 1859,
+      "image_file": "stock/immigration-visa/airport-departure_6911566.jpg",
+      "title": "パラグアイのビザの種類と取得方法",
+      "alt": "パラグアイのビザ・渡航"
+    },
+    "11": {
+      "media_id": 1708,
+      "image_file": "stock/immigration-visa/checklist-notebook_2098425.jpg",
+      "title": "海外移住前の準備リスト完全版",
+      "alt": "海外移住準備チェックリスト"
+    },
+    "12": {
+      "media_id": 1703,
+      "image_file": "stock/finance-money/credit-card_229830.jpg",
+      "title": "海外在住者向けクレジットカード比較",
+      "alt": "海外在住者向けクレジットカード"
+    },
+    "13": {
+      "media_id": 1860,
+      "image_file": "stock/finance-money/online-banking_4287684.jpg",
+      "title": "パラグアイで銀行口座を開設する方法",
+      "alt": "パラグアイの銀行口座開設"
+    },
+    "15": {
+      "media_id": 1861,
+      "image_file": "stock/internet-vpn/fiber-optic-cable_502894.jpg",
+      "title": "パラグアイのインターネット・通信事情",
+      "alt": "パラグアイのインターネット環境"
+    },
+    "16": {
+      "media_id": 1862,
+      "image_file": "stock/internet-vpn/cybersecurity-lock_3998798.jpg",
+      "title": "海外生活で必須のVPN おすすめ3選",
+      "alt": "VPNセキュリティ"
+    },
+    "18": {
+      "media_id": 1699,
+      "image_file": "stock/remote-work/remote-work-laptop_1869820.jpg",
+      "title": "パラグアイからリモートワーク",
+      "alt": "パラグアイからのリモートワーク"
+    },
+    "19": {
+      "media_id": 1863,
+      "image_file": "stock/remote-work/freelancer-laptop_581131.jpg",
+      "title": "海外移住者が身につけるべきスキル",
+      "alt": "海外移住に必要なスキル"
+    },
+    "20": {
+      "media_id": 1864,
+      "image_file": "stock/blog-writing/content-creation_5366803.jpg",
+      "title": "海外移住前のオンラインスクール",
+      "alt": "オンラインスクールで学ぶ"
+    },
+    "21": {
+      "media_id": 1865,
+      "image_file": "stock/family-education/children-learning_286245.jpg",
+      "title": "パラグアイの教育事情",
+      "alt": "パラグアイの教育・インターナショナルスクール"
+    },
+    "23": {
+      "media_id": 1866,
+      "image_file": "stock/healthcare/family-healthcare_1531059.jpg",
+      "title": "パラグアイの医療・保険事情",
+      "alt": "パラグアイの医療・病院"
+    },
+    "24": {
+      "media_id": 1867,
+      "image_file": "stock/healthcare/doctor-patient_4099432.jpg",
+      "title": "海外在住者向け保険徹底比較",
+      "alt": "海外保険の比較"
+    },
+    "25": {
+      "media_id": 1722,
+      "image_file": "stock/blog-writing/blogging-laptop_581131.jpg",
+      "title": "海外生活ブログの始め方",
+      "alt": "ブログの始め方"
+    },
+    "26": {
+      "media_id": 1868,
+      "image_file": "stock/blog-writing/seo-marketing_1725340.jpg",
+      "title": "海外生活ブログで収益化する方法",
+      "alt": "ブログ収益化"
+    },
+    "27": {
+      "media_id": 1869,
+      "image_file": "stock/language-learning/conversation-people_2805643.jpg",
+      "title": "パラグアイの言語事情",
+      "alt": "パラグアイの言語・会話"
+    },
+    "28": {
+      "media_id": 1870,
+      "image_file": "stock/language-learning/language-learning-book_1106196.jpg",
+      "title": "オンラインスペイン語学習サービス比較",
+      "alt": "スペイン語オンライン学習"
+    },
+    "29": {
+      "media_id": 1871,
+      "image_file": "stock/mental-health/cultural-exchange-people_641632.jpg",
+      "title": "パラグアイの日本人コミュニティ",
+      "alt": "パラグアイの日本人コミュニティ"
+    },
+    "30": {
+      "media_id": 1872,
+      "image_file": "stock/mental-health/happy-family-outdoor_7318667.jpg",
+      "title": "海外移住のホームシック対策",
+      "alt": "海外移住のメンタルケア"
+    },
+    "31": {
+      "media_id": 1873,
+      "image_file": "stock/immigration-visa/checklist-notebook_2313804.jpg",
+      "title": "海外移住の持ち物リスト",
+      "alt": "海外移住の持ち物準備"
+    },
+    "32": {
+      "media_id": 1874,
+      "image_file": "stock/finance-money/budget-spreadsheet_10144715.jpg",
+      "title": "海外在住者の年金・社会保険ガイド",
+      "alt": "年金・社会保険の手続き"
+    },
+    "33": {
+      "media_id": 1875,
+      "image_file": "stock/finance-money/tax-calculator_4097292.jpg",
+      "title": "海外在住者の確定申告・税金ガイド",
+      "alt": "確定申告・税金"
+    },
+    "34": {
+      "media_id": 1876,
+      "image_file": "stock/remote-work/coworking-space_1702639.jpg",
+      "title": "海外移住後のリモートワーク完全ガイド",
+      "alt": "リモートワークガイド"
+    },
+    "35": {
+      "media_id": 1720,
+      "image_file": "stock/remote-work/typing-keyboard_70506.jpg",
+      "title": "海外在住Webライターの始め方",
+      "alt": "Webライターの仕事"
+    },
+    "36": {
+      "media_id": 1721,
+      "image_file": "stock/remote-work/programming-code_1283624.jpg",
+      "title": "海外在住者のプログラミング副業",
+      "alt": "プログラミング副業"
+    },
+    "37": {
+      "media_id": 1877,
+      "image_file": "stock/blog-writing/content-creation_6479291.jpg",
+      "title": "動画編集・SNS運用代行で稼ぐ方法",
+      "alt": "動画編集・SNS運用"
+    },
+    "38": {
+      "media_id": 1878,
+      "image_file": "stock/shopping-supermarket/grocery-shopping-cart_1275480.jpg",
+      "title": "オンライン物販で稼ぐ方法",
+      "alt": "オンライン物販"
+    },
+    "39": {
+      "media_id": 1879,
+      "image_file": "stock/remote-work/coworking-space_6952917.jpg",
+      "title": "リモート事務代行で稼ぐ方法",
+      "alt": "リモート事務代行"
+    },
+    "40": {
+      "media_id": 1694,
+      "image_file": "stock/lifestyle-general/nature-path-walking_4609870.jpg",
+      "title": "海外ノマドにおすすめの国",
+      "alt": "海外ノマド生活"
+    },
+    "41": {
+      "media_id": 1880,
+      "image_file": "stock/real-estate/apartment-building_5585737.jpg",
+      "title": "パラグアイの賃貸・住まい事情",
+      "alt": "パラグアイの賃貸住宅"
+    },
+    "42": {
+      "media_id": 1881,
+      "image_file": "stock/real-estate/house-garden-tropical_169540.jpg",
+      "title": "パラグアイの不動産事情",
+      "alt": "パラグアイの不動産"
+    },
+    "43": {
+      "media_id": 1882,
+      "image_file": "stock/finance-money/coins-money-jar_968302.jpg",
+      "title": "パラグアイで起業する方法",
+      "alt": "パラグアイでの起業"
+    },
+    "44": {
+      "media_id": 1883,
+      "image_file": "stock/transportation/bus-city-public_2730653.jpg",
+      "title": "パラグアイの交通事情",
+      "alt": "パラグアイの交通・バス"
+    },
+    "45": {
+      "media_id": 1884,
+      "image_file": "stock/lifestyle-general/blue-sky-clouds_5080909.jpg",
+      "title": "パラグアイの水道・電気・ガス事情",
+      "alt": "パラグアイのライフライン"
+    },
+    "46": {
+      "media_id": 1689,
+      "image_file": "stock/shopping-supermarket/supermarket-aisle_3105631.jpg",
+      "title": "パラグアイのスーパー・買い物事情",
+      "alt": "パラグアイのスーパーマーケット"
+    },
+    "47": {
+      "media_id": 1885,
+      "image_file": "stock/food-culture/street-food-latin_6056846.jpg",
+      "title": "パラグアイの日本食事情",
+      "alt": "パラグアイの日本食"
+    },
+    "48": {
+      "media_id": 1697,
+      "image_file": "stock/family-education/parent-child-reading_2598005.jpg",
+      "title": "パラグアイの子育て・教育費",
+      "alt": "パラグアイの子育て・教育費"
+    },
+    "49": {
+      "media_id": 1886,
+      "image_file": "stock/kids-activities/children-soccer-playing_4380909.jpg",
+      "title": "パラグアイの子供の習い事・スポーツ",
+      "alt": "パラグアイの子供の習い事"
+    },
+    "50": {
+      "media_id": 1887,
+      "image_file": "stock/lifestyle-general/colorful-flowers_3518967.jpg",
+      "title": "パラグアイの祝日・文化・イベント",
+      "alt": "パラグアイの文化・祝日"
     }
   }
 }
