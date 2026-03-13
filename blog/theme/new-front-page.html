@@ -263,15 +263,15 @@
 }
 .nao-topics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   max-width: var(--nao-max-w);
   margin: 0 auto;
 }
 .nao-topic-tile {
   background: var(--nao-white);
-  border-radius: var(--nao-radius-sm);
-  padding: 28px 20px;
+  border-radius: var(--nao-radius);
+  padding: 36px 20px;
   text-align: center;
   text-decoration: none;
   color: var(--nao-black);
@@ -282,9 +282,15 @@
   transform: translateY(-4px);
 }
 .nao-topic-tile .nao-tt-icon {
-  font-size: 32px;
-  display: block;
-  margin-bottom: 10px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--nao-gray-100);
+  border-radius: 50%;
+  margin: 0 auto 12px;
 }
 .nao-topic-tile .nao-tt-name {
   font-size: 14px;
@@ -309,8 +315,8 @@
   margin-bottom: 24px;
 }
 .nao-author-avatar {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 20px;
@@ -337,11 +343,12 @@
   margin-bottom: 24px;
 }
 .nao-author-tag {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--nao-gray-700);
-  background: var(--nao-gray-100);
-  padding: 5px 14px;
+  background: var(--nao-white);
+  border: 1px solid var(--nao-gray-300);
+  padding: 8px 18px;
   border-radius: 100px;
 }
 .nao-author-links {
@@ -365,15 +372,16 @@
   overflow: hidden;
 }
 .nao-cta h2 {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 700;
   color: #fff !important;
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
 }
 .nao-cta p {
-  font-size: 15px;
+  font-size: 16px;
   color: #86868b !important;
-  margin-bottom: 36px;
+  margin-bottom: 44px;
   line-height: 1.8;
 }
 .nao-cta-buttons {
@@ -386,9 +394,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
+  padding: 18px 44px;
   border-radius: 100px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   transition: all 0.25s ease;
@@ -647,11 +655,11 @@
         loading="lazy"
       >
       <h3 class="nao-author-name">南米おやじ</h3>
-      <p class="nao-author-desc">南米パラグアイ・アスンシオン在住。家族4人で海外移住し、パートナーワークとして、現地に暮らしながら発信中。</p>
+      <p class="nao-author-desc">南米パラグアイ・アスンシオン在住。<br>家族4人で海外移住し、リモートワークと副業で<br>場所に縛られない生き方を実践中。</p>
       <div class="nao-author-tags">
-        <span class="nao-author-tag">アスンシオン在住</span>
-        <span class="nao-author-tag">2児のパパ</span>
-        <span class="nao-author-tag">5ヵ国の海外経験</span>
+        <span class="nao-author-tag">🇵🇾 アスンシオン在住</span>
+        <span class="nao-author-tag">👨‍👩‍👧‍👦 2児のパパ</span>
+        <span class="nao-author-tag">🌏 3カ国の海外経験</span>
       </div>
       <div class="nao-author-links">
         <a href="/about/">プロフィールを読む ›</a>
