@@ -134,16 +134,45 @@
   border-radius: 28px;
   padding: 40px 48px 36px;
   text-align: center;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+.nao-theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 .nao-theme-card:hover {
-  box-shadow: var(--nao-shadow-hover);
-  transform: translateY(-4px);
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
 }
+.nao-theme-card:hover::before { opacity: 1; }
 .nao-theme-card .nao-tc-icon {
-  font-size: 40px;
-  margin-bottom: 16px;
+  font-size: 56px;
+  margin-bottom: 24px;
   display: block;
+  position: relative;
+  z-index: 1;
+}
+.nao-theme-card .nao-tc-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
 .nao-theme-card h3 {
   font-size: 28px;
@@ -170,7 +199,7 @@
 .nao-posts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
   max-width: var(--nao-max-w);
   margin: 0 auto;
 }
@@ -557,21 +586,50 @@
         <h2 class="nao-anim" data-anim="fade-up">3つのテーマで発信中</h2>
       </div>
       <div class="nao-themes-grid">
-        <div class="nao-theme-card nao-anim" data-anim="fade-up">
-          <span class="nao-tc-icon">🇵🇾</span>
+        <a href="/category/paraguay/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg viewBox="0 0 60 40" width="48" height="32" style="border-radius:6px; overflow:hidden; display:block;">
+              <rect width="60" height="13.33" fill="#D52B1E"/>
+              <rect y="13.33" width="60" height="13.34" fill="#FFFFFF"/>
+              <rect y="26.67" width="60" height="13.33" fill="#0038A8"/>
+              <circle cx="30" cy="20" r="6.5" fill="none" stroke="#4B8B3B" stroke-width="1.3"/>
+              <circle cx="30" cy="20" r="4.5" fill="none" stroke="#C8A951" stroke-width="0.6"/>
+              <polygon points="30,17 30.8,19.2 33,19.2 31.1,20.6 31.8,22.8 30,21.4 28.2,22.8 28.9,20.6 27,19.2 29.2,19.2" fill="#C8A951"/>
+            </svg>
+          </div>
           <h3>パラグアイ生活</h3>
           <p>気候・治安・生活費・食文化<br>在住者だけが知るリアルな情報</p>
-        </div>
-        <div class="nao-theme-card nao-anim" data-anim="fade-up">
-          <span class="nao-tc-icon">💼</span>
+        </a>
+        <a href="/category/side-business/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="6" y="8" width="28" height="19" rx="2" fill="#1d1d1f"/>
+              <rect x="8" y="10" width="24" height="15" rx="1" fill="url(#naoScreenGrad)"/>
+              <rect x="3" y="27" width="34" height="3" rx="1.5" fill="#6e6e73"/>
+              <rect x="15" y="28" width="10" height="1" rx="0.5" fill="#86868b"/>
+              <defs>
+                <linearGradient id="naoScreenGrad" x1="8" y1="10" x2="32" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
           <h3>海外からの稼ぎ方</h3>
           <p>リモートワーク・副業・ブログ<br>場所に縛られない稼ぎ方を実践中</p>
-        </div>
-        <div class="nao-theme-card nao-anim" data-anim="fade-up">
-          <span class="nao-tc-icon">💰</span>
+        </a>
+        <a href="/category/ijuu-junbi/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="8" y="6" width="24" height="30" rx="2" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="1.5"/>
+              <path d="M13 14h14M13 19h14M13 24h10" stroke="#86868b" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="30" cy="30" r="8" fill="#34C759"/>
+              <path d="M27 30l2 2 4-4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
           <h3>お金と手続き</h3>
           <p>ビザ・永住権・海外送金・費用<br>移住前に知りたいお金の全知識</p>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -582,32 +640,55 @@
       <div class="nao-section-head">
         <h2 class="nao-anim" data-anim="fade-up">新着ストーリー</h2>
       </div>
-      <div class="nao-posts-grid" id="nao-latest-posts">
-        <!-- Skeleton placeholders (replaced by JS) -->
-        <div class="nao-post-card">
-          <div class="nao-skeleton nao-skeleton-thumb"></div>
+      <div class="nao-posts-grid">
+        <a href="/paraguay-immigration-cost/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-passport1.jpg" alt="パラグアイ移住の費用" class="nao-pc-thumb" loading="lazy"></div>
           <div class="nao-pc-body">
-            <div class="nao-skeleton nao-skeleton-line" style="width:40%"></div>
-            <div class="nao-skeleton nao-skeleton-line"></div>
-            <div class="nao-skeleton nao-skeleton-line --short"></div>
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイ移住の費用はいくら？<br>初期費用から月々の生活費まで全公開</h3>
+            <span class="nao-pc-date">2026.03.08</span>
           </div>
-        </div>
-        <div class="nao-post-card">
-          <div class="nao-skeleton nao-skeleton-thumb"></div>
+        </a>
+        <a href="/paraguay-living-cost/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-latin-st.jpg" alt="パラグアイの生活費" class="nao-pc-thumb" loading="lazy"></div>
           <div class="nao-pc-body">
-            <div class="nao-skeleton nao-skeleton-line" style="width:40%"></div>
-            <div class="nao-skeleton nao-skeleton-line"></div>
-            <div class="nao-skeleton nao-skeleton-line --short"></div>
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイの生活費を完全公開！<br>1ヶ月の家計簿と物価を日本と徹底比較</h3>
+            <span class="nao-pc-date">2026.03.08</span>
           </div>
-        </div>
-        <div class="nao-post-card">
-          <div class="nao-skeleton nao-skeleton-thumb"></div>
+        </a>
+        <a href="/paraguay-safety-security/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-asuncion-city.jpg" alt="パラグアイの治安" class="nao-pc-thumb" loading="lazy"></div>
           <div class="nao-pc-body">
-            <div class="nao-skeleton nao-skeleton-line" style="width:40%"></div>
-            <div class="nao-skeleton nao-skeleton-line"></div>
-            <div class="nao-skeleton nao-skeleton-line --short"></div>
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイの治安は本当に危険？<br>在住者が語る2026年最新の治安事情と対策</h3>
+            <span class="nao-pc-date">2026.03.08</span>
           </div>
-        </div>
+        </a>
+        <a href="/moving-abroad-with-kids/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-intl-school.jpg" alt="子連れ海外移住" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">子連れ海外移住の準備と注意点<br>家族4人でパラグアイに移住した体験談</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/working-after-moving-abroad/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-rw-laptop.jpg" alt="海外移住後の働き方" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">副業・稼ぎ方</p>
+            <h3 class="nao-pc-title">海外移住後の働き方・収入源5選<br>パラグアイ在住者が実践中の方法</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/international-money-transfer-comparison/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-money-ex.jpg" alt="海外送金サービス比較" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">副業・稼ぎ方</p>
+            <h3 class="nao-pc-title">海外送金サービス徹底比較<br>Wise・Revolut・銀行の手数料を完全解説</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
