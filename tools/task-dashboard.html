@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -6,287 +6,77 @@
 <title>自動タスク一覧 — Task Dashboard</title>
 <style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #12121a;
-    --surface-hover: #1a1a26;
-    --border: #1e1e2e;
-    --text: #e4e4ef;
-    --text-muted: #6b6b80;
-    --accent: #6366f1;
-    --green: #22c55e;
-    --green-bg: rgba(34,197,94,.08);
-    --red: #ef4444;
-    --red-bg: rgba(239,68,68,.08);
-    --yellow: #eab308;
-    --yellow-bg: rgba(234,179,8,.08);
-    --blue: #3b82f6;
-    --blue-bg: rgba(59,130,246,.08);
+    --bg: #0a0a0f; --surface: #12121a; --surface-hover: #1a1a26; --border: #1e1e2e;
+    --text: #e4e4ef; --text-muted: #6b6b80; --accent: #6366f1;
+    --green: #22c55e; --green-bg: rgba(34,197,94,.08);
+    --red: #ef4444; --red-bg: rgba(239,68,68,.08);
+    --yellow: #eab308; --yellow-bg: rgba(234,179,8,.08);
+    --blue: #3b82f6; --blue-bg: rgba(59,130,246,.08);
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    min-height: 100vh;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 24px;
-  }
-
-  /* Header */
-  .header {
-    margin-bottom: 40px;
-  }
-
-  .header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 8px;
-  }
-
-  .header .subtitle {
-    color: var(--text-muted);
-    font-size: 14px;
-  }
-
-  .header .timestamp {
-    color: var(--text-muted);
-    font-size: 13px;
-    margin-top: 4px;
-  }
-
-  /* Summary Cards */
-  .summary {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    margin-bottom: 36px;
-  }
-
-  .summary-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
-
-  .summary-card .label {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .summary-card .value {
-    font-size: 36px;
-    font-weight: 700;
-    letter-spacing: -1px;
-  }
-
-  .summary-card.total .value { color: var(--text); }
-  .summary-card.ok .value { color: var(--green); }
-  .summary-card.error .value { color: var(--red); }
-  .summary-card.warn .value { color: var(--yellow); }
-
-  /* Section */
-  .section {
-    margin-bottom: 32px;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-header .icon {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  .section-header h2 {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: -0.2px;
-  }
-
-  .section-header .count {
-    font-size: 12px;
-    color: var(--text-muted);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2px 10px;
-  }
-
-  /* Table */
-  .task-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-
-  .task-table thead th {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-muted);
-    text-align: left;
-    padding: 8px 16px;
-  }
-
-  .task-table tbody tr {
-    background: var(--surface);
-    transition: background .15s;
-  }
-
-  .task-table tbody tr:hover {
-    background: var(--surface-hover);
-  }
-
-  .task-table tbody tr:first-child td:first-child { border-top-left-radius: 10px; }
-  .task-table tbody tr:first-child td:last-child { border-top-right-radius: 10px; }
-  .task-table tbody tr:last-child td:first-child { border-bottom-left-radius: 10px; }
-  .task-table tbody tr:last-child td:last-child { border-bottom-right-radius: 10px; }
-
-  .task-table td {
-    padding: 12px 16px;
-    font-size: 14px;
-    border-bottom: 1px solid var(--border);
-    white-space: nowrap;
-  }
-
-  .task-table tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  .task-name {
-    font-weight: 600;
-    font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
-    font-size: 13px;
-  }
-
-  .task-desc {
-    color: var(--text-muted);
-    font-size: 13px;
-  }
-
-  .frequency {
-    font-size: 12px;
-    padding: 3px 10px;
-    border-radius: 6px;
-    background: var(--blue-bg);
-    color: var(--blue);
-    font-weight: 500;
-    display: inline-block;
-  }
-
-  .time-cell {
-    font-family: 'SF Mono', 'Consolas', monospace;
-    font-size: 13px;
-    color: var(--text-muted);
-  }
-
-  /* Status badges */
-  .status {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 4px 12px;
-    border-radius: 20px;
-  }
-
-  .status .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-  }
-
-  .status.ok { background: var(--green-bg); color: var(--green); }
-  .status.ok .dot { background: var(--green); box-shadow: 0 0 6px var(--green); }
-
-  .status.error { background: var(--red-bg); color: var(--red); }
-  .status.error .dot { background: var(--red); box-shadow: 0 0 6px var(--red); }
-
-  .status.warn { background: var(--yellow-bg); color: var(--yellow); }
-  .status.warn .dot { background: var(--yellow); box-shadow: 0 0 6px var(--yellow); }
-
-  .last-run {
-    font-family: 'SF Mono', 'Consolas', monospace;
-    font-size: 12px;
-    color: var(--text-muted);
-  }
-
-  .swa-badge {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-  }
-  .swa-badge.on { background: var(--green-bg); color: var(--green); }
-  .swa-badge.off { background: var(--red-bg); color: var(--red); }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .summary { grid-template-columns: repeat(2, 1fr); }
-    .task-table { display: block; overflow-x: auto; }
-    .container { padding: 24px 16px; }
-  }
-
-  /* Pulse animation for active errors */
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .5; }
-  }
-  .status.error .dot { animation: pulse 2s infinite; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans JP',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; min-height:100vh; }
+  .container { max-width:1200px; margin:0 auto; padding:40px 24px; }
+  .header { margin-bottom:40px; }
+  .header h1 { font-size:28px; font-weight:700; letter-spacing:-0.5px; margin-bottom:8px; }
+  .header .subtitle { color:var(--text-muted); font-size:14px; }
+  .header .timestamp { color:var(--text-muted); font-size:13px; margin-top:4px; }
+  .summary { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
+  .summary-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+  .summary-card .label { font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); margin-bottom:8px; }
+  .summary-card .value { font-size:36px; font-weight:700; letter-spacing:-1px; }
+  .summary-card.total .value { color:var(--text); }
+  .summary-card.ok .value { color:var(--green); }
+  .summary-card.error .value { color:var(--red); }
+  .summary-card.warn .value { color:var(--yellow); }
+  .section { margin-bottom:32px; }
+  .section-header { display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .section-header .icon { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .section-header h2 { font-size:16px; font-weight:600; letter-spacing:-0.2px; }
+  .section-header .count { font-size:12px; color:var(--text-muted); background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:2px 10px; }
+  .task-table { width:100%; border-collapse:separate; border-spacing:0; }
+  .task-table thead th { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px; color:var(--text-muted); text-align:left; padding:8px 16px; }
+  .task-table tbody tr { background:var(--surface); transition:background .15s; }
+  .task-table tbody tr:hover { background:var(--surface-hover); }
+  .task-table tbody tr:first-child td:first-child { border-top-left-radius:10px; }
+  .task-table tbody tr:first-child td:last-child { border-top-right-radius:10px; }
+  .task-table tbody tr:last-child td:first-child { border-bottom-left-radius:10px; }
+  .task-table tbody tr:last-child td:last-child { border-bottom-right-radius:10px; }
+  .task-table td { padding:12px 16px; font-size:14px; border-bottom:1px solid var(--border); white-space:nowrap; }
+  .task-table tbody tr:last-child td { border-bottom:none; }
+  .task-name { font-weight:600; font-family:'SF Mono','Consolas','Monaco',monospace; font-size:13px; }
+  .task-desc { color:var(--text-muted); font-size:13px; }
+  .frequency { font-size:12px; padding:3px 10px; border-radius:6px; background:var(--blue-bg); color:var(--blue); font-weight:500; display:inline-block; }
+  .time-cell { font-family:'SF Mono','Consolas',monospace; font-size:13px; color:var(--text-muted); }
+  .status { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:600; padding:4px 12px; border-radius:20px; }
+  .status .dot { width:6px; height:6px; border-radius:50%; }
+  .status.ok { background:var(--green-bg); color:var(--green); }
+  .status.ok .dot { background:var(--green); box-shadow:0 0 6px var(--green); }
+  .status.error { background:var(--red-bg); color:var(--red); }
+  .status.error .dot { background:var(--red); box-shadow:0 0 6px var(--red); }
+  .status.warn { background:var(--yellow-bg); color:var(--yellow); }
+  .status.warn .dot { background:var(--yellow); box-shadow:0 0 6px var(--yellow); }
+  .last-run { font-family:'SF Mono','Consolas',monospace; font-size:12px; color:var(--text-muted); }
+  .swa-badge { font-size:11px; padding:2px 8px; border-radius:4px; font-weight:500; }
+  .swa-badge.on { background:var(--green-bg); color:var(--green); }
+  .swa-badge.off { background:var(--red-bg); color:var(--red); }
+  @media (max-width:768px) { .summary { grid-template-columns:repeat(2,1fr); } .task-table { display:block; overflow-x:auto; } .container { padding:24px 16px; } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+  .status.error .dot { animation:pulse 2s infinite; }
 </style>
 </head>
 <body>
 <div class="container">
-
   <div class="header">
     <h1>自動タスク ダッシュボード</h1>
-    <div class="subtitle">Windows Task Scheduler — 全24タスク</div>
-    <div class="timestamp">最終チェック: 2026-03-13 20:20 PYT</div>
+    <div class="subtitle">Windows Task Scheduler — 全25タスク</div>
+    <div class="timestamp">最終チェック: 2026-03-13 20:29 PYT</div>
   </div>
-
   <div class="summary">
-    <div class="summary-card total">
-      <div class="label">全タスク</div>
-      <div class="value">24</div>
-    </div>
-    <div class="summary-card ok">
-      <div class="label">正常</div>
-      <div class="value">17</div>
-    </div>
-    <div class="summary-card error">
-      <div class="label">エラー</div>
-      <div class="value">0</div>
-    </div>
-    <div class="summary-card warn">
-      <div class="label">未実行</div>
-      <div class="value">7</div>
-    </div>
+    <div class="summary-card total"><div class="label">全タスク</div><div class="value">25</div></div>
+    <div class="summary-card ok"><div class="label">正常</div><div class="value">17</div></div>
+    <div class="summary-card error"><div class="label">エラー</div><div class="value">0</div></div>
+    <div class="summary-card warn"><div class="label">未実行</div><div class="value">8</div></div>
   </div>
-
-  <!-- インフラ系 -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:var(--accent)"></div>
@@ -294,41 +84,26 @@
       <span class="count">2タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">GitAutoSync-Data</td>
           <td class="task-desc">git add → commit → push</td>
           <td><span class="frequency">1分</span></td>
           <td class="time-cell">常時</td>
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
-          <td class="last-run">03/13 20:19</td>
+          <td class="last-run">03/13 20:27</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">GoogleSheetsSync</td>
           <td class="task-desc">Sheets → CSV取得</td>
           <td><span class="frequency">5分</span></td>
           <td class="time-cell">常時</td>
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
-          <td class="last-run">03/13 20:19</td>
+          <td class="last-run">03/13 20:24</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- ブログ・分析系（日次） -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:var(--green)"></div>
@@ -336,19 +111,8 @@
       <span class="count">5タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">BlogUpdatePV</td>
           <td class="task-desc">GA4 → 記事別PV → CSV → Sheets</td>
           <td><span class="frequency">毎日</span></td>
@@ -356,8 +120,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 05:00</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogDailyAnalytics</td>
           <td class="task-desc">GA4+SC+WP 日次レポート + Discord</td>
           <td><span class="frequency">毎日</span></td>
@@ -365,8 +128,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 07:00</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogSheetSync</td>
           <td class="task-desc">記事管理スプレッドシート更新</td>
           <td><span class="frequency">毎日</span></td>
@@ -374,8 +136,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 19:00</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">NotionSync</td>
           <td class="task-desc">CSV → Notion DB + WPステータス同期</td>
           <td><span class="frequency">毎日</span></td>
@@ -383,8 +144,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 20:16</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogPublishReminder</td>
           <td class="task-desc">公開リマインダー</td>
           <td><span class="frequency">毎日</span></td>
@@ -392,12 +152,9 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 12:00</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- ブログ・コンテンツ系（週次） -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:var(--blue)"></div>
@@ -405,19 +162,8 @@
       <span class="count">6タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">BlogAutoPublish</td>
           <td class="task-desc">記事自動生成 → WP投稿</td>
           <td><span class="frequency">月木</span></td>
@@ -425,8 +171,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 18:00</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogWeeklyReport</td>
           <td class="task-desc">週次 Analytics レポート</td>
           <td><span class="frequency">日曜</span></td>
@@ -434,8 +179,7 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogKeywordResearch</td>
           <td class="task-desc">KW調査 → キューに追加</td>
           <td><span class="frequency">日曜</span></td>
@@ -443,8 +187,7 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogContentCalendar</td>
           <td class="task-desc">コンテンツカレンダー更新</td>
           <td><span class="frequency">土曜</span></td>
@@ -452,8 +195,7 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogInternalLinker</td>
           <td class="task-desc">内部リンク最適化</td>
           <td><span class="frequency">木曜</span></td>
@@ -461,8 +203,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/12 20:00</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogFactCheck</td>
           <td class="task-desc">ファクトチェック（fix + check）</td>
           <td><span class="frequency">水曜</span></td>
@@ -470,12 +211,9 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/11 10:00</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- メンテナンス系 -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:var(--yellow)"></div>
@@ -483,28 +221,16 @@
       <span class="count">5タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">BlogUptimeMonitor</td>
           <td class="task-desc">サイト死活監視 → Discord通知</td>
           <td><span class="frequency">30分</span></td>
           <td class="time-cell">常時</td>
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
-          <td class="last-run">03/13 19:44</td>
+          <td class="last-run">03/13 20:14</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogBrokenLinks</td>
           <td class="task-desc">リンク切れチェック（外部+アフィリ）</td>
           <td><span class="frequency">日曜</span></td>
@@ -512,8 +238,7 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogNewKeywords</td>
           <td class="task-desc">GSC新規KW検出 → 記事ネタ</td>
           <td><span class="frequency">月曜</span></td>
@@ -521,8 +246,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/09 20:30</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogRewriteDetector</td>
           <td class="task-desc">リライト候補抽出（PV低下+古い記事）</td>
           <td><span class="frequency">月曜</span></td>
@@ -530,8 +254,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/09 21:30</td>
           <td><span class="swa-badge off">OFF</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">BlogWpBackup</td>
           <td class="task-desc">WP全記事+固定ページHTML保存（4世代）</td>
           <td><span class="frequency">土曜</span></td>
@@ -539,12 +262,9 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- X (Twitter) 系 -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:#1d9bf0"></div>
@@ -552,19 +272,8 @@
       <span class="count">4タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">XAutoPost-Morning</td>
           <td class="task-desc">X朝投稿（Claude API生成）</td>
           <td><span class="frequency">毎日</span></td>
@@ -572,8 +281,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 18:42</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">XAutoPost-Noon</td>
           <td class="task-desc">X昼投稿</td>
           <td><span class="frequency">毎日</span></td>
@@ -581,8 +289,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/12 23:30</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">XAutoPost-Evening</td>
           <td class="task-desc">X夜投稿</td>
           <td><span class="frequency">毎日</span></td>
@@ -590,8 +297,7 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 08:32</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-        <tr>
+        </tr>        <tr>
           <td class="task-name">XAnalyticsDaily</td>
           <td class="task-desc">Xアカウント指標レポート</td>
           <td><span class="frequency">毎日</span></td>
@@ -599,32 +305,18 @@
           <td><span class="status ok"><span class="dot"></span>正常</span></td>
           <td class="last-run">03/13 20:16</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- 監視系 -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:var(--green)"></div>
       <h2>監視系</h2>
-      <span class="count">1タスク</span>
+      <span class="count">2タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">TaskHealthCheck</td>
           <td class="task-desc">全タスク稼働状況チェック → Discord通知</td>
           <td><span class="frequency">毎日</span></td>
@@ -632,12 +324,17 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-      </tbody>
+        </tr>        <tr>
+          <td class="task-name">TaskDashboardReport</td>
+          <td class="task-desc">ダッシュボードHTML生成 → Discord報告</td>
+          <td><span class="frequency">毎日</span></td>
+          <td class="time-cell">05:00</td>
+          <td><span class="status warn"><span class="dot"></span>未実行</span></td>
+          <td class="last-run">—</td>
+          <td><span class="swa-badge on">ON</span></td>
+        </tr>      </tbody>
     </table>
   </div>
-
-  <!-- 統合レポート系 -->
   <div class="section">
     <div class="section-header">
       <div class="icon" style="background:#a855f7"></div>
@@ -645,19 +342,8 @@
       <span class="count">1タスク</span>
     </div>
     <table class="task-table">
-      <thead>
-        <tr>
-          <th>タスク名</th>
-          <th>内容</th>
-          <th>頻度</th>
-          <th>時刻 (PYT)</th>
-          <th>ステータス</th>
-          <th>最終実行</th>
-          <th>SWA</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
+      <thead><tr><th>タスク名</th><th>内容</th><th>頻度</th><th>時刻 (PYT)</th><th>ステータス</th><th>最終実行</th><th>SWA</th></tr></thead>
+      <tbody>        <tr>
           <td class="task-name">AllBusinessWeeklyKPI</td>
           <td class="task-desc">全事業統合KPIレポート → Discord</td>
           <td><span class="frequency">日曜</span></td>
@@ -665,16 +351,13 @@
           <td><span class="status warn"><span class="dot"></span>未実行</span></td>
           <td class="last-run">—</td>
           <td><span class="swa-badge on">ON</span></td>
-        </tr>
-      </tbody>
+        </tr>      </tbody>
     </table>
   </div>
-
   <div style="margin-top:40px; padding-top:20px; border-top:1px solid var(--border); color:var(--text-muted); font-size:12px;">
     <p>SWA = StartWhenAvailable（PCオフ時にスキップせず、起動後に自動実行）</p>
     <p style="margin-top:4px;">時刻はパラグアイ時間（PYT, UTC-3）。HealthCheckが毎日09:00に自動チェックし、エラー時はDiscordに通知。</p>
   </div>
-
 </div>
 </body>
 </html>
