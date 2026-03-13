@@ -18,7 +18,7 @@
   --nao-shadow: 0 2px 12px rgba(0,0,0,0.06);
   --nao-shadow-hover: 0 8px 30px rgba(0,0,0,0.10);
   --nao-max-w: 1080px;
-  --nao-section-py: 96px;
+  --nao-section-py: 72px;
 }
 
 /* ===== Reset & Base ===== */
@@ -84,36 +84,44 @@
 
 /* ===== 1. Hero ===== */
 .nao-hero {
-  background: linear-gradient(180deg, var(--nao-white) 0%, var(--nao-gray-100) 100%);
-  padding: 80px 24px 64px;
+  background: #fff;
+  padding: 96px 24px 0;
   text-align: center;
+  overflow: hidden;
 }
 .nao-hero-eyebrow {
-  font-size: 14px;
+  font-size: 21px;
   font-weight: 600;
-  color: var(--nao-gray-500);
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
+  color: var(--nao-gray-700);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
 }
 .nao-hero h1 {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  margin-bottom: 20px;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
 }
 .nao-hero-sub {
-  font-size: 17px;
+  font-size: 21px;
   color: var(--nao-gray-700);
-  line-height: 1.9;
-  margin-bottom: 40px;
+  line-height: 1.52;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.nao-hero-visual {
+  width: 100%;
+  max-width: 980px;
+  margin: 56px auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
 }
 .nao-hero-img {
   display: block;
-  margin: 0 auto;
-  max-width: 600px;
   width: 100%;
-  border-radius: var(--nao-radius);
+  height: auto;
 }
 
 /* ===== 2. Three Themes ===== */
@@ -287,15 +295,16 @@
 .nao-popular-item {
   display: flex;
   align-items: center;
-  gap: 20px;
-  padding: 20px 0;
+  gap: 24px;
+  padding: 24px 0;
   border-bottom: 1px solid rgba(0,0,0,0.06);
   text-decoration: none;
   color: inherit;
   transition: opacity 0.2s;
 }
-.nao-popular-item:hover { opacity: 0.7; }
-.nao-popular-item:last-child { border-bottom: none; }
+.nao-popular-item:hover { padding-left: 8px; }
+.nao-popular-item:first-child { border-top: 1px solid rgba(0,0,0,0.06); }
+.nao-popular-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.06); }
 .nao-popular-num {
   font-size: 48px;
   font-weight: 700;
@@ -432,7 +441,7 @@
 /* ===== 7. CTA ===== */
 .nao-cta {
   background: #000 !important;
-  padding: 120px 24px;
+  padding: 72px 24px;
   text-align: center;
   overflow: hidden;
 }
@@ -540,10 +549,10 @@
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .nao-hero { padding: 56px 20px 48px; }
-  .nao-hero h1 { font-size: 34px; }
-  .nao-hero-sub { font-size: 15px; }
-  .nao-hero-img { max-width: 90%; }
+  .nao-hero { padding: 64px 24px 0; }
+  .nao-hero h1 { font-size: 40px; }
+  .nao-hero-eyebrow { font-size: 17px; }
+  .nao-hero-sub { font-size: 17px; }
 
   .nao-section-head h2 { font-size: 36px; }
   :root { --nao-section-py: 64px; }
@@ -568,15 +577,16 @@
     <p class="nao-hero-eyebrow nao-anim" data-anim="fade-up">南米おやじの海外生活ラボ</p>
     <h1 class="nao-anim" data-anim="fade-up">パラグアイから、<br>家族4人のリアル。</h1>
     <p class="nao-hero-sub nao-anim" data-anim="fade-up">移住・お金・仕事・教育——<br>在住者だから書ける1次情報を発信します。</p>
-    <img
-      src="https://nambei-oyaji.com/wp-content/uploads/2026/03/family-illustration-1.png"
-      alt="パラグアイで暮らす家族4人のイラスト"
-      class="nao-hero-img nao-anim"
-      data-anim="fade-up"
-      width="600"
-      height="400"
-      loading="eager"
-    >
+    <div class="nao-hero-visual nao-anim" data-anim="fade-up">
+      <img
+        src="https://nambei-oyaji.com/wp-content/uploads/2026/03/family-illustration-1.png"
+        alt="パラグアイで暮らす家族4人のイラスト"
+        class="nao-hero-img"
+        width="980"
+        height="600"
+        loading="eager"
+      >
+    </div>
   </section>
 
   <!-- ========== 2. THREE THEMES ========== -->
