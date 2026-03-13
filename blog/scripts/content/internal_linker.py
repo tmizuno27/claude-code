@@ -40,6 +40,7 @@ logger = logging.getLogger(__name__)
 # プロジェクトルート
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 CONFIG_PATH = PROJECT_ROOT / "config" / "settings.json"
+SECRETS_PATH = PROJECT_ROOT / "config" / "secrets.json"
 REPORTS_DIR = PROJECT_ROOT / "outputs" / "reports"
 
 
@@ -48,10 +49,17 @@ REPORTS_DIR = PROJECT_ROOT / "outputs" / "reports"
 # ---------------------------------------------------------------------------
 
 def load_settings() -> dict:
-    """settings.json を読み込んで返す。"""
+    """settings.json を読み込み、secrets.json の認証情報をマージして返す。"""
     logger.info("設定ファイルを読み込んでいます: %s", CONFIG_PATH)
     with CONFIG_PATH.open(encoding="utf-8") as f:
-        return json.load(f)
+        config = json.load(f)
+    if SECRETS_PATH.exists():
+        with SECRETS_PATH.open(encoding="utf-8") as f:
+            secrets = json.load(f)
+        for section, values in secrets.items():
+            if isinstance(values, dict) and section in config:
+                config[section].update(values)
+    return config
 
 
 # ---------------------------------------------------------------------------
