@@ -82,6 +82,7 @@ def fetch_metrics_api(posts: list[dict]) -> list[dict]:
         consumer_secret=creds["api_key_secret"],
         access_token=creds["access_token"],
         access_token_secret=creds["access_token_secret"],
+        wait_on_rate_limit=False,
     )
 
     # アカウント全体のメトリクス
