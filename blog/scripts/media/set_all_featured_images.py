@@ -171,11 +171,9 @@ ARTICLE_IMAGE_MAP = {
     },
     # 31: 海外移住の持ち物リスト完全版
     31: {
-        "local": "stock/immigration-visa/suitcase-packing_2530966.jpg",
+        "local": "stock/immigration-visa/checklist-notebook_2313804.jpg",
         "alt": "海外移住の持ち物準備",
-        "title": "海外移住の持ち物リスト",
-        "pixabay_query": "suitcase packing travel",
-        "pixabay_fallback": True
+        "title": "海外移住の持ち物リスト"
     },
     # 32: 海外在住者の年金・社会保険・手続きガイド
     32: {
@@ -185,11 +183,9 @@ ARTICLE_IMAGE_MAP = {
     },
     # 33: 海外在住者の確定申告・税金ガイド
     33: {
-        "local": "stock/finance-money/tax-documents_4458754.jpg",
+        "local": "stock/finance-money/tax-calculator_4097292.jpg",
         "alt": "確定申告・税金",
-        "title": "海外在住者の確定申告・税金ガイド",
-        "pixabay_query": "tax documents calculator",
-        "pixabay_fallback": True
+        "title": "海外在住者の確定申告・税金ガイド"
     },
     # 34: 海外移住後のリモートワーク完全ガイド
     34: {
@@ -219,9 +215,7 @@ ARTICLE_IMAGE_MAP = {
     38: {
         "local": "stock/shopping-supermarket/grocery-shopping-cart_1275480.jpg",
         "alt": "オンライン物販",
-        "title": "オンライン物販で稼ぐ方法",
-        "pixabay_query": "ecommerce package shipping",
-        "pixabay_fallback": True
+        "title": "オンライン物販で稼ぐ方法"
     },
     # 39: パラグアイからリモート事務代行で稼ぐ方法
     39: {
@@ -263,9 +257,7 @@ ARTICLE_IMAGE_MAP = {
     45: {
         "local": "stock/lifestyle-general/blue-sky-clouds_5080909.jpg",
         "alt": "パラグアイのライフライン",
-        "title": "パラグアイの水道・電気・ガス事情",
-        "pixabay_query": "electricity power lines utility",
-        "pixabay_fallback": True
+        "title": "パラグアイの水道・電気・ガス事情"
     },
     # 46: パラグアイのスーパー・買い物事情
     46: {
@@ -275,11 +267,9 @@ ARTICLE_IMAGE_MAP = {
     },
     # 47: パラグアイで日本食は食べられる？
     47: {
-        "local": "stock/food-culture/family-dinner-outdoor_1306275.jpg",
+        "local": "stock/food-culture/street-food-latin_6056846.jpg",
         "alt": "パラグアイの日本食",
-        "title": "パラグアイの日本食事情",
-        "pixabay_query": "japanese food sushi ramen",
-        "pixabay_fallback": True
+        "title": "パラグアイの日本食事情"
     },
     # 48: パラグアイの子育て・教育費
     48: {
@@ -295,11 +285,9 @@ ARTICLE_IMAGE_MAP = {
     },
     # 50: パラグアイの祝日・文化・イベント
     50: {
-        "local": "stock/lifestyle-general/sunset-silhouette_3182156.jpg",
+        "local": "stock/lifestyle-general/colorful-flowers_3518967.jpg",
         "alt": "パラグアイの文化・祝日",
-        "title": "パラグアイの祝日・文化・イベント",
-        "pixabay_query": "festival celebration parade south america",
-        "pixabay_fallback": True
+        "title": "パラグアイの祝日・文化・イベント"
     },
 }
 
