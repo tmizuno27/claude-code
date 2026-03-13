@@ -12,7 +12,7 @@ const url = 'https://nambei-oyaji.com/paraguay-food-culture/';
   const page = await browser.newPage();
 
   // Desktop view
-  await page.setViewport({ width: 1400, height: 900 });
+  await page.setViewport({ width: 1400, height: 900, deviceScaleFactor: 2 });
   await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
   await new Promise(r => setTimeout(r, 2000)); // Wait for JS to run
   await page.screenshot({ path: path.join(outDir, 'screenshot-desktop.png'), fullPage: true });
