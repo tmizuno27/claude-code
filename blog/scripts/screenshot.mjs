@@ -5,34 +5,32 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.join(__dirname, '..', 'design');
 
-const url = 'https://nambei-oyaji.com/paraguay-food-culture/';
+const urls = [
+  { url: 'https://nambei-oyaji.com/paraguay-food-culture/', name: 'food' },
+  { url: 'https://nambei-oyaji.com/international-money-transfer-comparison/', name: 'transfer' },
+  { url: 'https://nambei-oyaji.com/working-after-moving-abroad/', name: 'work' },
+];
 
 (async () => {
   const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
-  const page = await browser.newPage();
 
-  // Desktop view
-  await page.setViewport({ width: 1400, height: 900, deviceScaleFactor: 2 });
-  await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
-  await new Promise(r => setTimeout(r, 2000)); // Wait for JS to run
-  await page.screenshot({ path: path.join(outDir, 'screenshot-desktop.png'), fullPage: true });
-  console.log('Desktop screenshot saved');
+  for (const { url, name } of urls) {
+    const page = await browser.newPage();
+    await page.setViewport({ width: 1400, height: 900, deviceScaleFactor: 1 });
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+    await new Promise(r => setTimeout(r, 2000));
 
-  // Also take a cropped view of just the top area to see sidebar
-  await page.screenshot({ path: path.join(outDir, 'screenshot-desktop-top.png'), fullPage: false });
-  console.log('Desktop top screenshot saved');
+    // Top
+    await page.screenshot({ path: path.join(outDir, `ss-${name}-top.png`), fullPage: false });
 
-  // Scroll down to see sidebar TOC (sticky)
-  await page.evaluate(() => window.scrollTo(0, 3000));
-  await new Promise(r => setTimeout(r, 1000));
-  await page.screenshot({ path: path.join(outDir, 'screenshot-desktop-mid.png'), fullPage: false, captureBeyondViewport: false });
-  console.log('Desktop mid screenshot saved');
+    // Scrolled
+    await page.evaluate(() => window.scrollTo(0, 4000));
+    await new Promise(r => setTimeout(r, 1000));
+    await page.screenshot({ path: path.join(outDir, `ss-${name}-mid.png`), fullPage: false });
 
-  // Scroll more to check sticky persistence
-  await page.evaluate(() => window.scrollTo(0, 6000));
-  await new Promise(r => setTimeout(r, 1000));
-  await page.screenshot({ path: path.join(outDir, 'screenshot-desktop-bottom.png'), fullPage: false, captureBeyondViewport: false });
-  console.log('Desktop bottom screenshot saved');
+    console.log(`${name}: done`);
+    await page.close();
+  }
 
   await browser.close();
 })();
