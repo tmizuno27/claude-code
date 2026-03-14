@@ -152,27 +152,22 @@ body.home, body.page { overflow-x: hidden !important; }
   margin: 0 auto !important;
   padding: 40px 20px 20px !important;
 }
-.footer-bottom.fdt-logo {
+.footer-bottom.fdt-logo,
+.footer-bottom.fdt-logo.cf {
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   padding: 40px 20px !important;
 }
-.footer-bottom-logo {
-  text-align: center !important;
-  float: none !important;
-  width: auto !important;
-  margin-bottom: 12px !important;
-}
-.footer-bottom-content {
+.footer-bottom.fdt-logo::after { display: none !important; }
+.footer-bottom .footer-bottom-logo,
+.footer-bottom .footer-bottom-content {
   float: none !important;
   width: auto !important;
   text-align: center !important;
 }
-.source-org.copyright {
-  text-align: center !important;
-  font-size: 13px !important;
-}
+.footer-bottom .footer-bottom-logo { margin-bottom: 12px !important; }
+.source-org.copyright { font-size: 13px !important; }
 .go-to-top { z-index: 99 !important; }
 
 /* ===== CONTENT AREA ===== */
