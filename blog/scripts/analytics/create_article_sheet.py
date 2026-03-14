@@ -9,6 +9,7 @@ from google.oauth2.service_account import Credentials
 import csv
 import os
 from collections import Counter, OrderedDict
+from datetime import datetime, timezone, timedelta
 
 # 設定
 CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
