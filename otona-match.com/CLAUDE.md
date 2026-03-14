@@ -7,6 +7,18 @@
 **コンセプト**: 30代・40代のための出会い系・マッチングアプリ徹底比較ガイド
 **テーマ**: Cocoon（Apple風CSSカスタマイズ適用済み）
 **WordPress認証**: Basic認証（`config/secrets.json`参照）
+**REST API**: `https://otona-match.com/?rest_route=/wp/v2/`
+
+## 固定ページ
+
+| slug | 名前 | WP ID |
+|------|------|-------|
+| home | トップページ（フロントページ） | 80 |
+| blog | 記事一覧（投稿ページ） | 81 |
+| privacy-policy | プライバシーポリシー | 76 |
+| contact | お問い合わせ | 77 |
+| about | 運営者情報 | 78 |
+| sitemap | サイトマップ | 79 |
 
 ## カテゴリ構成
 
