@@ -107,6 +107,10 @@ def build_summary(rows):
     summary.append(['収益記事 = 青系'])
     summary.append(['キラー記事 = オレンジ系'])
     summary.append(['実験記事 = 紫系'])
+    summary.append([''])
+    jst = timezone(timedelta(hours=-3))  # パラグアイ時間 (UTC-3)
+    now = datetime.now(jst).strftime('%Y-%m-%d %H:%M')
+    summary.append([f'最終更新: {now}'])
 
     return summary
 
