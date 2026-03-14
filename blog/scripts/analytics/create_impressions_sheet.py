@@ -297,7 +297,7 @@ def update_sheet(sh, rows):
 
             # URLの末尾スラッシュあり/なし両対応
             full_url_no_slash = full_url.rstrip('/')
-            permalink_to_row[full_url_no_slash] = idx + 2
+            permalink_to_row[full_url_no_slash] = idx + 3
 
     # セル更新データを構築
     cells_to_update = []
