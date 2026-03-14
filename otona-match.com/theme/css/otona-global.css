@@ -370,30 +370,28 @@ body.home, body.page { overflow-x: hidden !important; }
   display: block;
   margin-bottom: 16px;
 }
-.otona-tile h3 {
+.otona-tile h3, .otona-tile-title {
   font-size: 24px;
   font-weight: 700;
   line-height: 1.14;
   letter-spacing: .007em;
   color: var(--text-primary);
   margin-bottom: 8px;
+  display: block;
   border: none !important;
   padding: 0 !important;
   background: none !important;
 }
-.otona-section--dark .otona-tile h3 { color: #fff; }
-.otona-tile p {
+.otona-section--dark .otona-tile h3,
+.otona-section--dark .otona-tile-title { color: #fff; }
+.otona-tile p, .otona-tile-desc {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: -.016em;
   color: var(--text-secondary);
   margin: 0;
-}
-.otona-tile .otona-link {
-  font-size: 14px;
-  margin-top: 10px;
-  display: inline-block;
+  display: block;
 }
 
 /* ===== VALUE PROPS (3 cards, dark bg) ===== */
@@ -426,23 +424,25 @@ body.home, body.page { overflow-x: hidden !important; }
   display: block;
   margin-bottom: 20px;
 }
-.otona-value-card h3 {
+.otona-value-card h3, .otona-value-title {
   font-size: 22px;
   font-weight: 700;
   color: var(--text-on-dark);
   margin-bottom: 10px;
   letter-spacing: -.005em;
   line-height: 1.2;
+  display: block;
   border: none !important;
   padding: 0 !important;
   background: none !important;
 }
-.otona-value-card p {
+.otona-value-card p, .otona-value-desc {
   font-size: 14px;
   color: var(--text-on-dark-secondary);
   line-height: 1.5;
   max-width: 280px;
   margin: 0 auto;
+  display: block;
 }
 
 /* ===== STATS RIBBON ===== */
@@ -538,12 +538,13 @@ body.home, body.page { overflow-x: hidden !important; }
   letter-spacing: .04em;
   margin-bottom: 8px;
 }
-.otona-article-card h3 {
+.otona-article-card h3, .otona-article-title {
   font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
   color: var(--text-primary);
   margin: 0 0 8px;
+  display: block;
   border: none !important;
   padding: 0 !important;
   background: none !important;
@@ -554,6 +555,7 @@ body.home, body.page { overflow-x: hidden !important; }
   line-height: 1.6;
   margin: 0;
   flex: 1;
+  display: block;
 }
 
 /* ===== CTA ===== */
