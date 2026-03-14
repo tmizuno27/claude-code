@@ -1,0 +1,41 @@
+{
+  "project": {
+    "name": "大人のマッチングナビ",
+    "concept": "30代・40代のための出会い系・マッチングアプリ徹底比較ガイド",
+    "niche": "マッチングアプリ × 出会い系 × 婚活",
+    "language": "ja",
+    "target_revenue": {
+      "phase1_month3": 30000,
+      "phase2_month12": 100000,
+      "phase3_month24": 300000,
+      "note": "アフィリエイト中心。マッチングアプリ案件は1件1,000-5,000円"
+    }
+  },
+  "wordpress": {
+    "url": "https://otona-match.com",
+    "rest_api_url": "https://otona-match.com/?rest_route=/wp/v2",
+    "username": "SEE secrets.json",
+    "app_password": "SEE secrets.json",
+    "theme": "cocoon",
+    "seo_plugin": "rank-math",
+    "categories": {
+      "matching-apps": {"id": 2, "name": "マッチングアプリ"},
+      "deaikei": {"id": 3, "name": "出会い系サイト"},
+      "konkatsu": {"id": 4, "name": "婚活"},
+      "renai-technique": {"id": 5, "name": "恋愛テクニック"},
+      "safety": {"id": 6, "name": "安全・トラブル対策"},
+      "reviews": {"id": 7, "name": "体験談・口コミ"}
+    },
+    "default_status": "draft"
+  },
+  "schedule": {
+    "articles_per_week": 3,
+    "posting_days": ["Monday", "Wednesday", "Friday"]
+  },
+  "article": {
+    "min_words": 3000,
+    "max_words": 5000,
+    "max_affiliate_links": 5,
+    "style": "比較・ランキング型。具体的な数字と料金を必ず含める"
+  }
+}
