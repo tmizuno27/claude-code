@@ -868,28 +868,48 @@ body.single .under-entry-content .sns-share { display: none !important; }
   .otona-stat-unit { font-size: 14px !important; }
 }
 
-/* ===== COCOON OVERRIDES ===== */
-.home .entry-content p:empty { display: none !important; }
-.home .entry-content br { display: none !important; }
-.home .entry-content > p { margin: 0 !important; }
-.home .entry-content a { text-decoration: none !important; }
-.home .entry-content a:hover { text-decoration: none !important; }
-.home .entry-content h2, .home .entry-content h3 {
+/* ===== COCOON OVERRIDES (HOME/PAGE) ===== */
+.home .entry-content p:empty,
+.home .entry-content > p:not([class]),
+.home .entry-content > br,
+.page .entry-content p:empty,
+.page .entry-content > p:not([class]),
+.page .entry-content > br {
+  display: none !important;
+}
+.home .entry-content a,
+.page .entry-content a { text-decoration: none !important; }
+.home .entry-content h2, .home .entry-content h3,
+.page .entry-content h2, .page .entry-content h3 {
   border: none !important;
   padding: 0 !important;
   background: none !important;
   margin: 0 !important;
 }
-/* Cocoon list number override */
-.home .entry-content ul, .home .entry-content ol {
+.home .entry-content ul, .home .entry-content ol,
+.page .entry-content ul, .page .entry-content ol {
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
 .home .entry-content ul li::before,
-.home .entry-content ol li::before {
+.home .entry-content ol li::before,
+.page .entry-content ul li::before,
+.page .entry-content ol li::before {
   content: none !important;
 }
+/* Hide ALL Cocoon default elements on home/page */
+.home .content-top, .page .content-top,
+.home .widget_custom_html, .page .widget_custom_html,
+.home #sidebar, .page #sidebar,
+.home .sidebar, .page .sidebar,
+.home .toc, .page .toc,
+.home .date-tags, .page .date-tags,
+.home .author-info, .page .author-info,
+.home .entry-categories-tags, .page .entry-categories-tags,
+.home .post-date, .page .post-date,
+.home .post-update, .page .post-update,
+.home .eye-catch, .page .eye-catch { display: none !important; }
 /* Admin bar offset */
 body.admin-bar .header { top: 32px !important; }
 @media (max-width: 782px) {
