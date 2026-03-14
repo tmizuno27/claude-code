@@ -1,0 +1,15 @@
+{
+  "category_ids": {
+    "yoto-betsu": 2,
+    "norikae": 3,
+    "ryokin-hikaku": 4,
+    "review": 5,
+    "kaigai-sim": 6
+  },
+  "page_ids": {
+    "about": 9,
+    "privacy-policy": 10,
+    "disclaimer": 11
+  },
+  "front_page_id": 12
+}
