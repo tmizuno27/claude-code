@@ -132,6 +132,19 @@ def init_sheet(sh, rows):
         header.append(f'{d.month}/{d.day}')
 
     sheet_data = [header]
+
+    # 2行目: 全記事合計行（各列の合計をSUM関数で算出）
+    num_articles = len(data_rows)
+    first_article_row = 3  # 記事データは3行目から
+    last_article_row = first_article_row + num_articles - 1
+    last_col_num = NUM_DAYS + 2
+    total_b = f'=SUM(B{first_article_row}:B{last_article_row})'
+    total_row = ['【全記事合計】', total_b]
+    for col in range(NUM_DAYS):
+        col_letter_num = col + 3  # C列=3
+        total_row.append(f'=SUM(INDIRECT(ADDRESS({first_article_row},{col_letter_num},4)&":"&ADDRESS({last_article_row},{col_letter_num},4)))')
+    sheet_data.append(total_row)
+
     for idx, row in enumerate(data_rows):
         title = row[6] if len(row) > 6 else ''
         permalink = row[14] if len(row) > 14 else ''
@@ -139,15 +152,13 @@ def init_sheet(sh, rows):
 
         # ハイパーリンク付きタイトル
         if url:
-            # タイトル内のダブルクォートをエスケープ
             safe_title = title.replace('"', '""')
             cell_a = f'=HYPERLINK("{url}", "{safe_title}")'
         else:
             cell_a = title
 
-        # SUM関数
-        row_num = idx + 2
-        last_col_num = NUM_DAYS + 2
+        # SUM関数（3行目以降）
+        row_num = idx + 3  # 1=ヘッダー, 2=合計行, 3〜=記事
         cell_b = f'=SUM(INDIRECT("C{row_num}:"&ADDRESS({row_num},{last_col_num},4)))'
 
         sheet_data.append([cell_a, cell_b] + [''] * NUM_DAYS)
@@ -174,6 +185,16 @@ def init_sheet(sh, rows):
             'cell': {'userEnteredFormat': {
                 'backgroundColor': {'red': 0.2, 'green': 0.4, 'blue': 0.7},
                 'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
+                'horizontalAlignment': 'CENTER',
+            }},
+            'fields': 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)'
+        }},
+        # 2行目（合計行）の書式: 太字+薄い青背景
+        {'repeatCell': {
+            'range': {'sheetId': ws.id, 'startRowIndex': 1, 'endRowIndex': 2, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+            'cell': {'userEnteredFormat': {
+                'backgroundColor': {'red': 0.85, 'green': 0.92, 'blue': 1.0},
+                'textFormat': {'bold': True, 'fontSize': 10},
                 'horizontalAlignment': 'CENTER',
             }},
             'fields': 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)'
@@ -260,7 +281,7 @@ def update_sheet(sh, rows):
         permalink = row[14] if len(row) > 14 else ''
         if permalink:
             full_url = permalink_to_url(permalink, site_url)
-            permalink_to_row[full_url] = idx + 2  # シートの行番号（1始まり、ヘッダーが1行目）
+            permalink_to_row[full_url] = idx + 3  # シートの行番号（1=ヘッダー, 2=合計行, 3〜=記事）
 
             # URLの末尾スラッシュあり/なし両対応
             full_url_no_slash = full_url.rstrip('/')
