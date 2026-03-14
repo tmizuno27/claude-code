@@ -152,6 +152,17 @@ body.home, body.page { overflow-x: hidden !important; }
   margin: 0 auto !important;
   padding: 40px 20px 20px !important;
 }
+.source-org, .copyright, .footer-bottom,
+.navi-footer-in, .footer-bottom-logo {
+  text-align: center !important;
+  display: block !important;
+}
+.footer-bottom .footer-bottom-content {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.go-to-top { z-index: 99 !important; }
 
 /* ===== CONTENT AREA ===== */
 #content-in {
