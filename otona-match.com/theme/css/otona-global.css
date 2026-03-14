@@ -399,6 +399,7 @@ body.home, body.page { overflow-x: hidden !important; }
   background: #1d1d1f;
   padding: 100px 0;
   overflow: hidden;
+  text-align: center;
 }
 .otona-value-grid {
   display: grid;
