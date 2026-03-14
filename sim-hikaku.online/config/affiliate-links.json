@@ -1,0 +1,153 @@
+{
+  "carriers": {
+    "uq-mobile": {
+      "name": "UQモバイル",
+      "asp": "バリューコマース",
+      "url": "https://YOUR-AFFILIATE-LINK/uq-mobile",
+      "commission": 6480,
+      "status": "未提携",
+      "priority": 1
+    },
+    "rakuten-mobile": {
+      "name": "楽天モバイル",
+      "asp": "A8.net",
+      "url": "https://YOUR-AFFILIATE-LINK/rakuten-mobile",
+      "commission": 1851,
+      "status": "未提携",
+      "priority": 2
+    },
+    "linemo": {
+      "name": "LINEMO",
+      "asp": "バリューコマース",
+      "url": "https://YOUR-AFFILIATE-LINK/linemo",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 3,
+      "note": "報酬単価要確認"
+    },
+    "mineo": {
+      "name": "mineo",
+      "asp": "バリューコマース",
+      "url": "https://YOUR-AFFILIATE-LINK/mineo",
+      "commission": 2700,
+      "status": "未提携",
+      "priority": 4
+    },
+    "povo": {
+      "name": "povo2.0",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/povo",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 5,
+      "note": "報酬単価要確認"
+    },
+    "ymobile": {
+      "name": "ワイモバイル",
+      "asp": "バリューコマース",
+      "url": "https://YOUR-AFFILIATE-LINK/ymobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 6,
+      "note": "報酬単価要確認"
+    },
+    "iijmio": {
+      "name": "IIJmio",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/iijmio",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 7,
+      "note": "報酬単価要確認"
+    },
+    "ahamo": {
+      "name": "ahamo",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/ahamo",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 8,
+      "note": "報酬単価要確認"
+    },
+    "his-mobile": {
+      "name": "HISモバイル",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/his-mobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 9,
+      "note": "報酬単価要確認"
+    },
+    "nihon-tsushin": {
+      "name": "日本通信SIM",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/nihon-tsushin",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 10,
+      "note": "報酬単価要確認"
+    },
+    "tone-mobile": {
+      "name": "TONEモバイル",
+      "asp": "A8.net",
+      "url": "https://YOUR-AFFILIATE-LINK/tone-mobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 11,
+      "note": "報酬単価要確認"
+    },
+    "biglobe-mobile": {
+      "name": "BIGLOBEモバイル",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/biglobe-mobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 12,
+      "note": "報酬単価要確認"
+    },
+    "nuro-mobile": {
+      "name": "NUROモバイル",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/nuro-mobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 13,
+      "note": "報酬単価要確認"
+    },
+    "aeon-mobile": {
+      "name": "イオンモバイル",
+      "asp": "アクセストレード",
+      "url": "https://YOUR-AFFILIATE-LINK/aeon-mobile",
+      "commission": 0,
+      "status": "未提携",
+      "priority": 14,
+      "note": "報酬単価要確認"
+    }
+  },
+  "esim_services": {
+    "airalo": {
+      "name": "Airalo",
+      "asp": "直接提携",
+      "url": "https://YOUR-AFFILIATE-LINK/airalo",
+      "commission": 0,
+      "status": "未提携",
+      "note": "海外eSIM記事用"
+    },
+    "trifa": {
+      "name": "trifa",
+      "asp": "直接提携",
+      "url": "https://YOUR-AFFILIATE-LINK/trifa",
+      "commission": 0,
+      "status": "未提携",
+      "note": "海外eSIM記事用"
+    },
+    "ubigi": {
+      "name": "Ubigi",
+      "asp": "直接提携",
+      "url": "https://YOUR-AFFILIATE-LINK/ubigi",
+      "commission": 0,
+      "status": "未提携",
+      "note": "海外eSIM記事用"
+    }
+  }
+}
