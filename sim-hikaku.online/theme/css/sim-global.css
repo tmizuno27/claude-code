@@ -147,8 +147,19 @@ body.page .sidebar,
 
 body.page .main,
 body.page #main,
+body.page main#main,
+body.page main.main,
 body.page .content,
-body.page #content {
+body.page #content,
+body.page .wrap,
+body.page #content-in,
+body.page .content-in,
+body.front-top-page .main,
+body.front-top-page #main,
+body.front-top-page main,
+body.front-top-page .wrap,
+body.front-top-page #content-in,
+body.front-top-page .content-in {
   max-width: 100% !important;
   width: 100% !important;
   background: transparent !important;
