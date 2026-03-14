@@ -86,17 +86,10 @@ body {
 }
 body.home, body.page { overflow-x: hidden !important; }
 
-/* ===== SCROLL REVEAL ANIMATIONS ===== */
+/* ===== ANIMATIONS (CSS-only, no JS needed) ===== */
 .otona-anim {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
-}
-.otona-anim[data-anim="fade"] { transform: none; }
-.otona-anim[data-anim="scale"] { transform: scale(0.96); }
-.otona-anim.otona-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
+  transform: none;
 }
 
 /* ===== HEADER — Frosted Glass ===== */
@@ -160,10 +153,14 @@ body.home, body.page { overflow-x: hidden !important; }
 
 /* ===== HOMEPAGE SECTIONS ===== */
 .otona-section {
-  padding: 100px 0;
+  padding: 80px 0;
   text-align: center;
   overflow: hidden;
 }
+/* Hide Cocoon widget areas on home/page */
+.home .content-top, .page .content-top,
+.home .widget_custom_html, .page .widget_custom_html,
+.home .widget-area, .page .widget-area { display: none !important; }
 .otona-section--white { background: var(--bg-white); }
 .otona-section--gray { background: var(--bg-gray); }
 .otona-section--dark {
@@ -347,20 +344,21 @@ body.home, body.page { overflow-x: hidden !important; }
 .otona-grid--3 { grid-template-columns: repeat(3, 1fr); }
 
 .otona-tile {
-  background: var(--bg-gray);
+  background: var(--bg-gray) !important;
   border-radius: var(--card-radius);
   padding: 44px 32px 40px;
   text-align: center;
   overflow: hidden;
   position: relative;
-  transition: transform 0.4s var(--ease-out);
-  text-decoration: none;
+  transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  text-decoration: none !important;
   display: block;
-  color: var(--text-primary);
+  color: var(--text-primary) !important;
+  border: 1px solid #e5e5e7;
 }
-.otona-section--gray .otona-tile { background: var(--bg-white); }
-.otona-section--white .otona-tile { background: var(--bg-gray); }
-.otona-section--dark .otona-tile { background: rgba(255,255,255,0.06); }
+.otona-section--gray .otona-tile { background: var(--bg-white) !important; border-color: #e5e5e7; }
+.otona-section--white .otona-tile { background: var(--bg-gray) !important; border-color: transparent; }
+.otona-section--dark .otona-tile { background: rgba(255,255,255,0.06) !important; border-color: rgba(255,255,255,0.08); }
 .otona-tile:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 40px rgba(0,0,0,.08);
