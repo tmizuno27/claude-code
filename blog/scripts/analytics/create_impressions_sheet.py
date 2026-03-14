@@ -34,8 +34,8 @@ SHEETS_SCOPES = [
 ]
 GSC_SCOPES = ['https://www.googleapis.com/auth/webmasters.readonly']
 
-# 開始日
-START_DATE = datetime(2026, 3, 14)
+# 開始日（最初の記事公開日）
+START_DATE = datetime(2026, 3, 5)
 NUM_DAYS = 90
 
 
