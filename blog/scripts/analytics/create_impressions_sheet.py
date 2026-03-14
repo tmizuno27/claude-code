@@ -108,7 +108,7 @@ def date_to_col_index(date_str):
     d = datetime.strptime(date_str, "%Y-%m-%d")
     delta = (d - START_DATE).days
     if 0 <= delta < NUM_DAYS:
-        return delta + 2  # A=0, B=1, C=2(最初の日付列)
+        return delta + 3  # A=0, B=1(公開日), C=2(合計), D=3(最初の日付列)
     return None
 
 
@@ -172,7 +172,7 @@ def init_sheet(sh, rows):
         pass
 
     num_rows = len(sheet_data) + 5
-    num_cols = NUM_DAYS + 2
+    num_cols = NUM_DAYS + 3  # A(タイトル) + B(公開日) + C(合計) + 日数分
     ws = sh.add_worksheet(title=TAB_NAME, rows=num_rows, cols=num_cols)
 
     print(f"データ書き込み中...（{len(sheet_data)-1}記事, {NUM_DAYS}日分）")
@@ -205,33 +205,44 @@ def init_sheet(sh, rows):
             'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 0, 'endIndex': 1},
             'properties': {'pixelSize': 500}, 'fields': 'pixelSize'
         }},
-        # B列幅
+        # B列幅（公開日）
         {'updateDimensionProperties': {
             'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 1, 'endIndex': 2},
+            'properties': {'pixelSize': 90}, 'fields': 'pixelSize'
+        }},
+        # C列幅（合計）
+        {'updateDimensionProperties': {
+            'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 2, 'endIndex': 3},
             'properties': {'pixelSize': 80}, 'fields': 'pixelSize'
         }},
-        # 日付列幅
+        # 日付列幅（D列以降）
         {'updateDimensionProperties': {
-            'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 2, 'endIndex': num_cols},
+            'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 3, 'endIndex': num_cols},
             'properties': {'pixelSize': 55}, 'fields': 'pixelSize'
         }},
-        # 行列固定
+        # 行列固定（A,B,C列を固定）
         {'updateSheetProperties': {
-            'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1, 'frozenColumnCount': 2}},
+            'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1, 'frozenColumnCount': 3}},
             'fields': 'gridProperties.frozenRowCount,gridProperties.frozenColumnCount'
         }},
-        # B列背景色
+        # B列（公開日）中央揃え
         {'repeatCell': {
             'range': {'sheetId': ws.id, 'startRowIndex': 1, 'endRowIndex': len(sheet_data), 'startColumnIndex': 1, 'endColumnIndex': 2},
+            'cell': {'userEnteredFormat': {'horizontalAlignment': 'CENTER'}},
+            'fields': 'userEnteredFormat(horizontalAlignment)'
+        }},
+        # C列（合計）背景色
+        {'repeatCell': {
+            'range': {'sheetId': ws.id, 'startRowIndex': 1, 'endRowIndex': len(sheet_data), 'startColumnIndex': 2, 'endColumnIndex': 3},
             'cell': {'userEnteredFormat': {
                 'backgroundColor': {'red': 1.0, 'green': 0.98, 'blue': 0.8},
                 'textFormat': {'bold': True}, 'horizontalAlignment': 'CENTER',
             }},
             'fields': 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)'
         }},
-        # 日付列中央揃え
+        # 日付列中央揃え（D列以降）
         {'repeatCell': {
-            'range': {'sheetId': ws.id, 'startRowIndex': 1, 'endRowIndex': len(sheet_data), 'startColumnIndex': 2, 'endColumnIndex': num_cols},
+            'range': {'sheetId': ws.id, 'startRowIndex': 1, 'endRowIndex': len(sheet_data), 'startColumnIndex': 3, 'endColumnIndex': num_cols},
             'cell': {'userEnteredFormat': {'horizontalAlignment': 'CENTER', 'numberFormat': {'type': 'NUMBER', 'pattern': '#,##0'}}},
             'fields': 'userEnteredFormat(horizontalAlignment,numberFormat)'
         }},
