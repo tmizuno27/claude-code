@@ -151,15 +151,24 @@ body.page .content,
 body.page #content {
   max-width: 100% !important;
   width: 100% !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 /* フロントページの記事エリアは背景・影なし */
 body.page .article,
-body.page .entry-content {
+body.page .entry-content,
+body.page #post-12,
+body.front-top-page .article,
+body.front-top-page .main {
   background: transparent !important;
   box-shadow: none !important;
   padding: 0 !important;
   border-radius: 0 !important;
+  margin: 0 !important;
 }
 
 /* ============================================
