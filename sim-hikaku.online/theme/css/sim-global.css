@@ -279,18 +279,22 @@ h1.entry-title {
 .entry-content .nao-full a[style*="background: #0066CC"],
 .entry-content .nao-full a[style*="background:#0066CC"],
 .entry-content a[style*="color: #fff"],
-.entry-content a[style*="color:#fff"] {
+.entry-content a[style*="color:#fff"],
+.entry-content a[style*="color: white"],
+.nao-full a[style*="background: #0066CC"] {
   color: #ffffff !important;
 }
 
-/* Outline button keeps primary color */
-.entry-content a[style*="background: transparent"][style*="border"],
-.entry-content a[style*="color: #0066CC"] {
+/* Outline button — transparent background, primary text */
+.entry-content a[style*="background: transparent"],
+.nao-full a[style*="background: transparent"] {
   color: #0066CC !important;
+  background: transparent !important;
 }
 
 /* Ranking "詳細を見る" buttons */
-.entry-content .nao-full a[style*="border-radius: 980px"][style*="background: #0066CC"] {
+.entry-content .nao-full a[style*="border-radius: 980px"][style*="background: #0066CC"],
+.nao-full a[style*="border-radius: 980px"][style*="background: #0066CC"] {
   color: #ffffff !important;
 }
 
