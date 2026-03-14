@@ -1,0 +1,139 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var headerIn = document.getElementById("header-in");
+  if (headerIn) {
+    headerIn.innerHTML = '<div style="display:flex;align-items:center;justify-content:space-between;width:100%;">' +
+      '<a href="https://nambei-oyaji.com/" style="display:flex;align-items:center;gap:8px;text-decoration:none;">' +
+      '<img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/logo-black-1.png" alt="" style="height:28px;width:auto;">' +
+      '<img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nambei-oyaji-grey.png" alt="" style="height:27px;width:auto;">' +
+      '</a>' +
+      '<nav style="display:flex;gap:32px;align-items:center;">' +
+      '<a href="https://nambei-oyaji.com/category/paraguay/" style="color:#1d1d1f;text-decoration:none;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">パラグアイ生活</a>' +
+      '<a href="https://nambei-oyaji.com/category/side-business/" style="color:#1d1d1f;text-decoration:none;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">海外からの稼ぎ方</a>' +
+      '<a href="https://nambei-oyaji.com/category/ijuu-junbi/" style="color:#1d1d1f;text-decoration:none;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">お金と手続き</a>' +
+      '<a href="https://nambei-oyaji.com/about/" style="color:#1d1d1f;text-decoration:none;font-size:14px;font-weight:400;font-family:-apple-system,BlinkMacSystemFont,sans-serif;">プロフィール</a>' +
+      '</nav></div>';
+  }
+  var navi = document.getElementById("navi");
+  if (navi) navi.style.display = "none";
+});
+</script>
+<style>
+/* ===== Header Override (Apple-style) ===== */
+#header {
+    background: rgba(255,255,255,0.92) !important;
+    backdrop-filter: saturate(180%) blur(20px) !important;
+    -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+}
+#header-in {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 14px 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+.logo-header {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.logo-header .site-name-text-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+}
+.logo-header .site-name-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1d1d1f !important;
+    letter-spacing: 0.02em !important;
+}
+.tagline { display: none !important; }</p>
+<p>/* Nav override */
+#navi {
+    background: none !important;
+    border: none !important;
+    position: static !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+#navi-in {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 40px !important;
+    display: none !important;
+}</p>
+<p>/* Page title */
+.entry-title, .article h1 {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !important;
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    color: #1d1d1f !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+    margin: 40px 0 32px !important;
+}</p>
+<p>/* Breadcrumb cleanup */
+.breadcrumb {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", sans-serif !important;
+    font-size: 13px !important;
+    color: #86868b !important;
+}
+.breadcrumb a { color: #86868b !important; }</p>
+<p>/* Footer override */
+#footer {
+    background: #1d1d1f !important;
+    color: #86868b !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !important;
+}
+#footer a { color: #d2d2d7 !important; }
+.footer-bottom { background: #1d1d1f !important; border-top: 1px solid #333 !important; }
+.copyright { color: #86868b !important; font-size: 13px !important; }</p>
+<p>/* Sidebar cleanup */
+.sidebar { font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif !important; }
+</style>
+<style>
+.page .entry-content{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif!important;font-size:16px!important;line-height:2.3!important;color:#333!important;letter-spacing:.02em!important}
+.page .entry-content p{font-size:16px!important;line-height:2.3!important;color:#333!important;margin:0 0 1.8em!important}
+.page .entry-content h2{font-size:22px!important;font-weight:600!important;color:#000!important;line-height:1.6!important;margin:60px 0 20px!important;padding:0 0 12px!important;border:none!important;border-bottom:2px solid #000!important;background:none!important}
+.page .entry-content strong{font-weight:600!important;color:#000!important}
+</style>
+<p>当サイト「南米おやじの海外生活ラボ」へのお問い合わせは、以下の方法でお気軽にご連絡ください。</p>
+<h2>X（Twitter）でのお問い合わせ</h2>
+<p>最も早くお返事できます。DM（ダイレクトメッセージ）またはリプライでお気軽にどうぞ。</p>
+<p><strong>X アカウント</strong>: <a rel="noopener" href="https://x.com/nambei_oyaji" target="_blank">@nambei_oyaji</a></p>
+<h2>お問い合わせの前に</h2>
+<ul>
+<li>パラグアイ移住に関するご質問は、まず<a href="https://nambei-oyaji.com/category/paraguay/">パラグアイ生活カテゴリ</a>の記事をご確認ください</li>
+<li>海外からの仕事・副業については、<a href="https://nambei-oyaji.com/category/side-business/">海外からの稼ぎ方カテゴリ</a>をご覧ください</li>
+<li>ビザ・永住権・送金などは、<a href="https://nambei-oyaji.com/category/ijuu-junbi/">お金と手続きカテゴリ</a>をチェックしてください</li>
+</ul>
+<p>記事に書かれていない内容や、より詳しく知りたいことがあれば、遠慮なくお問い合わせください。</p>
+<h2>お仕事のご依頼</h2>
+<p>以下のようなお仕事のご依頼も受け付けています。</p>
+<ul>
+<li>パラグアイ移住に関する取材・インタビュー</li>
+<li>海外生活・移住関連の記事執筆・監修</li>
+<li>広告掲載・タイアップ記事</li>
+</ul>
+<p>詳細はXのDMにてご相談ください。</p>
+<h2>注意事項</h2>
+<ul>
+<li>パラグアイはUTC-3（日本との時差12時間）のため、返信にお時間をいただく場合があります</li>
+<li>法律・税務・ビザに関する専門的なアドバイスは行っておりません。必ず専門家にご相談ください</li>
+<li>営業目的のメッセージにはお返事しかねます</li>
+</ul>
