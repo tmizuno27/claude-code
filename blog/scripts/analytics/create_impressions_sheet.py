@@ -125,43 +125,44 @@ def init_sheet(sh, rows):
     settings = load_settings()
     site_url = settings.get("search_console", {}).get("site_url", "https://nambei-oyaji.com")
 
-    # ヘッダー行
-    header = ['記事タイトル', '合計']
+    # ヘッダー行: A=タイトル, B=公開日, C=合計, D以降=日別
+    header = ['記事タイトル', '公開日', '合計']
     for i in range(NUM_DAYS):
         d = START_DATE + timedelta(days=i)
         header.append(f'{d.month}/{d.day}')
 
     sheet_data = [header]
 
-    # 2行目: 全記事合計行（各列の合計をSUM関数で算出）
+    # 2行目: 全記事合計行
     num_articles = len(data_rows)
-    first_article_row = 3  # 記事データは3行目から
+    first_article_row = 3
     last_article_row = first_article_row + num_articles - 1
-    last_col_num = NUM_DAYS + 2
-    total_b = f'=SUM(B{first_article_row}:B{last_article_row})'
-    total_row = ['【全記事合計】', total_b]
+    last_col_num = NUM_DAYS + 3  # D列が4列目なので +3
+    total_c = f'=SUM(C{first_article_row}:C{last_article_row})'
+    total_row = ['【全記事合計】', '', total_c]
     for col in range(NUM_DAYS):
-        col_letter_num = col + 3  # C列=3
+        col_letter_num = col + 4  # D列=4
         total_row.append(f'=SUM(INDIRECT(ADDRESS({first_article_row},{col_letter_num},4)&":"&ADDRESS({last_article_row},{col_letter_num},4)))')
     sheet_data.append(total_row)
 
     for idx, row in enumerate(data_rows):
         title = row[6] if len(row) > 6 else ''
         permalink = row[14] if len(row) > 14 else ''
+        publish_date = row[17] if len(row) > 17 else ''  # 公開日（CSV列18, 0始まりで17）
         url = permalink_to_url(permalink, site_url)
 
-        # ハイパーリンク付きタイトル
+        # A列: ハイパーリンク付きタイトル
         if url:
             safe_title = title.replace('"', '""')
             cell_a = f'=HYPERLINK("{url}", "{safe_title}")'
         else:
             cell_a = title
 
-        # SUM関数（3行目以降）
-        row_num = idx + 3  # 1=ヘッダー, 2=合計行, 3〜=記事
-        cell_b = f'=SUM(INDIRECT("C{row_num}:"&ADDRESS({row_num},{last_col_num},4)))'
+        # C列: SUM関数（D列〜最終列）
+        row_num = idx + 3
+        cell_c = f'=SUM(INDIRECT("D{row_num}:"&ADDRESS({row_num},{last_col_num},4)))'
 
-        sheet_data.append([cell_a, cell_b] + [''] * NUM_DAYS)
+        sheet_data.append([cell_a, publish_date, cell_c] + [''] * NUM_DAYS)
 
     # シート作成
     try:
