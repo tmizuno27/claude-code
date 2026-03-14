@@ -768,6 +768,71 @@ footer.article-footer .sns-follow {
 }
 
 /* ============================================
+   Front Page Specific
+   ============================================ */
+/* Hide page title "ホーム" on front page */
+body.page .entry-title,
+body.page .article-title,
+body.page h1.entry-title,
+body.front-top-page .entry-title,
+body.front-top-page h1.entry-title,
+body.page-id-12 .entry-title,
+body.page-id-12 h1.entry-title {
+  display: none !important;
+}
+
+/* Hide TOC on front page */
+body.page .toc,
+body.page #toc,
+body.page .table-of-contents,
+body.front-top-page .toc,
+body.page-id-12 .toc {
+  display: none !important;
+}
+
+/* Hide search widget / sidebar widgets that leak into front page */
+body.page .widget_search,
+body.front-top-page .widget_search,
+body.page-id-12 .widget_search {
+  display: none !important;
+}
+
+/* Hide breadcrumb on front page */
+body.front-top-page .breadcrumb,
+body.page-id-12 .breadcrumb {
+  display: none !important;
+}
+
+/* Hide date/meta on front page */
+body.page .date-tags,
+body.page .post-date,
+body.page .post-meta,
+body.front-top-page .date-tags {
+  display: none !important;
+}
+
+/* Hide author box on front page */
+body.page .author-box,
+body.front-top-page .author-box {
+  display: none !important;
+}
+
+/* Hide Cocoon mobile footer buttons on front page (if not needed) */
+body.front-top-page .mobile-menu-buttons {
+  /* keep visible for mobile nav */
+}
+
+/* ============================================
+   Cocoon Mobile Footer Bar Override
+   ============================================ */
+.mobile-menu-buttons {
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: blur(20px) !important;
+  border-top: 0.5px solid rgba(0,0,0,0.1) !important;
+  box-shadow: none !important;
+}
+
+/* ============================================
    Print
    ============================================ */
 @media print {
