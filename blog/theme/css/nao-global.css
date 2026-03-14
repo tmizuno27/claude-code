@@ -1353,6 +1353,10 @@ html { scroll-behavior: smooth; }
   .nao-globalnav { display: none !important; }
   body.admin-bar header.wp-block-template-part { top: 0; }
 
+  /* Cocoon header: モバイルではナビ非表示、ロゴのみ */
+  .nambei-nav { display: none !important; }
+  .header-in.wrap.cf { padding: 12px 20px !important; }
+
   /* =============================================
      4. Hero
      ============================================= */
