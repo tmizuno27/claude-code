@@ -273,6 +273,27 @@ h1.entry-title {
   text-decoration: underline !important;
 }
 
+/* CTA links inside entry-content must keep white text */
+.entry-content a.sim-cta-btn,
+.entry-content a.cta-button,
+.entry-content .nao-full a[style*="background: #0066CC"],
+.entry-content .nao-full a[style*="background:#0066CC"],
+.entry-content a[style*="color: #fff"],
+.entry-content a[style*="color:#fff"] {
+  color: #ffffff !important;
+}
+
+/* Outline button keeps primary color */
+.entry-content a[style*="background: transparent"][style*="border"],
+.entry-content a[style*="color: #0066CC"] {
+  color: #0066CC !important;
+}
+
+/* Ranking "詳細を見る" buttons */
+.entry-content .nao-full a[style*="border-radius: 980px"][style*="background: #0066CC"] {
+  color: #ffffff !important;
+}
+
 /* ============================================
    Tables (比較表)
    ============================================ */
@@ -624,6 +645,19 @@ footer.article-footer .sns-follow {
 #navi-menu-input,
 .mobile-menu-button {
   z-index: 99999 !important;
+}
+
+/* Hide Cocoon edit link, comment link, footer social */
+.post-edit-link,
+.edit-link,
+.fa-edit,
+.post-footer,
+.article-footer,
+.under-entry-content,
+.comment-btn,
+.comments-area,
+.comment-respond {
+  display: none !important;
 }
 
 /* Post navigation */
