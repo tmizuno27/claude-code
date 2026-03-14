@@ -22,7 +22,7 @@
   --transition: 0.3s ease;
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --card-radius: 18px;
-  --card-gap: 12px;
+  --card-gap: 20px;
 }
 
 /* ===== GLOBAL RESET ===== */
@@ -140,8 +140,17 @@ body.home, body.page { overflow-x: hidden !important; }
 .footer-bottom-content {
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 20px !important;
+  padding: 40px 20px !important;
   text-align: center !important;
+}
+.footer-bottom-logo, .footer-bottom-logo a {
+  color: #d2d2d7 !important;
+  font-size: 14px !important;
+}
+#footer .footer-in {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 40px 20px 20px !important;
 }
 
 /* ===== CONTENT AREA ===== */
