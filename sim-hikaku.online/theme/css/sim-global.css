@@ -172,12 +172,30 @@ body.page .entry-content {
   margin: 0 auto !important;
 }
 
-.content-in {
+/* content-in: flex for single/archive, block for pages */
+body.single .content-in,
+body.archive .content-in,
+body.category .content-in,
+body.search .content-in {
   display: flex !important;
   gap: 40px !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
   padding: 32px 24px !important;
+  flex-direction: row !important;
+}
+
+body.single .content-in > .main,
+body.archive .content-in > .main {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
+
+body.page .content-in {
+  display: block !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
 }
 
 /* ============================================
@@ -520,13 +538,17 @@ body.archive .sidebar {
 }
 
 #footer a,
-.footer a {
-  color: #d2d2d7 !important;
+.footer a,
+.footer-wrap a,
+.footer-bottom a {
+  color: #a1a1a6 !important;
   text-decoration: none !important;
+  font-size: 13px !important;
 }
 
 #footer a:hover,
-.footer a:hover {
+.footer a:hover,
+.footer-wrap a:hover {
   color: #ffffff !important;
 }
 
@@ -838,6 +860,14 @@ body.page-id-12 .widget_search {
 /* Hide breadcrumb on front page */
 body.front-top-page .breadcrumb,
 body.page-id-12 .breadcrumb {
+  display: none !important;
+}
+
+/* Hide the white entry-header bar on front page */
+body.front-top-page .entry-header,
+body.page-id-12 .entry-header,
+body.front-top-page .article-header,
+body.page-id-12 .article-header {
   display: none !important;
 }
 
