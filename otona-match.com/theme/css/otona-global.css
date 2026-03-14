@@ -200,9 +200,9 @@ body.home, body.page { overflow-x: hidden !important; }
   margin-bottom: 14px;
 }
 .otona-hero h1 {
-  font-size: 80px;
+  font-size: 64px;
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -.025em;
   color: var(--text-primary);
   margin: 0;

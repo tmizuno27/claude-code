@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {{
 top_page_html = """<div class="otona-hero">
   <div class="otona-hero-content">
     <span class="otona-hero-eyebrow">大人のマッチングナビ</span>
-    <h1><span class="otona-gradient-text">30代からの出会い、<br>もっとスマートに。</span></h1>
-    <p class="otona-hero-sub">100種類以上のマッチングアプリの中から、<br>あなたの年齢・目的にぴったりのアプリを見つけましょう。</p>
+    <h1><span class="otona-gradient-text">30代からの出会い、もっとスマートに。</span></h1>
+    <p class="otona-hero-sub">100種類以上のマッチングアプリの中から、あなたの年齢・目的にぴったりのアプリを見つけましょう。</p>
     <div class="otona-hero-buttons">
       <a href="/matching-app-ranking-2026/" class="otona-btn otona-btn-primary">おすすめランキングを見る</a>
       <a href="/category/matching-apps/" class="otona-btn otona-btn-secondary">カテゴリから探す</a>
