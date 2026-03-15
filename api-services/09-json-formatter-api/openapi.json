@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "JSON Formatter & Validator API",
+    "description": "Format, minify, validate, diff, transform JSON, and convert between CSV and JSON.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    { "url": "https://json-formatter-api.t-mizuno27.workers.dev" }
+  ],
+  "paths": {
+    "/format": {
+      "post": {
+        "summary": "Format/prettify JSON",
+        "operationId": "formatJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data"],
+                "properties": {
+                  "data": { "description": "JSON string or object to format" },
+                  "indent": { "type": "integer", "default": 2, "description": "Indentation spaces" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Formatted JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "formatted": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/minify": {
+      "post": {
+        "summary": "Minify JSON",
+        "operationId": "minifyJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data"],
+                "properties": {
+                  "data": { "description": "JSON string or object to minify" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Minified JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "minified": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validate": {
+      "post": {
+        "summary": "Validate JSON and return stats",
+        "operationId": "validateJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data"],
+                "properties": {
+                  "data": { "description": "JSON string or object to validate" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Validation result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "valid": { "type": "boolean" },
+                    "errors": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "message": { "type": "string" },
+                          "position": { "type": "integer", "nullable": true }
+                        }
+                      }
+                    },
+                    "stats": {
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "keys": { "type": "integer" },
+                        "depth": { "type": "integer" },
+                        "size_bytes": { "type": "integer" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/diff": {
+      "post": {
+        "summary": "Compare two JSON objects",
+        "operationId": "diffJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["a", "b"],
+                "properties": {
+                  "a": { "description": "First JSON object" },
+                  "b": { "description": "Second JSON object" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Diff result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "equal": { "type": "boolean" },
+                    "total_differences": { "type": "integer" },
+                    "differences": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "path": { "type": "string" },
+                          "type": { "type": "string", "enum": ["added", "removed", "changed"] },
+                          "value": {},
+                          "from": {},
+                          "to": {}
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transform": {
+      "post": {
+        "summary": "Apply JMESPath-like query to JSON",
+        "operationId": "transformJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data", "query"],
+                "properties": {
+                  "data": { "description": "JSON object to query" },
+                  "query": { "type": "string", "description": "JMESPath-like query string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Query result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/csv-to-json": {
+      "post": {
+        "summary": "Convert CSV to JSON",
+        "operationId": "csvToJson",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["csv"],
+                "properties": {
+                  "csv": { "type": "string", "description": "CSV string" },
+                  "headers": { "type": "boolean", "default": true, "description": "First row is headers" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Converted JSON",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": { "type": "array" },
+                    "rows": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/json-to-csv": {
+      "post": {
+        "summary": "Convert JSON array to CSV",
+        "operationId": "jsonToCsv",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data"],
+                "properties": {
+                  "data": { "type": "array", "description": "Array of objects" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "CSV string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "csv": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

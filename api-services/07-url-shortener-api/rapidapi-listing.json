@@ -1,0 +1,49 @@
+{
+  "name": "URL Shortener API",
+  "description": "Create short URLs with custom aliases and track click statistics. Fast, reliable URL shortening powered by Cloudflare's edge network.",
+  "category": "Tools",
+  "tags": ["url-shortener", "short-url", "link-shortener", "click-tracking", "analytics"],
+  "base_url": "https://url-shortener-api.t-mizuno27.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": "100 requests/day",
+        "features": ["Create short URLs", "Custom aliases", "Click statistics", "301 redirects"]
+      },
+      {
+        "name": "Pro",
+        "price": 5,
+        "rate_limit": "10000 requests/day",
+        "features": ["Everything in Basic", "Priority support", "Higher rate limits"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Create Short URL",
+      "method": "POST",
+      "path": "/shorten",
+      "description": "Shorten a long URL with an optional custom alias"
+    },
+    {
+      "name": "Redirect",
+      "method": "GET",
+      "path": "/r/{alias}",
+      "description": "Redirect to the original URL (301)"
+    },
+    {
+      "name": "Get Statistics",
+      "method": "GET",
+      "path": "/stats/{alias}",
+      "description": "Get click count, creation date, and last clicked timestamp"
+    },
+    {
+      "name": "Delete Short URL",
+      "method": "DELETE",
+      "path": "/delete/{alias}",
+      "description": "Remove a short URL"
+    }
+  ]
+}
