@@ -14,7 +14,7 @@ word_count: 8000
 
 **この記事の結論（30秒でわかる）**
 
-- **au品質そのまま** → UQモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,365円（4GB）、セット割で1,078円</strong></span>
+- **au品質そのまま** → UQモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額4,048円（30GB）、セット割で1,628円〜</strong></span>
 - **基本料0円+使った分だけ** → povo2.0 <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>基本料0円、3GB/30日 990円のトッピング制</strong></span>
 - **ギガ無制限+通話無料** → 楽天モバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額3,278円（無制限+通話無料）</strong></span>
 - **ソフトバンク品質+LINEギガフリー** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額990円〜（3GB）</strong></span>
@@ -26,7 +26,7 @@ word_count: 8000
 
 ## auユーザーの月額料金、本当に適正ですか？
 
-auの「eximo」プランは、データ無制限で月額7,238円。1年間で86,856円。<span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>同じau回線のUQモバイルなら4GBで月額2,365円、povo2.0なら基本料0円で必要な分だけトッピング</strong></span>できます。
+auの「使い放題MAX＋ 5G/4G」プランは、月額7,458円。1年間で89,496円。<span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>同じau回線のUQモバイルなら30GBで月額4,048円（割引適用で1,628円〜）、povo2.0なら基本料0円で必要な分だけトッピング</strong></span>できます。
 
 私はパラグアイに住んでいますが、日本にいた頃はauを長年使っていました。「auの回線品質を落としたくない」という理由でなかなか乗り換えに踏み切れなかったのですが、UQモバイルもpovo2.0もau回線そのものを使うため、品質はまったく変わりませんでした。
 
@@ -64,21 +64,21 @@ auで購入したスマホは、SIMカードを入れ替えるだけで格安SIM
 それ以前の端末でも、同じau回線を使うUQモバイル・povo2.0・IIJmio（タイプA）であれば、SIMロック解除なしで使えるケースがほとんどです。
 
 
-## au eximoの料金を確認しよう
+## auの料金を確認しよう
 
 まず、あなたが今いくら払っているか確認しましょう。
 
-### au eximo 月額料金（税込）
+### au 使い放題MAX＋ 5G/4G 月額料金（税込）
 
-| 利用データ量 | 月額料金 | 割引フル適用後 |
+| プラン | 月額料金 | 割引フル適用後 |
 |:---|---:|---:|
-| 〜1GB | 4,565円 | 2,178円 |
-| 1〜3GB | 5,665円 | 3,278円 |
-| 3〜無制限 | **7,238円** | **4,928円** |
+| 使い放題MAX＋ 5G/4G | **7,458円** | **4,928円** |
+| スマホミニプラン＋（〜4GB） | 3,465〜6,215円 | 2,398〜5,148円 |
 
 ※割引フル適用 = 家族割プラス（3回線以上 -1,100円）+ auスマートバリュー（-1,100円）+ au PAY カードお支払い割（-110円）
+※使い放題MAX＋は月1GB以下の場合 -1,650円の自動割引あり
 
-<span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>割引がフルに効いても無制限で月額4,928円。割引なしなら7,238円</strong></span>です。これが毎月かかり続けています。
+<span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>割引がフルに効いても月額4,928円。割引なしなら7,458円</strong></span>です。これが毎月かかり続けています。
 
 では、乗り換え先の候補を見ていきましょう。
 
@@ -91,7 +91,7 @@ auで購入したスマホは、SIMカードを入れ替えるだけで格安SIM
 
 | キャリア | 月額料金 | 回線 | データ容量 | 通話 | 速度 | 店舗 |
 |:---|---:|:---:|:---:|:---|:---:|:---:|
-| **UQモバイル** | 2,365円 | au | 4GB | 22円/30秒 | ★★★★★ | 2,700+ |
+| **UQモバイル** | 1,628円〜 | au | 30〜35GB | 22円/30秒 | ★★★★★ | 2,700+ |
 | **povo2.0** | 0円〜 | au | トッピング制 | 22円/30秒 | ★★★★★ | なし |
 | **楽天モバイル** | 1,078円〜 | 楽天 | 無制限 | 無料(アプリ) | ★★★☆☆ | 1,000+ |
 | **LINEMO** | 990円〜 | ソフトバンク | 3〜30GB | 22円/30秒 | ★★★★☆ | なし |
