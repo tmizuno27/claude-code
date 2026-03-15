@@ -14,9 +14,9 @@ word_count: 7600
 
 **この記事の結論（30秒でわかる）**
 
-- YouTube 1時間のデータ消費量: 360p=0.3GB、720p=0.7GB、<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>1080p=1.5GB</strong></span>
+- YouTube 1時間のデータ消費量: 360p=0.3GB、720p=1.0GB、<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>1080p=2.0GB</strong></span>
 - **最安でYouTube見放題** → BIGLOBEモバイル エンタメフリー <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額308円追加でYouTubeカウントフリー</strong></span>
-- **コスパ最強の使い放題** → mineo パケット放題Plus <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額385円で1.5Mbps使い放題（10GB以上なら無料）</strong></span>
+- **コスパ最強の使い放題** → mineo パケット放題Plus <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額385円で3Mbps使い放題（15GB以上なら無料）</strong></span>
 - **画質も妥協しない** → 楽天モバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額3,278円で完全無制限</strong></span>
 - **大容量で安心** → ahamo大盛り <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額4,950円で110GB</strong></span>
 
@@ -45,10 +45,10 @@ word_count: 7600
 | 240p | 約0.15GB | 約9GB | 約18GB |
 | 360p（SD画質） | 約0.3GB | 約18GB | 約36GB |
 | 480p | 約0.5GB | 約30GB | 約60GB |
-| 720p（HD画質） | 約0.7GB | 約42GB | 約84GB |
-| 1080p（フルHD） | 約1.5GB | 約90GB | 約180GB |
+| 720p（HD画質） | 約1.0GB | 約60GB | 約120GB |
+| 1080p（フルHD） | 約2.0GB | 約120GB | 約240GB |
 
-<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>720p（HD画質）で1日2時間見ると月42GB</strong></span>。一般的な格安SIMの20GBプランでは全く足りません。
+<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>720p（HD画質）で1日2時間見ると月60GB</strong></span>。一般的な格安SIMの20GBプランでは全く足りません。
 
 ### 自分の月間YouTube視聴時間を確認する方法
 
