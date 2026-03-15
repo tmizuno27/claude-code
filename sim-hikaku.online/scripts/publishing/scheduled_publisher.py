@@ -202,6 +202,22 @@ def inject_css(content, css):
         return f"<!-- wp:html -->\n{style_block}\n<!-- /wp:html -->\n\n{content}"""
 
 
+def wp_request_with_retry(method, url, headers, json_data, max_retries=3):
+    """WordPress API request with retry on timeout."""
+    import time
+    for attempt in range(max_retries):
+        try:
+            r = requests.request(method, url, headers=headers, json=json_data, timeout=120)
+            return r
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            if attempt < max_retries - 1:
+                wait = 10 * (attempt + 1)
+                print(f"    → Timeout, retrying in {wait}s... (attempt {attempt + 2}/{max_retries})")
+                time.sleep(wait)
+            else:
+                raise
+
+
 def create_draft(api_url, headers, title, slug, html_content, category_id=None):
     """Create a new draft post on WordPress and return the post ID."""
     data = {
@@ -212,12 +228,15 @@ def create_draft(api_url, headers, title, slug, html_content, category_id=None):
     }
     if category_id:
         data["categories"] = [category_id]
-    r = requests.post(f"{api_url}/posts", headers=headers, json=data, timeout=30)
-    if r.status_code == 201:
-        result = r.json()
-        return result["id"]
-    else:
-        print(f"    → ERROR creating draft: {r.status_code} {r.text[:200]}")
+    try:
+        r = wp_request_with_retry("post", f"{api_url}/posts", headers, data)
+        if r.status_code == 201:
+            return r.json()["id"]
+        else:
+            print(f"    → ERROR creating draft: {r.status_code} {r.text[:200]}")
+            return None
+    except Exception as e:
+        print(f"    → ERROR: {e}")
         return None
 
 
@@ -229,7 +248,7 @@ def schedule_post(api_url, headers, post_id, date_gmt, content=None):
     }
     if content:
         data["content"] = content
-    r = requests.post(f"{api_url}/posts/{post_id}", headers=headers, json=data, timeout=30)
+    r = wp_request_with_retry("post", f"{api_url}/posts/{post_id}", headers, data)
     return r.json()
 
 
