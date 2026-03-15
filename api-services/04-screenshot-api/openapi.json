@@ -1,0 +1,192 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Website Screenshot API",
+    "description": "Capture website screenshots as PNG or JPEG images. Powered by Cloudflare Workers with caching and rate limiting.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://screenshot-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/screenshot": {
+      "get": {
+        "operationId": "captureScreenshot",
+        "summary": "Capture a website screenshot",
+        "description": "Takes a screenshot of the specified URL and returns it as an image.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Target URL to capture (must start with http:// or https://)",
+            "schema": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://example.com"
+            }
+          },
+          {
+            "name": "width",
+            "in": "query",
+            "required": false,
+            "description": "Viewport width in pixels",
+            "schema": {
+              "type": "integer",
+              "default": 1280,
+              "minimum": 320,
+              "maximum": 3840
+            }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "required": false,
+            "description": "Viewport height in pixels. Set to 0 for full page capture.",
+            "schema": {
+              "type": "integer",
+              "default": 720,
+              "minimum": 0,
+              "maximum": 4096
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Output image format",
+            "schema": {
+              "type": "string",
+              "enum": ["png", "jpeg"],
+              "default": "png"
+            }
+          },
+          {
+            "name": "quality",
+            "in": "query",
+            "required": false,
+            "description": "JPEG quality (ignored for PNG)",
+            "schema": {
+              "type": "integer",
+              "default": 80,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "required": false,
+            "description": "Milliseconds to wait before capturing",
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0,
+              "maximum": 5000
+            }
+          },
+          {
+            "name": "full_page",
+            "in": "query",
+            "required": false,
+            "description": "Capture the full scrollable page",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Screenshot image",
+            "headers": {
+              "X-Cache": {
+                "description": "Cache status (HIT or MISS)",
+                "schema": { "type": "string", "enum": ["HIT", "MISS"] }
+              },
+              "X-Screenshot-URL": {
+                "description": "The URL that was captured",
+                "schema": { "type": "string" }
+              }
+            },
+            "content": {
+              "image/png": {
+                "schema": { "type": "string", "format": "binary" }
+              },
+              "image/jpeg": {
+                "schema": { "type": "string", "format": "binary" }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request (missing or invalid URL)",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "502": {
+            "description": "Upstream screenshot service error",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "service": { "type": "string" },
+                    "status": { "type": "string" },
+                    "usage": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        },
+        "required": ["error"]
+      }
+    }
+  }
+}

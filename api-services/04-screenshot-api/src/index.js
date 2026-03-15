@@ -1,0 +1,157 @@
+const CORS_HEADERS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'GET, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type, X-API-Key',
+};
+
+function jsonResponse(data, status = 200) {
+  return new Response(JSON.stringify(data), {
+    status,
+    headers: { 'Content-Type': 'application/json', ...CORS_HEADERS },
+  });
+}
+
+function errorResponse(message, status) {
+  return jsonResponse({ error: message }, status);
+}
+
+// Simple in-memory rate limiter (per-isolate, resets on cold start)
+const rateLimitMap = new Map();
+
+function checkRateLimit(ip, maxRequests, windowSec) {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now - entry.start > windowSec * 1000) {
+    rateLimitMap.set(ip, { start: now, count: 1 });
+    return true;
+  }
+  entry.count++;
+  if (entry.count > maxRequests) return false;
+  return true;
+}
+
+function isValidUrl(str) {
+  try {
+    const u = new URL(str);
+    return u.protocol === 'http:' || u.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+export default {
+  async fetch(request, env) {
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
+
+    const url = new URL(request.url);
+
+    // Health check
+    if (url.pathname === '/' || url.pathname === '/health') {
+      return jsonResponse({
+        service: 'screenshot-api',
+        status: 'healthy',
+        usage: 'GET /screenshot?url=https://example.com',
+      });
+    }
+
+    if (url.pathname !== '/screenshot') {
+      return errorResponse('Not found. Use GET /screenshot?url=...', 404);
+    }
+
+    if (request.method !== 'GET') {
+      return errorResponse('Method not allowed', 405);
+    }
+
+    // Rate limiting
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    const maxReq = parseInt(env.RATE_LIMIT_MAX) || 60;
+    const window = parseInt(env.RATE_LIMIT_WINDOW) || 60;
+    if (!checkRateLimit(ip, maxReq, window)) {
+      return errorResponse('Rate limit exceeded. Try again later.', 429);
+    }
+
+    // Parse parameters
+    const targetUrl = url.searchParams.get('url');
+    if (!targetUrl) {
+      return errorResponse('Missing required parameter: url', 400);
+    }
+    if (!isValidUrl(targetUrl)) {
+      return errorResponse('Invalid URL. Must start with http:// or https://', 400);
+    }
+
+    const width = Math.min(Math.max(parseInt(url.searchParams.get('width')) || 1280, 320), 3840);
+    const height = parseInt(url.searchParams.get('height'));
+    const resolvedHeight = isNaN(height) ? 720 : Math.min(Math.max(height, 0), 4096);
+    const format = url.searchParams.get('format') === 'jpeg' ? 'jpeg' : 'png';
+    const quality = Math.min(Math.max(parseInt(url.searchParams.get('quality')) || 80, 1), 100);
+    const delay = Math.min(Math.max(parseInt(url.searchParams.get('delay')) || 0, 0), 5000);
+    const fullPage = url.searchParams.get('full_page') === 'true' || resolvedHeight === 0;
+
+    // Build thum.io URL
+    // Docs: https://www.thum.io/documentation/api/url
+    const thumbParts = ['https://image.thum.io/get'];
+    thumbParts.push(`/width/${width}`);
+    if (fullPage) {
+      thumbParts.push('/maxAge/1/noanimate');
+    } else {
+      thumbParts.push(`/crop/${resolvedHeight}`);
+    }
+    if (delay > 0) {
+      thumbParts.push(`/wait/${delay}`);
+    }
+    if (format === 'png') {
+      thumbParts.push('/png');
+    }
+    const thumUrl = thumbParts.join('') + '/' + targetUrl;
+
+    // Check CF cache
+    const cache = caches.default;
+    const cacheKey = new Request(thumUrl, request);
+    const cacheTtl = parseInt(env.CACHE_TTL) || 3600;
+
+    let cached = await cache.match(cacheKey);
+    if (cached) {
+      const resp = new Response(cached.body, cached);
+      resp.headers.set('X-Cache', 'HIT');
+      Object.entries(CORS_HEADERS).forEach(([k, v]) => resp.headers.set(k, v));
+      return resp;
+    }
+
+    // Fetch from thum.io
+    let upstream;
+    try {
+      upstream = await fetch(thumUrl, {
+        headers: { 'User-Agent': 'ScreenshotAPI/1.0' },
+      });
+    } catch (err) {
+      return errorResponse('Failed to capture screenshot: ' + err.message, 502);
+    }
+
+    if (!upstream.ok) {
+      return errorResponse(`Upstream error: ${upstream.status}`, 502);
+    }
+
+    const contentType = format === 'jpeg' ? 'image/jpeg' : 'image/png';
+    const body = await upstream.arrayBuffer();
+
+    const response = new Response(body, {
+      status: 200,
+      headers: {
+        'Content-Type': contentType,
+        'Cache-Control': `public, max-age=${cacheTtl}`,
+        'X-Cache': 'MISS',
+        'X-Screenshot-URL': targetUrl,
+        ...CORS_HEADERS,
+      },
+    });
+
+    // Store in cache (non-blocking)
+    const cacheResp = new Response(body, response);
+    cacheResp.headers.set('Cache-Control', `public, max-age=${cacheTtl}`);
+    await cache.put(cacheKey, cacheResp);
+
+    return response;
+  },
+};

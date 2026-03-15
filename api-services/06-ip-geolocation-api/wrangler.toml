@@ -1,0 +1,8 @@
+name = "ip-geolocation-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+CACHE_TTL = "86400"
+RATE_LIMIT_PER_MINUTE = "30"
+BULK_MAX_IPS = "20"

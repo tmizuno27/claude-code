@@ -1,0 +1,62 @@
+{
+  "name": "Website Screenshot API",
+  "tagline": "Capture website screenshots as PNG or JPEG images instantly",
+  "description": "A fast, reliable API for capturing website screenshots. Supports custom viewport sizes, full-page capture, JPEG/PNG formats, and configurable delays for JS-heavy sites. Results are cached for fast repeat requests.\n\nFeatures:\n- Capture any public URL as PNG or JPEG\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable delay for dynamic content\n- JPEG quality control\n- 1-hour result caching\n- CORS enabled for browser use",
+  "category": "Tools",
+  "tags": ["screenshot", "webpage", "capture", "thumbnail", "website", "image"],
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rateLimit": {
+          "requests": 100,
+          "period": "month"
+        },
+        "description": "100 screenshots per month"
+      },
+      {
+        "name": "Pro",
+        "price": 5,
+        "rateLimit": {
+          "requests": 5000,
+          "period": "month"
+        },
+        "description": "5,000 screenshots per month"
+      },
+      {
+        "name": "Ultra",
+        "price": 15,
+        "rateLimit": {
+          "requests": 25000,
+          "period": "month"
+        },
+        "description": "25,000 screenshots per month"
+      }
+    ]
+  },
+  "baseUrl": "https://screenshot-api.t-mizuno27.workers.dev",
+  "endpoints": [
+    {
+      "name": "Capture Screenshot",
+      "method": "GET",
+      "path": "/screenshot",
+      "description": "Capture a screenshot of the given URL",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "URL to capture" },
+        { "name": "width", "type": "integer", "required": false, "description": "Viewport width (default: 1280)" },
+        { "name": "height", "type": "integer", "required": false, "description": "Viewport height (default: 720, 0 for full page)" },
+        { "name": "format", "type": "string", "required": false, "description": "png or jpeg (default: png)" },
+        { "name": "quality", "type": "integer", "required": false, "description": "JPEG quality 1-100 (default: 80)" },
+        { "name": "delay", "type": "integer", "required": false, "description": "Wait ms before capture (max 5000)" },
+        { "name": "full_page", "type": "boolean", "required": false, "description": "Capture full scrollable page" }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "path": "/",
+      "description": "Check API status"
+    }
+  ]
+}
