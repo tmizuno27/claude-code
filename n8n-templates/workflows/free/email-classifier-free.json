@@ -1,0 +1,83 @@
+{
+  "name": "Email Classifier (Free) - AI Email Classification",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "email" }, { "name": "classification" }, { "name": "ai" }, { "name": "free" }],
+  "meta": {
+    "description": "Automatically classify incoming emails by category (urgent, client, invoice, newsletter, spam) and priority (high/medium/low) using AI.\n\nThis is the FREE version with basic classification only.\n\nThe FULL version ($49) adds:\n- Auto-routing to Slack/email by category\n- Spam auto-labeling in Gmail\n- Invoice forwarding to accounting\n- Client email labeling\n- Suggested reply drafts\n\nGet the full version: https://YOUR_GUMROAD_LINK/email-classification-auto-routing"
+  },
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Email Trigger (IMAP)",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "parameters": { "mailbox": "INBOX", "options": { "forceReconnect": 300 } },
+      "credentials": { "imap": { "id": "IMAP_CREDENTIAL_ID", "name": "Email Account" } }
+    },
+    {
+      "id": "extract-001",
+      "name": "Extract Email Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"from\": \"{{ $json.from }}\",\n  \"from_name\": \"{{ $json.fromName || '' }}\",\n  \"subject\": \"{{ $json.subject }}\",\n  \"body\": \"{{ ($json.text || '').substring(0, 2000) }}\",\n  \"date\": \"{{ $json.date }}\",\n  \"has_attachments\": {{ ($json.attachments || []).length > 0 }}\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "classify-001",
+      "name": "AI Classify Email",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [480, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Classify this email:\n\nFrom: {{ $json.from_name }} <{{ $json.from }}>\nSubject: {{ $json.subject }}\nBody: {{ $json.body }}\n\nRespond in JSON:\n{\n  \"category\": \"urgent|client|invoice|newsletter|spam|internal|personal|support|sales_inquiry\",\n  \"priority\": \"high|medium|low\",\n  \"summary\": \"one-line summary\",\n  \"is_spam\": true/false\n}",
+        "messages": { "messageValues": [{ "message": "You are an email classifier. Categorize emails accurately. Mark as spam: unsolicited marketing, cold outreach, newsletters the user didn't subscribe to. Mark as urgent: deadlines within 24h, client escalations, payment issues." }] }
+      }
+    },
+    {
+      "id": "llm-001",
+      "name": "OpenAI - Classifier",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [480, 520],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.1, "maxTokens": 300 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI" } }
+    },
+    {
+      "id": "log-001",
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [720, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Email Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $now.toISO() }}",
+            "from": "={{ $('Extract Email Data').item.json.from }}",
+            "subject": "={{ $('Extract Email Data').item.json.subject }}",
+            "category": "={{ $json.text }}",
+            "summary": "={{ $('Extract Email Data').item.json.subject }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "Email Trigger (IMAP)": { "main": [[{ "node": "Extract Email Data", "type": "main", "index": 0 }]] },
+    "Extract Email Data": { "main": [[{ "node": "AI Classify Email", "type": "main", "index": 0 }]] },
+    "AI Classify Email": { "main": [[{ "node": "Log to Google Sheets", "type": "main", "index": 0 }]] },
+    "OpenAI - Classifier": { "ai_languageModel": [[{ "node": "AI Classify Email", "type": "ai_languageModel", "index": 0 }]] }
+  }
+}

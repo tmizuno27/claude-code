@@ -1,0 +1,64 @@
+{
+  "name": "Shopify Order Logger (Free) - Log Orders to Google Sheets",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "shopify" }, { "name": "ecommerce" }, { "name": "orders" }, { "name": "free" }],
+  "meta": {
+    "description": "Automatically log every new Shopify order to a Google Sheet with order details, customer info, and line items.\n\nThis is the FREE version with basic order logging only.\n\nThe FULL version ($59) adds:\n- Fraud risk detection (high-value order alerts)\n- Slack notifications for flagged orders\n- Automated thank-you emails to customers\n- Inventory low-stock alerts\n- Auto-tagging orders in Shopify\n\nGet the full version: https://YOUR_GUMROAD_LINK/shopify-order-automation"
+  },
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Shopify Order Created",
+      "type": "n8n-nodes-base.shopifyTrigger",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "parameters": { "topic": "orders/create" },
+      "credentials": { "shopifyApi": { "id": "SHOPIFY_CREDENTIAL_ID", "name": "Shopify Store" } }
+    },
+    {
+      "id": "extract-001",
+      "name": "Extract Order Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"order_number\": \"{{ $json.order_number }}\",\n  \"customer_email\": \"{{ $json.email }}\",\n  \"customer_name\": \"{{ $json.customer?.first_name }} {{ $json.customer?.last_name }}\",\n  \"total_price\": \"{{ $json.total_price }}\",\n  \"currency\": \"{{ $json.currency }}\",\n  \"financial_status\": \"{{ $json.financial_status }}\",\n  \"fulfillment_status\": \"{{ $json.fulfillment_status || 'unfulfilled' }}\",\n  \"items\": \"{{ $json.line_items?.map(i => i.name + ' x' + i.quantity).join(', ') }}\",\n  \"created_at\": \"{{ $json.created_at }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "log-001",
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [480, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Orders", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "order_number": "={{ $json.order_number }}",
+            "date": "={{ $json.created_at }}",
+            "customer": "={{ $json.customer_name }}",
+            "email": "={{ $json.customer_email }}",
+            "total": "={{ $json.total_price }}",
+            "currency": "={{ $json.currency }}",
+            "items": "={{ $json.items }}",
+            "payment_status": "={{ $json.financial_status }}",
+            "fulfillment": "={{ $json.fulfillment_status }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "Shopify Order Created": { "main": [[{ "node": "Extract Order Data", "type": "main", "index": 0 }]] },
+    "Extract Order Data": { "main": [[{ "node": "Log to Google Sheets", "type": "main", "index": 0 }]] }
+  }
+}
