@@ -18,7 +18,7 @@
 
 ## Step 3: secrets.json にキーを追加（1分）
 
-`claude-code/blog/config/secrets.json` に以下を追加:
+`claude-code/nambei-oyaji.com/config/secrets.json` に以下を追加:
 
 ```json
 "healthchecks": {

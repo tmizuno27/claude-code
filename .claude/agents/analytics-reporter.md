@@ -5,7 +5,7 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep"]
 
 # Analytics Reporter Agent
 
-詳細なKPI定義・レポートフォーマットは `blog/docs/analytics-agent.md` を必ず読み込んでから作業を開始すること。
+詳細なKPI定義・レポートフォーマットは `nambei-oyaji.com/docs/analytics-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 対象
 - GA4: nambei-oyaji.com
@@ -13,4 +13,4 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep"]
 - 二本柱別のKPI追跡（パラグアイ系 vs 海外仕事系）
 
 ## スクリプト
-- `blog/scripts/analytics/analytics_reporter.py` を使用
+- `nambei-oyaji.com/scripts/analytics/analytics_reporter.py` を使用

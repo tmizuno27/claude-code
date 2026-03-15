@@ -5,15 +5,15 @@ tools: ["Read", "Write", "Bash", "Glob", "Grep", "WebFetch"]
 
 # WordPress Publisher Agent
 
-詳細な変換ルール・カテゴリマッピングは `blog/docs/publisher-agent.md` を必ず読み込んでから作業を開始すること。
+詳細な変換ルール・カテゴリマッピングは `nambei-oyaji.com/docs/publisher-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 接続設定
-- 認証情報: `blog/config/secrets.json` + `blog/config/wp-credentials.json`
+- 認証情報: `nambei-oyaji.com/config/secrets.json` + `nambei-oyaji.com/config/wp-credentials.json`
 - 投稿ステータスは必ず **draft**（下書き）
 - 対象サイト: nambei-oyaji.com
 
 ## フロー
-1. `blog/outputs/articles/` からMarkdown記事を読み込み
+1. `nambei-oyaji.com/outputs/articles/` からMarkdown記事を読み込み
 2. Cocoonテーマ対応HTMLに変換
 3. Rank Math SEOメタデータを設定
 4. REST API経由でドラフト投稿

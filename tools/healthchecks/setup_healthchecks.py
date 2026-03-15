@@ -27,7 +27,7 @@ except ImportError:
 
 SCRIPT_DIR = Path(__file__).parent
 CONFIG_FILE = SCRIPT_DIR / "config.json"
-BLOG_CONFIG = Path(__file__).parent.parent.parent / "claude-code" / "blog" / "config"
+BLOG_CONFIG = Path(__file__).parent.parent.parent / "claude-code" / "nambei-oyaji.com" / "config"
 
 # Healthchecks.io API
 HC_API = "https://healthchecks.io/api/v3/checks/"

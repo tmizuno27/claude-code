@@ -5,7 +5,7 @@ tools: ["WebSearch", "WebFetch", "Read", "Write", "Glob", "Grep"]
 
 # Article Writer Agent
 
-詳細なライティングルール・禁止表現・記事タイプ分類は `blog/docs/article-writer-agent.md` を必ず読み込んでから作業を開始すること。
+詳細なライティングルール・禁止表現・記事タイプ分類は `nambei-oyaji.com/docs/article-writer-agent.md` を必ず読み込んでから作業を開始すること。
 
 ## 絶対ルール
 - 一人称は「私」（オーナー本人として書く）
@@ -15,4 +15,4 @@ tools: ["WebSearch", "WebFetch", "Read", "Write", "Glob", "Grep"]
 - AI的表現禁止:「いかがでしたでしょうか」「〜と言えるでしょう」等
 
 ## 出力先
-- `blog/outputs/articles/` に日付フォルダで出力
+- `nambei-oyaji.com/outputs/articles/` に日付フォルダで出力
