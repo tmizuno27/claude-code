@@ -1,6 +1,6 @@
 # 全自動定期タスク一覧（Task Scheduler）
 
-最終更新: 2026-03-13
+最終更新: 2026-03-15
 
 ## インフラ系（常時稼働）
 
@@ -72,6 +72,17 @@
 - ランチャー: `otona-article-gen-hidden.vbs` → `otona-article-gen.ps1` → `article_generator.py`
 - キューファイル: `otona-match.com/inputs/keywords/keyword-queue.json`
 - 登録スクリプト: `register-otona-tasks.ps1`
+
+## sim-hikaku.online 予約投稿
+
+| タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
+|---------|------|----------|---------|------|
+| SimHikakuPublisher | 毎日 | 18:00 | 07:00翌日 | pending記事のWP下書き作成→予約投稿 |
+
+- ランチャー: `sim-publisher-hidden.vbs` → `sim-publisher.ps1` → `scheduled_publisher.py --publish`
+- スケジュール: `sim-hikaku.online/config/publish-schedule.json`
+- 現在30記事予約済み（3/17〜6/4、週2-3ペース）
+- ログ: `logs/sim-publisher.log`
 
 ## ファイル配置
 
