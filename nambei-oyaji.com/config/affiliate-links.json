@@ -179,14 +179,6 @@
           "commission": "10,000〜30,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "海外からオンラインでプログラミング・スキルアップを学ぶ文脈で使用"
-        },
-        {
-          "name": "Udemy",
-          "url": "https://YOUR-AFFILIATE-LINK/udemy",
-          "anchor_text": ["Udemy", "ユーデミー"],
-          "commission": "購入額の10%",
-          "asp": "もしもアフィリエイト",
-          "context": "単発講座でスキルアップ。海外からも受講可"
         }
       ]
     },
