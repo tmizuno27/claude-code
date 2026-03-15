@@ -308,7 +308,10 @@ def main():
 
     schedule = load_schedule()
     css = load_css()
+    category_ids = load_category_ids()
     dry_run = "--publish" not in args
+    schedule_modified = False
+    now_jst = datetime.now(JST)
 
     if dry_run:
         print("=== DRY RUN（--publish で実行） ===\n")
@@ -318,6 +321,12 @@ def main():
         date_jst = entry["publish_date_jst"]  # e.g. "2026-03-23T07:00:00"
         wp_id = entry.get("wp_id")
         category_slug = entry.get("category", "")
+        status = entry.get("status", "pending")
+
+        # Skip already published/scheduled
+        if status in ("published", "scheduled"):
+            print(f"  ✓ {date_jst} | {filename} ({status})")
+            continue
 
         # Parse JST date to GMT
         dt_jst = datetime.fromisoformat(date_jst).replace(tzinfo=JST)
@@ -325,7 +334,7 @@ def main():
         date_gmt_str = dt_gmt.strftime("%Y-%m-%dT%H:%M:%S")
 
         # Check if MD exists
-        md_content = load_article_md(filename)
+        fm, md_content = load_article_md(filename)
         has_md = md_content is not None
 
         status_icon = "✓" if has_md else "✗"
@@ -334,19 +343,46 @@ def main():
             print(f"    → MDファイルなし（outputs/{filename}.md）- スキップ")
             continue
 
-        if wp_id and not dry_run:
-            # Update existing draft with CSS and schedule
-            content_with_css = inject_css(md_content, css)
-            result = schedule_post(api_url, headers, wp_id, date_gmt_str, content_with_css)
-            new_status = result.get("status", "error")
-            print(f"    → 予約完了: status={new_status} date={result.get('date', '')}")
-        elif not wp_id and not dry_run:
-            print(f"    → WP IDなし - 先に下書きを作成してください")
-        elif dry_run:
+        if dry_run:
             print(f"    → 予約予定: {date_gmt_str} UTC (WP ID: {wp_id or '未作成'})")
+            continue
+
+        # Convert MD to HTML with CSS
+        html_content = md_to_html(md_content)
+        html_with_css = inject_css(html_content, css)
+
+        # Step 1: Create draft if no wp_id
+        if not wp_id:
+            title = fm.get("title", filename) if fm else filename
+            cat_id = category_ids.get(category_slug)
+            wp_id = create_draft(api_url, headers, title, filename, html_with_css, cat_id)
+            if wp_id:
+                entry["wp_id"] = wp_id
+                schedule_modified = True
+                print(f"    → 下書き作成: WP ID={wp_id}")
+            else:
+                print(f"    → 下書き作成失敗 - スキップ")
+                continue
+
+        # Step 2: Schedule the post
+        result = schedule_post(api_url, headers, wp_id, date_gmt_str, html_with_css)
+        new_status = result.get("status", "error")
+        if new_status == "future":
+            entry["status"] = "scheduled"
+            schedule_modified = True
+            print(f"    → 予約完了: status={new_status} date={result.get('date', '')}")
+        else:
+            print(f"    → 予約結果: status={new_status} {result.get('message', '')}")
+
+    # Save updated schedule
+    if schedule_modified:
+        save_schedule(schedule)
+        update_csv(schedule)
 
     if dry_run:
         print("\n実行するには: python scheduled_publisher.py --publish")
+    else:
+        print(f"\n処理完了 ({datetime.now(JST).strftime('%Y-%m-%d %H:%M JST')})")
 
 
 if __name__ == "__main__":
