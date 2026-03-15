@@ -72,10 +72,10 @@
       "links": [
         {
           "name": "ConoHa WING",
-          "url": "https://YOUR-AFFILIATE-LINK/conoha",
+          "url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
           "anchor_text": ["ConoHa WING", "コノハウィング"],
           "commission": "5,000〜12,000円/件",
-          "asp": "もしもアフィリエイト",
+          "asp": "A8.net",
           "context": "海外生活ブログ開設、WordPress、海外からのサーバー選びの文脈で使用",
           "killer_article": "海外生活ブログの始め方"
         },
@@ -173,20 +173,12 @@
       "context_note": "海外移住後のスキルアップ・キャリアチェンジ。働き方・スキル記事に配置",
       "links": [
         {
-          "name": "TechAcademy",
-          "url": "https://YOUR-AFFILIATE-LINK/techacademy",
-          "anchor_text": ["TechAcademy", "テックアカデミー"],
-          "commission": "10,000〜30,000円/件",
-          "asp": "A8.net",
-          "context": "海外からオンラインでプログラミング・Web制作を学ぶ文脈で使用"
-        },
-        {
           "name": "DMM WEBCAMP",
           "url": "//af.moshimo.com/af/c/click?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
           "anchor_text": ["DMM WEBCAMP", "DMMウェブキャンプ"],
-          "commission": "15,000〜50,000円/件",
-          "asp": "A8.net",
-          "context": "転職・キャリアチェンジを見据えた本格スクール"
+          "commission": "10,000〜30,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "海外からオンラインでプログラミング・スキルアップを学ぶ文脈で使用"
         },
         {
           "name": "Udemy",

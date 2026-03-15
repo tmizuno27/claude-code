@@ -61,6 +61,18 @@
 |---------|------|----------|---------|------|
 | AllBusinessWeeklyKPI | 日曜 | 19:30 | 08:30月曜 | 全事業統合KPIレポート（ブログ+X+eBay+FL+財務）→Discord |
 
+## otona-match.com 記事自動生成
+
+| タスク名 | 頻度 | 時刻(PYT) | 内容 |
+|---------|------|----------|------|
+| OtonaMatch_Article_Mon | 月曜 | 09:00 | 記事自動生成（キラー記事） |
+| OtonaMatch_Article_Wed | 水曜 | 09:00 | 記事自動生成（比較/収益記事） |
+| OtonaMatch_Article_Fri | 金曜 | 09:00 | 記事自動生成（集客記事） |
+
+- ランチャー: `otona-article-gen-hidden.vbs` → `otona-article-gen.ps1` → `article_generator.py`
+- キューファイル: `otona-match.com/inputs/keywords/keyword-queue.json`
+- 登録スクリプト: `register-otona-tasks.ps1`
+
 ## ファイル配置
 
 全ランチャー: `C:\Users\tmizu\scripts\`
