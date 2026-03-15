@@ -1,0 +1,214 @@
+{
+  "queue": [
+    {
+      "slug": "omiai-review",
+      "title": "Omiai（オミアイ）の評判・口コミを徹底レビュー｜30代に人気の理由",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "Omiai 評判",
+      "scheduled_date": "2026-03-17",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "matching-app-price-comparison", "konkatsu-app-osusume"]
+    },
+    {
+      "slug": "matching-app-30dai-osusume",
+      "title": "30代におすすめのマッチングアプリ5選｜年齢層データで選ぶ",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "マッチングアプリ 30代 おすすめ",
+      "scheduled_date": "2026-03-19",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "pairs-review", "with-review"]
+    },
+    {
+      "slug": "matching-app-message-kotsu",
+      "title": "マッチングアプリのメッセージのコツ｜返信率が上がる最初の一通",
+      "category": "renai-technique",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ メッセージ コツ",
+      "scheduled_date": "2026-03-21",
+      "status": "pending",
+      "internal_links": ["matching-app-no-reply", "profile-photo-tips", "first-date-manual"]
+    },
+    {
+      "slug": "tapple-review",
+      "title": "タップル（tapple）の評判と使い方｜20代〜30代向けの恋活アプリ",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "タップル 評判",
+      "scheduled_date": "2026-03-24",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "matching-app-price-comparison", "profile-photo-tips"]
+    },
+    {
+      "slug": "kekkon-soudan-osusume",
+      "title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "category": "konkatsu",
+      "type": "収益",
+      "main_keyword": "結婚相談所 おすすめ",
+      "scheduled_date": "2026-03-26",
+      "status": "pending",
+      "internal_links": ["kekkon-soudan-vs-app", "konkatsu-app-osusume", "konkatsu-30dai"]
+    },
+    {
+      "slug": "matching-app-kaiwa-tsuzukanai",
+      "title": "マッチングアプリで会話が続かない…盛り上がる話題と質問テクニック",
+      "category": "renai-technique",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 会話 続かない",
+      "scheduled_date": "2026-03-28",
+      "status": "pending",
+      "internal_links": ["matching-app-no-reply", "matching-app-message-kotsu", "first-date-manual"]
+    },
+    {
+      "slug": "marrish-review",
+      "title": "marrish（マリッシュ）の評判｜再婚・シンママに人気の理由を検証",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "マリッシュ 評判",
+      "scheduled_date": "2026-03-31",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "konkatsu-app-osusume", "40dai-50dai-taikendan"]
+    },
+    {
+      "slug": "konkatsu-40dai",
+      "title": "40代の婚活は厳しい？現実と成功率を上げる5つの戦略",
+      "category": "konkatsu",
+      "type": "集客",
+      "main_keyword": "40代 婚活",
+      "scheduled_date": "2026-04-02",
+      "status": "pending",
+      "internal_links": ["konkatsu-30dai", "40dai-50dai-taikendan", "konkatsu-app-osusume"]
+    },
+    {
+      "slug": "matching-app-line-koukan",
+      "title": "マッチングアプリでLINE交換するタイミングと断り方",
+      "category": "renai-technique",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ LINE交換",
+      "scheduled_date": "2026-04-04",
+      "status": "pending",
+      "internal_links": ["matching-app-message-kotsu", "anzen-checklist", "first-date-manual"]
+    },
+    {
+      "slug": "youbride-review",
+      "title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "category": "konkatsu",
+      "type": "キラー",
+      "main_keyword": "ユーブライド 評判",
+      "scheduled_date": "2026-04-07",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "konkatsu-app-osusume", "kekkon-soudan-vs-app"]
+    },
+    {
+      "slug": "wakuwaku-mail-review",
+      "title": "ワクワクメールの評判・安全性を検証｜出会えるコツと注意点",
+      "category": "deaikei",
+      "type": "キラー",
+      "main_keyword": "ワクワクメール 評判",
+      "scheduled_date": "2026-04-09",
+      "status": "pending",
+      "internal_links": ["happy-mail-review", "pcmax-review", "sakura-gyosha-miwakekata"]
+    },
+    {
+      "slug": "matching-app-douki-fukusu",
+      "title": "マッチングアプリの同時進行は何人まで？複数人とやりとりするコツ",
+      "category": "renai-technique",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 同時進行",
+      "scheduled_date": "2026-04-11",
+      "status": "pending",
+      "internal_links": ["matching-app-message-kotsu", "matching-app-yamedoki", "matching-app-no-reply"]
+    },
+    {
+      "slug": "matching-app-40dai-osusume",
+      "title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "マッチングアプリ 40代 おすすめ",
+      "scheduled_date": "2026-04-14",
+      "status": "pending",
+      "internal_links": ["matching-app-ranking-2026", "40dai-50dai-taikendan", "marrish-review"]
+    },
+    {
+      "slug": "online-kekkon-soudan-hikaku",
+      "title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "category": "konkatsu",
+      "type": "収益",
+      "main_keyword": "オンライン結婚相談所 比較",
+      "scheduled_date": "2026-04-16",
+      "status": "pending",
+      "internal_links": ["kekkon-soudan-osusume", "kekkon-soudan-vs-app", "konkatsu-app-osusume"]
+    },
+    {
+      "slug": "matching-app-tsukare-taisaku",
+      "title": "マッチングアプリに疲れた…原因と「アプリ疲れ」の対処法",
+      "category": "reviews",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 疲れた",
+      "scheduled_date": "2026-04-18",
+      "status": "pending",
+      "internal_links": ["matching-app-yamedoki", "matching-app-no-reply", "matching-app-kekkon-taikendan"]
+    },
+    {
+      "slug": "deaikei-anzen-tsukaikata",
+      "title": "出会い系サイトの安全な使い方｜トラブルを避ける7つのルール",
+      "category": "deaikei",
+      "type": "集客",
+      "main_keyword": "出会い系 安全 使い方",
+      "scheduled_date": "2026-04-21",
+      "status": "pending",
+      "internal_links": ["deaikei-vs-matching-app", "sakura-gyosha-miwakekata", "anzen-checklist"]
+    },
+    {
+      "slug": "konkatsu-party-vs-app",
+      "title": "婚活パーティーとマッチングアプリどっちが出会える？比較検証",
+      "category": "konkatsu",
+      "type": "集客",
+      "main_keyword": "婚活パーティー マッチングアプリ 比較",
+      "scheduled_date": "2026-04-23",
+      "status": "pending",
+      "internal_links": ["konkatsu-app-osusume", "kekkon-soudan-vs-app", "konkatsu-30dai"]
+    },
+    {
+      "slug": "matching-app-batuichi-saikon",
+      "title": "バツイチ・再婚向けマッチングアプリおすすめ｜子持ちでも出会える",
+      "category": "reviews",
+      "type": "集客",
+      "main_keyword": "バツイチ マッチングアプリ",
+      "scheduled_date": "2026-04-25",
+      "status": "pending",
+      "internal_links": ["marrish-review", "40dai-50dai-taikendan", "matching-app-kekkon-taikendan"]
+    },
+    {
+      "slug": "matching-app-shinjitsu-uso",
+      "title": "マッチングアプリの嘘プロフィールを見抜く方法｜年収・年齢・写真",
+      "category": "safety",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 嘘 見抜く",
+      "scheduled_date": "2026-04-28",
+      "status": "pending",
+      "internal_links": ["sakura-gyosha-miwakekata", "anzen-checklist", "matching-app-mibare-taisaku"]
+    },
+    {
+      "slug": "matching-app-koppun-taikendan",
+      "title": "マッチングアプリで告白された体験談｜付き合うまでのリアルな流れ",
+      "category": "reviews",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 告白 体験談",
+      "scheduled_date": "2026-04-30",
+      "status": "pending",
+      "internal_links": ["matching-app-kekkon-taikendan", "first-date-manual", "matching-app-first-date-guide"]
+    },
+    {
+      "slug": "kekkon-soudan-ryoukin-hikaku",
+      "title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "category": "konkatsu",
+      "type": "収益",
+      "main_keyword": "結婚相談所 料金 比較",
+      "scheduled_date": "2026-05-02",
+      "status": "pending",
+      "internal_links": ["kekkon-soudan-osusume", "kekkon-soudan-vs-app", "online-kekkon-soudan-hikaku"]
+    }
+  ]
+}
