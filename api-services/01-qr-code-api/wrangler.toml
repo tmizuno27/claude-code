@@ -1,0 +1,8 @@
+name = "qr-code-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+RATE_LIMIT_PER_MINUTE = "60"
+MAX_QR_SIZE = "1000"
+DEFAULT_QR_SIZE = "300"

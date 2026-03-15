@@ -1,0 +1,14 @@
+{
+  "name": "email-validation-api",
+  "version": "1.0.0",
+  "description": "Email Validation API - Cloudflare Worker",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

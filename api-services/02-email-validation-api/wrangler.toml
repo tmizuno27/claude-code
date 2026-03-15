@@ -1,0 +1,7 @@
+name = "email-validation-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+RATE_LIMIT_PER_MINUTE = "60"
+BULK_MAX_EMAILS = "50"
