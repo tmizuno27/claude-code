@@ -152,11 +152,23 @@ def update_csv(pv_map):
 
 
 def sync_sheets():
-    """Google Sheetsに同期"""
-    # create_article_sheet.py のmain()を呼び出す
-    sys.path.insert(0, str(SCRIPT_DIR))
-    from create_article_sheet import main as sheet_main
-    sheet_main()
+    """Google Sheetsに同期（3サイト統合スクリプト経由）"""
+    import subprocess
+    unified_script = PROJECT_ROOT.parent / "tools" / "update_all_sheets.py"
+    if unified_script.exists():
+        result = subprocess.run(
+            [sys.executable, str(unified_script), "--site", "nambei"],
+            capture_output=True, text=True, encoding="utf-8", errors="replace"
+        )
+        log(f"Unified sheets sync (nambei): exit={result.returncode}")
+        if result.stdout:
+            for line in result.stdout.strip().split("\n")[-3:]:
+                log(f"  {line}")
+    else:
+        # フォールバック: 旧スクリプト
+        sys.path.insert(0, str(SCRIPT_DIR))
+        from create_article_sheet import main as sheet_main
+        sheet_main()
     log("Google Sheets synced")
 
 
