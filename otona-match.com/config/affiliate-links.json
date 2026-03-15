@@ -1,101 +1,78 @@
 {
-  "strategy_note": "マッチングアプリ・出会い系の比較サイト。アプリ登録・有料課金のアフィリエイトが中心。高単価案件を優先配置。",
+  "strategy_note": "マッチングアプリ・出会い系の比較サイト。提携済み案件のみ掲載。承認待ち案件はステータスで管理。",
   "categories": {
     "matching_apps": {
-      "description": "マッチングアプリ系（1件1,000-5,000円）",
+      "description": "マッチングアプリ系",
       "priority": 1,
       "links": [
         {
-          "name": "Pairs（ペアーズ）",
-          "url": "https://YOUR-AFFILIATE-LINK/pairs",
-          "anchor_text": ["Pairs", "ペアーズ", "Pairs（ペアーズ）"],
-          "commission": "有料会員登録で2,000〜5,000円",
-          "asp": "A8.net / アクセストレード",
-          "context": "国内最大級アプリ。ランキング・比較記事の筆頭"
-        },
-        {
-          "name": "with（ウィズ）",
-          "url": "https://YOUR-AFFILIATE-LINK/with",
-          "anchor_text": ["with", "ウィズ", "with（ウィズ）"],
-          "commission": "有料会員登録で1,500〜3,000円",
-          "asp": "A8.net",
-          "context": "性格診断マッチング。内面重視の記事で使用"
-        },
-        {
-          "name": "Omiai（オミアイ）",
-          "url": "https://YOUR-AFFILIATE-LINK/omiai",
-          "anchor_text": ["Omiai", "オミアイ"],
-          "commission": "有料会員登録で2,000〜4,000円",
-          "asp": "A8.net / バリューコマース",
-          "context": "真剣交際向け。婚活・30代向け記事で使用"
-        },
-        {
-          "name": "タップル",
-          "url": "https://YOUR-AFFILIATE-LINK/tapple",
-          "anchor_text": ["タップル", "tapple"],
-          "commission": "有料会員登録で1,500〜3,000円",
-          "asp": "A8.net",
-          "context": "20代カジュアル向け。料金比較・年代別記事で使用"
-        },
-        {
-          "name": "ゼクシィ縁結び",
-          "url": "https://YOUR-AFFILIATE-LINK/zexy-enmusubi",
-          "anchor_text": ["ゼクシィ縁結び"],
-          "commission": "有料会員登録で3,000〜5,000円",
-          "asp": "バリューコマース",
-          "context": "婚活特化。婚活アプリ記事で使用"
-        },
-        {
           "name": "marrish（マリッシュ）",
-          "url": "https://YOUR-AFFILIATE-LINK/marrish",
+          "status": "active",
+          "html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA\" rel=\"nofollow\">無料の出会いは(マリッシュ)<br>いいねから始まる恋婚/R18</a><img border=\"0\" width=\"1\" height=\"1\" src=\"https://www10.a8.net/0.gif?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA\" alt=\"\">",
           "anchor_text": ["marrish", "マリッシュ"],
-          "commission": "有料会員登録で1,500〜3,000円",
+          "commission": "5%以上",
           "asp": "A8.net",
+          "epc": 5.05,
           "context": "再婚・バツイチ向け。40代以上の記事で使用"
         }
       ]
     },
     "deaikei": {
-      "description": "出会い系サイト系（1件500-2,000円）",
+      "description": "出会い系サイト系",
       "priority": 2,
       "links": [
         {
+          "name": "ワクワクメール",
+          "status": "active",
+          "html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2\" rel=\"nofollow\">運営20年の実績！<br>安心できる恋活マッチング</a><img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4AZGCF+F75EHM+1KZ4+601S2\" alt=\"\">",
+          "anchor_text": ["ワクワクメール"],
+          "commission": "会員登録",
+          "asp": "A8.net",
+          "context": "出会い系レビュー・安全な使い方記事で使用"
+        },
+        {
           "name": "ハッピーメール",
-          "url": "https://YOUR-AFFILIATE-LINK/happymail",
+          "status": "pending_approval",
+          "html": null,
           "anchor_text": ["ハッピーメール"],
-          "commission": "無料会員登録で1,000〜2,000円",
-          "asp": "A8.net / アクセストレード",
+          "commission": "新規会員登録3,500円",
+          "asp": "A8.net",
+          "epc": 15.68,
           "context": "出会い系の定番。安全性記事で使用"
         },
         {
           "name": "PCMAX",
-          "url": "https://YOUR-AFFILIATE-LINK/pcmax",
+          "status": "pending_approval",
+          "html": null,
           "anchor_text": ["PCMAX", "ピーシーマックス"],
-          "commission": "無料会員登録で500〜1,500円",
           "asp": "A8.net",
           "context": "出会い系レビュー記事で使用"
         }
       ]
     },
     "konkatsu_service": {
-      "description": "結婚相談所系（超高単価：1件10,000-30,000円）",
+      "description": "結婚相談所系（超高単価）",
       "priority": 3,
       "links": [
         {
-          "name": "エン婚活エージェント",
-          "url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
-          "anchor_text": ["エン婚活エージェント"],
-          "commission": "無料相談で10,000〜20,000円",
+          "name": "パートナーエージェント",
+          "status": "pending_approval",
+          "html": null,
+          "anchor_text": ["パートナーエージェント"],
+          "commission": "新規来店19,523円",
           "asp": "A8.net",
-          "context": "オンライン完結の結婚相談所。婚活比較記事で使用"
+          "epc": 105.88,
+          "context": "結婚相談所比較・婚活記事で使用"
         },
         {
-          "name": "ゼクシィ縁結びエージェント",
-          "url": "https://YOUR-AFFILIATE-LINK/zexy-agent",
-          "anchor_text": ["ゼクシィ縁結びエージェント"],
-          "commission": "無料相談で15,000〜30,000円",
-          "asp": "バリューコマース",
-          "context": "リクルート運営の結婚相談所。相談所vs.アプリ記事で使用"
+          "name": "ブライダルネット",
+          "status": "pending_approval",
+          "html": null,
+          "anchor_text": ["ブライダルネット"],
+          "commission": "新規会員登録1,000〜4,532円",
+          "asp": "A8.net",
+          "epc": 9.91,
+          "context": "婚活サイト・オンライン結婚相談所記事で使用"
         }
       ]
     }
@@ -106,7 +83,6 @@
     "natural_insertion": true,
     "disclosure_required": true,
     "disclosure_text": "※この記事にはアフィリエイトリンクが含まれています。リンクを経由してご登録いただいた場合、当サイトに紹介料が発生しますが、読者の皆様への費用負担は一切ありません。",
-    "priority_order": "matching_apps > konkatsu_service > deaikei",
     "killer_article_rule": "ランキング・比較記事では対象アプリのリンクを本文中2箇所+比較表内+まとめCTA の計4箇所に配置"
   }
 }
