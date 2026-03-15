@@ -1,0 +1,47 @@
+{
+  "name": "Text Analysis / NLP API",
+  "tagline": "Analyze text with sentiment, keywords, readability, language detection & summarization - no AI API keys needed",
+  "description": "A pure JavaScript NLP API that provides comprehensive text analysis without any external AI dependencies. Features include:\n\n- **Sentiment Analysis**: AFINN-style lexicon with 200+ words, negation handling, and intensifiers. Returns positive/negative/neutral with confidence score.\n- **Keyword Extraction**: TF-IDF-based scoring with 200+ stop words removed. Returns top 10 keywords ranked by relevance.\n- **Readability Scoring**: Flesch-Kincaid Grade Level and Reading Ease formulas with syllable counting.\n- **Language Detection**: Supports 10 languages (English, Spanish, French, German, Portuguese, Italian, Dutch, Japanese, Chinese, Korean) using character frequency and common word matching.\n- **Extractive Summarization**: TextRank-inspired algorithm to extract the 3 most important sentences.\n- **Basic Metrics**: Word count, character count, sentence count, paragraph count, reading time, speaking time.\n\nAll processing runs on Cloudflare Workers edge network for ultra-low latency. No external API calls, no API keys to manage, no rate limits from third-party services.",
+  "category": "Text Analysis",
+  "tags": ["nlp", "text-analysis", "sentiment-analysis", "keyword-extraction", "readability", "language-detection", "summarization", "natural-language-processing"],
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 5
+        }
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 20
+        }
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        }
+      }
+    ]
+  },
+  "base_url": "https://text-analysis-api.t-mizuno27.workers.dev",
+  "endpoints_count": 5,
+  "example_request": {
+    "method": "POST",
+    "url": "/analyze",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "text": "The quick brown fox jumps over the lazy dog. This is a simple test sentence for text analysis. Natural language processing is a fascinating field of computer science."
+    }
+  }
+}
