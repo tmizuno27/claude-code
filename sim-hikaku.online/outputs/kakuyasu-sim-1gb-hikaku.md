@@ -230,7 +230,7 @@ povo2.0で0円を維持するには、<span style="background: linear-gradient(t
 
 | SIMタイプ | 2GB月額 | 5GB月額 |
 |:---|---:|---:|
-| 音声通話SIM | **850円** | 990円 |
+| 音声通話SIM | **850円** | 950円 |
 | SMS付きデータSIM | 820円 | 970円 |
 | データeSIM | 440円 | 660円 |
 
