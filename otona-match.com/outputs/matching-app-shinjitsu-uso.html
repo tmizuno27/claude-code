@@ -1,0 +1,241 @@
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif!important;color:#1d1d1f!important;-webkit-font-smoothing:antialiased!important;letter-spacing:-.022em}
+.header,.header-in,#header{background:rgba(255,255,255,.92)!important;backdrop-filter:saturate(180%) blur(20px)!important;-webkit-backdrop-filter:saturate(180%) blur(20px)!important;border-bottom:1px solid rgba(0,0,0,.08)!important;position:sticky!important;top:0!important;z-index:9999!important}
+.header-in{display:flex!important;align-items:center!important;justify-content:space-between!important;max-width:1200px!important;margin:0 auto!important;padding:8px 20px!important}
+#navi .navi-in>ul>li>a{color:#1d1d1f!important;font-size:13px!important;font-weight:500!important;padding:8px 14px!important}
+#navi .navi-in>ul>li>a:hover{color:#0066CC!important}
+#footer,.footer,.footer-bottom{background:#1d1d1f!important;color:#86868b!important}
+#footer a,.footer a{color:#d2d2d7!important}
+.footer-bottom-content{max-width:1200px!important;margin:0 auto!important;padding:20px!important;text-align:center!important}
+#content-in{max-width:1200px!important;margin:0 auto!important;padding:30px 20px!important}
+body.single .article{max-width:750px!important;margin:0 auto!important}
+body.single .entry-title{font-size:28px!important;font-weight:800!important;line-height:1.5!important;color:#1d1d1f!important;text-align:center!important;margin-bottom:20px!important}
+body.single .entry-content{font-size:16px!important;line-height:2.4!important;color:#1d1d1f!important}
+body.single .entry-content p{margin-bottom:1.8em!important}
+body.single .entry-content h2{font-size:26px!important;font-weight:800!important;text-align:center!important;margin:60px 0 30px!important;padding:0!important;border:none!important;background:none!important;color:#1d1d1f!important;line-height:1.4!important}
+body.single .entry-content h3{font-size:20px!important;font-weight:700!important;margin:40px 0 20px!important;padding:0 0 0 16px!important;border-left:4px solid #0066CC!important;border-bottom:none!important;background:none!important;line-height:1.4!important}
+body.single .entry-content h4{font-size:17px!important;font-weight:700!important;margin:30px 0 15px!important}
+body.single .entry-content a{color:#0066CC!important;text-decoration:none!important}
+body.single .entry-content a:hover{text-decoration:underline!important}
+.marker-yellow{background:linear-gradient(transparent 60%,#fff9c4 60%)!important}
+.marker-pink{background:linear-gradient(transparent 60%,#fce4ec 60%)!important}
+.marker-blue{background:linear-gradient(transparent 60%,#e3f2fd 60%)!important}
+#sidebar .widget{border:1px solid #d2d2d7!important;border-radius:18px!important;padding:20px!important;margin-bottom:20px!important;background:#fff!important}
+#sidebar .widget-title{font-size:14px!important;font-weight:700!important;color:#1d1d1f!important;margin-bottom:12px!important;padding:0!important;border:none!important;background:none!important}
+.breadcrumb{font-size:12px!important;color:#86868b!important;max-width:1200px!important;margin:0 auto!important;padding:10px 20px!important}
+.sns-share,.sns-follow{display:none!important}
+.pagination .page-numbers{border-radius:50%!important;width:40px!important;height:40px!important;line-height:40px!important;border:1px solid #d2d2d7!important;color:#1d1d1f!important}
+.pagination .page-numbers.current{background:#0066CC!important;color:#fff!important;border-color:#0066CC!important}
+.wp-block-table table,.entry-content table{border-collapse:collapse!important;width:100%!important;border-radius:12px!important;overflow:hidden!important;font-size:14px!important}
+.wp-block-table th,.entry-content th{background:#f5f5f7!important;font-weight:700!important;padding:12px 16px!important;font-size:14px!important}
+.wp-block-table td,.entry-content td{padding:12px 16px!important;border-bottom:1px solid #d2d2d7!important;font-size:14px!important}
+.blank-box,.information-box,.question-box,.alert-box{border-radius:12px!important;border-width:1px!important;padding:20px!important}
+.entry-content ul{list-style:none!important;padding-left:0!important}
+.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}
+.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}
+.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}
+.entry-content ol li{margin-bottom:.5em!important}
+.entry-content ol li::before{content:none!important}
+.entry-card-wrap{border:1px solid #d2d2d7!important;border-radius:18px!important;overflow:hidden!important;transition:transform .3s ease,box-shadow .3s ease!important;background:#fff!important;margin-bottom:20px!important}
+.entry-card-wrap:hover{transform:translateY(-2px)!important;box-shadow:0 8px 30px rgba(0,0,0,.08)!important}
+.entry-card-title{font-size:17px!important;font-weight:700!important;line-height:1.6!important;color:#1d1d1f!important}
+.entry-card-snippet{color:#86868b!important;font-size:13px!important;line-height:1.8!important}
+@media(max-width:768px){#navi{display:none!important}.header-in{padding:12px 20px!important}body.single .article{max-width:100%!important;padding:0 16px!important}body.single .entry-title{font-size:22px!important}body.single .entry-content h2{font-size:20px!important;margin:40px 0 20px!important}body.single .entry-content h3{font-size:18px!important;margin:30px 0 15px!important}}
+@media(max-width:600px){body.single .entry-content{font-size:15px!important;line-height:2.2!important}}</style>
+<style>.entry-content ul{list-style:none!important;padding-left:0!important}.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}.entry-content ol li{margin-bottom:.5em!important}.entry-content ol li::before{content:none!important}</style>
+<h2>マッチングアプリで嘘をつく人は<br />どれくらいいるのか？</h2>
+<p>「この人のプロフィール、本当かな？」と疑問に感じたことはありませんか。マッチングアプリでは、プロフィールの自己申告制という仕組み上、残念ながら嘘をつく人が一定数存在します。</p>
+<p>マッチングアプリに関する調査によると、<strong class="marker-yellow">ユーザーの約30〜50%が何らかの情報を盛っている</strong>という結果が出ています。特に多いのが年収・年齢・写真の3項目で、男性は年収を高めに、女性は年齢を若めに申告する傾向があります。</p>
+<p>ただし、嘘にも「悪意のある嘘」と「ちょっとした盛り」の違いがあります。既婚者が独身と偽るのは完全にアウトですが、年齢を1〜2歳サバ読むのは「軽い盛り」と捉える人も多いのが現実です。</p>
+<p>この記事では、<strong class="marker-blue">嘘を見抜くための具体的なチェックポイントと、嘘が判明したときの対処法</strong>を詳しく解説します。安全にマッチングアプリを使うために、ぜひ参考にしてください。</p>
+
+<h2>マッチングアプリでよくある嘘<br />5つのパターン</h2>
+<h3>パターン1：年収を100〜200万円高く盛る</h3>
+<p>男性に最も多い嘘が年収の水増しです。<strong class="marker-yellow">実際の年収より100〜200万円高く申告するケースが非常に多い</strong>とされています。特に年収400万円台の人が「600万円以上」と記載するパターンが目立ちます。</p>
+<p>マッチングアプリでは年収でフィルターをかけるユーザーが多いため、検索結果に表示されやすくする目的で盛る人が後を絶ちません。Pairsやomiaiなどの大手アプリでは年収証明機能がありますが、利用は任意のため、証明バッジがない場合は注意が必要です。</p>
+
+<h3>パターン2：年齢をサバ読む</h3>
+<p>女性に多いのが年齢詐称です。2〜5歳ほど若く設定しているケースが報告されています。特に「29歳」と「30歳」、「34歳」と「35歳」といった<strong class="marker-pink">節目の年齢をまたぐサバ読みが多い</strong>のが特徴です。</p>
+<p>男性の場合も、40代が30代後半と偽るケースがあります。年齢フィルターに引っかからないようにするのが主な理由ですが、会ったときに「思っていたより老けている」という印象を与えてしまうリスクがあります。</p>
+
+<h3>パターン3：写真詐欺（加工・数年前の写真）</h3>
+<p>男女問わず多いのが写真に関する嘘です。過度な加工アプリの使用、数年前の若い頃の写真、角度や光で実物とかけ離れた印象を作るケースがあります。</p>
+<p><strong class="marker-pink">「会ってみたら写真と全然違った」という経験は、マッチングアプリ利用者の約40%が経験している</strong>というデータもあります。特にSnowやBeautyPlusなどの加工アプリで目を大きくしたり、輪郭を細くしたりする写真には注意が必要です。</p>
+
+<h3>パターン4：職業を良く見せる・偽る</h3>
+<p>「会社員」と書いてあるのに実際はフリーターだった、「経営者」と書いてあるが一人で副業をしているだけだった、というケースも珍しくありません。職業はプロフィールの印象を大きく左右するため、実態より良く見せようとする人がいます。</p>
+<p>また、「IT関連」「コンサルタント」など曖昧な職業表記にも注意が必要です。具体的な業務内容を聞いたときに答えがあやふやなら、盛っている可能性があります。</p>
+
+<h3>パターン5：独身偽装（既婚者の潜入）</h3>
+<p><strong class="marker-pink">最も悪質な嘘が、既婚者が独身と偽ってマッチングアプリを利用するケース</strong>です。相手が既婚者だと知らずに交際に発展すると、不倫の当事者として法的なリスクを負う可能性もあります。</p>
+<p>既婚者の特徴として、「土日に会えない」「自宅に呼ばない」「電話に出られない時間帯がある」「SNSを教えたがらない」といったパターンがあります。後ほど、見抜き方の詳細を解説します。</p>
+
+<h2>嘘プロフィールの種類別<br />見抜きやすさ比較</h2>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>嘘の種類</th>
+<th>発覚しやすさ</th>
+<th>悪質度</th>
+<th>主な見抜き方</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>年収盛り</td>
+<td>★★★☆☆</td>
+<td>★★☆☆☆</td>
+<td>職業との整合性・持ち物チェック</td>
+</tr>
+<tr>
+<td>年齢詐称</td>
+<td>★★★★☆</td>
+<td>★★★☆☆</td>
+<td>ビデオ通話・SNS検索</td>
+</tr>
+<tr>
+<td>写真詐欺</td>
+<td><strong class="marker-yellow">★★★★★</strong></td>
+<td>★★☆☆☆</td>
+<td>ビデオ通話で一発判明</td>
+</tr>
+<tr>
+<td>職業偽装</td>
+<td>★★★☆☆</td>
+<td>★★★☆☆</td>
+<td>具体的な質問で矛盾を突く</td>
+</tr>
+<tr>
+<td>独身偽装</td>
+<td>★★☆☆☆</td>
+<td><strong class="marker-pink">★★★★★</strong></td>
+<td>行動パターン・SNS調査</td>
+</tr>
+</tbody>
+</table>
+
+<h2>写真詐欺を見抜くための<br />5つのチェックポイント</h2>
+<h3>チェック1：写真の画質と統一感</h3>
+<p>プロフィールに複数枚の写真がある場合、<strong class="marker-blue">画質や雰囲気がバラバラなら要注意</strong>です。SNSから拾ってきた他人の写真を使っている可能性があります。同一人物なら、肌の色味や髪型に一定の統一感があるはずです。</p>
+
+<h3>チェック2：全身写真があるかどうか</h3>
+<p>顔のアップ写真しかない場合、体型を隠している可能性があります。全身写真が1枚もない人は、実物と印象が異なるリスクが高いと考えてください。逆に、自然な全身写真を載せている人は信頼度が上がります。</p>
+
+<h3>チェック3：顔の影や輪郭の不自然さ</h3>
+<p>加工アプリを使った写真は、よく見ると顔の輪郭がぼやけていたり、背景が歪んでいたりします。特に<strong class="marker-yellow">あごのラインがシャープすぎる写真や、目が不自然に大きい写真は加工の可能性が高い</strong>です。</p>
+
+<h3>チェック4：撮影場所や服装の時代感</h3>
+<p>写真の背景に映っている店舗や風景が古い場合、数年前の写真を使っている可能性があります。また、服装やヘアスタイルの流行からも撮影時期をある程度推測できます。</p>
+
+<h3>チェック5：ビデオ通話を提案する</h3>
+<p><strong class="marker-yellow">写真詐欺を見抜く最も確実な方法は、会う前にビデオ通話をすること</strong>です。写真と実物が大きく違う人は、ビデオ通話を避ける傾向があります。「会う前に一度ビデオ通話しませんか？」と提案して、相手の反応を見ましょう。</p>
+
+<h2>年収の嘘を見抜くための<br />チェックポイント</h2>
+<h3>職業と年収の整合性を確認する</h3>
+<p>プロフィールに「事務職」と書いてあるのに年収800万円以上と記載している場合、整合性に疑問が残ります。一般的な職種別の年収相場を把握しておくと、不自然な年収に気づきやすくなります。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>職業</th>
+<th>一般的な年収レンジ</th>
+<th>要注意ライン</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一般事務</td>
+<td>300〜450万円</td>
+<td>600万円以上</td>
+</tr>
+<tr>
+<td>営業職</td>
+<td>400〜600万円</td>
+<td>800万円以上</td>
+</tr>
+<tr>
+<td>エンジニア</td>
+<td>450〜700万円</td>
+<td>1,000万円以上（20代）</td>
+</tr>
+<tr>
+<td>公務員</td>
+<td>400〜650万円</td>
+<td>800万円以上（30代）</td>
+</tr>
+<tr>
+<td>経営者・役員</td>
+<td>幅広い</td>
+<td>具体的な事業内容を確認</td>
+</tr>
+</tbody>
+</table>
+
+<h3>持ち物や生活水準との一致を見る</h3>
+<p>実際にデートしたときの服装・持ち物・食事の場所選びなどが、申告している年収と合っているかも重要なポイントです。<strong class="marker-blue">年収1,000万円と書いているのにファストフードばかり提案する場合は、盛っている可能性</strong>があります。</p>
+<p>ただし、高年収でも堅実な生活をしている人もいるので、これだけで断定はできません。複数の要素を総合的に判断することが大切です。</p>
+
+<h2>独身偽装・既婚者を<br />見抜くためのサイン</h2>
+<h3>行動パターンで見抜く</h3>
+<p>既婚者には共通する行動パターンがあります。以下の項目に<strong class="marker-pink">3つ以上当てはまる場合は、既婚者の可能性を疑ってください</strong>。</p>
+<ul>
+<li>土日・祝日のデートを避ける（平日の昼間を好む）</li>
+<li>自宅に招いてくれない・住所を教えない</li>
+<li>夜遅い時間帯に電話やLINEの返信が途絶える</li>
+<li>SNSのアカウントを教えたがらない</li>
+<li>クリスマスや年末年始に会えない</li>
+<li>結婚に関する話題を避ける</li>
+<li>支払いを必ず現金で行う（カード明細を見られたくない）</li>
+</ul>
+
+<h3>SNS検索で裏付けを取る</h3>
+<p>相手の名前や勤務先が分かっている場合、FacebookやInstagramで検索してみましょう。<strong class="marker-yellow">家族の写真が投稿されていたり、配偶者のタグ付けがあれば既婚者と判断できます</strong>。ただし、SNSを一切やっていない人もいるため、検索で何も出てこない場合は別の方法で確認が必要です。</p>
+
+<h2>嘘を見抜くための<br />実践テクニック4選</h2>
+<h3>テクニック1：具体的な質問で矛盾を見つける</h3>
+<p>嘘をついている人は、具体的な質問をされると答えに詰まったり、前回と違うことを言ったりします。「どんなお仕事をされているんですか？」ではなく、「具体的にどんな業務をされているんですか？」と踏み込んで聞いてみましょう。</p>
+<p>会話の中で相手が言ったことをメモしておき、後日同じ質問をしてみるのも有効です。嘘は細部まで記憶するのが難しいため、矛盾が出やすくなります。</p>
+
+<h3>テクニック2：ビデオ通話で事前確認する</h3>
+<p><strong class="marker-yellow">会う前のビデオ通話は、写真詐欺・年齢詐称を見抜く最強の手段</strong>です。「初対面で緊張するので、先に一度ビデオ通話しませんか」と自然に提案しましょう。加工写真を使っている人やなりすましの人は、ビデオ通話を断る可能性が高いです。</p>
+
+<h3>テクニック3：友人にプロフィールを見てもらう</h3>
+<p>自分では気づかない違和感も、第三者の目なら発見できることがあります。信頼できる友人にプロフィールやメッセージのスクリーンショットを見せて意見を聞いてみましょう。<strong class="marker-blue">恋愛感情がない分、冷静な判断をしてくれる</strong>はずです。</p>
+
+<h3>テクニック4：Google画像検索を活用する</h3>
+<p>相手のプロフィール写真を長押しして保存し、Google画像検索にかけてみましょう。他人の写真を流用している場合、元のSNSアカウントやウェブサイトが見つかることがあります。特にモデルや芸能人の写真を使った「なりすまし」の発見に有効です。</p>
+
+<h2>嘘が判明したときの<br />正しい対処法</h2>
+<h3>軽い盛り（年齢1〜2歳、年収50万円程度）の場合</h3>
+<p>完全に嘘とは言いきれない程度の「盛り」であれば、相手の人柄次第で許容できるケースもあります。ただし、<strong class="marker-blue">「なぜ盛ったのか」を冷静に聞いてみること</strong>が大切です。正直に認めて謝る人なら信頼できる可能性がありますが、言い訳を重ねる人は他にも嘘をついているリスクがあります。</p>
+
+<h3>悪質な嘘（独身偽装・大幅な年収詐称）の場合</h3>
+<p><strong class="marker-pink">既婚者の偽装や大幅なプロフィール詐称が判明した場合は、すぐに関係を断ちましょう</strong>。相手に期待を持たせる必要はありません。ブロック・通報機能を使い、運営に報告してください。</p>
+<p>特に既婚者との交際は法的リスク（不貞行為による慰謝料請求）もあるため、証拠を残した上で速やかに距離を置くことをおすすめします。</p>
+
+<h3>通報・ブロックの手順</h3>
+<p>大手マッチングアプリにはすべて通報機能が備わっています。嘘のプロフィールを発見したら、以下の手順で対応しましょう。</p>
+<ol>
+<li>相手のプロフィール画面を開く</li>
+<li>「通報する」または「違反報告」ボタンをタップ</li>
+<li>該当する理由（「プロフィール詐称」「既婚者」など）を選択</li>
+<li>具体的な状況を記入して送信</li>
+<li>相手をブロックする</li>
+</ol>
+
+<h2>嘘をつかれないための<br />アプリ選びのポイント</h2>
+<p>嘘プロフィールのリスクを減らすには、本人確認や各種証明機能が充実しているアプリを選ぶことが重要です。</p>
+<ul>
+<li><strong>年収証明あり</strong>：Omiai、ゼクシィ縁結びなどは年収証明書の提出機能あり</li>
+<li><strong>独身証明あり</strong>：婚活アプリ（ブライダルネットなど）では独身証明書の提出が可能</li>
+<li><strong>本人確認の厳格さ</strong>：顔写真付き身分証明書+セルフィー照合を導入しているアプリは安全度が高い</li>
+<li><strong>ビデオ通話機能</strong>：Pairs、withなどアプリ内ビデオ通話機能があるサービスは写真詐欺を防ぎやすい</li>
+</ul>
+
+<h2>まとめ：嘘を見抜いて<br />安全な出会いを手に入れよう</h2>
+<p>マッチングアプリの嘘プロフィールは決して珍しいことではありませんが、正しい知識と観察力があれば多くのケースで見抜くことが可能です。</p>
+<p><strong class="marker-yellow">最も効果的な対策は、会う前のビデオ通話と、具体的な質問による矛盾の確認</strong>です。少しでも違和感を覚えたら、焦らずに慎重に相手を見極めましょう。</p>
+<p>安全にマッチングアプリを使いたい方は、以下の記事も参考にしてください。</p>
+<p>関連記事：<a href="https://otona-match.com/sakura-gyosha-miwakekata/">マッチングアプリのサクラ・業者の見分け方</a></p>
+<p>関連記事：<a href="https://otona-match.com/anzen-checklist/">マッチングアプリで実際に会う前の安全チェックリスト</a></p>
+<p>関連記事：<a href="https://otona-match.com/matching-app-mibare-taisaku/">マッチングアプリで身バレしない方法</a></p>
+
+<p style="margin-top:3em;padding:1.5em;background:#f5f5f7;border-radius:12px;font-size:13px;color:#86868b;line-height:1.8">※この記事の情報は2026年3月時点のものです。各アプリの機能・仕様は変更される場合があります。<br>※当サイトでは一部アフィリエイト広告を利用しています。詳しくは<a href="https://otona-match.com/privacy-policy/" style="color:#0066CC">プライバシーポリシー</a>をご覧ください。</p>
