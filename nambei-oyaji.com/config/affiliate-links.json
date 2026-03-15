@@ -23,14 +23,6 @@
           "asp": "直接",
           "context": "多通貨デビットカード、海外での支払い、ATM引き出しの文脈で使用"
         },
-        {
-          "name": "Sony Bank WALLET",
-          "url": "https://YOUR-AFFILIATE-LINK/sonybank",
-          "anchor_text": ["Sony Bank WALLET", "ソニー銀行"],
-          "commission": "口座開設で2,000〜3,000円",
-          "asp": "A8.net",
-          "context": "海外ATM引き出し、外貨決済手数料が安いカードとして"
-        }
       ]
     },
     "vpn": {
