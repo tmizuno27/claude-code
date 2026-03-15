@@ -202,25 +202,44 @@ def write_article_list(sh, site_key, site_cfg, rows):
     ws = get_or_create_worksheet(sh, tab_name, rows=len(sheet_data) + 5, cols=num_cols)
     ws.update(sheet_data, value_input_option='USER_ENTERED')
 
-    # ヘッダーフォーマット
+    # 全フォーマットをbatch_updateで一括適用（API呼び出し最小化）
     hc = site_cfg['header_color']
-    ws.format(f'A1:{last_col}1', {
-        'backgroundColor': hc,
-        'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
-        'horizontalAlignment': 'CENTER',
-    })
+    fmt_requests = [
+        # ヘッダーフォーマット
+        {'repeatCell': {
+            'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': 1, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+            'cell': {'userEnteredFormat': {
+                'backgroundColor': hc,
+                'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
+                'horizontalAlignment': 'CENTER',
+            }},
+            'fields': 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)'
+        }},
+    ]
 
-    # 記事タイプ別の色分け
-    for i, row in enumerate(sheet_data[1:], start=2):
+    # 記事タイプ別の色分け（タイプごとにまとめてrepeatCell）
+    type_rows = {}  # {type_name: [row_indices]}
+    for i, row in enumerate(sheet_data[1:], start=1):
         atype = row[4] if len(row) > 4 else ''
-        color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
-        ws.format(f'A{i}:{last_col}{i}', {'backgroundColor': color})
+        if atype in TYPE_COLORS:
+            type_rows.setdefault(atype, []).append(i)
+
+    for atype, row_indices in type_rows.items():
+        color = TYPE_COLORS[atype]
+        for ri in row_indices:
+            fmt_requests.append({'repeatCell': {
+                'range': {'sheetId': ws.id, 'startRowIndex': ri, 'endRowIndex': ri + 1, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+                'cell': {'userEnteredFormat': {'backgroundColor': color}},
+                'fields': 'userEnteredFormat(backgroundColor)'
+            }})
 
     # フィルター
-    ws.set_basic_filter(f'A1:{last_col}{len(sheet_data)}')
+    fmt_requests.append({'setBasicFilter': {
+        'filter': {'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': len(sheet_data), 'startColumnIndex': 0, 'endColumnIndex': num_cols}}
+    }})
 
     # 列幅 + ヘッダー固定
-    sh.batch_update({'requests': [
+    fmt_requests.extend([
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 0, 'endIndex': 1}, 'properties': {'pixelSize': 40}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 1, 'endIndex': 2}, 'properties': {'pixelSize': 450}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 2, 'endIndex': 3}, 'properties': {'pixelSize': 85}, 'fields': 'pixelSize'}},
@@ -232,7 +251,8 @@ def write_article_list(sh, site_key, site_cfg, rows):
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 10, 'endIndex': 11}, 'properties': {'pixelSize': 300}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 11, 'endIndex': 12}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
         {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}},
-    ]})
+    ])
+    sh.batch_update({'requests': fmt_requests})
     return ws
 
 
