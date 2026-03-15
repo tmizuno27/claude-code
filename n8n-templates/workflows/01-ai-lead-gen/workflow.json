@@ -1,0 +1,775 @@
+{
+  "name": "AI Lead Gen & Cold Outreach Automation",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "tags": [
+    { "name": "lead-generation" },
+    { "name": "cold-outreach" },
+    { "name": "ai-powered" },
+    { "name": "sales-automation" }
+  ],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Daily Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 300],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1-5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "webhook-001",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 520],
+      "parameters": {}
+    },
+    {
+      "id": "config-001",
+      "name": "Campaign Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"campaign_name\": \"SaaS Founders Q1 2026\",\n  \"target_titles\": [\"CEO\", \"CTO\", \"Founder\", \"Co-Founder\", \"VP Engineering\"],\n  \"target_industries\": [\"SaaS\", \"Technology\", \"Software\"],\n  \"company_size_min\": 10,\n  \"company_size_max\": 200,\n  \"daily_limit\": 25,\n  \"sender_name\": \"{{YOUR_NAME}}\",\n  \"sender_company\": \"{{YOUR_COMPANY}}\",\n  \"sender_value_prop\": \"{{YOUR_VALUE_PROPOSITION}}\",\n  \"sender_calendar_link\": \"{{YOUR_CALENDLY_LINK}}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "search-001",
+      "name": "Search Leads - Apollo",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [480, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.apollo.io/v1/mixed_people/search",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"person_titles\": {{ JSON.stringify($json.target_titles) }},\n  \"person_seniorities\": [\"founder\", \"c_suite\", \"vp\"],\n  \"organization_industry_tag_ids\": [],\n  \"organization_num_employees_ranges\": [\"{{ $json.company_size_min }}-{{ $json.company_size_max }}\"],\n  \"per_page\": {{ $json.daily_limit }},\n  \"page\": 1\n}",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "APOLLO_CREDENTIAL_ID",
+          "name": "Apollo API Key"
+        }
+      }
+    },
+    {
+      "id": "search-002",
+      "name": "Search Leads - Hunter.io",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [480, 420],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.hunter.io/v2/domain-search?domain={{$json.target_domain}}&type=personal&limit={{ $json.daily_limit }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "options": {
+          "timeout": 30000
+        }
+      },
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "HUNTER_CREDENTIAL_ID",
+          "name": "Hunter.io API Key"
+        }
+      }
+    },
+    {
+      "id": "switch-001",
+      "name": "Choose Lead Source",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [480, 300],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "outputKey": "apollo",
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.lead_source || 'apollo' }}",
+                    "rightValue": "apollo",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "outputKey": "hunter",
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.lead_source || 'apollo' }}",
+                    "rightValue": "hunter",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "normalize-001",
+      "name": "Normalize Lead Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [720, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"email\": \"{{ $json.email }}\",\n  \"first_name\": \"{{ $json.first_name || $json.name?.split(' ')[0] || '' }}\",\n  \"last_name\": \"{{ $json.last_name || $json.name?.split(' ').slice(1).join(' ') || '' }}\",\n  \"title\": \"{{ $json.title || $json.position || '' }}\",\n  \"company\": \"{{ $json.organization_name || $json.company || '' }}\",\n  \"industry\": \"{{ $json.industry || '' }}\",\n  \"company_size\": \"{{ $json.organization_num_employees || '' }}\",\n  \"linkedin_url\": \"{{ $json.linkedin_url || '' }}\",\n  \"website\": \"{{ $json.website_url || $json.domain || '' }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "dedup-001",
+      "name": "Check Duplicates",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [960, 300],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Contacted Leads",
+          "mode": "name"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "email",
+              "lookupValue": "={{ $json.email }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GOOGLE_SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+    {
+      "id": "if-001",
+      "name": "Is New Lead?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1200, 300],
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.email ? false : true }}",
+              "value2": true
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "enrich-001",
+      "name": "Enrich Lead Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1440, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.apollo.io/v1/people/match?email={{ encodeURIComponent($json.email) }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "APOLLO_CREDENTIAL_ID",
+          "name": "Apollo API Key"
+        }
+      }
+    },
+    {
+      "id": "research-001",
+      "name": "Research Company",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [1680, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Research this company and person for a cold outreach email:\n\nPerson: {{ $json.first_name }} {{ $json.last_name }}\nTitle: {{ $json.title }}\nCompany: {{ $json.company }}\nIndustry: {{ $json.industry }}\nCompany Size: {{ $json.company_size }} employees\nWebsite: {{ $json.website }}\n\nProvide a JSON response with:\n1. \"pain_points\": Top 3 likely pain points for someone in this role/industry (array of strings)\n2. \"personalization_hook\": A specific, relevant detail to reference in the email (string)\n3. \"company_summary\": One sentence about what the company does (string)\n4. \"recommended_angle\": The best approach angle for outreach (string)",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You are a B2B sales research analyst. You analyze companies and contacts to find the best outreach angles. Always respond in valid JSON format. Be specific and actionable — avoid generic statements."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "llm-001",
+      "name": "OpenAI Model - Research",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [1680, 500],
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.3,
+          "maxTokens": 500
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI Account"
+        }
+      }
+    },
+    {
+      "id": "parse-001",
+      "name": "Parse Research",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1920, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"email\": \"{{ $('Normalize Lead Data').item.json.email }}\",\n  \"first_name\": \"{{ $('Normalize Lead Data').item.json.first_name }}\",\n  \"last_name\": \"{{ $('Normalize Lead Data').item.json.last_name }}\",\n  \"title\": \"{{ $('Normalize Lead Data').item.json.title }}\",\n  \"company\": \"{{ $('Normalize Lead Data').item.json.company }}\",\n  \"industry\": \"{{ $('Normalize Lead Data').item.json.industry }}\",\n  \"company_size\": \"{{ $('Normalize Lead Data').item.json.company_size }}\",\n  \"linkedin_url\": \"{{ $('Normalize Lead Data').item.json.linkedin_url }}\",\n  \"website\": \"{{ $('Normalize Lead Data').item.json.website }}\",\n  \"research\": {{ $json.text }}\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "email-gen-001",
+      "name": "Generate Cold Email",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [2160, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a personalized cold outreach email using this data:\n\nRecipient:\n- Name: {{ $json.first_name }} {{ $json.last_name }}\n- Title: {{ $json.title }}\n- Company: {{ $json.company }} ({{ $json.industry }}, ~{{ $json.company_size }} employees)\n\nResearch Findings:\n- Pain Points: {{ JSON.stringify($json.research?.pain_points || []) }}\n- Personalization Hook: {{ $json.research?.personalization_hook || 'N/A' }}\n- Company Summary: {{ $json.research?.company_summary || 'N/A' }}\n- Recommended Angle: {{ $json.research?.recommended_angle || 'N/A' }}\n\nSender Info:\n- Name: {{ $('Campaign Config').item.json.sender_name }}\n- Company: {{ $('Campaign Config').item.json.sender_company }}\n- Value Prop: {{ $('Campaign Config').item.json.sender_value_prop }}\n- Calendar Link: {{ $('Campaign Config').item.json.sender_calendar_link }}\n\nRespond in JSON format:\n{\n  \"subject\": \"Email subject line (under 50 chars, no spam words)\",\n  \"body\": \"Email body (under 150 words, conversational, one clear CTA)\",\n  \"follow_up_subject\": \"Follow-up subject if no reply in 3 days\",\n  \"follow_up_body\": \"Follow-up email body (under 100 words)\"\n}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "You are an elite B2B cold email copywriter. Rules:\n1. NEVER use spam trigger words (free, guaranteed, act now, limited time)\n2. Keep subject lines under 50 characters\n3. First line must be personalized — reference something specific about their company\n4. Body under 150 words — shorter is better\n5. One clear CTA (book a call, reply, etc.)\n6. Tone: friendly, peer-to-peer, not salesy\n7. No attachments references, no HTML formatting\n8. Always respond in valid JSON format"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "llm-002",
+      "name": "OpenAI Model - Email",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [2160, 500],
+      "parameters": {
+        "model": "gpt-4o-mini",
+        "options": {
+          "temperature": 0.7,
+          "maxTokens": 800
+        }
+      },
+      "credentials": {
+        "openAiApi": {
+          "id": "OPENAI_CREDENTIAL_ID",
+          "name": "OpenAI Account"
+        }
+      }
+    },
+    {
+      "id": "parse-email-001",
+      "name": "Parse Email Content",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [2400, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"to\": \"{{ $('Parse Research').item.json.email }}\",\n  \"first_name\": \"{{ $('Parse Research').item.json.first_name }}\",\n  \"last_name\": \"{{ $('Parse Research').item.json.last_name }}\",\n  \"company\": \"{{ $('Parse Research').item.json.company }}\",\n  \"subject\": {{ $json.text }}.subject,\n  \"body\": {{ $json.text }}.body,\n  \"follow_up_subject\": {{ $json.text }}.follow_up_subject,\n  \"follow_up_body\": {{ $json.text }}.follow_up_body\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "send-001",
+      "name": "Send Email via Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [2640, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.body }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail Account"
+        }
+      }
+    },
+    {
+      "id": "send-002",
+      "name": "Create Draft Instead",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [2640, 420],
+      "parameters": {
+        "resource": "draft",
+        "operation": "create",
+        "toList": "={{ $json.to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.body }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail Account"
+        }
+      }
+    },
+    {
+      "id": "send-mode-001",
+      "name": "Send or Draft?",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [2640, 300],
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "outputKey": "send",
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Campaign Config').item.json.send_mode || 'draft' }}",
+                    "rightValue": "send",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "outputKey": "draft",
+              "conditions": {
+                "conditions": [
+                  {
+                    "leftValue": "={{ $('Campaign Config').item.json.send_mode || 'draft' }}",
+                    "rightValue": "draft",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra"
+        }
+      }
+    },
+    {
+      "id": "log-001",
+      "name": "Log to CRM Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [2880, 300],
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Contacted Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Parse Email Content').item.json.to }}",
+            "first_name": "={{ $('Parse Email Content').item.json.first_name }}",
+            "last_name": "={{ $('Parse Email Content').item.json.last_name }}",
+            "company": "={{ $('Parse Email Content').item.json.company }}",
+            "subject": "={{ $('Parse Email Content').item.json.subject }}",
+            "status": "sent",
+            "sent_at": "={{ $now.toISO() }}",
+            "campaign": "={{ $('Campaign Config').item.json.campaign_name }}",
+            "follow_up_scheduled": "={{ $now.plus({days: 3}).toISO() }}"
+          }
+        },
+        "matchingColumns": ["email"],
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GOOGLE_SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+    {
+      "id": "wait-001",
+      "name": "Wait 3 Days",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [3120, 300],
+      "parameters": {
+        "amount": 3,
+        "unit": "days"
+      }
+    },
+    {
+      "id": "check-reply-001",
+      "name": "Check for Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [3360, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 5,
+        "filters": {
+          "q": "=from:{{ $('Parse Email Content').item.json.to }} newer_than:3d"
+        },
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail Account"
+        }
+      }
+    },
+    {
+      "id": "if-reply-001",
+      "name": "Got Reply?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [3600, 300],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.length || 0 }}",
+              "operation": "equal",
+              "value2": 0
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "followup-001",
+      "name": "Send Follow-Up",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [3840, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{ $('Parse Email Content').item.json.to }}",
+        "subject": "={{ $('Parse Email Content').item.json.follow_up_subject }}",
+        "message": "={{ $('Parse Email Content').item.json.follow_up_body }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "GMAIL_CREDENTIAL_ID",
+          "name": "Gmail Account"
+        }
+      }
+    },
+    {
+      "id": "update-status-001",
+      "name": "Update Lead Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [4080, 300],
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Contacted Leads",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Parse Email Content').item.json.to }}",
+            "status": "={{ $('Got Reply?').item.json.length > 0 ? 'replied' : 'follow_up_sent' }}",
+            "follow_up_sent_at": "={{ $now.toISO() }}"
+          }
+        },
+        "matchingColumns": ["email"],
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GOOGLE_SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+    {
+      "id": "summary-001",
+      "name": "Daily Summary",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [4320, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"campaign\": \"{{ $('Campaign Config').item.json.campaign_name }}\",\n  \"date\": \"{{ $now.toFormat('yyyy-MM-dd') }}\",\n  \"leads_processed\": \"{{ $('Normalize Lead Data').all().length }}\",\n  \"emails_sent\": \"completed\",\n  \"status\": \"success\"\n}",
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Daily Schedule": {
+      "main": [
+        [
+          { "node": "Campaign Config", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          { "node": "Campaign Config", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Campaign Config": {
+      "main": [
+        [
+          { "node": "Choose Lead Source", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Choose Lead Source": {
+      "main": [
+        [
+          { "node": "Search Leads - Apollo", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Search Leads - Hunter.io", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Search Leads - Apollo": {
+      "main": [
+        [
+          { "node": "Normalize Lead Data", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Search Leads - Hunter.io": {
+      "main": [
+        [
+          { "node": "Normalize Lead Data", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Normalize Lead Data": {
+      "main": [
+        [
+          { "node": "Check Duplicates", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Check Duplicates": {
+      "main": [
+        [
+          { "node": "Is New Lead?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Is New Lead?": {
+      "main": [
+        [
+          { "node": "Enrich Lead Data", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Enrich Lead Data": {
+      "main": [
+        [
+          { "node": "Research Company", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Research Company": {
+      "main": [
+        [
+          { "node": "Parse Research", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "OpenAI Model - Research": {
+      "ai_languageModel": [
+        [
+          { "node": "Research Company", "type": "ai_languageModel", "index": 0 }
+        ]
+      ]
+    },
+    "Parse Research": {
+      "main": [
+        [
+          { "node": "Generate Cold Email", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Generate Cold Email": {
+      "main": [
+        [
+          { "node": "Parse Email Content", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "OpenAI Model - Email": {
+      "ai_languageModel": [
+        [
+          { "node": "Generate Cold Email", "type": "ai_languageModel", "index": 0 }
+        ]
+      ]
+    },
+    "Parse Email Content": {
+      "main": [
+        [
+          { "node": "Send or Draft?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Send or Draft?": {
+      "main": [
+        [
+          { "node": "Send Email via Gmail", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Create Draft Instead", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Send Email via Gmail": {
+      "main": [
+        [
+          { "node": "Log to CRM Sheet", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Create Draft Instead": {
+      "main": [
+        [
+          { "node": "Log to CRM Sheet", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Log to CRM Sheet": {
+      "main": [
+        [
+          { "node": "Wait 3 Days", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Wait 3 Days": {
+      "main": [
+        [
+          { "node": "Check for Reply", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Check for Reply": {
+      "main": [
+        [
+          { "node": "Got Reply?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Got Reply?": {
+      "main": [
+        [
+          { "node": "Send Follow-Up", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Update Lead Status", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Send Follow-Up": {
+      "main": [
+        [
+          { "node": "Update Lead Status", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Update Lead Status": {
+      "main": [
+        [
+          { "node": "Daily Summary", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  }
+}
