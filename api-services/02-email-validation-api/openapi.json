@@ -1,0 +1,194 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Email Validation API",
+    "description": "Comprehensive Email Validation and Verification API. Validate email addresses in real-time with syntax checking, MX record lookup, disposable email detection, free provider detection, and role-based address identification. Reduce bounce rates, protect your sender reputation, and improve deliverability. Supports single and bulk validation up to 1,000 emails per request. Powered by Cloudflare Workers for sub-100ms global response times.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "T-Mizuno API Support",
+      "url": "https://github.com/tmizuno27"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://email-validation-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/validate": {
+      "get": {
+        "operationId": "validateEmail",
+        "summary": "Validate a single email address",
+        "description": "Perform a comprehensive validation on a single email address including format check, MX record verification, disposable domain detection, free provider check, role-based address detection, and an overall quality score.",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "description": "The email address to validate.",
+            "schema": {
+              "type": "string",
+              "format": "email",
+              "example": "user@example.com"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Validation result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid email parameter.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/validate/bulk": {
+      "post": {
+        "operationId": "validateEmailsBulk",
+        "summary": "Validate multiple email addresses",
+        "description": "Validate up to 1,000 email addresses in a single request. Each email receives the same comprehensive checks as the single validation endpoint.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["emails"],
+                "properties": {
+                  "emails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "email"
+                    },
+                    "maxItems": 1000,
+                    "example": ["user@example.com", "test@gmail.com", "info@company.org"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Array of validation results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ValidationResult"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of emails validated."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ValidationResult": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The email address that was validated.",
+            "example": "user@example.com"
+          },
+          "valid": {
+            "type": "boolean",
+            "description": "Overall validity of the email address.",
+            "example": true
+          },
+          "format_valid": {
+            "type": "boolean",
+            "description": "Whether the email format (syntax) is valid per RFC 5322.",
+            "example": true
+          },
+          "mx_found": {
+            "type": "boolean",
+            "description": "Whether MX records were found for the domain.",
+            "example": true
+          },
+          "is_disposable": {
+            "type": "boolean",
+            "description": "Whether the domain is a known disposable/temporary email provider.",
+            "example": false
+          },
+          "is_free_provider": {
+            "type": "boolean",
+            "description": "Whether the domain is a free email provider (Gmail, Yahoo, etc.).",
+            "example": true
+          },
+          "is_role_based": {
+            "type": "boolean",
+            "description": "Whether the address is role-based (info@, admin@, support@, etc.).",
+            "example": false
+          },
+          "suggestion": {
+            "type": "string",
+            "nullable": true,
+            "description": "Suggested correction for common typos (e.g., gmial.com -> gmail.com).",
+            "example": null
+          },
+          "score": {
+            "type": "number",
+            "format": "float",
+            "description": "Quality score from 0.0 (worst) to 1.0 (best).",
+            "minimum": 0,
+            "maximum": 1,
+            "example": 0.85
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

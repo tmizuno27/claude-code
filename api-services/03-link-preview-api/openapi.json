@@ -1,0 +1,225 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Link Preview / Website Metadata API",
+    "description": "Extract rich metadata and Open Graph data from any URL instantly. Get titles, descriptions, images, favicons, site names, authors, and more -- ideal for building link previews in chat apps, social media tools, CMS platforms, and content aggregators. Supports Open Graph, Twitter Cards, and standard HTML meta tags. Bulk endpoint available for processing up to 100 URLs per request. Powered by Cloudflare Workers for fast, globally distributed performance.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "T-Mizuno API Support",
+      "url": "https://github.com/tmizuno27"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://link-preview-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/preview": {
+      "get": {
+        "operationId": "getPreview",
+        "summary": "Get link preview metadata for a URL",
+        "description": "Fetch and parse metadata from a given URL including Open Graph tags, Twitter Card data, favicon, author, and page type. Returns structured JSON ready for rendering rich link previews.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "The fully qualified URL to extract metadata from.",
+            "schema": {
+              "type": "string",
+              "format": "uri",
+              "example": "https://github.com"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadata extracted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PreviewResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid URL parameter.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Could not fetch or parse the target URL.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/preview/bulk": {
+      "post": {
+        "operationId": "getPreviewBulk",
+        "summary": "Get link preview metadata for multiple URLs",
+        "description": "Extract metadata from up to 100 URLs in a single request. Each URL is processed in parallel for optimal performance.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["urls"],
+                "properties": {
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "maxItems": 100,
+                    "example": ["https://github.com", "https://stackoverflow.com"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Array of metadata results.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PreviewResult"
+                      }
+                    },
+                    "total": {
+                      "type": "integer",
+                      "description": "Total number of URLs processed."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request body.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PreviewResult": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL that was processed.",
+            "example": "https://github.com"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true,
+            "description": "Page title from og:title or <title> tag.",
+            "example": "GitHub: Let's build from here"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "description": "Page description from og:description or meta description.",
+            "example": "GitHub is where over 100 million developers shape the future of software."
+          },
+          "image": {
+            "type": "string",
+            "nullable": true,
+            "format": "uri",
+            "description": "Preview image URL from og:image or twitter:image.",
+            "example": "https://github.githubassets.com/images/modules/site/social-cards/github-social.png"
+          },
+          "favicon": {
+            "type": "string",
+            "nullable": true,
+            "format": "uri",
+            "description": "Favicon URL.",
+            "example": "https://github.githubassets.com/favicons/favicon.svg"
+          },
+          "siteName": {
+            "type": "string",
+            "nullable": true,
+            "description": "Site name from og:site_name.",
+            "example": "GitHub"
+          },
+          "type": {
+            "type": "string",
+            "nullable": true,
+            "description": "Content type from og:type (website, article, video, etc.).",
+            "example": "website"
+          },
+          "author": {
+            "type": "string",
+            "nullable": true,
+            "description": "Author name from meta author or article:author.",
+            "example": null
+          },
+          "published_date": {
+            "type": "string",
+            "nullable": true,
+            "description": "Publication date from article:published_time.",
+            "example": null
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Keywords from meta keywords tag.",
+            "example": []
+          },
+          "lang": {
+            "type": "string",
+            "nullable": true,
+            "description": "Page language from html lang attribute.",
+            "example": "en"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

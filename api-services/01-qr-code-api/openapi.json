@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "QR Code Generator API",
+    "description": "Fast, reliable QR Code Generator API. Create high-quality QR codes in PNG, SVG, or Base64 format with full customization -- colors, sizes, and error correction levels. Perfect for payment systems, marketing campaigns, event tickets, product packaging, and mobile apps. Ultra-low latency powered by Cloudflare Workers edge network.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "T-Mizuno API Support",
+      "url": "https://github.com/tmizuno27"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://qr-code-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/generate": {
+      "get": {
+        "operationId": "generateQRCode",
+        "summary": "Generate a QR code",
+        "description": "Generate a customizable QR code from any text, URL, or data string. Supports PNG, SVG, and Base64 output formats with configurable size, colors, and error correction level.",
+        "parameters": [
+          {
+            "name": "text",
+            "in": "query",
+            "required": true,
+            "description": "The text, URL, or data to encode into the QR code. Maximum 4,296 alphanumeric characters.",
+            "schema": {
+              "type": "string",
+              "example": "https://example.com"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "required": false,
+            "description": "Width and height of the QR code image in pixels.",
+            "schema": {
+              "type": "integer",
+              "default": 300,
+              "minimum": 50,
+              "maximum": 2000,
+              "example": 300
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "description": "Output format of the QR code.",
+            "schema": {
+              "type": "string",
+              "enum": ["png", "svg", "base64"],
+              "default": "png",
+              "example": "png"
+            }
+          },
+          {
+            "name": "color",
+            "in": "query",
+            "required": false,
+            "description": "Foreground color of the QR code in hex format (without #).",
+            "schema": {
+              "type": "string",
+              "default": "000000",
+              "example": "000000"
+            }
+          },
+          {
+            "name": "bgcolor",
+            "in": "query",
+            "required": false,
+            "description": "Background color of the QR code in hex format (without #).",
+            "schema": {
+              "type": "string",
+              "default": "FFFFFF",
+              "example": "FFFFFF"
+            }
+          },
+          {
+            "name": "error_correction",
+            "in": "query",
+            "required": false,
+            "description": "Error correction level. Higher levels allow more of the QR code to be damaged while remaining scannable. L=7%, M=15%, Q=25%, H=30% recovery.",
+            "schema": {
+              "type": "string",
+              "enum": ["L", "M", "Q", "H"],
+              "default": "M",
+              "example": "M"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "QR code generated successfully.",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "image/svg+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "base64": {
+                      "type": "string",
+                      "description": "Base64-encoded PNG image data."
+                    },
+                    "mime_type": {
+                      "type": "string",
+                      "example": "image/png"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
