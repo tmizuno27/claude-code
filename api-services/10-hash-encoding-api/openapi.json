@@ -1,0 +1,314 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Hash & Encoding API",
+    "description": "Hashing, HMAC, encoding/decoding, bcrypt, and cryptographic random generation API.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://hash-encoding-api.t-mizuno27.workers.dev"
+    }
+  ],
+  "paths": {
+    "/hash": {
+      "post": {
+        "summary": "Generate hash",
+        "operationId": "generateHash",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "description": "Text to hash" },
+                  "algorithm": { "type": "string", "enum": ["md5", "sha1", "sha256", "sha384", "sha512"], "default": "sha256" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Hash result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "algorithm": { "type": "string" },
+                    "hex": { "type": "string" },
+                    "base64": { "type": "string" },
+                    "length": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hash/file": {
+      "post": {
+        "summary": "Hash a file via base64 input",
+        "operationId": "hashFile",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["data"],
+                "properties": {
+                  "data": { "type": "string", "description": "Base64-encoded file content" },
+                  "algorithm": { "type": "string", "enum": ["md5", "sha1", "sha256", "sha384", "sha512"], "default": "sha256" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File hash result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "algorithm": { "type": "string" },
+                    "hex": { "type": "string" },
+                    "base64": { "type": "string" },
+                    "file_size": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hmac": {
+      "post": {
+        "summary": "Generate HMAC",
+        "operationId": "generateHmac",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "key"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "key": { "type": "string", "description": "HMAC secret key" },
+                  "algorithm": { "type": "string", "enum": ["sha1", "sha256", "sha384", "sha512"], "default": "sha256" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "HMAC result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "algorithm": { "type": "string" },
+                    "hex": { "type": "string" },
+                    "base64": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/encode": {
+      "post": {
+        "summary": "Encode text",
+        "operationId": "encodeText",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "format"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "format": { "type": "string", "enum": ["base64", "url", "html", "hex"] }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Encoded result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "encoded": { "type": "string" },
+                    "format": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/decode": {
+      "post": {
+        "summary": "Decode text",
+        "operationId": "decodeText",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "format"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "format": { "type": "string", "enum": ["base64", "url", "html", "hex"] }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Decoded result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "decoded": { "type": "string" },
+                    "format": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bcrypt": {
+      "post": {
+        "summary": "Bcrypt hash a password",
+        "operationId": "bcryptHash",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "description": "Password to hash" },
+                  "rounds": { "type": "integer", "default": 10, "minimum": 4, "maximum": 31 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bcrypt hash result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "hash": { "type": "string" },
+                    "rounds": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compare": {
+      "post": {
+        "summary": "Compare text with bcrypt hash",
+        "operationId": "bcryptCompare",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "hash"],
+                "properties": {
+                  "text": { "type": "string" },
+                  "hash": { "type": "string", "description": "Bcrypt hash to compare against" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Comparison result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "match": { "type": "boolean" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/random": {
+      "get": {
+        "summary": "Generate cryptographically secure random bytes",
+        "operationId": "generateRandom",
+        "parameters": [
+          {
+            "name": "length",
+            "in": "query",
+            "schema": { "type": "integer", "default": 32, "minimum": 1, "maximum": 1024 }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "schema": { "type": "string", "enum": ["hex", "base64"], "default": "hex" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Random bytes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "value": { "type": "string" },
+                    "length": { "type": "integer" },
+                    "format": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

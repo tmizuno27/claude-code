@@ -1,0 +1,117 @@
+{
+  "name": "Hash & Encoding API",
+  "description": "All-in-one hashing, HMAC, encoding/decoding, bcrypt, and secure random generation API. Supports MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashing with hex and base64 output. Encode/decode in Base64, URL, HTML, and Hex formats. Bcrypt password hashing with configurable rounds and constant-time comparison. Cryptographically secure random byte generation.",
+  "category": "Tools",
+  "tags": ["hash", "sha256", "md5", "bcrypt", "hmac", "encoding", "base64", "cryptography", "security"],
+  "website": "https://hash-encoding-api.t-mizuno27.workers.dev",
+  "baseUrl": "https://hash-encoding-api.t-mizuno27.workers.dev",
+  "pricing": {
+    "basic": {
+      "name": "Basic",
+      "price": 0,
+      "rateLimit": {
+        "requests": 500,
+        "period": "month"
+      }
+    },
+    "pro": {
+      "name": "Pro",
+      "price": 5,
+      "rateLimit": {
+        "requests": 50000,
+        "period": "month"
+      }
+    },
+    "ultra": {
+      "name": "Ultra",
+      "price": 15,
+      "rateLimit": {
+        "requests": 500000,
+        "period": "month"
+      }
+    }
+  },
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/hash",
+      "name": "Generate Hash",
+      "description": "Hash text using MD5, SHA-1, SHA-256, SHA-384, or SHA-512. Returns hex and base64.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to hash" },
+        { "name": "algorithm", "type": "string", "required": false, "default": "sha256", "description": "md5, sha1, sha256, sha384, sha512" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hash/file",
+      "name": "Hash File",
+      "description": "Hash a base64-encoded file.",
+      "parameters": [
+        { "name": "data", "type": "string", "required": true, "description": "Base64-encoded file content" },
+        { "name": "algorithm", "type": "string", "required": false, "default": "sha256" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/hmac",
+      "name": "Generate HMAC",
+      "description": "Generate HMAC signature with a secret key.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true },
+        { "name": "key", "type": "string", "required": true, "description": "HMAC secret key" },
+        { "name": "algorithm", "type": "string", "required": false, "default": "sha256" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/encode",
+      "name": "Encode Text",
+      "description": "Encode text to base64, URL, HTML entities, or hex.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true },
+        { "name": "format", "type": "string", "required": true, "description": "base64, url, html, hex" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/decode",
+      "name": "Decode Text",
+      "description": "Decode from base64, URL, HTML entities, or hex.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true },
+        { "name": "format", "type": "string", "required": true, "description": "base64, url, html, hex" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/bcrypt",
+      "name": "Bcrypt Hash",
+      "description": "Hash a password with bcrypt.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Password to hash" },
+        { "name": "rounds", "type": "integer", "required": false, "default": 10, "description": "Cost factor (4-31)" }
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/compare",
+      "name": "Bcrypt Compare",
+      "description": "Compare plaintext against a bcrypt hash using constant-time comparison.",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true },
+        { "name": "hash", "type": "string", "required": true, "description": "Bcrypt hash string" }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/random",
+      "name": "Generate Random Bytes",
+      "description": "Generate cryptographically secure random bytes.",
+      "parameters": [
+        { "name": "length", "type": "integer", "required": false, "default": 32, "description": "Number of bytes (1-1024)" },
+        { "name": "format", "type": "string", "required": false, "default": "hex", "description": "hex or base64" }
+      ]
+    }
+  ]
+}
