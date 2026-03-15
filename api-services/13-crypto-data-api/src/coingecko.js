@@ -1,6 +1,6 @@
-const BASE_URL = 'https://api.coingecko.com/api/v3';
+// CoinPaprika API wrapper (free, no API key required)
+const BASE_URL = 'https://api.coinpaprika.com/v1';
 
-// Cache TTLs in seconds
 const CACHE_TTLS = {
   price: 60,
   coin: 300,
@@ -16,13 +16,9 @@ async function cachedFetch(url, cacheTtl) {
   const cache = caches.default;
   const cacheKey = new Request(url, { method: 'GET' });
 
-  // Try cache first
   let response = await cache.match(cacheKey);
-  if (response) {
-    return response;
-  }
+  if (response) return response;
 
-  // Fetch from CoinGecko
   response = await fetch(url, {
     headers: { 'Accept': 'application/json' },
   });
@@ -30,18 +26,13 @@ async function cachedFetch(url, cacheTtl) {
   if (!response.ok) {
     const status = response.status;
     if (status === 429) {
-      // Rate limited - try cache even if expired
       const stale = await cache.match(cacheKey);
       if (stale) return stale;
-      throw new Error('CoinGecko rate limit exceeded. Please try again later.');
+      throw new Error('Rate limit exceeded. Please try again later.');
     }
-    if (status === 503) {
-      throw new Error('CoinGecko service temporarily unavailable.');
-    }
-    throw new Error(`CoinGecko API error: ${status}`);
+    throw new Error(`Upstream API error: ${status}`);
   }
 
-  // Clone and cache with TTL
   const responseToCache = new Response(response.body, response);
   responseToCache.headers.set('Cache-Control', `public, max-age=${cacheTtl}`);
   await cache.put(cacheKey, responseToCache.clone());
@@ -50,92 +41,144 @@ async function cachedFetch(url, cacheTtl) {
 }
 
 async function getPrice(ids, vsCurrencies) {
-  const url = `${BASE_URL}/simple/price?ids=${ids}&vs_currencies=${vsCurrencies}&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true`;
-  const res = await cachedFetch(url, CACHE_TTLS.price);
-  const raw = await res.json();
+  // CoinPaprika uses coin IDs like "btc-bitcoin", "eth-ethereum"
+  // We accept both formats and also simple names
+  const idList = ids.split(',').map(s => s.trim());
+  const currencies = vsCurrencies.split(',').map(s => s.trim().toLowerCase());
 
-  // Normalize
   const data = {};
-  for (const [coinId, values] of Object.entries(raw)) {
-    data[coinId] = {};
-    for (const [key, val] of Object.entries(values)) {
-      data[coinId][key] = val;
+  for (const id of idList) {
+    try {
+      const coinId = await resolveId(id);
+      const url = `${BASE_URL}/tickers/${coinId}`;
+      const res = await cachedFetch(url, CACHE_TTLS.price);
+      const raw = await res.json();
+
+      const coinData = {};
+      for (const cur of currencies) {
+        const quote = raw.quotes?.[cur.toUpperCase()];
+        if (quote) {
+          coinData[cur] = quote.price;
+          coinData[`${cur}_market_cap`] = quote.market_cap;
+          coinData[`${cur}_24h_vol`] = quote.volume_24h;
+          coinData[`${cur}_24h_change`] = quote.percent_change_24h;
+        }
+      }
+      data[raw.symbol?.toLowerCase() || id] = coinData;
+    } catch (e) {
+      data[id] = { error: e.message };
     }
   }
   return data;
 }
 
+// Map common names to CoinPaprika IDs
+const ID_MAP = {
+  bitcoin: 'btc-bitcoin', btc: 'btc-bitcoin',
+  ethereum: 'eth-ethereum', eth: 'eth-ethereum',
+  solana: 'sol-solana', sol: 'sol-solana',
+  cardano: 'ada-cardano', ada: 'ada-cardano',
+  dogecoin: 'doge-dogecoin', doge: 'doge-dogecoin',
+  polkadot: 'dot-polkadot', dot: 'dot-polkadot',
+  ripple: 'xrp-xrp', xrp: 'xrp-xrp',
+  litecoin: 'ltc-litecoin', ltc: 'ltc-litecoin',
+  avalanche: 'avax-avalanche', avax: 'avax-avalanche',
+  chainlink: 'link-chainlink', link: 'link-chainlink',
+  polygon: 'matic-polygon', matic: 'matic-polygon',
+  tether: 'usdt-tether', usdt: 'usdt-tether',
+  'usd-coin': 'usdc-usd-coin', usdc: 'usdc-usd-coin',
+  'binance-coin': 'bnb-binance-coin', bnb: 'bnb-binance-coin',
+  tron: 'trx-tron', trx: 'trx-tron',
+};
+
+async function resolveId(input) {
+  const lower = input.toLowerCase();
+  if (ID_MAP[lower]) return ID_MAP[lower];
+  // If it looks like a CoinPaprika ID already (has a dash)
+  if (lower.includes('-')) return lower;
+  // Try to search
+  return lower;
+}
+
 async function getCoin(id) {
-  const url = `${BASE_URL}/coins/${id}?localization=false&tickers=false&community_data=false&developer_data=false`;
-  const res = await cachedFetch(url, CACHE_TTLS.coin);
-  const raw = await res.json();
+  const coinId = await resolveId(id);
+  const [coinRes, tickerRes] = await Promise.all([
+    cachedFetch(`${BASE_URL}/coins/${coinId}`, CACHE_TTLS.coin),
+    cachedFetch(`${BASE_URL}/tickers/${coinId}`, CACHE_TTLS.price),
+  ]);
+  const coin = await coinRes.json();
+  const ticker = await tickerRes.json();
+  const usd = ticker.quotes?.USD || {};
 
   return {
-    id: raw.id,
-    symbol: raw.symbol,
-    name: raw.name,
-    image: raw.image?.large,
-    description: raw.description?.en?.substring(0, 500),
-    market_cap_rank: raw.market_cap_rank,
+    id: coin.id,
+    symbol: coin.symbol,
+    name: coin.name,
+    image: coin.logo,
+    description: coin.description?.substring(0, 500),
+    market_cap_rank: coin.rank,
     market_data: {
-      current_price: raw.market_data?.current_price,
-      market_cap: raw.market_data?.market_cap,
-      total_volume: raw.market_data?.total_volume,
-      high_24h: raw.market_data?.high_24h,
-      low_24h: raw.market_data?.low_24h,
-      price_change_24h: raw.market_data?.price_change_24h,
-      price_change_percentage_24h: raw.market_data?.price_change_percentage_24h,
-      price_change_percentage_7d: raw.market_data?.price_change_percentage_7d_in_currency,
-      price_change_percentage_30d: raw.market_data?.price_change_percentage_30d_in_currency,
-      ath: raw.market_data?.ath,
-      ath_date: raw.market_data?.ath_date,
-      atl: raw.market_data?.atl,
-      atl_date: raw.market_data?.atl_date,
-      circulating_supply: raw.market_data?.circulating_supply,
-      total_supply: raw.market_data?.total_supply,
-      max_supply: raw.market_data?.max_supply,
+      current_price: { usd: usd.price },
+      market_cap: { usd: usd.market_cap },
+      total_volume: { usd: usd.volume_24h },
+      high_24h: null,
+      low_24h: null,
+      price_change_24h: usd.price,
+      price_change_percentage_24h: usd.percent_change_24h,
+      price_change_percentage_7d: usd.percent_change_7d,
+      price_change_percentage_30d: usd.percent_change_30d,
+      ath: { usd: usd.ath_price },
+      ath_date: { usd: usd.ath_date },
+      circulating_supply: ticker.circulating_supply,
+      total_supply: ticker.total_supply,
+      max_supply: ticker.max_supply,
     },
     links: {
-      homepage: raw.links?.homepage?.[0],
-      blockchain_site: raw.links?.blockchain_site?.filter(Boolean).slice(0, 3),
-      subreddit: raw.links?.subreddit_url,
-      twitter: raw.links?.twitter_screen_name,
+      homepage: coin.links?.website?.[0],
+      blockchain_site: coin.links?.explorer?.slice(0, 3),
+      subreddit: coin.links?.reddit?.[0],
+      twitter: coin.links?.twitter?.[0],
     },
-    genesis_date: raw.genesis_date,
-    last_updated: raw.last_updated,
+    started_at: coin.started_at,
+    last_updated: ticker.last_updated,
   };
 }
 
 async function searchCoins(query) {
-  const url = `${BASE_URL}/search?query=${encodeURIComponent(query)}`;
+  const url = `${BASE_URL}/search?q=${encodeURIComponent(query)}&limit=20`;
   const res = await cachedFetch(url, CACHE_TTLS.search);
   const raw = await res.json();
 
   return {
-    coins: (raw.coins || []).slice(0, 20).map(c => ({
+    coins: (raw.currencies || []).slice(0, 20).map(c => ({
       id: c.id,
       name: c.name,
       symbol: c.symbol,
-      market_cap_rank: c.market_cap_rank,
-      thumb: c.thumb,
+      market_cap_rank: c.rank,
     })),
   };
 }
 
 async function getTrending() {
-  const url = `${BASE_URL}/search/trending`;
+  // CoinPaprika doesn't have a trending endpoint, use top movers from tickers
+  const url = `${BASE_URL}/tickers?limit=100`;
   const res = await cachedFetch(url, CACHE_TTLS.trending);
   const raw = await res.json();
 
+  // Sort by 24h change to find trending
+  const sorted = (raw || [])
+    .filter(c => c.quotes?.USD?.percent_change_24h != null)
+    .sort((a, b) => Math.abs(b.quotes.USD.percent_change_24h) - Math.abs(a.quotes.USD.percent_change_24h))
+    .slice(0, 15);
+
   return {
-    coins: (raw.coins || []).map(c => ({
-      id: c.item.id,
-      name: c.item.name,
-      symbol: c.item.symbol,
-      market_cap_rank: c.item.market_cap_rank,
-      thumb: c.item.thumb,
-      score: c.item.score,
-      price_btc: c.item.price_btc,
+    coins: sorted.map(c => ({
+      id: c.id,
+      name: c.name,
+      symbol: c.symbol,
+      market_cap_rank: c.rank,
+      price_usd: c.quotes.USD.price,
+      change_24h: c.quotes.USD.percent_change_24h,
     })),
   };
 }
@@ -143,72 +186,68 @@ async function getTrending() {
 async function getMarkets(vsCurrency = 'usd', perPage = 100, page = 1) {
   perPage = Math.min(Math.max(1, perPage), 250);
   page = Math.max(1, page);
-  const url = `${BASE_URL}/coins/markets?vs_currency=${vsCurrency}&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h,24h,7d`;
+  const url = `${BASE_URL}/tickers?limit=${perPage}&page=${page}`;
   const res = await cachedFetch(url, CACHE_TTLS.markets);
   const raw = await res.json();
 
+  const cur = vsCurrency.toUpperCase();
   return {
-    coins: (raw || []).map(c => ({
-      id: c.id,
-      symbol: c.symbol,
-      name: c.name,
-      image: c.image,
-      current_price: c.current_price,
-      market_cap: c.market_cap,
-      market_cap_rank: c.market_cap_rank,
-      total_volume: c.total_volume,
-      high_24h: c.high_24h,
-      low_24h: c.low_24h,
-      price_change_24h: c.price_change_24h,
-      price_change_percentage_24h: c.price_change_percentage_24h,
-      price_change_percentage_1h: c.price_change_percentage_1h_in_currency,
-      price_change_percentage_7d: c.price_change_percentage_7d_in_currency,
-      circulating_supply: c.circulating_supply,
-      total_supply: c.total_supply,
-      ath: c.ath,
-      ath_change_percentage: c.ath_change_percentage,
-    })),
+    coins: (raw || []).map(c => {
+      const q = c.quotes?.[cur] || c.quotes?.USD || {};
+      return {
+        id: c.id,
+        symbol: c.symbol,
+        name: c.name,
+        current_price: q.price,
+        market_cap: q.market_cap,
+        market_cap_rank: c.rank,
+        total_volume: q.volume_24h,
+        price_change_percentage_24h: q.percent_change_24h,
+        price_change_percentage_7d: q.percent_change_7d,
+        circulating_supply: c.circulating_supply,
+        total_supply: c.total_supply,
+        max_supply: c.max_supply,
+      };
+    }),
     pagination: { page, per_page: perPage, vs_currency: vsCurrency },
   };
 }
 
 async function getHistory(id, date) {
-  // CoinGecko expects dd-mm-yyyy
-  const [y, m, d] = date.split('-');
-  const formatted = `${d}-${m}-${y}`;
-  const url = `${BASE_URL}/coins/${id}/history?date=${formatted}&localization=false`;
+  const coinId = await resolveId(id);
+  // CoinPaprika historical tickers: /tickers/{coin_id}/historical?start=DATE&interval=1d&limit=1
+  const url = `${BASE_URL}/tickers/${coinId}/historical?start=${date}&interval=1d&limit=1`;
   const res = await cachedFetch(url, CACHE_TTLS.history);
   const raw = await res.json();
 
+  const entry = raw?.[0];
   return {
-    id: raw.id,
-    symbol: raw.symbol,
-    name: raw.name,
+    id: coinId,
     date,
-    market_data: raw.market_data ? {
-      current_price: raw.market_data.current_price,
-      market_cap: raw.market_data.market_cap,
-      total_volume: raw.market_data.total_volume,
+    market_data: entry ? {
+      price: entry.price,
+      volume_24h: entry.volume_24h,
+      market_cap: entry.market_cap,
+      timestamp: entry.timestamp,
     } : null,
   };
 }
 
 async function getExchanges() {
-  const url = `${BASE_URL}/exchanges?per_page=50`;
+  const url = `${BASE_URL}/exchanges?limit=50`;
   const res = await cachedFetch(url, CACHE_TTLS.exchanges);
   const raw = await res.json();
 
   return {
-    exchanges: (raw || []).map(e => ({
+    exchanges: (raw || []).slice(0, 50).map(e => ({
       id: e.id,
       name: e.name,
-      country: e.country,
-      url: e.url,
-      image: e.image,
-      trust_score: e.trust_score,
-      trust_score_rank: e.trust_score_rank,
-      trade_volume_24h_btc: e.trade_volume_24h_btc,
-      year_established: e.year_established,
+      description: e.description?.substring(0, 200),
+      active: e.active,
+      website: e.links?.website?.[0],
+      adjusted_volume_24h: e.adjusted_volume_24h_share,
+      currencies: e.currencies,
+      markets: e.markets,
     })),
   };
 }
@@ -217,16 +256,15 @@ async function getGlobal() {
   const url = `${BASE_URL}/global`;
   const res = await cachedFetch(url, CACHE_TTLS.global);
   const raw = await res.json();
-  const d = raw.data || {};
 
   return {
-    active_cryptocurrencies: d.active_cryptocurrencies,
-    markets: d.markets,
-    total_market_cap: d.total_market_cap,
-    total_volume: d.total_volume,
-    market_cap_percentage: d.market_cap_percentage,
-    market_cap_change_percentage_24h_usd: d.market_cap_change_percentage_24h_usd,
-    updated_at: d.updated_at,
+    active_cryptocurrencies: raw.cryptocurrencies_number,
+    markets: raw.market_cap_ath_value,
+    total_market_cap_usd: raw.market_cap_usd,
+    total_volume_24h_usd: raw.volume_24h_usd,
+    bitcoin_dominance: raw.bitcoin_dominance_percentage,
+    market_cap_change_24h: raw.market_cap_change_24h,
+    last_updated: raw.last_updated,
   };
 }
 
