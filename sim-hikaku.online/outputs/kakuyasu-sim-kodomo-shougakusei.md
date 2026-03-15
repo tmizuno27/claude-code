@@ -17,7 +17,7 @@ word_count: 8500
 - **見守り機能No.1** → トーンモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,100円（GPS・アプリ制限・歩きスマホ防止）</strong></span>
 - **最安で持たせたい** → 楽天モバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額528円〜（最強こども割適用時）</strong></span>
 - **LINEメインで使う** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額990円（LINEギガフリー付き）</strong></span>
-- **店舗サポート重視** → ワイモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,265円〜（家族割適用後）</strong></span>
+- **店舗サポート重視** → ワイモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,958円〜（家族割適用後）</strong></span>
 - **端末セットで安い** → IIJmio <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額850円〜（端末110円セールあり）</strong></span>
 
 ※料金はすべて税込。2026年3月時点の情報です。
@@ -78,7 +78,7 @@ word_count: 8500
 | **楽天モバイル** | 528円〜 | 330円/月 | ○ | ○ | ★★★☆ | ★★★★★ |
 | **トーンモバイル** | 1,100円 | 308円/月 | ◎ | ◎ | ★★☆☆ | ★★★★☆ |
 | **LINEMO** | 990円 | 無料 | △ | ○ | ★★★★ | ★★★★☆ |
-| **ワイモバイル** | 1,265円〜 | 無料 | △ | ○ | ★★★★★ | ★★★★☆ |
+| **ワイモバイル** | 1,958円〜 | 無料 | △ | ○ | ★★★★★ | ★★★★☆ |
 | **IIJmio** | 850円〜 | 396円/月 | △ | ○ | ★★★☆ | ★★★☆☆ |
 | **mineo** | 1,298円〜 | 385円/月 | △ | ○ | ★★★☆ | ★★★☆☆ |
 | **UQモバイル** | 1,078円〜 | 無料 | △ | ○ | ★★★★★ | ★★★☆☆ |
@@ -98,10 +98,10 @@ word_count: 8500
 | データ容量 | 通常料金 | 最強こども割適用後 |
 |:---:|---:|---:|
 | 〜3GB | 1,078円 | **528円** |
-| 3〜20GB | 2,178円 | **2,068円** |
-| 20GB〜無制限 | 3,278円 | **3,168円** |
+| 3〜20GB | 2,178円 | **1,958円** |
+| 20GB〜無制限 | 3,278円 | **3,058円** |
 
-※家族割引（-110円）+最強こども割（-440円 ※3GB以下の場合）適用時
+※家族割引（-110円）+最強こども割（3GB以下: -440円、3GB超: -110円）適用時
 
 ### メリット
 - <span style="background: linear-gradient(transparent 60%, #d6e4ff 60%)"><strong>月額528円は子供向け格安SIMの最安クラス</strong></span>
@@ -171,7 +171,8 @@ word_count: 8500
 |:---:|---:|
 | 〜3GB | **990円** |
 | 〜10GB | 2,090円 |
-| 〜30GB（ベストプランV） | 2,728円 |
+| 〜20GB（ベストプランV） | 2,970円 |
+| 〜30GB（ベストプランV） | 3,960円 |
 
 ### メリット
 - <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>LINEのトーク・通話・ビデオ通話のデータ消費がゼロ</strong></span>
@@ -202,20 +203,19 @@ word_count: 8500
 
 | プラン | データ容量 | 通常料金 | 家族割適用後 |
 |:---:|:---:|---:|---:|
-| シンプル3 S | 5GB | 2,365円 | **1,265円** |
-| シンプル3 M | 30GB | 4,015円 | **2,915円** |
-| シンプル3 L | 30GB+ | 5,115円 | **4,015円** |
+| シンプル3 S | 5GB | 3,058円 | **1,958円** |
+| シンプル3 M | 30GB | 4,158円 | **3,058円** |
+| シンプル3 L | 35GB | 5,258円 | **4,158円** |
 
 ### メリット
 - 家族割で2回線目以降は毎月1,100円引き
 - 全国約2,600店舗で対面サポート（初期設定も店舗でお任せ）
 - ソフトバンク回線で通信速度が最高クラス
 - 「あんしんフィルター」が無料
-- Yahoo!プレミアム会員特典付き
 
 ### デメリット
-- 家族割なしだと割高（5GBで2,365円）
-- <span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>最安でも月額1,265円で、楽天モバイルの528円と比べると高い</strong></span>
+- 家族割なしだと割高（5GBで3,058円）
+- <span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>最安でも月額1,958円で、楽天モバイルの528円と比べると高い</strong></span>
 - キッズ専用の見守り機能はない
 - データ容量5GBは最小プランとしてはやや多い（3GBプランがない）
 
