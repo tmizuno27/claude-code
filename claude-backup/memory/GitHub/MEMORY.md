@@ -58,18 +58,17 @@
 - 優先: Wise > NordVPN > ConoHa WING
 - ASP登録後に一括置換スクリプト作成予定
 
-## n8nテンプレート販売事業（最優先）
-- **詳細**: [n8n-template-business.md](n8n-template-business.md)
-- 全11回・43並行リサーチで選定。完全自動化×収益性×リスクゼロで最適
-- テンプレート10本構築済み（JSON + README + 出品テキスト）
-- 販売: Gumroad（メイン）、HaveWorkflow、n8nMarket
-- 価格: $49-$99/本、バンドル $399
-- **プロジェクトパス**: `claude-code/n8n-templates/`
-- **次アクション**: Gumroadアカウント作成 → 販売ページ作成 → 出品
+## RapidAPI API販売事業（稼働中）
+- **詳細**: [rapidapi-business.md](rapidapi-business.md)
+- 全10 API、Cloudflare Workers デプロイ済み＆RapidAPI出品完了（2026-03-15）
+- 運用コスト$0、完全自動（集客・課金・サポート全てRapidAPI側）
+- PayPal payout接続済み
+- **プロジェクトパス**: `claude-code/api-services/`
 
-## AI自動化ビジネス検討（選定完了）
-- 比較表: `planning/ai-business-comparison.md`（16案）
-- 最終決定: n8nテンプレート販売（上記）
+## n8nテンプレート販売事業（一時停止）
+- **詳細**: [n8n-template-business.md](n8n-template-business.md)
+- 9/10本Gumroad出品済みだがStripe KYC認証問題で停止中
+- **プロジェクトパス**: `claude-code/n8n-templates/`
 
 ## ユーザー情報
 - **職務経歴**: [resume.md](resume.md)
