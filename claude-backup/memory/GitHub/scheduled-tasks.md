@@ -55,6 +55,16 @@
 | TaskHealthCheck | 毎日 | 09:00 | 22:00 | 全タスクの稼働状況チェック→Discord通知 |
 | TaskDashboardReport | 毎日 | 05:00 | 18:00 | ダッシュボードHTML動的生成→Discord報告 |
 
+## API監視系
+
+| タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
+|---------|------|----------|---------|------|
+| ApiHealthCheck | 毎日 | 06:00 | 19:00 | 全10 API死活監視＋機能テスト→エラー時Discord通知 |
+
+- ランチャー: `api-healthcheck-hidden.vbs` → `api-healthcheck.ps1`
+- ログ: `logs/api-healthcheck.log`
+- 正常時は通知なし、エラー時のみDiscordアラート
+
 ## 統合レポート系
 
 | タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
