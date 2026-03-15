@@ -1,0 +1,260 @@
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif!important;color:#1d1d1f!important;-webkit-font-smoothing:antialiased!important;letter-spacing:-.022em}
+.header,.header-in,#header{background:rgba(255,255,255,.92)!important;backdrop-filter:saturate(180%) blur(20px)!important;-webkit-backdrop-filter:saturate(180%) blur(20px)!important;border-bottom:1px solid rgba(0,0,0,.08)!important;position:sticky!important;top:0!important;z-index:9999!important}
+.header-in{display:flex!important;align-items:center!important;justify-content:space-between!important;max-width:1200px!important;margin:0 auto!important;padding:8px 20px!important}
+#navi .navi-in>ul>li>a{color:#1d1d1f!important;font-size:13px!important;font-weight:500!important;padding:8px 14px!important}
+#navi .navi-in>ul>li>a:hover{color:#0066CC!important}
+#footer,.footer,.footer-bottom{background:#1d1d1f!important;color:#86868b!important}
+#footer a,.footer a{color:#d2d2d7!important}
+.footer-bottom-content{max-width:1200px!important;margin:0 auto!important;padding:20px!important;text-align:center!important}
+#content-in{max-width:1200px!important;margin:0 auto!important;padding:30px 20px!important}
+body.single .article{max-width:750px!important;margin:0 auto!important}
+body.single .entry-title{font-size:28px!important;font-weight:800!important;line-height:1.5!important;color:#1d1d1f!important;text-align:center!important;margin-bottom:20px!important}
+body.single .entry-content{font-size:16px!important;line-height:2.4!important;color:#1d1d1f!important}
+body.single .entry-content p{margin-bottom:1.8em!important}
+body.single .entry-content h2{font-size:26px!important;font-weight:800!important;text-align:center!important;margin:60px 0 30px!important;padding:0!important;border:none!important;background:none!important;color:#1d1d1f!important;line-height:1.4!important}
+body.single .entry-content h3{font-size:20px!important;font-weight:700!important;margin:40px 0 20px!important;padding:0 0 0 16px!important;border-left:4px solid #0066CC!important;border-bottom:none!important;background:none!important;line-height:1.4!important}
+body.single .entry-content h4{font-size:17px!important;font-weight:700!important;margin:30px 0 15px!important}
+body.single .entry-content a{color:#0066CC!important;text-decoration:none!important}
+body.single .entry-content a:hover{text-decoration:underline!important}
+.marker-yellow{background:linear-gradient(transparent 60%,#fff9c4 60%)!important}
+.marker-pink{background:linear-gradient(transparent 60%,#fce4ec 60%)!important}
+.marker-blue{background:linear-gradient(transparent 60%,#e3f2fd 60%)!important}
+#sidebar .widget{border:1px solid #d2d2d7!important;border-radius:18px!important;padding:20px!important;margin-bottom:20px!important;background:#fff!important}
+#sidebar .widget-title{font-size:14px!important;font-weight:700!important;color:#1d1d1f!important;margin-bottom:12px!important;padding:0!important;border:none!important;background:none!important}
+.breadcrumb{font-size:12px!important;color:#86868b!important;max-width:1200px!important;margin:0 auto!important;padding:10px 20px!important}
+.sns-share,.sns-follow{display:none!important}
+.pagination .page-numbers{border-radius:50%!important;width:40px!important;height:40px!important;line-height:40px!important;border:1px solid #d2d2d7!important;color:#1d1d1f!important}
+.pagination .page-numbers.current{background:#0066CC!important;color:#fff!important;border-color:#0066CC!important}
+.wp-block-table table,.entry-content table{border-collapse:collapse!important;width:100%!important;border-radius:12px!important;overflow:hidden!important;font-size:14px!important}
+.wp-block-table th,.entry-content th{background:#f5f5f7!important;font-weight:700!important;padding:12px 16px!important;font-size:14px!important}
+.wp-block-table td,.entry-content td{padding:12px 16px!important;border-bottom:1px solid #d2d2d7!important;font-size:14px!important}
+.blank-box,.information-box,.question-box,.alert-box{border-radius:12px!important;border-width:1px!important;padding:20px!important}
+.entry-content ul{list-style:none!important;padding-left:0!important}
+.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}
+.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}
+.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}
+.entry-content ol li{margin-bottom:.5em!important}
+.entry-content ol li::before{content:none!important}
+.entry-card-wrap{border:1px solid #d2d2d7!important;border-radius:18px!important;overflow:hidden!important;transition:transform .3s ease,box-shadow .3s ease!important;background:#fff!important;margin-bottom:20px!important}
+.entry-card-wrap:hover{transform:translateY(-2px)!important;box-shadow:0 8px 30px rgba(0,0,0,.08)!important}
+.entry-card-title{font-size:17px!important;font-weight:700!important;line-height:1.6!important;color:#1d1d1f!important}
+.entry-card-snippet{color:#86868b!important;font-size:13px!important;line-height:1.8!important}
+@media(max-width:768px){#navi{display:none!important}.header-in{padding:12px 20px!important}body.single .article{max-width:100%!important;padding:0 16px!important}body.single .entry-title{font-size:22px!important}body.single .entry-content h2{font-size:20px!important;margin:40px 0 20px!important}body.single .entry-content h3{font-size:18px!important;margin:30px 0 15px!important}}
+@media(max-width:600px){body.single .entry-content{font-size:15px!important;line-height:2.2!important}}</style>
+<style>.entry-content ul{list-style:none!important;padding-left:0!important}.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}.entry-content ol li{margin-bottom:.5em!important}.entry-content ol li::before{content:none!important}</style>
+<h2>マッチングアプリのメッセージで<br>返信率が決まる「最初の一通」</h2>
+<p>マッチングアプリでせっかくマッチングしたのに、最初のメッセージを送ったら既読スルー……。そんな経験はありませんか？</p>
+<p>実は、マッチングアプリの返信率は<strong class="marker-yellow">最初の一通で大きく左右される</strong>ことがデータで明らかになっています。「相手の名前＋感謝＋プロフィールに触れた話題」の3要素を含めるだけで、返信率が平均23%アップするという調査結果もあります。</p>
+<p>この記事では、最初の一通から会話を盛り上げるメッセージテクニックを、例文つきで解説します。</p>
+<h2>返信が来ない最初のメッセージ<br>NG例5パターン</h2>
+<p>まずは、やってしまいがちなNG例を確認しましょう。以下のパターンに心当たりがある方は、今日から改善するだけで返信率が大幅に変わります。</p>
+<h3>NG1：「はじめまして！よろしくお願いします」だけ</h3>
+<p><strong class="marker-pink">テンプレ感が強すぎて、「この人は私に興味があるのかな？」と思われてしまいます</strong>。人気会員には1日に何十通ものメッセージが届くため、個性のない挨拶だけでは埋もれてしまいます。</p>
+<h3>NG2：長文の自己紹介</h3>
+<p>最初から自分のことを長々と書くのはNGです。<strong class="marker-pink">相手にとっては「重い人」という印象を与えてしまい、返信のハードルが上がります</strong>。最初のメッセージは3～5行程度に収めましょう。</p>
+<h3>NG3：いきなりタメ口</h3>
+<p>マッチングしたからといって、いきなりタメ口はNGです。特に30代以上のユーザーが多いアプリでは、最初の数通は敬語が基本マナーです。</p>
+<h3>NG4：「可愛いですね」「イケメンですね」</h3>
+<p>見た目だけを褒めるメッセージは、不信感を与えることがあります。「たくさんの人に同じことを言っているのでは？」と思われてしまうからです。</p>
+<h3>NG5：質問なしの一方通行メッセージ</h3>
+<p>質問がないメッセージは、相手が「何を返せばいいか分からない」状態になります。<strong class="marker-pink">最初のメッセージには必ず1つ、答えやすい質問を入れましょう</strong>。</p>
+<h2>返信率が上がる最初の一通<br>テンプレート3パターン</h2>
+<h3>パターン1：趣味に触れるメッセージ（万能型）</h3>
+<p>相手のプロフィールに書かれた趣味に触れるパターンです。<strong class="marker-blue">最も返信率が高く、どんな相手にも使える万能型</strong>です。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>要素</th>
+<th>例文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>挨拶＋名前</td>
+<td>〇〇さん、はじめまして！</td>
+</tr>
+<tr>
+<td>感謝</td>
+<td>マッチングありがとうございます。</td>
+</tr>
+<tr>
+<td>趣味に触れる</td>
+<td>プロフィールを見て、カフェ巡りが好きなんだなと思って「いいね」しました。</td>
+</tr>
+<tr>
+<td>質問（1つ）</td>
+<td>最近行って良かったカフェってありますか？</td>
+</tr>
+</tbody>
+</table>
+<p>ポイントは、<strong class="marker-yellow">プロフィールをちゃんと読んだことが伝わる具体的な話題</strong>を入れることです。「趣味が合いそうだと思いました」ではなく、具体的な趣味名を出しましょう。</p>
+<h3>パターン2：写真に触れるメッセージ（高返信率）</h3>
+<p>プロフィール写真に写っている場所やペット、料理などに触れるパターンです。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>要素</th>
+<th>例文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>挨拶＋名前</td>
+<td>〇〇さん、はじめまして！</td>
+</tr>
+<tr>
+<td>感謝</td>
+<td>「いいね」ありがとうございます。</td>
+</tr>
+<tr>
+<td>写真に触れる</td>
+<td>2枚目のお写真、とても素敵な場所ですね！海外旅行ですか？</td>
+</tr>
+<tr>
+<td>共通点</td>
+<td>僕も旅行が好きで、去年は沖縄に行ってきました。</td>
+</tr>
+</tbody>
+</table>
+<p><strong class="marker-blue">写真に具体的に触れることで「この人はちゃんと自分のプロフィールを見てくれている」という特別感が生まれます</strong>。</p>
+<h3>パターン3：共通点を強調するメッセージ（マッチング後）</h3>
+<p>コミュニティや好みカードで共通点がある場合に使えるパターンです。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>要素</th>
+<th>例文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>挨拶＋名前</td>
+<td>〇〇さん、はじめまして！</td>
+</tr>
+<tr>
+<td>共通点</td>
+<td>映画好きのコミュニティで見かけて気になっていました。</td>
+</tr>
+<tr>
+<td>自分のエピソード</td>
+<td>最近「〇〇」を観てすごく良かったんですが、</td>
+</tr>
+<tr>
+<td>質問</td>
+<td>〇〇さんは最近何か観ましたか？</td>
+</tr>
+</tbody>
+</table>
+<h2>2通目以降のメッセージを<br>続けるコツ7選</h2>
+<h3>1. 相手の文章量に合わせる</h3>
+<p>相手が2～3行で返してきたら、こちらも2～3行で返します。<strong class="marker-yellow">相手のペースに合わせることで、「この人とはテンポが合う」という心地よさ</strong>が生まれます。</p>
+<h3>2. 質問は1メッセージに1つまで</h3>
+<p>質問が多すぎると「面接みたい」と感じられてしまいます。1つのメッセージに質問は1つだけ、しかも答えやすい質問にしましょう。</p>
+<h3>3. 共感＋深掘りの流れを作る</h3>
+<p>相手の話に対して「共感→深掘りの質問」の流れを作ると、自然に会話が広がります。</p>
+<p>例：「沖縄いいですね！（共感）海が綺麗ですよね。シュノーケリングとかされましたか？（深掘り）」</p>
+<h3>4. 返信のタイミングは相手に合わせる</h3>
+<p>即レスが良い場合もあれば、少し間を空けた方が良い場合もあります。<strong class="marker-blue">基本は相手の返信スピードに合わせるのがベスト</strong>です。ただし、遅くても24時間以内には返信しましょう。</p>
+<h3>5. 絵文字は相手が使っていれば使う</h3>
+<p>相手が絵文字を使っているなら、こちらも適度に使いましょう。相手が使っていないのに絵文字を多用すると、温度差が生まれてしまいます。</p>
+<h3>6. 自分のエピソードも適度に混ぜる</h3>
+<p>質問ばかりだと尋問になってしまいます。自分の体験やエピソードを適度に挟むことで、相手も「この人のことをもっと知りたい」と思うようになります。</p>
+<h3>7. 電話やデートへの誘いは10～15通目が目安</h3>
+<p>メッセージのやりとりが10～15通ほど続いたら、電話やデートに誘うタイミングです。<strong class="marker-yellow">「メッセージだと伝わりにくいので、よかったら一度お電話しませんか？」</strong>という流れが自然です。</p>
+<h2>男女別メッセージで<br>気をつけるポイント</h2>
+<h3>男性が気をつけるべきこと</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>NG行動</th>
+<th>改善策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>すぐにLINE交換を求める</td>
+<td>10通以上やりとりしてから提案する</td>
+</tr>
+<tr>
+<td>下ネタ・セクハラ発言</td>
+<td>冗談でも絶対にNG。通報対象になる</td>
+</tr>
+<tr>
+<td>収入や学歴を聞く</td>
+<td>相手から話してくれるまで待つ</td>
+</tr>
+<tr>
+<td>毎日何通も送る</td>
+<td>1日1～2通が適切なペース</td>
+</tr>
+</tbody>
+</table>
+<h3>女性が気をつけるべきこと</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>NG行動</th>
+<th>改善策</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>「はい」「そうですね」だけの返信</td>
+<td>自分の話題も加えて返信する</td>
+</tr>
+<tr>
+<td>受け身すぎる姿勢</td>
+<td>自分からも質問を投げかける</td>
+</tr>
+<tr>
+<td>複数人との同時進行を匂わせる</td>
+<td>1対1のやりとりに集中する</td>
+</tr>
+</tbody>
+</table>
+<h2>メッセージの送信タイミング<br>ゴールデンタイムはいつ？</h2>
+<p>メッセージの送信タイミングも返信率に大きく影響します。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>時間帯</th>
+<th>返信率</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>19:00～23:00</strong></td>
+<td><strong class="marker-yellow">最も高い</strong></td>
+<td>仕事終わりでアプリを開く時間帯</td>
+</tr>
+<tr>
+<td>12:00～13:00</td>
+<td>やや高い</td>
+<td>ランチタイムにスマホをチェック</td>
+</tr>
+<tr>
+<td>7:00～9:00</td>
+<td>普通</td>
+<td>通勤中にチェックする人がいる</td>
+</tr>
+<tr>
+<td>0:00～6:00</td>
+<td>低い</td>
+<td>深夜のメッセージは不信感を与えることも</td>
+</tr>
+</tbody>
+</table>
+<p><strong class="marker-blue">最初のメッセージはマッチング直後に送るのがベスト</strong>です。時間が経つほど「誰だっけ？」と忘れられてしまうため、マッチング通知が来たらすぐにメッセージを送りましょう。</p>
+<h2>返信が来ない場合の対処法</h2>
+<h3>既読スルーされたら？</h3>
+<p>1通目で既読スルーされた場合、<strong class="marker-pink">追いメッセージは基本的にNG</strong>です。「返信まだですか？」のようなメッセージは、ブロックされる原因になります。</p>
+<p>ただし、3～5日空けてから「お忙しいですよね。〇〇の話、もしよければ聞かせてください」のように、軽いトーンで1回だけ再送するのはアリです。それでも返信がなければ、次の人に切り替えましょう。</p>
+<h3>未読スルーされたら？</h3>
+<p>未読スルーの場合、相手がアプリを開いていない可能性があります。1週間ほど待ってみて、それでも反応がなければ諦めるのが得策です。</p>
+<p>返信がなかなか来ない原因と対策については、<a href="https://otona-match.com/matching-app-no-reply/">マッチングアプリで返信が来ない原因と改善策</a>の記事で詳しく解説しています。</p>
+<h2>まとめ：最初の一通を変えるだけで<br>出会いのチャンスは広がる</h2>
+<p>マッチングアプリのメッセージで最も大切なのは、<strong class="marker-yellow">相手のプロフィールを読んだ上で、「あなたに興味があります」という気持ちを具体的に伝える</strong>ことです。</p>
+<p>テンプレを使い回すのではなく、相手一人ひとりに合わせたメッセージを心がけましょう。少し手間はかかりますが、返信率は確実に上がります。</p>
+<p>メッセージが上手くいって実際に会うことになったら、<a href="https://otona-match.com/first-date-manual/">初デートの完全マニュアル</a>もチェックしてみてください。プロフィール写真で「いいね」を増やしたい方は、<a href="https://otona-match.com/profile-photo-tips/">プロフィール写真の撮り方ガイド</a>がおすすめです。</p>
+<p style="font-size:0.85em;color:#666;margin-top:2em">※この記事にはプロモーションが含まれています。</p>
