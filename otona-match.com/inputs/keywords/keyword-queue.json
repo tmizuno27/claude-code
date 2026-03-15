@@ -87,11 +87,14 @@
       "type": "集客",
       "main_keyword": "マッチングアプリ 会話 続かない",
       "scheduled_date": "2026-03-28",
-      "status": "pending",
+      "status": "published",
+      "wp_id": 137,
+      "published_date": "2026-03-14",
       "internal_links": [
         "matching-app-no-reply",
         "matching-app-message-kotsu",
-        "first-date-manual"
+        "first-date-manual",
+        "profile-photo-tips"
       ]
     },
     {
@@ -101,11 +104,14 @@
       "type": "キラー",
       "main_keyword": "マリッシュ 評判",
       "scheduled_date": "2026-03-31",
-      "status": "pending",
+      "status": "published",
+      "wp_id": 138,
+      "published_date": "2026-03-14",
       "internal_links": [
         "matching-app-ranking-2026",
         "konkatsu-app-osusume",
-        "40dai-50dai-taikendan"
+        "40dai-50dai-taikendan",
+        "matching-app-price-comparison"
       ]
     },
     {
