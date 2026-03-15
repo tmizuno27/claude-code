@@ -1,0 +1,162 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Currency Exchange Rate API",
+    "description": "Real-time and historical currency exchange rates powered by ECB data via Frankfurter API. Supports 30+ currencies, conversion, and historical lookups.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://currency-exchange-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/rates": {
+      "get": {
+        "summary": "Get latest exchange rates",
+        "operationId": "getLatestRates",
+        "parameters": [
+          {
+            "name": "base",
+            "in": "query",
+            "description": "Base currency code (ISO 4217)",
+            "schema": { "type": "string", "default": "USD", "example": "USD" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Exchange rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "base": { "type": "string" },
+                    "date": { "type": "string", "format": "date" },
+                    "rates": { "type": "object", "additionalProperties": { "type": "number" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/convert": {
+      "get": {
+        "summary": "Convert between currencies",
+        "operationId": "convertCurrency",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "description": "Source currency code",
+            "schema": { "type": "string", "example": "USD" }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "description": "Target currency code",
+            "schema": { "type": "string", "example": "EUR" }
+          },
+          {
+            "name": "amount",
+            "in": "query",
+            "required": true,
+            "description": "Amount to convert",
+            "schema": { "type": "number", "example": 100 }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Conversion result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "from": { "type": "string" },
+                    "to": { "type": "string" },
+                    "amount": { "type": "number" },
+                    "rate": { "type": "number" },
+                    "result": { "type": "number" },
+                    "date": { "type": "string", "format": "date" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currencies": {
+      "get": {
+        "summary": "List all supported currencies",
+        "operationId": "listCurrencies",
+        "responses": {
+          "200": {
+            "description": "Currency list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "currencies": { "type": "object", "additionalProperties": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/historical": {
+      "get": {
+        "summary": "Get historical exchange rates",
+        "operationId": "getHistoricalRates",
+        "parameters": [
+          {
+            "name": "base",
+            "in": "query",
+            "description": "Base currency code",
+            "schema": { "type": "string", "default": "USD" }
+          },
+          {
+            "name": "date",
+            "in": "query",
+            "required": true,
+            "description": "Date in YYYY-MM-DD format",
+            "schema": { "type": "string", "format": "date", "example": "2025-01-15" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": { "type": "boolean" },
+                    "base": { "type": "string" },
+                    "date": { "type": "string", "format": "date" },
+                    "rates": { "type": "object", "additionalProperties": { "type": "number" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
