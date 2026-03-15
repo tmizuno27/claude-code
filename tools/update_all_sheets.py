@@ -257,6 +257,21 @@ def write_article_list(sh, site_key, site_cfg, rows):
                 'fields': 'userEnteredFormat(backgroundColor)'
             }})
 
+    # ステータス列（C列=index 2）の色分け
+    for i, row in enumerate(sheet_data[1:], start=1):
+        st = row[2] if len(row) > 2 else ''
+        sc = STATUS_COLORS.get(st)
+        if sc:
+            fmt_requests.append({'repeatCell': {
+                'range': {'sheetId': ws.id, 'startRowIndex': i, 'endRowIndex': i + 1, 'startColumnIndex': 2, 'endColumnIndex': 3},
+                'cell': {'userEnteredFormat': {
+                    'backgroundColor': sc,
+                    'textFormat': {'bold': True},
+                    'horizontalAlignment': 'CENTER',
+                }},
+                'fields': 'userEnteredFormat(backgroundColor,textFormat,horizontalAlignment)'
+            }})
+
     # フィルター
     fmt_requests.append({'setBasicFilter': {
         'filter': {'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': len(sheet_data), 'startColumnIndex': 0, 'endColumnIndex': num_cols}}
@@ -288,20 +303,13 @@ def write_summary(sh, site_key, site_cfg, rows):
     data = rows[1:]
     total = len(data)
 
-    # ステータス集計
-    statuses = Counter(safe_get(r, site_cfg['col_status']) for r in data)
-    # 公開済みの表現揺れ対応
-    published = 0
-    draft = 0
-    scheduled = 0
-    for k, v in statuses.items():
-        kl = k.lower().strip()
-        if kl in ('公開済み', '公開済', 'publish', 'published'):
-            published += v
-        elif kl in ('ドラフト', 'draft', '下書き'):
-            draft += v
-        elif kl in ('予約済', '予約済み', 'scheduled'):
-            scheduled += v
+    # ステータス集計（正規化済み）
+    normalized = [STATUS_NORMALIZE.get(safe_get(r, site_cfg['col_status']).strip(), safe_get(r, site_cfg['col_status']).strip()) for r in data]
+    statuses = Counter(normalized)
+    published = statuses.get('公開済み', 0)
+    draft = statuses.get('ドラフト', 0)
+    scheduled = statuses.get('予約済み', 0)
+    rewrite = statuses.get('リライト済', 0)
 
     # 記事タイプ集計
     types = Counter(safe_get(r, site_cfg['col_type']) for r in data)
@@ -320,6 +328,8 @@ def write_summary(sh, site_key, site_cfg, rows):
         summary.append(['ドラフト', draft])
     if scheduled:
         summary.append(['予約済み', scheduled])
+    if rewrite:
+        summary.append(['リライト済', rewrite])
 
     # 柱別（あるサイトのみ）
     if site_cfg.get('col_pillar') is not None:
