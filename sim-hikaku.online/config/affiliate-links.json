@@ -134,6 +134,15 @@
       "status": "提携済",
       "note": "海外eSIM記事用 140カ国対応"
     },
+    "voye-global": {
+      "name": "Voye Global（ボイエ）",
+      "asp": "A8.net",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4AZH48+2G47UQ+5TBA+5YJRM",
+      "tracking_img": "https://www17.a8.net/0.gif?a8mat=4AZH48+2G47UQ+5TBA+5YJRM",
+      "commission": "購入15.3%",
+      "status": "提携済",
+      "note": "海外eSIM記事用 各国最低2回線"
+    },
     "airalo": {
       "name": "Airalo",
       "asp": "直接提携",
