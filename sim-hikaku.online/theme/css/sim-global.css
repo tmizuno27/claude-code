@@ -127,8 +127,17 @@ body {
 #navi .sub-name,
 .navi-in .item-description,
 .navi-in .sub-caption,
-.menu-description {
+.menu-description,
+.caption-wrap .item-description,
+.caption-wrap .sub-caption,
+div.item-description.sub-caption,
+.menu-header .item-description,
+.menu-header .sub-caption {
   display: none !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
 }
 
 /* Hide Cocoon header sub-elements */
@@ -638,7 +647,15 @@ div.sns-follow,
 .article-footer .sns-share,
 .article-footer .sns-follow,
 footer.article-footer .sns-share,
-footer.article-footer .sns-follow {
+footer.article-footer .sns-follow,
+.entry-header .sns-share,
+.article-header .sns-share,
+div.sns-share.ss-top,
+div.sns-share.ss-bottom,
+.ss-top,
+.ss-bottom,
+div[class*="sns-share"],
+div[class*="sns-follow"] {
   display: none !important;
   visibility: hidden !important;
   height: 0 !important;
