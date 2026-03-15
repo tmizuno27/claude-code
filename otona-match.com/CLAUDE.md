@@ -31,14 +31,15 @@
 | safety | 安全・トラブル対策 | 6 |
 | reviews | 体験談・口コミ | 7 |
 
-## 現在の記事（20本・全て公開済み）
+## 現在の記事（21本・全て公開済み）
 
-### マッチングアプリ（5本）
+### マッチングアプリ（6本）
 - ID:9 matching-app-ranking-2026（ランキングTOP10）
 - ID:10 pairs-review（ペアーズレビュー）
 - ID:11 with-review（ウィズレビュー）
 - ID:12 matching-app-first-date-guide（初デートガイド）
 - ID:13 matching-app-price-comparison（料金比較）
+- ID:132 omiai-review（オミアイレビュー）
 
 ### 出会い系サイト（3本）
 - ID:14 deaikei-vs-matching-app（出会い系vs.マッチングアプリ）
