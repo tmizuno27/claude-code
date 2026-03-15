@@ -6,7 +6,7 @@ type: project
 
 ## トップページデザイン（PC版完成 2026-03-14）
 
-**ファイル**: `claude-code/blog/theme/new-front-page.html` → WordPress page ID:47
+**ファイル**: `claude-code/nambei-oyaji.com/theme/new-front-page.html` → WordPress page ID:47
 
 ### Cocoon対策（最重要）
 - Cocoonテーマがh1/h2/h3のfont-sizeを強制上書きする → **全見出しに`!important`必須**

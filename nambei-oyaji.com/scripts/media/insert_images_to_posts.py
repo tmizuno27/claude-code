@@ -8,7 +8,7 @@ import re
 import requests
 from pathlib import Path
 
-BASE = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\blog")
+BASE = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\nambei-oyaji.com")
 STOCK = BASE / "images" / "stock"
 SECRETS = json.load(open(BASE / "config" / "secrets.json", "r", encoding="utf-8"))
 MAPPING = json.load(open(BASE / "config" / "media-mapping.json", "r", encoding="utf-8"))

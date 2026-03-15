@@ -49,7 +49,7 @@
 ## ディレクトリ構成
 
 ```
-blog/                      ← このプロジェクト（リポジトリ内 claude-code/blog/）
+nambei-oyaji.com/          ← このプロジェクト（リポジトリ内 claude-code/nambei-oyaji.com/）
 ├── CLAUDE.md              ← このファイル
 ├── config/                ← 設定ファイル
 │   ├── settings.json          ← プロジェクト設定（認証情報は secrets.json に分離）

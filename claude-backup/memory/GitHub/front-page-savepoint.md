@@ -6,7 +6,7 @@ type: project
 
 ## トップページ完成状態（2026-03-13）
 
-**ファイル**: `claude-code/blog/theme/front-page-preview.html`
+**ファイル**: `claude-code/nambei-oyaji.com/theme/front-page-preview.html`
 **復元コミット**: `a90ce7f8`（2026-03-13 14:56:37）
 
 ### デザイン構成（上から順）
@@ -27,5 +27,5 @@ type: project
 
 ### 復元方法
 ```bash
-git checkout a90ce7f8 -- blog/theme/front-page-preview.html blog/theme/images/
+git checkout a90ce7f8 -- nambei-oyaji.com/theme/front-page-preview.html nambei-oyaji.com/theme/images/
 ```

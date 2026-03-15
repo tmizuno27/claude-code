@@ -18,8 +18,8 @@ import requests
 from pathlib import Path
 from datetime import datetime
 
-BASE_DIR = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\images\stock")
-SECRETS_PATH = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\blog\config\secrets.json")
+BASE_DIR = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\nambei-oyaji.com\images\stock")
+SECRETS_PATH = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\nambei-oyaji.com\config\secrets.json")
 
 PIXABAY_SEARCH = "https://pixabay.com/api/"
 

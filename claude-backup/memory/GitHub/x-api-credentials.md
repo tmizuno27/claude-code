@@ -4,7 +4,7 @@ description: X (Twitter) APIトークンの保管場所と再生成履歴
 type: reference
 ---
 
-- **認証ファイル**: `claude-code/blog/config/x-credentials.json`（.gitignore対象、Git非追跡）
+- **認証ファイル**: `claude-code/nambei-oyaji.com/config/x-credentials.json`（.gitignore対象、Git非追跡）
 - **必要な4つのキー**: api_key, api_key_secret, access_token, access_token_secret
 - **アカウント**: @nambei_oyaji
 - **Developer Portal**: developer.x.com → プロジェクト → アプリ → Keys and tokens
