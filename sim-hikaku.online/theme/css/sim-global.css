@@ -121,11 +121,36 @@ body {
   color: var(--color-primary) !important;
 }
 
+/* Hide category description under nav items */
+#navi .menu-header li .sub-name,
+#navi .sub-name,
+.navi-in .sub-name,
+.menu-description {
+  display: none !important;
+}
+
 /* Hide Cocoon header sub-elements */
 #header .header-in .tagline,
 .header .tagline,
 .site-name-text-sub {
   display: none !important;
+}
+
+/* Cocoon navi bar styling */
+#navi,
+.navi-in {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#navi .menu-header,
+.navi-in ul {
+  display: flex !important;
+  gap: 0 !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* ============================================
