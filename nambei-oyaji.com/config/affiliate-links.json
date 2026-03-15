@@ -96,29 +96,6 @@
         }
       ]
     },
-    "overseas_insurance": {
-      "description": "海外保険系（移住者向け：1件2,000-8,000円）",
-      "priority": 5,
-      "context_note": "移住者の不安トップ3に入る健康・保険。医療記事に集中配置",
-      "links": [
-        {
-          "name": "グローブパートナー",
-          "url": "https://YOUR-AFFILIATE-LINK/globe-partner",
-          "anchor_text": ["グローブパートナー", "Globe Partner"],
-          "commission": "契約で3,000〜8,000円",
-          "asp": "直接",
-          "context": "長期海外在住者向けの医療保険"
-        },
-        {
-          "name": "SafetyWing",
-          "url": "https://YOUR-AFFILIATE-LINK/safetywing",
-          "anchor_text": ["SafetyWing", "セーフティウィング"],
-          "commission": "紹介で10%（月額約$42→約$4.2/月の継続報酬）",
-          "asp": "直接",
-          "context": "ノマド・海外在住者向け保険。月額制で加入しやすい"
-        }
-      ]
-    },
     "credit_card": {
       "description": "クレジットカード系（海外利用向け：1件3,000-10,000円）",
       "priority": 6,
