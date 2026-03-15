@@ -1,0 +1,38 @@
+{
+  "project": {
+    "name": "SIM比較オンライン",
+    "concept": "用途別・悩み別で選ぶ格安SIM比較サイト",
+    "niche": "格安SIM × 料金比較 × 用途別おすすめ",
+    "language": "ja"
+  },
+  "wordpress": {
+    "url": "https://sim-hikaku.online",
+    "rest_api_url": "https://sim-hikaku.online/wp-json/wp/v2",
+    "username": "SEE secrets.json",
+    "app_password": "SEE secrets.json",
+    "theme": "cocoon",
+    "seo_plugin": "rank-math",
+    "default_status": "draft"
+  },
+  "google_analytics": {
+    "property_id": "",
+    "credentials_file": "ga4-credentials.json"
+  },
+  "search_console": {
+    "site_url": "https://sim-hikaku.online/",
+    "credentials_file": "gsc-credentials.json"
+  },
+  "discord": {
+    "webhook_url": ""
+  },
+  "schedule": {
+    "articles_per_week": 3,
+    "posting_days": ["Monday", "Wednesday", "Friday"]
+  },
+  "article": {
+    "min_words": 3000,
+    "max_words": 5000,
+    "max_affiliate_links": 5,
+    "style": "比較・ランキング型。料金表と速度比較を必ず含める"
+  }
+}
