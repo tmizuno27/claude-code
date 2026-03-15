@@ -16,9 +16,9 @@ $ri = [char]0x30E9
 $bu = [char]0x30D6
 $iv = [char]0x30A4  # duplicate but for clarity
 $driveFolder = "C:\Users\tmizu\${ma}${i}${do}${ri}${iv}${bu}"
-$scriptDir = "$driveFolder\GitHub\claude-code\blog\scripts\social"
+$scriptDir = "$driveFolder\GitHub\claude-code\nambei-oyaji.com\scripts\social"
 $pythonExe = "python"
-$logDir = "$driveFolder\GitHub\claude-code\blog\outputs\social"
+$logDir = "$driveFolder\GitHub\claude-code\nambei-oyaji.com\outputs\social"
 
 $slots = @(
     @{ Name = "XAutoPost-Morning"; Slot = "morning"; Hour = 18; Minute = 30 },
