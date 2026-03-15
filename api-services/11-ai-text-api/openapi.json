@@ -1,0 +1,248 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Text API",
+    "description": "Text generation, summarization, translation, sentiment analysis, and rewriting powered by Cloudflare Workers AI (Llama 3.1 8B).",
+    "version": "1.0.0",
+    "contact": { "name": "AI Text API Support" }
+  },
+  "servers": [
+    { "url": "https://ai-text-api.YOUR-SUBDOMAIN.workers.dev" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API info and available endpoints",
+        "responses": {
+          "200": {
+            "description": "API information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string", "example": "AI Text API" },
+                    "version": { "type": "string", "example": "1.0.0" },
+                    "endpoints": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generate": {
+      "post": {
+        "operationId": "generateText",
+        "summary": "Generate text from a prompt",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["prompt"],
+                "properties": {
+                  "prompt": { "type": "string", "maxLength": 1000, "example": "Write a haiku about programming" },
+                  "max_tokens": { "type": "integer", "minimum": 1, "maximum": 2048, "default": 512 },
+                  "temperature": { "type": "number", "minimum": 0, "maximum": 2, "default": 0.7 }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated text",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TextResult" },
+                "example": { "result": "Lines of code cascade\nBugs emerge from hidden depths\nStack overflow saves", "model": "@cf/meta/llama-3.1-8b-instruct", "usage": { "prompt_length": 32 } }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/summarize": {
+      "post": {
+        "operationId": "summarizeText",
+        "summary": "Summarize text",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "maxLength": 5000, "example": "Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure." },
+                  "max_length": { "type": "integer", "default": 200, "description": "Approximate max words for the summary" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Summarized text",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TextResult" },
+                "example": { "result": "Cloudflare Workers is a serverless platform for building and extending apps without managing infrastructure.", "model": "@cf/meta/llama-3.1-8b-instruct", "original_length": 172 }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/translate": {
+      "post": {
+        "operationId": "translateText",
+        "summary": "Translate text between languages",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "target_lang"],
+                "properties": {
+                  "text": { "type": "string", "maxLength": 5000, "example": "Hello, how are you?" },
+                  "source_lang": { "type": "string", "default": "auto", "example": "English" },
+                  "target_lang": { "type": "string", "example": "Spanish" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Translated text",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TextResult" },
+                "example": { "result": "Hola, como estas?", "model": "@cf/meta/llama-3.1-8b-instruct", "source_lang": "English", "target_lang": "Spanish" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/sentiment": {
+      "post": {
+        "operationId": "analyzeSentiment",
+        "summary": "Analyze text sentiment",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "maxLength": 5000, "example": "I absolutely love this product! It exceeded all my expectations." }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sentiment analysis result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "object",
+                      "properties": {
+                        "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral"] },
+                        "confidence": { "type": "number" },
+                        "explanation": { "type": "string" }
+                      }
+                    },
+                    "model": { "type": "string" }
+                  }
+                },
+                "example": { "result": { "sentiment": "positive", "confidence": 0.95, "explanation": "The text expresses strong enthusiasm and satisfaction." }, "model": "@cf/meta/llama-3.1-8b-instruct" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/rewrite": {
+      "post": {
+        "operationId": "rewriteText",
+        "summary": "Rewrite text in a different tone",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "maxLength": 5000, "example": "Hey, the thing broke again. Can someone fix it?" },
+                  "tone": { "type": "string", "enum": ["formal", "casual", "professional", "simple"], "default": "professional" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Rewritten text",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TextResult" },
+                "example": { "result": "We have identified a recurring issue with the system. Could the appropriate team please investigate and resolve it at their earliest convenience?", "model": "@cf/meta/llama-3.1-8b-instruct", "tone": "professional" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TextResult": {
+        "type": "object",
+        "properties": {
+          "result": { "type": "string" },
+          "model": { "type": "string" }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Invalid request",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      },
+      "RateLimited": {
+        "description": "Rate limit exceeded (30 req/min per IP)",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "crypto-data-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers API that aggregates cryptocurrency data from CoinGecko",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
