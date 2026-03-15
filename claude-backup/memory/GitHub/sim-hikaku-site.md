@@ -1,10 +1,10 @@
 ---
 name: sim-hikaku.online サイト情報
-description: SIM比較ナビ（格安SIM比較アフィリエイトサイト）の運用状況・構成
+description: SIM比較オンライン（格安SIM比較アフィリエイトサイト）の運用状況・構成
 type: project
 ---
 
-## SIM比較ナビ (sim-hikaku.online)
+## SIM比較オンライン (sim-hikaku.online)
 
 - **ステータス**: 運用中・成長段階（25記事）
 - **テーマ**: Cocoon + Apple風CSS

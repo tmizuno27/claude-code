@@ -407,7 +407,7 @@ def create_menus(secrets, category_ids, page_ids):
 # ========== メイン ==========
 def main():
     print("=" * 60)
-    print("SIM比較ナビ WordPress自動セットアップ")
+    print("SIM比較オンライン WordPress自動セットアップ")
     print("=" * 60)
 
     secrets = load_secrets()

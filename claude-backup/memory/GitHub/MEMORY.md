@@ -13,7 +13,7 @@
 ## 運営サイト一覧（3サイト）
 - **nambei-oyaji.com**: 南米おやじの海外生活ラボ（主力、51記事）→ [blog-seo-rules.md](blog-seo-rules.md)
 - **otona-match.com**: 大人のマッチングナビ（61記事全公開）→ [otona-match-site.md](otona-match-site.md)
-- **sim-hikaku.online**: SIM比較ナビ（25記事、成長中）→ [sim-hikaku-site.md](sim-hikaku-site.md)
+- **sim-hikaku.online**: SIM比較オンライン（25記事、成長中）→ [sim-hikaku-site.md](sim-hikaku-site.md)
 
 ## ブログデザイン・フォーマット
 - **デザイン確定版**: [blog-design-golden-state.md](blog-design-golden-state.md) — Apple風カラー・frosted glass
