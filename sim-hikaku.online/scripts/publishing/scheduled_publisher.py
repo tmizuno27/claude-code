@@ -10,11 +10,18 @@ Phase 2以降の記事を自動的にWordPressに予約投稿する。
 スケジュール設定:
   config/publish-schedule.json に投稿スケジュールを定義。
   記事MDファイルが outputs/ に存在する記事のみ対象。
+
+自動処理フロー（--publish時）:
+  1. wp_id が null の記事 → WP下書きを自動作成して wp_id を取得
+  2. publish-schedule.json を wp_id で更新・保存
+  3. 公開日時が未来の記事 → WordPress予約投稿（status: future）に設定
+  4. article-management.csv を同期更新
 """
 
 import requests
 import json
 import base64
+import re
 import sys
 import os
 from datetime import datetime, timezone, timedelta
@@ -27,6 +34,7 @@ OUTPUTS_DIR = BASE_DIR / "outputs"
 THEME_CSS = BASE_DIR / "theme" / "css" / "sim-global.css"
 SCHEDULE_FILE = CONFIG_DIR / "publish-schedule.json"
 CSV_FILE = OUTPUTS_DIR / "article-management.csv"
+SETUP_RESULT = CONFIG_DIR / "setup-result.json"
 
 JST = timezone(timedelta(hours=9))
 
@@ -56,6 +64,20 @@ def load_schedule():
         return json.load(f)
 
 
+def save_schedule(schedule):
+    with open(SCHEDULE_FILE, "w", encoding="utf-8") as f:
+        json.dump(schedule, f, ensure_ascii=False, indent=2)
+    print(f"  → publish-schedule.json を更新しました")
+
+
+def load_category_ids():
+    if SETUP_RESULT.exists():
+        with open(SETUP_RESULT, encoding="utf-8") as f:
+            data = json.load(f)
+        return data.get("category_ids", {})
+    return {}
+
+
 def load_css():
     if THEME_CSS.exists():
         with open(THEME_CSS, encoding="utf-8") as f:
@@ -66,24 +88,132 @@ def load_css():
 def load_article_md(filename):
     md_path = OUTPUTS_DIR / f"{filename}.md"
     if not md_path.exists():
-        return None
+        return None, None
     with open(md_path, encoding="utf-8") as f:
-        content = f.read()
-    # Remove frontmatter
-    if content.startswith("---"):
-        end = content.index("---", 3)
-        content = content[end + 3:].strip()
-    return content
+        raw = f.read()
+    # Extract frontmatter
+    fm = {}
+    content = raw
+    if raw.startswith("---"):
+        end = raw.index("---", 3)
+        fm_text = raw[3:end].strip()
+        for line in fm_text.split("\n"):
+            if ":" in line:
+                key, value = line.split(":", 1)
+                fm[key.strip()] = value.strip().strip('"').strip("'")
+        content = raw[end + 3:].strip()
+    return fm, content
+
+
+def md_to_html(md_content):
+    """基本的なMarkdown→HTML変換"""
+    lines = md_content.split("\n")
+    html_lines = []
+    in_table = False
+
+    for line in lines:
+        stripped = line.strip()
+
+        if not stripped:
+            if in_table:
+                html_lines.append("</tbody></table>")
+                in_table = False
+            html_lines.append("")
+            continue
+
+        # Headers
+        if stripped.startswith("## "):
+            if in_table:
+                html_lines.append("</tbody></table>")
+                in_table = False
+            html_lines.append(f"<h2>{stripped[3:]}</h2>")
+            continue
+        if stripped.startswith("### "):
+            html_lines.append(f"<h3>{stripped[4:]}</h3>")
+            continue
+        if stripped.startswith("#### "):
+            html_lines.append(f"<h4>{stripped[5:]}</h4>")
+            continue
+
+        if stripped == "---":
+            html_lines.append("<hr>")
+            continue
+
+        # Table
+        if "|" in stripped and stripped.startswith("|"):
+            cells = [c.strip() for c in stripped.split("|")[1:-1]]
+            if all(set(c) <= set("-: ") for c in cells):
+                continue
+            if not in_table:
+                html_lines.append('<table style="width: 100%; border-collapse: collapse;">')
+                html_lines.append("<thead><tr>")
+                for cell in cells:
+                    html_lines.append(f"<th>{cell}</th>")
+                html_lines.append("</tr></thead><tbody>")
+                in_table = True
+                continue
+            html_lines.append("<tr>")
+            for cell in cells:
+                html_lines.append(f"<td>{cell}</td>")
+            html_lines.append("</tr>")
+            continue
+
+        if stripped.startswith("- "):
+            html_lines.append(f"<li>{stripped[2:]}</li>")
+            continue
+        if stripped.startswith("> "):
+            html_lines.append(f"<blockquote>{stripped[2:]}</blockquote>")
+            continue
+        if stripped.startswith("<"):
+            html_lines.append(stripped)
+            continue
+
+        html_lines.append(f"<p>{stripped}</p>")
+
+    if in_table:
+        html_lines.append("</tbody></table>")
+
+    html = "\n".join(html_lines)
+    html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
+    html = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2">\1</a>', html)
+    html = re.sub(r"`(.+?)`", r"<code>\1</code>", html)
+    return html
 
 
 def inject_css(content, css):
-    style_block = f"<style>{css}</style>"
+    # Cocoonリスト丸数字対策CSS
+    list_fix = """
+.entry-content ul, .entry-content ol { list-style-type: disc !important; }
+.entry-content ol { list-style-type: decimal !important; }
+.entry-content ul li::before, .entry-content ol li::before { content: none !important; display: none !important; }
+"""
+    full_css = css + "\n" + list_fix
+    style_block = f"<style>{full_css}</style>"
     if "<style" in content:
         s1 = content.index("<style")
         s2 = content.index("</style>") + len("</style>")
         return content[:s1] + style_block + content[s2:]
     else:
-        return f"<!-- wp:html -->\n{style_block}\n<!-- /wp:html -->\n\n{content}"
+        return f"<!-- wp:html -->\n{style_block}\n<!-- /wp:html -->\n\n{content}"""
+
+
+def create_draft(api_url, headers, title, slug, html_content, category_id=None):
+    """Create a new draft post on WordPress and return the post ID."""
+    data = {
+        "title": title,
+        "slug": slug,
+        "content": html_content,
+        "status": "draft",
+    }
+    if category_id:
+        data["categories"] = [category_id]
+    r = requests.post(f"{api_url}/posts", headers=headers, json=data, timeout=30)
+    if r.status_code == 201:
+        result = r.json()
+        return result["id"]
+    else:
+        print(f"    → ERROR creating draft: {r.status_code} {r.text[:200]}")
+        return None
 
 
 def schedule_post(api_url, headers, post_id, date_gmt, content=None):
@@ -94,8 +224,57 @@ def schedule_post(api_url, headers, post_id, date_gmt, content=None):
     }
     if content:
         data["content"] = content
-    r = requests.post(f"{api_url}/posts/{post_id}", headers=headers, json=data)
+    r = requests.post(f"{api_url}/posts/{post_id}", headers=headers, json=data, timeout=30)
     return r.json()
+
+
+def update_csv(schedule):
+    """Update article-management.csv with wp_ids and statuses from schedule."""
+    if not CSV_FILE.exists():
+        return
+    with open(CSV_FILE, encoding="utf-8") as f:
+        lines = f.readlines()
+    if not lines:
+        return
+
+    # Build lookup: filename -> entry
+    lookup = {}
+    for entry in schedule["articles"]:
+        lookup[entry["filename"]] = entry
+
+    header = lines[0]
+    new_lines = [header]
+    for line in lines[1:]:
+        cols = line.strip().split(",")
+        if len(cols) >= 12:
+            filename = cols[11]  # ファイル名列
+            if filename in lookup:
+                entry = lookup[filename]
+                # Update WordPress ID (col 12)
+                if entry.get("wp_id"):
+                    while len(cols) < 13:
+                        cols.append("")
+                    cols[12] = str(entry["wp_id"])
+                # Update status (col 2)
+                status_map = {
+                    "published": "公開済",
+                    "scheduled": "予約済",
+                    "pending": "予約済",
+                }
+                if entry.get("status") in status_map:
+                    cols[2] = status_map[entry["status"]]
+                # Update publish date (col 3)
+                if entry.get("publish_date_jst"):
+                    date_str = entry["publish_date_jst"][:10]
+                    cols[3] = date_str
+                # Update WordPress URL (col 13)
+                if entry.get("wp_id") and len(cols) >= 14:
+                    cols[13] = f"https://sim-hikaku.online/{filename}/"
+        new_lines.append(",".join(cols) + "\n")
+
+    with open(CSV_FILE, "w", encoding="utf-8") as f:
+        f.writelines(new_lines)
+    print("  → article-management.csv を更新しました")
 
 
 def check_scheduled(api_url, headers):
