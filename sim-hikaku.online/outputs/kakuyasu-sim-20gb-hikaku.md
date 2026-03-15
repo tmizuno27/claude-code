@@ -16,7 +16,7 @@ word_count: 7800
 
 - **20GB最安** → 日本通信SIM <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,390円（5分かけ放題付き）</strong></span>
 - **速度+30GB** → ahamo <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,970円（ドコモ品質+5分通話無料）</strong></span>
-- **コスパ+端末セール** → IIJmio <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,000円（20GB・端末110円〜）</strong></span>
+- **コスパ+端末セール** → IIJmio <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,000円（25GB・端末110円〜）</strong></span>
 - **LINE無制限+速度** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,970円（30GB・LINEギガフリー・5分通話無料）</strong></span>
 - **店舗サポート** → イオンモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,958円（20GB・全国イオンで対面サポート）</strong></span>
 
@@ -42,7 +42,7 @@ word_count: 7800
 | 1 | **日本通信SIM** | 20GB | **1,390円** | ドコモ | ★★★☆ | 5分無料 | 最安+かけ放題付き |
 | 2 | **NUROモバイル** | 15GB | **1,790円** | 3回線 | ★★★☆ | 11円/30秒 | Gigaプラスで実質18GB |
 | 3 | **イオンモバイル** | 20GB | **1,958円** | ドコモ/au | ★★★☆ | 11円/30秒 | 店舗サポート |
-| 4 | **IIJmio** | 20GB | **2,000円** | ドコモ/au | ★★★☆ | 11円/30秒 | 端末セール充実 |
+| 4 | **IIJmio** | 25GB | **2,000円** | ドコモ/au | ★★★☆ | 11円/30秒 | 端末セール充実 |
 | 5 | **QTモバイル** | 20GB | **1,980円** | 3回線 | ★★☆☆ | 11円/30秒 | 九州電力割あり |
 | 6 | **HISモバイル** | 20GB | **2,090円** | ドコモ | ★★★☆ | 9円/30秒 | 通話料最安 |
 | 7 | **mineo** | 30GB | **2,178円** | 3回線 | ★★★☆ | 22円/30秒 | パケット放題Plus |
