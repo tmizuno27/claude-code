@@ -1,0 +1,312 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Company Data API",
+    "version": "1.0.0",
+    "description": "Company/business information from free public sources (OpenCorporates, RDAP, web scraping)"
+  },
+  "servers": [
+    {
+      "url": "https://company-data-api.YOUR-SUBDOMAIN.workers.dev"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API information",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API info and available endpoints",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "description": { "type": "string" },
+                    "endpoints": { "type": "object" },
+                    "limits": { "type": "object" },
+                    "source": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search for companies",
+        "operationId": "searchCompanies",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "description": "Company name to search for",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "companies": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "jurisdiction": { "type": "string" },
+                          "companyNumber": { "type": "string" },
+                          "status": { "type": "string", "nullable": true },
+                          "incorporationDate": { "type": "string", "nullable": true },
+                          "address": { "type": "string", "nullable": true },
+                          "type": { "type": "string", "nullable": true },
+                          "opencorporatesUrl": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/UpstreamError" }
+        }
+      }
+    },
+    "/company": {
+      "get": {
+        "summary": "Get specific company details",
+        "operationId": "getCompany",
+        "parameters": [
+          {
+            "name": "jurisdiction",
+            "in": "query",
+            "required": true,
+            "description": "Jurisdiction code (e.g., us_ca, gb)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "required": true,
+            "description": "Company number",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Company details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "jurisdiction": { "type": "string" },
+                    "companyNumber": { "type": "string" },
+                    "status": { "type": "string", "nullable": true },
+                    "incorporationDate": { "type": "string", "nullable": true },
+                    "dissolutionDate": { "type": "string", "nullable": true },
+                    "companyType": { "type": "string", "nullable": true },
+                    "registryUrl": { "type": "string", "nullable": true },
+                    "address": { "type": "string", "nullable": true },
+                    "officers": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "position": { "type": "string" },
+                          "startDate": { "type": "string", "nullable": true }
+                        }
+                      }
+                    },
+                    "filings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "date": { "type": "string" }
+                        }
+                      }
+                    },
+                    "opencorporatesUrl": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "404": { "description": "Company not found" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/UpstreamError" }
+        }
+      }
+    },
+    "/domain": {
+      "get": {
+        "summary": "Get company info by domain",
+        "operationId": "getDomainInfo",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "description": "Domain name (e.g., example.com)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Domain and website information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": { "type": "string" },
+                    "website": {
+                      "type": "object",
+                      "properties": {
+                        "title": { "type": "string", "nullable": true },
+                        "description": { "type": "string", "nullable": true },
+                        "socialLinks": { "type": "object", "nullable": true },
+                        "emails": { "type": "array", "items": { "type": "string" }, "nullable": true },
+                        "phones": { "type": "array", "items": { "type": "string" }, "nullable": true }
+                      }
+                    },
+                    "rdap": { "type": "object" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/UpstreamError" }
+        }
+      }
+    },
+    "/enrich": {
+      "get": {
+        "summary": "Full company enrichment by domain",
+        "operationId": "enrichCompany",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "description": "Domain name (e.g., example.com)",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Enriched company data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": { "type": "string" },
+                    "metadata": {
+                      "type": "object",
+                      "properties": {
+                        "title": { "type": "string", "nullable": true },
+                        "description": { "type": "string", "nullable": true },
+                        "ogTags": { "type": "object", "nullable": true }
+                      }
+                    },
+                    "domainInfo": {
+                      "type": "object",
+                      "properties": {
+                        "registrar": { "type": "string", "nullable": true },
+                        "registrationDate": { "type": "string", "nullable": true },
+                        "expirationDate": { "type": "string", "nullable": true },
+                        "domainAge": { "type": "string", "nullable": true },
+                        "nameservers": { "type": "array", "items": { "type": "string" }, "nullable": true }
+                      }
+                    },
+                    "socialLinks": { "type": "object", "nullable": true },
+                    "technologies": {
+                      "type": "array",
+                      "items": { "type": "string" }
+                    },
+                    "contact": {
+                      "type": "object",
+                      "properties": {
+                        "emails": { "type": "array", "items": { "type": "string" }, "nullable": true },
+                        "phones": { "type": "array", "items": { "type": "string" }, "nullable": true }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/UpstreamError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request - missing or invalid parameters",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Rate limit exceeded (20 requests/minute)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "UpstreamError": {
+        "description": "Upstream service error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "error": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
