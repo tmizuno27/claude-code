@@ -125,6 +125,15 @@
     }
   },
   "esim_services": {
+    "travesim": {
+      "name": "TRAVeSIM",
+      "asp": "A8.net",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4AZH48+2M2JWI+58IY+5YJRM",
+      "tracking_img": "https://www19.a8.net/0.gif?a8mat=4AZH48+2M2JWI+58IY+5YJRM",
+      "commission": "新規購入10%",
+      "status": "提携済",
+      "note": "海外eSIM記事用 140カ国対応"
+    },
     "airalo": {
       "name": "Airalo",
       "asp": "直接提携",
