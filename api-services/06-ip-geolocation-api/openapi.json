@@ -1,0 +1,154 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "IP Geolocation API",
+    "description": "Fast IP geolocation lookup API powered by Cloudflare Workers. Get country, city, region, timezone, ISP, and proxy/VPN detection for any IP address.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support",
+      "url": "https://ip-geolocation-api.t-mizuno27.workers.dev"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ip-geolocation-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/me": {
+      "get": {
+        "operationId": "getMyGeolocation",
+        "summary": "Get caller's IP geolocation",
+        "description": "Returns geolocation data for the caller's own IP address using Cloudflare's built-in data.",
+        "responses": {
+          "200": {
+            "description": "Geolocation result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GeolocationResult" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup": {
+      "get": {
+        "operationId": "lookupIP",
+        "summary": "Lookup IP geolocation",
+        "description": "Returns geolocation data for a specific IP address.",
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "IPv4 or IPv6 address to lookup",
+            "example": "8.8.8.8"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geolocation result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GeolocationResult" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid IP address",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup/bulk": {
+      "post": {
+        "operationId": "bulkLookupIPs",
+        "summary": "Bulk IP geolocation lookup",
+        "description": "Lookup geolocation for up to 20 IP addresses in a single request.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["ips"],
+                "properties": {
+                  "ips": {
+                    "type": "array",
+                    "items": { "type": "string" },
+                    "maxItems": 20,
+                    "example": ["8.8.8.8", "1.1.1.1"]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk geolocation results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": { "type": "integer" },
+                    "results": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/GeolocationResult" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GeolocationResult": {
+        "type": "object",
+        "properties": {
+          "ip": { "type": "string", "example": "8.8.8.8" },
+          "country": { "type": "string", "example": "US" },
+          "country_name": { "type": "string", "example": "United States" },
+          "region": { "type": "string", "example": "California" },
+          "city": { "type": "string", "example": "Mountain View" },
+          "latitude": { "type": "number", "example": 37.386 },
+          "longitude": { "type": "number", "example": -122.0838 },
+          "timezone": { "type": "string", "example": "America/Los_Angeles" },
+          "isp": { "type": "string", "example": "Google LLC" },
+          "is_vpn": { "type": "boolean", "example": false },
+          "is_proxy": { "type": "boolean", "example": false },
+          "is_datacenter": { "type": "boolean", "example": true },
+          "currency": { "type": "string", "example": "USD", "nullable": true },
+          "languages": { "type": "string", "example": "en", "nullable": true }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}
