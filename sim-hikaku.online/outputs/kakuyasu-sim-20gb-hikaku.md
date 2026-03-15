@@ -233,6 +233,30 @@ word_count: 7800
 > デュアルSIMで更にお得に使う方法は、[デュアルSIM最強の組み合わせ](/dual-sim-saikyo-kumiawase/)をご覧ください。
 
 
+---
+
+## あわせて読みたい
+
+<div style="background: #f8f9fa; border-radius: 12px; padding: 24px; margin: 20px 0;">
+
+<p style="margin: 8px 0; padding: 8px 0; border-bottom: 1px solid #e9ecef;">
+  <a href="https://sim-hikaku.online/kakuyasu-sim-ryokin-hikaku-ichiran/" style="color: #0066CC; text-decoration: none; font-weight: 500;">格安SIM20社の料金比較一覧表</a>
+</p>
+
+<p style="margin: 8px 0; padding: 8px 0; border-bottom: 1px solid #e9ecef;">
+  <a href="https://sim-hikaku.online/kakuyasu-sim-1gb-hikaku/" style="color: #0066CC; text-decoration: none; font-weight: 500;">1GB以下の格安SIM最安ランキング</a>
+</p>
+
+<p style="margin: 8px 0; padding: 8px 0; border-bottom: 1px solid #e9ecef;">
+  <a href="https://sim-hikaku.online/kakuyasu-sim-3gb-saiyas/" style="color: #0066CC; text-decoration: none; font-weight: 500;">3GBの格安SIM最安ランキング</a>
+</p>
+
+<p style="margin: 8px 0; padding: 8px 0; border-bottom: 1px solid #e9ecef;">
+  <a href="https://sim-hikaku.online/kakuyasu-sim-10gb-hikaku/" style="color: #0066CC; text-decoration: none; font-weight: 500;">10GBの格安SIM最安ランキング</a>
+</p>
+
+</div>
+
 ## よくある質問
 
 <details>
