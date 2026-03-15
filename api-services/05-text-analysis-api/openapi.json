@@ -1,0 +1,261 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Text Analysis / NLP API",
+    "description": "Pure JavaScript text analysis API. Provides sentiment analysis, keyword extraction, readability scoring, language detection, and extractive summarization without any external AI dependencies.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://text-analysis-api.t-mizuno27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "Service status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "service": { "type": "string" },
+                    "version": { "type": "string" },
+                    "status": { "type": "string" },
+                    "endpoints": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyze": {
+      "post": {
+        "operationId": "fullAnalysis",
+        "summary": "Full text analysis",
+        "description": "Returns word count, character count, sentence/paragraph count, reading/speaking time, readability scores, sentiment, language detection, top 10 keywords, and 3 summary sentences.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TextInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Full analysis result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/FullAnalysisResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sentiment": {
+      "post": {
+        "operationId": "sentimentAnalysis",
+        "summary": "Sentiment analysis",
+        "description": "Analyzes text sentiment using a 200+ word AFINN-style lexicon with negation and intensifier handling.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TextInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sentiment result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SentimentResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/keywords": {
+      "post": {
+        "operationId": "keywordExtraction",
+        "summary": "Keyword extraction",
+        "description": "Extracts top 10 keywords using TF-IDF scoring with stop word removal.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TextInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Keywords result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "keywords": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Keyword" }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readability": {
+      "post": {
+        "operationId": "readabilityAnalysis",
+        "summary": "Readability analysis",
+        "description": "Calculates Flesch-Kincaid Grade Level and Reading Ease scores.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/TextInput" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Readability result",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ReadabilityResponse" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TextInput": {
+        "type": "object",
+        "required": ["text"],
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "Text to analyze (max 100,000 characters)",
+            "maxLength": 100000
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      },
+      "SentimentResponse": {
+        "type": "object",
+        "properties": {
+          "sentiment": { "type": "string", "enum": ["positive", "negative", "neutral"] },
+          "score": { "type": "number", "minimum": -1, "maximum": 1 },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      },
+      "Keyword": {
+        "type": "object",
+        "properties": {
+          "word": { "type": "string" },
+          "frequency": { "type": "integer" },
+          "relevance": { "type": "number" }
+        }
+      },
+      "ReadabilityResponse": {
+        "type": "object",
+        "properties": {
+          "flesch_kincaid_grade": { "type": "number" },
+          "flesch_reading_ease": { "type": "number" },
+          "avg_words_per_sentence": { "type": "number" },
+          "avg_syllables_per_word": { "type": "number" },
+          "total_syllables": { "type": "integer" }
+        }
+      },
+      "LanguageResponse": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string" },
+          "language_name": { "type": "string" },
+          "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      },
+      "FullAnalysisResponse": {
+        "type": "object",
+        "properties": {
+          "word_count": { "type": "integer" },
+          "character_count": { "type": "integer" },
+          "character_count_no_spaces": { "type": "integer" },
+          "sentence_count": { "type": "integer" },
+          "paragraph_count": { "type": "integer" },
+          "reading_time_minutes": { "type": "number" },
+          "speaking_time_minutes": { "type": "number" },
+          "readability": { "$ref": "#/components/schemas/ReadabilityResponse" },
+          "sentiment": { "$ref": "#/components/schemas/SentimentResponse" },
+          "language": { "$ref": "#/components/schemas/LanguageResponse" },
+          "keywords": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/Keyword" }
+          },
+          "summary_sentences": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
