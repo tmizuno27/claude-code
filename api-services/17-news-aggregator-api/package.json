@@ -1,0 +1,13 @@
+{
+  "name": "news-aggregator-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers API that aggregates news from free RSS/Atom feeds and public APIs",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
