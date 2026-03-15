@@ -1,0 +1,101 @@
+{
+  "period": {
+    "start": "2026-03-08",
+    "end": "2026-03-14"
+  },
+  "generated": "2026-03-15T19:37:02.785051",
+  "kpi": {
+    "blog": {
+      "ga4": {
+        "sessions": 62,
+        "pageviews": 484,
+        "users": 9,
+        "new_users": 16,
+        "avg_session_duration": 1118.7,
+        "bounce_rate": 0.2,
+        "prev_sessions": 26,
+        "prev_pageviews": 144,
+        "prev_users": 4
+      },
+      "search_console": {
+        "clicks": 2,
+        "impressions": 24,
+        "ctr": 8.33,
+        "position": 12.8
+      },
+      "wordpress": {
+        "total_published": 13,
+        "total_drafts": 1,
+        "new_posts_this_week": 0,
+        "new_posts": []
+      },
+      "articles": {
+        "total": 50,
+        "published": 13,
+        "drafts": 24,
+        "pillar1_paraguay": 31,
+        "pillar2_work": 0
+      }
+    },
+    "x": {
+      "posts_count": 21,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "impressions": 0,
+      "engagement_rate": 0
+    },
+    "ebay": {
+      "total_products_tracked": 105,
+      "categories": 25,
+      "category_list": [
+        "JDMパーツ",
+        "アニメフィギュア",
+        "カメラ・レンズ",
+        "サンリオ・キャラクター",
+        "スニーカー",
+        "トレーディングカード",
+        "ブランド品",
+        "ポケモンカード",
+        "ミニカー",
+        "ミニ四駆・プラモデル",
+        "レトロゲーム",
+        "万年筆",
+        "仮面ライダー・戦隊",
+        "伝統工芸品",
+        "南部鉄瓶",
+        "和包丁",
+        "小型家電",
+        "帯付きレコード",
+        "日本製文房具",
+        "盆栽鉢",
+        "腕時計",
+        "釣り具",
+        "鉋・大工道具",
+        "鑿（のみ）",
+        "電子辞書"
+      ]
+    },
+    "freelance": {
+      "research_docs": 19,
+      "gigs_defined": 3
+    },
+    "finance": {
+      "total_invoices": 21,
+      "months_covered": [
+        "2025.04",
+        "2025.05",
+        "2025.06",
+        "2025.07",
+        "2025.08",
+        "2025.09",
+        "2025.10",
+        "2025.11",
+        "2025.12",
+        "2026.01",
+        "2026.02",
+        "2026.0_"
+      ]
+    }
+  }
+}
