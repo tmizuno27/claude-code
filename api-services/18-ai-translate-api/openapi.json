@@ -1,0 +1,190 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "AI Translate API",
+    "version": "1.0.0",
+    "description": "Translation API powered by Cloudflare Workers AI using the m2m100-1.2b model."
+  },
+  "servers": [
+    { "url": "https://ai-translate-api.{account}.workers.dev", "description": "Production" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API info with supported languages",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "description": { "type": "string" },
+                    "endpoints": { "type": "object" },
+                    "supported_languages": { "type": "array", "items": { "type": "string" } },
+                    "model": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/translate": {
+      "post": {
+        "summary": "Translate text",
+        "operationId": "translateText",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text", "source_lang", "target_lang"],
+                "properties": {
+                  "text": { "type": "string", "description": "Text to translate" },
+                  "source_lang": { "type": "string", "description": "Source language code" },
+                  "target_lang": { "type": "string", "description": "Target language code" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Translation result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "translated_text": { "type": "string" },
+                    "source_lang": { "type": "string" },
+                    "target_lang": { "type": "string" },
+                    "model": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request" },
+          "429": { "description": "Rate limit exceeded" }
+        }
+      }
+    },
+    "/detect": {
+      "post": {
+        "summary": "Detect language of text",
+        "operationId": "detectLanguage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": {
+                  "text": { "type": "string", "description": "Text to detect language for" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Detection result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detected_language": { "type": "string" },
+                    "confidence": { "type": "number", "nullable": true }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request" }
+        }
+      }
+    },
+    "/batch": {
+      "post": {
+        "summary": "Batch translate multiple texts (max 10)",
+        "operationId": "batchTranslate",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["texts", "source_lang", "target_lang"],
+                "properties": {
+                  "texts": { "type": "array", "items": { "type": "string" }, "maxItems": 10 },
+                  "source_lang": { "type": "string" },
+                  "target_lang": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Batch translation results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "translations": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "original": { "type": "string" },
+                          "translated_text": { "type": "string" }
+                        }
+                      }
+                    },
+                    "source_lang": { "type": "string" },
+                    "target_lang": { "type": "string" },
+                    "model": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request" }
+        }
+      }
+    },
+    "/languages": {
+      "get": {
+        "summary": "List supported language codes",
+        "operationId": "listLanguages",
+        "responses": {
+          "200": {
+            "description": "Supported languages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "languages": { "type": "array", "items": { "type": "string" } },
+                    "count": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

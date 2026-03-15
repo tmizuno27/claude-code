@@ -1,0 +1,237 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Trends API",
+    "version": "1.0.0",
+    "description": "Aggregates trending topic data from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt."
+  },
+  "servers": [
+    { "url": "https://trends-api.{account}.workers.dev", "description": "Cloudflare Workers" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API info",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "endpoints": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/google/daily": {
+      "get": {
+        "summary": "Google daily trending searches",
+        "operationId": "googleDaily",
+        "parameters": [
+          {
+            "name": "geo",
+            "in": "query",
+            "schema": { "type": "string", "default": "US" },
+            "description": "Country code (US, JP, GB, DE, FR, BR, IN, etc.)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trending searches",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "geo": { "type": "string" },
+                    "updated": { "type": "string", "format": "date-time" },
+                    "count": { "type": "integer" },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "traffic": { "type": "string" },
+                          "pubDate": { "type": "string" },
+                          "link": { "type": "string" },
+                          "relatedArticles": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "title": { "type": "string" },
+                                "url": { "type": "string" },
+                                "source": { "type": "string" }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hackernews/trending": {
+      "get": {
+        "summary": "Top trending Hacker News stories",
+        "operationId": "hackerNewsTrending",
+        "responses": {
+          "200": {
+            "description": "Top 25 HN stories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated": { "type": "string", "format": "date-time" },
+                    "count": { "type": "integer" },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "integer" },
+                          "title": { "type": "string" },
+                          "url": { "type": "string" },
+                          "score": { "type": "integer" },
+                          "by": { "type": "string" },
+                          "comments": { "type": "integer" },
+                          "time": { "type": "integer" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reddit/trending": {
+      "get": {
+        "summary": "Trending posts from Reddit r/popular",
+        "operationId": "redditTrending",
+        "responses": {
+          "200": {
+            "description": "Top 25 Reddit posts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated": { "type": "string", "format": "date-time" },
+                    "count": { "type": "integer" },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "subreddit": { "type": "string" },
+                          "score": { "type": "integer" },
+                          "comments": { "type": "integer" },
+                          "url": { "type": "string" },
+                          "author": { "type": "string" },
+                          "created_utc": { "type": "number" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/github/trending": {
+      "get": {
+        "summary": "Trending GitHub repositories (past 7 days)",
+        "operationId": "githubTrending",
+        "responses": {
+          "200": {
+            "description": "Top 25 new repos by stars",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated": { "type": "string", "format": "date-time" },
+                    "count": { "type": "integer" },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "description": { "type": "string" },
+                          "url": { "type": "string" },
+                          "stars": { "type": "integer" },
+                          "forks": { "type": "integer" },
+                          "language": { "type": "string" },
+                          "created_at": { "type": "string", "format": "date-time" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/producthunt/today": {
+      "get": {
+        "summary": "Today's top Product Hunt products",
+        "operationId": "productHuntToday",
+        "responses": {
+          "200": {
+            "description": "Top products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "updated": { "type": "string", "format": "date-time" },
+                    "count": { "type": "integer" },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "tagline": { "type": "string" },
+                          "votes": { "type": "integer" },
+                          "url": { "type": "string" },
+                          "website": { "type": "string" },
+                          "topics": { "type": "array", "items": { "type": "string" } }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

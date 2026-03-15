@@ -1,0 +1,249 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "News Aggregator API",
+    "version": "1.0.0",
+    "description": "Aggregates news from free RSS/Atom feeds and public APIs (Hacker News, Dev.to, BBC, NYT, Reuters, TechCrunch, Bloomberg)"
+  },
+  "servers": [
+    { "url": "https://news-aggregator-api.<your-subdomain>.workers.dev" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API info",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "description": { "type": "string" },
+                    "endpoints": { "type": "array", "items": { "type": "string" } },
+                    "rateLimit": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/top": {
+      "get": {
+        "summary": "Top headlines from BBC, NYT, Reuters",
+        "operationId": "getTopNews",
+        "responses": {
+          "200": {
+            "description": "Aggregated top headlines",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RssResponse" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/tech": {
+      "get": {
+        "summary": "Tech news from TechCrunch RSS, Hacker News, Dev.to",
+        "operationId": "getTechNews",
+        "responses": {
+          "200": {
+            "description": "Tech news from multiple sources",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rss": { "type": "array", "items": { "$ref": "#/components/schemas/RssArticle" } },
+                    "hackernews": { "type": "array", "items": { "$ref": "#/components/schemas/HnStory" } },
+                    "devto": { "type": "array", "items": { "$ref": "#/components/schemas/DevtoArticle" } }
+                  }
+                }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/business": {
+      "get": {
+        "summary": "Business news from Reuters and Bloomberg RSS",
+        "operationId": "getBusinessNews",
+        "responses": {
+          "200": {
+            "description": "Business news",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RssResponse" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search across Hacker News",
+        "operationId": "searchNews",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "description": "Search query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "results": { "type": "array", "items": { "$ref": "#/components/schemas/HnStory" } }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing query parameter",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/hackernews/top": {
+      "get": {
+        "summary": "Top 20 Hacker News stories",
+        "operationId": "getHnTop",
+        "responses": {
+          "200": {
+            "description": "Top HN stories",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "source": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "stories": { "type": "array", "items": { "$ref": "#/components/schemas/HnStory" } }
+                  }
+                }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/devto/latest": {
+      "get": {
+        "summary": "Latest 20 Dev.to articles",
+        "operationId": "getDevtoLatest",
+        "responses": {
+          "200": {
+            "description": "Latest Dev.to articles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "source": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "articles": { "type": "array", "items": { "$ref": "#/components/schemas/DevtoArticle" } }
+                  }
+                }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RssArticle": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "link": { "type": "string" },
+          "description": { "type": "string" },
+          "pubDate": { "type": "string" },
+          "author": { "type": "string" },
+          "category": { "type": "string" }
+        }
+      },
+      "RssResponse": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string" },
+          "count": { "type": "integer" },
+          "articles": { "type": "array", "items": { "$ref": "#/components/schemas/RssArticle" } }
+        }
+      },
+      "HnStory": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "score": { "type": "integer" },
+          "author": { "type": "string" },
+          "time": { "type": "string" },
+          "comments": { "type": "integer" }
+        }
+      },
+      "DevtoArticle": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "description": { "type": "string" },
+          "author": { "type": "string" },
+          "publishedAt": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "reactions": { "type": "integer" },
+          "comments": { "type": "integer" }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    },
+    "responses": {
+      "RateLimited": {
+        "description": "Rate limit exceeded (30 req/min)",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" }
+          }
+        }
+      }
+    }
+  }
+}
