@@ -491,6 +491,34 @@ auの「一時休止」は、大手3社の番号保管サービスの中で<span
 
 </div>
 
+
+---
+
+## 海外eSIMをお探しの方へ
+
+<div style="background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fd 100%); border: 2px solid #0066CC; border-radius: 12px; padding: 24px; margin: 24px 0;">
+
+<div style="background: white; border-radius: 8px; padding: 20px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<p style="margin: 0 0 8px 0; font-weight: 700; font-size: 1.1em; color: #333;">🌏 TRAVeSIM（トラベシム）</p>
+<p style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">140カ国以上対応の海外eSIM。アジア・ヨーロッパ・北米など主要エリアをカバー。日本語対応で初めてのeSIMでも安心。</p>
+<p style="margin: 0; text-align: center;">
+<a href="https://px.a8.net/svt/ejp?a8mat=4AZH48+2M2JWI+58IY+5YJRM" rel="nofollow" style="display: inline-block; background: #0066CC; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1em;">TRAVeSIMの料金プランを見る</a>
+</p>
+<img src="https://www19.a8.net/0.gif?a8mat=4AZH48+2M2JWI+58IY+5YJRM" width="1" height="1" style="border:0;" alt="">
+</div>
+
+<div style="background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+<p style="margin: 0 0 8px 0; font-weight: 700; font-size: 1.1em; color: #333;">✈️ Voye Global（ボイエグローバル）</p>
+<p style="margin: 0 0 12px 0; color: #666; font-size: 0.95em;">各国最低2回線を確保した高品質eSIM。現地の通信障害時も別回線に切り替え可能で、安定した通信を実現。</p>
+<p style="margin: 0; text-align: center;">
+<a href="https://px.a8.net/svt/ejp?a8mat=4AZH48+2G47UQ+5TBA+5YJRM" rel="nofollow" style="display: inline-block; background: #0066CC; color: white; padding: 12px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1em;">Voye Globalのプランを見る</a>
+</p>
+<img src="https://www17.a8.net/0.gif?a8mat=4AZH48+2G47UQ+5TBA+5YJRM" width="1" height="1" style="border:0;" alt="">
+</div>
+
+</div>
+
+
 ## よくある質問（FAQ）
 
 <details>
