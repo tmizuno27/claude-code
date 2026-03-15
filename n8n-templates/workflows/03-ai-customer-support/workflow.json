@@ -1,0 +1,221 @@
+{
+  "name": "AI Customer Support Agent",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "customer-support" }, { "name": "ai-agent" }, { "name": "chatbot" }],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Email Trigger",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [0, 200],
+      "parameters": {
+        "mailbox": "INBOX",
+        "options": { "forceReconnect": 600 }
+      },
+      "credentials": { "imap": { "id": "IMAP_CREDENTIAL_ID", "name": "Support Email" } }
+    },
+    {
+      "id": "trigger-002",
+      "name": "Webhook - Chat Widget",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 420],
+      "parameters": { "path": "support-chat", "httpMethod": "POST", "responseMode": "lastNode", "options": {} },
+      "webhookId": "support-chat-webhook"
+    },
+    {
+      "id": "normalize-001",
+      "name": "Normalize Input",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"source\": \"{{ $json.from ? 'email' : 'chat' }}\",\n  \"customer_email\": \"{{ $json.from || $json.email || '' }}\",\n  \"customer_name\": \"{{ $json.fromName || $json.name || '' }}\",\n  \"subject\": \"{{ $json.subject || 'Chat Support' }}\",\n  \"message\": \"{{ $json.text || $json.body || $json.message || '' }}\",\n  \"timestamp\": \"{{ $now.toISO() }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "classify-001",
+      "name": "Classify Ticket",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [480, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Classify this customer support message into exactly one category and assess urgency.\n\nCustomer: {{ $json.customer_name }} ({{ $json.customer_email }})\nSubject: {{ $json.subject }}\nMessage: {{ $json.message }}\n\nRespond in JSON:\n{\n  \"category\": \"billing|technical|account|shipping|general|refund|bug_report\",\n  \"urgency\": \"low|medium|high|critical\",\n  \"sentiment\": \"positive|neutral|negative|angry\",\n  \"language\": \"detected language code\",\n  \"summary\": \"one-line summary of the issue\",\n  \"needs_human\": true/false,\n  \"reason_for_human\": \"why this needs human review (if applicable)\"\n}",
+        "messages": { "messageValues": [{ "message": "You are a customer support ticket classifier. Be accurate. Mark needs_human=true for: refund requests over $100, legal threats, repeated complaints (3+), or anything you're not confident about." }] }
+      }
+    },
+    {
+      "id": "llm-classify",
+      "name": "OpenAI - Classifier",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [480, 500],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.1, "maxTokens": 300 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI Account" } }
+    },
+    {
+      "id": "parse-classify",
+      "name": "Parse Classification",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [720, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"source\": \"{{ $('Normalize Input').item.json.source }}\",\n  \"customer_email\": \"{{ $('Normalize Input').item.json.customer_email }}\",\n  \"customer_name\": \"{{ $('Normalize Input').item.json.customer_name }}\",\n  \"subject\": \"{{ $('Normalize Input').item.json.subject }}\",\n  \"message\": \"{{ $('Normalize Input').item.json.message }}\",\n  \"classification\": {{ $json.text }}\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "switch-human",
+      "name": "Needs Human?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "parameters": {
+        "conditions": {
+          "boolean": [{ "value1": "={{ $json.classification?.needs_human }}", "value2": true }]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "kb-search",
+      "name": "Search Knowledge Base",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1200, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "YOUR_KNOWLEDGE_BASE_API_URL",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"query\": \"{{ $json.classification?.summary || $json.message }}\",\n  \"top_k\": 3\n}",
+        "options": { "timeout": 10000 }
+      }
+    },
+    {
+      "id": "generate-reply",
+      "name": "Generate AI Reply",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [1440, 200],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a customer support reply.\n\nCustomer Name: {{ $json.customer_name }}\nTheir Message: {{ $json.message }}\nCategory: {{ $json.classification?.category }}\nSentiment: {{ $json.classification?.sentiment }}\nKnowledge Base Results: {{ JSON.stringify($node['Search Knowledge Base'].json?.results || []) }}\n\nRules:\n1. Address the customer by first name\n2. Acknowledge their issue empathetically\n3. Provide a clear, helpful answer using the knowledge base results\n4. If the knowledge base has no relevant answer, provide general guidance and mention that a team member will follow up\n5. Keep it under 200 words\n6. Professional but warm tone\n7. Include next steps if applicable\n\nRespond in JSON:\n{\n  \"reply\": \"the email reply text\",\n  \"confidence\": 0.0-1.0,\n  \"suggested_articles\": [\"relevant article titles from KB\"]\n}",
+        "messages": { "messageValues": [{ "message": "You are a friendly, professional customer support agent. Your company values: helpfulness, speed, and honesty. Never make promises you can't keep. If unsure, say you'll escalate to a specialist." }] }
+      }
+    },
+    {
+      "id": "llm-reply",
+      "name": "OpenAI - Reply Generator",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [1440, 420],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.5, "maxTokens": 600 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI Account" } }
+    },
+    {
+      "id": "confidence-check",
+      "name": "High Confidence?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1680, 200],
+      "parameters": {
+        "conditions": {
+          "number": [{ "value1": "={{ JSON.parse($json.text || '{}').confidence || 0 }}", "operation": "largerEqual", "value2": 0.7 }]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "send-reply",
+      "name": "Send Auto-Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1920, 100],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{ $('Normalize Input').item.json.customer_email }}",
+        "subject": "=Re: {{ $('Normalize Input').item.json.subject }}",
+        "message": "={{ JSON.parse($('Generate AI Reply').item.json.text || '{}').reply || '' }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Support Gmail" } }
+    },
+    {
+      "id": "escalate-001",
+      "name": "Escalate to Human",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1920, 400],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#support-escalations", "mode": "name" },
+        "text": "=:rotating_light: *Support Escalation*\n\n*Customer:* {{ $('Normalize Input').item.json.customer_name }} ({{ $('Normalize Input').item.json.customer_email }})\n*Category:* {{ $('Parse Classification').item.json.classification?.category }}\n*Urgency:* {{ $('Parse Classification').item.json.classification?.urgency }}\n*Sentiment:* {{ $('Parse Classification').item.json.classification?.sentiment }}\n*Reason:* {{ $('Parse Classification').item.json.classification?.reason_for_human || 'Low AI confidence' }}\n\n*Summary:* {{ $('Parse Classification').item.json.classification?.summary }}\n\n*Original Message:*\n> {{ $('Normalize Input').item.json.message }}",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "id": "log-001",
+      "name": "Log Ticket",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [2160, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Support Tickets", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "timestamp": "={{ $now.toISO() }}",
+            "customer_email": "={{ $('Normalize Input').item.json.customer_email }}",
+            "customer_name": "={{ $('Normalize Input').item.json.customer_name }}",
+            "category": "={{ $('Parse Classification').item.json.classification?.category }}",
+            "urgency": "={{ $('Parse Classification').item.json.classification?.urgency }}",
+            "sentiment": "={{ $('Parse Classification').item.json.classification?.sentiment }}",
+            "summary": "={{ $('Parse Classification').item.json.classification?.summary }}",
+            "auto_replied": "={{ $json.source === 'auto' ? 'yes' : 'escalated' }}",
+            "source": "={{ $('Normalize Input').item.json.source }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "Email Trigger": { "main": [[{ "node": "Normalize Input", "type": "main", "index": 0 }]] },
+    "Webhook - Chat Widget": { "main": [[{ "node": "Normalize Input", "type": "main", "index": 0 }]] },
+    "Normalize Input": { "main": [[{ "node": "Classify Ticket", "type": "main", "index": 0 }]] },
+    "Classify Ticket": { "main": [[{ "node": "Parse Classification", "type": "main", "index": 0 }]] },
+    "OpenAI - Classifier": { "ai_languageModel": [[{ "node": "Classify Ticket", "type": "ai_languageModel", "index": 0 }]] },
+    "Parse Classification": { "main": [[{ "node": "Needs Human?", "type": "main", "index": 0 }]] },
+    "Needs Human?": {
+      "main": [
+        [{ "node": "Escalate to Human", "type": "main", "index": 0 }],
+        [{ "node": "Search Knowledge Base", "type": "main", "index": 0 }]
+      ]
+    },
+    "Search Knowledge Base": { "main": [[{ "node": "Generate AI Reply", "type": "main", "index": 0 }]] },
+    "Generate AI Reply": { "main": [[{ "node": "High Confidence?", "type": "main", "index": 0 }]] },
+    "OpenAI - Reply Generator": { "ai_languageModel": [[{ "node": "Generate AI Reply", "type": "ai_languageModel", "index": 0 }]] },
+    "High Confidence?": {
+      "main": [
+        [{ "node": "Send Auto-Reply", "type": "main", "index": 0 }],
+        [{ "node": "Escalate to Human", "type": "main", "index": 0 }]
+      ]
+    },
+    "Send Auto-Reply": { "main": [[{ "node": "Log Ticket", "type": "main", "index": 0 }]] },
+    "Escalate to Human": { "main": [[{ "node": "Log Ticket", "type": "main", "index": 0 }]] }
+  }
+}

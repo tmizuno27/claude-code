@@ -1,0 +1,162 @@
+{
+  "name": "Social Media Content Factory",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "social-media" }, { "name": "content" }, { "name": "ai" }, { "name": "marketing" }],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Weekly Schedule",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 300],
+      "parameters": { "rule": { "interval": [{ "field": "cronExpression", "expression": "0 8 * * 1" }] } }
+    },
+    {
+      "id": "trigger-002",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 500],
+      "parameters": {}
+    },
+    {
+      "id": "config-001",
+      "name": "Content Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"brand_name\": \"{{YOUR_BRAND}}\",\n  \"brand_voice\": \"Professional yet approachable. We use simple language, avoid jargon, and add occasional humor.\",\n  \"industry\": \"{{YOUR_INDUSTRY}}\",\n  \"target_audience\": \"{{YOUR_TARGET_AUDIENCE}}\",\n  \"platforms\": [\"twitter\", \"linkedin\", \"instagram\"],\n  \"posts_per_week\": 7,\n  \"content_pillars\": [\"educational\", \"behind-the-scenes\", \"promotional\", \"engagement\", \"trending\"],\n  \"hashtag_groups\": {\n    \"primary\": [\"#YourBrand\", \"#YourIndustry\"],\n    \"trending\": []\n  }\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "trends-001",
+      "name": "Fetch Trending Topics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [480, 200],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://api.twitter.com/2/tweets/search/recent?query={{ encodeURIComponent($json.industry) }}&max_results=20&tweet.fields=public_metrics",
+        "authentication": "oAuth2",
+        "options": { "timeout": 15000 }
+      },
+      "credentials": { "oAuth2Api": { "id": "TWITTER_CREDENTIAL_ID", "name": "Twitter API" } }
+    },
+    {
+      "id": "rss-001",
+      "name": "Fetch Industry News",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1,
+      "position": [480, 420],
+      "parameters": { "url": "YOUR_INDUSTRY_RSS_FEED_URL" }
+    },
+    {
+      "id": "generate-001",
+      "name": "Generate Week Content Plan",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [720, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Create a {{ $('Content Config').item.json.posts_per_week }}-post social media content plan for the week.\n\nBrand: {{ $('Content Config').item.json.brand_name }}\nVoice: {{ $('Content Config').item.json.brand_voice }}\nIndustry: {{ $('Content Config').item.json.industry }}\nAudience: {{ $('Content Config').item.json.target_audience }}\nPlatforms: {{ JSON.stringify($('Content Config').item.json.platforms) }}\nContent Pillars: {{ JSON.stringify($('Content Config').item.json.content_pillars) }}\n\nTrending Topics:\n{{ JSON.stringify($('Fetch Trending Topics').item.json?.data?.slice(0,5) || []) }}\n\nIndustry News:\n{{ JSON.stringify($('Fetch Industry News').all().slice(0,5).map(i => ({title: i.json.title, link: i.json.link}))) }}\n\nFor each post, provide JSON array:\n[\n  {\n    \"day\": \"Monday\",\n    \"platform\": \"twitter|linkedin|instagram\",\n    \"pillar\": \"content pillar\",\n    \"post_text\": \"the actual post content\",\n    \"hashtags\": [\"relevant\", \"hashtags\"],\n    \"image_prompt\": \"DALL-E prompt for accompanying image (if applicable)\",\n    \"best_time\": \"HH:MM\",\n    \"cta\": \"call to action (if any)\"\n  }\n]",
+        "messages": { "messageValues": [{ "message": "You are an expert social media strategist. Create engaging, platform-appropriate content. Twitter: max 280 chars, punchy. LinkedIn: professional, longer form, value-driven. Instagram: visual-first, story-driven captions. Mix content pillars evenly throughout the week. Never use the same format twice in a row." }] }
+      }
+    },
+    {
+      "id": "llm-001",
+      "name": "OpenAI - Content Generator",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [720, 520],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.8, "maxTokens": 2000 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI" } }
+    },
+    {
+      "id": "split-001",
+      "name": "Split Posts",
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [960, 300],
+      "parameters": { "fieldToSplitOut": "={{ JSON.parse($json.text || '[]') }}" }
+    },
+    {
+      "id": "image-001",
+      "name": "Generate Image",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1200, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/images/generations",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"model\": \"dall-e-3\",\n  \"prompt\": \"{{ $json.image_prompt || 'Professional social media graphic' }}\",\n  \"n\": 1,\n  \"size\": \"1024x1024\",\n  \"quality\": \"standard\"\n}",
+        "options": {}
+      },
+      "credentials": { "httpHeaderAuth": { "id": "OPENAI_HEADER_CREDENTIAL_ID", "name": "OpenAI Bearer Token" } }
+    },
+    {
+      "id": "save-001",
+      "name": "Save to Content Calendar",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [1440, 300],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Content Calendar", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "week_of": "={{ $now.startOf('week').toFormat('yyyy-MM-dd') }}",
+            "day": "={{ $json.day }}",
+            "platform": "={{ $json.platform }}",
+            "pillar": "={{ $json.pillar }}",
+            "post_text": "={{ $json.post_text }}",
+            "hashtags": "={{ $json.hashtags?.join(' ') || '' }}",
+            "best_time": "={{ $json.best_time }}",
+            "cta": "={{ $json.cta || '' }}",
+            "image_url": "={{ $node['Generate Image'].json?.data?.[0]?.url || '' }}",
+            "status": "draft",
+            "created_at": "={{ $now.toISO() }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "id": "notify-001",
+      "name": "Notify Content Ready",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1680, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#marketing", "mode": "name" },
+        "text": "=:sparkles: *Weekly Content Plan Ready!*\n\n{{ $('Content Config').item.json.posts_per_week }} posts generated for the week of {{ $now.startOf('week').toFormat('MMM dd') }}.\n\nCheck the Content Calendar sheet for review and scheduling.",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "Weekly Schedule": { "main": [[{ "node": "Content Config", "type": "main", "index": 0 }]] },
+    "Manual Trigger": { "main": [[{ "node": "Content Config", "type": "main", "index": 0 }]] },
+    "Content Config": { "main": [[{ "node": "Fetch Trending Topics", "type": "main", "index": 0 }, { "node": "Fetch Industry News", "type": "main", "index": 0 }]] },
+    "Fetch Trending Topics": { "main": [[{ "node": "Generate Week Content Plan", "type": "main", "index": 0 }]] },
+    "Fetch Industry News": { "main": [[{ "node": "Generate Week Content Plan", "type": "main", "index": 0 }]] },
+    "Generate Week Content Plan": { "main": [[{ "node": "Split Posts", "type": "main", "index": 0 }]] },
+    "OpenAI - Content Generator": { "ai_languageModel": [[{ "node": "Generate Week Content Plan", "type": "ai_languageModel", "index": 0 }]] },
+    "Split Posts": { "main": [[{ "node": "Generate Image", "type": "main", "index": 0 }]] },
+    "Generate Image": { "main": [[{ "node": "Save to Content Calendar", "type": "main", "index": 0 }]] },
+    "Save to Content Calendar": { "main": [[{ "node": "Notify Content Ready", "type": "main", "index": 0 }]] }
+  }
+}
