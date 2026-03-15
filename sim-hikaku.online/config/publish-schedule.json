@@ -1,0 +1,263 @@
+{
+  "description": "SIM比較ナビ 投稿スケジュール — 日本時間07:00公開",
+  "timezone": "Asia/Tokyo",
+  "default_time": "07:00:00",
+  "articles": [
+    {
+      "filename": "yoto-betsu-kakuyasu-sim-erabikata",
+      "publish_date_jst": "2026-03-14T07:00:00",
+      "wp_id": 13,
+      "category": "yoto-betsu",
+      "status": "published",
+      "note": "Phase1 ピラー記事 公開済み"
+    },
+    {
+      "filename": "kakuyasu-sim-ryokin-hikaku-ichiran",
+      "publish_date_jst": "2026-03-15T07:00:00",
+      "wp_id": 27,
+      "category": "ryokin-hikaku",
+      "status": "published",
+      "note": "Phase1 ピラー記事 公開済み"
+    },
+    {
+      "filename": "sub-kaisen-kakuyasu-sim-osusume",
+      "publish_date_jst": "2026-03-17T07:00:00",
+      "wp_id": 24,
+      "category": "yoto-betsu",
+      "status": "scheduled",
+      "note": "Phase1 収益記事"
+    },
+    {
+      "filename": "dual-sim-saikyo-kumiawase",
+      "publish_date_jst": "2026-03-19T07:00:00",
+      "wp_id": 25,
+      "category": "yoto-betsu",
+      "status": "scheduled",
+      "note": "Phase1 収益記事"
+    },
+    {
+      "filename": "uq-mobile-hyoban-kuchikomi",
+      "publish_date_jst": "2026-03-21T07:00:00",
+      "wp_id": 26,
+      "category": "review",
+      "status": "scheduled",
+      "note": "Phase1 収益記事 最高単価6480円"
+    },
+    {
+      "filename": "kakuyasu-sim-kodomo-shougakusei",
+      "publish_date_jst": "2026-03-23T07:00:00",
+      "wp_id": null,
+      "category": "yoto-betsu",
+      "status": "pending",
+      "note": "Phase2 子供・小学生向け格安SIM"
+    },
+    {
+      "filename": "kakuyasu-sim-senior-60sai",
+      "publish_date_jst": "2026-03-25T07:00:00",
+      "wp_id": null,
+      "category": "yoto-betsu",
+      "status": "pending",
+      "note": "Phase2 シニア向け格安SIM"
+    },
+    {
+      "filename": "kakuyasu-sim-hitorigurashi-setsuyaku",
+      "publish_date_jst": "2026-03-27T07:00:00",
+      "wp_id": null,
+      "category": "yoto-betsu",
+      "status": "pending",
+      "note": "Phase2 一人暮らし節約SIM"
+    },
+    {
+      "filename": "docomo-kara-norikae",
+      "publish_date_jst": "2026-03-30T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase2 docomoからの乗り換え"
+    },
+    {
+      "filename": "au-kara-norikae",
+      "publish_date_jst": "2026-04-01T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase2 auからの乗り換え"
+    },
+    {
+      "filename": "softbank-kara-norikae",
+      "publish_date_jst": "2026-04-03T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase2 SoftBankからの乗り換え"
+    },
+    {
+      "filename": "kakuyasu-sim-3gb-saiyas",
+      "publish_date_jst": "2026-04-07T07:00:00",
+      "wp_id": null,
+      "category": "ryokin-hikaku",
+      "status": "pending",
+      "note": "Phase2 3GB最安プラン比較"
+    },
+    {
+      "filename": "kakuyasu-sim-20gb-hikaku",
+      "publish_date_jst": "2026-04-09T07:00:00",
+      "wp_id": null,
+      "category": "ryokin-hikaku",
+      "status": "pending",
+      "note": "Phase2 20GBプラン比較"
+    },
+    {
+      "filename": "kakuyasu-sim-telework",
+      "publish_date_jst": "2026-04-11T07:00:00",
+      "wp_id": null,
+      "category": "yoto-betsu",
+      "status": "pending",
+      "note": "Phase2 テレワーク向けSIM"
+    },
+    {
+      "filename": "youtube-museigen-sim",
+      "publish_date_jst": "2026-04-14T07:00:00",
+      "wp_id": null,
+      "category": "yoto-betsu",
+      "status": "pending",
+      "note": "Phase2 YouTube無制限SIM"
+    },
+    {
+      "filename": "kakuyasu-sim-tsuwaho-kakehoudai",
+      "publish_date_jst": "2026-04-16T07:00:00",
+      "wp_id": null,
+      "category": "ryokin-hikaku",
+      "status": "pending",
+      "note": "Phase2 通話かけ放題比較"
+    },
+    {
+      "filename": "mnp-tenshutu-tejun",
+      "publish_date_jst": "2026-04-18T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase2 MNP転出手順まとめ"
+    },
+    {
+      "filename": "rakuten-mobile-hyoban",
+      "publish_date_jst": "2026-04-21T07:00:00",
+      "wp_id": null,
+      "category": "review",
+      "status": "pending",
+      "note": "Phase3 楽天モバイル評判"
+    },
+    {
+      "filename": "linemo-hyoban",
+      "publish_date_jst": "2026-04-23T07:00:00",
+      "wp_id": null,
+      "category": "review",
+      "status": "pending",
+      "note": "Phase3 LINEMO評判"
+    },
+    {
+      "filename": "mineo-hyoban",
+      "publish_date_jst": "2026-04-28T07:00:00",
+      "wp_id": null,
+      "category": "review",
+      "status": "pending",
+      "note": "Phase3 mineo評判"
+    },
+    {
+      "filename": "povo-hyoban",
+      "publish_date_jst": "2026-04-30T07:00:00",
+      "wp_id": null,
+      "category": "review",
+      "status": "pending",
+      "note": "Phase3 povo評判"
+    },
+    {
+      "filename": "kakuyasu-sim-kazoku-wari",
+      "publish_date_jst": "2026-05-05T07:00:00",
+      "wp_id": null,
+      "category": "ryokin-hikaku",
+      "status": "pending",
+      "note": "Phase3 家族割比較"
+    },
+    {
+      "filename": "kakuyasu-sim-data-museigen",
+      "publish_date_jst": "2026-05-07T07:00:00",
+      "wp_id": null,
+      "category": "ryokin-hikaku",
+      "status": "pending",
+      "note": "Phase3 データ無制限比較"
+    },
+    {
+      "filename": "norikae-shoshinsha-shippai",
+      "publish_date_jst": "2026-05-09T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase3 乗り換え初心者失敗例"
+    },
+    {
+      "filename": "kakuyasu-sim-norikae-tejun-pillar",
+      "publish_date_jst": "2026-05-12T07:00:00",
+      "wp_id": null,
+      "category": "norikae",
+      "status": "pending",
+      "note": "Phase3 乗り換え手順ピラー"
+    },
+    {
+      "filename": "kakuyasu-sim-review-matome-pillar",
+      "publish_date_jst": "2026-05-14T07:00:00",
+      "wp_id": null,
+      "category": "review",
+      "status": "pending",
+      "note": "Phase3 レビューまとめピラー"
+    },
+    {
+      "filename": "kaigai-ryokou-esim-osusume",
+      "publish_date_jst": "2026-05-18T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 海外旅行eSIMおすすめ"
+    },
+    {
+      "filename": "nanbei-sim-esim-guide",
+      "publish_date_jst": "2026-05-21T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 南米SIM・eSIMガイド"
+    },
+    {
+      "filename": "kaigai-nihon-bango-iji",
+      "publish_date_jst": "2026-05-25T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 海外で日本の番号を維持"
+    },
+    {
+      "filename": "ryugakusei-sim-senryaku",
+      "publish_date_jst": "2026-05-28T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 留学生向けSIM戦略"
+    },
+    {
+      "filename": "airalo-trifa-ubigi-hikaku",
+      "publish_date_jst": "2026-06-01T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 Airalo vs trifa vs Ubigi"
+    },
+    {
+      "filename": "kaigai-sim-esim-hikaku-pillar",
+      "publish_date_jst": "2026-06-04T07:00:00",
+      "wp_id": null,
+      "category": "kaigai-sim",
+      "status": "pending",
+      "note": "Phase4 海外SIM eSIM比較ピラー"
+    }
+  ]
+}
