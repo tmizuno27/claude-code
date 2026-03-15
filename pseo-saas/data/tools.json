@@ -1,0 +1,433 @@
+{
+  "category": "email-marketing",
+  "last_updated": "2026-03-15",
+  "tools": [
+    {
+      "slug": "mailchimp",
+      "name": "Mailchimp",
+      "tagline": "All-in-one marketing platform for growing businesses",
+      "website": "https://mailchimp.com",
+      "founded": 2001,
+      "pricing_starts": "$13/mo",
+      "free_plan": true,
+      "best_for": ["small-business", "beginners", "ecommerce"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": true,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": true
+      },
+      "pros": [
+        "Generous free plan (500 contacts)",
+        "Intuitive drag-and-drop editor",
+        "Extensive third-party integrations",
+        "Built-in CRM and landing pages"
+      ],
+      "cons": [
+        "Pricing increases sharply with list size",
+        "Limited automation on lower plans",
+        "Customer support can be slow",
+        "Strict affiliate marketing policies"
+      ],
+      "g2_rating": 4.3,
+      "capterra_rating": 4.5,
+      "affiliate": {
+        "program": false,
+        "note": "No public affiliate program as of 2026"
+      }
+    },
+    {
+      "slug": "convertkit",
+      "name": "ConvertKit (Kit)",
+      "tagline": "The creator marketing platform",
+      "website": "https://convertkit.com",
+      "founded": 2013,
+      "pricing_starts": "$25/mo",
+      "free_plan": true,
+      "best_for": ["creators", "bloggers", "podcasters", "coaches"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": false,
+        "social_posting": false
+      },
+      "pros": [
+        "Built specifically for creators",
+        "Powerful visual automation builder",
+        "Tag-based subscriber management",
+        "Creator Network for cross-promotion"
+      ],
+      "cons": [
+        "No built-in CRM",
+        "Limited template design options",
+        "Higher starting price than competitors",
+        "Basic reporting compared to enterprise tools"
+      ],
+      "g2_rating": 4.4,
+      "capterra_rating": 4.4,
+      "affiliate": {
+        "program": true,
+        "commission": "30%",
+        "type": "recurring",
+        "duration": "24 months",
+        "cookie_days": 90
+      }
+    },
+    {
+      "slug": "activecampaign",
+      "name": "ActiveCampaign",
+      "tagline": "Marketing automation for businesses of all sizes",
+      "website": "https://www.activecampaign.com",
+      "founded": 2003,
+      "pricing_starts": "$29/mo",
+      "free_plan": false,
+      "best_for": ["smb", "agencies", "ecommerce", "advanced-users"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": true,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": false
+      },
+      "pros": [
+        "Most powerful automation builder in the market",
+        "Built-in CRM with sales pipeline",
+        "Machine learning for predictive sending",
+        "900+ integrations"
+      ],
+      "cons": [
+        "Steep learning curve",
+        "No free plan available",
+        "Can get expensive at scale",
+        "Email template designs could be more modern"
+      ],
+      "g2_rating": 4.5,
+      "capterra_rating": 4.6,
+      "affiliate": {
+        "program": true,
+        "commission": "20-30%",
+        "type": "recurring",
+        "duration": "12 months",
+        "cookie_days": 90
+      }
+    },
+    {
+      "slug": "getresponse",
+      "name": "GetResponse",
+      "tagline": "Affordable email marketing and automation",
+      "website": "https://www.getresponse.com",
+      "founded": 1998,
+      "pricing_starts": "$19/mo",
+      "free_plan": true,
+      "best_for": ["smb", "webinars", "ecommerce", "solopreneurs"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": true
+      },
+      "pros": [
+        "Built-in webinar hosting",
+        "Excellent conversion funnels",
+        "AI-powered email generator",
+        "Competitive pricing"
+      ],
+      "cons": [
+        "Interface can feel dated",
+        "Webinar quality limited vs dedicated tools",
+        "Automation less powerful than ActiveCampaign",
+        "CRM features are basic"
+      ],
+      "g2_rating": 4.2,
+      "capterra_rating": 4.2,
+      "affiliate": {
+        "program": true,
+        "commission": "40-60%",
+        "type": "recurring",
+        "duration": "12 months",
+        "cookie_days": 120
+      }
+    },
+    {
+      "slug": "aweber",
+      "name": "AWeber",
+      "tagline": "Email marketing made simple for small businesses",
+      "website": "https://www.aweber.com",
+      "founded": 1998,
+      "pricing_starts": "$15/mo",
+      "free_plan": true,
+      "best_for": ["small-business", "beginners", "solopreneurs"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": false,
+        "social_posting": false
+      },
+      "pros": [
+        "25+ years of deliverability expertise",
+        "Simple and easy to use",
+        "Canva integration for email design",
+        "Excellent customer support"
+      ],
+      "cons": [
+        "Automation less sophisticated",
+        "Dated interface compared to newer tools",
+        "Limited advanced features",
+        "Reporting could be more detailed"
+      ],
+      "g2_rating": 4.2,
+      "capterra_rating": 4.4,
+      "affiliate": {
+        "program": true,
+        "commission": "50%",
+        "type": "recurring",
+        "duration": "lifetime",
+        "cookie_days": 365
+      }
+    },
+    {
+      "slug": "moosend",
+      "name": "Moosend",
+      "tagline": "Email marketing automation made easy",
+      "website": "https://moosend.com",
+      "founded": 2011,
+      "pricing_starts": "$9/mo",
+      "free_plan": false,
+      "best_for": ["startups", "budget-conscious", "ecommerce"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": false,
+        "social_posting": false
+      },
+      "pros": [
+        "Most affordable option",
+        "Unlimited emails on all plans",
+        "Good automation for the price",
+        "Clean, modern interface"
+      ],
+      "cons": [
+        "Smaller template library",
+        "Fewer integrations than major players",
+        "No SMS marketing",
+        "Relatively newer, less established"
+      ],
+      "g2_rating": 4.6,
+      "capterra_rating": 4.7,
+      "affiliate": {
+        "program": true,
+        "commission": "40%",
+        "type": "recurring",
+        "duration": "ongoing",
+        "cookie_days": 90
+      }
+    },
+    {
+      "slug": "brevo",
+      "name": "Brevo (formerly Sendinblue)",
+      "tagline": "All-in-one digital marketing platform",
+      "website": "https://www.brevo.com",
+      "founded": 2012,
+      "pricing_starts": "$25/mo",
+      "free_plan": true,
+      "best_for": ["smb", "transactional-email", "multichannel"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": true,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": true
+      },
+      "pros": [
+        "Pricing based on emails sent, not contacts",
+        "Built-in SMS and WhatsApp marketing",
+        "Transactional email API",
+        "Strong GDPR compliance (EU-based)"
+      ],
+      "cons": [
+        "Email builder can be clunky",
+        "Limited third-party integrations",
+        "Branding on free plan",
+        "Advanced features require higher plans"
+      ],
+      "g2_rating": 4.5,
+      "capterra_rating": 4.5,
+      "affiliate": {
+        "program": true,
+        "commission": "EUR 5 (free) / EUR 100 (paid)",
+        "type": "one-time",
+        "duration": "n/a",
+        "cookie_days": 90
+      }
+    },
+    {
+      "slug": "klaviyo",
+      "name": "Klaviyo",
+      "tagline": "The #1 email & SMS platform for ecommerce",
+      "website": "https://www.klaviyo.com",
+      "founded": 2012,
+      "pricing_starts": "$20/mo",
+      "free_plan": true,
+      "best_for": ["ecommerce", "shopify", "dtc-brands"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": false,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": false
+      },
+      "pros": [
+        "Best-in-class Shopify integration",
+        "Advanced ecommerce segmentation",
+        "Predictive analytics (CLV, churn risk)",
+        "Revenue attribution per email"
+      ],
+      "cons": [
+        "Expensive compared to alternatives",
+        "Steep learning curve",
+        "Limited to ecommerce use cases",
+        "SMS pricing is additional"
+      ],
+      "g2_rating": 4.6,
+      "capterra_rating": 4.7,
+      "affiliate": {
+        "program": true,
+        "commission": "15-20%",
+        "type": "recurring",
+        "duration": "12 months",
+        "cookie_days": 30
+      }
+    },
+    {
+      "slug": "constant-contact",
+      "name": "Constant Contact",
+      "tagline": "Email marketing for small businesses",
+      "website": "https://www.constantcontact.com",
+      "founded": 1995,
+      "pricing_starts": "$12/mo",
+      "free_plan": false,
+      "best_for": ["small-business", "nonprofits", "events"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": true,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": true
+      },
+      "pros": [
+        "30 years of email marketing experience",
+        "Event management tools built-in",
+        "Survey and polling features",
+        "Excellent deliverability rates"
+      ],
+      "cons": [
+        "Automation features lag behind competitors",
+        "Higher pricing relative to features",
+        "No free plan",
+        "Template customization is limited"
+      ],
+      "g2_rating": 4.0,
+      "capterra_rating": 4.3,
+      "affiliate": {
+        "program": true,
+        "commission": "$5 (trial) / $105 (paid)",
+        "type": "one-time",
+        "duration": "n/a",
+        "cookie_days": 120
+      }
+    },
+    {
+      "slug": "omnisend",
+      "name": "Omnisend",
+      "tagline": "Ecommerce email & SMS marketing automation",
+      "website": "https://www.omnisend.com",
+      "founded": 2014,
+      "pricing_starts": "$16/mo",
+      "free_plan": true,
+      "best_for": ["ecommerce", "shopify", "woocommerce"],
+      "features": {
+        "email_builder": true,
+        "automation": true,
+        "landing_pages": true,
+        "crm": false,
+        "analytics": true,
+        "ab_testing": true,
+        "segmentation": true,
+        "templates": true,
+        "sms": true,
+        "social_posting": false
+      },
+      "pros": [
+        "Pre-built ecommerce automation workflows",
+        "Combined email + SMS + push in one flow",
+        "Product picker for emails",
+        "Generous free plan (250 contacts, 500 emails)"
+      ],
+      "cons": [
+        "Mainly designed for ecommerce only",
+        "Fewer template designs",
+        "Limited blog/content creator features",
+        "Support can be slow on free plan"
+      ],
+      "g2_rating": 4.5,
+      "capterra_rating": 4.7,
+      "affiliate": {
+        "program": true,
+        "commission": "100% (first month) + 50%",
+        "type": "recurring",
+        "duration": "ongoing",
+        "cookie_days": 90
+      }
+    }
+  ]
+}
