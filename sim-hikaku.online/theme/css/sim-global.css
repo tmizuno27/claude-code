@@ -969,6 +969,87 @@ body.front-top-page .mobile-menu-buttons {
 }
 
 /* ============================================
+   Back to Top Button
+   ============================================ */
+.back-to-top {
+  position: fixed !important;
+  bottom: 80px !important;
+  right: 20px !important;
+  width: 44px !important;
+  height: 44px !important;
+  background: rgba(255,255,255,0.92) !important;
+  backdrop-filter: saturate(180%) blur(20px) !important;
+  -webkit-backdrop-filter: saturate(180%) blur(20px) !important;
+  border: 0.5px solid rgba(0,0,0,0.12) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease !important;
+  z-index: 9990 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.back-to-top.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.back-to-top:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+
+.back-to-top::before {
+  content: "" !important;
+  display: block !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-top: 2px solid var(--color-text) !important;
+  border-right: 2px solid var(--color-text) !important;
+  transform: rotate(-45deg) translateY(2px) !important;
+}
+
+/* ============================================
+   Table Scroll Indicators
+   ============================================ */
+.table-scroll-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 28px 0 !important;
+}
+
+.table-scroll-wrapper::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 24px !important;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.9)) !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  transition: opacity 0.3s ease !important;
+  z-index: 2 !important;
+}
+
+.table-scroll-wrapper.has-scroll::after {
+  opacity: 1 !important;
+}
+
+.table-scroll-wrapper.scrolled-end::after {
+  opacity: 0 !important;
+}
+
+.table-scroll-wrapper .table-inner {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* ============================================
    Print
    ============================================ */
 @media print {
