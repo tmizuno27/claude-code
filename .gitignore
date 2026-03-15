@@ -12,3 +12,4 @@
 # ログ
 auto-sync.log
 *.log
+gumroad-secrets.json
