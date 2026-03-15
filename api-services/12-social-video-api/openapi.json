@@ -1,0 +1,206 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Social Video API",
+    "description": "Extract video download URLs and metadata from social media platforms (TikTok, Twitter/X, Instagram, YouTube, Facebook) by parsing publicly accessible pages. No paid APIs required.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://social-video-api.{worker-subdomain}.workers.dev",
+      "description": "Cloudflare Workers production"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API information",
+        "description": "Returns API name, version, available endpoints, and rate limit info.",
+        "responses": {
+          "200": {
+            "description": "API info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "description": { "type": "string" },
+                    "endpoints": { "type": "object" },
+                    "rate_limit": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/download": {
+      "get": {
+        "operationId": "downloadVideo",
+        "summary": "Extract video download URL",
+        "description": "Fetches the public page of the given social media video URL and extracts the direct video download link.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Full URL of the social media video",
+            "schema": { "type": "string", "format": "uri" },
+            "example": "https://www.tiktok.com/@user/video/1234567890"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Extraction successful",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VideoResult" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid or unsupported URL",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "422": {
+            "description": "Extraction failed",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/RateLimitError" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/info": {
+      "get": {
+        "operationId": "getVideoInfo",
+        "summary": "Get video metadata",
+        "description": "Returns video metadata (title, thumbnail, author, duration) without the download URL.",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "description": "Full URL of the social media video",
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Metadata retrieved",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/VideoMeta" }
+              }
+            }
+          },
+          "400": { "description": "Invalid or unsupported URL" },
+          "422": { "description": "Extraction failed" },
+          "429": { "description": "Rate limit exceeded" }
+        }
+      }
+    },
+    "/platforms": {
+      "get": {
+        "operationId": "listPlatforms",
+        "summary": "List supported platforms",
+        "description": "Returns all supported social media platforms with example URL patterns.",
+        "responses": {
+          "200": {
+            "description": "Platform list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "platforms": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/Platform" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VideoResult": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "platform": { "type": "string", "enum": ["tiktok", "twitter", "instagram", "youtube", "facebook"] },
+          "title": { "type": "string", "nullable": true },
+          "author": { "type": "string", "nullable": true },
+          "thumbnail": { "type": "string", "format": "uri", "nullable": true },
+          "video_url": { "type": "string", "format": "uri", "nullable": true },
+          "embed_url": { "type": "string", "format": "uri", "nullable": true },
+          "quality": { "type": "string", "nullable": true },
+          "duration": { "type": "integer", "nullable": true, "description": "Duration in seconds" },
+          "note": { "type": "string", "nullable": true }
+        }
+      },
+      "VideoMeta": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean" },
+          "platform": { "type": "string" },
+          "title": { "type": "string", "nullable": true },
+          "author": { "type": "string", "nullable": true },
+          "thumbnail": { "type": "string", "format": "uri", "nullable": true },
+          "quality": { "type": "string", "nullable": true },
+          "duration": { "type": "integer", "nullable": true }
+        }
+      },
+      "Platform": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "domain": { "type": "string" },
+          "urlPattern": { "type": "string" }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "success": { "type": "boolean" },
+          "platform": { "type": "string" }
+        }
+      },
+      "RateLimitError": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "remaining": { "type": "integer" },
+          "retry_after_sec": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

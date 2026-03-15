@@ -21,15 +21,16 @@ function checkRateLimit(ip) {
   return true;
 }
 
-// Periodically clean old entries
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, entry] of rateLimitMap) {
-    if (now - entry.windowStart > RATE_LIMIT_WINDOW * 2) {
-      rateLimitMap.delete(ip);
+function cleanupRateLimit() {
+  if (rateLimitMap.size > 10000) {
+    const now = Date.now();
+    for (const [ip, entry] of rateLimitMap) {
+      if (now - entry.windowStart > RATE_LIMIT_WINDOW * 2) {
+        rateLimitMap.delete(ip);
+      }
     }
   }
-}, 120_000);
+}
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -165,6 +166,7 @@ export default {
     const path = url.pathname;
 
     // Rate limiting
+    cleanupRateLimit();
     const ip = request.headers.get("cf-connecting-ip") || "unknown";
     if (!checkRateLimit(ip)) {
       return errorResponse("Rate limit exceeded. Max 30 requests per minute.", 429);

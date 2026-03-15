@@ -1,0 +1,296 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Crypto Data API",
+    "version": "1.0.0",
+    "description": "Cryptocurrency data aggregated from CoinGecko. Provides prices, market data, coin details, trending coins, exchange listings, and global market stats."
+  },
+  "servers": [
+    { "url": "https://crypto-data-api.YOUR-SUBDOMAIN.workers.dev" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API info and endpoint list",
+        "responses": {
+          "200": {
+            "description": "API information",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SuccessResponse" },
+                "example": {
+                  "success": true,
+                  "data": {
+                    "name": "Crypto Data API",
+                    "version": "1.0.0",
+                    "endpoints": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/price": {
+      "get": {
+        "operationId": "getPrice",
+        "summary": "Current prices for multiple coins",
+        "parameters": [
+          { "name": "ids", "in": "query", "required": true, "schema": { "type": "string" }, "description": "Comma-separated coin IDs (e.g. bitcoin,ethereum)", "example": "bitcoin,ethereum" },
+          { "name": "vs", "in": "query", "required": false, "schema": { "type": "string", "default": "usd" }, "description": "Comma-separated target currencies", "example": "usd" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Price data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "bitcoin": { "usd": 67000, "usd_24h_change": 2.5, "usd_market_cap": 1300000000000, "usd_24h_vol": 30000000000 },
+                    "ethereum": { "usd": 3500, "usd_24h_change": 1.8, "usd_market_cap": 420000000000, "usd_24h_vol": 15000000000 }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/coin/{id}": {
+      "get": {
+        "operationId": "getCoin",
+        "summary": "Detailed coin information",
+        "parameters": [
+          { "name": "id", "in": "path", "required": true, "schema": { "type": "string" }, "example": "bitcoin" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Coin details",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "bitcoin",
+                    "symbol": "btc",
+                    "name": "Bitcoin",
+                    "market_cap_rank": 1,
+                    "market_data": {
+                      "current_price": { "usd": 67000 },
+                      "market_cap": { "usd": 1300000000000 },
+                      "price_change_percentage_24h": 2.5,
+                      "ath": { "usd": 73750 }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "429": { "$ref": "#/components/responses/RateLimited" }
+        }
+      }
+    },
+    "/search": {
+      "get": {
+        "operationId": "searchCoins",
+        "summary": "Search coins by name or symbol",
+        "parameters": [
+          { "name": "q", "in": "query", "required": true, "schema": { "type": "string" }, "description": "Search query", "example": "sol" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Search results",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "coins": [
+                      { "id": "solana", "name": "Solana", "symbol": "sol", "market_cap_rank": 5, "thumb": "https://..." }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" }
+        }
+      }
+    },
+    "/trending": {
+      "get": {
+        "operationId": "getTrending",
+        "summary": "Top trending coins",
+        "responses": {
+          "200": {
+            "description": "Trending coins",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "coins": [
+                      { "id": "pepe", "name": "Pepe", "symbol": "pepe", "market_cap_rank": 30, "score": 0 }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/markets": {
+      "get": {
+        "operationId": "getMarkets",
+        "summary": "Market listings with pagination",
+        "parameters": [
+          { "name": "vs", "in": "query", "required": false, "schema": { "type": "string", "default": "usd" } },
+          { "name": "per_page", "in": "query", "required": false, "schema": { "type": "integer", "default": 100, "minimum": 1, "maximum": 250 } },
+          { "name": "page", "in": "query", "required": false, "schema": { "type": "integer", "default": 1, "minimum": 1 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Market data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "coins": [
+                      { "id": "bitcoin", "symbol": "btc", "current_price": 67000, "market_cap": 1300000000000, "market_cap_rank": 1 }
+                    ],
+                    "pagination": { "page": 1, "per_page": 100, "vs_currency": "usd" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/history": {
+      "get": {
+        "operationId": "getHistory",
+        "summary": "Historical price on a specific date",
+        "parameters": [
+          { "name": "id", "in": "query", "required": true, "schema": { "type": "string" }, "example": "bitcoin" },
+          { "name": "date", "in": "query", "required": true, "schema": { "type": "string", "format": "date" }, "description": "Date in YYYY-MM-DD format", "example": "2025-01-15" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "id": "bitcoin",
+                    "symbol": "btc",
+                    "name": "Bitcoin",
+                    "date": "2025-01-15",
+                    "market_data": {
+                      "current_price": { "usd": 65000 },
+                      "market_cap": { "usd": 1270000000000 }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" }
+        }
+      }
+    },
+    "/exchanges": {
+      "get": {
+        "operationId": "getExchanges",
+        "summary": "List top exchanges",
+        "responses": {
+          "200": {
+            "description": "Exchange list",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "exchanges": [
+                      { "id": "binance", "name": "Binance", "trust_score": 10, "trade_volume_24h_btc": 500000 }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/global": {
+      "get": {
+        "operationId": "getGlobal",
+        "summary": "Global crypto market stats",
+        "responses": {
+          "200": {
+            "description": "Global stats",
+            "content": {
+              "application/json": {
+                "example": {
+                  "success": true,
+                  "data": {
+                    "active_cryptocurrencies": 14000,
+                    "markets": 1100,
+                    "total_market_cap": { "usd": 2500000000000 },
+                    "market_cap_change_percentage_24h_usd": 1.5
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SuccessResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean", "example": true },
+          "data": { "type": "object" }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "success": { "type": "boolean", "example": false },
+          "error": { "type": "string" }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request - missing or invalid parameters",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+            "example": { "success": false, "error": "Missing required parameter" }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Rate limit exceeded",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ErrorResponse" },
+            "example": { "success": false, "error": "Rate limit exceeded. Max 30 requests per minute." }
+          }
+        }
+      }
+    }
+  }
+}
