@@ -1,0 +1,13 @@
+{
+  "name": "seo-analyzer-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers API that analyzes any URL's SEO elements",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
