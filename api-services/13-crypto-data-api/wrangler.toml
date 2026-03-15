@@ -1,0 +1,6 @@
+name = "crypto-data-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+CACHE_TTL = "60"

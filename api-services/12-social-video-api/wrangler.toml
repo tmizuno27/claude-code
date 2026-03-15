@@ -1,0 +1,7 @@
+name = "social-video-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+RATE_LIMIT_MAX = "20"
+RATE_LIMIT_WINDOW_SEC = "60"
