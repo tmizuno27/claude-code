@@ -1,0 +1,75 @@
+{
+  "name": "Email Validation API",
+  "tagline": "Validate email addresses instantly without sending emails",
+  "description": "Production-ready email validation API that checks format (RFC 5322), MX records, disposable domains (500+), free providers, role-based addresses, and suggests typo corrections. All checks performed without sending any emails. Powered by Cloudflare Workers for ultra-low latency worldwide.",
+  "category": "Data",
+  "tags": [
+    "email",
+    "validation",
+    "verification",
+    "email-checker",
+    "disposable-email",
+    "mx-lookup",
+    "spam-prevention"
+  ],
+  "pricing": [
+    {
+      "plan": "Basic",
+      "price": 0,
+      "requests_per_month": 500,
+      "rate_limit_per_second": 1,
+      "features": [
+        "Single email validation",
+        "All validation checks",
+        "JSON response"
+      ]
+    },
+    {
+      "plan": "Pro",
+      "price": 9.99,
+      "requests_per_month": 50000,
+      "rate_limit_per_second": 10,
+      "features": [
+        "Single & bulk validation",
+        "Up to 50 emails per bulk request",
+        "All validation checks",
+        "Priority support"
+      ]
+    },
+    {
+      "plan": "Ultra",
+      "price": 29.99,
+      "requests_per_month": 500000,
+      "rate_limit_per_second": 50,
+      "features": [
+        "Single & bulk validation",
+        "Up to 50 emails per bulk request",
+        "All validation checks",
+        "Dedicated support"
+      ]
+    }
+  ],
+  "endpoints": [
+    {
+      "name": "Validate Email",
+      "method": "GET",
+      "path": "/validate",
+      "parameters": [
+        {
+          "name": "email",
+          "type": "string",
+          "required": true,
+          "description": "Email address to validate"
+        }
+      ]
+    },
+    {
+      "name": "Bulk Validate",
+      "method": "POST",
+      "path": "/validate/bulk",
+      "body": {
+        "emails": ["user@example.com"]
+      }
+    }
+  ]
+}
