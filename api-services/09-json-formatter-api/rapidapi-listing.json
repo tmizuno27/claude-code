@@ -1,0 +1,65 @@
+{
+  "name": "JSON Formatter & Validator API",
+  "description": "All-in-one JSON toolkit: format, minify, validate, diff, transform (JMESPath-like queries), and convert between CSV and JSON. Zero dependencies, blazing fast on Cloudflare's edge network.",
+  "category": "Tools",
+  "tags": ["json", "formatter", "validator", "csv", "diff", "transform", "minify", "prettify", "developer-tools"],
+  "base_url": "https://json-formatter-api.t-mizuno27.workers.dev",
+  "pricing": [
+    {
+      "plan": "Basic",
+      "price": "$0/month",
+      "rate_limit": "100 requests/day",
+      "features": ["All 7 endpoints", "Up to 1MB payload"]
+    },
+    {
+      "plan": "Pro",
+      "price": "$5/month",
+      "rate_limit": "10,000 requests/day",
+      "features": ["All 7 endpoints", "Up to 10MB payload", "Priority support"]
+    },
+    {
+      "plan": "Ultra",
+      "price": "$15/month",
+      "rate_limit": "100,000 requests/day",
+      "features": ["All 7 endpoints", "Up to 50MB payload", "Priority support", "SLA 99.9%"]
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/format",
+      "description": "Format/prettify JSON with configurable indentation"
+    },
+    {
+      "method": "POST",
+      "path": "/minify",
+      "description": "Minify JSON by removing all whitespace"
+    },
+    {
+      "method": "POST",
+      "path": "/validate",
+      "description": "Validate JSON syntax and return structure stats (key count, depth, size)"
+    },
+    {
+      "method": "POST",
+      "path": "/diff",
+      "description": "Deep comparison of two JSON objects with path-level differences"
+    },
+    {
+      "method": "POST",
+      "path": "/transform",
+      "description": "Apply JMESPath-like queries to extract/filter data from JSON"
+    },
+    {
+      "method": "POST",
+      "path": "/csv-to-json",
+      "description": "Convert CSV string to JSON array with auto-type detection"
+    },
+    {
+      "method": "POST",
+      "path": "/json-to-csv",
+      "description": "Convert JSON array of objects to CSV string"
+    }
+  ],
+  "long_description": "A comprehensive JSON processing API built on Cloudflare Workers for ultra-low latency worldwide.\n\n**Key Features:**\n- **Format & Minify**: Prettify JSON with custom indentation or compress to minimal size\n- **Validate**: Check JSON syntax with detailed error messages including position, plus stats (key count, nesting depth, byte size)\n- **Diff**: Deep recursive comparison of two JSON structures, reporting added/removed/changed keys with full dot-notation paths\n- **Transform**: JMESPath-like query language to extract nested data — supports wildcards, array indexing, and filters\n- **CSV Conversion**: Bidirectional CSV-JSON conversion with auto-type detection (numbers, booleans, nulls) and proper quote escaping\n\n**Use Cases:**\n- CI/CD pipelines needing JSON validation\n- Data migration between CSV and JSON formats\n- API response comparison and regression testing\n- Configuration file processing and transformation"
+}
