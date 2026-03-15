@@ -1,0 +1,8 @@
+name = "currency-exchange-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+FRANKFURTER_BASE_URL = "https://api.frankfurter.dev"
+CACHE_TTL_SECONDS = "3600"
+RATE_LIMIT_PER_MINUTE = "60"
