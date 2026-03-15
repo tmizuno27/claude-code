@@ -18,12 +18,17 @@ Phase 2以降の記事を自動的にWordPressに予約投稿する。
   4. article-management.csv を同期更新
 """
 
+import sys
+import os
+# Force UTF-8 output on Windows
+if sys.platform == "win32":
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 import requests
 import json
 import base64
 import re
-import sys
-import os
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 
@@ -325,7 +330,7 @@ def main():
 
         # Skip already published/scheduled
         if status in ("published", "scheduled"):
-            print(f"  ✓ {date_jst} | {filename} ({status})")
+            print(f"  [OK] {date_jst} | {filename} ({status})")
             continue
 
         # Parse JST date to GMT
@@ -337,7 +342,7 @@ def main():
         fm, md_content = load_article_md(filename)
         has_md = md_content is not None
 
-        status_icon = "✓" if has_md else "✗"
+        status_icon = "[OK]" if has_md else "[NG]"
         print(f"  {status_icon} {date_jst} | {filename}")
         if not has_md:
             print(f"    → MDファイルなし（outputs/{filename}.md）- スキップ")
