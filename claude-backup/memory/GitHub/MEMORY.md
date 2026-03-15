@@ -23,7 +23,8 @@
 
 ## インフラ・自動化
 - **GitHub自動同期**: [auto-sync-setup.md](auto-sync-setup.md) — 1分おき、ログ: `logs/auto-sync.log`
-- **定期タスク（22個）**: [scheduled-tasks.md](scheduled-tasks.md) — Healthchecks.io監視（Discord通知）
+- **定期タスク（52個）**: [scheduled-tasks.md](scheduled-tasks.md) — 3サイト共通化済み（Healthchecks.io監視+Discord通知）
+- **タスク共通ルール**: [feedback_blog_tasks_shared.md](feedback_blog_tasks_shared.md) — 自動タスクは全3ブログに等しく適用
 - **Sheets同期**: `tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
 
