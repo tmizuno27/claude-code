@@ -71,12 +71,14 @@
       "type": "収益",
       "main_keyword": "結婚相談所 おすすめ",
       "scheduled_date": "2026-03-26",
-      "status": "pending",
+      "status": "published",
       "internal_links": [
         "kekkon-soudan-vs-app",
         "konkatsu-app-osusume",
         "konkatsu-30dai"
-      ]
+      ],
+      "wp_id": 136,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-kaiwa-tsuzukanai",
