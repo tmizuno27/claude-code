@@ -110,6 +110,27 @@ SITES = {
     },
 }
 
+# ステータス正規化マップ
+STATUS_NORMALIZE = {
+    'publish': '公開済み',
+    'published': '公開済み',
+    '公開済': '公開済み',
+    'draft': 'ドラフト',
+    '下書き': 'ドラフト',
+    'scheduled': '予約済み',
+    '予約済': '予約済み',
+    'rewrite': 'リライト済',
+    'リライト済': 'リライト済',
+}
+
+# ステータス別セル色
+STATUS_COLORS = {
+    '公開済み': {'red': 0.85, 'green': 0.95, 'blue': 0.85},   # 薄い緑
+    'ドラフト': {'red': 1.0, 'green': 0.95, 'blue': 0.7},     # 黄色
+    '予約済み': {'red': 0.85, 'green': 0.9, 'blue': 1.0},     # 薄い青
+    'リライト済': {'red': 0.95, 'green': 0.9, 'blue': 1.0},   # 薄い紫
+}
+
 TYPE_COLORS = {
     '集客記事': {'red': 0.93, 'green': 0.98, 'blue': 0.93},
     '集客': {'red': 0.93, 'green': 0.98, 'blue': 0.93},
@@ -184,10 +205,13 @@ def write_article_list(sh, site_key, site_cfg, rows):
         else:
             cell_title = title
 
+        raw_status = safe_get(row, site_cfg['col_status']).strip()
+        status = STATUS_NORMALIZE.get(raw_status, raw_status)
+
         sheet_data.append([
             i,
             cell_title,
-            safe_get(row, site_cfg['col_status']),
+            status,
             safe_get(row, site_cfg['col_publish_date']),
             safe_get(row, site_cfg['col_type']),
             safe_get(row, site_cfg['col_category']),
