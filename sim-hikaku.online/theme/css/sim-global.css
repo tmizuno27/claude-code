@@ -570,7 +570,11 @@ body.archive .sidebar {
 }
 
 .sidebar .widget-title,
-#sidebar .widget-title {
+#sidebar .widget-title,
+.sidebar .wp-block-heading,
+#sidebar .wp-block-heading,
+.sidebar h2.wp-block-heading,
+#sidebar h2.wp-block-heading {
   font-size: 13px !important;
   font-weight: 700 !important;
   color: var(--color-text-secondary) !important;
