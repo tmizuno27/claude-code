@@ -1,0 +1,321 @@
+<style>body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif!important;color:#1d1d1f!important;-webkit-font-smoothing:antialiased!important;letter-spacing:-.022em}
+.header,.header-in,#header{background:rgba(255,255,255,.92)!important;backdrop-filter:saturate(180%) blur(20px)!important;-webkit-backdrop-filter:saturate(180%) blur(20px)!important;border-bottom:1px solid rgba(0,0,0,.08)!important;position:sticky!important;top:0!important;z-index:9999!important}
+.header-in{display:flex!important;align-items:center!important;justify-content:space-between!important;max-width:1200px!important;margin:0 auto!important;padding:8px 20px!important}
+#navi .navi-in>ul>li>a{color:#1d1d1f!important;font-size:13px!important;font-weight:500!important;padding:8px 14px!important}
+#navi .navi-in>ul>li>a:hover{color:#0066CC!important}
+#footer,.footer,.footer-bottom{background:#1d1d1f!important;color:#86868b!important}
+#footer a,.footer a{color:#d2d2d7!important}
+.footer-bottom-content{max-width:1200px!important;margin:0 auto!important;padding:20px!important;text-align:center!important}
+#content-in{max-width:1200px!important;margin:0 auto!important;padding:30px 20px!important}
+body.single .article{max-width:750px!important;margin:0 auto!important}
+body.single .entry-title{font-size:28px!important;font-weight:800!important;line-height:1.5!important;color:#1d1d1f!important;text-align:center!important;margin-bottom:20px!important}
+body.single .entry-content{font-size:16px!important;line-height:2.4!important;color:#1d1d1f!important}
+body.single .entry-content p{margin-bottom:1.8em!important}
+body.single .entry-content h2{font-size:26px!important;font-weight:800!important;text-align:center!important;margin:60px 0 30px!important;padding:0!important;border:none!important;background:none!important;color:#1d1d1f!important;line-height:1.4!important}
+body.single .entry-content h3{font-size:20px!important;font-weight:700!important;margin:40px 0 20px!important;padding:0 0 0 16px!important;border-left:4px solid #0066CC!important;border-bottom:none!important;background:none!important;line-height:1.4!important}
+body.single .entry-content h4{font-size:17px!important;font-weight:700!important;margin:30px 0 15px!important}
+body.single .entry-content a{color:#0066CC!important;text-decoration:none!important}
+body.single .entry-content a:hover{text-decoration:underline!important}
+.marker-yellow{background:linear-gradient(transparent 60%,#fff9c4 60%)!important}
+.marker-pink{background:linear-gradient(transparent 60%,#fce4ec 60%)!important}
+.marker-blue{background:linear-gradient(transparent 60%,#e3f2fd 60%)!important}
+#sidebar .widget{border:1px solid #d2d2d7!important;border-radius:18px!important;padding:20px!important;margin-bottom:20px!important;background:#fff!important}
+#sidebar .widget-title{font-size:14px!important;font-weight:700!important;color:#1d1d1f!important;margin-bottom:12px!important;padding:0!important;border:none!important;background:none!important}
+.breadcrumb{font-size:12px!important;color:#86868b!important;max-width:1200px!important;margin:0 auto!important;padding:10px 20px!important}
+.sns-share,.sns-follow{display:none!important}
+.pagination .page-numbers{border-radius:50%!important;width:40px!important;height:40px!important;line-height:40px!important;border:1px solid #d2d2d7!important;color:#1d1d1f!important}
+.pagination .page-numbers.current{background:#0066CC!important;color:#fff!important;border-color:#0066CC!important}
+.wp-block-table table,.entry-content table{border-collapse:collapse!important;width:100%!important;border-radius:12px!important;overflow:hidden!important;font-size:14px!important}
+.wp-block-table th,.entry-content th{background:#f5f5f7!important;font-weight:700!important;padding:12px 16px!important;font-size:14px!important}
+.wp-block-table td,.entry-content td{padding:12px 16px!important;border-bottom:1px solid #d2d2d7!important;font-size:14px!important}
+.blank-box,.information-box,.question-box,.alert-box{border-radius:12px!important;border-width:1px!important;padding:20px!important}
+.entry-content ul{list-style:none!important;padding-left:0!important}
+.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}
+.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}
+.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}
+.entry-content ol li{margin-bottom:.5em!important}
+.entry-content ol li::before{content:none!important}
+.entry-card-wrap{border:1px solid #d2d2d7!important;border-radius:18px!important;overflow:hidden!important;transition:transform .3s ease,box-shadow .3s ease!important;background:#fff!important;margin-bottom:20px!important}
+.entry-card-wrap:hover{transform:translateY(-2px)!important;box-shadow:0 8px 30px rgba(0,0,0,.08)!important}
+.entry-card-title{font-size:17px!important;font-weight:700!important;line-height:1.6!important;color:#1d1d1f!important}
+.entry-card-snippet{color:#86868b!important;font-size:13px!important;line-height:1.8!important}
+@media(max-width:768px){#navi{display:none!important}.header-in{padding:12px 20px!important}body.single .article{max-width:100%!important;padding:0 16px!important}body.single .entry-title{font-size:22px!important}body.single .entry-content h2{font-size:20px!important;margin:40px 0 20px!important}body.single .entry-content h3{font-size:18px!important;margin:30px 0 15px!important}}
+@media(max-width:600px){body.single .entry-content{font-size:15px!important;line-height:2.2!important}}</style>
+<style>.entry-content ul{list-style:none!important;padding-left:0!important}.entry-content ul li{position:relative!important;padding-left:1.5em!important;margin-bottom:.5em!important}.entry-content ul li::before{content:"•"!important;position:absolute!important;left:.3em!important;color:#0066CC!important;font-weight:bold!important}.entry-content ol{list-style:decimal!important;padding-left:1.5em!important}.entry-content ol li{margin-bottom:.5em!important}.entry-content ol li::before{content:none!important}</style>
+<h2>結婚相談所の「成婚率」に<br>騙されないために</h2>
+<p>「成婚率が高い結婚相談所を選べば、確実に結婚できる」——そう考えている方は多いのではないでしょうか。</p>
+<p>しかし実は、<strong class="marker-pink">結婚相談所の「成婚率」には統一された計算基準がありません</strong>。各社が独自の計算方法を使っているため、数字だけで比較すると大きな落とし穴にハマる危険があります。</p>
+<p>この記事では、成婚率のからくりを暴いた上で、本当に結婚できる結婚相談所をランキング形式で紹介します。料金・サポート体制・会員数も含めた総合評価で、あなたに合った相談所選びをサポートします。</p>
+
+<h2>成婚率のからくりとは？<br>計算方法の違いを理解する</h2>
+
+<h3>「成婚率」の3つの計算パターン</h3>
+<p>結婚相談所が公表する成婚率には、主に以下の3パターンがあります。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>計算方法</th>
+<th>計算式</th>
+<th>特徴</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>会員全体ベース</strong></td>
+<td>成婚退会者数 ÷ 全会員数</td>
+<td>数値が低く出る（10〜30%前後）</td>
+</tr>
+<tr>
+<td><strong>退会者ベース</strong></td>
+<td>成婚退会者数 ÷ 退会者数</td>
+<td>数値が高く出る（50〜70%台）</td>
+</tr>
+<tr>
+<td><strong>活動会員ベース</strong></td>
+<td>成婚退会者数 ÷ 一定期間の活動会員数</td>
+<td>各社で「活動会員」の定義が異なる</td>
+</tr>
+</tbody>
+</table>
+<p><strong class="marker-yellow">同じ相談所でも、計算方法を変えるだけで成婚率は10%にも70%にもなります</strong>。数字の裏にある計算式を必ず確認しましょう。</p>
+
+<h3>「成婚」の定義も相談所ごとに違う</h3>
+<p>成婚率の比較をさらに難しくしているのが、「成婚」の定義の違いです。</p>
+<ul>
+<li><strong>婚約（プロポーズ成功）</strong>：IBJメンバーズなどが採用。最も厳しい基準</li>
+<li><strong>交際3ヶ月経過</strong>：パートナーエージェントなどが採用</li>
+<li><strong>結婚を前提とした交際開始</strong>：一部の相談所が採用する緩い基準</li>
+</ul>
+<p><strong class="marker-pink">「成婚率70%」と謳っていても、その「成婚」が単なる交際開始を指しているケースもあります</strong>。必ず定義を確認してください。</p>
+
+<h2>成婚率ランキング<br>本当に結婚できる相談所TOP5</h2>
+
+<h3>まずは5社の成婚率・料金を比較</h3>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>順位</th>
+<th>相談所名</th>
+<th>成婚率</th>
+<th>成婚の定義</th>
+<th>1年間の総額目安</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1位</td>
+<td><strong>IBJメンバーズ</strong></td>
+<td><strong class="marker-yellow">50.5%</strong></td>
+<td>婚約（プロポーズ成功）</td>
+<td>約60万円</td>
+</tr>
+<tr>
+<td>2位</td>
+<td><strong>パートナーエージェント</strong></td>
+<td><strong class="marker-yellow">27.0%</strong></td>
+<td>交際3ヶ月継続</td>
+<td>約40万円</td>
+</tr>
+<tr>
+<td>3位</td>
+<td><strong>エン婚活エージェント</strong></td>
+<td><strong class="marker-yellow">30.0%</strong></td>
+<td>会員同士の成婚退会</td>
+<td>約19万円</td>
+</tr>
+<tr>
+<td>4位</td>
+<td><strong>ツヴァイ</strong></td>
+<td>42.3%</td>
+<td>交際・婚約による退会</td>
+<td>約30万円</td>
+</tr>
+<tr>
+<td>5位</td>
+<td><strong>オーネット</strong></td>
+<td>非公開</td>
+<td>—</td>
+<td>約35万円</td>
+</tr>
+</tbody>
+</table>
+<p>※成婚率は各社公表値（2024〜2025年実績）。計算方法が異なるため単純比較はできません。</p>
+
+<h3>1位：IBJメンバーズ — 「婚約」基準で成婚率50.5%の実力派</h3>
+<p>IBJメンバーズは、日本最大の結婚相談所ネットワーク「IBJ」の直営店です。<strong class="marker-yellow">成婚の定義を「婚約（プロポーズ成功）」という最も厳しい基準に設定しながら、成婚率50.5%を達成</strong>しています。</p>
+<h4>IBJメンバーズの強み</h4>
+<ul>
+<li>IBJネットワーク約9万人の中から専任カウンセラーが紹介</li>
+<li>お見合いのセッティングから交際中のフォロー、プロポーズのサポートまで一貫対応</li>
+<li>活動開始から成婚退会まで平均10.2ヶ月と比較的スピーディー</li>
+<li>20代〜30代の会員比率が高く、若い世代の婚活に強い</li>
+</ul>
+<h4>IBJメンバーズの注意点</h4>
+<p>1年間の活動総額は約60万円と業界でも高額の部類です。成婚料220,000円が別途かかるため、予算に余裕がない方には厳しい金額設定です。ただし<strong class="marker-blue">「婚約」基準での成婚率50.5%は業界トップクラスの実績</strong>であり、費用に見合う価値は十分にあります。</p>
+<div style="text-align:center;margin:30px 0">
+<a href="https://YOUR-AFFILIATE-LINK/ibj-members" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#0066CC;color:#fff!important;padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 4px 15px rgba(0,102,204,.3);transition:transform .2s">＼ IBJメンバーズの無料相談はこちら ／</a>
+</div>
+
+<h3>2位：パートナーエージェント — 独自のPDCAメソッドで高い交際率</h3>
+<p>パートナーエージェントは専任の成婚コンシェルジュが付く仲人型の結婚相談所です。<strong class="marker-yellow">入会から1年以内のお見合い実施率は93.5%</strong>と非常に高く、「出会えない」というリスクが極めて低いのが特長です。</p>
+<h4>パートナーエージェントの強み</h4>
+<ul>
+<li>独自の「婚活PDCA」メソッドで活動の改善点を明確にしてくれる</li>
+<li>紹介可能会員数は約19万人と業界最大級（コネクトシップ連携含む）</li>
+<li>登録から交際開始まで平均3.5ヶ月とスピード感がある</li>
+<li>成婚料55,000円と仲人型では比較的リーズナブル</li>
+</ul>
+<h4>パートナーエージェントの注意点</h4>
+<p>会員全体ベースでの成婚率は27.0%と、IBJメンバーズより低く見えます。ただし「交際3ヶ月継続」という厳しめの基準での数値であり、退会者ベースでは49.8%と高水準です。</p>
+<div style="text-align:center;margin:30px 0">
+<a href="https://YOUR-AFFILIATE-LINK/partner-agent" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#0066CC;color:#fff!important;padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 4px 15px rgba(0,102,204,.3);transition:transform .2s">＼ パートナーエージェントの無料相談はこちら ／</a>
+</div>
+
+<h3>3位：エン婚活エージェント — コスパ最強で成婚実績No.1</h3>
+<p>エン婚活エージェントは完全オンライン型の結婚相談所で、<strong class="marker-yellow">1年間の活動費が約19万円と業界最安クラス</strong>です。低価格ながら専任アドバイザーが付き、毎月6名以上の紹介を受けられます。</p>
+<h4>エン婚活の強み</h4>
+<ul>
+<li>登録料16,500円＋月会費14,300円のみ。成婚料・お見合い料は0円</li>
+<li>完全オンライン対応で来店不要。地方在住でも活動しやすい</li>
+<li>活動開始後6ヶ月以内の成婚者が全体の約80%を占める</li>
+<li>全額返金保証あり（3ヶ月以内に出会いがなければ）</li>
+</ul>
+<h4>エン婚活の注意点</h4>
+<p>対面でのサポートがないため、直接カウンセラーと会って相談したい方には不向きです。また会員数は約3万人と大手に比べるとやや少なめです。</p>
+<div style="text-align:center;margin:30px 0">
+<a href="https://YOUR-AFFILIATE-LINK/en-konkatsu" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#0066CC;color:#fff!important;padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 4px 15px rgba(0,102,204,.3);transition:transform .2s">＼ エン婚活エージェントの無料相談はこちら ／</a>
+</div>
+
+<h3>4位：ツヴァイ — データマッチング×仲人のハイブリッド型</h3>
+<p>ツヴァイはイオングループが運営する結婚相談所で、データマッチングと仲人型のハイブリッドサービスを提供しています。<strong class="marker-blue">IBJネットワークにも加盟しており、約9万人の会員にアクセス可能</strong>です。</p>
+<h4>ツヴァイの強み</h4>
+<ul>
+<li>データマッチング・価値観マッチング・インプレッションマッチングなど出会い方が豊富</li>
+<li>全国50店舗以上で対面サポートが受けられる</li>
+<li>ツヴァイ会員同士の成婚なら成婚料0円</li>
+<li>1年間の総額約30万円と仲人型の中ではリーズナブル</li>
+</ul>
+
+<h3>5位：オーネット — 会員数12万人の業界最大手</h3>
+<p><strong class="marker-blue">紹介可能会員数は約12万人と業界最大級</strong>。創業44年の老舗で、地方在住でもマッチング相手が見つかりやすいのが最大の魅力です。</p>
+<h4>オーネットの強み</h4>
+<ul>
+<li>会員数が圧倒的に多く、希望条件に合う相手が見つかりやすい</li>
+<li>AIマッチング・プロフィール検索・写真検索など多彩な出会い方</li>
+<li>成婚料0円で、成婚退会時の追加費用が発生しない</li>
+<li>無料の「結婚チャンステスト」で入会前にマッチング体験ができる</li>
+</ul>
+
+<h2>成婚率だけで選ぶと失敗する<br>本当に重要な3つのチェックポイント</h2>
+
+<h3>チェック1：自分の年齢層に合った会員構成か</h3>
+<p>成婚率が高くても、自分と同年代の会員が少なければ意味がありません。<strong class="marker-pink">入会前に必ず「自分の年齢層の会員がどのくらいいるか」を確認しましょう</strong>。</p>
+<p>一般的な傾向として、IBJメンバーズは20代後半〜30代、パートナーエージェントは30代〜40代前半、エン婚活は30代が中心の会員構成です。</p>
+
+<h3>チェック2：活動エリアに対応しているか</h3>
+<p>店舗型の結婚相談所は、活動エリアが限られます。地方在住の方は、オンライン対応の有無や会員の地域分布を事前に確認することが重要です。</p>
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse:collapse;width:100%;margin:1.5em 0">
+<thead>
+<tr style="background:#0066CC;color:#fff">
+<th>相談所</th>
+<th>店舗数</th>
+<th>オンライン対応</th>
+<th>地方向き度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBJメンバーズ</td>
+<td>12店舗（首都圏・関西中心）</td>
+<td>一部対応</td>
+<td>△</td>
+</tr>
+<tr>
+<td>パートナーエージェント</td>
+<td>約30店舗</td>
+<td>一部対応</td>
+<td>○</td>
+</tr>
+<tr>
+<td>エン婚活</td>
+<td>なし（完全オンライン）</td>
+<td><strong class="marker-blue">完全対応</strong></td>
+<td>◎</td>
+</tr>
+<tr>
+<td>ツヴァイ</td>
+<td>50店舗以上</td>
+<td>一部対応</td>
+<td>◎</td>
+</tr>
+<tr>
+<td>オーネット</td>
+<td>40店舗以上</td>
+<td>一部対応</td>
+<td>◎</td>
+</tr>
+</tbody>
+</table>
+
+<h3>チェック3：無料相談で「相性」を確かめる</h3>
+<p>最終的に成婚できるかどうかは、担当カウンセラーとの相性に大きく左右されます。<strong class="marker-yellow">必ず2〜3社の無料相談を受けて、実際のカウンセラーの対応を比較してから入会を決めましょう</strong>。</p>
+<p>無料相談で確認すべきポイントは以下のとおりです。</p>
+<ul>
+<li>カウンセラーが自分の希望を丁寧にヒアリングしてくれるか</li>
+<li>「とにかく入会してください」という強引な勧誘がないか</li>
+<li>活動の流れやスケジュールを具体的に説明してくれるか</li>
+<li>料金体系を明確に提示してくれるか（隠れた費用がないか）</li>
+</ul>
+
+<h2>タイプ別おすすめの結婚相談所</h2>
+
+<h3>「コスパ重視」ならエン婚活エージェント</h3>
+<p>予算を抑えつつ本気の婚活をしたい方には、<strong class="marker-yellow">1年間約19万円で活動できるエン婚活エージェント</strong>がベストです。成婚料0円・全額返金保証付きで、金銭的リスクが最も低い選択肢です。</p>
+
+<h3>「手厚いサポート重視」ならIBJメンバーズ</h3>
+<p>費用が高くても確実に結婚したい方には、成婚率50.5%の実績を誇るIBJメンバーズが最適です。プロポーズまで一貫してサポートしてくれる安心感は、他社にはない大きな強みです。</p>
+
+<h3>「データで効率的に」ならパートナーエージェント</h3>
+<p>PDCAメソッドで婚活を効率化したい方にはパートナーエージェントがおすすめです。1年以内のお見合い実施率93.5%という数値が、出会いの確実性を証明しています。</p>
+
+<h2>結婚相談所で成婚するための<br>5つの心構え</h2>
+
+<h3>心構え1：3ヶ月は「慣れる期間」と割り切る</h3>
+<p>多くの成婚者が口を揃えて言うのが、「最初の3ヶ月は全然うまくいかなかった」ということ。お見合いの場に慣れ、自分の希望条件が現実的かどうかを知るまでには時間がかかります。</p>
+
+<h3>心構え2：条件を絞りすぎない</h3>
+<p>年収・身長・学歴など条件を細かく設定しすぎると、紹介される人数が激減します。<strong class="marker-pink">「絶対に譲れない条件」は2〜3個に絞り、それ以外は実際に会ってから判断する</strong>のが成婚への近道です。</p>
+
+<h3>心構え3：カウンセラーのアドバイスを素直に聞く</h3>
+<p>結婚相談所の最大のメリットは、婚活のプロからフィードバックをもらえることです。自分では気づかない改善点を指摘してもらえるので、アドバイスには耳を傾けましょう。</p>
+
+<h3>心構え4：写真とプロフィールに投資する</h3>
+<p>お見合いが成立するかどうかは、プロフィール写真の印象で8割決まると言われています。プロのカメラマンに撮影を依頼し、清潔感のある好印象な写真を用意しましょう。</p>
+
+<h3>心構え5：「1年以内」と期限を決めて活動する</h3>
+<p><strong class="marker-yellow">ダラダラと活動を続けるより、「1年以内に成婚退会する」と決めて集中的に活動する方が成果は出やすい</strong>です。費用面でもメリハリがつき、モチベーションを維持しやすくなります。</p>
+
+<h2>まとめ：成婚率の数字より<br>「自分に合う相談所」を選ぼう</h2>
+
+<p>結婚相談所の成婚率は、計算方法や成婚の定義によって大きく変わります。数字だけに惑わされず、以下の3つを基準に選ぶことが大切です。</p>
+<ol>
+<li><strong>料金体系</strong>：1年間の総額で比較する（成婚料込みで計算）</li>
+<li><strong>サポート内容</strong>：自分が求めるサポートレベルに合っているか</li>
+<li><strong>会員層</strong>：自分の年齢・エリアに合った会員がいるか</li>
+</ol>
+<p>迷ったら、まずは無料相談を2〜3社受けてみましょう。実際にカウンセラーと話すことで、自分に合った相談所が見えてきます。</p>
+<div style="text-align:center;margin:30px 0">
+<a href="https://YOUR-AFFILIATE-LINK/ibj-members" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#0066CC;color:#fff!important;padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 4px 15px rgba(0,102,204,.3);transition:transform .2s">＼ IBJメンバーズの無料相談はこちら ／</a>
+</div>
+<div style="text-align:center;margin:15px 0">
+<a href="https://YOUR-AFFILIATE-LINK/en-konkatsu" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#0066CC;color:#fff!important;padding:16px 40px;border-radius:30px;font-weight:700;font-size:16px;text-decoration:none!important;box-shadow:0 4px 15px rgba(0,102,204,.3);transition:transform .2s">＼ エン婚活の無料相談はこちら ／</a>
+</div>
+
+<h3>関連記事</h3>
+<ul>
+<li><a href="https://otona-match.com/kekkon-soudan-osusume/">結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較</a></li>
+<li><a href="https://otona-match.com/kekkon-soudan-ryoukin-hikaku/">結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較</a></li>
+<li><a href="https://otona-match.com/kekkon-soudan-30dai-josei/">30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント</a></li>
+</ul>
+
+<p style="font-size:13px;color:#86868b;margin-top:40px;padding-top:20px;border-top:1px solid #d2d2d7">※この記事にはアフィリエイトリンクが含まれています。当サイトは各サービスから紹介料を受け取る場合がありますが、記事内容はすべて編集部の独自調査に基づいています。詳しくは<a href="https://otona-match.com/privacy-policy/">プライバシーポリシー</a>をご覧ください。</p>
