@@ -122,9 +122,11 @@ body {
 }
 
 /* Hide category description under nav items */
-#navi .menu-header li .sub-name,
+#navi .item-description,
+#navi .sub-caption,
 #navi .sub-name,
-.navi-in .sub-name,
+.navi-in .item-description,
+.navi-in .sub-caption,
 .menu-description {
   display: none !important;
 }
