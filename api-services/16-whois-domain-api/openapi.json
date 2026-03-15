@@ -1,0 +1,264 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "WHOIS Domain API",
+    "version": "1.0.0",
+    "description": "Domain WHOIS/RDAP lookup and DNS query API powered by Cloudflare Workers. Uses the free RDAP protocol and Cloudflare DoH for DNS queries."
+  },
+  "servers": [
+    {
+      "url": "https://whois-domain-api.{account}.workers.dev",
+      "description": "Cloudflare Workers"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API information",
+        "responses": {
+          "200": {
+            "description": "API info and available endpoints",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "description": { "type": "string" },
+                    "endpoints": { "type": "object" },
+                    "source": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/lookup": {
+      "get": {
+        "operationId": "lookupDomain",
+        "summary": "Full RDAP/WHOIS domain lookup",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "example": "example.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Domain registration information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": { "type": "string" },
+                    "status": { "type": "array", "items": { "type": "string" } },
+                    "registered": { "type": "string", "nullable": true },
+                    "expires": { "type": "string", "nullable": true },
+                    "lastUpdated": { "type": "string", "nullable": true },
+                    "registrar": {
+                      "type": "object",
+                      "nullable": true,
+                      "properties": {
+                        "name": { "type": "string", "nullable": true },
+                        "url": { "type": "string", "nullable": true },
+                        "ianaId": { "type": "string", "nullable": true }
+                      }
+                    },
+                    "nameservers": { "type": "array", "items": { "type": "string" } },
+                    "dnssec": { "type": "string", "nullable": true }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid domain parameter",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "404": {
+            "description": "Domain not found in RDAP",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dns": {
+      "get": {
+        "operationId": "dnsLookup",
+        "summary": "DNS records lookup",
+        "description": "Query A, AAAA, MX, NS, TXT, and CNAME records via Cloudflare DoH",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "example": "example.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "DNS records",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": { "type": "string" },
+                    "records": {
+                      "type": "object",
+                      "additionalProperties": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "name": { "type": "string" },
+                            "type": { "type": "integer" },
+                            "ttl": { "type": "integer" },
+                            "data": { "type": "string" }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid domain",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/availability": {
+      "get": {
+        "operationId": "checkAvailability",
+        "summary": "Check domain availability",
+        "description": "Queries RDAP to check if a domain is registered. If not found, it is potentially available.",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string" },
+            "example": "example.com"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Availability result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "domain": { "type": "string" },
+                    "available": { "oneOf": [{ "type": "boolean" }, { "type": "string" }] },
+                    "status": { "type": "array", "items": { "type": "string" } },
+                    "registrar": { "type": "string", "nullable": true },
+                    "note": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid domain",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tld-list": {
+      "get": {
+        "operationId": "getTldList",
+        "summary": "List supported TLDs",
+        "description": "Returns all TLDs that have RDAP support according to IANA bootstrap data.",
+        "responses": {
+          "200": {
+            "description": "TLD list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "count": { "type": "integer" },
+                    "tlds": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}

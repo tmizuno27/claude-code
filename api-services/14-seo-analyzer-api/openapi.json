@@ -1,0 +1,304 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SEO Analyzer API",
+    "version": "1.0.0",
+    "description": "Analyzes any URL's SEO elements including title, meta tags, headings, images, links, structured data, and provides an SEO score."
+  },
+  "servers": [
+    { "url": "https://seo-analyzer-api.your-subdomain.workers.dev" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API information",
+        "responses": {
+          "200": {
+            "description": "API info and available endpoints",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "endpoints": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyze": {
+      "get": {
+        "operationId": "analyzeUrl",
+        "summary": "Full SEO analysis of a page",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "uri" },
+            "description": "URL to analyze"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Full SEO analysis",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/FullAnalysis" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/FetchError" }
+        }
+      }
+    },
+    "/headings": {
+      "get": {
+        "operationId": "getHeadings",
+        "summary": "Heading structure only",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Heading structure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string" },
+                    "headings": { "$ref": "#/components/schemas/Headings" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/FetchError" }
+        }
+      }
+    },
+    "/links": {
+      "get": {
+        "operationId": "getLinks",
+        "summary": "Link analysis only",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Link analysis",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string" },
+                    "links": { "$ref": "#/components/schemas/Links" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/FetchError" }
+        }
+      }
+    },
+    "/score": {
+      "get": {
+        "operationId": "getScore",
+        "summary": "SEO score with breakdown",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": { "type": "string", "format": "uri" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SEO score",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string" },
+                    "seoScore": { "$ref": "#/components/schemas/SeoScore" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/FetchError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FullAnalysis": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "pageSize": { "type": "integer", "description": "Page size in bytes" },
+          "title": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string", "nullable": true },
+              "length": { "type": "integer" },
+              "optimal": { "type": "boolean" }
+            }
+          },
+          "metaDescription": {
+            "type": "object",
+            "properties": {
+              "text": { "type": "string", "nullable": true },
+              "length": { "type": "integer" },
+              "optimal": { "type": "boolean" }
+            }
+          },
+          "headings": { "$ref": "#/components/schemas/Headings" },
+          "images": {
+            "type": "object",
+            "properties": {
+              "total": { "type": "integer" },
+              "withAlt": { "type": "integer" },
+              "withoutAlt": { "type": "integer" },
+              "images": { "type": "array", "items": { "type": "object" } }
+            }
+          },
+          "links": { "$ref": "#/components/schemas/Links" },
+          "canonical": { "type": "string", "nullable": true },
+          "robotsMeta": { "type": "string", "nullable": true },
+          "openGraph": { "type": "object", "nullable": true },
+          "twitterCard": { "type": "object", "nullable": true },
+          "jsonLd": { "type": "array", "nullable": true },
+          "wordCount": { "type": "integer" },
+          "language": { "type": "string", "nullable": true },
+          "viewport": {
+            "type": "object",
+            "properties": {
+              "present": { "type": "boolean" },
+              "content": { "type": "string", "nullable": true }
+            }
+          },
+          "favicon": {
+            "type": "object",
+            "properties": {
+              "present": { "type": "boolean" },
+              "href": { "type": "string", "nullable": true }
+            }
+          },
+          "hreflang": { "type": "array", "nullable": true },
+          "seoScore": { "$ref": "#/components/schemas/SeoScore" }
+        }
+      },
+      "Headings": {
+        "type": "object",
+        "properties": {
+          "counts": {
+            "type": "object",
+            "properties": {
+              "h1": { "type": "integer" },
+              "h2": { "type": "integer" },
+              "h3": { "type": "integer" },
+              "h4": { "type": "integer" },
+              "h5": { "type": "integer" },
+              "h6": { "type": "integer" }
+            }
+          },
+          "texts": { "type": "object" }
+        }
+      },
+      "Links": {
+        "type": "object",
+        "properties": {
+          "internal": { "type": "integer" },
+          "external": { "type": "integer" },
+          "nofollow": { "type": "integer" },
+          "total": { "type": "integer" }
+        }
+      },
+      "SeoScore": {
+        "type": "object",
+        "properties": {
+          "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "maxPoints": { "type": "integer" },
+          "earnedPoints": { "type": "integer" },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "pass": { "type": "boolean" },
+                "weight": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Invalid or missing URL parameter",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "error": { "type": "string" } }
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Rate limit exceeded (20 requests/minute)",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "error": { "type": "string" } }
+            }
+          }
+        }
+      },
+      "FetchError": {
+        "description": "Failed to fetch or parse the target URL",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "error": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

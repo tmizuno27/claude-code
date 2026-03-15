@@ -1,0 +1,238 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Weather API",
+    "version": "1.0.0",
+    "description": "Free weather data API powered by Open-Meteo, deployed on Cloudflare Workers."
+  },
+  "servers": [
+    { "url": "https://weather-api.{your-subdomain}.workers.dev", "description": "Production" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API info",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API information",
+            "content": { "application/json": { "schema": { "type": "object" } } }
+          }
+        }
+      }
+    },
+    "/current": {
+      "get": {
+        "summary": "Current weather",
+        "operationId": "getCurrent",
+        "parameters": [
+          { "name": "lat", "in": "query", "required": true, "schema": { "type": "number", "minimum": -90, "maximum": 90 }, "description": "Latitude" },
+          { "name": "lon", "in": "query", "required": true, "schema": { "type": "number", "minimum": -180, "maximum": 180 }, "description": "Longitude" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Current weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": { "type": "number" },
+                    "longitude": { "type": "number" },
+                    "timezone": { "type": "string" },
+                    "current": {
+                      "type": "object",
+                      "properties": {
+                        "time": { "type": "string" },
+                        "temperature_c": { "type": "number" },
+                        "relative_humidity_percent": { "type": "number" },
+                        "wind_speed_kmh": { "type": "number" },
+                        "weather_code": { "type": "integer" },
+                        "condition": { "type": "string" },
+                        "is_day": { "type": "boolean" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Invalid parameters" }
+        }
+      }
+    },
+    "/forecast": {
+      "get": {
+        "summary": "Daily forecast",
+        "operationId": "getForecast",
+        "parameters": [
+          { "name": "lat", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "lon", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "days", "in": "query", "required": false, "schema": { "type": "integer", "minimum": 1, "maximum": 16, "default": 7 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Daily forecast data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": { "type": "number" },
+                    "longitude": { "type": "number" },
+                    "timezone": { "type": "string" },
+                    "days": { "type": "integer" },
+                    "forecast": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": { "type": "string" },
+                          "temperature_max_c": { "type": "number" },
+                          "temperature_min_c": { "type": "number" },
+                          "precipitation_mm": { "type": "number" },
+                          "wind_speed_max_kmh": { "type": "number" },
+                          "weather_code": { "type": "integer" },
+                          "condition": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hourly": {
+      "get": {
+        "summary": "Hourly forecast",
+        "operationId": "getHourly",
+        "parameters": [
+          { "name": "lat", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "lon", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "hours", "in": "query", "required": false, "schema": { "type": "integer", "minimum": 1, "maximum": 384, "default": 24 } }
+        ],
+        "responses": {
+          "200": {
+            "description": "Hourly forecast data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": { "type": "number" },
+                    "longitude": { "type": "number" },
+                    "timezone": { "type": "string" },
+                    "hours": { "type": "integer" },
+                    "hourly": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "time": { "type": "string" },
+                          "temperature_c": { "type": "number" },
+                          "relative_humidity_percent": { "type": "number" },
+                          "precipitation_mm": { "type": "number" },
+                          "wind_speed_kmh": { "type": "number" },
+                          "weather_code": { "type": "integer" },
+                          "condition": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/geocode": {
+      "get": {
+        "summary": "Search city coordinates",
+        "operationId": "geocode",
+        "parameters": [
+          { "name": "q", "in": "query", "required": true, "schema": { "type": "string" }, "description": "City name" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Geocoding results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "query": { "type": "string" },
+                    "count": { "type": "integer" },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "latitude": { "type": "number" },
+                          "longitude": { "type": "number" },
+                          "country": { "type": "string" },
+                          "country_code": { "type": "string" },
+                          "admin1": { "type": "string", "nullable": true },
+                          "timezone": { "type": "string" },
+                          "population": { "type": "integer", "nullable": true }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/history": {
+      "get": {
+        "summary": "Historical weather data",
+        "operationId": "getHistory",
+        "parameters": [
+          { "name": "lat", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "lon", "in": "query", "required": true, "schema": { "type": "number" } },
+          { "name": "start", "in": "query", "required": true, "schema": { "type": "string", "format": "date" }, "description": "Start date (YYYY-MM-DD)" },
+          { "name": "end", "in": "query", "required": true, "schema": { "type": "string", "format": "date" }, "description": "End date (YYYY-MM-DD)" }
+        ],
+        "responses": {
+          "200": {
+            "description": "Historical weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "latitude": { "type": "number" },
+                    "longitude": { "type": "number" },
+                    "timezone": { "type": "string" },
+                    "start_date": { "type": "string" },
+                    "end_date": { "type": "string" },
+                    "days": { "type": "integer" },
+                    "history": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "date": { "type": "string" },
+                          "temperature_max_c": { "type": "number" },
+                          "temperature_min_c": { "type": "number" },
+                          "precipitation_mm": { "type": "number" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

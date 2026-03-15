@@ -77,6 +77,7 @@ const rateLimitMap = new Map();
  * Returns { allowed: boolean, remaining: number, resetAt: number }.
  */
 export function checkRateLimit(ip, maxRequests = 20, windowSec = 60) {
+  cleanupRateLimit();
   const now = Date.now();
   let entry = rateLimitMap.get(ip);
 
@@ -96,13 +97,15 @@ export function checkRateLimit(ip, maxRequests = 20, windowSec = 60) {
   };
 }
 
-// Periodically prune stale entries (every 5 min)
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, val] of rateLimitMap) {
-    if (now > val.resetAt) rateLimitMap.delete(key);
+// Prune stale entries when map gets large
+function cleanupRateLimit() {
+  if (rateLimitMap.size > 10000) {
+    const now = Date.now();
+    for (const [key, val] of rateLimitMap) {
+      if (now > val.resetAt) rateLimitMap.delete(key);
+    }
   }
-}, 5 * 60 * 1000);
+}
 
 /**
  * List of supported platforms with metadata.
