@@ -72,7 +72,7 @@ eSIM（Embedded SIM）とは、<span style="background: linear-gradient(transpar
 | **LINEMO** | キャリアサブ | SB | 〜3GB | 990円 | ○ |
 | **povo2.0** | キャリアサブ | au | 基本0GB | 0円 | ○ |
 | **楽天モバイル** | MNO | 楽天 | 〜3GB | 1,078円 | ○ |
-| **UQモバイル** | サブブランド | au | 5GB | 2,365円 | ○ |
+| **UQモバイル** | サブブランド | au | トクトクプラン2 30GB | 4,048円 | ○ |
 | **ワイモバイル** | サブブランド | SB | 5GB(S) | 3,058円 | ○ |
 | **IIJmio** | MVNO | ドコモ/au | 2GB | 850円 | ○ |
 | **mineo** | MVNO | 3キャリア | 3GB | 1,298円 | ○ |
@@ -214,7 +214,7 @@ eSIM（Embedded SIM）とは、<span style="background: linear-gradient(transpar
 | 15GB（旧10GB） | 1,958円 |
 | 30GB（旧20GB） | 2,178円 |
 
-**eSIMのメリット**: 3キャリア対応なので、乗り換え元のキャリアに合わせて回線を選びやすい。パケット放題Plus（月額385円）を併用すれば低速1.5Mbps使い放題。
+**eSIMのメリット**: 3キャリア対応なので、乗り換え元のキャリアに合わせて回線を選びやすい。パケット放題Plus（月額385円）を併用すれば最大3Mbps使い放題。
 
 ※最新の料金やキャンペーンは、mineo公式サイトで必ずご確認ください。
 
