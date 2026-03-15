@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-03-15",
-  "total_posts_updated": 0,
+  "total_posts_updated": 13,
   "changes": [
     {
       "post_id": 2016,
@@ -23,7 +23,7 @@
           "score": 40
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2015,
@@ -46,7 +46,7 @@
           "score": 40
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2014,
@@ -69,7 +69,7 @@
           "score": 41
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2013,
@@ -92,7 +92,7 @@
           "score": 40
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2012,
@@ -115,7 +115,7 @@
           "score": 37
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1214,
@@ -138,7 +138,7 @@
           "score": 6
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1070,
@@ -161,7 +161,7 @@
           "score": 4
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1069,
@@ -184,7 +184,7 @@
           "score": 7
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1068,
@@ -207,7 +207,7 @@
           "score": 6
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1067,
@@ -230,7 +230,7 @@
           "score": 12
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1066,
@@ -253,7 +253,7 @@
           "score": 22
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1065,
@@ -276,7 +276,7 @@
           "score": 19
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1008,
@@ -299,7 +299,7 @@
           "score": 3
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     }
   ]
 }
