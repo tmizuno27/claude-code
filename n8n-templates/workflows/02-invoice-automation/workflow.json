@@ -1,0 +1,347 @@
+{
+  "name": "QuickBooks & Stripe Invoice Automation",
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true
+  },
+  "tags": [
+    { "name": "invoicing" },
+    { "name": "accounting" },
+    { "name": "stripe" },
+    { "name": "quickbooks" }
+  ],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Stripe Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "parameters": {
+        "path": "stripe-invoice",
+        "httpMethod": "POST",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "webhookId": "stripe-invoice-webhook"
+    },
+    {
+      "id": "trigger-002",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [0, 520],
+      "parameters": {}
+    },
+    {
+      "id": "filter-001",
+      "name": "Filter Invoice Events",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [240, 300],
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.type }}",
+              "operation": "contains",
+              "value2": "invoice"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "extract-001",
+      "name": "Extract Invoice Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [480, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"stripe_invoice_id\": \"{{ $json.data?.object?.id || '' }}\",\n  \"customer_email\": \"{{ $json.data?.object?.customer_email || '' }}\",\n  \"customer_name\": \"{{ $json.data?.object?.customer_name || '' }}\",\n  \"amount_paid\": {{ ($json.data?.object?.amount_paid || 0) / 100 }},\n  \"currency\": \"{{ $json.data?.object?.currency?.toUpperCase() || 'USD' }}\",\n  \"invoice_number\": \"{{ $json.data?.object?.number || '' }}\",\n  \"description\": \"{{ $json.data?.object?.lines?.data?.[0]?.description || 'Service' }}\",\n  \"period_start\": \"{{ $json.data?.object?.period_start ? new Date($json.data.object.period_start * 1000).toISOString() : '' }}\",\n  \"period_end\": \"{{ $json.data?.object?.period_end ? new Date($json.data.object.period_end * 1000).toISOString() : '' }}\",\n  \"status\": \"{{ $json.data?.object?.status || '' }}\",\n  \"paid_at\": \"{{ $json.data?.object?.status_transitions?.paid_at ? new Date($json.data.object.status_transitions.paid_at * 1000).toISOString() : '' }}\",\n  \"stripe_customer_id\": \"{{ $json.data?.object?.customer || '' }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "qb-search-001",
+      "name": "Find Customer in QuickBooks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [720, 300],
+      "parameters": {
+        "method": "GET",
+        "url": "=https://quickbooks.api.intuit.com/v3/company/YOUR_COMPANY_ID/query?query=SELECT * FROM Customer WHERE PrimaryEmailAddr = '{{ encodeURIComponent($json.customer_email) }}'",
+        "authentication": "oAuth2",
+        "options": {
+          "timeout": 15000
+        }
+      },
+      "credentials": {
+        "oAuth2Api": {
+          "id": "QUICKBOOKS_CREDENTIAL_ID",
+          "name": "QuickBooks OAuth2"
+        }
+      }
+    },
+    {
+      "id": "if-customer-001",
+      "name": "Customer Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.QueryResponse?.Customer?.length || 0 }}",
+              "operation": "largerEqual",
+              "value2": 1
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "qb-create-customer-001",
+      "name": "Create QuickBooks Customer",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1200, 420],
+      "parameters": {
+        "method": "POST",
+        "url": "https://quickbooks.api.intuit.com/v3/company/YOUR_COMPANY_ID/customer",
+        "authentication": "oAuth2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"DisplayName\": \"{{ $('Extract Invoice Data').item.json.customer_name }}\",\n  \"PrimaryEmailAddr\": {\n    \"Address\": \"{{ $('Extract Invoice Data').item.json.customer_email }}\"\n  },\n  \"Notes\": \"Auto-created from Stripe. Stripe ID: {{ $('Extract Invoice Data').item.json.stripe_customer_id }}\"\n}",
+        "options": {}
+      },
+      "credentials": {
+        "oAuth2Api": {
+          "id": "QUICKBOOKS_CREDENTIAL_ID",
+          "name": "QuickBooks OAuth2"
+        }
+      }
+    },
+    {
+      "id": "merge-001",
+      "name": "Get Customer ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [1440, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"qb_customer_id\": \"{{ $json.QueryResponse?.Customer?.[0]?.Id || $json.Customer?.Id || '' }}\",\n  \"qb_customer_name\": \"{{ $json.QueryResponse?.Customer?.[0]?.DisplayName || $json.Customer?.DisplayName || '' }}\",\n  \"stripe_invoice_id\": \"{{ $('Extract Invoice Data').item.json.stripe_invoice_id }}\",\n  \"customer_email\": \"{{ $('Extract Invoice Data').item.json.customer_email }}\",\n  \"customer_name\": \"{{ $('Extract Invoice Data').item.json.customer_name }}\",\n  \"amount_paid\": {{ $('Extract Invoice Data').item.json.amount_paid }},\n  \"currency\": \"{{ $('Extract Invoice Data').item.json.currency }}\",\n  \"invoice_number\": \"{{ $('Extract Invoice Data').item.json.invoice_number }}\",\n  \"description\": \"{{ $('Extract Invoice Data').item.json.description }}\",\n  \"period_start\": \"{{ $('Extract Invoice Data').item.json.period_start }}\",\n  \"period_end\": \"{{ $('Extract Invoice Data').item.json.period_end }}\",\n  \"paid_at\": \"{{ $('Extract Invoice Data').item.json.paid_at }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "qb-invoice-001",
+      "name": "Create QuickBooks Invoice",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1680, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://quickbooks.api.intuit.com/v3/company/YOUR_COMPANY_ID/invoice",
+        "authentication": "oAuth2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"CustomerRef\": {\n    \"value\": \"{{ $json.qb_customer_id }}\"\n  },\n  \"Line\": [\n    {\n      \"Amount\": {{ $json.amount_paid }},\n      \"DetailType\": \"SalesItemLineDetail\",\n      \"SalesItemLineDetail\": {\n        \"ItemRef\": {\n          \"value\": \"1\",\n          \"name\": \"Services\"\n        }\n      },\n      \"Description\": \"{{ $json.description }} (Stripe Invoice: {{ $json.invoice_number }})\"\n    }\n  ],\n  \"CurrencyRef\": {\n    \"value\": \"{{ $json.currency }}\"\n  },\n  \"DocNumber\": \"{{ $json.invoice_number }}\",\n  \"PrivateNote\": \"Auto-synced from Stripe. Stripe Invoice ID: {{ $json.stripe_invoice_id }}\"\n}",
+        "options": {}
+      },
+      "credentials": {
+        "oAuth2Api": {
+          "id": "QUICKBOOKS_CREDENTIAL_ID",
+          "name": "QuickBooks OAuth2"
+        }
+      }
+    },
+    {
+      "id": "qb-payment-001",
+      "name": "Record Payment in QuickBooks",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1920, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "https://quickbooks.api.intuit.com/v3/company/YOUR_COMPANY_ID/payment",
+        "authentication": "oAuth2",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"CustomerRef\": {\n    \"value\": \"{{ $json.qb_customer_id }}\"\n  },\n  \"TotalAmt\": {{ $json.amount_paid }},\n  \"Line\": [\n    {\n      \"Amount\": {{ $json.amount_paid }},\n      \"LinkedTxn\": [\n        {\n          \"TxnId\": \"{{ $node['Create QuickBooks Invoice'].json.Invoice?.Id }}\",\n          \"TxnType\": \"Invoice\"\n        }\n      ]\n    }\n  ],\n  \"PrivateNote\": \"Stripe payment. Paid at: {{ $json.paid_at }}\"\n}",
+        "options": {}
+      },
+      "credentials": {
+        "oAuth2Api": {
+          "id": "QUICKBOOKS_CREDENTIAL_ID",
+          "name": "QuickBooks OAuth2"
+        }
+      }
+    },
+    {
+      "id": "log-001",
+      "name": "Log to Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [2160, 300],
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_SPREADSHEET_ID",
+          "mode": "id"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "Invoice Log",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "stripe_invoice_id": "={{ $('Get Customer ID').item.json.stripe_invoice_id }}",
+            "customer": "={{ $('Get Customer ID').item.json.customer_name }}",
+            "email": "={{ $('Get Customer ID').item.json.customer_email }}",
+            "amount": "={{ $('Get Customer ID').item.json.amount_paid }}",
+            "currency": "={{ $('Get Customer ID').item.json.currency }}",
+            "qb_invoice_id": "={{ $node['Create QuickBooks Invoice'].json.Invoice?.Id || 'N/A' }}",
+            "qb_payment_id": "={{ $node['Record Payment in QuickBooks'].json.Payment?.Id || 'N/A' }}",
+            "synced_at": "={{ $now.toISO() }}",
+            "status": "synced"
+          }
+        },
+        "matchingColumns": ["stripe_invoice_id"],
+        "options": {}
+      },
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "GOOGLE_SHEETS_CREDENTIAL_ID",
+          "name": "Google Sheets Account"
+        }
+      }
+    },
+    {
+      "id": "notify-001",
+      "name": "Send Slack Notification",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [2400, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": {
+          "__rl": true,
+          "value": "#accounting",
+          "mode": "name"
+        },
+        "text": "=:white_check_mark: *Invoice Synced*\n\n*Customer:* {{ $('Get Customer ID').item.json.customer_name }}\n*Amount:* {{ $('Get Customer ID').item.json.currency }} {{ $('Get Customer ID').item.json.amount_paid }}\n*Stripe Invoice:* {{ $('Get Customer ID').item.json.invoice_number }}\n*QuickBooks Invoice ID:* {{ $node['Create QuickBooks Invoice'].json.Invoice?.Id || 'N/A' }}\n*Synced at:* {{ $now.toFormat('yyyy-MM-dd HH:mm') }}",
+        "otherOptions": {}
+      },
+      "credentials": {
+        "slackOAuth2Api": {
+          "id": "SLACK_CREDENTIAL_ID",
+          "name": "Slack Account"
+        }
+      }
+    },
+    {
+      "id": "error-001",
+      "name": "Error Handler",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [2400, 520],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"error\": true,\n  \"message\": \"Invoice sync failed\",\n  \"stripe_invoice_id\": \"{{ $('Extract Invoice Data').item.json.stripe_invoice_id }}\",\n  \"customer\": \"{{ $('Extract Invoice Data').item.json.customer_name }}\",\n  \"timestamp\": \"{{ $now.toISO() }}\"\n}",
+        "options": {}
+      }
+    }
+  ],
+  "connections": {
+    "Stripe Webhook": {
+      "main": [
+        [
+          { "node": "Filter Invoice Events", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Manual Trigger": {
+      "main": [
+        [
+          { "node": "Filter Invoice Events", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Filter Invoice Events": {
+      "main": [
+        [
+          { "node": "Extract Invoice Data", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Extract Invoice Data": {
+      "main": [
+        [
+          { "node": "Find Customer in QuickBooks", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Find Customer in QuickBooks": {
+      "main": [
+        [
+          { "node": "Customer Exists?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Customer Exists?": {
+      "main": [
+        [
+          { "node": "Get Customer ID", "type": "main", "index": 0 }
+        ],
+        [
+          { "node": "Create QuickBooks Customer", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Create QuickBooks Customer": {
+      "main": [
+        [
+          { "node": "Get Customer ID", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Get Customer ID": {
+      "main": [
+        [
+          { "node": "Create QuickBooks Invoice", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Create QuickBooks Invoice": {
+      "main": [
+        [
+          { "node": "Record Payment in QuickBooks", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Record Payment in QuickBooks": {
+      "main": [
+        [
+          { "node": "Log to Sheets", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Log to Sheets": {
+      "main": [
+        [
+          { "node": "Send Slack Notification", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  }
+}
