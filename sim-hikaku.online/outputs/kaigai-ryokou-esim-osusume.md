@@ -16,7 +16,7 @@ word_count: 8300
 
 - **総合おすすめNo.1** → <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>trifa（トリファ）：日本語サポート充実、200カ国以上対応、アプリで簡単設定</strong></span>
 - **コスパ重視** → <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>Airalo（エアーロ）：世界200カ国以上、最安クラスの料金設定</strong></span>
-- **データ無制限** → <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>Holafly（オラフライ）：120カ国以上で無制限プランあり</strong></span>
+- **データ無制限** → <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>Holafly（オラフライ）：200以上の目的地で無制限プランあり</strong></span>
 - **設定の手軽さ** → eSIMは現地SIMと違い、<span style="background: linear-gradient(transparent 60%, #d6e4ff 60%)"><strong>渡航前にスマホだけで購入・設定が完了</strong></span>
 - **ポケットWi-Fi不要** → eSIMなら荷物ゼロ、充電不要、紛失リスクなし
 
@@ -78,7 +78,7 @@ eSIMを使うには対応端末が必要です。主な対応端末：
 |:---|:---:|---:|:---:|:---:|:---:|:---:|:---:|
 | **trifa** | 200カ国以上 | 約1,500〜2,500円 | ○ | ○（24h有人チャット） | ○ | ○ | ★★★★★ |
 | **Airalo** | 200カ国以上 | 約700〜1,500円 | △（一部地域） | △（英語中心） | ○ | ○ | ★★★★☆ |
-| **Holafly** | 120カ国以上 | 約2,500〜3,500円 | ○ | ○ | ○ | △（一部制限） | ★★★★☆ |
+| **Holafly** | 200以上の目的地 | 約2,500〜3,500円 | ○ | ○ | ○ | △（一部制限） | ★★★★☆ |
 | **Ubigi** | 200カ国以上 | 約1,000〜2,000円 | △ | △ | ○ | ○ | ★★★★☆ |
 | **eSIMdb** | 比較サイト | — | — | — | — | — | — |
 | **Nomad** | 100カ国以上 | 約1,000〜2,000円 | × | × | ○ | ○ | ★★★☆☆ |
@@ -178,7 +178,7 @@ eSIMを使うには対応端末が必要です。主な対応端末：
 
 **Holafly の基本情報**
 - 運営：Holafly（スペイン）
-- 対応国：120カ国以上
+- 対応国：200以上の目的地
 - 料金：全プラン無制限データ（1日あたり約1,000円〜）
 - サポート：日本語対応あり（チャット）
 - 決済：日本円対応

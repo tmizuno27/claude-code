@@ -17,7 +17,7 @@ word_count: 7500
 - **最安（1GB）** → 日本通信SIM <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額290円</strong></span>
 - **3GB最安** → HISモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額770円</strong></span>
 - **速度+3GB** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額990円（LINEギガフリー付き）</strong></span>
-- **コスパ総合** → NUROモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額792円（3GB+Gigaプラス特典）</strong></span>
+- **コスパ総合** → NUROモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額792円（3GB・ドコモ回線）</strong></span>
 - **段階制で3GB** → 楽天モバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,078円（通話無料付き）</strong></span>
 
 ※料金はすべて税込。2026年3月時点の情報です。
@@ -96,20 +96,22 @@ word_count: 7500
 - 店舗サポートなし
 
 
-## 第3位：NUROモバイル「VSプラン」— 月額792円+Gigaプラス
+## 第3位：NUROモバイル「VSプラン」— 月額792円
 
-<span style="background: linear-gradient(transparent 60%, #d6e4ff 60%)"><strong>3ヶ月ごとに3GBのボーナスデータがもらえる「Gigaプラス」が魅力</strong></span>。実質的なコスパはHISモバイルを上回ります。
+<span style="background: linear-gradient(transparent 60%, #d6e4ff 60%)"><strong>ドコモ・au・ソフトバンクの3回線から選べて、月額792円の安さ</strong></span>。データ繰り越しにも対応しており、使い切れなかった分は翌月に持ち越せます。
 
 ### 料金詳細
 - 3GB: 月額792円
-- Gigaプラス: 3ヶ月ごとに3GBプレゼント（月あたり+1GB相当）
 - 回線: ドコモ/au/ソフトバンクから選択可能
 - 通話料: 11円/30秒
+- データ繰り越し: 対応
+
+※NUROモバイルの「Gigaプラス」（3ヶ月ごとにボーナスデータ）はVMプラン（5GB）以上が対象です。VSプラン（3GB）は対象外となります。
 
 ### こんな人におすすめ
-- 月3〜4GB使いたいが安く済ませたい
+- 月3GB使いたいが安く済ませたい
 - 3回線から選びたい（手持ち端末に合わせて）
-- データ繰り越し+Gigaプラスで余裕を持ちたい
+- データ繰り越しで余裕を持ちたい
 
 
 ## 第4位：IIJmio — 2GBで月額850円+端末セール

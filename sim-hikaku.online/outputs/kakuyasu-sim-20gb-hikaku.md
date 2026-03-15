@@ -17,7 +17,7 @@ word_count: 7800
 - **20GB最安** → 日本通信SIM <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,390円（5分かけ放題付き）</strong></span>
 - **速度+30GB** → ahamo <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,970円（ドコモ品質+5分通話無料）</strong></span>
 - **コスパ+端末セール** → IIJmio <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,000円（20GB・端末110円〜）</strong></span>
-- **LINE無制限+速度** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,728円（30GB・LINEギガフリー）</strong></span>
+- **LINE無制限+速度** → LINEMO <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額2,970円（30GB・LINEギガフリー・5分通話無料）</strong></span>
 - **店舗サポート** → イオンモバイル <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月額1,958円（20GB・全国イオンで対面サポート）</strong></span>
 
 ※料金はすべて税込。2026年3月時点の情報です。
@@ -45,8 +45,8 @@ word_count: 7800
 | 4 | **IIJmio** | 20GB | **2,000円** | ドコモ/au | ★★★☆ | 11円/30秒 | 端末セール充実 |
 | 5 | **QTモバイル** | 20GB | **1,980円** | 3回線 | ★★☆☆ | 11円/30秒 | 九州電力割あり |
 | 6 | **HISモバイル** | 20GB | **2,090円** | ドコモ | ★★★☆ | 9円/30秒 | 通話料最安 |
-| 7 | **mineo** | 20GB | **2,178円** | 3回線 | ★★★☆ | 22円/30秒 | パケット放題Plus |
-| 8 | **LINEMO** | 30GB | **2,728円** | SB | ★★★★ | 5分無料 | LINEギガフリー |
+| 7 | **mineo** | 30GB | **2,178円** | 3回線 | ★★★☆ | 22円/30秒 | パケット放題Plus |
+| 8 | **LINEMO** | 30GB | **2,970円** | SB | ★★★★ | 5分無料 | LINEギガフリー |
 | 9 | **povo2.0** | 20GB/30日 | **2,700円** | au | ★★★★★ | 22円/30秒 | トッピング制 |
 | 10 | **ahamo** | 30GB | **2,970円** | ドコモ | ★★★★★ | 5分無料 | 海外利用OK |
 
@@ -135,7 +135,7 @@ word_count: 7800
 ## 第4位：LINEMO「ベストプランV」— 30GB+LINE無制限
 
 ### プラン詳細
-- **〜30GB**: 月額2,728円
+- **〜30GB**: 月額2,970円
 - **通話**: 5分無料
 - **LINEギガフリー**: LINEの全通信がカウント外
 - **回線**: ソフトバンク
@@ -143,7 +143,7 @@ word_count: 7800
 ### メリット
 - ソフトバンク回線で速度が安定
 - LINEのトーク・通話・ビデオ通話がデータカウント外
-- 30GBでahamoより242円安い
+- 30GB+5分通話無料でahamoと同額
 - 5分通話無料も付いている
 
 ### デメリット
@@ -205,7 +205,7 @@ word_count: 7800
 
 ### タイプB：速度も大事（月2,500〜3,000円）
 
-→ **LINEMO**（2,728円）or **ahamo**（2,970円）
+→ **LINEMO**（2,970円）or **ahamo**（2,970円）
 
 お昼でも速度が安定。動画視聴やビデオ会議もストレスなし。速度の安心感に月600〜1,500円の差額を払う価値は十分あります。
 
@@ -224,7 +224,7 @@ word_count: 7800
 |:---:|:---|---:|:---|
 | **最安** | 日本通信SIM | 1,390円 | 5分かけ放題込みで最安 |
 | **端末セット** | IIJmio | 2,000円 | スマホ110円〜 |
-| **速度+安さ** | LINEMO | 2,728円 | 30GB+LINE無制限 |
+| **速度+安さ** | LINEMO | 2,970円 | 30GB+LINE無制限+5分通話無料 |
 | **速度最優先** | ahamo | 2,970円 | ドコモ品質30GB |
 | **店舗サポート** | イオンモバイル | 1,958円 | 全国イオンで対面 |
 

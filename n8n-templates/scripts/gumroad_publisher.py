@@ -373,15 +373,15 @@ def create_product(access_token, template, zip_path):
 
         if result.get("success"):
             product = result["product"]
-            print(f"  ✓ Created: {product['name']}")
+            print(f"  [OK] Created: {product['name']}")
             print(f"    URL: {product.get('short_url', 'N/A')}")
             print(f"    Price: ${template['price']/100}")
             return product
         else:
-            print(f"  ✗ Failed: {result.get('message', 'Unknown error')}")
+            print(f"  [FAIL]: {result.get('message', 'Unknown error')}")
             return None
     except Exception as e:
-        print(f"  ✗ Error: {e}")
+        print(f"  [ERR]: {e}")
         return None
     finally:
         if files:
@@ -394,9 +394,9 @@ def publish_product(access_token, product_id):
     response = requests.put(url, data={"access_token": access_token})
     result = response.json()
     if result.get("success"):
-        print(f"    → Published!")
+        print(f"    -> Published!")
     else:
-        print(f"    → Publish failed: {result.get('message', '')}")
+        print(f"    -> Publish failed: {result.get('message', '')}")
 
 
 def list_products(access_token):
@@ -438,11 +438,11 @@ def main():
         zip_path = ZIPS_DIR / f"{template['id']}.zip"
 
         if template["name"] in existing_names:
-            print(f"  ⊘ Skipped (exists): {template['name']}")
+            print(f"  [SKIP-exists]: {template['name']}")
             continue
 
         if not zip_path.exists():
-            print(f"  ⊘ Skipped (no ZIP): {template['id']}")
+            print(f"  [SKIP-no-zip]: {template['id']}")
             continue
 
         print(f"  Publishing: {template['name']}...")

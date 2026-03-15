@@ -24,7 +24,7 @@
       "publish_date_jst": "2026-03-17T07:00:00",
       "wp_id": 24,
       "category": "yoto-betsu",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase1 収益記事"
     },
     {
@@ -32,7 +32,7 @@
       "publish_date_jst": "2026-03-19T07:00:00",
       "wp_id": 25,
       "category": "yoto-betsu",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase1 収益記事"
     },
     {
@@ -40,7 +40,7 @@
       "publish_date_jst": "2026-03-21T07:00:00",
       "wp_id": 26,
       "category": "review",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase1 収益記事 最高単価6480円"
     },
     {
@@ -72,7 +72,7 @@
       "publish_date_jst": "2026-03-30T07:00:00",
       "wp_id": 88,
       "category": "norikae",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase2 docomoからの乗り換え"
     },
     {
@@ -88,7 +88,7 @@
       "publish_date_jst": "2026-04-03T07:00:00",
       "wp_id": 92,
       "category": "norikae",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase2 SoftBankからの乗り換え"
     },
     {
@@ -96,7 +96,7 @@
       "publish_date_jst": "2026-04-07T07:00:00",
       "wp_id": 94,
       "category": "ryokin-hikaku",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase2 3GB最安プラン比較"
     },
     {
@@ -104,7 +104,7 @@
       "publish_date_jst": "2026-04-09T07:00:00",
       "wp_id": 96,
       "category": "ryokin-hikaku",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase2 20GBプラン比較"
     },
     {
@@ -216,7 +216,7 @@
       "publish_date_jst": "2026-05-18T07:00:00",
       "wp_id": 124,
       "category": "kaigai-sim",
-      "status": "scheduled",
+      "status": "published",
       "note": "Phase4 海外旅行eSIMおすすめ"
     },
     {
