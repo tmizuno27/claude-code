@@ -262,81 +262,81 @@
     {
       "filename": "kakuyasu-sim-1gb-hikaku",
       "publish_date_jst": "2026-06-08T07:00:00",
-      "wp_id": null,
+      "wp_id": 253,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 1GB以下最安ランキング"
     },
     {
       "filename": "kakuyasu-sim-10gb-hikaku",
       "publish_date_jst": "2026-06-10T07:00:00",
-      "wp_id": null,
+      "wp_id": 255,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 10GBプラン比較"
     },
     {
       "filename": "kakuyasu-sim-ipad-tablet",
       "publish_date_jst": "2026-06-12T07:00:00",
-      "wp_id": null,
+      "wp_id": 257,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 iPad・タブレット向けSIM"
     },
     {
       "filename": "kakuyasu-sim-fuufu-couple",
       "publish_date_jst": "2026-06-15T07:00:00",
-      "wp_id": null,
+      "wp_id": 259,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 夫婦・カップル向けSIM"
     },
     {
       "filename": "kakuyasu-sim-sokudo-ranking",
       "publish_date_jst": "2026-06-17T07:00:00",
-      "wp_id": null,
+      "wp_id": 261,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 速度ランキング"
     },
     {
       "filename": "kakuyasu-sim-campaign-matome",
       "publish_date_jst": "2026-06-19T07:00:00",
-      "wp_id": null,
+      "wp_id": 263,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 キャンペーンまとめ"
     },
     {
       "filename": "ahamo-hyoban",
       "publish_date_jst": "2026-06-22T07:00:00",
-      "wp_id": null,
+      "wp_id": 265,
       "category": "review",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 ahamo評判レビュー"
     },
     {
       "filename": "iijmio-hyoban",
       "publish_date_jst": "2026-06-24T07:00:00",
-      "wp_id": null,
+      "wp_id": 267,
       "category": "review",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 IIJmio評判レビュー"
     },
     {
       "filename": "ymobile-hyoban",
       "publish_date_jst": "2026-06-26T07:00:00",
-      "wp_id": null,
+      "wp_id": 269,
       "category": "review",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 Y!mobile評判レビュー"
     },
     {
       "filename": "kakuyasu-sim-esim-taiou",
       "publish_date_jst": "2026-06-29T07:00:00",
-      "wp_id": null,
+      "wp_id": 271,
       "category": "ryokin-hikaku",
-      "status": "draft",
+      "status": "scheduled",
       "note": "Phase5 eSIM対応格安SIM比較"
     }
   ]
