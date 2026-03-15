@@ -1,0 +1,13 @@
+name = "url-shortener-api"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace binding
+# First create the namespace:
+#   wrangler kv namespace create URL_STORE
+#   wrangler kv namespace create URL_STORE --preview
+# Then replace the id values below with the output from those commands.
+[[kv_namespaces]]
+binding = "URL_STORE"
+id = "YOUR_KV_NAMESPACE_ID"
+preview_id = "YOUR_PREVIEW_KV_NAMESPACE_ID"

@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "URL Shortener API",
+    "description": "Create and manage short URLs with click tracking. Powered by Cloudflare Workers and KV storage.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://url-shortener-api.t-mizuno27.workers.dev"
+    }
+  ],
+  "paths": {
+    "/shorten": {
+      "post": {
+        "operationId": "createShortUrl",
+        "summary": "Create a short URL",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["url"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "description": "The original URL to shorten",
+                    "example": "https://example.com/very/long/path"
+                  },
+                  "custom_alias": {
+                    "type": "string",
+                    "description": "Optional custom alias (1-64 alphanumeric chars, hyphens, underscores)",
+                    "example": "my-link"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Short URL created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShortUrlResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Alias already in use",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/r/{alias}": {
+      "get": {
+        "operationId": "redirectToUrl",
+        "summary": "Redirect to original URL",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "301": {
+            "description": "Redirect to original URL"
+          },
+          "404": {
+            "description": "Short URL not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stats/{alias}": {
+      "get": {
+        "operationId": "getUrlStats",
+        "summary": "Get click statistics for a short URL",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "URL statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Short URL not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{alias}": {
+      "delete": {
+        "operationId": "deleteShortUrl",
+        "summary": "Delete a short URL",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Short URL deleted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string"
+                    },
+                    "alias": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Short URL not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ShortUrlResponse": {
+        "type": "object",
+        "properties": {
+          "short_url": {
+            "type": "string",
+            "example": "https://url-shortener-api.t-mizuno27.workers.dev/r/abc123"
+          },
+          "alias": {
+            "type": "string",
+            "example": "abc123"
+          },
+          "original_url": {
+            "type": "string",
+            "example": "https://example.com/very/long/path"
+          }
+        }
+      },
+      "StatsResponse": {
+        "type": "object",
+        "properties": {
+          "alias": {
+            "type": "string",
+            "example": "abc123"
+          },
+          "original_url": {
+            "type": "string",
+            "example": "https://example.com/very/long/path"
+          },
+          "clicks": {
+            "type": "integer",
+            "example": 42
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "last_clicked": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

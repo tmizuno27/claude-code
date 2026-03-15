@@ -1,0 +1,16 @@
+{
+  "name": "json-formatter-api",
+  "version": "1.0.0",
+  "description": "JSON/Data Formatter & Validator API - Cloudflare Worker",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/"
+  },
+  "keywords": ["json", "formatter", "validator", "csv", "diff", "cloudflare-worker"],
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

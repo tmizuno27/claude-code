@@ -1,0 +1,14 @@
+{
+  "name": "url-shortener-api",
+  "version": "1.0.0",
+  "description": "URL Shortener API - Cloudflare Worker with KV storage",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
