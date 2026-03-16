@@ -13,6 +13,10 @@ import sys
 import json
 import time
 
+# Fix encoding for Windows console
+if sys.platform == 'win32':
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+
 NOTION_TOKEN = os.environ.get("NOTION_TOKEN", "")
 BASE_URL = "https://api.notion.com/v1"
 HEADERS = {
