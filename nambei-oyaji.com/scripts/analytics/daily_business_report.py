@@ -701,8 +701,11 @@ def generate_priority_actions(blog_data: list, rapidapi_data: dict,
         )
 
         prompt = f"""あなたは収益最大化の専門コンサルタントです。
-以下の全事業データを分析し、今日やるべき優先アクションを6件、
+以下の全事業データを分析し、今日やるべき優先アクションを
 「収益インパクト÷必要な労力」が高い順に提案してください。
+
+件数制限なし。その日のデータから本当に重要なものだけを厳選してください。
+些細なことや効果の薄いアクションは含めないこと。
 
 ■ 判断基準（重要度順）:
 1. 即座に収益に繋がるアクション（出品・設定するだけで課金が始まるもの）
@@ -740,12 +743,12 @@ def generate_priority_actions(blog_data: list, rapidapi_data: dict,
   ...
 ]
 
-P1=今日必ずやる（2件）、P2=今日できればやる（2件）、P3=今週中（2件）
-計6件、JSON配列のみ出力してください。"""
+P1=今日必ずやる、P2=今日できればやる、P3=今週中
+件数は自由。重要度の高いものだけを厳選し、JSON配列のみ出力してください。"""
 
         message = client.messages.create(
             model=model,
-            max_tokens=1000,
+            max_tokens=2000,
             timeout=45.0,
             system="収益最大化に特化したビジネスコンサルタント。JSON形式で簡潔に回答する。",
             messages=[{"role": "user", "content": prompt}]
