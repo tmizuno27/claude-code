@@ -3,7 +3,7 @@
   "info": {
     "title": "Crypto Data API",
     "version": "1.0.0",
-    "description": "Cryptocurrency data aggregated from CoinGecko. Provides prices, market data, coin details, trending coins, exchange listings, and global market stats."
+    "description": "Cryptocurrency data powered by CoinCap API. Provides prices, market data, coin details, trending coins, exchange listings, and global market stats."
   },
   "servers": [
     { "url": "https://crypto-data-api.YOUR-SUBDOMAIN.workers.dev" }

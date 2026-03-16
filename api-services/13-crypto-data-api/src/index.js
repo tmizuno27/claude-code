@@ -1,5 +1,5 @@
 import { jsonResponse, errorResponse, handleCors, checkRateLimit, cleanRateLimits } from './utils.js';
-import { getPrice, getCoin, searchCoins, getTrending, getMarkets, getHistory, getExchanges, getGlobal, CACHE_TTLS } from './coingecko.js';
+import { getPrice, getCoin, searchCoins, getTrending, getMarkets, getHistory, getExchanges, getGlobal, CACHE_TTLS } from './coincap.js';
 
 export default {
   async fetch(request, env) {
@@ -26,7 +26,7 @@ export default {
         return jsonResponse({
           name: 'Crypto Data API',
           version: '1.0.0',
-          description: 'Cryptocurrency data aggregated from CoinGecko',
+          description: 'Cryptocurrency data powered by CoinCap API',
           endpoints: [
             { method: 'GET', path: '/price', params: 'ids (required), vs (default: usd)', description: 'Current prices for multiple coins' },
             { method: 'GET', path: '/coin/:id', description: 'Detailed coin information' },
@@ -39,7 +39,7 @@ export default {
           ],
           cache_ttls: CACHE_TTLS,
           rate_limit: '30 requests per minute per IP',
-          data_source: 'CoinGecko API (free tier)',
+          data_source: 'CoinCap API v2 (free, no auth)',
         });
       }
 
