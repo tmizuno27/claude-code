@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Link2,
   AlertTriangle,
@@ -12,6 +12,7 @@ import {
   Zap,
   Trash2,
 } from "lucide-react";
+import { createClient } from "@/lib/supabase";
 import type { LinkSuggestion, OrphanPost, PostLinkStats } from "@/lib/types";
 
 interface SiteConfig {
@@ -19,6 +20,15 @@ interface SiteConfig {
   username: string;
   app_password: string;
   site_name?: string;
+}
+
+interface SavedSite {
+  id: string;
+  name: string;
+  url: string;
+  rest_api_url: string;
+  username: string;
+  app_password: string;
 }
 
 interface AnalysisData {
@@ -33,7 +43,10 @@ interface AnalysisData {
   };
 }
 
-export default function Dashboard() {
+export default function Dashboard({ userId }: { userId: string }) {
+  const supabase = createClient();
+  const [savedSites, setSavedSites] = useState<SavedSite[]>([]);
+  const [currentSiteId, setCurrentSiteId] = useState<string | null>(null);
   const [site, setSite] = useState<SiteConfig>({
     rest_api_url: "",
     username: "",
@@ -48,6 +61,32 @@ export default function Dashboard() {
   const [error, setError] = useState("");
   const [applyResult, setApplyResult] = useState<string>("");
 
+  // Load saved sites on mount
+  useEffect(() => {
+    async function loadSites() {
+      const { data } = await supabase
+        .from("sites")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (data && data.length > 0) {
+        setSavedSites(data);
+      }
+    }
+    loadSites();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function selectSavedSite(s: SavedSite) {
+    setSite({
+      rest_api_url: s.rest_api_url,
+      username: s.username,
+      app_password: s.app_password,
+      site_name: s.name,
+    });
+    setCurrentSiteId(s.id);
+    setConnected(true);
+  }
+
   async function testConnection() {
     setTesting(true);
     setError("");
@@ -59,7 +98,35 @@ export default function Dashboard() {
       });
       const data = await res.json();
       if (data.success) {
-        setSite((s) => ({ ...s, site_name: data.site_name }));
+        const siteName = data.site_name || site.rest_api_url;
+        setSite((s) => ({ ...s, site_name: siteName }));
+
+        // Save to Supabase
+        const siteUrl = site.rest_api_url.replace(/\/wp-json\/wp\/v2\/?$/, "");
+        const { data: saved, error: saveErr } = await supabase
+          .from("sites")
+          .upsert(
+            {
+              user_id: userId,
+              name: siteName,
+              url: siteUrl,
+              rest_api_url: site.rest_api_url,
+              username: site.username,
+              app_password: site.app_password,
+            },
+            { onConflict: "user_id,rest_api_url", ignoreDuplicates: false }
+          )
+          .select()
+          .single();
+
+        if (!saveErr && saved) {
+          setCurrentSiteId(saved.id);
+          setSavedSites((prev) => {
+            const filtered = prev.filter((s) => s.id !== saved.id);
+            return [saved, ...filtered];
+          });
+        }
+
         setConnected(true);
       } else {
         setError(data.error || "Connection failed");
@@ -154,6 +221,7 @@ export default function Dashboard() {
 
   function disconnect() {
     setSite({ rest_api_url: "", username: "", app_password: "" });
+    setCurrentSiteId(null);
     setConnected(false);
     setAnalysis(null);
     setSelected(new Set());
@@ -161,10 +229,52 @@ export default function Dashboard() {
     setApplyResult("");
   }
 
+  async function deleteSavedSite(siteId: string) {
+    await supabase.from("sites").delete().eq("id", siteId);
+    setSavedSites((prev) => prev.filter((s) => s.id !== siteId));
+  }
+
   // ---- Connection form ----
   if (!connected) {
     return (
       <div className="max-w-lg mx-auto mt-12">
+        {/* Saved sites */}
+        {savedSites.length > 0 && (
+          <div className="mb-6">
+            <h3 className="text-sm font-medium text-gray-700 mb-3">Your Sites</h3>
+            <div className="space-y-2">
+              {savedSites.map((s) => (
+                <div
+                  key={s.id}
+                  className="bg-white rounded-xl border border-gray-200 p-4 flex items-center justify-between hover:border-blue-300 transition cursor-pointer"
+                  onClick={() => selectSavedSite(s)}
+                >
+                  <div>
+                    <p className="font-medium text-sm">{s.name}</p>
+                    <p className="text-xs text-gray-500">{s.url}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteSavedSite(s.id);
+                      }}
+                      className="text-gray-400 hover:text-red-500 transition p-1"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                    <ArrowRight className="w-4 h-4 text-gray-400" />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative my-6">
+              <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200" /></div>
+              <div className="relative flex justify-center text-xs"><span className="bg-gray-50 px-2 text-gray-500">or add new site</span></div>
+            </div>
+          </div>
+        )}
+
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">

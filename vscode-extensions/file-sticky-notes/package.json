@@ -1,0 +1,36 @@
+{
+  "name": "file-sticky-notes",
+  "displayName": "File Sticky Notes",
+  "description": "Attach virtual sticky notes to any file or line. Notes persist across sessions.",
+  "version": "0.1.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "keywords": ["notes", "sticky", "annotation", "bookmark"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "fileStickyNotes.add", "title": "Sticky Notes: Add Note" },
+      { "command": "fileStickyNotes.list", "title": "Sticky Notes: List All" },
+      { "command": "fileStickyNotes.remove", "title": "Sticky Notes: Remove Note" }
+    ],
+    "viewsContainers": {
+      "activitybar": [{ "id": "fileStickyNotes", "title": "Sticky Notes", "icon": "$(note)" }]
+    },
+    "views": {
+      "fileStickyNotes": [{ "id": "stickyNotesView", "name": "Notes" }]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}

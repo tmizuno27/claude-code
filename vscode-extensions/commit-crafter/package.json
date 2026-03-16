@@ -1,0 +1,29 @@
+{
+  "name": "commit-crafter",
+  "displayName": "Commit Crafter",
+  "description": "Generate structured, conventional commit messages with templates and AI assistance.",
+  "version": "0.1.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["SCM Providers", "Other"],
+  "keywords": ["git", "commit", "conventional", "template"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "commitCrafter.generate", "title": "Commit Crafter: Generate Message" },
+      { "command": "commitCrafter.selectTemplate", "title": "Commit Crafter: Select Template" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
