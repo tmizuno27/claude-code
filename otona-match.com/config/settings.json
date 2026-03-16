@@ -33,7 +33,7 @@
     "credentials_file": "ga4-credentials.json"
   },
   "search_console": {
-    "site_url": "https://otona-match.com/",
+    "site_url": "https://otona-match.com",
     "credentials_file": "gsc-credentials.json"
   },
   "discord": {

@@ -1,0 +1,81 @@
+{
+  "name": "Social Video Downloader API",
+  "slug": "social-video-downloader-api",
+  "description": "Extract video download URLs from TikTok, Twitter/X, Instagram, YouTube, and Facebook by parsing public HTML pages. Fast and reliable.",
+  "long_description": "A lightweight Social Video Downloader API built on Cloudflare Workers. Extract direct video download URLs and metadata from major social media platforms including TikTok, Twitter/X, Instagram, YouTube, and Facebook. Simply pass a video URL and get back the direct download link. Also supports metadata-only mode to get video info without the download URL. No browser automation or headless browsers required — pure HTML parsing for maximum speed.",
+  "category": "Video_Images",
+  "tags": ["video-downloader", "social-media", "tiktok", "youtube", "instagram", "twitter"],
+  "website": "https://social-video-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["All platforms", "Download URL extraction", "Up to 500 requests/month"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All platforms", "Download + metadata", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited platforms", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Download Video",
+      "method": "GET",
+      "path": "/download",
+      "description": "Extract video download URL from a social media video page",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "Video URL from TikTok, Twitter/X, Instagram, YouTube, or Facebook" }
+      ]
+    },
+    {
+      "name": "Video Info",
+      "method": "GET",
+      "path": "/info",
+      "description": "Get video metadata without the download URL",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "Video URL from a supported platform" }
+      ]
+    },
+    {
+      "name": "List Platforms",
+      "method": "GET",
+      "path": "/platforms",
+      "description": "List all supported platforms with URL patterns"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

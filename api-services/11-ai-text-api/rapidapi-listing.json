@@ -1,0 +1,108 @@
+{
+  "name": "AI Text API",
+  "slug": "ai-text-api",
+  "description": "AI-powered text generation, summarization, translation, sentiment analysis, and rewriting. Built on Cloudflare Workers AI with Llama 3.1.",
+  "long_description": "A versatile AI Text API powered by Cloudflare Workers AI (Meta Llama 3.1 8B Instruct). Generate text from prompts, summarize long content, translate between languages, analyze sentiment with confidence scores, and rewrite text in different tones (formal, casual, professional, simple). Ultra-low latency via Cloudflare's global edge network. Perfect for content creators, chatbots, and automation workflows.",
+  "category": "Text",
+  "tags": ["ai", "text-generation", "summarization", "translation", "sentiment-analysis", "nlp"],
+  "website": "https://ai-text-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Text generation", "Summarization", "Up to 1000 char prompts"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Up to 5000 char text input", "Custom temperature", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Generate Text",
+      "method": "POST",
+      "path": "/generate",
+      "description": "Generate text from a prompt using AI",
+      "parameters": [
+        { "name": "prompt", "type": "string", "required": true, "description": "Text prompt (max 1000 characters)" },
+        { "name": "max_tokens", "type": "integer", "required": false, "default": 512, "description": "Maximum tokens to generate (1-2048)" },
+        { "name": "temperature", "type": "number", "required": false, "default": 0.7, "description": "Creativity level (0-2)" }
+      ]
+    },
+    {
+      "name": "Summarize Text",
+      "method": "POST",
+      "path": "/summarize",
+      "description": "Summarize text concisely",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to summarize (max 5000 characters)" },
+        { "name": "max_length", "type": "integer", "required": false, "default": 200, "description": "Approximate max words for summary" }
+      ]
+    },
+    {
+      "name": "Translate Text",
+      "method": "POST",
+      "path": "/translate",
+      "description": "Translate text between languages",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to translate (max 5000 characters)" },
+        { "name": "source_lang", "type": "string", "required": false, "default": "auto", "description": "Source language (or 'auto' for detection)" },
+        { "name": "target_lang", "type": "string", "required": true, "description": "Target language" }
+      ]
+    },
+    {
+      "name": "Sentiment Analysis",
+      "method": "POST",
+      "path": "/sentiment",
+      "description": "Analyze text sentiment (positive, negative, neutral) with confidence score",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to analyze (max 5000 characters)" }
+      ]
+    },
+    {
+      "name": "Rewrite Text",
+      "method": "POST",
+      "path": "/rewrite",
+      "description": "Rewrite text in a different tone",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to rewrite (max 5000 characters)" },
+        { "name": "tone", "type": "string", "required": false, "default": "professional", "enum": ["formal", "casual", "professional", "simple"], "description": "Target tone for rewriting" }
+      ]
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

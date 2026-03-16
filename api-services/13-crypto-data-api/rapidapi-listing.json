@@ -1,0 +1,124 @@
+{
+  "name": "Crypto Data API",
+  "slug": "crypto-data-api",
+  "description": "Real-time cryptocurrency prices, market data, trending coins, historical data, and exchange info. Powered by CoinCap API with built-in caching.",
+  "long_description": "A comprehensive Cryptocurrency Data API built on Cloudflare Workers with intelligent caching. Get real-time prices for multiple coins, detailed coin information, search by name or symbol, trending coins, paginated market listings, historical prices on specific dates, top exchanges, and global crypto market statistics. Data sourced from CoinCap API v2 (free, no auth required). Built-in response caching for optimal performance.",
+  "category": "Finance",
+  "tags": ["cryptocurrency", "bitcoin", "ethereum", "crypto-prices", "market-data", "blockchain"],
+  "website": "https://crypto-data-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Price lookup", "Coin search", "Global stats"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Historical data", "Market listings", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Get Prices",
+      "method": "GET",
+      "path": "/price",
+      "description": "Get current prices for one or more cryptocurrencies",
+      "parameters": [
+        { "name": "ids", "type": "string", "required": true, "description": "Comma-separated coin IDs (e.g., bitcoin,ethereum)" },
+        { "name": "vs", "type": "string", "required": false, "default": "usd", "description": "Target currency for price conversion" }
+      ]
+    },
+    {
+      "name": "Get Coin Details",
+      "method": "GET",
+      "path": "/coin/:id",
+      "description": "Get detailed information for a specific coin",
+      "parameters": [
+        { "name": "id", "type": "string", "required": true, "description": "Coin ID (e.g., bitcoin)" }
+      ]
+    },
+    {
+      "name": "Search Coins",
+      "method": "GET",
+      "path": "/search",
+      "description": "Search coins by name or symbol",
+      "parameters": [
+        { "name": "q", "type": "string", "required": true, "description": "Search query" }
+      ]
+    },
+    {
+      "name": "Trending Coins",
+      "method": "GET",
+      "path": "/trending",
+      "description": "Get top trending cryptocurrencies"
+    },
+    {
+      "name": "Market Listings",
+      "method": "GET",
+      "path": "/markets",
+      "description": "Get paginated market listings",
+      "parameters": [
+        { "name": "vs", "type": "string", "required": false, "default": "usd", "description": "Target currency" },
+        { "name": "per_page", "type": "integer", "required": false, "default": 100, "description": "Results per page" },
+        { "name": "page", "type": "integer", "required": false, "default": 1, "description": "Page number" }
+      ]
+    },
+    {
+      "name": "Historical Price",
+      "method": "GET",
+      "path": "/history",
+      "description": "Get historical price on a specific date",
+      "parameters": [
+        { "name": "id", "type": "string", "required": true, "description": "Coin ID" },
+        { "name": "date", "type": "string", "required": true, "description": "Date in YYYY-MM-DD format" }
+      ]
+    },
+    {
+      "name": "List Exchanges",
+      "method": "GET",
+      "path": "/exchanges",
+      "description": "List top cryptocurrency exchanges"
+    },
+    {
+      "name": "Global Stats",
+      "method": "GET",
+      "path": "/global",
+      "description": "Get global crypto market statistics"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}
