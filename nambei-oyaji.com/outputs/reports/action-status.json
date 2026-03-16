@@ -19,15 +19,15 @@
       "id": "otona-ga4-fix",
       "title": "otona-matchGA4権限修正",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:48"
     },
     {
       "id": "sim-ga4-fix",
       "title": "sim-hikakuGA4権限修正",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:48"
     },
     {
       "id": "pseo-vercel-deploy",
