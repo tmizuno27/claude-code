@@ -98,27 +98,21 @@ async function handleSearch(url) {
   const cached = getCached(cacheKey);
   if (cached) return json({ ...cached, cached: true });
 
-  const apiUrl = `https://api.opencorporates.com/v0.4/companies/search?q=${encodeURIComponent(q)}&per_page=10`;
+  // Use Wikidata API to search for companies/organizations
+  const apiUrl = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(q)}&language=en&limit=10&format=json`;
 
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch(apiUrl, { headers: { 'User-Agent': 'CompanyDataAPI/1.0' } });
     if (!res.ok) {
-      return errorResponse(`OpenCorporates API error: ${res.status}`, 502);
+      return errorResponse(`Wikidata API error: ${res.status}`, 502);
     }
     const data = await res.json();
-    const companies = (data.results?.companies || []).map((c) => {
-      const co = c.company;
-      return {
-        name: co.name,
-        jurisdiction: co.jurisdiction_code,
-        companyNumber: co.company_number,
-        status: co.current_status,
-        incorporationDate: co.incorporation_date,
-        address: co.registered_address_in_full,
-        type: co.company_type,
-        opencorporatesUrl: co.opencorporates_url,
-      };
-    });
+    const companies = (data.search || []).map((item) => ({
+      name: item.label,
+      description: item.description || null,
+      wikidataId: item.id,
+      wikidataUrl: item.concepturi,
+    }));
 
     const result = { query: q, count: companies.length, companies };
     setCache(cacheKey, result, 3600);
@@ -131,52 +125,53 @@ async function handleSearch(url) {
 async function handleCompany(url) {
   const jurisdiction = url.searchParams.get('jurisdiction');
   const number = url.searchParams.get('number');
-  if (!jurisdiction || !number) {
-    return errorResponse('Missing required parameters: jurisdiction and number');
+  if (!jurisdiction) {
+    return errorResponse('Missing required parameter: jurisdiction (Wikidata ID, e.g., Q95)');
   }
 
-  const cacheKey = `company:${jurisdiction}:${number}`;
+  const cacheKey = `company:${jurisdiction}`;
   const cached = getCached(cacheKey);
   if (cached) return json({ ...cached, cached: true });
 
-  const apiUrl = `https://api.opencorporates.com/v0.4/companies/${encodeURIComponent(jurisdiction)}/${encodeURIComponent(number)}`;
+  // Use Wikidata to get entity details
+  const wikidataId = jurisdiction; // Reuse jurisdiction param as Wikidata ID (e.g., Q95)
+  const apiUrl = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${encodeURIComponent(wikidataId)}&languages=en&format=json`;
 
   try {
-    const res = await fetch(apiUrl);
+    const res = await fetch(apiUrl, { headers: { 'User-Agent': 'CompanyDataAPI/1.0' } });
     if (!res.ok) {
-      if (res.status === 404) return errorResponse('Company not found', 404);
-      return errorResponse(`OpenCorporates API error: ${res.status}`, 502);
+      return errorResponse(`Wikidata API error: ${res.status}`, 502);
     }
     const data = await res.json();
-    const co = data.results?.company;
-    if (!co) return errorResponse('Company not found', 404);
+    const entity = data.entities?.[wikidataId];
+    if (!entity || entity.missing !== undefined) return errorResponse('Entity not found', 404);
+
+    const labels = entity.labels?.en?.value || null;
+    const desc = entity.descriptions?.en?.value || null;
+    const claims = entity.claims || {};
+
+    const getClaimValue = (prop) => {
+      const c = claims[prop]?.[0]?.mainsnak?.datavalue?.value;
+      return c?.time || c?.id || c?.['numeric-id'] || c || null;
+    };
 
     const result = {
-      name: co.name,
-      jurisdiction: co.jurisdiction_code,
-      companyNumber: co.company_number,
-      status: co.current_status,
-      incorporationDate: co.incorporation_date,
-      dissolutionDate: co.dissolution_date,
-      companyType: co.company_type,
-      registryUrl: co.registry_url,
-      address: co.registered_address_in_full,
-      officers: (co.officers || []).map((o) => ({
-        name: o.officer?.name,
-        position: o.officer?.position,
-        startDate: o.officer?.start_date,
-      })),
-      filings: (co.filings || []).slice(0, 5).map((f) => ({
-        title: f.filing?.title,
-        date: f.filing?.date,
-      })),
-      opencorporatesUrl: co.opencorporates_url,
+      wikidataId,
+      name: labels,
+      description: desc,
+      founded: getClaimValue('P571'),
+      headquarters: getClaimValue('P159'),
+      website: claims.P856?.[0]?.mainsnak?.datavalue?.value || null,
+      industry: getClaimValue('P452'),
+      ceo: getClaimValue('P169'),
+      employees: getClaimValue('P1128'),
+      wikidataUrl: `https://www.wikidata.org/wiki/${wikidataId}`,
     };
 
     setCache(cacheKey, result, 3600);
     return json(result);
   } catch (err) {
-    return errorResponse(`Failed to fetch company: ${err.message}`, 502);
+    return errorResponse(`Failed to fetch entity: ${err.message}`, 502);
   }
 }
 
