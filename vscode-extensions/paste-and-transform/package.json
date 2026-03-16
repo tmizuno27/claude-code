@@ -1,0 +1,56 @@
+{
+  "name": "paste-and-transform",
+  "displayName": "Paste & Transform",
+  "description": "Paste clipboard content with instant transformations: camelCase, snake_case, Base64, JSON format, URL encode, and more.",
+  "version": "1.0.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "paste",
+    "transform",
+    "camelCase",
+    "snake_case",
+    "base64",
+    "clipboard"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pasteAndTransform.execute",
+        "title": "Paste & Transform"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pasteAndTransform.execute",
+        "key": "ctrl+shift+alt+v",
+        "mac": "cmd+shift+alt+v",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
