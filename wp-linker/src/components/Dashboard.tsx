@@ -206,6 +206,7 @@ export default function Dashboard({ userId }: { userId: string }) {
           )
         );
         setSelected(keys);
+        if (currentSiteId) loadHistory(currentSiteId);
       } else {
         setError(data.error || "Analysis failed");
       }
@@ -431,8 +432,72 @@ export default function Dashboard({ userId }: { userId: string }) {
         </button>
       </div>
 
-      {/* Analyze button */}
-      {!analysis && (
+      {/* Tabs */}
+      <div className="flex gap-1 mb-6 bg-gray-100 rounded-lg p-1 w-fit">
+        <button
+          onClick={() => setTab("analyze")}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition ${tab === "analyze" ? "bg-white shadow-sm text-gray-900" : "text-gray-500 hover:text-gray-700"}`}
+        >
+          <span className="flex items-center gap-1.5"><BarChart3 className="w-4 h-4" />Analyze</span>
+        </button>
+        <button
+          onClick={() => { setTab("history"); if (currentSiteId && history.length === 0) loadHistory(currentSiteId); }}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition ${tab === "history" ? "bg-white shadow-sm text-gray-900" : "text-gray-500 hover:text-gray-700"}`}
+        >
+          <span className="flex items-center gap-1.5"><History className="w-4 h-4" />History</span>
+        </button>
+      </div>
+
+      {/* History tab */}
+      {tab === "history" && (
+        <div className="bg-white rounded-xl border border-gray-200">
+          <div className="p-5 border-b border-gray-100">
+            <h3 className="font-semibold flex items-center gap-2">
+              <History className="w-4 h-4 text-blue-600" />
+              Analysis History
+            </h3>
+          </div>
+          {loadingHistory ? (
+            <div className="p-8 text-center text-gray-500"><Loader2 className="w-5 h-5 animate-spin mx-auto" /></div>
+          ) : history.length === 0 ? (
+            <div className="p-8 text-center text-gray-500 text-sm">No analysis history yet. Run your first analysis!</div>
+          ) : (
+            <div className="divide-y divide-gray-50">
+              {history.map((h) => (
+                <div key={h.id} className="px-5 py-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium">
+                      {new Date(h.created_at).toLocaleDateString("ja-JP", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" })}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-0.5">
+                      {h.total_posts} posts analyzed
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-4 text-xs">
+                    <span className={`px-2 py-1 rounded-full ${h.orphan_count === 0 ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"}`}>
+                      {h.orphan_count} orphans
+                    </span>
+                    <span className="px-2 py-1 rounded-full bg-blue-50 text-blue-700">
+                      {h.suggestions_count} suggestions
+                    </span>
+                    <span className={`px-2 py-1 rounded-full font-medium ${h.coverage >= 80 ? "bg-emerald-50 text-emerald-700" : h.coverage >= 50 ? "bg-amber-50 text-amber-700" : "bg-red-50 text-red-700"}`}>
+                      {h.coverage}% coverage
+                    </span>
+                    {h.applied_count > 0 && (
+                      <span className="px-2 py-1 rounded-full bg-purple-50 text-purple-700">
+                        {h.applied_count} applied
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Analyze tab */}
+      {tab === "analyze" && !analysis && (
         <button
           onClick={runAnalysis}
           disabled={analyzing}
@@ -668,4 +733,8 @@ export default function Dashboard({ userId }: { userId: string }) {
               {analyzing ? "Analyzing..." : "Re-analyze"}
             </button>
           </div>
-      
+        </>
+      )}
+    </div>
+  );
+}
