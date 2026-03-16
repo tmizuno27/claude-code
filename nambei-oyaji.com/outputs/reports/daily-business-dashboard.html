@@ -411,17 +411,176 @@ footer{
   .pipe-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:700px){
+  html{font-size:15px}
   .sidebar{display:none}
-  .main{margin-left:0;padding:1rem}
-  header{flex-direction:column;gap:0.6rem}
-  .header-right{align-items:flex-start}
-  header h1{font-size:1.5rem}
-  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:0.5rem}
-  .kpi .kpi-value{font-size:1.5rem}
-  .health-grid{grid-template-columns:1fr 1fr}
-  .actor-grid{grid-template-columns:1fr 35px 45px 60px}
+  .main{margin-left:0;padding:0.8rem;max-width:100%}
+  header{flex-direction:column;gap:0.5rem;margin-bottom:1rem;padding-bottom:0.8rem}
+  .header-right{align-items:flex-start;flex-direction:row;gap:0.6rem}
+  .header-date{font-size:1.2rem}
+  .header-time{font-size:0.8rem}
+  #live-clock{font-size:0.8rem}
+  header h1{font-size:1.4rem}
+  header .subtitle{font-size:0.75rem}
+  .tag{font-size:0.72rem;padding:0.2em 0.5em}
+
+  /* Hero */
+  .hero-row{grid-template-columns:1fr;gap:0.8rem;margin-bottom:1rem}
+  .score-card{padding:1rem}
+  .score-ring{width:100px;height:100px}
+  .score-ring svg{width:100px;height:100px}
+  .score-num{font-size:1.7rem}
+  .score-breakdown{grid-template-columns:1fr;gap:0.25rem}
+  .exec-card{padding:1rem}
+  .exec-card p{font-size:0.78rem;line-height:1.6}
+  .exec-tags{gap:0.3rem}
+  .exec-tag{font-size:0.72rem}
+
+  /* KPIs */
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:0.5rem;margin-bottom:1rem}
+  .kpi{padding:0.8rem 0.4rem}
+  .kpi .kpi-value{font-size:1.4rem}
+  .kpi .kpi-label{font-size:0.78rem}
+  .kpi .kpi-sub{font-size:0.7rem}
+  .kpi .kpi-spark{height:14px}
+
+  /* Revenue progress */
+  .rev-progress{padding:1rem;margin-bottom:1rem}
+  .rev-progress h3{font-size:0.82rem}
+  .rp-phases{flex-direction:column;gap:0}
+  .rp-phase{padding:0.5rem 0.3rem}
+  .rp-markers{font-size:0.7rem}
+
+  /* Section headers */
+  .section-header{margin:1.2rem 0 0.6rem}
+  .section-header h2{font-size:0.88rem}
+  .section-header .badge{font-size:0.7rem}
+
+  /* Portfolio */
+  .portfolio-row{grid-template-columns:1fr;gap:0.8rem}
+  .pf-donut{width:120px;height:120px}
+  .pf-donut svg{width:120px;height:120px}
+  .pf-center .pf-num{font-size:1.3rem}
+  .pf-leg{padding:0.3rem 0.4rem}
+  .pf-name{font-size:0.82rem}
+  .pf-val{font-size:0.8rem}
+
+  /* Blog cards */
+  .blog-grid{grid-template-columns:1fr;gap:0.6rem}
+  .blog-card{padding:1rem}
+  .blog-name{font-size:0.82rem}
+  .blog-domain{font-size:0.75rem}
+  .blog-ring{width:52px;height:52px}
+  .blog-ring svg{width:52px;height:52px}
+  .blog-ring .br-center{font-size:0.78rem}
+  .blog-info .bi-row{font-size:0.8rem}
+  .blog-metric .bm-val{font-size:0.88rem}
+  .blog-metric .bm-lbl{font-size:0.7rem}
+
+  /* SNS */
+  .sns-grid{grid-template-columns:1fr;gap:0.8rem}
+  .sns-hero{padding:1rem}
+  .sns-followers{font-size:2.2rem}
+  .sns-stats{grid-template-columns:repeat(3,1fr);gap:0.4rem}
+  .sns-stat{padding:0.6rem 0.3rem}
+  .sns-stat .ss-val{font-size:0.95rem}
+  .sns-stat .ss-lbl{font-size:0.72rem}
+  .sns-preview{font-size:0.72rem;padding:0.6rem 0.8rem}
+
+  /* Pipeline */
+  .pipe-grid{grid-template-columns:repeat(2,1fr);gap:0.5rem}
+  .pipe-card{padding:0.8rem 0.3rem}
+  .pipe-num{font-size:1.4rem}
+  .pipe-label{font-size:0.78rem}
+  .pipe-target{font-size:0.7rem}
+
+  /* Two-col (Apify/RapidAPI, Cost/SEO) */
+  .two-col{grid-template-columns:1fr;gap:0.8rem}
+  .t-row{padding:0.5rem 0.8rem;font-size:0.82rem}
+  .actor-grid{grid-template-columns:1fr 35px 45px 65px}
   .actor-grid .t-right{display:none}
-  .rp-phases{flex-direction:column}
+  .rapi-num{font-size:2.2rem}
+  .rapi-info .ri-label{font-size:0.82rem}
+  .rapi-info .ri-rev{font-size:1rem}
+  .rapi-row{font-size:0.82rem}
+
+  /* Biz grid */
+  .biz-grid{grid-template-columns:1fr;gap:0.5rem}
+  .biz-card{padding:1rem}
+  .biz-title{font-size:0.8rem}
+  .biz-num{font-size:1.1rem}
+  .biz-desc{font-size:0.78rem}
+  .biz-rev{font-size:0.72rem}
+
+  /* DA grid */
+  .da-grid{grid-template-columns:1fr;gap:0.5rem}
+  .da-card{padding:1rem 0.6rem}
+  .da-val{font-size:1.3rem!important}
+
+  /* Index grid */
+  .idx-grid{grid-template-columns:1fr;gap:0.5rem}
+  .idx-card{padding:1rem 0.6rem}
+  .idx-ring{width:60px;height:60px}
+  .idx-ring svg{width:60px;height:60px}
+  .idx-detail{font-size:0.8rem}
+
+  /* Affiliate matrix */
+  .aff-matrix{font-size:0.75rem}
+  .aff-matrix th,.aff-matrix td{padding:0.4rem 0.3rem}
+
+  /* Domain grid */
+  .domain-grid{grid-template-columns:1fr;gap:0.5rem}
+  .domain-card{padding:1rem}
+  .domain-name{font-size:0.85rem}
+  .domain-row{font-size:0.8rem}
+
+  /* Finance */
+  .fin-grid{grid-template-columns:1fr;gap:0.6rem}
+  .fin-card{padding:1rem}
+  .fin-row{font-size:0.78rem}
+
+  /* Health grid */
+  .health-grid{grid-template-columns:repeat(2,1fr);gap:0.5rem}
+  .health-card{padding:0.8rem 0.3rem}
+  .health-val{font-size:0.95rem}
+  .health-lbl{font-size:0.78rem}
+  .health-sub{font-size:0.7rem}
+
+  /* Revenue table */
+  .rev-grid{grid-template-columns:1fr 60px 80px}
+
+  /* Schedule */
+  .sched-week{grid-template-columns:repeat(7,1fr);gap:0.25rem}
+  .sched-day{padding:0.5rem 0.2rem}
+  .sched-day .sd-name{font-size:0.7rem}
+  .sched-day .sd-num{font-size:0.88rem}
+  .sched-day .sd-tag{font-size:0.6rem;padding:0.1em 0.25em}
+  .sched-item{font-size:0.78rem;padding:0.3rem 0.4rem}
+  .sched-item .si-time{font-size:0.7rem;width:38px}
+
+  /* Task log */
+  .task-summary{grid-template-columns:repeat(2,1fr);gap:0.5rem}
+  .task-stat{padding:0.6rem 0.3rem}
+  .task-stat .ts-val{font-size:1.1rem}
+  .task-stat .ts-lbl{font-size:0.72rem}
+
+  /* Notion */
+  .notion-row{padding:0.5rem 0;gap:0.5rem}
+  .notion-info .ni-name{font-size:0.85rem}
+  .notion-info .ni-id{font-size:0.7rem}
+
+  /* Actions */
+  .action-item{padding:0.6rem 0.8rem;font-size:0.82rem}
+  .a-pri{font-size:0.7rem}
+  .a-text .a-reason{font-size:0.75rem}
+
+  /* Cards general */
+  .card{padding:1rem;border-radius:14px}
+
+  /* Footer */
+  footer{font-size:0.72rem;flex-direction:column;gap:0.3rem}
+
+  /* Cost grid */
+  .cost-grid{grid-template-columns:1fr 65px 45px}
 }
 
 /* ═══ DOMAIN AUTHORITY ═══ */
@@ -528,9 +687,8 @@ footer{
   .fin-grid{grid-template-columns:1fr}
   .sched-week{grid-template-columns:repeat(4,1fr)}
   .task-summary{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:700px){
-  .sched-week{grid-template-columns:repeat(3,1fr)}
+  .da-grid{grid-template-columns:1fr}
+  .idx-grid{grid-template-columns:1fr}
 }
 
 /* Noise */
