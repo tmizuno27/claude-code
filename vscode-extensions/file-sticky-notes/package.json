@@ -12,16 +12,39 @@
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "fileStickyNotes.add", "title": "Sticky Notes: Add Note" },
-      { "command": "fileStickyNotes.list", "title": "Sticky Notes: List All" },
-      { "command": "fileStickyNotes.remove", "title": "Sticky Notes: Remove Note" }
+      { "command": "fileStickyNotes.add", "title": "Sticky Notes: Add Note", "icon": "$(add)" },
+      { "command": "fileStickyNotes.list", "title": "Sticky Notes: List All", "icon": "$(list-unordered)" },
+      { "command": "fileStickyNotes.remove", "title": "Sticky Notes: Remove Note" },
+      { "command": "fileStickyNotes.edit", "title": "Sticky Notes: Edit Note", "icon": "$(edit)" },
+      { "command": "fileStickyNotes.delete", "title": "Sticky Notes: Delete Note", "icon": "$(trash)" },
+      { "command": "fileStickyNotes.search", "title": "Sticky Notes: Search Notes", "icon": "$(search)" },
+      { "command": "fileStickyNotes.filterByColor", "title": "Sticky Notes: Filter by Color" },
+      { "command": "fileStickyNotes.export", "title": "Sticky Notes: Export to JSON" },
+      { "command": "fileStickyNotes.import", "title": "Sticky Notes: Import from JSON" }
     ],
     "viewsContainers": {
       "activitybar": [{ "id": "fileStickyNotes", "title": "Sticky Notes", "icon": "$(note)" }]
     },
     "views": {
       "fileStickyNotes": [{ "id": "stickyNotesView", "name": "Notes" }]
-    }
+    },
+    "menus": {
+      "editor/context": [
+        { "command": "fileStickyNotes.add", "group": "stickyNotes@1" },
+        { "command": "fileStickyNotes.remove", "group": "stickyNotes@2" }
+      ],
+      "view/title": [
+        { "command": "fileStickyNotes.add", "when": "view == stickyNotesView", "group": "navigation" },
+        { "command": "fileStickyNotes.search", "when": "view == stickyNotesView", "group": "navigation" }
+      ],
+      "view/item/context": [
+        { "command": "fileStickyNotes.edit", "when": "viewItem == stickyNote", "group": "inline" },
+        { "command": "fileStickyNotes.delete", "when": "viewItem == stickyNote", "group": "inline" }
+      ]
+    },
+    "keybindings": [
+      { "command": "fileStickyNotes.add", "key": "ctrl+shift+n", "mac": "cmd+shift+n", "when": "editorTextFocus" }
+    ]
   },
   "scripts": {
     "compile": "tsc -p ./",

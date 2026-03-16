@@ -1,20 +1,61 @@
 {
   "name": "commit-crafter",
   "displayName": "Commit Crafter",
-  "description": "Generate structured, conventional commit messages with templates and AI assistance.",
-  "version": "0.1.0",
+  "description": "Generate structured, conventional commit messages with templates and smart analysis of staged changes.",
+  "version": "1.0.0",
   "publisher": "miccho27",
   "license": "MIT",
   "engines": { "vscode": "^1.85.0" },
   "categories": ["SCM Providers", "Other"],
-  "keywords": ["git", "commit", "conventional", "template"],
+  "keywords": ["git", "commit", "conventional", "template", "gitmoji"],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "commitCrafter.generate", "title": "Commit Crafter: Generate Message" },
-      { "command": "commitCrafter.selectTemplate", "title": "Commit Crafter: Select Template" }
-    ]
+      {
+        "command": "commitCrafter.generate",
+        "title": "Commit Crafter: Generate Message",
+        "icon": "$(git-commit)"
+      },
+      {
+        "command": "commitCrafter.selectTemplate",
+        "title": "Commit Crafter: Select Template",
+        "icon": "$(list-unordered)"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "commitCrafter.generate",
+        "key": "ctrl+shift+g ctrl+shift+m",
+        "mac": "cmd+shift+g cmd+shift+m"
+      }
+    ],
+    "configuration": {
+      "title": "Commit Crafter",
+      "properties": {
+        "commitCrafter.template": {
+          "type": "string",
+          "default": "{type}({scope}): {description}",
+          "description": "Commit message template. Variables: {type}, {scope}, {description}, {body}, {footer}"
+        },
+        "commitCrafter.enableEmoji": {
+          "type": "boolean",
+          "default": false,
+          "description": "Add gitmoji-style emoji prefix to commit messages"
+        },
+        "commitCrafter.scopes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": [],
+          "description": "Predefined scopes for commit messages (e.g., api, ui, core)"
+        },
+        "commitCrafter.maxSubjectLength": {
+          "type": "number",
+          "default": 50,
+          "description": "Maximum character length for the commit subject line"
+        }
+      }
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",
