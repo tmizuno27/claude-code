@@ -532,7 +532,7 @@ export default function Dashboard({ userId }: { userId: string }) {
       )}
 
       {/* Analysis results */}
-      {analysis && (
+      {tab === "analyze" && analysis && (
         <>
           {/* Summary cards */}
           <div className="grid grid-cols-3 gap-4 mb-8">
