@@ -29,7 +29,7 @@
     "default_status": "draft"
   },
   "google_analytics": {
-    "property_id": "",
+    "property_id": "528520315",
     "credentials_file": "ga4-credentials.json"
   },
   "search_console": {

@@ -92,7 +92,7 @@ def send_discord_alert(secrets, message, is_down=True):
         logger.info("Discord Webhook未設定。通知スキップ。")
         return
 
-    dashboard_url = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+    dashboard_url = "https://htmlpreview.github.io/?https://gist.githubusercontent.com/tmizuno27/16a8680cadf8aed0c207777f7468963b/raw/daily-business-dashboard.html"
     color = 0xFF0000 if is_down else 0x00FF00
     title = "サイトダウン検知" if is_down else "サイト復旧確認"
 

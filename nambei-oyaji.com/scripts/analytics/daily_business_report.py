@@ -852,7 +852,7 @@ def send_discord_notification(blog_data, rapidapi_data, apify_data, x_data, task
 
         # Embed構築
         # ダッシュボードURL（GitHub上のHTMLファイル）
-        dashboard_url = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+        dashboard_url = "https://htmlpreview.github.io/?https://gist.githubusercontent.com/tmizuno27/16a8680cadf8aed0c207777f7468963b/raw/daily-business-dashboard.html"
 
         embed = {
             "title": f"📊 日次ビジネスレポート — {today_str}",
@@ -903,6 +903,52 @@ def send_discord_notification(blog_data, rapidapi_data, apify_data, x_data, task
 
     except Exception as e:
         logger.warning(f"Discord通知エラー: {e}")
+
+
+# ─────────────────────────────────────────────
+# Gist自動更新
+# ─────────────────────────────────────────────
+
+GIST_ID = "16a8680cadf8aed0c207777f7468963b"
+
+
+def update_gist_dashboard():
+    """ダッシュボードHTMLをGitHub Gistに自動アップロード"""
+    try:
+        dashboard_path = REPORTS_DIR / "daily-business-dashboard.html"
+        if not dashboard_path.exists():
+            logger.warning("ダッシュボードHTML未生成。Gist更新スキップ")
+            return
+
+        # GitのCredential Managerからトークン取得
+        import subprocess
+        result = subprocess.run(
+            ["git", "credential", "fill"],
+            input="protocol=https\nhost=github.com\n",
+            capture_output=True, text=True, timeout=10
+        )
+        token = None
+        for line in result.stdout.splitlines():
+            if line.startswith("password="):
+                token = line.split("=", 1)[1]
+                break
+        if not token:
+            logger.warning("GitHubトークン取得失敗。Gist更新スキップ")
+            return
+
+        html_content = dashboard_path.read_text(encoding="utf-8")
+        resp = requests.patch(
+            f"https://api.github.com/gists/{GIST_ID}",
+            headers={"Authorization": f"token {token}", "Accept": "application/vnd.github+json"},
+            json={"files": {"daily-business-dashboard.html": {"content": html_content}}},
+            timeout=30,
+        )
+        if resp.status_code == 200:
+            logger.info("Gistダッシュボード更新完了")
+        else:
+            logger.warning(f"Gist更新失敗: {resp.status_code}")
+    except Exception as e:
+        logger.warning(f"Gist更新エラー: {e}")
 
 
 # ─────────────────────────────────────────────
@@ -982,6 +1028,10 @@ def main():
     print(f"  定期タスク: {task_health.get('status')}")
     print(f"保存先: {report_path}")
     print(f"{'='*60}\n")
+
+    # ─── Gistダッシュボード更新 ───
+    logger.info("Gistダッシュボード更新中...")
+    update_gist_dashboard()
 
     # ─── Discord通知 ───
     send_discord_notification(blog_data, rapidapi_data, apify_data, x_data, task_health, today_str, report_path)

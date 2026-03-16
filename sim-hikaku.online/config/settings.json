@@ -15,7 +15,8 @@
     "default_status": "draft"
   },
   "google_analytics": {
-    "property_id": "",
+    "property_id": "528626242",
+    "measurement_id": "G-2B6VJBCJ06",
     "credentials_file": "ga4-credentials.json"
   },
   "search_console": {
