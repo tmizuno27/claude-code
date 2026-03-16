@@ -1,0 +1,45 @@
+Quick Currency Converter gives you instant access to real-time exchange rates for 160+ world currencies right from your browser toolbar.
+
+FEATURES:
+
+Real-Time Exchange Rates
+- Live rates updated automatically from reliable API sources
+- Always shows the latest available exchange rate
+
+160+ Currencies Supported
+- All major world currencies (USD, EUR, GBP, JPY, etc.)
+- Cryptocurrencies and exotic currencies included
+
+One-Click Swap
+- Instantly swap the "from" and "to" currencies with a single click
+- No need to re-select currencies manually
+
+Quick Rates Dashboard
+- See popular currency pairs at a glance
+- Monitor multiple exchange rates simultaneously
+
+Favorites
+- Save your most-used currency pairs for quick access
+- Add or remove favorites with one click
+
+Right-Click Context Menu
+- Select any number on a webpage and convert it instantly via right-click
+- No need to open the popup for quick conversions
+
+Remembers Your Preferences
+- Your last-used currency pair is saved automatically
+- Opens ready to convert every time
+
+PRIVACY:
+- Only sends the currency pair to the exchange rate API for conversion
+- No personal information is collected, stored, or shared
+- No tracking or analytics
+
+PERFECT FOR:
+- International travelers checking local prices
+- Freelancers billing in foreign currencies
+- Online shoppers comparing international prices
+- Forex traders monitoring exchange rates
+- Remote workers dealing with multiple currencies
+
+Fast, lightweight, and always up-to-date. The only currency converter you need in your browser.

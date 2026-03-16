@@ -1,0 +1,241 @@
+/* JSON Formatter Pro - Styles */
+
+.jfp-root {
+  margin: 0;
+  padding: 0;
+  font-family: Consolas, Monaco, 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Dark theme */
+.jfp-dark {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+.jfp-dark .jfp-toolbar {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+.jfp-dark .jfp-btn {
+  background: #334155;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+.jfp-dark .jfp-btn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+}
+.jfp-dark .jfp-search {
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+.jfp-dark .jfp-search:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.3);
+}
+.jfp-dark .jfp-tooltip {
+  background: #1e293b;
+  color: #93c5fd;
+  border: 1px solid #3b82f6;
+}
+.jfp-dark .jfp-error {
+  background: #1e1014;
+  border: 1px solid #991b1b;
+  color: #fca5a5;
+}
+
+/* Light theme */
+.jfp-light {
+  background: #ffffff;
+  color: #1e293b;
+}
+.jfp-light .jfp-toolbar {
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+.jfp-light .jfp-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+.jfp-light .jfp-btn:hover {
+  background: #3b82f6;
+  color: #fff;
+  border-color: #3b82f6;
+}
+.jfp-light .jfp-search {
+  background: #fff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+}
+.jfp-light .jfp-search:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+.jfp-light .jfp-tooltip {
+  background: #f1f5f9;
+  color: #1d4ed8;
+  border: 1px solid #3b82f6;
+}
+.jfp-light .jfp-error {
+  background: #fef2f2;
+  border: 1px solid #dc2626;
+  color: #dc2626;
+}
+
+/* Toolbar */
+.jfp-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  flex-wrap: wrap;
+}
+.jfp-btn {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.jfp-search {
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+  margin-left: auto;
+  min-width: 180px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* Container */
+.jfp-container {
+  padding: 16px 24px;
+  overflow-x: auto;
+}
+
+/* Tree */
+.jfp-block {
+  display: inline;
+}
+.jfp-content {
+  display: block;
+  padding-left: 24px;
+  border-left: 1px solid rgba(100,116,139,0.2);
+}
+.jfp-content.jfp-collapsed {
+  display: none;
+}
+.jfp-line {
+  white-space: nowrap;
+}
+.jfp-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+}
+.jfp-toggle:hover {
+  color: #3b82f6;
+}
+.jfp-bracket {
+  font-weight: bold;
+}
+.jfp-ellipsis {
+  color: #64748b;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+/* Syntax colors */
+.jfp-key { color: #93c5fd; }
+.jfp-string { color: #4ade80; }
+.jfp-number { color: #60a5fa; }
+.jfp-bool { color: #fb923c; }
+.jfp-null { color: #f87171; }
+
+.jfp-light .jfp-key { color: #1d4ed8; }
+.jfp-light .jfp-string { color: #16a34a; }
+.jfp-light .jfp-number { color: #2563eb; }
+.jfp-light .jfp-bool { color: #ea580c; }
+.jfp-light .jfp-null { color: #dc2626; }
+
+/* Highlight (search) */
+.jfp-highlight {
+  background: rgba(250, 204, 21, 0.3);
+  border-radius: 2px;
+  outline: 1px solid rgba(250, 204, 21, 0.6);
+}
+
+/* Tooltip */
+.jfp-tooltip {
+  position: absolute;
+  display: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  z-index: 200;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Toast */
+.jfp-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #3b82f6;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 300;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+}
+.jfp-toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Raw */
+.jfp-raw {
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Error */
+.jfp-error {
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+.jfp-error h2 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+.jfp-error p {
+  margin: 0;
+}
+.jfp-error-char {
+  background: #dc2626;
+  color: #fff;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+.jfp-error-source {
+  white-space: pre-wrap;
+  word-break: break-all;
+  opacity: 0.8;
+}

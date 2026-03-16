@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480">
+  <title>Hash & Encode Tool</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>#&amp; Hash &amp; Encode</h1>
+    </header>
+
+    <div class="input-section">
+      <textarea id="input" placeholder="Enter text to hash / encode / decode..." spellcheck="false"></textarea>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="hash">Hash</button>
+      <button class="tab" data-tab="encode">Encode</button>
+      <button class="tab" data-tab="decode">Decode</button>
+    </div>
+
+    <div id="results" class="results">
+      <!-- Hash tab -->
+      <div class="tab-content active" data-tab="hash">
+        <div class="result-row" data-key="md5">
+          <span class="label">MD5</span>
+          <div class="value-wrap">
+            <code class="value" id="out-md5">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="sha1">
+          <span class="label">SHA-1</span>
+          <div class="value-wrap">
+            <code class="value" id="out-sha1">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="sha256">
+          <span class="label">SHA-256</span>
+          <div class="value-wrap">
+            <code class="value" id="out-sha256">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="sha512">
+          <span class="label">SHA-512</span>
+          <div class="value-wrap">
+            <code class="value" id="out-sha512">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Encode tab -->
+      <div class="tab-content" data-tab="encode">
+        <div class="result-row" data-key="base64enc">
+          <span class="label">Base64</span>
+          <div class="value-wrap">
+            <code class="value" id="out-base64enc">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="urlenc">
+          <span class="label">URL</span>
+          <div class="value-wrap">
+            <code class="value" id="out-urlenc">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="htmlenc">
+          <span class="label">HTML</span>
+          <div class="value-wrap">
+            <code class="value" id="out-htmlenc">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decode tab -->
+      <div class="tab-content" data-tab="decode">
+        <div class="result-row" data-key="base64dec">
+          <span class="label">Base64</span>
+          <div class="value-wrap">
+            <code class="value" id="out-base64dec">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="urldec">
+          <span class="label">URL</span>
+          <div class="value-wrap">
+            <code class="value" id="out-urldec">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="htmldec">
+          <span class="label">HTML</span>
+          <div class="value-wrap">
+            <code class="value" id="out-htmldec">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+        <div class="result-row" data-key="jwt">
+          <span class="label">JWT</span>
+          <div class="value-wrap">
+            <code class="value jwt" id="out-jwt">—</code>
+            <button class="copy-btn" title="Copy">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+AI Text Rewriter -- Rewrite Any Text with AI, Right in Your Browser
+
+Highlight any text on a webpage and instantly rewrite it using AI. Choose from multiple rewriting styles to fit your needs.
+
+FEATURES:
+- Select text on any page and rewrite with one click
+- 5 rewriting modes: Casual, Professional, Shorter, Longer, Fix Grammar
+- Bring Your Own Key (BYOK) -- uses your OpenAI API key, no subscription needed
+- Results appear instantly in a clean popup
+- Works on any website
+
+HOW IT WORKS:
+1. Enter your OpenAI API key in the extension settings (stored locally)
+2. Select any text on a webpage
+3. Right-click and choose a rewriting style, or use the popup
+4. Get the rewritten text instantly
+
+PRIVACY:
+Your API key is stored locally in your browser. Selected text is sent to OpenAI API for processing. No data is collected or stored by the extension developer.
+
+Perfect for writers, marketers, students, and anyone who wants to quickly improve their text.

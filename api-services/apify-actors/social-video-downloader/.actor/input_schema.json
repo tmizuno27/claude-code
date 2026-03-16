@@ -1,0 +1,22 @@
+{
+  "title": "Social Video Downloader Input",
+  "description": "Extract video download URLs from social media platforms",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Video URLs",
+      "type": "array",
+      "description": "List of social media video URLs to extract. Supports TikTok, Twitter/X, Instagram, YouTube, and Facebook.",
+      "editor": "stringList",
+      "prefill": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+    },
+    "includeMetadata": {
+      "title": "Include Metadata",
+      "type": "boolean",
+      "description": "Include video metadata (title, author, thumbnail, duration) in results.",
+      "default": true
+    }
+  },
+  "required": ["urls"]
+}

@@ -1,0 +1,8 @@
+[
+  {"action": "buy", "price": 67234.50, "amount": 0.001500, "order_id": "demo-001", "timestamp": "2026-03-16T10:00:00-03:00"},
+  {"action": "sell", "price": 67890.00, "amount": 0.001500, "order_id": "demo-002", "pnl_pct": 0.97, "timestamp": "2026-03-16T10:15:00-03:00"},
+  {"action": "buy", "price": 67500.00, "amount": 0.001480, "order_id": "demo-003", "timestamp": "2026-03-16T10:30:00-03:00"},
+  {"action": "stop_loss", "price": 65475.00, "amount": 0.001480, "order_id": "demo-004", "pnl_pct": -3.00, "timestamp": "2026-03-16T10:45:00-03:00"},
+  {"action": "buy", "price": 65800.00, "amount": 0.001450, "order_id": "demo-005", "timestamp": "2026-03-16T11:00:00-03:00"},
+  {"action": "sell", "price": 66920.00, "amount": 0.001450, "order_id": "demo-006", "pnl_pct": 1.70, "timestamp": "2026-03-16T11:20:00-03:00"}
+]

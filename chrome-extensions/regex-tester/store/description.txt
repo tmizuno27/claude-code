@@ -1,0 +1,23 @@
+Regex Tester -- Real-Time Regular Expression Testing & Matching
+
+Test regular expressions in real-time with syntax highlighting, capture groups, and built-in presets. A must-have tool for developers.
+
+FEATURES:
+- Real-time regex matching with instant feedback
+- Syntax highlighting of matches in the test string
+- Capture group display
+- Regex flags support (g, i, m, s, u)
+- Built-in presets for common patterns (email, URL, phone, etc.)
+- Match count and execution time
+- Save and recall your own patterns
+
+HOW IT WORKS:
+1. Click the extension icon
+2. Enter a regex pattern and test string
+3. See matches highlighted in real-time
+4. View capture groups and match details
+
+PRIVACY:
+This extension processes everything locally in your browser. No data is collected, transmitted, or stored externally. Zero network requests.
+
+Essential for developers, QA engineers, data analysts, and anyone working with regular expressions.

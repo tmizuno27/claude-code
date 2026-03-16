@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Text Rewriter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>AI Text Rewriter</h1>
+      <button id="settingsBtn" class="icon-btn" title="Settings">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+    </header>
+
+    <!-- Settings Panel -->
+    <div id="settingsPanel" class="panel hidden">
+      <h2>API Key Settings</h2>
+      <p class="hint">Enter your OpenAI API key. It is stored locally and never sent anywhere except OpenAI.</p>
+      <div class="input-row">
+        <input type="password" id="apiKeyInput" placeholder="sk-..." />
+        <button id="toggleKeyVis" class="icon-btn small" title="Show/Hide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="btn-row">
+        <button id="saveKeyBtn" class="btn primary">Save Key</button>
+        <button id="deleteKeyBtn" class="btn danger">Delete Key</button>
+      </div>
+      <p id="keyStatus" class="status"></p>
+    </div>
+
+    <!-- Main Panel -->
+    <div id="mainPanel" class="panel">
+      <div id="noKeyWarning" class="warning hidden">
+        Set your OpenAI API key in Settings to get started.
+      </div>
+      <textarea id="inputText" placeholder="Paste or type text to rewrite..." rows="4"></textarea>
+      <div class="modes">
+        <button class="mode-btn active" data-mode="casual">Casual</button>
+        <button class="mode-btn" data-mode="professional">Professional</button>
+        <button class="mode-btn" data-mode="shorter">Shorter</button>
+        <button class="mode-btn" data-mode="longer">Longer</button>
+        <button class="mode-btn" data-mode="grammar">Fix Grammar</button>
+      </div>
+      <button id="rewriteBtn" class="btn primary full">Rewrite</button>
+      <div id="resultSection" class="hidden">
+        <label>Result:</label>
+        <div id="resultText" class="result-box"></div>
+        <button id="copyBtn" class="btn secondary full">Copy to Clipboard</button>
+      </div>
+      <div id="loading" class="hidden">
+        <div class="spinner"></div>
+        <span>Rewriting...</span>
+      </div>
+      <div id="errorMsg" class="error hidden"></div>
+    </div>
+
+    <!-- History Panel -->
+    <div class="history-toggle">
+      <button id="historyBtn" class="btn ghost full">History</button>
+    </div>
+    <div id="historyPanel" class="panel hidden">
+      <div id="historyList"></div>
+      <p id="noHistory" class="hint">No history yet.</p>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

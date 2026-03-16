@@ -1,0 +1,40 @@
+JSON Formatter Pro automatically detects and formats JSON responses in your browser with beautiful syntax highlighting.
+
+FEATURES:
+
+Auto-Detection & Formatting
+- Automatically detects JSON content on any page and formats it instantly
+- No need to copy-paste into external tools
+
+Syntax Highlighting
+- Color-coded JSON with distinct colors for strings, numbers, booleans, null values, and keys
+- Makes large JSON payloads easy to scan and read
+
+Tree View
+- Collapsible/expandable tree structure for navigating complex nested JSON
+- Click any node to expand or collapse its children
+
+JSON Path Display
+- Hover over any value to see its full JSON path (e.g., $.data[0].name)
+- Click to copy the path to your clipboard
+
+Dark & Light Themes
+- Beautiful dark mode (default) and light mode
+- Your preference is saved automatically
+
+Customizable Indentation
+- Choose between 2 spaces, 4 spaces, or tab indentation
+- Settings persist across browser sessions
+
+100% Local Processing
+- All JSON formatting happens entirely in your browser
+- No data is ever sent to any server
+- No tracking, no analytics, no data collection whatsoever
+
+PERFECT FOR:
+- API developers inspecting REST/GraphQL responses
+- QA engineers debugging API calls
+- Data analysts reviewing JSON datasets
+- Anyone who works with JSON regularly
+
+Lightweight, fast, and privacy-focused. JSON Formatter Pro is the only JSON viewer you'll ever need.

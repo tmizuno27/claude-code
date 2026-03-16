@@ -9,7 +9,9 @@ const CATEGORY_META = {
   'ai-coding': { name: 'AI Coding', emoji: '💻', description: 'AI-powered coding assistants and IDEs' },
   'ai-video': { name: 'AI Video', emoji: '🎬', description: 'AI video generation and editing tools' },
   'ai-audio': { name: 'AI Audio & Music', emoji: '🎵', description: 'AI voice, audio, and music generation tools' },
+  'ai-automation': { name: 'AI Automation', emoji: '⚡', description: 'AI-powered automation and workflow tools' },
   'ai-nocode': { name: 'AI No-Code & Automation', emoji: '⚡', description: 'No-code automation and workflow tools' },
+  'ai-customer-service': { name: 'AI Customer Service', emoji: '🎧', description: 'AI-powered customer service and support tools' },
   'ai-seo': { name: 'AI SEO & Marketing', emoji: '📊', description: 'AI-powered SEO and marketing tools' },
   'ai-translation': { name: 'AI Translation', emoji: '🌐', description: 'AI translation and localization tools' },
   'ai-design': { name: 'AI Design', emoji: '🖌️', description: 'AI-powered design and creative tools' },
@@ -24,26 +26,24 @@ function loadData() {
   const raw = fs.readFileSync(filePath, 'utf-8');
   const json = JSON.parse(raw);
 
-  // Support both single-category and multi-category formats
-  const categories = Array.isArray(json) ? json : [json];
-
-  const allTools = [];
+  // tools.json is a flat array of tools, each with a "category" field
+  const allTools = Array.isArray(json) ? json : [];
   const categoryMap = {};
 
-  for (const cat of categories) {
-    const catSlug = cat.category;
-    const meta = CATEGORY_META[catSlug] || { name: catSlug, emoji: '🔧', description: '' };
-    categoryMap[catSlug] = {
-      slug: catSlug,
-      ...meta,
-      tools: cat.tools.map(t => t.slug),
-    };
-    for (const tool of cat.tools) {
-      allTools.push({ ...tool, category: catSlug });
+  for (const tool of allTools) {
+    const catSlug = tool.category;
+    if (!categoryMap[catSlug]) {
+      const meta = CATEGORY_META[catSlug] || { name: catSlug, emoji: '🔧', description: '' };
+      categoryMap[catSlug] = {
+        slug: catSlug,
+        ...meta,
+        tools: [],
+      };
     }
+    categoryMap[catSlug].tools.push(tool.slug);
   }
 
-  cachedData = { allTools, categoryMap, categories };
+  cachedData = { allTools, categoryMap };
   return cachedData;
 }
 

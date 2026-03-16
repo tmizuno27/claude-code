@@ -1,0 +1,54 @@
+{
+  "title": "Keyword Research Input",
+  "description": "Input schema for the Keyword Research Actor.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keywords": {
+      "title": "Seed Keywords",
+      "description": "List of seed keywords to research. Google Suggest will be called for each keyword and its question-pattern variants.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "editor": "stringList",
+      "example": ["パラグアイ 移住", "副業 おすすめ", "格安SIM 比較"]
+    },
+    "language": {
+      "title": "Language / Locale",
+      "description": "Language code passed to Google Suggest (hl parameter). Default is Japanese.",
+      "type": "string",
+      "editor": "textfield",
+      "default": "ja",
+      "example": "ja"
+    },
+    "topN": {
+      "title": "Top N keywords to output",
+      "description": "Number of top-scored keywords to include in the dataset output.",
+      "type": "integer",
+      "editor": "number",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 200
+    },
+    "requestDelaySeconds": {
+      "title": "Delay between requests (seconds)",
+      "description": "Seconds to wait between Google Suggest API calls to avoid rate limiting.",
+      "type": "number",
+      "editor": "number",
+      "default": 1.0,
+      "minimum": 0.0,
+      "maximum": 10.0
+    },
+    "maxQuestionPatterns": {
+      "title": "Max question-pattern variants per seed",
+      "description": "Number of Japanese question suffixes to append to each seed keyword (max 12).",
+      "type": "integer",
+      "editor": "number",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 12
+    }
+  },
+  "required": ["keywords"]
+}

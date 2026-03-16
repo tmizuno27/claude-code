@@ -1,0 +1,218 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 480px;
+  min-height: 520px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+
+.app { padding: 16px; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #a855f7;
+}
+
+.header-actions { display: flex; gap: 6px; }
+
+.icon-btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #a855f7;
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s;
+}
+.icon-btn:hover { background: #334155; }
+
+.input-group { margin-bottom: 12px; }
+
+label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+
+.regex-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 4px 8px;
+}
+
+.delim {
+  color: #a855f7;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#regex-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f8fafc;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 14px;
+}
+
+.flags { display: flex; gap: 3px; }
+
+.flag {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+  background: transparent;
+  color: #64748b;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+}
+.flag.active {
+  background: #a855f7;
+  color: #fff;
+  border-color: #a855f7;
+}
+
+.error {
+  color: #f87171;
+  font-size: 11px;
+  margin-top: 4px;
+  min-height: 14px;
+}
+
+textarea {
+  width: 100%;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: #f8fafc;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  resize: vertical;
+  outline: none;
+}
+textarea:focus { border-color: #a855f7; }
+
+.highlight-area {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 10px;
+  min-height: 60px;
+  max-height: 150px;
+  overflow-y: auto;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+.hl {
+  background: rgba(250, 204, 21, .35);
+  color: #fde047;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+.hl-alt {
+  background: rgba(168, 85, 247, .3);
+  color: #c084fc;
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.match-list {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 10px;
+  max-height: 160px;
+  overflow-y: auto;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.match-item { margin-bottom: 6px; }
+.match-index {
+  color: #a855f7;
+  font-weight: 700;
+  margin-right: 6px;
+}
+.match-value { color: #fde047; }
+.group-label { color: #94a3b8; }
+.group-value { color: #c084fc; }
+
+.muted { color: #475569; font-style: italic; }
+
+.panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 12px;
+}
+.panel.hidden { display: none; }
+
+.preset-list { display: flex; flex-direction: column; gap: 4px; }
+
+.preset-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: #0f172a;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.preset-item:hover { background: #334155; }
+.preset-name { font-weight: 600; color: #e2e8f0; font-size: 12px; }
+.preset-pattern { color: #a855f7; font-size: 11px; font-family: monospace; }
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 4px;
+}

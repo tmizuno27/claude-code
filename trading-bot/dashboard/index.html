@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trading Bot Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e17;--surface:#111827;--surface2:#1a2332;--border:#1e2d3d;
+  --text:#e2e8f0;--text-dim:#64748b;--text-muted:#334155;
+  --green:#00e676;--green-dim:#00e67622;--red:#ff1744;--red-dim:#ff174422;
+  --cyan:#00bcd4;--amber:#ffab00;--blue:#2979ff;
+  --glow-green:0 0 20px #00e67633;--glow-red:0 0 20px #ff174433;
+}
+html{font-size:14px}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Noto Sans JP','JetBrains Mono',monospace;
+  min-height:100vh;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%,#00e67608,transparent),
+    radial-gradient(ellipse 60% 40% at 80% 100%,#2979ff06,transparent);
+  pointer-events:none;z-index:0;
+}
+
+/* Layout */
+.shell{max-width:1400px;margin:0 auto;padding:24px 20px;position:relative;z-index:1}
+header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+header h1{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+header h1 .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:var(--glow-green);animation:pulse 2s infinite}
+header .meta{font-size:.75rem;color:var(--text-dim);font-family:'JetBrains Mono',monospace;text-align:right}
+header .meta span{display:block}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* Cards */
+.grid{display:grid;gap:16px;margin-bottom:16px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.grid-chart{grid-template-columns:1fr}
+.grid-bottom{grid-template-columns:1fr 1fr}
+
+.card{
+  background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,#ffffff0a,transparent);
+}
+.card-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-dim);margin-bottom:8px;font-family:'JetBrains Mono',monospace}
+.card-value{font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;letter-spacing:-.03em}
+.card-sub{font-size:.7rem;color:var(--text-dim);margin-top:4px;font-family:'JetBrains Mono',monospace}
+
+.card-value.up{color:var(--green)}
+.card-value.down{color:var(--red)}
+.card-value.neutral{color:var(--text-dim)}
+
+/* Signal badge */
+.signal{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:6px;font-size:.8rem;font-weight:600;font-family:'JetBrains Mono',monospace;text-transform:uppercase}
+.signal.buy{background:var(--green-dim);color:var(--green);border:1px solid #00e67633}
+.signal.sell{background:var(--red-dim);color:var(--red);border:1px solid #ff174433}
+.signal.hold{background:#64748b15;color:var(--text-dim);border:1px solid #64748b22}
+
+/* Chart */
+.chart-wrap{position:relative;height:340px}
+
+/* Table */
+.table-wrap{overflow-y:auto;max-height:360px}
+.table-wrap::-webkit-scrollbar{width:4px}
+.table-wrap::-webkit-scrollbar-track{background:transparent}
+.table-wrap::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+table{width:100%;border-collapse:collapse;font-family:'JetBrains Mono',monospace;font-size:.75rem}
+thead{position:sticky;top:0;z-index:2}
+th{background:var(--surface2);color:var(--text-dim);text-transform:uppercase;letter-spacing:.08em;font-weight:500;padding:10px 12px;text-align:left;font-size:.65rem;border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid #1e2d3d44;white-space:nowrap}
+tr:hover td{background:#ffffff03}
+.tag{padding:2px 8px;border-radius:4px;font-size:.65rem;font-weight:600;text-transform:uppercase}
+.tag-buy{background:var(--green-dim);color:var(--green)}
+.tag-sell{background:var(--red-dim);color:var(--red)}
+.tag-stop{background:#ff980022;color:var(--amber)}
+
+/* PnL */
+.pnl-list{display:flex;flex-direction:column;gap:12px}
+.pnl-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--surface2);border-radius:8px;border:1px solid var(--border)}
+.pnl-row .label{font-size:.75rem;color:var(--text-dim)}
+.pnl-row .val{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:1rem}
+
+/* Empty state */
+.empty{display:flex;align-items:center;justify-content:center;height:200px;color:var(--text-muted);font-size:.85rem;font-style:italic}
+
+/* Responsive */
+@media(max-width:900px){
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .grid-bottom{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+  .grid-4{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header>
+    <h1><span class="dot" id="statusDot"></span>Trading Bot</h1>
+    <div class="meta">
+      <span id="modeLabel">TESTNET</span>
+      <span id="lastUpdate">--</span>
+    </div>
+  </header>
+
+  <!-- KPI Cards -->
+  <div class="grid grid-4">
+    <div class="card">
+      <div class="card-label">現在価格</div>
+      <div class="card-value" id="price">--</div>
+      <div class="card-sub" id="symbol">BTC/USDT</div>
+    </div>
+    <div class="card">
+      <div class="card-label">SMA 短期 / 長期</div>
+      <div class="card-value" id="sma" style="font-size:1.2rem">-- / --</div>
+      <div class="card-sub" id="smaPeriods">10 / 50</div>
+    </div>
+    <div class="card">
+      <div class="card-label">シグナル</div>
+      <div id="signalBadge"><span class="signal hold">待機中</span></div>
+    </div>
+    <div class="card">
+      <div class="card-label">取引回数</div>
+      <div class="card-value" id="tradeCount">0</div>
+      <div class="card-sub" id="tradeSummary">買 0 / 売 0</div>
+    </div>
+  </div>
+
+  <!-- Chart -->
+  <div class="grid grid-chart">
+    <div class="card">
+      <div class="card-label">価格チャート</div>
+      <div class="chart-wrap"><canvas id="chart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Table + PnL -->
+  <div class="grid grid-bottom">
+    <div class="card">
+      <div class="card-label">取引履歴</div>
+      <div class="table-wrap" id="tableWrap">
+        <div class="empty">取引データなし</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-label">損益サマリー</div>
+      <div class="pnl-list" id="pnlList">
+        <div class="empty">データなし</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let chart = null;
+
+async function loadData() {
+  try {
+    const res = await fetch('../logs/trades.json');
+    if (!res.ok) throw new Error('no data');
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+function updateCards(trades) {
+  const last = trades[trades.length - 1];
+  if (!last) return;
+
+  document.getElementById('price').textContent = last.price ? `$${Number(last.price).toLocaleString('en', {minimumFractionDigits: 2})}` : '--';
+
+  const buys = trades.filter(t => t.action === 'buy').length;
+  const sells = trades.filter(t => t.action === 'sell' || t.action === 'stop_loss').length;
+  document.getElementById('tradeCount').textContent = trades.length;
+  document.getElementById('tradeSummary').textContent = `買 ${buys} / 売 ${sells}`;
+
+  document.getElementById('lastUpdate').textContent = `更新: ${new Date().toLocaleTimeString('ja-JP')}`;
+}
+
+function updateSignal(trades) {
+  const badge = document.getElementById('signalBadge');
+  const last = trades[trades.length - 1];
+  if (!last) return;
+  const a = last.action;
+  if (a === 'buy') badge.innerHTML = '<span class="signal buy">● BUY</span>';
+  else if (a === 'sell') badge.innerHTML = '<span class="signal sell">● SELL</span>';
+  else if (a === 'stop_loss') badge.innerHTML = '<span class="signal sell">● STOP LOSS</span>';
+  else badge.innerHTML = '<span class="signal hold">● HOLD</span>';
+}
+
+function updateTable(trades) {
+  const wrap = document.getElementById('tableWrap');
+  if (!trades.length) { wrap.innerHTML = '<div class="empty">取引データなし</div>'; return; }
+
+  const rows = [...trades].reverse().map(t => {
+    const cls = t.action === 'buy' ? 'tag-buy' : t.action === 'stop_loss' ? 'tag-stop' : 'tag-sell';
+    const label = t.action === 'buy' ? '買い' : t.action === 'stop_loss' ? '損切' : '売り';
+    const pnl = t.pnl_pct != null ? `<span style="color:${t.pnl_pct >= 0 ? 'var(--green)' : 'var(--red)'}">${t.pnl_pct >= 0 ? '+' : ''}${t.pnl_pct.toFixed(2)}%</span>` : '—';
+    const time = t.timestamp ? new Date(t.timestamp).toLocaleString('ja-JP', {month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',second:'2-digit'}) : '--';
+    return `<tr>
+      <td>${time}</td>
+      <td><span class="tag ${cls}">${label}</span></td>
+      <td>$${Number(t.price).toLocaleString('en',{minimumFractionDigits:2})}</td>
+      <td>${Number(t.amount).toFixed(6)}</td>
+      <td>${pnl}</td>
+    </tr>`;
+  }).join('');
+
+  wrap.innerHTML = `<table><thead><tr><th>日時</th><th>種別</th><th>価格</th><th>数量</th><th>損益</th></tr></thead><tbody>${rows}</tbody></table>`;
+}
+
+function updatePnL(trades) {
+  const list = document.getElementById('pnlList');
+  const sells = trades.filter(t => t.pnl_pct != null);
+  if (!sells.length) { list.innerHTML = '<div class="empty">損益データなし</div>'; return; }
+
+  const total = sells.reduce((s, t) => s + t.pnl_pct, 0);
+  const wins = sells.filter(t => t.pnl_pct > 0);
+  const losses = sells.filter(t => t.pnl_pct <= 0);
+  const winRate = sells.length ? ((wins.length / sells.length) * 100).toFixed(1) : '0';
+  const best = sells.length ? Math.max(...sells.map(t => t.pnl_pct)) : 0;
+  const worst = sells.length ? Math.min(...sells.map(t => t.pnl_pct)) : 0;
+
+  const items = [
+    { label: '累計損益', val: `${total >= 0 ? '+' : ''}${total.toFixed(2)}%`, color: total >= 0 ? 'var(--green)' : 'var(--red)' },
+    { label: '勝率', val: `${winRate}%`, color: 'var(--cyan)' },
+    { label: '勝ち / 負け', val: `${wins.length} / ${losses.length}`, color: 'var(--text)' },
+    { label: '最大利益', val: `+${best.toFixed(2)}%`, color: 'var(--green)' },
+    { label: '最大損失', val: `${worst.toFixed(2)}%`, color: 'var(--red)' },
+  ];
+
+  list.innerHTML = items.map(i => `
+    <div class="pnl-row">
+      <span class="label">${i.label}</span>
+      <span class="val" style="color:${i.color}">${i.val}</span>
+    </div>
+  `).join('');
+}
+
+function updateChart(trades) {
+  const ctx = document.getElementById('chart').getContext('2d');
+  if (!trades.length) return;
+
+  const labels = trades.map(t => t.timestamp ? new Date(t.timestamp).toLocaleTimeString('ja-JP', {hour:'2-digit',minute:'2-digit'}) : '');
+  const prices = trades.map(t => t.price);
+  const colors = trades.map(t => t.action === 'buy' ? '#00e676' : t.action === 'sell' || t.action === 'stop_loss' ? '#ff1744' : '#64748b');
+
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: '取引価格',
+        data: prices,
+        borderColor: '#2979ff',
+        backgroundColor: '#2979ff11',
+        borderWidth: 2,
+        pointBackgroundColor: colors,
+        pointBorderColor: colors,
+        pointRadius: 5,
+        pointHoverRadius: 7,
+        fill: true,
+        tension: 0.3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a2332ee',
+          titleFont: { family: 'JetBrains Mono', size: 11 },
+          bodyFont: { family: 'JetBrains Mono', size: 11 },
+          borderColor: '#1e2d3d',
+          borderWidth: 1,
+          padding: 10,
+          callbacks: {
+            label: (c) => {
+              const t = trades[c.dataIndex];
+              const action = t.action === 'buy' ? '買い' : t.action === 'sell' ? '売り' : '損切';
+              return `${action} $${Number(t.price).toLocaleString('en',{minimumFractionDigits:2})}`;
+            }
+          }
+        }
+      },
+      scales: {
+        x: { ticks: { color: '#475569', font: { family: 'JetBrains Mono', size: 10 } }, grid: { color: '#1e2d3d44' } },
+        y: { ticks: { color: '#475569', font: { family: 'JetBrains Mono', size: 10 }, callback: v => '$' + v.toLocaleString() }, grid: { color: '#1e2d3d44' } }
+      }
+    }
+  });
+}
+
+async function refresh() {
+  const trades = await loadData();
+  updateCards(trades);
+  updateSignal(trades);
+  updateTable(trades);
+  updatePnL(trades);
+  updateChart(trades);
+}
+
+refresh();
+setInterval(refresh, 30000);
+</script>
+</body>
+</html>

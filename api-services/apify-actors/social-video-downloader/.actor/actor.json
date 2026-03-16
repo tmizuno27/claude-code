@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "social-video-downloader",
+  "title": "Social Video Downloader",
+  "description": "Extract video download URLs and metadata from TikTok, Twitter/X, Instagram, YouTube, and Facebook. No API keys required.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

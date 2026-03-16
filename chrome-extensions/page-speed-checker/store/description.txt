@@ -1,0 +1,21 @@
+Page Speed Checker -- One-Click PageSpeed Insights & Core Web Vitals
+
+Check any page performance score and Core Web Vitals instantly. Uses Google PageSpeed Insights API to give you real performance data.
+
+FEATURES:
+- One-click performance analysis of the current page
+- Google PageSpeed Insights scores (Performance, Accessibility, Best Practices, SEO)
+- Core Web Vitals: LCP, FID/INP, CLS
+- Mobile and Desktop results
+- Clean, easy-to-read dashboard
+- No API key required -- uses Google free public API
+
+HOW IT WORKS:
+1. Navigate to any webpage
+2. Click the extension icon
+3. View performance scores and Core Web Vitals instantly
+
+PRIVACY:
+The URL of the current page is sent to Google PageSpeed Insights API for analysis. No other data is collected or stored by the developer.
+
+Essential for web developers, SEO professionals, and site owners who need quick performance checks.

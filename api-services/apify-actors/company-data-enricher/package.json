@@ -1,0 +1,14 @@
+{
+  "name": "company-data-enricher",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Enrich company data from domains: metadata, tech stack, social links, contacts, and RDAP domain info. Also supports company search via Wikidata.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}

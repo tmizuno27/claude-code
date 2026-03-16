@@ -43,13 +43,14 @@
       "note": "報酬単価要確認"
     },
     "ymobile": {
-      "name": "ワイモバイル",
-      "asp": "バリューコマース",
-      "url": "https://YOUR-AFFILIATE-LINK/ymobile",
+      "name": "ワイモバイル（Yステーション）",
+      "asp": "A8.net",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4AZH48+1XNS3M+424K+BXIYQ",
+      "tracking_img": "https://www16.a8.net/0.gif?a8mat=4AZH48+1XNS3M+424K+BXIYQ",
       "commission": 0,
-      "status": "未提携",
+      "status": "提携済",
       "priority": 6,
-      "note": "報酬単価要確認"
+      "note": "Yステーション経由（Y!mobile正規代理店）、報酬単価要確認"
     },
     "iijmio": {
       "name": "IIJmio",
@@ -89,12 +90,12 @@
     },
     "tone-mobile": {
       "name": "TONEモバイル",
-      "asp": "A8.net",
-      "url": "https://YOUR-AFFILIATE-LINK/tone-mobile",
+      "asp": "なし",
+      "url": null,
       "commission": 0,
-      "status": "未提携",
+      "status": "案件なし",
       "priority": 11,
-      "note": "報酬単価要確認"
+      "note": "A8.net・もしもアフィリエイト共に案件なし"
     },
     "biglobe-mobile": {
       "name": "BIGLOBEモバイル",
@@ -145,27 +146,28 @@
     },
     "airalo": {
       "name": "Airalo",
-      "asp": "直接提携",
-      "url": "https://YOUR-AFFILIATE-LINK/airalo",
+      "asp": "なし",
+      "url": null,
       "commission": 0,
-      "status": "未提携",
-      "note": "海外eSIM記事用"
+      "status": "案件なし",
+      "note": "A8.net・もしもアフィリエイト共に案件なし"
     },
     "trifa": {
-      "name": "trifa",
-      "asp": "直接提携",
-      "url": "https://YOUR-AFFILIATE-LINK/trifa",
+      "name": "trifa（トリファ）",
+      "asp": "A8.net",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4AZH4C+CWZK8I+5UDW+5YRHE",
+      "tracking_img": "https://www10.a8.net/0.gif?a8mat=4AZH4C+CWZK8I+5UDW+5YRHE",
       "commission": 0,
-      "status": "未提携",
-      "note": "海外eSIM記事用"
+      "status": "提携済",
+      "note": "海外eSIM記事用 国内利用者数No.1"
     },
     "ubigi": {
       "name": "Ubigi",
-      "asp": "直接提携",
+      "asp": "A8.net",
       "url": "https://YOUR-AFFILIATE-LINK/ubigi",
       "commission": 0,
-      "status": "未提携",
-      "note": "海外eSIM記事用"
+      "status": "pending_approval",
+      "note": "A8.netにて申請中"
     }
   }
 }

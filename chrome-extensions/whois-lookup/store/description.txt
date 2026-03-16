@@ -1,0 +1,42 @@
+Domain WHOIS Lookup gives you instant access to WHOIS registration data, DNS records, and SSL certificate information for any website you visit.
+
+FEATURES:
+
+One-Click WHOIS Lookup
+- Automatically detects the domain of the current tab
+- View registrar, creation date, expiration date, nameservers, and more
+- No need to visit external WHOIS websites
+
+DNS Records
+- View A, AAAA, MX, NS, TXT, CNAME, and SOA records
+- Organized in a clean, tabbed interface
+- Essential for troubleshooting DNS issues
+
+SSL Certificate Info
+- Check SSL certificate validity and expiration
+- View issuer, subject, and certificate chain details
+- Quickly verify if a site's SSL is properly configured
+
+Lookup History
+- Keeps a local history of your recent lookups
+- Quickly revisit previous domain lookups
+- History stored locally in your browser only
+
+Copy All Info
+- One-click copy of all WHOIS, DNS, and SSL data
+- Paste into reports, tickets, or documentation instantly
+
+PRIVACY:
+- Only sends the domain name to lookup APIs to retrieve WHOIS/DNS/SSL data
+- No personal information is collected, stored, or shared
+- No tracking or analytics
+- Lookup history is stored locally on your device only
+
+PERFECT FOR:
+- Web developers checking domain and DNS configuration
+- SEO professionals researching competitor domains
+- Security analysts verifying SSL certificates
+- Domain investors checking registration details
+- IT administrators troubleshooting DNS issues
+
+Fast, lightweight, and privacy-friendly. All the domain intelligence you need in one click.

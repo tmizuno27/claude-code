@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Inspector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+        </div>
+        <h1>SEO Inspector</h1>
+      </div>
+      <div class="header-right">
+        <span class="version">v1.0</span>
+      </div>
+    </header>
+
+    <!-- URL Display -->
+    <div class="url-bar" id="urlBar">
+      <span class="url-icon">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+        </svg>
+      </span>
+      <span class="url-text" id="urlText">Loading...</span>
+    </div>
+
+    <!-- Analyze Button -->
+    <button class="analyze-btn" id="analyzeBtn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+      Analyze This Page
+    </button>
+
+    <!-- Loading State -->
+    <div class="loading-state" id="loadingState" style="display:none">
+      <div class="spinner"></div>
+      <p>Analyzing SEO...</p>
+    </div>
+
+    <!-- Error State -->
+    <div class="error-state" id="errorState" style="display:none">
+      <div class="error-icon">!</div>
+      <p class="error-msg" id="errorMsg"></p>
+      <button class="retry-btn" id="retryBtn">Try Again</button>
+    </div>
+
+    <!-- Results -->
+    <div class="results" id="results" style="display:none">
+
+      <!-- Score Circle -->
+      <div class="score-section">
+        <div class="score-circle" id="scoreCircle">
+          <svg viewBox="0 0 120 120">
+            <circle class="score-bg" cx="60" cy="60" r="52" />
+            <circle class="score-ring" id="scoreRing" cx="60" cy="60" r="52" />
+          </svg>
+          <div class="score-value">
+            <span class="score-number" id="scoreNumber">0</span>
+            <span class="score-label">/ 100</span>
+          </div>
+        </div>
+        <div class="score-grade" id="scoreGrade"></div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="quick-stats">
+        <div class="stat">
+          <span class="stat-value" id="statWords">-</span>
+          <span class="stat-label">Words</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statLinks">-</span>
+          <span class="stat-label">Links</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statImages">-</span>
+          <span class="stat-label">Images</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value" id="statHeadings">-</span>
+          <span class="stat-label">Headings</span>
+        </div>
+      </div>
+
+      <!-- Checks -->
+      <div class="checks-section">
+        <h2 class="section-title">SEO Checks</h2>
+        <div class="checks-list" id="checksList"></div>
+      </div>
+
+      <!-- Details Accordion -->
+      <div class="details-section">
+        <!-- Title -->
+        <div class="detail-card" id="detailTitle"></div>
+        <!-- Meta Description -->
+        <div class="detail-card" id="detailMeta"></div>
+        <!-- Headings -->
+        <div class="detail-card" id="detailHeadings"></div>
+        <!-- Images -->
+        <div class="detail-card" id="detailImages"></div>
+        <!-- Links -->
+        <div class="detail-card" id="detailLinks"></div>
+        <!-- Social -->
+        <div class="detail-card" id="detailSocial"></div>
+        <!-- Technical -->
+        <div class="detail-card" id="detailTechnical"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Powered by SEO Inspector API</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

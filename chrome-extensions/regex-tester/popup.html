@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Regex Tester</h1>
+      <div class="header-actions">
+        <button id="btn-presets" class="icon-btn" title="Presets">&#9733;</button>
+        <button id="btn-favorites" class="icon-btn" title="Favorites">&#9829;</button>
+      </div>
+    </header>
+
+    <!-- Regex input -->
+    <div class="input-group">
+      <label>Regular Expression</label>
+      <div class="regex-row">
+        <span class="delim">/</span>
+        <input type="text" id="regex-input" placeholder="pattern" spellcheck="false">
+        <span class="delim">/</span>
+        <div class="flags">
+          <button class="flag active" data-flag="g">g</button>
+          <button class="flag" data-flag="i">i</button>
+          <button class="flag" data-flag="m">m</button>
+          <button class="flag" data-flag="s">s</button>
+          <button class="flag" data-flag="u">u</button>
+        </div>
+        <button id="btn-save" class="icon-btn" title="Save to favorites">+</button>
+      </div>
+      <div id="regex-error" class="error"></div>
+    </div>
+
+    <!-- Test string -->
+    <div class="input-group">
+      <label>Test String</label>
+      <textarea id="test-input" rows="5" placeholder="Enter test text here..." spellcheck="false"></textarea>
+    </div>
+
+    <!-- Highlighted result -->
+    <div class="input-group">
+      <label>Matches</label>
+      <div id="highlight-area" class="highlight-area"></div>
+    </div>
+
+    <!-- Match list -->
+    <div class="input-group">
+      <label>Match Results</label>
+      <div id="match-list" class="match-list"><span class="muted">No matches</span></div>
+    </div>
+
+    <!-- Panels (presets / favorites) -->
+    <div id="panel-presets" class="panel hidden">
+      <h2>Presets</h2>
+      <div id="preset-list" class="preset-list"></div>
+    </div>
+    <div id="panel-favorites" class="panel hidden">
+      <h2>Favorites</h2>
+      <div id="favorite-list" class="preset-list"></div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

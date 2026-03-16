@@ -1,0 +1,22 @@
+Color Picker & Converter -- Pick Colors, Convert Formats, Check Contrast
+
+A powerful color tool for designers and developers. Pick any color from a webpage, convert between formats, check accessibility, and generate palettes.
+
+FEATURES:
+- Pick colors from any webpage with an eyedropper tool
+- Convert between HEX, RGB, HSL, and CMYK formats instantly
+- WCAG contrast ratio checker for accessibility compliance
+- Generate complementary, analogous, and triadic color palettes
+- Color history -- saves your recently picked colors
+- One-click copy to clipboard
+
+HOW IT WORKS:
+1. Click the extension icon to open the popup
+2. Use the eyedropper to pick a color from any page
+3. View conversions in all formats
+4. Check contrast ratios and generate palettes
+
+PRIVACY:
+This extension processes everything locally in your browser. No data is collected, transmitted, or stored externally. Zero network requests.
+
+Essential for web designers, UI/UX designers, front-end developers, and accessibility auditors.

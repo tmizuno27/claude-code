@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "seo-analyzer",
+  "title": "SEO Analyzer",
+  "description": "Analyze any webpage for SEO factors: title, meta, headings, images, links, Open Graph, structured data, and get an overall SEO score.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

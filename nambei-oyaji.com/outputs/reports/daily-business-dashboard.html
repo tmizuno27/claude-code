@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日次ビジネス総合レポート — 2026.03.16</title>
+<style>
+/* Meiryo font - no import needed (system font) */
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#f3ece1;
+  --bg2:#ebe4d7;
+  --glass:rgba(255,255,255,0.48);
+  --glass-strong:rgba(255,255,255,0.65);
+  --glass-border:rgba(0,0,0,0.06);
+  --glass-hover:rgba(255,255,255,0.72);
+  --text:#141210;
+  --text2:rgba(0,0,0,1);
+  --text3:rgba(0,0,0,1);
+  --text4:rgba(0,0,0,1);
+  --blue:#0062e0;
+  --green:#16873a;
+  --orange:#c05800;
+  --red:#c42b22;
+  --purple:#7c35b8;
+  --teal:#0884a8;
+  --gold:#9a7200;
+  --pink:#b83d60;
+  --cyan:#0694b2;
+  --r:18px;--r-sm:12px;--r-xs:8px;
+  --shadow:0 1px 2px rgba(0,0,0,0.04),0 2px 8px rgba(0,0,0,0.03);
+  --shadow-md:0 4px 16px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.03);
+  --shadow-lg:0 8px 32px rgba(0,0,0,0.08);
+}
+
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:'Meiryo','メイリオ',sans-serif;
+  min-height:100vh;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ═══ MESH BACKGROUND (disabled) ═══ */
+.mesh-bg{display:none}
+
+/* ═══ LAYOUT ═══ */
+.layout{display:flex;position:relative;z-index:1;min-height:100vh}
+
+/* ═══ SIDEBAR NAV ═══ */
+.sidebar{
+  width:56px;position:fixed;top:0;left:0;height:100vh;
+  background:rgba(255,255,255,0.6);backdrop-filter:blur(30px);
+  -webkit-backdrop-filter:blur(30px);
+  border-right:1px solid var(--glass-border);
+  display:flex;flex-direction:column;align-items:center;
+  padding:1rem 0;z-index:100;
+  transition:width 0.3s;
+}
+.sidebar .nav-items{
+  display:flex;flex-direction:column;gap:0.3rem;margin-top:1rem;
+}
+.nav-item{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.9rem;cursor:pointer;transition:all 0.25s;
+  position:relative;color:var(--text3);
+}
+.nav-item:hover{background:rgba(0,0,0,0.05);color:var(--text)}
+.nav-item.active{background:rgba(154,114,0,0.1);color:var(--gold)}
+.nav-item::after{
+  content:attr(data-tooltip);position:absolute;left:calc(100% + 8px);
+  background:var(--text);color:#fff;padding:0.3em 0.6em;
+  border-radius:6px;font-size:0.88rem;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity 0.2s;
+  font-family:'Meiryo','メイリオ',sans-serif;
+}
+.nav-item:hover::after{opacity:1}
+.sidebar .logo{
+  width:32px;height:32px;border-radius:8px;
+  background:linear-gradient(135deg,var(--gold),#d4a017);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.7rem;color:#fff;font-weight:700;
+}
+
+/* ═══ MAIN ═══ */
+.main{margin-left:56px;flex:1;padding:1.5rem 2.2rem 3rem;max-width:1420px}
+
+/* ═══ HEADER ═══ */
+header{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  margin-bottom:1.8rem;padding-bottom:1.2rem;
+  border-bottom:1px solid var(--glass-border);
+  animation:fadeIn 0.6s ease both;
+}
+.tag{
+  display:inline-flex;align-items:center;gap:0.4rem;
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.85rem;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--gold);background:rgba(154,114,0,0.07);
+  border:1px solid rgba(154,114,0,0.12);
+  padding:0.25em 0.7em;border-radius:100px;margin-bottom:0.6rem;
+}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+header h1{font-size:1.9rem;font-weight:800;letter-spacing:-0.04em;line-height:1.1}
+header .subtitle{font-size:0.78rem;color:var(--text2);margin-top:0.3rem;font-weight:300}
+.header-right{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:0.2rem}
+.header-date{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.5rem;font-weight:300;color:var(--text3);letter-spacing:-0.02em}
+.header-time{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.88rem;color:var(--text3)}
+#live-clock{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.88rem;color:var(--gold)}
+
+/* ═══ HERO SCORE ═══ */
+.hero-row{
+  display:grid;grid-template-columns:280px 1fr;gap:1.2rem;
+  margin-bottom:1.5rem;
+}
+.score-card{
+  background:var(--glass);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:1.5rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.score-card::before{display:none}
+.score-label{font-size:0.92rem;color:var(--text2);margin-bottom:0.6rem;font-weight:700}
+.score-ring{position:relative;width:120px;height:120px;margin:0 auto}
+.score-ring svg{transform:rotate(-90deg)}
+.score-ring .ring-bg{stroke:rgba(0,0,0,0.06);fill:none;stroke-width:10}
+.score-ring .ring-fill{
+  fill:none;stroke-width:10;stroke-linecap:round;
+  stroke-dasharray:339.3;stroke-dashoffset:339.3;
+  transition:stroke-dashoffset 2s cubic-bezier(0.16,1,0.3,1);
+}
+.score-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;
+}
+.score-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:2rem;font-weight:600;color:var(--gold)}
+.score-max{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.82rem;color:var(--text3)}
+.score-breakdown{
+  display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-top:1rem;
+}
+.sb-item{font-size:0.85rem;color:var(--text3);display:flex;justify-content:space-between;padding:0.2rem 0.3rem;border-radius:4px;font-weight:500}
+.sb-item .sb-v{font-family:'Meiryo','メイリオ',sans-serif;font-weight:500;color:var(--text2)}
+
+/* Executive summary */
+.exec-card{
+  background:var(--glass-strong);border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:1.4rem 1.6rem;
+  box-shadow:var(--shadow);
+}
+.exec-card .exec-title{font-size:0.92rem;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.6rem;font-family:'Meiryo','メイリオ',sans-serif}
+.exec-card p{font-size:0.8rem;line-height:1.75;color:var(--text2)}
+.exec-card strong{color:var(--text);font-weight:600}
+.exec-card .exec-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:0.8rem}
+.exec-tag{
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;
+  padding:0.2em 0.5em;border-radius:100px;
+  border:1px solid var(--glass-border);color:var(--text3);
+}
+.exec-tag.warn{border-color:rgba(196,88,0,0.2);color:var(--orange);background:rgba(196,88,0,0.04)}
+.exec-tag.ok{border-color:rgba(22,135,58,0.2);color:var(--green);background:rgba(22,135,58,0.04)}
+
+/* ═══ GLASS CARD ═══ */
+.card{
+  background:var(--glass);border:1px solid var(--glass-border);
+  border-radius:var(--r);backdrop-filter:blur(30px) saturate(1.3);
+  -webkit-backdrop-filter:blur(30px) saturate(1.3);
+  padding:1.4rem;box-shadow:var(--shadow);
+  transition:all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.card:hover{background:var(--glass-hover);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+
+/* ═══ KPIs ═══ */
+.kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0.8rem;margin-bottom:1.5rem}
+.kpi{text-align:center;padding:1.2rem 0.5rem;position:relative;overflow:hidden}
+.kpi .kpi-icon{font-size:1rem;margin-bottom:0.4rem}
+.kpi .kpi-value{
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:1.9rem;font-weight:600;
+  letter-spacing:-0.04em;line-height:1;margin-bottom:0.35rem;
+}
+.kpi .kpi-label{font-size:0.88rem;color:var(--text2);font-weight:600}
+.kpi .kpi-sub{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;color:var(--text3);margin-top:0.2rem}
+.kpi .kpi-spark{display:flex;align-items:flex-end;justify-content:center;gap:2px;height:18px;margin-top:0.5rem}
+.kpi .kpi-spark .bar{width:4px;border-radius:2px;background:currentColor;opacity:0.15;transition:height 0.8s ease}
+.kpi .kpi-spark .bar.today{opacity:0.5}
+
+/* ═══ REVENUE PROGRESS ═══ */
+.rev-progress{
+  background:var(--glass-strong);border:1px solid var(--glass-border);
+  border-radius:var(--r);padding:1.4rem 1.6rem;margin-bottom:1.5rem;
+  box-shadow:var(--shadow);
+}
+.rev-progress .rp-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem}
+.rev-progress h3{font-size:0.88rem;font-weight:600}
+.rev-progress .rp-bar-wrap{position:relative;margin-bottom:0.5rem}
+.rp-bar{width:100%;height:28px;background:rgba(0,0,0,0.04);border-radius:100px;overflow:hidden;position:relative}
+.rp-fill{
+  height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--gold) 0%,#d4a017 50%,#e6b422 100%);
+  min-width:28px;transition:width 2.5s cubic-bezier(0.16,1,0.3,1);
+  position:relative;box-shadow:inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.rp-fill .rp-label{
+  position:absolute;left:10px;top:50%;transform:translateY(-50%);
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.82rem;color:#fff;font-weight:600;
+  text-shadow:0 1px 2px rgba(0,0,0,0.15);
+}
+.rp-fill::after{display:none}
+.rp-markers{display:flex;position:relative;height:20px;margin-bottom:0.3rem}
+.rp-marker{
+  position:absolute;transform:translateX(-50%);
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;color:var(--text4);
+  display:flex;flex-direction:column;align-items:center;
+}
+.rp-marker::before{content:'';width:1px;height:6px;background:var(--text4);margin-bottom:2px}
+.rp-phases{display:flex;gap:0;margin-top:0.8rem}
+.rp-phase{
+  flex:1;text-align:center;padding:0.6rem 0.4rem;
+  border-top:3px solid rgba(0,0,0,0.04);transition:all 0.3s;
+}
+.rp-phase.active{border-top-color:var(--gold);background:rgba(154,114,0,0.03);border-radius:0 0 var(--r-xs) var(--r-xs)}
+.rp-phase .rpp-name{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em}
+.rp-phase.active .rpp-name{color:var(--gold)}
+.rp-phase .rpp-amount{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.82rem;font-weight:600;margin-top:0.15rem}
+.rp-phase.active .rpp-amount{color:var(--gold)}
+.rp-phase .rpp-period{font-size:0.78rem;color:var(--text4);margin-top:0.1rem}
+
+/* ═══ SECTION ═══ */
+.section-header{display:flex;align-items:center;gap:0.6rem;margin:2rem 0 0.8rem}
+.section-header .icon{
+  width:28px;height:28px;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;font-size:0.8rem;
+}
+.section-header h2{font-size:0.95rem;font-weight:600;letter-spacing:-0.01em}
+.section-header .badge{
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;color:var(--text3);
+  background:var(--surface);padding:0.15em 0.5em;
+  border-radius:100px;border:1px solid var(--glass-border);
+}
+
+/* ═══ PORTFOLIO ═══ */
+.portfolio-row{display:grid;grid-template-columns:180px 1fr;gap:1.2rem;align-items:center}
+.pf-donut{position:relative;width:160px;height:160px;margin:0 auto}
+.pf-donut svg{transform:rotate(-90deg)}
+.pf-donut .seg{
+  fill:none;stroke-width:22;stroke-linecap:butt;
+  transition:stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1);
+}
+.pf-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.pf-center .pf-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.6rem;font-weight:700}
+.pf-center .pf-lbl{font-size:0.8rem;color:var(--text3)}
+.pf-legend{display:flex;flex-direction:column;gap:0.35rem}
+.pf-leg{
+  display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;
+  border-radius:var(--r-xs);transition:all 0.2s;cursor:default;
+}
+.pf-leg:hover{background:rgba(0,0,0,0.025);transform:translateX(3px)}
+.pf-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.pf-info{flex:1;display:flex;justify-content:space-between;align-items:center}
+.pf-name{font-size:0.92rem;font-weight:500}
+.pf-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.9rem;color:var(--text2)}
+
+/* ═══ BLOG ═══ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.9rem}
+.blog-card{padding:1.3rem;position:relative;overflow:hidden}
+.blog-card .accent-bar{position:absolute;top:0;left:0;right:0;height:3px}
+.blog-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.8rem}
+.blog-name{font-size:0.85rem;font-weight:600;line-height:1.3}
+.blog-domain{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.85rem;color:var(--text3);margin-top:0.1rem}
+.blog-ring-row{display:flex;align-items:center;gap:0.8rem}
+.blog-ring{position:relative;width:64px;height:64px;flex-shrink:0}
+.blog-ring svg{transform:rotate(-90deg)}
+.blog-ring .ring-bg{fill:none;stroke:rgba(0,0,0,0.05);stroke-width:6}
+.blog-ring .ring-val{fill:none;stroke-width:6;stroke-linecap:round;transition:stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1)}
+.blog-ring .br-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Meiryo','メイリオ',sans-serif;font-size:0.85rem;font-weight:600}
+.blog-info{flex:1;display:flex;flex-direction:column;gap:0.25rem}
+.blog-info .bi-row{display:flex;justify-content:space-between;font-size:0.88rem}
+.blog-info .bi-label{color:var(--text3);font-weight:600}
+.blog-info .bi-val{font-family:'Meiryo','メイリオ',sans-serif;font-weight:500}
+.blog-metrics{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  margin-top:0.8rem;padding-top:0.7rem;border-top:1px solid var(--glass-border);
+}
+.blog-metric{text-align:center;padding:0.3rem 0}
+.blog-metric .bm-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.95rem;font-weight:600}
+.blog-metric .bm-lbl{font-size:0.78rem;color:var(--text3);margin-top:0.1rem;font-weight:500}
+
+/* ═══ PIPELINE ═══ */
+.pipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem}
+.pipe-card{text-align:center;padding:1rem 0.5rem}
+.pipe-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.8rem;font-weight:600;line-height:1}
+.pipe-label{font-size:0.88rem;color:var(--text2);margin-top:0.3rem;font-weight:600}
+.pipe-target{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;color:var(--text3);margin-top:0.15rem}
+.week-bars{display:flex;align-items:flex-end;justify-content:center;gap:3px;height:28px;margin-top:0.5rem}
+.week-bar{
+  width:8px;border-radius:3px 3px 0 0;transition:height 1s ease,opacity 0.3s;
+  cursor:default;position:relative;
+}
+.week-bar:hover{opacity:0.8!important}
+.week-bar::after{
+  content:attr(data-day);position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.92rem;color:var(--text4);
+}
+
+/* ═══ APIFY / RAPIDAPI ═══ */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.table-card{padding:0}
+.t-row{
+  display:grid;align-items:center;padding:0.65rem 1.2rem;font-size:0.92rem;
+  border-bottom:1px solid rgba(0,0,0,0.04);transition:background 0.15s;
+}
+.t-row:last-child{border-bottom:none}
+.t-row:hover{background:rgba(0,0,0,0.02)}
+.t-row.t-hdr{
+  font-size:0.8rem;color:var(--text3);text-transform:uppercase;
+  letter-spacing:0.07em;font-family:'Meiryo','メイリオ',sans-serif;
+  background:rgba(0,0,0,0.015);padding:0.5rem 1.2rem;
+}
+.t-row.t-total{border-top:2px solid var(--glass-border);font-weight:600;background:rgba(0,0,0,0.015)}
+.actor-grid{grid-template-columns:1fr 42px 55px 68px 62px}
+.mono{font-family:'Meiryo','メイリオ',sans-serif}
+.t-right{text-align:right}
+
+.rapi-card{display:flex;flex-direction:column;gap:0.8rem}
+.rapi-hero{display:flex;align-items:center;gap:1rem}
+.rapi-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:3rem;font-weight:300;color:var(--purple);line-height:1}
+.rapi-info .ri-label{font-size:0.92rem;color:var(--text2)}
+.rapi-info .ri-rev{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.2rem;font-weight:600;margin-top:0.2rem}
+.rapi-meta{display:flex;flex-direction:column;gap:0.35rem;padding-top:0.8rem;border-top:1px solid var(--glass-border)}
+.rapi-row{display:flex;justify-content:space-between;font-size:0.9rem}
+.rapi-row .rl{color:var(--text3);font-weight:500}
+.rapi-row .rv{font-family:'Meiryo','メイリオ',sans-serif;color:var(--text2)}
+
+/* ═══ BIZ ═══ */
+.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.biz-card .biz-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.3rem}
+.biz-title{font-size:0.82rem;font-weight:600}
+.biz-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.3rem;font-weight:500;margin:0.4rem 0}
+.biz-desc{font-size:0.9rem;color:var(--text3);line-height:1.5}
+.biz-rev{
+  margin-top:0.6rem;padding-top:0.5rem;border-top:1px solid var(--glass-border);
+  display:flex;justify-content:space-between;font-family:'Meiryo','メイリオ',sans-serif;font-size:0.7rem;color:var(--text2);
+}
+
+/* ═══ COST / SEO ═══ */
+.cost-grid{grid-template-columns:1fr 85px 60px}
+.seo-list{display:flex;flex-direction:column;gap:0.3rem}
+.seo-row{display:flex;justify-content:space-between;align-items:center;font-size:0.9rem;padding:0.35rem 0;border-bottom:1px solid rgba(0,0,0,0.03)}
+.seo-row:last-child{border-bottom:none}
+.seo-row .sr-name{color:var(--text2);font-weight:500}
+
+/* ═══ HEALTH ═══ */
+.health-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem}
+.health-card{text-align:center;padding:1.1rem 0.5rem}
+.health-icon{font-size:1.1rem;margin-bottom:0.4rem}
+.health-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.1rem;font-weight:600;color:var(--green)}
+.health-lbl{font-size:0.88rem;color:var(--text2);margin-top:0.2rem;font-weight:600}
+.health-sub{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;color:var(--text3);margin-top:0.2rem}
+
+/* ═══ REVENUE TABLE ═══ */
+.rev-grid{grid-template-columns:1fr 80px 110px}
+
+/* ═══ ACTIONS ═══ */
+.action-list{display:flex;flex-direction:column;gap:0.4rem}
+.action-item{
+  display:flex;align-items:flex-start;gap:0.6rem;
+  padding:0.8rem 1rem;border-radius:var(--r-sm);
+  background:rgba(255,255,255,0.35);border:1px solid var(--glass-border);
+  font-size:0.95rem;line-height:1.5;transition:all 0.25s;
+}
+.action-item:hover{background:rgba(255,255,255,0.55);transform:translateX(4px);box-shadow:var(--shadow)}
+.a-pri{
+  font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;font-weight:700;
+  padding:0.15em 0.4em;border-radius:4px;flex-shrink:0;margin-top:0.1rem;
+}
+.a-pri.p1{background:rgba(196,43,34,0.08);color:var(--red)}
+.a-pri.p2{background:rgba(192,88,0,0.08);color:var(--orange)}
+.a-pri.p3{background:rgba(0,98,224,0.08);color:var(--blue)}
+.a-text{flex:1}
+.a-text strong{font-weight:600}
+.a-text .a-reason{display:block;font-size:0.85rem;color:var(--text3);margin-top:0.05rem}
+
+/* ═══ FOOTER ═══ */
+footer{
+  margin-top:2.5rem;padding-top:1.2rem;
+  border-top:1px solid var(--glass-border);
+  display:flex;justify-content:space-between;
+  font-size:0.82rem;color:var(--text3);font-family:'Meiryo','メイリオ',sans-serif;
+}
+
+/* ═══ ANIMATIONS ═══ */
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.anim{opacity:0}.anim.visible{animation:fadeUp 0.5s ease forwards}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.12);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,0,0,0.2)}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:1100px){
+  .kpi-grid{grid-template-columns:repeat(3,1fr)}
+  .blog-grid,.two-col,.biz-grid{grid-template-columns:1fr}
+  .hero-row{grid-template-columns:1fr}
+  .portfolio-row{grid-template-columns:1fr}
+  .health-grid{grid-template-columns:repeat(2,1fr)}
+  .pipe-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .sidebar{display:none}
+  .main{margin-left:0;padding:1rem}
+  header{flex-direction:column;gap:0.6rem}
+  .header-right{align-items:flex-start}
+  header h1{font-size:1.5rem}
+  .kpi-grid{grid-template-columns:repeat(2,1fr);gap:0.5rem}
+  .kpi .kpi-value{font-size:1.5rem}
+  .health-grid{grid-template-columns:1fr 1fr}
+  .actor-grid{grid-template-columns:1fr 35px 45px 60px}
+  .actor-grid .t-right{display:none}
+  .rp-phases{flex-direction:column}
+}
+
+/* ═══ DOMAIN AUTHORITY ═══ */
+.da-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem}
+.da-card{text-align:center;padding:1.3rem 0.8rem}
+.da-domain{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.9rem;color:var(--text3);margin-bottom:0.6rem}
+.da-score-row{display:flex;justify-content:center;gap:1.2rem;margin-bottom:0.6rem}
+.da-score{text-align:center}
+.da-score .da-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.6rem;font-weight:600}
+.da-score .da-lbl{font-size:0.52rem;color:var(--text3);margin-top:0.1rem;text-transform:uppercase;letter-spacing:0.05em}
+.da-bar-wrap{height:6px;background:rgba(0,0,0,0.04);border-radius:100px;overflow:hidden;margin-top:0.5rem}
+.da-bar{height:100%;border-radius:100px;transition:width 1.5s ease}
+.da-backlinks{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.82rem;color:var(--text3);margin-top:0.4rem}
+
+/* ═══ INDEX STATUS ═══ */
+.idx-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem}
+.idx-card{text-align:center;padding:1.2rem 0.8rem}
+.idx-domain{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.9rem;color:var(--text3);margin-bottom:0.5rem}
+.idx-ring{position:relative;width:72px;height:72px;margin:0 auto}
+.idx-ring svg{transform:rotate(-90deg)}
+.idx-ring .ring-bg{fill:none;stroke:rgba(0,0,0,0.05);stroke-width:7}
+.idx-ring .ring-val{fill:none;stroke-width:7;stroke-linecap:round;transition:stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1)}
+.idx-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.idx-center .idx-pct{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.9rem;font-weight:600}
+.idx-center .idx-lbl{font-size:0.92rem;color:var(--text3)}
+.idx-detail{display:flex;flex-direction:column;gap:0.2rem;margin-top:0.5rem}
+.idx-row{display:flex;justify-content:space-between;font-size:0.82rem}
+.idx-row .il{color:var(--text3);font-weight:500}
+.idx-row .iv{font-family:'Meiryo','メイリオ',sans-serif;font-weight:500}
+
+/* ═══ SNS ═══ */
+.sns-grid{display:grid;grid-template-columns:200px 1fr;gap:1.2rem;align-items:start}
+.sns-hero{text-align:center;padding:1.5rem}
+.sns-followers{font-family:'Meiryo','メイリオ',sans-serif;font-size:2.8rem;font-weight:300;color:var(--blue);line-height:1}
+.sns-flabel{font-size:0.88rem;color:var(--text3);margin-top:0.3rem;font-weight:500}
+.sns-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem}
+.sns-stat{text-align:center;padding:0.8rem 0.4rem}
+.sns-stat .ss-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.1rem;font-weight:600}
+.sns-stat .ss-lbl{font-size:0.82rem;color:var(--text3);margin-top:0.15rem;font-weight:500}
+.sns-preview{margin-top:0.6rem;padding:0.8rem 1rem;background:rgba(0,0,0,0.02);border-radius:var(--r-xs);font-size:0.7rem;color:var(--text2);line-height:1.6;border-left:3px solid var(--blue)}
+
+/* ═══ DOMAIN ═══ */
+.domain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.8rem}
+.domain-card{padding:1.2rem;text-align:center}
+.domain-name{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.92rem;font-weight:500;margin-bottom:0.6rem}
+.domain-rows{display:flex;flex-direction:column;gap:0.3rem}
+.domain-row{display:flex;justify-content:space-between;font-size:0.85rem}
+.domain-row .dl{color:var(--text3);font-weight:500}
+.domain-row .dv{font-family:'Meiryo','メイリオ',sans-serif}
+
+/* ═══ AFFILIATE MATRIX ═══ */
+.aff-matrix{width:100%;border-collapse:collapse;font-size:0.9rem}
+.aff-matrix th{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;padding:0.6rem 0.8rem;text-align:center;background:rgba(0,0,0,0.015);border-bottom:1px solid rgba(0,0,0,0.06)}
+.aff-matrix th:first-child{text-align:left}
+.aff-matrix td{padding:0.6rem 0.8rem;text-align:center;border-bottom:1px solid rgba(0,0,0,0.03)}
+.aff-matrix td:first-child{text-align:left;font-weight:500}
+.aff-matrix tr:hover td{background:rgba(0,0,0,0.015)}
+
+/* ═══ TASK LOG ═══ */
+.task-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:0.8rem;margin-bottom:0.8rem}
+.task-stat{text-align:center;padding:0.8rem 0.4rem}
+.task-stat .ts-val{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.4rem;font-weight:600}
+.task-stat .ts-lbl{font-size:0.82rem;color:var(--text3);margin-top:0.15rem;font-weight:500}
+.task-bar-wrap{height:12px;background:rgba(0,0,0,0.04);border-radius:100px;overflow:hidden;display:flex}
+.task-bar-seg{height:100%;transition:width 1.5s ease}
+
+/* ═══ FINANCE ═══ */
+.fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.fin-card{padding:1.3rem}
+.fin-row{display:flex;justify-content:space-between;font-size:0.7rem;padding:0.35rem 0;border-bottom:1px solid rgba(0,0,0,0.03)}
+.fin-row:last-child{border-bottom:none}
+.fin-row .fl{color:var(--text3);font-weight:500}
+.fin-row .fv{font-family:'Meiryo','メイリオ',sans-serif;font-weight:500}
+.fin-total{font-weight:700;border-top:2px solid var(--glass-border);padding-top:0.5rem;margin-top:0.3rem}
+.runway-bar{height:20px;background:rgba(0,0,0,0.04);border-radius:100px;overflow:hidden;margin:0.8rem 0 0.4rem}
+.runway-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--green),var(--teal));transition:width 2s ease}
+
+/* ═══ SCHEDULE ═══ */
+.sched-week{display:grid;grid-template-columns:repeat(7,1fr);gap:0.5rem}
+.sched-day{padding:0.8rem 0.4rem;text-align:center;border-radius:var(--r-xs)}
+.sched-day .sd-name{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.82rem;color:var(--text3);margin-bottom:0.3rem}
+.sched-day .sd-num{font-family:'Meiryo','メイリオ',sans-serif;font-size:1.1rem;font-weight:600}
+.sched-day .sd-tag{font-size:0.95rem;margin-top:0.3rem;padding:0.15em 0.4em;border-radius:100px;display:inline-block}
+.sched-day.publish{background:rgba(0,98,224,0.05);border:1px solid rgba(0,98,224,0.1)}
+.sched-day.publish .sd-num{color:var(--blue)}
+.sched-day.publish .sd-tag{background:rgba(0,98,224,0.08);color:var(--blue)}
+.sched-day.today{background:rgba(154,114,0,0.06);border:1px solid rgba(154,114,0,0.12)}
+.sched-day.today .sd-num{color:var(--gold)}
+.sched-items{margin-top:0.8rem;display:flex;flex-direction:column;gap:0.3rem}
+.sched-item{display:flex;align-items:center;gap:0.5rem;font-size:0.9rem;padding:0.4rem 0.6rem;border-radius:var(--r-xs);background:rgba(0,0,0,0.015)}
+.sched-item .si-time{font-family:'Meiryo','メイリオ',sans-serif;color:var(--text3);font-size:0.82rem;width:45px;flex-shrink:0}
+.sched-item .si-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+/* ═══ NOTION ═══ */
+.notion-row{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 0}
+.notion-icon{font-size:1.2rem}
+.notion-info{flex:1}
+.notion-info .ni-name{font-size:0.95rem;font-weight:500}
+.notion-info .ni-id{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;color:var(--text3)}
+
+@media(max-width:1100px){
+  .sns-grid{grid-template-columns:1fr}
+  .domain-grid{grid-template-columns:1fr}
+  .fin-grid{grid-template-columns:1fr}
+  .sched-week{grid-template-columns:repeat(4,1fr)}
+  .task-summary{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+  .sched-week{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Noise */
+.main::before{
+  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:-1;
+}
+</style>
+</head>
+<body>
+
+<!-- Animated mesh background -->
+<div class="mesh-bg"><div class="blob"></div><div class="blob"></div><div class="blob"></div></div>
+
+<div class="layout">
+
+<!-- ═══ SIDEBAR ═══ -->
+<nav class="sidebar">
+  <div class="logo">B</div>
+  <div class="nav-items">
+    <div class="nav-item active" data-tooltip="ダッシュボード" onclick="scrollTo('#top')">📊</div>
+    <div class="nav-item" data-tooltip="ブログ" onclick="scrollTo('#blogs')">📝</div>
+    <div class="nav-item" data-tooltip="SNS" onclick="scrollTo('#sns')">🐦</div>
+    <div class="nav-item" data-tooltip="API" onclick="scrollTo('#apis')">⚡</div>
+    <div class="nav-item" data-tooltip="Chrome拡張" onclick="scrollTo('#chrome')">🧩</div>
+    <div class="nav-item" data-tooltip="事業" onclick="scrollTo('#biz')">📦</div>
+    <div class="nav-item" data-tooltip="収益" onclick="scrollTo('#revenue')">💰</div>
+    <div class="nav-item" data-tooltip="財務" onclick="scrollTo('#finance')">🏦</div>
+    <div class="nav-item" data-tooltip="スケジュール" onclick="scrollTo('#schedule')">📅</div>
+    <div class="nav-item" data-tooltip="システム" onclick="scrollTo('#system')">🔧</div>
+    <div class="nav-item" data-tooltip="アクション" onclick="scrollTo('#actions')">🎯</div>
+  </div>
+</nav>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<main class="main" id="top">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="tag"><span class="live-dot"></span>Daily Business Report</div>
+      <h1>日次ビジネス総合レポート</h1>
+      <div class="subtitle">全事業横断ダッシュボード — 12事業 / 3サイト / 25 API / 4 Chrome拡張</div>
+    </div>
+    <div class="header-right">
+      <div class="header-date">03.16</div>
+      <div class="header-time">2026 — 09:00 PYT</div>
+      <div id="live-clock"></div>
+    </div>
+  </header>
+
+  <!-- HERO: SCORE + SUMMARY -->
+  <div class="hero-row anim">
+    <div class="score-card">
+      <div class="score-label">ビジネス健全性スコア</div>
+      <div class="score-ring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" class="ring-bg" stroke-width="10"/>
+          <circle cx="60" cy="60" r="54" class="ring-fill" id="score-ring"
+            stroke="url(#scoreGrad)" stroke-dasharray="339.3" stroke-dashoffset="339.3"/>
+          <defs>
+            <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="var(--gold)"/>
+              <stop offset="100%" stop-color="var(--purple)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="score-center">
+          <div class="score-num" id="score-val">0</div>
+          <div class="score-max">/ 100</div>
+        </div>
+      </div>
+      <div class="score-breakdown">
+        <div class="sb-item"><span>資産量</span><span class="sb-v">18/20</span></div>
+        <div class="sb-item"><span>計測基盤</span><span class="sb-v" style="color:var(--orange)">12/20</span></div>
+        <div class="sb-item"><span>収益化</span><span class="sb-v" style="color:var(--orange)">8/20</span></div>
+        <div class="sb-item"><span>自動化</span><span class="sb-v">16/20</span></div>
+        <div class="sb-item"><span>インフラ</span><span class="sb-v">17/20</span></div>
+      </div>
+    </div>
+    <div class="exec-card">
+      <div class="exec-title">Executive Summary</div>
+      <p>
+        全12事業で<strong>77記事 + 25 API/Actor + 4 Chrome拡張 + 4,003ページ + テンプレート9本</strong>のデジタル資産を構築完了。
+        オンラインセールスを主力収入源としつつ、自動化基盤（52タスク + GitHub同期 + Healthchecks）は盤石。
+        一方、<strong>自動化事業の売上は$0</strong>（立ち上げ初日）であり、GA4/GSC未接続のため改善サイクルが起動していない。
+        <strong>「計測→可視化→改善」の基盤整備が今日の最優先</strong>。資産の量は十分、質の向上フェーズへ移行する。
+      </p>
+      <div class="exec-tags">
+        <span class="exec-tag ok">資産構築 完了</span>
+        <span class="exec-tag ok">自動化 52タスク</span>
+        <span class="exec-tag ok">GA4 接続済(1/3)</span>
+        <span class="exec-tag ok">GSC 3サイト接続</span>
+        <span class="exec-tag ok">X API 接続済</span>
+        <span class="exec-tag warn">売上 $0</span>
+        <span class="exec-tag ok">コスト ¥3,700/月</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <div class="kpi-grid anim">
+    <div class="card kpi">
+      <div class="kpi-icon">📄</div>
+      <div class="kpi-value" data-target="77" style="color:var(--blue)">0</div>
+      <div class="kpi-label">総記事数</div>
+      <div class="kpi-sub">3サイト合計</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div><div class="bar" style="height:3px;background:var(--blue)"></div></div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-icon">🔌</div>
+      <div class="kpi-value" data-target="25" style="color:var(--purple)">0</div>
+      <div class="kpi-label">API / Actor</div>
+      <div class="kpi-sub">20 + 5</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div><div class="bar" style="height:3px;background:var(--purple)"></div></div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-icon">💰</div>
+      <div class="kpi-value" data-prefix="$" data-target="0" data-decimals="0" style="color:var(--gold)">$0</div>
+      <div class="kpi-label">今月売上</div>
+      <div class="kpi-sub">全事業合計</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div><div class="bar" style="height:3px;background:var(--gold)"></div></div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-icon">💸</div>
+      <div class="kpi-value" data-prefix="¥" data-target="3700" data-decimals="0" style="color:var(--green)">¥0</div>
+      <div class="kpi-label">月次コスト</div>
+      <div class="kpi-sub">低コスト運用</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div><div class="bar" style="height:3px;background:var(--green)"></div></div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-icon">🏢</div>
+      <div class="kpi-value" data-target="12" style="color:var(--teal)">0</div>
+      <div class="kpi-label">事業数</div>
+      <div class="kpi-sub">9稼働 / 3準備</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div><div class="bar" style="height:3px;background:var(--teal)"></div></div>
+    </div>
+    <div class="card kpi">
+      <div class="kpi-icon">📊</div>
+      <div class="kpi-value" data-target="4003" data-decimals="0" style="color:var(--pink)">0</div>
+      <div class="kpi-label">静的ページ</div>
+      <div class="kpi-sub">pSEOサイト</div>
+      <div class="kpi-spark"><div class="bar today" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div><div class="bar" style="height:3px;background:var(--pink)"></div></div>
+    </div>
+  </div>
+
+  <!-- REVENUE PROGRESS -->
+  <div class="rev-progress anim">
+    <div class="rp-header">
+      <h3>月間収益目標への進捗</h3>
+      <span class="tag" style="margin:0">Phase 1 — ¥50,000 / 月</span>
+    </div>
+    <div class="rp-bar-wrap">
+      <div class="rp-bar"><div class="rp-fill" id="rp-fill" style="width:28px"><span class="rp-label">$0</span></div></div>
+    </div>
+    <div class="rp-markers">
+      <div class="rp-marker" style="left:0%">$0</div>
+      <div class="rp-marker" style="left:25%">¥50k</div>
+      <div class="rp-marker" style="left:40%">¥80k</div>
+      <div class="rp-marker" style="left:100%">¥200k</div>
+    </div>
+    <div class="rp-phases">
+      <div class="rp-phase active">
+        <div class="rpp-name">Phase 1</div>
+        <div class="rpp-amount">¥50,000</div>
+        <div class="rpp-period">3ヶ月以内</div>
+      </div>
+      <div class="rp-phase">
+        <div class="rpp-name">Phase 2</div>
+        <div class="rpp-amount">¥80,000</div>
+        <div class="rpp-period">12ヶ月以内</div>
+      </div>
+      <div class="rp-phase">
+        <div class="rpp-name">Phase 3</div>
+        <div class="rpp-amount">¥200,000</div>
+        <div class="rpp-period">24ヶ月以内</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(124,53,184,0.08)">🧩</div>
+    <h2>事業ポートフォリオ</h2>
+  </div>
+  <div class="card anim" style="padding:1.5rem">
+    <div class="portfolio-row">
+      <div class="pf-donut">
+        <svg width="160" height="160" viewBox="0 0 160 160">
+          <circle cx="80" cy="80" r="60" fill="none" stroke="rgba(0,0,0,0.03)" stroke-width="22"/>
+          <!-- Blog 82% of articles -->
+          <circle cx="80" cy="80" r="60" class="seg" stroke="var(--blue)" stroke-dasharray="377" stroke-dashoffset="68" stroke-linecap="butt"/>
+          <!-- RapidAPI -->
+          <circle cx="80" cy="80" r="60" class="seg" stroke="var(--purple)" stroke-dasharray="377" stroke-dashoffset="282" style="transform:rotate(295deg);transform-origin:center"/>
+          <!-- Apify -->
+          <circle cx="80" cy="80" r="60" class="seg" stroke="var(--green)" stroke-dasharray="377" stroke-dashoffset="352" style="transform:rotate(327deg);transform-origin:center"/>
+          <!-- pSEO -->
+          <circle cx="80" cy="80" r="60" class="seg" stroke="var(--teal)" stroke-dasharray="377" stroke-dashoffset="358" style="transform:rotate(345deg);transform-origin:center"/>
+          <!-- n8n -->
+          <circle cx="80" cy="80" r="60" class="seg" stroke="var(--orange)" stroke-dasharray="377" stroke-dashoffset="364" style="transform:rotate(356deg);transform-origin:center"/>
+        </svg>
+        <div class="pf-center"><div class="pf-num">12</div><div class="pf-lbl">事業</div></div>
+      </div>
+      <div class="pf-legend">
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--gold)"></div><div class="pf-info"><span class="pf-name">オンラインセールス</span><span class="pf-val" style="color:var(--green)">主力収入</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--blue)"></div><div class="pf-info"><span class="pf-name">ブログ 3サイト (77記事)</span><span class="pf-val">$0</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--purple)"></div><div class="pf-info"><span class="pf-name">RapidAPI (20 APIs)</span><span class="pf-val">$0</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--green)"></div><div class="pf-info"><span class="pf-name">Apify Store (5 Actors)</span><span class="pf-val">$0</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--teal)"></div><div class="pf-info"><span class="pf-name">pSEO AIツール比較 (4,003p)</span><span class="pf-val" style="color:var(--orange)">待機中</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--orange)"></div><div class="pf-info"><span class="pf-name">n8nテンプレート (9本)</span><span class="pf-val" style="color:var(--red)">停止中</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--cyan)"></div><div class="pf-info"><span class="pf-name">フリーランス / Fiverr</span><span class="pf-val">Gig 3件</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--red)"></div><div class="pf-info"><span class="pf-name">Chrome拡張 (4本)</span><span class="pf-val" style="color:var(--orange)">審査中</span></div></div>
+        <div class="pf-leg"><div class="pf-dot" style="background:var(--pink)"></div><div class="pf-info"><span class="pf-name">せどり / eBay輸出</span><span class="pf-val" style="color:var(--text3)">準備中</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOGS -->
+  <div class="section-header anim" id="blogs">
+    <div class="icon" style="background:rgba(0,98,224,0.08)">📝</div>
+    <h2>ブログ 3サイト</h2>
+    <span class="badge">WordPress + Cocoon + Rank Math</span>
+  </div>
+  <div class="blog-grid anim">
+    <div class="card blog-card">
+      <div class="accent-bar" style="background:linear-gradient(90deg,var(--blue),var(--teal))"></div>
+      <div class="blog-hdr">
+        <div><div class="blog-name">南米おやじの海外生活ラボ</div><div class="blog-domain">nambei-oyaji.com</div></div>
+        <span class="status-badge"><span class="status-dot green"></span>主力</span>
+      </div>
+      <div class="blog-ring-row">
+        <div class="blog-ring">
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--blue)" stroke-dasharray="163.4" stroke-dashoffset="142.2"/></svg>
+          <div class="br-center" style="color:var(--blue)">13</div>
+        </div>
+        <div class="blog-info">
+          <div class="bi-row"><span class="bi-label">目標</span><span class="bi-val">100記事</span></div>
+          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">13%</span></div>
+          <div class="bi-row"><span class="bi-label">柱</span><span class="bi-val">PY生活 + 副業</span></div>
+        </div>
+      </div>
+      <div class="blog-metrics">
+        <div class="blog-metric"><div class="bm-val" style="color:var(--blue)">649</div><div class="bm-lbl">PV (30d)</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--teal)">101</div><div class="bm-lbl">セッション</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--green)">8</div><div class="bm-lbl">GSCクリック</div></div>
+      </div>
+    </div>
+    <div class="card blog-card">
+      <div class="accent-bar" style="background:linear-gradient(90deg,var(--pink),var(--purple))"></div>
+      <div class="blog-hdr">
+        <div><div class="blog-name">大人のマッチングナビ</div><div class="blog-domain">otona-match.com</div></div>
+        <span class="status-badge"><span class="status-dot green"></span>運用中</span>
+      </div>
+      <div class="blog-ring-row">
+        <div class="blog-ring">
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--pink)" stroke-dasharray="163.4" stroke-dashoffset="62.1"/></svg>
+          <div class="br-center" style="color:var(--pink)">62</div>
+        </div>
+        <div class="blog-info">
+          <div class="bi-row"><span class="bi-label">目標</span><span class="bi-val">100記事</span></div>
+          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">62%</span></div>
+          <div class="bi-row"><span class="bi-label">柱</span><span class="bi-val">マッチングアプリ</span></div>
+        </div>
+      </div>
+      <div class="blog-metrics">
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">PV (30d)</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">セッション</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">GSCクリック</div></div>
+      </div>
+    </div>
+    <div class="card blog-card">
+      <div class="accent-bar" style="background:linear-gradient(90deg,var(--teal),var(--green))"></div>
+      <div class="blog-hdr">
+        <div><div class="blog-name">SIM比較ナビ</div><div class="blog-domain">sim-hikaku.online</div></div>
+        <span class="status-badge"><span class="status-dot green"></span>成長中</span>
+      </div>
+      <div class="blog-ring-row">
+        <div class="blog-ring">
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--teal)" stroke-dasharray="163.4" stroke-dashoffset="160.1"/></svg>
+          <div class="br-center" style="color:var(--teal)">2</div>
+        </div>
+        <div class="blog-info">
+          <div class="bi-row"><span class="bi-label">目標</span><span class="bi-val">100記事</span></div>
+          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">2%</span></div>
+          <div class="bi-row"><span class="bi-label">柱</span><span class="bi-val">格安SIM比較</span></div>
+        </div>
+      </div>
+      <div class="blog-metrics">
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">PV (30d)</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">セッション</div></div>
+        <div class="blog-metric"><div class="bm-val" style="color:var(--text3)">0</div><div class="bm-lbl">GSCクリック</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- X / TWITTER SNS -->
+  <div class="section-header anim" id="sns">
+    <div class="icon" style="background:rgba(0,98,224,0.08)">🐦</div>
+    <h2>X (Twitter) SNS</h2>
+    <span class="badge">日3投稿目標</span>
+  </div>
+  <div class="card anim" style="padding:1.4rem">
+    <div class="sns-grid">
+      <div class="sns-hero">
+        <div class="sns-followers">30</div>
+        <div class="sns-flabel">フォロワー @nambei_oyaji</div>
+        <div style="margin-top:1rem;font-size:0.85rem;color:var(--text3)">目標: 500人<br>(Phase 1)</div>
+      </div>
+      <div>
+        <div class="sns-stats">
+          <div class="card sns-stat"><div class="ss-val" style="color:var(--blue)">18</div><div class="ss-lbl">総ツイート数</div></div>
+          <div class="card sns-stat"><div class="ss-val" style="color:var(--green)">0</div><div class="ss-lbl">フォロー中</div></div>
+          <div class="card sns-stat"><div class="ss-val" style="color:var(--purple)">6%</div><div class="ss-lbl">目標達成率</div></div>
+        </div>
+        <div class="sns-preview">
+          📌 X API接続済み — フォロワー30人 / 目標500人（Phase 1）まであと470人
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT PIPELINE -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(8,132,168,0.08)">📊</div>
+    <h2>コンテンツパイプライン</h2>
+    <span class="badge">週3記事 + 日3投稿</span>
+  </div>
+  <div class="pipe-grid anim">
+    <div class="card pipe-card">
+      <div class="pipe-num" style="color:var(--blue)">0</div>
+      <div class="pipe-label">今週公開</div>
+      <div class="pipe-target">目標: 3本</div>
+      <div class="week-bars">
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="月"></div>
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="火"></div>
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="水"></div>
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="木"></div>
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="金"></div>
+        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="土"></div>
+        <div class="week-bar" style="height:4px;background:var(--blue);opacity:0.35" data-day="日"></div>
+      </div>
+    </div>
+    <div class="card pipe-card">
+      <div class="pipe-num" style="color:var(--teal)">0</div>
+      <div class="pipe-label">ドラフト待ち</div>
+      <div class="pipe-target">体験談追記 → 公開</div>
+      <div class="week-bars">
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="月"></div>
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="火"></div>
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="水"></div>
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="木"></div>
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="金"></div>
+        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="土"></div>
+        <div class="week-bar" style="height:4px;background:var(--teal);opacity:0.35" data-day="日"></div>
+      </div>
+    </div>
+    <div class="card pipe-card">
+      <div class="pipe-num" style="color:var(--purple)">0</div>
+      <div class="pipe-label">KW候補</div>
+      <div class="pipe-target">次回記事ネタ</div>
+      <div class="week-bars">
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="月"></div>
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="火"></div>
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="水"></div>
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="木"></div>
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="金"></div>
+        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="土"></div>
+        <div class="week-bar" style="height:4px;background:var(--purple);opacity:0.35" data-day="日"></div>
+      </div>
+    </div>
+    <div class="card pipe-card">
+      <div class="pipe-num" style="color:var(--green)">0</div>
+      <div class="pipe-label">X投稿(今週)</div>
+      <div class="pipe-target">目標: 21投稿</div>
+      <div class="week-bars">
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="月"></div>
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="火"></div>
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="水"></div>
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="木"></div>
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="金"></div>
+        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="土"></div>
+        <div class="week-bar" style="height:4px;background:var(--green);opacity:0.35" data-day="日"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APIFY + RAPIDAPI -->
+  <div class="two-col anim" id="apis">
+    <div>
+      <div class="section-header"><div class="icon" style="background:rgba(22,135,58,0.08)">⚡</div><h2>Apify Store</h2><span class="badge">5 Actors — $0</span></div>
+      <div class="card table-card" style="padding:0">
+        <div class="t-row t-hdr actor-grid"><span>Actor</span><span>Runs</span><span>売上</span><span>Status</span><span class="t-right">Date</span></div>
+        <div class="t-row actor-grid"><span class="mono" style="font-size:0.9rem">social-video-dl</span><span class="mono" style="text-align:center">2</span><span class="mono" style="text-align:center">$0</span><span class="status-badge"><span class="status-dot green"></span>SUCCEEDED</span><span class="mono t-right" style="color:var(--text3);font-size:0.88rem">03-16</span></div>
+        <div class="t-row actor-grid"><span class="mono" style="font-size:0.9rem">seo-analyzer</span><span class="mono" style="text-align:center">2</span><span class="mono" style="text-align:center">$0</span><span class="status-badge"><span class="status-dot green"></span>SUCCEEDED</span><span class="mono t-right" style="color:var(--text3);font-size:0.88rem">03-16</span></div>
+        <div class="t-row actor-grid"><span class="mono" style="font-size:0.9rem">company-enricher</span><span class="mono" style="text-align:center">2</span><span class="mono" style="text-align:center">$0</span><span class="status-badge"><span class="status-dot green"></span>SUCCEEDED</span><span class="mono t-right" style="color:var(--text3);font-size:0.88rem">03-16</span></div>
+        <div class="t-row actor-grid"><span class="mono" style="font-size:0.9rem">trends-aggregator</span><span class="mono" style="text-align:center">2</span><span class="mono" style="text-align:center">$0</span><span class="status-badge"><span class="status-dot green"></span>SUCCEEDED</span><span class="mono t-right" style="color:var(--text3);font-size:0.88rem">03-16</span></div>
+        <div class="t-row actor-grid"><span class="mono" style="font-size:0.9rem">keyword-research</span><span class="mono" style="text-align:center">1</span><span class="mono" style="text-align:center">$0</span><span class="status-badge"><span class="status-dot green"></span>SUCCEEDED</span><span class="mono t-right" style="color:var(--text3);font-size:0.88rem">03-16</span></div>
+        <div class="t-row t-total actor-grid"><span>合計 (9 runs)</span><span></span><span class="mono" style="text-align:center;font-weight:700">$0</span><span></span><span></span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-header"><div class="icon" style="background:rgba(124,53,184,0.08)">🚀</div><h2>RapidAPI</h2><span class="badge">$0 売上</span></div>
+      <div class="card rapi-card">
+        <div class="rapi-hero">
+          <div class="rapi-num">20</div>
+          <div class="rapi-info">
+            <div class="ri-label">デプロイ済みAPI</div>
+            <div class="ri-rev">$0 <span style="font-size:0.88rem;color:var(--text3);font-weight:400">今月売上</span></div>
+          </div>
+        </div>
+        <div class="rapi-meta">
+          <div class="rapi-row"><span class="rl">ホスティング</span><span class="rv">Cloudflare Workers</span></div>
+          <div class="rapi-row"><span class="rl">運用コスト</span><span class="rv" style="color:var(--green)">$0 / 月</span></div>
+          <div class="rapi-row"><span class="rl">出品</span><span class="rv">10 / 20 出品済</span></div>
+          <div class="rapi-row"><span class="rl">未出品</span><span class="rv" style="color:var(--orange)">API 11-20</span></div>
+          <div class="rapi-row"><span class="rl">統計</span><span class="rv" style="color:var(--orange)">手動確認</span></div>
+          <div class="rapi-row"><span class="rl">PayPal</span><span class="rv" style="color:var(--green)">接続済み</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHROME EXTENSIONS -->
+  <div class="section-header anim" id="chrome">
+    <div class="icon" style="background:rgba(196,43,34,0.08)">🧩</div>
+    <h2>Chrome拡張</h2>
+    <span class="badge">4本 — Chrome Web Store</span>
+  </div>
+  <div class="biz-grid anim">
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">SEO Inspector</div><span class="status-badge"><span class="status-dot orange"></span>審査中</span></div>
+      <div class="biz-num" style="color:var(--blue)">v1.0</div>
+      <div class="biz-desc">ワンクリックでSEOメタデータ・OG・構造化データを分析<br>Cloudflare Worker バックエンド</div>
+      <div class="biz-rev"><span>DL数</span><span style="color:var(--text3)">0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">Currency Converter</div><span class="status-badge"><span class="status-dot orange"></span>審査中</span></div>
+      <div class="biz-num" style="color:var(--green)">v1.0</div>
+      <div class="biz-desc">リアルタイム為替変換（PYG/USD/JPY対応）<br>Cloudflare Worker バックエンド</div>
+      <div class="biz-rev"><span>DL数</span><span style="color:var(--text3)">0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">WHOIS Lookup</div><span class="status-badge"><span class="status-dot orange"></span>審査中</span></div>
+      <div class="biz-num" style="color:var(--purple)">v1.0</div>
+      <div class="biz-desc">ドメインのWHOIS情報を即座に確認<br>Cloudflare Worker バックエンド</div>
+      <div class="biz-rev"><span>DL数</span><span style="color:var(--text3)">0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">JSON Formatter</div><span class="status-badge"><span class="status-dot orange"></span>審査中</span></div>
+      <div class="biz-num" style="color:var(--teal)">v1.0</div>
+      <div class="biz-desc">JSON自動整形・シンタックスハイライト・折りたたみ<br>Cloudflare Worker バックエンド</div>
+      <div class="biz-rev"><span>DL数</span><span style="color:var(--text3)">0</span></div>
+    </div>
+  </div>
+
+  <!-- OTHER BIZ -->
+  <div class="section-header anim" id="biz"><div class="icon" style="background:rgba(192,88,0,0.08)">📦</div><h2>その他事業</h2><span class="badge">6事業</span></div>
+  <div class="biz-grid anim">
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">オンラインセールス</div><span class="status-badge"><span class="status-dot green"></span>主力収入</span></div>
+      <div class="biz-num" style="color:var(--gold)">稼働中</div>
+      <div class="biz-desc">フリーランスのオンラインセールスマン<br>Webメディア事業が育つまでの主力収入源</div>
+      <div class="biz-rev"><span>今月売上</span><span style="color:var(--text3)">非公開</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">pSEO AIツール比較</div><span class="status-badge"><span class="status-dot orange"></span>デプロイ待ち</span></div>
+      <div class="biz-num" style="color:var(--teal)">4,003 <span style="font-size:0.88rem;color:var(--text3)">ページ</span></div>
+      <div class="biz-desc">Next.js 16 SSG — 291ツール x 12カテゴリ<br>Vercel デプロイ + ドメイン取得が必要</div>
+      <div class="biz-rev"><span>今月売上</span><span>$0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">n8nテンプレート販売</div><span class="status-badge"><span class="status-dot red"></span>停止中</span></div>
+      <div class="biz-num" style="color:var(--orange)">9 <span style="font-size:0.95rem;color:var(--text3)">/ 10</span></div>
+      <div class="biz-desc">Gumroad出品済み<br>Stripe KYC認証問題で販売停止中</div>
+      <div class="biz-rev"><span>今月売上</span><span>$0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">フリーランス / Fiverr</div><span class="status-badge"><span class="status-dot green"></span>Gig定義済</span></div>
+      <div class="biz-num" style="color:var(--cyan)">3 <span style="font-size:0.88rem;color:var(--text3)">Gigs</span></div>
+      <div class="biz-desc">Fiverr出品 + リサーチ19本完了<br>AI翻訳・データ分析・自動化系</div>
+      <div class="biz-rev"><span>今月売上</span><span>$0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">せどり / Amazon FBA</div><span class="status-badge"><span class="status-dot" style="background:var(--text3)"></span>計画段階</span></div>
+      <div class="biz-num" style="color:var(--text3)">—</div>
+      <div class="biz-desc">電脳せどり × Amazon FBA<br>リサーチ・仕入れ計画中</div>
+      <div class="biz-rev"><span>今月売上</span><span>$0</span></div>
+    </div>
+    <div class="card biz-card">
+      <div class="biz-hdr"><div class="biz-title">eBay輸出</div><span class="status-badge"><span class="status-dot" style="background:var(--text3)"></span>リサーチ中</span></div>
+      <div class="biz-num" style="color:var(--text3)">—</div>
+      <div class="biz-desc">eBay輸出リサーチ・スクリプト<br>市場調査フェーズ</div>
+      <div class="biz-rev"><span>今月売上</span><span>$0</span></div>
+    </div>
+  </div>
+
+  <!-- COST + SEO -->
+  <div class="two-col anim">
+    <div>
+      <div class="section-header"><div class="icon" style="background:rgba(196,43,34,0.08)">💸</div><h2>月次コスト内訳</h2><span class="badge">~¥3,700</span></div>
+      <div class="card table-card" style="padding:0">
+        <div class="t-row t-hdr cost-grid"><span>サービス</span><span class="t-right">月額</span><span class="t-right">頻度</span></div>
+        <div class="t-row cost-grid"><span>Apify Creator</span><span class="mono t-right">$1.21</span><span class="mono t-right" style="color:var(--text3);font-size:0.85rem">月額</span></div>
+        <div class="t-row cost-grid"><span>Claude API</span><span class="mono t-right">~$5.00</span><span class="mono t-right" style="color:var(--text3);font-size:0.85rem">従量</span></div>
+        <div class="t-row cost-grid"><span>ConoHa WING</span><span class="mono t-right">¥1,452</span><span class="mono t-right" style="color:var(--text3);font-size:0.85rem">月額</span></div>
+        <div class="t-row cost-grid"><span>ドメイン 3件</span><span class="mono t-right">~¥300</span><span class="mono t-right" style="color:var(--text3);font-size:0.85rem">月割</span></div>
+        <div class="t-row cost-grid"><span>CF Workers / RapidAPI</span><span class="mono t-right" style="color:var(--green)">$0</span><span class="mono t-right" style="color:var(--text3);font-size:0.85rem">無料</span></div>
+        <div class="t-row t-total cost-grid"><span>合計</span><span class="mono t-right" style="font-weight:700">~¥3,700</span><span class="mono t-right" style="font-size:0.85rem">/月</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-header"><div class="icon" style="background:rgba(0,98,224,0.08)">🔍</div><h2>SEO / 計測基盤</h2></div>
+      <div class="card">
+        <div class="seo-list">
+          <div class="seo-row"><span class="sr-name">nambei-oyaji.com GA4</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
+          <div class="seo-row"><span class="sr-name">otona-match.com GA4</span><span class="status-badge"><span class="status-dot orange"></span>権限未付与</span></div>
+          <div class="seo-row"><span class="sr-name">sim-hikaku.online GA4</span><span class="status-badge"><span class="status-dot orange"></span>権限未付与</span></div>
+          <div class="seo-row"><span class="sr-name">Search Console (3サイト)</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
+          <div class="seo-row"><span class="sr-name">X API (@nambei_oyaji)</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
+          <div style="border-top:1px solid rgba(0,0,0,0.05);margin:0.2rem 0"></div>
+          <div class="seo-row"><span class="sr-name">Rank Math SEO</span><span class="status-badge"><span class="status-dot green"></span>3サイト</span></div>
+          <div class="seo-row"><span class="sr-name">A8.net</span><span class="status-badge"><span class="status-dot green"></span>3サイト提携</span></div>
+          <div class="seo-row"><span class="sr-name">AccessTrade</span><span class="status-badge"><span class="status-dot green"></span>2サイト承認</span></div>
+          <div class="seo-row"><span class="sr-name">Cocoon + Apple CSS</span><span class="status-badge"><span class="status-dot green"></span>適用済</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMAIN AUTHORITY / BACKLINKS -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(124,53,184,0.08)">📈</div>
+    <h2>ドメインパワー / 被リンク</h2>
+    <span class="badge">SEO権威性</span>
+  </div>
+  <div class="da-grid anim">
+    <div class="card da-card">
+      <div class="da-domain">nambei-oyaji.com</div>
+      <div class="da-score-row">
+        <div class="da-score"><div class="da-val" style="color:var(--blue)">—</div><div class="da-lbl">DA (Moz)</div></div>
+        <div class="da-score"><div class="da-val" style="color:var(--purple)">—</div><div class="da-lbl">DR (Ahrefs)</div></div>
+      </div>
+      <div class="da-bar-wrap"><div class="da-bar" style="width:5%;background:var(--blue)"></div></div>
+      <div class="da-backlinks">被リンク: 未計測</div>
+    </div>
+    <div class="card da-card">
+      <div class="da-domain">otona-match.com</div>
+      <div class="da-score-row">
+        <div class="da-score"><div class="da-val" style="color:var(--pink)">—</div><div class="da-lbl">DA (Moz)</div></div>
+        <div class="da-score"><div class="da-val" style="color:var(--purple)">—</div><div class="da-lbl">DR (Ahrefs)</div></div>
+      </div>
+      <div class="da-bar-wrap"><div class="da-bar" style="width:5%;background:var(--pink)"></div></div>
+      <div class="da-backlinks">被リンク: 未計測</div>
+    </div>
+    <div class="card da-card">
+      <div class="da-domain">sim-hikaku.online</div>
+      <div class="da-score-row">
+        <div class="da-score"><div class="da-val" style="color:var(--teal)">—</div><div class="da-lbl">DA (Moz)</div></div>
+        <div class="da-score"><div class="da-val" style="color:var(--purple)">—</div><div class="da-lbl">DR (Ahrefs)</div></div>
+      </div>
+      <div class="da-bar-wrap"><div class="da-bar" style="width:5%;background:var(--teal)"></div></div>
+      <div class="da-backlinks">被リンク: 未計測</div>
+    </div>
+  </div>
+
+  <!-- GOOGLE INDEX STATUS -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(22,135,58,0.08)">🔎</div>
+    <h2>Googleインデックス状況</h2>
+    <span class="badge">Search Console 接続済み</span>
+  </div>
+  <div class="idx-grid anim">
+    <div class="card idx-card">
+      <div class="idx-domain">nambei-oyaji.com</div>
+      <div class="idx-ring">
+        <svg width="72" height="72" viewBox="0 0 72 72">
+          <circle cx="36" cy="36" r="29" class="ring-bg" stroke-width="7"/>
+          <circle cx="36" cy="36" r="29" class="ring-val" stroke="var(--blue)" stroke-dasharray="182.2" stroke-dashoffset="98.1"/>
+        </svg>
+        <div class="idx-center"><div class="idx-pct" style="color:var(--blue)">46%</div></div>
+      </div>
+      <div class="idx-detail">
+        <div class="idx-row"><span class="il">公開記事</span><span class="iv">13</span></div>
+        <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--green)">6ページ</span></div>
+        <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--blue)">8</span></div>
+        <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv">49</span></div>
+        <div class="idx-row"><span class="il">平均順位</span><span class="iv" style="color:var(--green)">7.8位</span></div>
+      </div>
+    </div>
+    <div class="card idx-card">
+      <div class="idx-domain">otona-match.com</div>
+      <div class="idx-ring">
+        <svg width="72" height="72" viewBox="0 0 72 72">
+          <circle cx="36" cy="36" r="29" class="ring-bg" stroke-width="7"/>
+          <circle cx="36" cy="36" r="29" class="ring-val" stroke="var(--pink)" stroke-dasharray="182.2" stroke-dashoffset="182.2"/>
+        </svg>
+        <div class="idx-center"><div class="idx-pct" style="color:var(--red)">0%</div></div>
+      </div>
+      <div class="idx-detail">
+        <div class="idx-row"><span class="il">公開記事</span><span class="iv">62</span></div>
+        <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--red)">0ページ</span></div>
+        <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
+        <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
+        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--orange)">未接続</span></div>
+      </div>
+    </div>
+    <div class="card idx-card">
+      <div class="idx-domain">sim-hikaku.online</div>
+      <div class="idx-ring">
+        <svg width="72" height="72" viewBox="0 0 72 72">
+          <circle cx="36" cy="36" r="29" class="ring-bg" stroke-width="7"/>
+          <circle cx="36" cy="36" r="29" class="ring-val" stroke="var(--teal)" stroke-dasharray="182.2" stroke-dashoffset="182.2"/>
+        </svg>
+        <div class="idx-center"><div class="idx-pct" style="color:var(--red)">0%</div></div>
+      </div>
+      <div class="idx-detail">
+        <div class="idx-row"><span class="il">公開記事</span><span class="iv">2</span></div>
+        <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--red)">0ページ</span></div>
+        <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
+        <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
+        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--orange)">未接続</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFFILIATE MATRIX -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(184,61,96,0.08)">🔗</div>
+    <h2>アフィリエイト詳細マトリクス</h2>
+  </div>
+  <div class="card anim" style="padding:0;overflow:hidden">
+    <table class="aff-matrix">
+      <thead>
+        <tr><th>サイト</th><th>A8.net</th><th>AccessTrade</th><th>AdSense</th><th>今月合計</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>nambei-oyaji.com</td>
+          <td><span class="status-badge"><span class="status-dot green"></span>提携済</span></td>
+          <td><span class="status-badge"><span class="status-dot green"></span>承認済</span></td>
+          <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
+          <td class="mono" style="font-weight:600">¥0</td>
+        </tr>
+        <tr>
+          <td>otona-match.com</td>
+          <td><span class="status-badge"><span class="status-dot green"></span>提携済</span></td>
+          <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
+          <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
+          <td class="mono" style="font-weight:600">¥0</td>
+        </tr>
+        <tr>
+          <td>sim-hikaku.online</td>
+          <td><span class="status-badge"><span class="status-dot green"></span>提携済</span></td>
+          <td><span class="status-badge"><span class="status-dot green"></span>承認済</span></td>
+          <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
+          <td class="mono" style="font-weight:600">¥0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- DOMAIN MANAGEMENT -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(8,148,178,0.08)">🌐</div>
+    <h2>ドメイン・サーバー管理</h2>
+    <span class="badge">ConoHa WING</span>
+  </div>
+  <div class="domain-grid anim">
+    <div class="card domain-card">
+      <div class="domain-name">nambei-oyaji.com</div>
+      <div class="domain-rows">
+        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
+        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
+        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
+        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
+      </div>
+    </div>
+    <div class="card domain-card">
+      <div class="domain-name">otona-match.com</div>
+      <div class="domain-rows">
+        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
+        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
+        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
+        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
+      </div>
+    </div>
+    <div class="card domain-card">
+      <div class="domain-name">sim-hikaku.online</div>
+      <div class="domain-rows">
+        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
+        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
+        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
+        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCE -->
+  <div class="section-header anim" id="finance">
+    <div class="icon" style="background:rgba(22,135,58,0.08)">🏦</div>
+    <h2>財務サマリー</h2>
+    <span class="badge">月次P&L</span>
+  </div>
+  <div class="fin-grid anim">
+    <div class="card fin-card">
+      <div style="font-size:0.92rem;font-weight:600;color:var(--green);margin-bottom:0.6rem;font-family:'Meiryo','メイリオ',sans-serif;text-transform:uppercase;letter-spacing:0.06em">収入</div>
+      <div class="fin-row"><span class="fl">オンラインセールス</span><span class="fv" style="color:var(--text3)">非公開</span></div>
+      <div class="fin-row"><span class="fl">RapidAPI</span><span class="fv">$0</span></div>
+      <div class="fin-row"><span class="fl">Apify Store</span><span class="fv">$0</span></div>
+      <div class="fin-row"><span class="fl">A8.net / AccessTrade</span><span class="fv">¥0</span></div>
+      <div class="fin-row"><span class="fl">AdSense</span><span class="fv">$0</span></div>
+      <div class="fin-row"><span class="fl">Chrome拡張 (4本)</span><span class="fv">$0</span></div>
+      <div class="fin-row"><span class="fl">n8n / Fiverr</span><span class="fv">$0</span></div>
+      <div class="fin-row fin-total"><span>自動化事業 合計</span><span class="fv" style="color:var(--red)">$0</span></div>
+    </div>
+    <div class="card fin-card">
+      <div style="font-size:0.92rem;font-weight:600;color:var(--red);margin-bottom:0.6rem;font-family:'Meiryo','メイリオ',sans-serif;text-transform:uppercase;letter-spacing:0.06em">支出</div>
+      <div class="fin-row"><span class="fl">ConoHa WING</span><span class="fv">¥1,452</span></div>
+      <div class="fin-row"><span class="fl">ドメイン 3件 (月割)</span><span class="fv">~¥300</span></div>
+      <div class="fin-row"><span class="fl">Claude API</span><span class="fv">~$5</span></div>
+      <div class="fin-row"><span class="fl">Apify Creator</span><span class="fv">$1.21</span></div>
+      <div class="fin-row"><span class="fl">CF Workers / RapidAPI</span><span class="fv" style="color:var(--green)">$0</span></div>
+      <div class="fin-row fin-total"><span>月次コスト 合計</span><span class="fv">~¥3,700</span></div>
+      <div style="margin-top:0.8rem;font-size:0.88rem;color:var(--text3)">
+        損益分岐点: 自動化事業で月¥3,700以上の売上
+      </div>
+      <div class="runway-bar"><div class="runway-fill" style="width:5%"></div></div>
+      <div style="display:flex;justify-content:space-between;font-family:'Meiryo','メイリオ',sans-serif;font-size:0.78rem;color:var(--text3)">
+        <span>$0</span><span>BEP ¥3,700</span><span>Phase 1 ¥50k</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEKLY SCHEDULE -->
+  <div class="section-header anim" id="schedule">
+    <div class="icon" style="background:rgba(154,114,0,0.08)">📅</div>
+    <h2>今週のスケジュール</h2>
+    <span class="badge">Week 12</span>
+  </div>
+  <div class="card anim" style="padding:1.4rem">
+    <div class="sched-week">
+      <div class="sched-day publish"><div class="sd-name">月</div><div class="sd-num">16</div><div class="sd-tag">柱1記事</div></div>
+      <div class="sched-day"><div class="sd-name">火</div><div class="sd-num">17</div></div>
+      <div class="sched-day publish"><div class="sd-name">水</div><div class="sd-num">18</div><div class="sd-tag">柱2記事</div></div>
+      <div class="sched-day"><div class="sd-name">木</div><div class="sd-num">19</div></div>
+      <div class="sched-day publish"><div class="sd-name">金</div><div class="sd-num">20</div><div class="sd-tag">交互記事</div></div>
+      <div class="sched-day"><div class="sd-name">土</div><div class="sd-num">21</div></div>
+      <div class="sched-day today"><div class="sd-name">日</div><div class="sd-num">22</div><div class="sd-tag" style="background:rgba(154,114,0,0.08);color:var(--gold)">X投稿生成</div></div>
+    </div>
+    <div class="sched-items">
+      <div class="sched-item"><span class="si-time">毎日</span><div class="si-dot" style="background:var(--blue)"></div><span>X投稿 × 3回（自動生成 + 手動 + リプ交流）</span></div>
+      <div class="sched-item"><span class="si-time">月水金</span><div class="si-dot" style="background:var(--green)"></div><span>記事生成 → WP投稿 → 体験談追記 → 公開</span></div>
+      <div class="sched-item"><span class="si-time">毎週月</span><div class="si-dot" style="background:var(--purple)"></div><span>週次レポート + KW候補20件生成</span></div>
+      <div class="sched-item"><span class="si-time">毎週金</span><div class="si-dot" style="background:var(--teal)"></div><span>内部リンク自動挿入</span></div>
+      <div class="sched-item"><span class="si-time">毎週日</span><div class="si-dot" style="background:var(--gold)"></div><span>1週間分のX投稿コンテンツ生成</span></div>
+    </div>
+  </div>
+
+  <!-- TASK EXECUTION LOG -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(0,98,224,0.08)">📋</div>
+    <h2>定期タスク実行ログ</h2>
+    <span class="badge">52タスク</span>
+  </div>
+  <div class="card anim" style="padding:1.4rem">
+    <div class="task-summary">
+      <div class="card task-stat"><div class="ts-val" style="color:var(--green)">48</div><div class="ts-lbl">成功</div></div>
+      <div class="card task-stat"><div class="ts-val" style="color:var(--red)">2</div><div class="ts-lbl">失敗</div></div>
+      <div class="card task-stat"><div class="ts-val" style="color:var(--orange)">1</div><div class="ts-lbl">スキップ</div></div>
+      <div class="card task-stat"><div class="ts-val" style="color:var(--text3)">1</div><div class="ts-lbl">未実行</div></div>
+    </div>
+    <div style="font-size:0.88rem;color:var(--text3);margin-bottom:0.4rem;font-family:'Meiryo','メイリオ',sans-serif">成功率: 92.3%</div>
+    <div class="task-bar-wrap">
+      <div class="task-bar-seg" style="width:92.3%;background:var(--green)"></div>
+      <div class="task-bar-seg" style="width:3.8%;background:var(--red)"></div>
+      <div class="task-bar-seg" style="width:1.9%;background:var(--orange)"></div>
+      <div class="task-bar-seg" style="width:1.9%;background:var(--text4)"></div>
+    </div>
+    <div style="display:flex;gap:1rem;margin-top:0.6rem;font-size:0.82rem;color:var(--text3)">
+      <span>🟢 GitAutoSync (1分) 正常</span>
+      <span>🟢 SheetsSync (5分) 正常</span>
+      <span>🟢 GA4 nambei 接続済み</span>
+      <span>🟢 GSC 3サイト接続済み</span>
+      <span>🟢 X API 接続済み</span>
+    </div>
+  </div>
+
+  <!-- NOTION SYNC -->
+  <div class="section-header anim">
+    <div class="icon" style="background:rgba(0,0,0,0.06)">📓</div>
+    <h2>Notion連携</h2>
+  </div>
+  <div class="card anim" style="padding:1rem 1.4rem">
+    <div class="notion-row">
+      <div class="notion-icon">📓</div>
+      <div class="notion-info">
+        <div class="ni-name">記事管理データベース</div>
+        <div class="ni-id">DB: 31be2be6-f322-81fd-8d66-c0348a3fc2ac</div>
+      </div>
+      <span class="status-badge"><span class="status-dot green"></span>接続済み</span>
+    </div>
+    <div class="notion-row" style="border-top:1px solid rgba(0,0,0,0.04)">
+      <div class="notion-icon">🔄</div>
+      <div class="notion-info">
+        <div class="ni-name">同期方法</div>
+        <div class="ni-id">requests直接API（notion-client非使用）</div>
+      </div>
+      <span class="status-badge"><span class="status-dot green"></span>手動実行</span>
+    </div>
+  </div>
+
+  <!-- SYSTEM HEALTH -->
+  <div class="section-header anim" id="system"><div class="icon" style="background:rgba(22,135,58,0.08)">🔧</div><h2>システム健全性</h2><span class="badge">全自動</span></div>
+  <div class="health-grid anim">
+    <div class="card health-card"><div class="health-icon">🔄</div><div class="health-val">正常</div><div class="health-lbl">GitHub Auto-Sync</div><div class="health-sub">23,410 entries</div></div>
+    <div class="card health-card"><div class="health-icon">📋</div><div class="health-val">52</div><div class="health-lbl">定期タスク</div><div class="health-sub">Task Scheduler</div></div>
+    <div class="card health-card"><div class="health-icon">🩺</div><div class="health-val">稼働</div><div class="health-lbl">Healthchecks.io</div><div class="health-sub">Discord通知</div></div>
+    <div class="card health-card"><div class="health-icon">📡</div><div class="health-val" style="color:var(--green)">5分</div><div class="health-lbl">Sheets同期</div><div class="health-sub">CSV自動取得</div></div>
+  </div>
+
+  <!-- REVENUE TABLE -->
+  <div class="section-header anim" id="revenue"><div class="icon" style="background:rgba(154,114,0,0.08)">💰</div><h2>収益ソース一覧</h2><span class="badge">合計 $0</span></div>
+  <div class="card table-card anim" style="padding:0">
+    <div class="t-row t-hdr rev-grid"><span>ソース</span><span class="t-right">今月</span><span class="t-right">ステータス</span></div>
+    <div class="t-row rev-grid"><span>オンラインセールス</span><span class="mono t-right" style="color:var(--text3)">非公開</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>主力</span></span></div>
+    <div class="t-row rev-grid"><span>フリーランス / Fiverr</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>Gig3件</span></span></div>
+    <div class="t-row rev-grid"><span>RapidAPI — 20 APIs</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>稼働中</span></span></div>
+    <div class="t-row rev-grid"><span>Apify Store — 5 Actors</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>稼働中</span></span></div>
+    <div class="t-row rev-grid"><span>A8.net アフィリエイト</span><span class="mono t-right">¥0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>3サイト</span></span></div>
+    <div class="t-row rev-grid"><span>AccessTrade</span><span class="mono t-right">¥0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>2サイト</span></span></div>
+    <div class="t-row rev-grid"><span>Google AdSense</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>承認待ち</span></span></div>
+    <div class="t-row rev-grid"><span>Chrome拡張 — 4本</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>審査中</span></span></div>
+    <div class="t-row rev-grid"><span>pSEO AIツール比較</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>デプロイ待ち</span></span></div>
+    <div class="t-row rev-grid"><span>n8nテンプレート</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot red"></span>KYC停止</span></span></div>
+    <div class="t-row t-total rev-grid"><span style="font-weight:700">全事業合計</span><span class="mono t-right" style="font-weight:700;font-size:0.88rem">$0</span><span></span></div>
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="section-header anim" id="actions"><div class="icon" style="background:rgba(196,43,34,0.08)">🎯</div><h2>今日の優先アクション</h2><span class="badge">6 items</span></div>
+  <div class="action-list anim">
+    <div class="action-item"><span class="a-pri p1">P1</span><div class="a-text"><strong>otona-match.com / sim-hikaku.online のGA4権限を付与</strong><span class="a-reason">GA4管理画面でサービスアカウントに閲覧者権限を追加する</span></div></div>
+    <div class="action-item"><span class="a-pri p1">P1</span><div class="a-text"><strong>otona-match.com がGSCで検索表示0 — 原因調査</strong><span class="a-reason">62記事あるのにGoogleに一切表示されていない。インデックス問題の可能性</span></div></div>
+    <div class="action-item"><span class="a-pri p2">P2</span><div class="a-text"><strong>sim-hikaku.online に記事3本追加</strong><span class="a-reason">現在2記事。インデックス最低5記事に達していない</span></div></div>
+    <div class="action-item"><span class="a-pri p2">P2</span><div class="a-text"><strong>RapidAPI 残り10本を出品</strong><span class="a-reason">API 11-20はデプロイ済み。出品で露出倍増</span></div></div>
+    <div class="action-item"><span class="a-pri p3">P3</span><div class="a-text"><strong>pSEOサイトをVercelにデプロイ</strong><span class="a-reason">4,003ページ生成済み。デプロイだけで新収益源が稼働</span></div></div>
+    <div class="action-item"><span class="a-pri p3">P3</span><div class="a-text"><strong>Apify PayPal payout設定</strong><span class="a-reason">収益発生時に受取可能にしておく</span></div></div>
+  </div>
+
+  <footer>
+    <span>自動生成 — daily_business_report.py — v3.0</span>
+    <span>2026/03/16 09:00 PYT</span>
+  </footer>
+
+</main>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  // Live clock
+  const cl=document.getElementById('live-clock');
+  if(cl){const u=()=>{const d=new Date();cl.textContent=d.toLocaleTimeString('ja-JP',{timeZone:'America/Asuncion',hour:'2-digit',minute:'2-digit',second:'2-digit'})+' PYT'};u();setInterval(u,1000)}
+
+  // Score ring animation
+  const sr=document.getElementById('score-ring');
+  const sv=document.getElementById('score-val');
+  if(sr){
+    const score=71;// 71/100
+    const offset=339.3-(339.3*score/100);
+    setTimeout(()=>{sr.style.strokeDashoffset=offset},500);
+    // Animate number
+    const dur=1500;const st=performance.now();
+    const an=(t)=>{const p=Math.min((t-st)/dur,1);const e=1-Math.pow(1-p,3);sv.textContent=Math.round(score*e);if(p<1)requestAnimationFrame(an)};
+    setTimeout(()=>requestAnimationFrame(an),500);
+  }
+
+  // KPI count-up
+  const obs=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){
+      const el=e.target;const t=parseFloat(el.dataset.target);
+      const d=parseInt(el.dataset.decimals)||0;const pf=el.dataset.prefix||'';
+      const dur=1400;const st=performance.now();
+      const an=(now)=>{const p=Math.min((now-st)/dur,1);const ea=1-Math.pow(1-p,4);
+        let c=t*ea;if(t>=100)c=Math.round(c).toLocaleString();else c=c.toFixed(d);
+        el.textContent=pf+c;if(p<1)requestAnimationFrame(an)};
+      requestAnimationFrame(an);obs.unobserve(el);
+    }});
+  },{threshold:0.3});
+  document.querySelectorAll('.kpi-value[data-target]').forEach(v=>obs.observe(v));
+
+  // Scroll-triggered animations
+  const aobs=new IntersectionObserver((es)=>{
+    es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');aobs.unobserve(e.target)}});
+  },{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.anim').forEach(el=>aobs.observe(el));
+
+  // Sidebar nav active state
+  const navItems=document.querySelectorAll('.nav-item');
+  navItems.forEach(item=>{
+    item.addEventListener('click',()=>{
+      navItems.forEach(n=>n.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+});
+
+function scrollTo(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+</script>
+</body>
+</html>

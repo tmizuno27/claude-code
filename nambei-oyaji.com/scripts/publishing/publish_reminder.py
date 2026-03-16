@@ -118,8 +118,11 @@ def get_wp_published_recent() -> list[dict]:
         return []
 
 
+DASHBOARD_URL = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+
+
 def notify_discord(message: str):
-    """Discord Webhookで通知"""
+    """Discord Webhookで通知（ダッシュボードリンク付き）"""
     try:
         with open(SETTINGS_FILE, "r", encoding="utf-8") as f:
             settings = json.load(f)
@@ -127,7 +130,8 @@ def notify_discord(message: str):
         if not webhook_url:
             print("Discord Webhook URLが設定されていません")
             return
-        payload = json.dumps({"content": message}).encode("utf-8")
+        message_with_link = f"{message}\n\n📊 [ダッシュボード]({DASHBOARD_URL})"
+        payload = json.dumps({"content": message_with_link}).encode("utf-8")
         req = urllib.request.Request(
             webhook_url,
             data=payload,

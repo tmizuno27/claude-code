@@ -1,0 +1,1 @@
+Auto-format JSON with syntax highlighting, tree view, dark mode & JSON path display. 100% local — no data leaves your browser.

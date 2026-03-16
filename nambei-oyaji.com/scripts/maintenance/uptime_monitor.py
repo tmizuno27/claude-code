@@ -95,12 +95,14 @@ def send_discord_alert(secrets, message, is_down=True):
     color = 0xFF0000 if is_down else 0x00FF00
     title = "🚨 サイトダウン検知" if is_down else "✅ サイト復旧確認"
 
+    dashboard_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
     payload = {
         "embeds": [{
             "title": title,
+            "url": dashboard_url,
             "description": message,
             "color": color,
-            "timestamp": datetime.utcnow().isoformat(),
+            "timestamp": datetime.now().isoformat(),
         }]
     }
     try:

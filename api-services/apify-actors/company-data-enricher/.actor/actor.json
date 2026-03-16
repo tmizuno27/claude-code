@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "company-data-enricher",
+  "title": "Company Data Enricher",
+  "description": "Enrich company data by domain: website metadata, OG tags, social links, contact info, technology stack, and domain registration info (RDAP). Also supports company search and Wikidata lookup. No API keys required.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

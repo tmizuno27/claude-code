@@ -1,0 +1,36 @@
+{
+  "title": "Trends Aggregator Input",
+  "description": "Fetch trending topics from multiple sources",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sources": {
+      "title": "Sources",
+      "type": "array",
+      "description": "Which trend sources to fetch. Leave empty to fetch all sources.",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": ["google", "hackernews", "reddit", "github", "producthunt"]
+      },
+      "prefill": ["google", "hackernews", "reddit", "github", "producthunt"]
+    },
+    "googleGeo": {
+      "title": "Google Trends Region",
+      "type": "string",
+      "description": "ISO country code for Google Trends (e.g. US, JP, GB). Only used when 'google' is in sources.",
+      "editor": "textfield",
+      "default": "US",
+      "prefill": "US"
+    },
+    "limit": {
+      "title": "Result Limit per Source",
+      "type": "integer",
+      "description": "Maximum number of items to return per source (1-50). Default is 25.",
+      "editor": "number",
+      "default": 25,
+      "minimum": 1,
+      "maximum": 50
+    }
+  }
+}

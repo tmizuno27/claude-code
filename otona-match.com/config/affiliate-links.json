@@ -32,7 +32,7 @@
         },
         {
           "name": "ハッピーメール",
-          "status": "pending_approval",
+          "status": "rejected",
           "html": null,
           "anchor_text": ["ハッピーメール"],
           "commission": "新規会員登録3,500円",

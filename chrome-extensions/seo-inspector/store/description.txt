@@ -1,0 +1,158 @@
+SEO Inspector - Instant SEO Analysis for Any Web Page
+
+Analyze any webpage's SEO performance in one click. Get a comprehensive 0-100 SEO score, a 20-point checklist, and actionable recommendations - all in a beautiful dark-mode interface.
+
+==============================
+WHY SEO INSPECTOR?
+==============================
+
+Most SEO tools are expensive, bloated, or require you to sign up for yet another account. SEO Inspector is different:
+
+- Completely FREE - no trials, no premium tiers, no hidden costs
+- No account required - install and start analyzing immediately
+- No ads, ever - a clean, distraction-free experience
+- Lightning fast - results in seconds, not minutes
+- Privacy-first - we don't store your data
+
+==============================
+FEATURES
+==============================
+
+ONE-CLICK SEO SCORING (0-100)
+Get an instant, easy-to-understand SEO score for any page. The score is calculated from 20 individual checks across 7 categories, weighted by importance. See exactly where a page excels and where it needs improvement.
+
+20-POINT SEO CHECKLIST
+Every analysis covers 20 critical SEO factors organized into clear categories:
+
+Title Tag Analysis
+- Title existence and length optimization (50-60 characters)
+- Keyword placement and readability
+
+Meta Description Analysis
+- Description existence and length optimization (150-160 characters)
+- Compelling copy assessment
+
+Heading Structure
+- H1 tag presence and uniqueness
+- Proper heading hierarchy (H1 > H2 > H3)
+- Heading keyword relevance
+
+Image Optimization
+- Alt text coverage for all images
+- Missing alt tag identification with specific image references
+
+Link Analysis
+- Internal link count and health
+- External link audit
+- Broken link detection
+- Nofollow/dofollow distribution
+
+Social Media & Open Graph
+- Open Graph tags (og:title, og:description, og:image)
+- Twitter Card tags
+- Social sharing readiness
+
+Technical SEO
+- Canonical URL configuration
+- Robots meta directives
+- Structured data / Schema.org markup detection
+- Mobile viewport meta tag
+- Page load performance indicators
+- HTTPS security check
+
+BEAUTIFUL DARK-MODE UI
+Designed with an Apple-inspired aesthetic featuring:
+- Sleek dark interface that's easy on the eyes
+- Color-coded scores (green/yellow/red) for instant comprehension
+- Expandable detail sections for each category
+- Smooth animations and transitions
+- Responsive layout that works at any popup size
+
+DETAILED RECOMMENDATIONS
+Every check comes with:
+- Pass/Fail/Warning status
+- Current value found on the page
+- Specific, actionable recommendation for improvement
+- Priority ranking so you know what to fix first
+
+==============================
+HOW TO USE
+==============================
+
+1. Navigate to any webpage you want to analyze
+2. Click the SEO Inspector icon in your browser toolbar
+3. View your instant SEO score and detailed breakdown
+4. Expand each category to see individual check results
+5. Follow the recommendations to improve your SEO
+
+That's it. No configuration needed, no settings to tweak.
+
+==============================
+WHO IS THIS FOR?
+==============================
+
+- Content creators who want to optimize their articles before publishing
+- Web developers checking SEO implementation during development
+- Digital marketers auditing client websites
+- SEO beginners learning what makes a page rank well
+- Bloggers who want quick SEO feedback without expensive tools
+- Freelancers who need a fast audit tool for client reports
+
+==============================
+WHAT MAKES US DIFFERENT
+==============================
+
+vs. Paid SEO Tools (Ahrefs, SEMrush, Moz)
+- Free forever, no subscription needed
+- Instant on-page analysis without crawling delays
+- Focused on actionable on-page SEO checks
+
+vs. Other Free SEO Extensions
+- Modern, clean dark-mode UI instead of cluttered interfaces
+- Comprehensive 20-point analysis, not just basic meta tag checks
+- Clear scoring system with weighted categories
+- No data collection, no account creation, no upsells
+
+==============================
+TECHNICAL DETAILS
+==============================
+
+- Powered by a high-performance Cloudflare Workers API backend
+- Analysis is performed server-side for accuracy and speed
+- Minimal permissions required (active tab only)
+- Lightweight extension with fast load times
+- Works on any publicly accessible webpage
+
+==============================
+PRIVACY & TRUST
+==============================
+
+Your privacy matters. SEO Inspector:
+- Only sends the URL of the page you choose to analyze
+- Does NOT collect personal information
+- Does NOT use cookies or tracking
+- Does NOT store analysis results - data is discarded after each request
+- Does NOT sell or share any data with third parties
+- Full privacy policy available on our website
+
+==============================
+SUPPORT & FEEDBACK
+==============================
+
+Found a bug? Have a feature request? We'd love to hear from you.
+Leave a review or reach out through the support tab.
+
+==============================
+CHANGELOG
+==============================
+
+v1.0.0 - Initial Release
+- 20-point SEO analysis
+- 0-100 scoring system
+- Dark-mode Apple-inspired UI
+- 7 analysis categories
+- Actionable recommendations
+
+==============================
+
+Install SEO Inspector today and start optimizing your web pages for better search engine rankings - completely free, no strings attached.

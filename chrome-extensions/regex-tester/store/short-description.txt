@@ -1,0 +1,1 @@
+Real-time regex testing with highlighting, capture groups, and presets. 100% local processing, no data collected.

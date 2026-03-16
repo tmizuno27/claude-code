@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain WHOIS Lookup</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WHOIS Lookup</h1>
+      <div class="domain-display" id="domainDisplay">Loading...</div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab active" data-tab="whois">WHOIS</button>
+      <button class="tab" data-tab="dns">DNS</button>
+      <button class="tab" data-tab="ssl">SSL</button>
+      <button class="tab" data-tab="history">History</button>
+    </nav>
+
+    <main>
+      <section class="tab-content active" id="tab-whois">
+        <div class="loading" id="whoisLoading">
+          <div class="spinner"></div>
+          <span>Fetching WHOIS data...</span>
+        </div>
+        <div class="error hidden" id="whoisError"></div>
+        <div class="data-grid hidden" id="whoisData"></div>
+      </section>
+
+      <section class="tab-content" id="tab-dns">
+        <div class="loading" id="dnsLoading">
+          <div class="spinner"></div>
+          <span>Fetching DNS records...</span>
+        </div>
+        <div class="error hidden" id="dnsError"></div>
+        <div class="dns-sections hidden" id="dnsData"></div>
+      </section>
+
+      <section class="tab-content" id="tab-ssl">
+        <div class="loading" id="sslLoading">
+          <div class="spinner"></div>
+          <span>Fetching SSL info...</span>
+        </div>
+        <div class="error hidden" id="sslError"></div>
+        <div class="data-grid hidden" id="sslData"></div>
+      </section>
+
+      <section class="tab-content" id="tab-history">
+        <div class="history-list" id="historyList">
+          <p class="empty-state">No history yet</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <button class="btn-copy" id="btnCopy">Copy All Info</button>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

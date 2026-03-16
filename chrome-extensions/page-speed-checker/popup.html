@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Page Speed Checker</h1>
+      <p id="url-display"></p>
+    </header>
+
+    <div id="loading" class="hidden">
+      <div class="spinner"></div>
+      <p id="loading-text">Analyzing mobile...</p>
+    </div>
+
+    <div id="error" class="hidden">
+      <p id="error-msg"></p>
+      <button id="retry-btn">Retry</button>
+    </div>
+
+    <div id="results" class="hidden">
+      <!-- Strategy tabs -->
+      <div class="tabs">
+        <button class="tab active" data-strategy="mobile">Mobile</button>
+        <button class="tab" data-strategy="desktop">Desktop</button>
+      </div>
+
+      <!-- 4 category scores -->
+      <div class="scores-grid" id="scores-grid"></div>
+
+      <!-- Core Web Vitals -->
+      <div class="section">
+        <h2>Core Web Vitals</h2>
+        <div id="cwv" class="cwv-grid"></div>
+      </div>
+
+      <!-- Opportunities -->
+      <div class="section">
+        <h2>Opportunities</h2>
+        <ul id="opportunities"></ul>
+      </div>
+
+      <!-- Actions -->
+      <div class="actions">
+        <button id="copy-btn">Copy Results</button>
+        <button id="share-btn">Share</button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/tool/layout,_N_T_/tool/[slug]/layout,_N_T_/tool/[slug]/page,_N_T_/tool/ifttt/"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/tool/$d$slug/__PAGE__",
+    "/tool/$d$slug",
+    "/tool",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -22,7 +22,7 @@
           "commission": "紹介1件あたり約1,500円",
           "asp": "直接",
           "context": "多通貨デビットカード、海外での支払い、ATM引き出しの文脈で使用"
-        },
+        }
       ]
     },
     "vpn": {
@@ -41,7 +41,8 @@
         },
         {
           "name": "ExpressVPN",
-          "url": "https://YOUR-AFFILIATE-LINK/expressvpn",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4AZH4C+D44RHU+5JSS+5YRHE",
+          "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4AZH4C+D44RHU+5JSS+5YRHE\" alt=\"\">",
           "anchor_text": ["ExpressVPN", "エクスプレスVPN"],
           "commission": "3,000〜5,000円/件",
           "asp": "A8.net",
@@ -49,7 +50,8 @@
         },
         {
           "name": "Surfshark",
-          "url": "https://YOUR-AFFILIATE-LINK/surfshark",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4AZH4C+CHIAIA+4LSW+BX3J6",
+          "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www12.a8.net/0.gif?a8mat=4AZH4C+CHIAIA+4LSW+BX3J6\" alt=\"\">",
           "anchor_text": ["Surfshark", "サーフシャーク"],
           "commission": "2,000〜4,000円/件",
           "asp": "A8.net",
@@ -88,6 +90,7 @@
       "links": [
         {
           "name": "DMM英会話",
+          "status": "pending_approval",
           "url": "https://YOUR-AFFILIATE-LINK/dmm-eikaiwa",
           "anchor_text": ["DMM英会話", "DMMオンライン英会話"],
           "commission": "無料体験で1,500〜3,000円",
@@ -119,10 +122,12 @@
         },
         {
           "name": "楽天プレミアムカード",
+          "status": "pending_approval",
           "url": "https://YOUR-AFFILIATE-LINK/rakuten-premium",
           "anchor_text": ["楽天プレミアムカード"],
           "commission": "カード発行で5,000〜10,000円",
-          "asp": "A8.net",
+          "asp": "もしもアフィリエイト",
+          "note": "もしもアフィリエイト自体のサイト審査待ち",
           "context": "プライオリティパス付帯、海外ラウンジ利用。長距離フライトが多い移住者向け"
         }
       ]
@@ -149,7 +154,8 @@
       "links": [
         {
           "name": "クラウドワークス",
-          "url": "https://YOUR-AFFILIATE-LINK/crowdworks",
+          "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+52S3HU+2OM2+100IDU",
+          "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www12.a8.net/0.gif?a8mat=4AZGCA+52S3HU+2OM2+100IDU\" alt=\"\">",
           "anchor_text": ["クラウドワークス", "CrowdWorks"],
           "commission": "会員登録で500円",
           "asp": "A8.net",
@@ -157,6 +163,7 @@
         },
         {
           "name": "ランサーズ",
+          "status": "pending_approval",
           "url": "https://YOUR-AFFILIATE-LINK/lancers",
           "anchor_text": ["ランサーズ", "Lancers"],
           "commission": "会員登録で500円",

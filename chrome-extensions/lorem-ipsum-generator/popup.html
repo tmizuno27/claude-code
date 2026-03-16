@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lorem Ipsum Generator</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Lorem Ipsum</h1>
+      <p class="subtitle">Generator</p>
+    </header>
+
+    <div class="controls">
+      <!-- Text Pattern -->
+      <div class="control-group">
+        <label>Pattern</label>
+        <div class="segmented" id="patternGroup">
+          <button class="seg-btn active" data-value="lorem">Latin</button>
+          <button class="seg-btn" data-value="japanese">Japanese</button>
+          <button class="seg-btn" data-value="hipster">Hipster</button>
+        </div>
+      </div>
+
+      <!-- Type -->
+      <div class="control-group">
+        <label>Type</label>
+        <div class="segmented" id="typeGroup">
+          <button class="seg-btn active" data-value="paragraphs">Paragraphs</button>
+          <button class="seg-btn" data-value="sentences">Sentences</button>
+          <button class="seg-btn" data-value="words">Words</button>
+          <button class="seg-btn" data-value="list">List</button>
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="control-group">
+        <label>Quantity: <span id="quantityValue">3</span></label>
+        <input type="range" id="quantity" min="1" max="100" value="3">
+      </div>
+
+      <!-- HTML toggle -->
+      <div class="control-group toggle-row">
+        <label>Include HTML tags</label>
+        <label class="switch">
+          <input type="checkbox" id="htmlToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Generate & Copy -->
+    <div class="actions">
+      <button id="generateBtn" class="btn-primary">Generate</button>
+      <button id="copyBtn" class="btn-secondary">Copy</button>
+    </div>
+
+    <!-- Preview -->
+    <div class="preview" id="preview">
+      <p class="placeholder">Click "Generate" to create text...</p>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">Copied!</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

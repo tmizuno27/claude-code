@@ -5,8 +5,9 @@ export function generateStaticParams() {
   return getCategoryList().map(c => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const cat = getCategoryBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const cat = getCategoryBySlug(slug);
   if (!cat) return { title: 'Category Not Found' };
   return {
     title: `Best ${cat.name} Tools Compared (2026)`,
@@ -14,8 +15,9 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function CategoryPage({ params }) {
-  const cat = getCategoryBySlug(params.slug);
+export default async function CategoryPage({ params }) {
+  const { slug } = await params;
+  const cat = getCategoryBySlug(slug);
   if (!cat) return <div className="container" style={{ padding: '80px 20px' }}>Category not found.</div>;
 
   const tools = getToolsByCategory(params.slug);
@@ -39,7 +41,7 @@ export default function CategoryPage({ params }) {
                 <h3>{tool.name}</h3>
                 <p className="tool-tagline">{tool.tagline}</p>
                 <div className="tool-card-meta">
-                  <span>G2: {tool.g2_rating}/5</span>
+                  <span>Rating: {tool.rating?.overall || 0}/10</span>
                   <span>{tool.pricing_starts}</span>
                   {tool.free_plan && <span className="badge badge-green">Free</span>}
                 </div>

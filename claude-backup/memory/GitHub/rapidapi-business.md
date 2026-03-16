@@ -6,7 +6,7 @@ type: project
 
 ## RapidAPI API-as-a-Service事業
 
-- **ステータス**: 全20 API デプロイ済み。API 1-10はRapidAPI出品完了、API 11-20は出品待ち（2026-03-15）
+- **ステータス**: 全20 API デプロイ済み・RapidAPI出品完了（2026-03-16）
 - **決定経緯**: Gumroad Stripe KYC問題でn8nテンプレート事業が停止 → 5並行リサーチで完全自動モデルを再調査 → RapidAPI選定
 - **プロジェクトパス**: `claude-code/api-services/`
 

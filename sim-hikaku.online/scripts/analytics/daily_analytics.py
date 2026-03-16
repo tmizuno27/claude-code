@@ -525,10 +525,11 @@ def notify_discord(settings, report_summary):
         return
 
     try:
+        dashboard_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
         content = report_summary[:1900] if len(report_summary) > 1900 else report_summary
         requests.post(
             webhook_url,
-            json={"content": f"**SIM比較オンライン 日次レポート**\n```\n{content}\n```"},
+            json={"content": f"**SIM比較オンライン 日次レポート**\n```\n{content}\n```\n\n📊 [ダッシュボード]({dashboard_url})"},
             timeout=10,
         )
         logger.info("Discord 通知送信完了")

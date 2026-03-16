@@ -1,0 +1,21 @@
+Lorem Ipsum Generator -- Generate Dummy Text with One Click
+
+Quickly generate placeholder text for your designs and development projects. Supports multiple formats and lengths.
+
+FEATURES:
+- Generate paragraphs, sentences, words, or lists
+- Adjustable quantity (1-100 units)
+- One-click copy to clipboard
+- Clean, minimal interface
+- Works offline -- no internet needed
+
+HOW IT WORKS:
+1. Click the extension icon
+2. Choose format (paragraphs, sentences, words, or list)
+3. Set the quantity
+4. Click Generate and copy to clipboard
+
+PRIVACY:
+This extension runs entirely locally. No data is collected, transmitted, or stored externally. Zero network requests.
+
+Perfect for designers, developers, content creators, and anyone who needs placeholder text quickly.

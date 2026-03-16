@@ -1,0 +1,248 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 420px;
+  min-height: 200px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 13px;
+}
+
+#app { padding: 16px; }
+
+header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+#url-display {
+  font-size: 11px;
+  color: #64748b;
+  word-break: break-all;
+  margin-bottom: 12px;
+}
+
+/* Loading */
+.hidden { display: none !important; }
+
+#loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid #1e293b;
+  border-top-color: #22c55e;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#loading-text { color: #94a3b8; font-size: 12px; }
+
+/* Error */
+#error {
+  text-align: center;
+  padding: 30px 0;
+}
+
+#error-msg { color: #ef4444; margin-bottom: 12px; }
+
+#retry-btn, .actions button {
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background .15s;
+}
+
+#retry-btn:hover, .actions button:hover {
+  background: #334155;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 16px;
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.tab {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 7px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all .15s;
+}
+
+.tab.active {
+  background: #334155;
+  color: #fff;
+}
+
+/* Score circles */
+.scores-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.score-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.score-ring {
+  position: relative;
+  width: 64px; height: 64px;
+}
+
+.score-ring svg {
+  width: 64px; height: 64px;
+  transform: rotate(-90deg);
+}
+
+.score-ring .bg {
+  fill: none;
+  stroke: #1e293b;
+  stroke-width: 4;
+}
+
+.score-ring .fg {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  transition: stroke-dashoffset .6s ease;
+}
+
+.score-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.score-label {
+  font-size: 10px;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.2;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 14px;
+}
+
+.section h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #1e293b;
+}
+
+/* Core Web Vitals */
+.cwv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.cwv-item {
+  background: #1e293b;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.cwv-item .metric-name {
+  font-size: 10px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 4px;
+}
+
+.cwv-item .metric-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.cwv-item .metric-unit {
+  font-size: 10px;
+  color: #64748b;
+}
+
+/* Opportunities */
+#opportunities {
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#opportunities li {
+  padding: 8px 10px;
+  background: #1e293b;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#opportunities .savings {
+  color: #22c55e;
+  font-size: 11px;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.actions button { flex: 1; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 2px; }
+
+/* Color utilities */
+.green { color: #22c55e; }
+.yellow { color: #eab308; }
+.red { color: #ef4444; }
+.stroke-green { stroke: #22c55e; }
+.stroke-yellow { stroke: #eab308; }
+.stroke-red { stroke: #ef4444; }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Currency Converter</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>💱 Quick Currency Converter</h1>
+    </header>
+
+    <section class="converter">
+      <div class="input-group">
+        <div class="amount-row">
+          <input type="number" id="amount" placeholder="Enter amount" value="1" step="any">
+          <select id="fromCurrency"></select>
+        </div>
+        <div class="swap-row">
+          <button id="swapBtn" title="Swap currencies">⇅</button>
+        </div>
+        <div class="amount-row">
+          <input type="text" id="result" readonly placeholder="Converted amount">
+          <select id="toCurrency"></select>
+        </div>
+      </div>
+      <div class="rate-info" id="rateInfo"></div>
+    </section>
+
+    <section class="quick-rates">
+      <h2>Quick Rates</h2>
+      <div id="quickRates" class="quick-grid"></div>
+    </section>
+
+    <section class="favorites">
+      <h2>Favorites <button id="addFavBtn" title="Add current pair">+</button></h2>
+      <div id="favList"></div>
+    </section>
+
+    <footer>
+      <span id="lastUpdate"></span>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

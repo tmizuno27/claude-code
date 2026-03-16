@@ -14,9 +14,8 @@ function pick(arr, hash) {
 }
 
 function computeOverallScore(tool) {
-  const g2 = tool.g2_rating || 0;
-  const cap = tool.capterra_rating || 0;
-  return ((g2 + cap) / 2).toFixed(1);
+  const r = tool.rating || {};
+  return (r.overall || 0).toFixed(1);
 }
 
 function featureCount(tool) {
@@ -160,7 +159,7 @@ function generateFeatureSection(toolA, toolB) {
     text += `Interestingly, both platforms offer nearly identical feature sets. The difference lies more in the implementation quality and depth of each feature rather than feature availability itself. `;
   }
 
-  text += `\n\nLooking at user ratings, ${toolA.name} holds a ${toolA.g2_rating} on G2 and ${toolA.capterra_rating} on Capterra, while ${toolB.name} scores ${toolB.g2_rating} on G2 and ${toolB.capterra_rating} on Capterra. These ratings reflect real user experiences and can indicate differences in usability, support quality, and overall satisfaction.`;
+  text += `\n\nLooking at user ratings, ${toolA.name} holds an overall score of ${toolA.rating?.overall || 0}/10 and an ease of use score of ${toolA.rating?.ease_of_use || 0}/10, while ${toolB.name} scores ${toolB.rating?.overall || 0}/10 overall and ${toolB.rating?.ease_of_use || 0}/10 for ease of use. These ratings reflect real user experiences and can indicate differences in usability, support quality, and overall satisfaction.`;
 
   return text;
 }
@@ -210,7 +209,7 @@ function generateFAQs(toolA, toolB, winner, scoreA, scoreB) {
     },
     {
       question: `What do users say about ${toolA.name} vs ${toolB.name}?`,
-      answer: `On review platforms, ${toolA.name} holds a ${toolA.g2_rating} rating on G2 and ${toolA.capterra_rating} on Capterra. ${toolB.name} has a ${toolB.g2_rating} on G2 and ${toolB.capterra_rating} on Capterra. Users praise ${toolA.name} for ${toolA.pros?.[0]?.toLowerCase() || 'its features'} and ${toolB.name} for ${toolB.pros?.[0]?.toLowerCase() || 'its capabilities'}.`,
+      answer: `On review platforms, ${toolA.name} holds an overall rating of ${toolA.rating?.overall || 0}/10 and an ease of use score of ${toolA.rating?.ease_of_use || 0}/10. ${toolB.name} has an overall rating of ${toolB.rating?.overall || 0}/10 and ease of use score of ${toolB.rating?.ease_of_use || 0}/10. Users praise ${toolA.name} for ${toolA.pros?.[0]?.toLowerCase() || 'its features'} and ${toolB.name} for ${toolB.pros?.[0]?.toLowerCase() || 'its capabilities'}.`,
     },
     {
       question: `Which should I choose in 2026, ${toolA.name} or ${toolB.name}?`,

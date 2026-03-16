@@ -54,17 +54,40 @@
 - 同期: `python C:/Users/tmizu/run_notion_init.py`
 - notion-client非使用（requestsで直接API呼び出し）
 
-## アフィリエイト（TODO）
-- 各サイトの `config/affiliate-links.json` にプレースホルダー残存
-- 優先: Wise > NordVPN > ConoHa WING
-- ASP登録後に一括置換スクリプト作成予定
+## アフィリエイト
+- A8.net: 3サイトとも提携済み、`insert_affiliate_all.py` で全記事に一括挿入完了（2026-03-16）
+- **アクセストレード進捗**: [accesstrade-affiliate-pending.md](accesstrade-affiliate-pending.md) — nambei+sim承認済、otona申請中。承認後に一括作業予定
+
+## Apify DaaS事業（稼働中）
+- **詳細**: [apify-business.md](apify-business.md)
+- 5 Actor公開済み（Social Video Downloader, SEO Analyzer, Company Data Enricher, Trends Aggregator, Keyword Research）
+- ユーザー名: miccho27、Creator plan（$7.26/半年）
+- **プロジェクトパス**: `claude-code/api-services/apify-actors/`
 
 ## RapidAPI API販売事業（稼働中）
 - **詳細**: [rapidapi-business.md](rapidapi-business.md)
-- 全10 API、Cloudflare Workers デプロイ済み＆RapidAPI出品完了（2026-03-15）
+- 全20 API、Cloudflare Workers デプロイ済み（API 1-10はRapidAPI出品済、11-20は出品待ち）
 - 運用コスト$0、完全自動（集客・課金・サポート全てRapidAPI側）
-- PayPal payout接続済み
+- PayPal payout接続済み、日次ヘルスチェック自動化済み
 - **プロジェクトパス**: `claude-code/api-services/`
+
+## Chrome拡張ポートフォリオ事業（審査中）
+- **詳細**: [chrome-extensions-business.md](chrome-extensions-business.md)
+- 10個の拡張を開発・Chrome Web Store審査申請済み（2026-03-16）
+- Rick Blyth方式（量産×放置）、運用コスト$0
+- **プロジェクトパス**: `claude-code/chrome-extensions/`
+
+## pSEO AIツール比較サイト（構築中）
+- **詳細**: [pseo-site.md](pseo-site.md)
+- Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み（2026-03-15）
+- デプロイ未完（Vercel + ドメイン取得が必要）
+- **プロジェクトパス**: `claude-code/pseo-saas/`
+
+## 仮想通貨自動売買（Bybit口座開設待ち）
+- **詳細**: [trading-bot.md](trading-bot.md)
+- バックテスト＆最適化完了。最優秀: MAクロス+RSI × BTC/USDT (Sharpe 4.91)
+- Bybit口座開設待ち（パラグアイ住所証明の準備中）
+- **プロジェクトパス**: `claude-code/trading/`
 
 ## n8nテンプレート販売事業（一時停止）
 - **詳細**: [n8n-template-business.md](n8n-template-business.md)
@@ -83,6 +106,7 @@
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
 - 確認不要: 許可を得ずどんどん自動で進めること
 - 改行ルール: 1文字だけ次行に飛び出す改行は絶対禁止
+- **コピペ形式**: [feedback_copypaste_format.md](feedback_copypaste_format.md) — 入力してもらう内容は必ずコードブロックで提示
 - 居住地: パラグアイ（PYT, UTC-3通年）
 - Googleカレンダー: JST設定（時差12時間）
 - X API: [x-api-credentials.md](x-api-credentials.md)

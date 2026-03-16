@@ -1,0 +1,4 @@
+live/config.json
+backtest/results/cache/
+__pycache__/
+*.pyc

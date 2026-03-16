@@ -1,0 +1,1 @@
+One-click PageSpeed Insights scores and Core Web Vitals for any page. Performance, Accessibility, SEO -- all in one popup.

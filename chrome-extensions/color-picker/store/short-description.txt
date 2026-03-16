@@ -1,0 +1,1 @@
+Pick colors from any page, convert HEX/RGB/HSL/CMYK, check WCAG contrast, and generate palettes. 100% local, no data collected.

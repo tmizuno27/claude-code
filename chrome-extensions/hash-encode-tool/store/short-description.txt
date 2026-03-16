@@ -1,0 +1,1 @@
+Hash, encode, and decode text instantly. MD5, SHA, Base64, URL, HTML entities, JWT. 100% local processing, no data sent.

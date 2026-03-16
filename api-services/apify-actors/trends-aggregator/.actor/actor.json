@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "trends-aggregator",
+  "title": "Trends Aggregator",
+  "description": "Aggregate trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt. No API keys required.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

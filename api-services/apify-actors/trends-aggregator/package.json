@@ -1,0 +1,14 @@
+{
+  "name": "trends-aggregator",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Aggregate trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}

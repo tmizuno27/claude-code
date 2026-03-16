@@ -1,0 +1,19 @@
+{
+  "mode": "testnet",
+  "symbol": "BTC/USDT",
+  "timeframe": "1m",
+  "check_interval_seconds": 60,
+  "strategy": {
+    "name": "sma_crossover",
+    "short_period": 10,
+    "long_period": 50
+  },
+  "risk": {
+    "trade_size_percent": 5,
+    "stop_loss_percent": 3,
+    "max_daily_loss_percent": 10
+  },
+  "dashboard": {
+    "log_file": "logs/trades.json"
+  }
+}

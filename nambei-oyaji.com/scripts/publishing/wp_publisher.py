@@ -315,8 +315,11 @@ def publish_to_wordpress(config, article, status="draft"):
         return None
 
 
+DASHBOARD_URL = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+
+
 def notify_discord(message):
-    """Discord Webhookで通知を送信"""
+    """Discord Webhookで通知を送信（ダッシュボードリンク付き）"""
     try:
         settings_file = CONFIG_PATH
         with open(settings_file, "r", encoding="utf-8") as f:
@@ -324,7 +327,8 @@ def notify_discord(message):
         webhook_url = settings.get("discord", {}).get("webhook_url")
         if not webhook_url:
             return
-        payload = json.dumps({"content": message}).encode("utf-8")
+        message_with_link = f"{message}\n\n📊 [ダッシュボード]({DASHBOARD_URL})"
+        payload = json.dumps({"content": message_with_link}).encode("utf-8")
         req = urllib.request.Request(
             webhook_url,
             data=payload,

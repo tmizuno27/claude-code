@@ -1,0 +1,24 @@
+{
+  "title": "SEO Analyzer Input",
+  "description": "Analyze webpages for SEO factors and scoring",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "URLs to Analyze",
+      "type": "array",
+      "description": "List of webpage URLs to analyze for SEO factors.",
+      "editor": "stringList",
+      "prefill": ["https://example.com"]
+    },
+    "analysisType": {
+      "title": "Analysis Type",
+      "type": "string",
+      "description": "Type of analysis to perform.",
+      "editor": "select",
+      "enum": ["full", "score", "headings", "links"],
+      "default": "full"
+    }
+  },
+  "required": ["urls"]
+}

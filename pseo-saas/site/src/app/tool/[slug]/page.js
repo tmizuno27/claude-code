@@ -5,17 +5,19 @@ export function generateStaticParams() {
   return getTools().map(t => ({ slug: t.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const tool = getToolBySlug(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const tool = getToolBySlug(slug);
   if (!tool) return { title: 'Tool Not Found' };
   return {
     title: `${tool.name} Review — Features, Pricing & Ratings (2026)`,
-    description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}. G2 rating: ${tool.g2_rating}/5. See features, pros, cons, and comparisons.`,
+    description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}. See features, pros, cons, and comparisons.`,
   };
 }
 
-export default function ToolPage({ params }) {
-  const tool = getToolBySlug(params.slug);
+export default async function ToolPage({ params }) {
+  const { slug } = await params;
+  const tool = getToolBySlug(slug);
   if (!tool) return <div className="container" style={{ padding: '80px 20px' }}>Tool not found.</div>;
 
   const comparisons = getRelatedComparisons(tool.slug, 20);
@@ -30,12 +32,12 @@ export default function ToolPage({ params }) {
           <p className="tagline">{tool.tagline}</p>
           <div className="tool-meta">
             <div className="tool-meta-item">
-              <span className="val">{tool.g2_rating}/5</span>
-              <span className="lbl">G2 Rating</span>
+              <span className="val">{tool.rating?.overall || 0}/10</span>
+              <span className="lbl">Overall Rating</span>
             </div>
             <div className="tool-meta-item">
-              <span className="val">{tool.capterra_rating}/5</span>
-              <span className="lbl">Capterra</span>
+              <span className="val">{tool.rating?.ease_of_use || 0}/10</span>
+              <span className="lbl">Ease of Use</span>
             </div>
             <div className="tool-meta-item">
               <span className="val">{tool.pricing_starts}</span>

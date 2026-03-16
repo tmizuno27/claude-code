@@ -1,0 +1,17 @@
+Chrome Web Store Category Recommendations for SEO Inspector
+============================================================
+
+Primary Category (required):
+  Developer Tools
+
+Recommended tags/subcategories:
+  - SEO
+  - Web Development
+  - Analysis
+  - Productivity
+
+Notes:
+- "Developer Tools" is the best fit as the extension is a webpage analysis tool.
+- Alternative category if Developer Tools is too competitive: "Productivity"
+- There is no dedicated "SEO" or "Marketing" top-level category on Chrome Web Store,
+  so Developer Tools is the standard choice for SEO extensions.

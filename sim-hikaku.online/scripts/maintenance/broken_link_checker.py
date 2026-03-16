@@ -135,12 +135,14 @@ def send_discord_notification(secrets, report_summary):
         logger.info("Discord Webhook未設定。通知スキップ。")
         return
 
+    dashboard_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
     payload = {
         "embeds": [{
             "title": "リンク切れチェック結果 (sim-hikaku)",
             "description": report_summary,
             "color": 0xFF4444 if "broken" in report_summary.lower() else 0x44FF44,
-            "timestamp": datetime.utcnow().isoformat(),
+            "url": dashboard_url,
+            "timestamp": datetime.now().isoformat(),
         }]
     }
     try:

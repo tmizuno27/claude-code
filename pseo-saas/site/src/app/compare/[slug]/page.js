@@ -6,8 +6,9 @@ export function generateStaticParams() {
   return getComparisonPairs().map(p => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }) {
-  const pair = getComparisonPairs().find(p => p.slug === params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const pair = getComparisonPairs().find(p => p.slug === slug);
   if (!pair) return { title: 'Comparison Not Found' };
   const { toolA, toolB } = pair;
   return {
@@ -15,13 +16,14 @@ export function generateMetadata({ params }) {
     description: `Detailed comparison of ${toolA.name} and ${toolB.name}. Compare features, pricing, ratings, pros & cons to find the best option for your needs.`,
     openGraph: {
       title: `${toolA.name} vs ${toolB.name} Comparison`,
-      description: `Side-by-side comparison of ${toolA.name} (${toolA.g2_rating}/5) and ${toolB.name} (${toolB.g2_rating}/5). Features, pricing, and honest verdict.`,
+      description: `Side-by-side comparison of ${toolA.name} (${toolA.rating?.overall || 0}/10) and ${toolB.name} (${toolB.rating?.overall || 0}/10). Features, pricing, and honest verdict.`,
     },
   };
 }
 
-export default function ComparePage({ params }) {
-  const pair = getComparisonPairs().find(p => p.slug === params.slug);
+export default async function ComparePage({ params }) {
+  const { slug } = await params;
+  const pair = getComparisonPairs().find(p => p.slug === slug);
   if (!pair) return <div className="container" style={{ padding: '80px 20px' }}>Comparison not found.</div>;
 
   const { toolA, toolB } = pair;
@@ -91,18 +93,18 @@ export default function ComparePage({ params }) {
         </div>
         <div className="rating-bar-wrap">
           {[
-            { label: 'G2 Rating', a: toolA.g2_rating, b: toolB.g2_rating },
-            { label: 'Capterra', a: toolA.capterra_rating, b: toolB.capterra_rating },
-            { label: 'Features', a: Object.values(toolA.features || {}).filter(Boolean).length / 2, b: Object.values(toolB.features || {}).filter(Boolean).length / 2 },
+            { label: 'Overall', a: toolA.rating?.overall || 0, b: toolB.rating?.overall || 0 },
+            { label: 'Ease of Use', a: toolA.rating?.ease_of_use || 0, b: toolB.rating?.ease_of_use || 0 },
+            { label: 'Value', a: toolA.rating?.value || 0, b: toolB.rating?.value || 0 },
           ].map(row => (
             <div className="rating-row" key={row.label}>
               <div className="label">{row.label}</div>
               <div className="rating-bar">
-                <div className="fill a" style={{ width: `${(row.a / 5) * 100}%` }} />
+                <div className="fill a" style={{ width: `${(row.a / 10) * 100}%` }} />
               </div>
               <div className="rating-val">{typeof row.a === 'number' ? row.a.toFixed(1) : row.a}</div>
               <div className="rating-bar">
-                <div className="fill b" style={{ width: `${(row.b / 5) * 100}%` }} />
+                <div className="fill b" style={{ width: `${(row.b / 10) * 100}%` }} />
               </div>
               <div className="rating-val">{typeof row.b === 'number' ? row.b.toFixed(1) : row.b}</div>
             </div>

@@ -1,0 +1,255 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 380px;
+  min-height: 480px;
+  background: #0f172a;
+  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.container {
+  padding: 16px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #f1f5f9;
+  letter-spacing: -0.3px;
+}
+
+h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Converter */
+.converter {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.amount-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.amount-row input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: #f1f5f9;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.amount-row input:focus {
+  border-color: #10b981;
+}
+
+.amount-row input[readonly] {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.amount-row select {
+  width: 120px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 8px;
+  padding: 10px 8px;
+  color: #f1f5f9;
+  font-size: 13px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.amount-row select:focus {
+  border-color: #10b981;
+}
+
+.swap-row {
+  text-align: center;
+  margin: 8px 0;
+}
+
+#swapBtn {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: #10b981;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#swapBtn:hover {
+  background: rgba(16, 185, 129, 0.3);
+  transform: rotate(180deg);
+}
+
+.rate-info {
+  text-align: center;
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 10px;
+}
+
+/* Quick Rates */
+.quick-rates {
+  margin-bottom: 16px;
+}
+
+.quick-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.quick-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.quick-item:hover {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.quick-item .currency-label {
+  color: #94a3b8;
+}
+
+.quick-item .currency-value {
+  color: #10b981;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Favorites */
+.favorites {
+  margin-bottom: 12px;
+}
+
+#addFavBtn {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  color: #10b981;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+#addFavBtn:hover {
+  background: rgba(16, 185, 129, 0.3);
+}
+
+.fav-item {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.fav-item:hover {
+  background: rgba(30, 41, 59, 0.9);
+}
+
+.fav-item .fav-pair {
+  color: #cbd5e1;
+}
+
+.fav-item .fav-rate {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.fav-item .fav-remove {
+  background: none;
+  border: none;
+  color: #475569;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 4px;
+  transition: color 0.2s;
+}
+
+.fav-item .fav-remove:hover {
+  color: #ef4444;
+}
+
+.fav-empty {
+  color: #475569;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: #475569;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 2px;
+}

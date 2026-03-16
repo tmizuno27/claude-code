@@ -13,3 +13,4 @@
 auto-sync.log
 *.log
 gumroad-secrets.json
+pseo-saas/site/node_modules/
