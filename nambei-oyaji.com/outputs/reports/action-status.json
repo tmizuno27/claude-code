@@ -40,8 +40,8 @@
       "id": "nambei-ctr-improve",
       "title": "南米ブログCTR改善",
       "priority": "P3",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:27"
     }
   ]
 }

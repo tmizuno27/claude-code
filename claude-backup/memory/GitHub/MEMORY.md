@@ -89,6 +89,24 @@
 - Bybit口座開設待ち（パラグアイ住所証明の準備中）
 - **プロジェクトパス**: `claude-code/trading/`
 
+## Gumroad Notionテンプレート販売事業（構築済み）
+- **詳細**: [gumroad-notion-business.md](gumroad-notion-business.md)
+- テンプレート10本+バンドル、設計書・出品テキスト・マーケティング素材完成
+- Notion実構築→Gumroad出品が次ステップ
+- **プロジェクトパス**: `claude-code/gumroad-notion/`
+
+## POD Printful×Etsy事業 AsuInk（構築済み）
+- **詳細**: [pod-etsy-business.md](pod-etsy-business.md)
+- 50デザイン×3商品=150リスティング、プロンプト・出品テキスト完成
+- Etsy/Printfulアカウント開設→デザイン生成が次ステップ
+- **プロジェクトパス**: `claude-code/pod-etsy/`
+
+## VS Code拡張ポートフォリオ事業（構築済み）
+- **詳細**: [vscode-extensions-business.md](vscode-extensions-business.md)
+- 10本企画、うち3本フルコード完成（Paste & Transform, Console Cleaner, ENV Lens）
+- Azure DevOps PAT取得→Marketplace公開が次ステップ
+- **プロジェクトパス**: `claude-code/vscode-extensions/`
+
 ## n8nテンプレート販売事業（一時停止）
 - **詳細**: [n8n-template-business.md](n8n-template-business.md)
 - 9/10本Gumroad出品済みだがStripe KYC認証問題で停止中
