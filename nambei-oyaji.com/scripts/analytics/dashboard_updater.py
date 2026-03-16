@@ -120,7 +120,7 @@ def apply_action_status_to_html(html, actions):
 
     # Update badge count
     html = re.sub(
-        r'(id="actions".*?<span class="badge">)\d+ items(</span>)',
+        r'(id="actions".*?<span class="badge">)(?:\d+/\d+ 完了|\d+ items)(</span>)',
         rf'\g<1>{done_count}/{total} 完了\2' if done_count > 0 else rf'\g<1>{total} items\2',
         html
     )

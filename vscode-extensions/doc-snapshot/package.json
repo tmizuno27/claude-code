@@ -15,8 +15,35 @@
       { "command": "docSnapshot.take", "title": "Doc Snapshot: Take Snapshot" },
       { "command": "docSnapshot.list", "title": "Doc Snapshot: List Snapshots" },
       { "command": "docSnapshot.compare", "title": "Doc Snapshot: Compare with Snapshot" },
-      { "command": "docSnapshot.restore", "title": "Doc Snapshot: Restore Snapshot" }
-    ]
+      { "command": "docSnapshot.compareTwoSnapshots", "title": "Doc Snapshot: Compare Two Snapshots" },
+      { "command": "docSnapshot.restore", "title": "Doc Snapshot: Restore Snapshot" },
+      { "command": "docSnapshot.delete", "title": "Doc Snapshot: Delete Snapshot" },
+      { "command": "docSnapshot.clearFile", "title": "Doc Snapshot: Clear All Snapshots for File" },
+      { "command": "docSnapshot.clearWorkspace", "title": "Doc Snapshot: Clear All Snapshots" }
+    ],
+    "keybindings": [
+      { "command": "docSnapshot.take", "key": "ctrl+shift+s", "when": "editorTextFocus" }
+    ],
+    "configuration": {
+      "title": "Doc Snapshot",
+      "properties": {
+        "docSnapshot.autoSnapshot": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically take a snapshot on file save."
+        },
+        "docSnapshot.maxPerFile": {
+          "type": "number",
+          "default": 20,
+          "description": "Maximum number of snapshots to keep per file."
+        },
+        "docSnapshot.defaultLabel": {
+          "type": "string",
+          "default": "auto",
+          "description": "Default label for auto-snapshots."
+        }
+      }
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",

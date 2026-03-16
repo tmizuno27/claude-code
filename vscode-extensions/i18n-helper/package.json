@@ -14,8 +14,39 @@
     "commands": [
       { "command": "i18nHelper.findMissing", "title": "i18n: Find Missing Translations" },
       { "command": "i18nHelper.sortKeys", "title": "i18n: Sort Keys Alphabetically" },
-      { "command": "i18nHelper.addKey", "title": "i18n: Add Key to All Locales" }
-    ]
+      { "command": "i18nHelper.addKey", "title": "i18n: Add Key to All Locales" },
+      { "command": "i18nHelper.renameKey", "title": "i18n: Rename Key in All Locales" },
+      { "command": "i18nHelper.deleteKey", "title": "i18n: Delete Key from All Locales" },
+      { "command": "i18nHelper.refresh", "title": "i18n: Refresh Locales" }
+    ],
+    "configuration": {
+      "title": "i18n Helper",
+      "properties": {
+        "i18nHelper.localesPath": {
+          "type": "string",
+          "default": "src/locales",
+          "description": "Relative path to the locales directory"
+        },
+        "i18nHelper.defaultLocale": {
+          "type": "string",
+          "default": "en",
+          "description": "Default locale used as the source of truth"
+        },
+        "i18nHelper.functionPatterns": {
+          "type": "array",
+          "default": ["t", "$t", "i18n.t"],
+          "description": "Function patterns to detect translation key usage"
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "i18nHelperView",
+          "name": "i18n Helper"
+        }
+      ]
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",
