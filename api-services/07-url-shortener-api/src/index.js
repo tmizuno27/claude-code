@@ -37,7 +37,18 @@ export default {
 
     let response;
     try {
-      if (request.method === 'POST' && path === '/shorten') {
+      if (request.method === 'GET' && (path === '/' || path === '')) {
+        response = json({
+          service: 'URL Shortener API',
+          version: '1.0.0',
+          endpoints: [
+            'POST /shorten',
+            'GET /r/:alias',
+            'GET /stats/:alias',
+            'DELETE /delete/:alias'
+          ]
+        });
+      } else if (request.method === 'POST' && path === '/shorten') {
         response = await handleShorten(request, env);
       } else if (request.method === 'GET' && path.startsWith('/r/')) {
         response = await handleRedirect(path, env);
