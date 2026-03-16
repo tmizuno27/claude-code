@@ -11,6 +11,7 @@ import {
   BarChart3,
   Zap,
   Trash2,
+  History,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase";
 import type { LinkSuggestion, OrphanPost, PostLinkStats } from "@/lib/types";
@@ -60,6 +61,9 @@ export default function Dashboard({ userId }: { userId: string }) {
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [error, setError] = useState("");
   const [applyResult, setApplyResult] = useState<string>("");
+  const [tab, setTab] = useState<"analyze" | "history">("analyze");
+  const [history, setHistory] = useState<AnalysisHistory[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(false);
 
   // Load saved sites on mount
   useEffect(() => {
@@ -166,7 +170,7 @@ export default function Dashboard({ userId }: { userId: string }) {
       const res = await fetch("/api/analyze", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(site),
+        body: JSON.stringify({ ...site, site_id: currentSiteId }),
       });
       const data = await res.json();
       if (data.success) {
@@ -642,6 +646,4 @@ export default function Dashboard({ userId }: { userId: string }) {
           </div>
         </>
       )}
-    </div>
-  );
-}
+    </d
