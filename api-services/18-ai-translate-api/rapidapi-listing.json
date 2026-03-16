@@ -1,0 +1,94 @@
+{
+  "name": "AI Translate API",
+  "slug": "ai-translate-api",
+  "description": "AI-powered translation supporting 40+ languages, language detection, and batch translation. Built on Cloudflare Workers AI with M2M100 model.",
+  "long_description": "A fast AI Translation API powered by Cloudflare Workers AI using Meta's M2M100-1.2B model. Supports 40+ languages including English, Spanish, French, German, Japanese, Chinese, Korean, Arabic, Hindi, and many more. Features include single text translation, automatic language detection (via Llama 3.1), and batch translation of up to 10 texts in a single request. Ultra-low latency via Cloudflare's global edge network. Perfect for multilingual apps, content localization, and automation workflows.",
+  "category": "Translation",
+  "tags": ["translation", "ai", "multilingual", "language-detection", "m2m100", "localization"],
+  "website": "https://ai-translate-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Single translation", "40+ languages", "Language detection"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Batch translation (10 texts)", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Translate Text",
+      "method": "POST",
+      "path": "/translate",
+      "description": "Translate text between languages",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to translate" },
+        { "name": "source_lang", "type": "string", "required": true, "description": "Source language code (ISO 639-1, e.g., en, es, ja)" },
+        { "name": "target_lang", "type": "string", "required": true, "description": "Target language code (ISO 639-1)" }
+      ]
+    },
+    {
+      "name": "Detect Language",
+      "method": "POST",
+      "path": "/detect",
+      "description": "Detect the language of a text",
+      "parameters": [
+        { "name": "text", "type": "string", "required": true, "description": "Text to detect language for" }
+      ]
+    },
+    {
+      "name": "Batch Translate",
+      "method": "POST",
+      "path": "/batch",
+      "description": "Translate multiple texts at once (max 10)",
+      "parameters": [
+        { "name": "texts", "type": "array", "required": true, "description": "Array of texts to translate (max 10)" },
+        { "name": "source_lang", "type": "string", "required": true, "description": "Source language code" },
+        { "name": "target_lang", "type": "string", "required": true, "description": "Target language code" }
+      ]
+    },
+    {
+      "name": "List Languages",
+      "method": "GET",
+      "path": "/languages",
+      "description": "List all supported language codes"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

@@ -12,8 +12,8 @@
       "id": "gsc-otona-investigate",
       "title": "otona-match.com がGSCで検索表示0 — 原因調査",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "16:54"
     },
     {
       "id": "sim-add-articles",

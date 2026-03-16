@@ -20,7 +20,7 @@
     "credentials_file": "ga4-credentials.json"
   },
   "search_console": {
-    "site_url": "https://sim-hikaku.online/",
+    "site_url": "https://sim-hikaku.online",
     "credentials_file": "gsc-credentials.json"
   },
   "discord": {

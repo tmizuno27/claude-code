@@ -1,0 +1,90 @@
+{
+  "name": "Trends Aggregator API",
+  "slug": "trends-aggregator-api",
+  "description": "Trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt. All in one API with built-in caching.",
+  "long_description": "A multi-platform Trends Aggregator API built on Cloudflare Workers. Get trending topics from five major platforms: Google Trends daily search trends (with geo filtering), Hacker News top stories, Reddit popular posts, GitHub trending repositories (past week), and Product Hunt today's top products. Each source includes rich metadata like traffic volume, scores, comments, stars, and related articles. Built-in caching for fast responses. Perfect for dashboards, content discovery, and trend monitoring.",
+  "category": "Data",
+  "tags": ["trends", "google-trends", "reddit", "hackernews", "github", "product-hunt"],
+  "website": "https://trends-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Google Trends", "Hacker News trending", "Reddit trending"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All 5 platforms", "GitHub trending", "Product Hunt", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited platforms", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Google Trends Daily",
+      "method": "GET",
+      "path": "/google/daily",
+      "description": "Get daily trending search topics from Google Trends",
+      "parameters": [
+        { "name": "geo", "type": "string", "required": false, "default": "US", "description": "Country code for geo-filtered trends (e.g., US, JP, GB)" }
+      ]
+    },
+    {
+      "name": "Hacker News Trending",
+      "method": "GET",
+      "path": "/hackernews/trending",
+      "description": "Get top 25 trending Hacker News stories"
+    },
+    {
+      "name": "Reddit Trending",
+      "method": "GET",
+      "path": "/reddit/trending",
+      "description": "Get top 25 popular Reddit posts"
+    },
+    {
+      "name": "GitHub Trending",
+      "method": "GET",
+      "path": "/github/trending",
+      "description": "Get top 25 trending GitHub repositories from the past week"
+    },
+    {
+      "name": "Product Hunt Today",
+      "method": "GET",
+      "path": "/producthunt/today",
+      "description": "Get today's top Product Hunt products"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

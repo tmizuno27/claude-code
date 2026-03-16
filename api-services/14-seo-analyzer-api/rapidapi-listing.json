@@ -1,0 +1,93 @@
+{
+  "name": "SEO Analyzer API",
+  "slug": "seo-analyzer-api",
+  "description": "Analyze any webpage for SEO factors including meta tags, headings, links, Open Graph, structured data, and get an overall SEO score with breakdown.",
+  "long_description": "A comprehensive SEO Analyzer API built on Cloudflare Workers. Analyze any public webpage and get detailed SEO insights: title tag, meta description, heading structure (H1-H6), image alt attributes, internal/external links, canonical URL, robots meta, Open Graph tags, Twitter Card, JSON-LD structured data, word count, language, viewport, favicon, hreflang tags, and an overall SEO score with detailed breakdown. Perfect for SEO audits, competitor analysis, and automated site monitoring.",
+  "category": "Data",
+  "tags": ["seo", "website-analysis", "meta-tags", "seo-audit", "web-scraping", "developer-tools"],
+  "website": "https://seo-analyzer-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Full SEO analysis", "SEO score", "Up to 500 requests/month"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Heading/link analysis", "Score breakdown", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Full SEO Analysis",
+      "method": "GET",
+      "path": "/analyze",
+      "description": "Complete SEO analysis of a webpage",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage to analyze" }
+      ]
+    },
+    {
+      "name": "Heading Structure",
+      "method": "GET",
+      "path": "/headings",
+      "description": "Extract heading structure (H1-H6) only",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+      ]
+    },
+    {
+      "name": "Link Analysis",
+      "method": "GET",
+      "path": "/links",
+      "description": "Analyze internal and external links",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+      ]
+    },
+    {
+      "name": "SEO Score",
+      "method": "GET",
+      "path": "/score",
+      "description": "Get SEO score with detailed breakdown",
+      "parameters": [
+        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+      ]
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

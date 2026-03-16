@@ -1,0 +1,96 @@
+{
+  "name": "News Aggregator API",
+  "slug": "news-aggregator-api",
+  "description": "Aggregated news from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Top stories, tech news, business news, and search.",
+  "long_description": "A free News Aggregator API built on Cloudflare Workers that pulls content from multiple public sources. Get top news from BBC, NYT, and Reuters; tech news from TechCrunch RSS, Hacker News, and Dev.to; business news from Reuters and Bloomberg; search Hacker News stories; and browse trending Dev.to articles. Built-in response caching (5 minutes) for fast responses. No upstream API keys required — all data comes from free RSS feeds and public APIs.",
+  "category": "News_Media",
+  "tags": ["news", "rss", "aggregator", "hackernews", "tech-news", "bbc"],
+  "website": "https://news-aggregator-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Top news", "Tech news", "Search"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Business news", "Dev.to latest", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Top News",
+      "method": "GET",
+      "path": "/top",
+      "description": "Get top news from BBC, NYT, and Reuters"
+    },
+    {
+      "name": "Tech News",
+      "method": "GET",
+      "path": "/tech",
+      "description": "Get tech news from TechCrunch, Hacker News, and Dev.to"
+    },
+    {
+      "name": "Business News",
+      "method": "GET",
+      "path": "/business",
+      "description": "Get business news from Reuters and Bloomberg"
+    },
+    {
+      "name": "Search",
+      "method": "GET",
+      "path": "/search",
+      "description": "Search news articles via Hacker News",
+      "parameters": [
+        { "name": "q", "type": "string", "required": true, "description": "Search query" }
+      ]
+    },
+    {
+      "name": "Hacker News Top",
+      "method": "GET",
+      "path": "/hackernews/top",
+      "description": "Get top Hacker News stories"
+    },
+    {
+      "name": "Dev.to Latest",
+      "method": "GET",
+      "path": "/devto/latest",
+      "description": "Get latest Dev.to articles"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

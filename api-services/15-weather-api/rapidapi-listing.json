@@ -1,0 +1,110 @@
+{
+  "name": "Weather API",
+  "slug": "weather-api",
+  "description": "Current weather, daily forecast (up to 16 days), hourly forecast, geocoding, and historical weather data. Powered by Open-Meteo, free and reliable.",
+  "long_description": "A comprehensive Weather API built on Cloudflare Workers, powered by Open-Meteo. Get current conditions (temperature, humidity, wind speed, weather code), daily forecasts up to 16 days, hourly forecasts up to 384 hours, city-to-coordinates geocoding, and historical weather data for any date range. Human-readable weather condition descriptions included. Built-in response caching for optimal performance. No API key required for the upstream data source.",
+  "category": "Weather",
+  "tags": ["weather", "forecast", "temperature", "geocoding", "historical-weather", "climate"],
+  "website": "https://weather-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Current weather", "Geocoding", "Up to 500 requests/month"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "16-day forecast", "Historical data", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Current Weather",
+      "method": "GET",
+      "path": "/current",
+      "description": "Get current weather conditions for a location",
+      "parameters": [
+        { "name": "lat", "type": "number", "required": true, "description": "Latitude (-90 to 90)" },
+        { "name": "lon", "type": "number", "required": true, "description": "Longitude (-180 to 180)" }
+      ]
+    },
+    {
+      "name": "Daily Forecast",
+      "method": "GET",
+      "path": "/forecast",
+      "description": "Get daily weather forecast",
+      "parameters": [
+        { "name": "lat", "type": "number", "required": true, "description": "Latitude" },
+        { "name": "lon", "type": "number", "required": true, "description": "Longitude" },
+        { "name": "days", "type": "integer", "required": false, "default": 7, "description": "Number of forecast days (1-16)" }
+      ]
+    },
+    {
+      "name": "Hourly Forecast",
+      "method": "GET",
+      "path": "/hourly",
+      "description": "Get hourly weather forecast",
+      "parameters": [
+        { "name": "lat", "type": "number", "required": true, "description": "Latitude" },
+        { "name": "lon", "type": "number", "required": true, "description": "Longitude" },
+        { "name": "hours", "type": "integer", "required": false, "default": 24, "description": "Number of forecast hours (1-384)" }
+      ]
+    },
+    {
+      "name": "Geocode",
+      "method": "GET",
+      "path": "/geocode",
+      "description": "Search city name to get coordinates",
+      "parameters": [
+        { "name": "q", "type": "string", "required": true, "description": "City name to search" }
+      ]
+    },
+    {
+      "name": "Historical Weather",
+      "method": "GET",
+      "path": "/history",
+      "description": "Get historical weather data for a date range",
+      "parameters": [
+        { "name": "lat", "type": "number", "required": true, "description": "Latitude" },
+        { "name": "lon", "type": "number", "required": true, "description": "Longitude" },
+        { "name": "start", "type": "string", "required": true, "description": "Start date (YYYY-MM-DD)" },
+        { "name": "end", "type": "string", "required": true, "description": "End date (YYYY-MM-DD)" }
+      ]
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

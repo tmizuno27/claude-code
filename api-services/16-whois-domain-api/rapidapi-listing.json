@@ -1,0 +1,90 @@
+{
+  "name": "WHOIS Domain API",
+  "slug": "whois-domain-api",
+  "description": "Domain WHOIS/RDAP lookup, DNS records query, and domain availability check using RDAP protocol and Cloudflare DNS-over-HTTPS.",
+  "long_description": "A fast and reliable WHOIS Domain API built on Cloudflare Workers. Perform domain WHOIS lookups using the modern RDAP protocol (Registration Data Access Protocol), query DNS records (A, AAAA, MX, NS, TXT, CNAME) via Cloudflare DNS-over-HTTPS, check domain availability, and list all RDAP-supported TLDs. Returns registrar info, registration/expiration dates, nameservers, DNSSEC status, and more. Built-in caching for optimal performance.",
+  "category": "Data",
+  "tags": ["whois", "domain", "dns", "rdap", "domain-availability", "registrar"],
+  "website": "https://whois-domain-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["WHOIS lookup", "DNS query", "Domain availability check"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "TLD list", "Cached responses", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "WHOIS Lookup",
+      "method": "GET",
+      "path": "/lookup",
+      "description": "Full RDAP/WHOIS domain lookup with registrar, dates, nameservers, and DNSSEC",
+      "parameters": [
+        { "name": "domain", "type": "string", "required": true, "description": "Domain name to look up (e.g., example.com)" }
+      ]
+    },
+    {
+      "name": "DNS Records",
+      "method": "GET",
+      "path": "/dns",
+      "description": "Query DNS records (A, AAAA, MX, NS, TXT, CNAME)",
+      "parameters": [
+        { "name": "domain", "type": "string", "required": true, "description": "Domain name to query" }
+      ]
+    },
+    {
+      "name": "Domain Availability",
+      "method": "GET",
+      "path": "/availability",
+      "description": "Check if a domain is available for registration",
+      "parameters": [
+        { "name": "domain", "type": "string", "required": true, "description": "Domain name to check" }
+      ]
+    },
+    {
+      "name": "TLD List",
+      "method": "GET",
+      "path": "/tld-list",
+      "description": "List all TLDs supported by RDAP"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}
