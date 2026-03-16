@@ -132,7 +132,7 @@ def create_page(parent: dict, title: str, icon: str = "", children: list | None 
 def append_blocks(page_id: str, children: list) -> None:
     """Append blocks to an existing page (for >100 blocks)."""
     for i in range(0, len(children), 100):
-        _api("post", f"/blocks/{page_id}/children", {"children": children[i:i+100]})
+        _api("patch", f"/blocks/{page_id}/children", {"children": children[i:i+100]})
 
 
 def create_database(parent_page_id: str, title: str, icon: str,
@@ -1938,6 +1938,8 @@ def main():
     parser = argparse.ArgumentParser(description="Create 10 Notion templates for Gumroad")
     parser.add_argument("--parent-page-id", help="Parent page ID to nest templates under (optional)")
     parser.add_argument("--only", type=int, help="Create only template N (1-10)")
+    parser.add_argument("--dashboard-only", action="store_true",
+                        help="Skip page/DB creation; only append dashboard blocks to existing pages (uses docs/template_links.json)")
     args = parser.parse_args()
 
     if not NOTION_TOKEN:
@@ -1961,6 +1963,156 @@ def main():
         parent = {"type": "page_id", "page_id": master["id"]}
         log.info(f"Master page created: {master['id']}")
         log.info(f"URL: {master.get('url', 'N/A')}")
+
+    # --dashboard-only mode: skip creation, just append dashboard blocks to existing pages
+    if args.dashboard_only:
+        links_path = os.path.join(os.path.dirname(__file__), "..", "docs", "template_links.json")
+        if not os.path.exists(links_path):
+            print(f"ERROR: {links_path} not found. Run full creation first.")
+            sys.exit(1)
+        with open(links_path, "r", encoding="utf-8") as f:
+            template_links = json.load(f)
+
+        dashboard_blocks = [
+            # 1: Freelance Business OS
+            [heading2("Dashboard"),
+             callout("Welcome back! Here's your business at a glance.", "👋"),
+             paragraph("Use the linked databases above to manage your freelance business. Check your active projects, pending invoices, and upcoming tasks daily."),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Delete all sample data (or keep as reference)"),
+             numbered("Customize the Select/Multi-select options to match your business"),
+             numbered("Set your default hourly rate in Time Log entries"),
+             numbered("Start by adding your current clients and active projects"),
+             numbered("Log time daily, send invoices weekly"),
+             numbered("Review the Dashboard daily for a quick overview")],
+            # 2: Content Creator Dashboard
+            [heading2("Dashboard"),
+             callout("Content Creator HQ -- Check your pipeline, track ideas, and grow your audience!", "🎯"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Customize Platform and Category options to match your channels"),
+             numbered("Delete sample data"),
+             numbered("Import your existing content ideas into the Ideas Bank"),
+             numbered("Plan your first week of content in the Calendar"),
+             numbered("Track analytics weekly"),
+             numbered("Use the Dashboard daily to stay on track")],
+            # 3: Student Study Hub
+            [heading2("Dashboard"),
+             callout("Check your upcoming deadlines, study sessions, and grades here.", "📋"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Update Semester info with your current semester dates"),
+             numbered("Add your courses with schedule and professor info"),
+             numbered("Enter all known assignments and deadlines from syllabi"),
+             numbered("Log study sessions daily to build the habit"),
+             numbered("Enter grades as you receive them"),
+             numbered("Check Dashboard daily for upcoming deadlines")],
+            # 4: Life OS Second Brain
+            [heading2("Command Center"),
+             callout("Welcome to your Life OS! Start by rating each Area of Life, then set goals.", "🧠"),
+             divider(),
+             heading3("Weekly Review Checklist"),
+             toggle("Click to expand weekly review prompts", [
+                 bulleted("Review and update Area scores"),
+                 bulleted("Check goal progress"),
+                 bulleted("Plan next week's priorities"),
+                 bulleted("Review habit streaks"),
+                 bulleted("Celebrate wins!"),
+             ]),
+             heading3("Setup Instructions"),
+             numbered("Rate each Area of Life 1-10"),
+             numbered("Set 1-3 goals per area that needs attention"),
+             numbered("Break goals into projects and tasks")],
+            # 5: Small Business CRM
+            [heading2("Dashboard"),
+             callout("CRM Dashboard -- Review your pipeline, follow-ups, and activities daily.", "📊"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Customize Industry, Source, and other Select options"),
+             numbered("Add your products/services first"),
+             numbered("Import existing contacts"),
+             numbered("Create deals for active opportunities"),
+             numbered("Log every interaction as an Activity"),
+             numbered("Review Pipeline Board daily"),
+             numbered("Set follow-up dates for every contact")],
+            # 6: Side Hustle Tracker
+            [heading2("Dashboard"),
+             callout("Side Hustle Command Center -- Track all your hustles in one place.", "🎯"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Add your current side hustles with status and details"),
+             numbered("Set up milestones for each hustle (next 3-6 months)"),
+             numbered("Log income and expenses as they occur"),
+             numbered("Track time daily (even 15-minute blocks count)"),
+             numbered("Review Dashboard weekly"),
+             numbered("Do monthly P&L review per hustle")],
+            # 7: Social Media Planner
+            [heading2("Dashboard"),
+             callout("Social Media HQ -- Plan, create, publish, analyze.", "📱"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Set up your Platforms with handles and goals"),
+             numbered("Define your Content Pillars and target percentages"),
+             numbered("Build your Hashtag Library"),
+             numbered("Plan your first week of content in the Calendar"),
+             numbered("Use the Kanban to track production status"),
+             numbered("Log analytics weekly"),
+             numbered("Save inspiration to the Swipe File")],
+            # 8: Job Search Tracker
+            [heading2("Dashboard"),
+             callout("Job Search HQ -- You've got this! Track everything and stay persistent.", "🔍"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Research and add target companies"),
+             numbered("Track every application immediately after applying"),
+             numbered("Log all networking contacts with follow-up dates"),
+             numbered("Use Interview Prep section before each interview"),
+             numbered("Update the Pipeline Board daily"),
+             numbered("Review weekly stats every Sunday to adjust strategy")],
+            # 9: Book & Learning Tracker
+            [heading2("Dashboard"),
+             callout("Track your reading journey and never forget what you learn!", "📖"),
+             paragraph("2026 Reading Challenge: 7/24 books (29%)"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Set your annual reading goal in Reading Challenge"),
+             numbered("Add books you're currently reading"),
+             numbered("Import your to-read and wishlist books"),
+             numbered("Take notes as you read (highlights, key concepts)"),
+             numbered("Log daily reading sessions"),
+             numbered("Add courses you're taking or want to take"),
+             numbered("Review your notes periodically to retain knowledge")],
+            # 10: Digital Products Business OS
+            [heading2("Dashboard"),
+             callout("Digital Products HQ -- Build, launch, sell, iterate.", "🛍️"),
+             divider(),
+             heading3("Setup Instructions"),
+             numbered("Add your current and planned products"),
+             numbered("Connect your sales platforms (manual entry or integrate)"),
+             numbered("Plan marketing campaigns for each product"),
+             numbered("Collect and organize customer feedback"),
+             numbered("Use the Roadmap to plan improvements"),
+             numbered("Review sales and feedback weekly")],
+        ]
+
+        for tpl in template_links:
+            idx = tpl["index"] - 1
+            if args.only and tpl["index"] != args.only:
+                continue
+            if idx < 0 or idx >= len(dashboard_blocks):
+                continue
+            pid = tpl["id"]
+            title = tpl["title"]
+            try:
+                log.info(f"Appending dashboard blocks to: {title} ({pid})")
+                append_blocks(pid, dashboard_blocks[idx])
+                log.info(f"  OK: {title}")
+            except Exception as e:
+                log.error(f"  FAILED: {title} -> {e}")
+
+        print("\nDashboard-only mode complete.")
+        return
 
     # Build templates
     results = []
