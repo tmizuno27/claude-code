@@ -30,6 +30,16 @@
       "timestamp": "2026-03-16T17:42:35.386269",
       "title": "Enso Circle",
       "prompt_preview": "Create a bold Japanese enso circle (zen circle) painted with a single brushstroke. The circle should"
+    },
+    "niche-01-japan-zen/zen-07-seigaiha-wave.png": {
+      "timestamp": "2026-03-16T17:42:58.990386",
+      "title": "Japanese Wave (Seigaiha)",
+      "prompt_preview": "Create a modern interpretation of the traditional Japanese seigaiha (wave) pattern. Overlapping conc"
+    },
+    "niche-01-japan-zen/zen-08-daruma.png": {
+      "timestamp": "2026-03-16T17:43:22.613523",
+      "title": "Daruma Doll Minimalist",
+      "prompt_preview": "Create a minimalist illustration of a Japanese daruma doll with one eye filled in (representing a go"
     }
   },
   "started_at": "2026-03-16T17:40:15.670183"

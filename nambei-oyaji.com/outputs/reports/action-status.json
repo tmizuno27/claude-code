@@ -5,8 +5,8 @@
       "id": "apify-payout-setup",
       "title": "ApifyPayPal支払設定",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:42"
     },
     {
       "id": "rapidapi-publish-10",
