@@ -20,7 +20,7 @@ sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="repla
 # 設定
 CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
 CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'outputs', 'article-management.csv')
-SHEET_ID = os.environ.get('OTONA_ARTICLE_SHEET_ID', '')
+SHEET_ID = os.environ.get('OTONA_ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
 
 SCOPES = [
     'https://www.googleapis.com/auth/spreadsheets',
