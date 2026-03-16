@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       success: true,
       total_posts: result.totalPosts,
       orphan_posts: result.orphanPosts,
+      post_stats: result.postStats,
       suggestions: result.suggestions,
       summary: {
         total_suggestions: result.suggestions.length,

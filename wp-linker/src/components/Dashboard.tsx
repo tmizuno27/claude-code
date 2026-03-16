@@ -12,7 +12,7 @@ import {
   Zap,
   Trash2,
 } from "lucide-react";
-import type { LinkSuggestion, OrphanPost } from "@/lib/types";
+import type { LinkSuggestion, OrphanPost, PostLinkStats } from "@/lib/types";
 
 interface SiteConfig {
   rest_api_url: string;
@@ -24,6 +24,7 @@ interface SiteConfig {
 interface AnalysisData {
   total_posts: number;
   orphan_posts: OrphanPost[];
+  post_stats: PostLinkStats[];
   suggestions: LinkSuggestion[];
   summary: {
     total_suggestions: number;

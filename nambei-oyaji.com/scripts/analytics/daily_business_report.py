@@ -852,7 +852,7 @@ def send_discord_notification(blog_data, rapidapi_data, apify_data, x_data, task
 
         # Embed構築
         # ダッシュボードURL（GitHub上のHTMLファイル）
-        dashboard_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+        dashboard_url = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
 
         embed = {
             "title": f"📊 日次ビジネスレポート — {today_str}",

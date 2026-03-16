@@ -161,7 +161,7 @@ def send_discord_notification(secrets, summary):
     webhook_url = secrets.get("discord", {}).get("webhook_url", "")
     if not webhook_url or webhook_url.startswith("YOUR"):
         return
-    dashboard_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+    dashboard_url = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
     payload = {
         "embeds": [{
             "title": "📝 リライト候補レポート",

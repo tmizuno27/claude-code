@@ -156,12 +156,23 @@ export function analyzeInternalLinks(
     }
   }
 
-  // Find orphan posts
-  const linkGraph = buildLinkGraph(meta);
+  // Build detailed link graph
+  const linkGraph = buildDetailedLinkGraph(meta);
   const orphanPosts: OrphanPost[] = [];
+  const postStats: PostLinkStats[] = [];
+
   for (const [id, counts] of linkGraph) {
+    const m = meta.find((p) => p.id === id)!;
+    postStats.push({
+      post_id: id,
+      title: m.title,
+      url: m.url,
+      incoming_links: counts.incoming,
+      outgoing_links: counts.outgoing,
+      linked_from: counts.linked_from,
+      links_to: counts.links_to,
+    });
     if (counts.incoming === 0) {
-      const m = meta.find((p) => p.id === id)!;
       orphanPosts.push({
         post_id: id,
         title: m.title,
@@ -172,9 +183,13 @@ export function analyzeInternalLinks(
     }
   }
 
+  // Sort postStats: orphans first, then by incoming ascending
+  postStats.sort((a, b) => a.incoming_links - b.incoming_links);
+
   return {
     suggestions: suggestions.filter((s) => !s.already_linked),
     orphanPosts,
+    postStats,
     totalPosts: posts.length,
   };
 }
@@ -186,4 +201,5 @@ export function buildRelatedLinksHtml(
   const items = relatedPosts
     .map((p) => `  <li><a href="${p.url}">${p.title}</a></li>`)
     .join("\n");
-  return `\n<!-- wp-linker-internal-links -->\n<div class="related-articles">\n<h3>Related Articles</h3>\n<ul>\n
+  return `\n<!-- wp-linker-internal-links -->\n<div class="related-articles">\n<h3>Related Articles</h3>\n<ul>\n${items}\n</ul>\n</div>\n`;
+}

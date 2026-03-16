@@ -118,7 +118,7 @@ def get_wp_published_recent() -> list[dict]:
         return []
 
 
-DASHBOARD_URL = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+DASHBOARD_URL = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
 
 
 def notify_discord(message: str):

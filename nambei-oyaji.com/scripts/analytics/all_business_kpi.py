@@ -578,7 +578,7 @@ def notify_discord(settings, report_summary):
         # エンベッド形式で送信
         # レポートから主要数値を抽出してサマリー作成
         content = report_summary[:1800] if len(report_summary) > 1800 else report_summary
-        kpi_url = "https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
+        kpi_url = "https://htmlpreview.github.io/?https://github.com/tmizuno27/claude-code/blob/main/nambei-oyaji.com/outputs/reports/daily-business-dashboard.html"
         payload = {
             "embeds": [{
                 "title": "📊 全事業 週次KPIレポート",
