@@ -1,0 +1,94 @@
+{
+  "name": "Company Data API",
+  "slug": "company-data-api",
+  "description": "Company/business information from public sources. Search companies, get details via Wikidata, look up domains, and enrich with technology detection.",
+  "long_description": "A Company Data Enrichment API built on Cloudflare Workers. Search for companies via Wikidata, get detailed company information (founding date, headquarters, website, industry, CEO, employees), look up company info by domain (website metadata + RDAP registration data), and perform full company enrichment including technology stack detection, social media links, and contact information. Data sourced from Wikidata, RDAP, and web scraping. Perfect for CRM enrichment, lead generation, and competitive intelligence.",
+  "category": "Data",
+  "tags": ["company-data", "enrichment", "wikidata", "business-info", "domain-lookup", "lead-generation"],
+  "website": "https://company-data-api.your-domain.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500,
+          "requests_per_second": 1
+        },
+        "features": ["Company search", "Domain lookup", "Up to 500 requests/month"]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000,
+          "requests_per_second": 10
+        },
+        "features": ["All endpoints", "Full enrichment", "Tech detection", "Priority support"]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000,
+          "requests_per_second": 50
+        },
+        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000,
+          "requests_per_second": 100
+        },
+        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Search Companies",
+      "method": "GET",
+      "path": "/search",
+      "description": "Search for companies by name via Wikidata",
+      "parameters": [
+        { "name": "q", "type": "string", "required": true, "description": "Company name to search" }
+      ]
+    },
+    {
+      "name": "Get Company Details",
+      "method": "GET",
+      "path": "/company",
+      "description": "Get detailed company information from Wikidata",
+      "parameters": [
+        { "name": "jurisdiction", "type": "string", "required": true, "description": "Wikidata ID (e.g., Q95 for Google)" },
+        { "name": "number", "type": "string", "required": false, "description": "Company number (optional)" }
+      ]
+    },
+    {
+      "name": "Domain Lookup",
+      "method": "GET",
+      "path": "/domain",
+      "description": "Get company info by domain (website metadata + RDAP)",
+      "parameters": [
+        { "name": "domain", "type": "string", "required": true, "description": "Domain name (e.g., google.com)" }
+      ]
+    },
+    {
+      "name": "Full Enrichment",
+      "method": "GET",
+      "path": "/enrich",
+      "description": "Full company enrichment including metadata, tech stack, social links, and contacts",
+      "parameters": [
+        { "name": "domain", "type": "string", "required": true, "description": "Domain name to enrich" }
+      ]
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

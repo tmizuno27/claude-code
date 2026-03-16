@@ -26,8 +26,8 @@
       "id": "rapidapi-list-remaining",
       "title": "RapidAPI 残り10本を出品",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "16:55"
     },
     {
       "id": "pseo-vercel-deploy",
