@@ -623,4 +623,4 @@ function activate(context) {
     }));
 }
 function deactivate() { }
-//# sourceMappingURL=e
+//# sourceMappingURL=extension.js.map
