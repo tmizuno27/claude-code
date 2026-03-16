@@ -1236,6 +1236,22 @@ def main():
     print(f"保存先: {report_path}")
     print(f"{'='*60}\n")
 
+    # ─── 優先アクション生成（収益最大化AI分析） ───
+    logger.info("優先アクション生成中（Claude API）...")
+    with ThreadPoolExecutor(max_workers=1) as executor:
+        future = executor.submit(
+            generate_priority_actions,
+            blog_data, rapidapi_data, apify_data,
+            pseo_data, n8n_data, x_data, config
+        )
+        try:
+            actions = future.result(timeout=60)
+            if actions:
+                update_action_status_file(actions)
+                logger.info(f"優先アクション {len(actions)}件 → action-status.json + HTML更新完了")
+        except Exception as e:
+            logger.warning(f"優先アクション生成タイムアウト: {e}")
+
     # ─── Gistダッシュボード更新 ───
     logger.info("Gistダッシュボード更新中...")
     update_gist_dashboard()
