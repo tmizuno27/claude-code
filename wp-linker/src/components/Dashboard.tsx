@@ -368,6 +368,58 @@ export default function Dashboard() {
             </div>
           )}
 
+          {/* Link Map - all posts with their link stats */}
+          {analysis.post_stats && analysis.post_stats.length > 0 && (
+            <div className="bg-white rounded-xl border border-gray-200 mb-8">
+              <div className="p-5 border-b border-gray-100">
+                <h3 className="font-semibold flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-blue-600" />
+                  Internal Link Map ({analysis.post_stats.length} posts)
+                </h3>
+              </div>
+              <div className="divide-y divide-gray-50">
+                {analysis.post_stats.map((ps) => (
+                  <div key={ps.post_id} className="px-5 py-3">
+                    <div className="flex items-center justify-between mb-1">
+                      <a
+                        href={ps.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="text-sm font-medium hover:text-blue-600 truncate max-w-[500px]"
+                      >
+                        {ps.title}
+                      </a>
+                      <div className="flex items-center gap-3 text-xs shrink-0">
+                        <span className={`px-2 py-0.5 rounded-full ${ps.incoming_links === 0 ? 'bg-red-100 text-red-700' : 'bg-emerald-50 text-emerald-700'}`}>
+                          {ps.incoming_links} incoming
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-blue-50 text-blue-700">
+                          {ps.outgoing_links} outgoing
+                        </span>
+                      </div>
+                    </div>
+                    {(ps.linked_from.length > 0 || ps.links_to.length > 0) && (
+                      <div className="text-xs text-gray-500 mt-1 space-y-0.5">
+                        {ps.linked_from.length > 0 && (
+                          <p>
+                            <span className="text-gray-400">Linked from:</span>{" "}
+                            {ps.linked_from.join(", ")}
+                          </p>
+                        )}
+                        {ps.links_to.length > 0 && (
+                          <p>
+                            <span className="text-gray-400">Links to:</span>{" "}
+                            {ps.links_to.join(", ")}
+                          </p>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Suggestions */}
           <div className="bg-white rounded-xl border border-gray-200">
             <div className="flex items-center justify-between p-5 border-b border-gray-100">
