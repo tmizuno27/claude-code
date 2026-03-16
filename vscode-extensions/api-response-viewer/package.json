@@ -1,0 +1,35 @@
+{
+  "name": "api-response-viewer",
+  "displayName": "API Response Viewer",
+  "description": "Visualize JSON/XML API responses in a collapsible tree view with search, filter, and copy path.",
+  "version": "0.1.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other", "Visualization"],
+  "keywords": ["api", "json", "response", "tree", "viewer"],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "apiResponseViewer.open", "title": "API Viewer: Open Response" },
+      { "command": "apiResponseViewer.fromClipboard", "title": "API Viewer: View from Clipboard" }
+    ],
+    "viewsContainers": {
+      "panel": [{ "id": "apiResponseViewer", "title": "API Response", "icon": "$(json)" }]
+    },
+    "views": {
+      "apiResponseViewer": [{ "id": "apiResponseTree", "name": "Response Tree" }]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}

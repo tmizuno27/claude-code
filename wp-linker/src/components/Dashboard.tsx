@@ -103,21 +103,42 @@ export default function Dashboard({ userId }: { userId: string }) {
 
         // Save to Supabase
         const siteUrl = site.rest_api_url.replace(/\/wp-json\/wp\/v2\/?$/, "");
-        const { data: saved, error: saveErr } = await supabase
+        // Check if site already exists
+        const { data: existing } = await supabase
           .from("sites")
-          .upsert(
-            {
+          .select("id")
+          .eq("user_id", userId)
+          .eq("rest_api_url", site.rest_api_url)
+          .single();
+
+        let saved: SavedSite | null = null;
+        let saveErr = null;
+
+        if (existing) {
+          const result = await supabase
+            .from("sites")
+            .update({ name: siteName, url: siteUrl, username: site.username, app_password: site.app_password })
+            .eq("id", existing.id)
+            .select()
+            .single();
+          saved = result.data;
+          saveErr = result.error;
+        } else {
+          const result = await supabase
+            .from("sites")
+            .insert({
               user_id: userId,
               name: siteName,
               url: siteUrl,
               rest_api_url: site.rest_api_url,
               username: site.username,
               app_password: site.app_password,
-            },
-            { onConflict: "user_id,rest_api_url", ignoreDuplicates: false }
-          )
-          .select()
-          .single();
+            })
+            .select()
+            .single();
+          saved = result.data;
+          saveErr = result.error;
+        }
 
         if (!saveErr && saved) {
           setCurrentSiteId(saved.id);

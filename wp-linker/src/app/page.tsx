@@ -103,7 +103,7 @@ export default function LandingPage() {
               Pricing
             </a>
             <a
-              href="/dashboard"
+              href="/auth"
               className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition"
             >
               Get Started
@@ -131,7 +131,7 @@ export default function LandingPage() {
           </p>
           <div className="flex items-center justify-center gap-4">
             <a
-              href="/dashboard"
+              href="/auth"
               className="py-3 px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition flex items-center gap-2 text-lg"
             >
               Try Free
@@ -274,7 +274,7 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <a
-                  href="/dashboard"
+                  href="/auth"
                   className={`block w-full py-2.5 text-center font-medium rounded-xl transition ${
                     plan.highlight
                       ? "bg-blue-600 hover:bg-blue-700 text-white"
@@ -299,7 +299,7 @@ export default function LandingPage() {
             Connect your WordPress site in 30 seconds. No credit card required.
           </p>
           <a
-            href="/dashboard"
+            href="/auth"
             className="inline-flex items-center gap-2 py-3 px-8 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-xl transition text-lg"
           >
             Get Started Free
