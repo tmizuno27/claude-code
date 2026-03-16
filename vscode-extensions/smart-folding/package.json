@@ -1,0 +1,31 @@
+{
+  "name": "smart-folding",
+  "displayName": "Smart Folding",
+  "description": "Custom folding regions with named markers, fold by type (imports, functions, classes), and fold presets.",
+  "version": "0.1.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Other"],
+  "keywords": ["folding", "region", "collapse", "code"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "smartFolding.foldImports", "title": "Smart Fold: Fold All Imports" },
+      { "command": "smartFolding.foldFunctions", "title": "Smart Fold: Fold All Functions" },
+      { "command": "smartFolding.savePreset", "title": "Smart Fold: Save Fold Preset" },
+      { "command": "smartFolding.loadPreset", "title": "Smart Fold: Load Fold Preset" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
