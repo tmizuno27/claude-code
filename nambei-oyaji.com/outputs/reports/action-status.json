@@ -19,8 +19,8 @@
       "id": "sim-add-articles",
       "title": "sim-hikaku.online に記事3本追加",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "16:50"
     },
     {
       "id": "rapidapi-list-remaining",
