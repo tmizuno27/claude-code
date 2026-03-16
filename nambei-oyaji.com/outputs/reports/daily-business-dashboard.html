@@ -524,8 +524,9 @@ footer{
   .idx-detail{font-size:0.8rem}
 
   /* Affiliate matrix */
-  .aff-matrix{font-size:0.75rem}
-  .aff-matrix th,.aff-matrix td{padding:0.4rem 0.3rem}
+  .aff-matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -0.3rem;padding:0 0.3rem}
+  .aff-matrix{font-size:0.72rem;min-width:340px}
+  .aff-matrix th,.aff-matrix td{padding:0.35rem 0.25rem;white-space:nowrap}
 
   /* Domain grid */
   .domain-grid{grid-template-columns:1fr;gap:0.5rem}
@@ -1321,7 +1322,7 @@ footer{
     <h2>アフィリエイト詳細マトリクス</h2>
   </div>
   <div class="card anim" style="padding:0;overflow:hidden">
-    <table class="aff-matrix">
+    <div class="aff-matrix-wrap"><table class="aff-matrix">
       <thead>
         <tr><th>サイト</th><th>A8.net</th><th>AccessTrade</th><th>AdSense</th><th>今月合計</th></tr>
       </thead>
@@ -1348,7 +1349,7 @@ footer{
           <td class="mono" style="font-weight:600">¥0</td>
         </tr>
       </tbody>
-    </table>
+    </table></div>
   </div>
 
   <!-- DOMAIN MANAGEMENT -->
@@ -1468,7 +1469,7 @@ footer{
       <div class="task-bar-seg" style="width:1.9%;background:var(--orange)"></div>
       <div class="task-bar-seg" style="width:1.9%;background:var(--text4)"></div>
     </div>
-    <div style="display:flex;gap:1rem;margin-top:0.6rem;font-size:0.82rem;color:var(--text3)">
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;margin-top:0.6rem;font-size:0.82rem;color:var(--text3)">
       <span>🟢 GitAutoSync (1分) 正常</span>
       <span>🟢 SheetsSync (5分) 正常</span>
       <span>🟢 GA4 nambei 接続済み</span>
