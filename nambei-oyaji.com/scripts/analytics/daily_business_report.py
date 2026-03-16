@@ -8,6 +8,7 @@
 
 import json
 import logging
+import re
 import sys
 import threading
 from datetime import datetime, timedelta
@@ -637,6 +638,212 @@ def _template_summary(blog_data: list) -> str:
         f"- **懸念**: GA4/GSC未設定サイトあり（データ取得を要設定）\n"
         f"- **今日のアクション**: 各サイトの認証設定を確認し、データ収集を自動化する"
     )
+
+
+def generate_priority_actions(blog_data: list, rapidapi_data: dict,
+                              apify_data: dict, pseo_data: dict,
+                              n8n_data: dict, x_data: dict,
+                              config: dict) -> list:
+    """Claude APIで収益最大化の優先アクションを生成する"""
+    api_key = config.get("claude_api", {}).get("api_key", "")
+    if not api_key or "SEE" in api_key or "YOUR" in api_key:
+        secrets = load_secrets(PROJECT_ROOT / "config" / "secrets.json")
+        api_key = secrets.get("claude_api", {}).get("api_key", "")
+    if not api_key or "YOUR" in api_key:
+        logger.warning("Claude APIキー未設定。優先アクション生成スキップ")
+        return []
+
+    try:
+        import anthropic
+        client = anthropic.Anthropic(api_key=api_key)
+        model = config.get("claude_api", {}).get("model", "claude-sonnet-4-6")
+
+        # 全事業データをまとめる
+        blog_summary = ""
+        for d in blog_data:
+            blog_summary += (
+                f"- {d['display_name']}({d['site']}): "
+                f"記事数={d['wp'].get('post_count', 0)}, "
+                f"PV(30d)={d['ga4'].get('pageviews', 0)}, "
+                f"ユーザー={d['ga4'].get('users', 0)}, "
+                f"GSC表示={d['gsc'].get('impressions', 0)}, "
+                f"GSCクリック={d['gsc'].get('clicks', 0)}, "
+                f"GA4状態={d['ga4'].get('status', 'N/A')}, "
+                f"GSC状態={d['gsc'].get('status', 'N/A')}\n"
+            )
+
+        rapidapi_info = (
+            f"RapidAPI: API数={rapidapi_data.get('api_count', 0)}, "
+            f"状態={rapidapi_data.get('status')}, "
+            f"出品済み=10/20, 月売上=$0"
+        )
+
+        actors = apify_data.get("actors", [])
+        apify_info = (
+            f"Apify Store: Actor数={len(actors)}, "
+            f"状態={apify_data.get('status')}, "
+            f"PayPal payout=未設定, 月売上=$0"
+        )
+
+        pseo_info = (
+            f"pSEO AIツール比較: ページ数={pseo_data.get('page_count', 0)}, "
+            f"デプロイ={'済' if pseo_data.get('deployed') else '未（Vercel未設定）'}"
+        )
+
+        n8n_info = (
+            f"n8nテンプレート: {n8n_data.get('template_count', 0)}本, "
+            f"状態={n8n_data.get('status')}, 備考={n8n_data.get('note', '')}"
+        )
+
+        x_info = (
+            f"X(Twitter): フォロワー={x_data.get('followers', 0)}, "
+            f"ツイート数={x_data.get('tweet_count', 0)}"
+        )
+
+        prompt = f"""あなたは収益最大化の専門コンサルタントです。
+以下の全事業データを分析し、今日やるべき優先アクションを6件、
+「収益インパクト÷必要な労力」が高い順に提案してください。
+
+■ 判断基準（重要度順）:
+1. 即座に収益に繋がるアクション（出品・設定するだけで課金が始まるもの）
+2. 収益のボトルネック解消（データが取れない→改善できない→稼げない）
+3. 低労力で高リターン（1時間以内で完了し、月1万円以上の可能性があるもの）
+4. 中長期の収益基盤構築（SEO、コンテンツ拡充）
+
+■ 現在の事業データ:
+【ブログ3サイト】（収益源: アフィリエイト+AdSense）
+{blog_summary}
+【RapidAPI】（収益源: API課金）
+{rapidapi_info}
+
+【Apify Store】（収益源: Actor課金）
+{apify_info}
+
+【pSEOサイト】（収益源: アフィリエイト+AdSense）
+{pseo_info}
+
+【n8nテンプレート】（収益源: Gumroad販売）
+{n8n_info}
+
+【X SNS】（集客チャネル）
+{x_info}
+
+■ 月次コスト: 約¥3,700/月（ConoHa WING ¥1,452 + Claude API ~$5 + Apify $1.21 + ドメイン3件 ~¥300）
+■ 現在の月間総売上: $0
+■ 目標: Phase1 = ¥50,000/月（3ヶ月以内）
+
+■ 出力フォーマット（厳密に守ること）:
+各アクションを以下のJSON配列で返してください。説明文やマークダウンは不要です。JSONのみ返してください。
+
+[
+  {{"id": "英数字ハイフンのID", "title": "アクション名（20文字以内）", "reason": "なぜ収益に繋がるか（30文字以内）", "priority": "P1", "effort": "15分/1時間/半日/1日", "revenue_potential": "月○○円の可能性"}},
+  ...
+]
+
+P1=今日必ずやる（2件）、P2=今日できればやる（2件）、P3=今週中（2件）
+計6件、JSON配列のみ出力してください。"""
+
+        message = client.messages.create(
+            model=model,
+            max_tokens=1000,
+            timeout=45.0,
+            system="収益最大化に特化したビジネスコンサルタント。JSON形式で簡潔に回答する。",
+            messages=[{"role": "user", "content": prompt}]
+        )
+
+        response_text = message.content[0].text.strip()
+        # Extract JSON from response (handle markdown code blocks)
+        json_match = re.search(r'\[.*\]', response_text, re.DOTALL)
+        if json_match:
+            actions = json.loads(json_match.group())
+        else:
+            actions = json.loads(response_text)
+
+        logger.info(f"優先アクション {len(actions)}件 生成完了")
+        return actions
+
+    except ImportError:
+        logger.warning("anthropicライブラリ未インストール。優先アクション生成スキップ")
+        return []
+    except Exception as e:
+        logger.error(f"優先アクション生成エラー: {e}")
+        return []
+
+
+def update_action_status_file(actions: list):
+    """action-status.json と ダッシュボードHTMLの優先アクション欄を更新"""
+    today_str = datetime.now().strftime("%Y-%m-%d")
+    status_path = REPORTS_DIR / "action-status.json"
+    dashboard_path = REPORTS_DIR / "daily-business-dashboard.html"
+
+    # 1. action-status.json を更新
+    status_data = {
+        "date": today_str,
+        "actions": [
+            {
+                "id": a["id"],
+                "title": a["title"],
+                "priority": a["priority"],
+                "done": False,
+                "done_at": None,
+            }
+            for a in actions
+        ]
+    }
+    status_path.write_text(
+        json.dumps(status_data, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8"
+    )
+    logger.info(f"action-status.json 更新完了 ({len(actions)}件)")
+
+    # 2. ダッシュボードHTMLの優先アクション欄を書き換え
+    if not dashboard_path.exists():
+        return
+
+    html = dashboard_path.read_text(encoding="utf-8")
+
+    # Build new action items HTML
+    action_items = []
+    for a in actions:
+        pri_class = {"P1": "p1", "P2": "p2", "P3": "p3"}.get(a["priority"], "p3")
+        effort = a.get("effort", "")
+        revenue = a.get("revenue_potential", "")
+        reason = a.get("reason", "")
+        sub_parts = []
+        if reason:
+            sub_parts.append(reason)
+        if effort and revenue:
+            sub_parts.append(f"⏱{effort} → {revenue}")
+        elif revenue:
+            sub_parts.append(revenue)
+        sub_text = "　".join(sub_parts)
+
+        item = (
+            f'    <div class="action-item" data-action-id="{a["id"]}">'
+            f'<span class="a-check">☐</span>'
+            f'<span class="a-pri {pri_class}">{a["priority"]}</span>'
+            f'<div class="a-text"><strong>{a["title"]}</strong>'
+            f'<span class="a-reason">{sub_text}</span>'
+            f'</div></div>'
+        )
+        action_items.append(item)
+
+    new_action_html = "\n".join(action_items)
+
+    # Replace action list content
+    pattern = r'(<div class="action-list anim" id="action-list">)\s*.*?\s*(</div>\s*\n\s*<footer>)'
+    replacement = rf'\1\n{new_action_html}\n  \2'
+    html = re.sub(pattern, replacement, html, flags=re.DOTALL)
+
+    # Update badge
+    html = re.sub(
+        r'(id="actions".*?<span class="badge">).*?(</span>)',
+        rf'\g<1>{len(actions)} items\2',
+        html
+    )
+
+    dashboard_path.write_text(html, encoding="utf-8")
+    logger.info("ダッシュボードHTML 優先アクション欄 更新完了")
 
 
 def build_report(blog_data: list, rapidapi_data: dict, apify_data: dict,
