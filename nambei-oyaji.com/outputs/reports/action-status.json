@@ -1,0 +1,47 @@
+{
+  "date": "2026-03-16",
+  "actions": [
+    {
+      "id": "ga4-permission",
+      "title": "otona-match.com / sim-hikaku.online のGA4権限を付与",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "gsc-otona-investigate",
+      "title": "otona-match.com がGSCで検索表示0 — 原因調査",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "sim-add-articles",
+      "title": "sim-hikaku.online に記事3本追加",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "rapidapi-list-remaining",
+      "title": "RapidAPI 残り10本を出品",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-vercel-deploy",
+      "title": "pSEOサイトをVercelにデプロイ",
+      "priority": "P3",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "apify-paypal-payout",
+      "title": "Apify PayPal payout設定",
+      "priority": "P3",
+      "done": false,
+      "done_at": null
+    }
+  ]
+}
