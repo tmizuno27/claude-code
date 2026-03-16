@@ -78,6 +78,12 @@
 - Rick Blyth方式（量産×放置）、運用コスト$0
 - **プロジェクトパス**: `claude-code/chrome-extensions/`
 
+## WP Linker Micro SaaS（稼働中）
+- **詳細**: [wp-linker-project.md](wp-linker-project.md)
+- WordPress内部リンク最適化SaaS、Next.js 15 + Supabase + Vercel
+- 本番URL: https://wp-linker.vercel.app
+- **プロジェクトパス**: `claude-code/wp-linker/`
+
 ## pSEO AIツール比較サイト（構築中）
 - **詳細**: [pseo-site.md](pseo-site.md)
 - Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み（2026-03-15）
