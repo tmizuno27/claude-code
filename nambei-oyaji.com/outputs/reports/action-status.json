@@ -2,43 +2,43 @@
   "date": "2026-03-16",
   "actions": [
     {
-      "id": "ga4-permission",
-      "title": "otona-match.com / sim-hikaku.online のGA4権限を付与",
+      "id": "apify-payout-setup",
+      "title": "ApifyPayPal支払設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "gsc-otona-investigate",
-      "title": "otona-match.com がGSCで検索表示0 — 原因調査",
+      "id": "rapidapi-publish-10",
+      "title": "未出品API10本を出品",
       "priority": "P1",
-      "done": true,
-      "done_at": "16:54"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "sim-add-articles",
-      "title": "sim-hikaku.online に記事3本追加",
+      "id": "otona-ga4-fix",
+      "title": "otona-matchGA4権限修正",
       "priority": "P2",
-      "done": true,
-      "done_at": "16:50"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "rapidapi-list-remaining",
-      "title": "RapidAPI 残り10本を出品",
+      "id": "sim-ga4-fix",
+      "title": "sim-hikakuGA4権限修正",
       "priority": "P2",
-      "done": true,
-      "done_at": "16:55"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトをVercelにデプロイ",
+      "title": "pSEOサイトVercel公開",
       "priority": "P3",
       "done": false,
       "done_at": null
     },
     {
-      "id": "apify-paypal-payout",
-      "title": "Apify PayPal payout設定",
+      "id": "nambei-ctr-improve",
+      "title": "南米ブログCTR改善",
       "priority": "P3",
       "done": false,
       "done_at": null
