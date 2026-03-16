@@ -32,6 +32,16 @@ interface SavedSite {
   app_password: string;
 }
 
+interface AnalysisHistory {
+  id: string;
+  total_posts: number;
+  orphan_count: number;
+  suggestions_count: number;
+  applied_count: number;
+  coverage: number;
+  created_at: string;
+}
+
 interface AnalysisData {
   total_posts: number;
   orphan_posts: OrphanPost[];
@@ -89,6 +99,19 @@ export default function Dashboard({ userId }: { userId: string }) {
     });
     setCurrentSiteId(s.id);
     setConnected(true);
+    loadHistory(s.id);
+  }
+
+  async function loadHistory(siteId: string) {
+    setLoadingHistory(true);
+    const { data } = await supabase
+      .from("analyses")
+      .select("id, total_posts, orphan_count, suggestions_count, applied_count, coverage, created_at")
+      .eq("site_id", siteId)
+      .order("created_at", { ascending: false })
+      .limit(20);
+    if (data) setHistory(data);
+    setLoadingHistory(false);
   }
 
   async function testConnection() {
@@ -150,6 +173,7 @@ export default function Dashboard({ userId }: { userId: string }) {
             const filtered = prev.filter((s) => s.id !== saved.id);
             return [saved, ...filtered];
           });
+          loadHistory(saved.id);
         }
 
         setConnected(true);
@@ -644,6 +668,4 @@ export default function Dashboard({ userId }: { userId: string }) {
               {analyzing ? "Analyzing..." : "Re-analyze"}
             </button>
           </div>
-        </>
-      )}
-    </d
+      
