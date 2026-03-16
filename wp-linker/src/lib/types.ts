@@ -48,3 +48,13 @@ export interface OrphanPost {
   incoming_links: number;
   outgoing_links: number;
 }
+
+export interface PostLinkStats {
+  post_id: number;
+  title: string;
+  url: string;
+  incoming_links: number;
+  outgoing_links: number;
+  linked_from: string[]; // titles of posts linking TO this post
+  links_to: string[]; // titles of posts this post links TO
+}

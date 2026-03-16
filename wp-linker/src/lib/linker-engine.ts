@@ -3,7 +3,7 @@
  * Ported from nambei-oyaji.com/scripts/content/internal_linker.py
  */
 
-import type { WPPost, LinkSuggestion, OrphanPost } from "./types";
+import type { WPPost, LinkSuggestion, OrphanPost, PostLinkStats } from "./types";
 
 // Japanese stop words
 const STOP_WORDS = new Set([
@@ -65,16 +65,14 @@ function isAlreadyLinked(contentHtml: string, targetUrl: string): boolean {
   return contentHtml.includes(targetUrl);
 }
 
-// Count how many internal links point TO and FROM each post
-function buildLinkGraph(
-  posts: { id: number; url: string; content: string }[]
-): Map<number, { incoming: number; outgoing: number }> {
-  const graph = new Map<number, { incoming: number; outgoing: number }>();
-  const urlToId = new Map<string, number>();
+// Build detailed link graph with title references
+function buildDetailedLinkGraph(
+  posts: { id: number; title: string; url: string; content: string }[]
+): Map<number, { incoming: number; outgoing: number; linked_from: string[]; links_to: string[] }> {
+  const graph = new Map<number, { incoming: number; outgoing: number; linked_from: string[]; links_to: string[] }>();
 
   for (const p of posts) {
-    graph.set(p.id, { incoming: 0, outgoing: 0 });
-    urlToId.set(p.url, p.id);
+    graph.set(p.id, { incoming: 0, outgoing: 0, linked_from: [], links_to: [] });
   }
 
   for (const p of posts) {
@@ -82,7 +80,9 @@ function buildLinkGraph(
       if (p.id === other.id) continue;
       if (p.content.includes(other.url)) {
         graph.get(p.id)!.outgoing++;
+        graph.get(p.id)!.links_to.push(other.title);
         graph.get(other.id)!.incoming++;
+        graph.get(other.id)!.linked_from.push(p.title);
       }
     }
   }
@@ -93,6 +93,7 @@ function buildLinkGraph(
 export interface AnalysisResult {
   suggestions: LinkSuggestion[];
   orphanPosts: OrphanPost[];
+  postStats: PostLinkStats[];
   totalPosts: number;
 }
 
@@ -185,5 +186,4 @@ export function buildRelatedLinksHtml(
   const items = relatedPosts
     .map((p) => `  <li><a href="${p.url}">${p.title}</a></li>`)
     .join("\n");
-  return `\n<!-- wp-linker-internal-links -->\n<div class="related-articles">\n<h3>Related Articles</h3>\n<ul>\n${items}\n</ul>\n</div>\n`;
-}
+  return `\n<!-- wp-linker-internal-links -->\n<div class="related-articles">\n<h3>Related Articles</h3>\n<ul>\n
