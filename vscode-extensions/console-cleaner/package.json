@@ -1,0 +1,110 @@
+{
+  "name": "console-cleaner",
+  "displayName": "Console Cleaner",
+  "description": "Find, remove, or comment out all console.log, console.error, console.warn, debugger, and print() statements across your workspace.",
+  "version": "1.0.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Linters"
+  ],
+  "keywords": [
+    "console",
+    "clean",
+    "debug",
+    "remove",
+    "console.log"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "consoleCleaner.refresh",
+        "title": "Console Cleaner: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "consoleCleaner.removeAll",
+        "title": "Console Cleaner: Remove All"
+      },
+      {
+        "command": "consoleCleaner.commentAll",
+        "title": "Console Cleaner: Comment Out All"
+      },
+      {
+        "command": "consoleCleaner.uncommentAll",
+        "title": "Console Cleaner: Uncomment All"
+      },
+      {
+        "command": "consoleCleaner.removeInFile",
+        "title": "Remove All in File",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "consoleCleaner.commentInFile",
+        "title": "Comment Out All in File",
+        "icon": "$(comment)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "consoleCleaner",
+          "title": "Console Cleaner",
+          "icon": "$(output)"
+        }
+      ]
+    },
+    "views": {
+      "consoleCleaner": [
+        {
+          "id": "consoleCleanerView",
+          "name": "Debug Statements"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "consoleCleaner.refresh",
+          "when": "view == consoleCleanerView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "consoleCleaner.removeInFile",
+          "when": "view == consoleCleanerView && viewItem == file",
+          "group": "inline"
+        },
+        {
+          "command": "consoleCleaner.commentInFile",
+          "when": "view == consoleCleanerView && viewItem == file",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
