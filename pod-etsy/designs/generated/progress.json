@@ -1,0 +1,21 @@
+{
+  "generated": {},
+  "errors": {
+    "niche-01-japan-zen/zen-01-bamboo-forest.png": {
+      "timestamp": "2026-03-16T17:40:37.227464",
+      "title": "Bamboo Forest Zen",
+      "prompt_preview": "Create a minimalist Japanese ink wash painting of a bamboo grove in morning mist. Use black and dark"
+    },
+    "niche-01-japan-zen/zen-02-kintsugi-bowl.png": {
+      "timestamp": "2026-03-16T17:41:00.874702",
+      "title": "Kintsugi Bowl",
+      "prompt_preview": "Create a detailed illustration of a cracked ceramic tea bowl repaired with gold in the Japanese kint"
+    },
+    "niche-01-japan-zen/zen-03-torii-gate.png": {
+      "timestamp": "2026-03-16T17:41:24.493635",
+      "title": "Torii Gate Silhouette",
+      "prompt_preview": "Create a minimalist silhouette of a Japanese torii gate standing in calm water with a large full moo"
+    }
+  },
+  "started_at": "2026-03-16T17:40:15.670183"
+}
