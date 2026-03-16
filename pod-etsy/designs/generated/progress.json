@@ -40,6 +40,21 @@
       "timestamp": "2026-03-16T17:43:22.613523",
       "title": "Daruma Doll Minimalist",
       "prompt_preview": "Create a minimalist illustration of a Japanese daruma doll with one eye filled in (representing a go"
+    },
+    "niche-01-japan-zen/zen-09-fuji-sunrise.png": {
+      "timestamp": "2026-03-16T17:43:46.232006",
+      "title": "Mount Fuji Sunrise",
+      "prompt_preview": "Create a minimalist illustration of Mount Fuji at sunrise with layered mountain ridges in the foregr"
+    },
+    "niche-01-japan-zen/zen-10-kanji-wa.png": {
+      "timestamp": "2026-03-16T17:44:09.847889",
+      "title": "Kanji Calligraphy \"Wa\" (Harmony)",
+      "prompt_preview": "Create the Japanese kanji character 和 (wa, meaning harmony/peace) written in bold traditional callig"
+    },
+    "niche-02-south-america/sa-01-terere-culture.png": {
+      "timestamp": "2026-03-16T17:44:33.483492",
+      "title": "Terere Culture",
+      "prompt_preview": "Create a vibrant illustration of a traditional South American terere (cold mate drink) setup: a deco"
     }
   },
   "started_at": "2026-03-16T17:40:15.670183"
