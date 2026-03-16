@@ -1,0 +1,83 @@
+{
+  "name": "env-lens",
+  "displayName": "ENV Lens",
+  "description": "Browse, compare, and analyze .env files. Highlight missing keys, detect secrets, generate .env.example automatically.",
+  "version": "1.0.0",
+  "publisher": "miccho27",
+  "license": "MIT",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "env",
+    "dotenv",
+    "environment",
+    "secrets",
+    "compare"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/.env*"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "envLens.refresh",
+        "title": "ENV Lens: Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "envLens.compare",
+        "title": "ENV Lens: Compare Two .env Files"
+      },
+      {
+        "command": "envLens.generateExample",
+        "title": "ENV Lens: Generate .env.example"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "envLens",
+          "title": "ENV Lens",
+          "icon": "$(key)"
+        }
+      ]
+    },
+    "views": {
+      "envLens": [
+        {
+          "id": "envLensView",
+          "name": "ENV Files"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "envLens.refresh",
+          "when": "view == envLensView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.3"
+  }
+}
