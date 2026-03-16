@@ -136,6 +136,11 @@
 - Googleカレンダー: JST設定（時差12時間）
 - X API: [x-api-credentials.md](x-api-credentials.md)
 
+## Stripe連携待ちタスク
+- **詳細**: [stripe-pending-tasks.md](stripe-pending-tasks.md)
+- WP Linker決済、n8nテンプレート、Notionテンプレート、pSEO、Chrome拡張等が全てStripeブロック中
+- ユーザーが「Stripe連携できました」と言ったら即座にこのリストを実行
+
 ## セーブポイント（Gitタグ）
 - savepoint-article-design-v1/v2 (2026-03-09): 記事ページデザイン完成
 - savepoint-frontpage-v1 (2026-03-13): トップページ完成 → [front-page-savepoint.md](front-page-savepoint.md)
