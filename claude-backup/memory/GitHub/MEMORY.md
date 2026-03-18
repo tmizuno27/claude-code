@@ -106,6 +106,7 @@
 - アカウント: tatsuya27.gumroad.com（n8nテンプレート9本も同アカウント、こちらも全整備済み）
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿（10:00/14:00/19:00 PYT）
 - **Gumroad出品時の注意**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — サムネ必須、Pillow自動生成
+- **Reddit投稿スケジュール**: [reddit-posting-schedule.md](reddit-posting-schedule.md) — 3/19 r/productivity、3/20 r/sidehustle、当日通知必須
 - **プロジェクトパス**: `claude-code/gumroad-notion/`
 
 ## POD Printful×Etsy事業 AsuInk（アカウント開設待ち）
