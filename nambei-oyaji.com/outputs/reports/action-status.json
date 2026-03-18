@@ -3,59 +3,52 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyペイアウトPayPal設定",
+      "title": "ApifyにPayPal設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "rapidapi-publish-remaining",
-      "title": "RapidAPI残り10本を出品",
+      "id": "gumroad-stripe-kyc",
+      "title": "Stripe KYC解決",
       "priority": "P1",
-      "done": true,
-      "done_at": "14:06"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトVercelデプロイ",
+      "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": true,
-      "done_at": "14:06"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題を解決",
+      "id": "gsc-zero-investigation",
+      "title": "GSC表示0件の原因特定",
       "priority": "P1",
-      "done": true,
-      "done_at": "14:06"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "gsc-index-fix",
-      "title": "3サイトGSC表示ゼロを調査",
-      "priority": "P1",
-      "done": true,
-      "done_at": "16:49"
-    },
-    {
-      "id": "otona-match-afi-check",
-      "title": "マッチングナビASP提携確認",
+      "id": "rapidapi-free-to-paid",
+      "title": "RapidAPI無料Actorに誘導文追加",
       "priority": "P2",
-      "done": true,
-      "done_at": "14:08"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "rapidapi-pricing-review",
-      "title": "RapidAPI料金プラン見直し",
+      "id": "otona-match-affiliate-check",
+      "title": "マッチングナビにアフィリエイト設置確認",
       "priority": "P2",
-      "done": true,
-      "done_at": "17:00"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "x-post-start",
-      "title": "X投稿を今日から開始",
+      "id": "x-first-post",
+      "title": "X投稿開始（今日1本）",
       "priority": "P2",
-      "done": true,
-      "done_at": "14:09"
+      "done": false,
+      "done_at": null
     }
   ]
 }
