@@ -238,9 +238,29 @@ def main():
 
     print(f"\n=== 完了 ===")
     print(f"投稿結果:")
+    success_count = 0
     for r in results:
         status = f"ID={r['wp_id']}" if r["wp_id"] else "FAILED"
         print(f"  {r['file']}: {r['title']} → {status}")
+        if r["wp_id"]:
+            success_count += 1
+
+    # 投稿成功した記事にアフィリエイトリンクを自動挿入
+    if success_count > 0:
+        import subprocess, sys
+        affiliate_script = Path(__file__).parent / "insert_affiliate_all.py"
+        if affiliate_script.exists():
+            try:
+                result_aff = subprocess.run(
+                    [sys.executable, str(affiliate_script), "--apply"],
+                    capture_output=True, text=True, timeout=120
+                )
+                if result_aff.returncode == 0:
+                    print("アフィリエイトリンク自動挿入完了")
+                else:
+                    print(f"アフィリエイトリンク挿入失敗: {result_aff.stderr[:200]}")
+            except Exception as e:
+                print(f"アフィリエイトリンク挿入エラー: {e}")
 
 
 if __name__ == "__main__":
