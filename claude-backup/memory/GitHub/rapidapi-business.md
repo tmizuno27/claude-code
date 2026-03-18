@@ -27,16 +27,16 @@ type: project
 8. JSON Formatter API ★
 9. Hash & Encoding API ★
 10. Currency Exchange Rate API ★
-11. AI Text Generation API（Workers AI / Llama 3.1）
-12. Social Video Downloader API
-13. Crypto Data Aggregator API（CoinPaprika）
-14. SEO Analyzer API
-15. Weather Intelligence API（Open-Meteo）
-16. WHOIS Domain Info API（RDAP）
-17. News Aggregator API（RSS/HN/Dev.to）
-18. AI Translation API（Workers AI / m2m100）
-19. Trends API（Google/Reddit/GitHub）
-20. Company Data Enrichment API（OpenCorporates）
+11. AI Text Generation API（Workers AI / Llama 3.1）★
+12. Social Video Downloader API ★
+13. Crypto Data Aggregator API（CoinPaprika）★
+14. SEO Analyzer API ★
+15. Weather Intelligence API（Open-Meteo）★
+16. WHOIS Domain Info API（RDAP）★
+17. News Aggregator API（RSS/HN/Dev.to）★
+18. AI Translation API（Workers AI / m2m100）★
+19. Trends API（Google/Reddit/GitHub）★
+20. Company Data Enrichment API（OpenCorporates）★
 
 ### プライシング（全API共通）
 - BASIC: $0/100req, PRO: $9.99/10K, ULTRA: $24.99/50K, MEGA: $49.99/500K
