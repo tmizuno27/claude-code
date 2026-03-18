@@ -1,0 +1,984 @@
+{
+  "date": "2026-03-17",
+  "posts_checked": 62,
+  "urls_checked": 400,
+  "broken_count": 122,
+  "broken_links": [
+    {
+      "post_id": 193,
+      "post_title": "婚活で男性がやりがちな失敗パターン5選｜成功率を上げる改善法",
+      "post_url": "https://otona-match.com/konkatsu-dansei-shippai/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 193,
+      "post_title": "婚活で男性がやりがちな失敗パターン5選｜成功率を上げる改善法",
+      "post_url": "https://otona-match.com/konkatsu-dansei-shippai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 192,
+      "post_title": "マッチングアプリの危険人物の特徴と見分け方｜安全に使うコツ",
+      "post_url": "https://otona-match.com/matching-app-kiken-jinbutsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 191,
+      "post_title": "マッチングアプリで陰キャでも出会える？内向的な人の攻略法",
+      "post_url": "https://otona-match.com/matching-app-inja-mukidashi/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 191,
+      "post_title": "マッチングアプリで陰キャでも出会える？内向的な人の攻略法",
+      "post_url": "https://otona-match.com/matching-app-inja-mukidashi/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 190,
+      "post_title": "マッチングアプリの初デート場所おすすめ｜失敗しない店選びのコツ",
+      "post_url": "https://otona-match.com/matching-app-date-basho/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 189,
+      "post_title": "マッチングアプリの最初のメッセージ例文集｜返信率80％超えのコツ",
+      "post_url": "https://otona-match.com/matching-app-first-message/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 189,
+      "post_title": "マッチングアプリの最初のメッセージ例文集｜返信率80％超えのコツ",
+      "post_url": "https://otona-match.com/matching-app-first-message/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 188,
+      "post_title": "マッチングアプリのプロフィールの書き方｜男女別テンプレート付き",
+      "post_url": "https://otona-match.com/matching-app-profile-kakikata/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 187,
+      "post_title": "外国人と出会えるマッチングアプリおすすめ5選｜国際恋愛を始める方法",
+      "post_url": "https://otona-match.com/matching-app-igirisu-gaikokujin/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 186,
+      "post_title": "結婚相談所の成婚率ランキング｜本当に結婚できる相談所の選び方",
+      "post_url": "https://otona-match.com/kekkon-soudan-seikon-ritsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/ibj-members",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 186,
+      "post_title": "結婚相談所の成婚率ランキング｜本当に結婚できる相談所の選び方",
+      "post_url": "https://otona-match.com/kekkon-soudan-seikon-ritsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/partner-agent",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 186,
+      "post_title": "結婚相談所の成婚率ランキング｜本当に結婚できる相談所の選び方",
+      "post_url": "https://otona-match.com/kekkon-soudan-seikon-ritsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 186,
+      "post_title": "結婚相談所の成婚率ランキング｜本当に結婚できる相談所の選び方",
+      "post_url": "https://otona-match.com/kekkon-soudan-seikon-ritsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/ibj-members",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 186,
+      "post_title": "結婚相談所の成婚率ランキング｜本当に結婚できる相談所の選び方",
+      "post_url": "https://otona-match.com/kekkon-soudan-seikon-ritsu/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 163,
+      "post_title": "マッチングアプリを最安で使う方法｜無料プラン活用＆割引テクニック",
+      "post_url": "https://otona-match.com/matching-app-saiyasune/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 159,
+      "post_title": "50代からのマッチングアプリ活用術｜シニア世代の出会い方ガイド",
+      "post_url": "https://otona-match.com/matching-app-sotsukon-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 159,
+      "post_title": "50代からのマッチングアプリ活用術｜シニア世代の出会い方ガイド",
+      "post_url": "https://otona-match.com/matching-app-sotsukon-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 159,
+      "post_title": "50代からのマッチングアプリ活用術｜シニア世代の出会い方ガイド",
+      "post_url": "https://otona-match.com/matching-app-sotsukon-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 158,
+      "post_title": "マッチングアプリの自己紹介文の書き方｜いいねが増えるプロフィール例文",
+      "post_url": "https://otona-match.com/matching-app-jikoshoukai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 157,
+      "post_title": "30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント",
+      "post_url": "https://otona-match.com/kekkon-soudan-30dai-josei/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/ibj-members",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 157,
+      "post_title": "30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント",
+      "post_url": "https://otona-match.com/kekkon-soudan-30dai-josei/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/partner-agent",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 157,
+      "post_title": "30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント",
+      "post_url": "https://otona-match.com/kekkon-soudan-30dai-josei/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/o-net",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 157,
+      "post_title": "30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント",
+      "post_url": "https://otona-match.com/kekkon-soudan-30dai-josei/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/zwei",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 157,
+      "post_title": "30代女性の結婚相談所選び｜成婚率・料金・サポートで比較するポイント",
+      "post_url": "https://otona-match.com/kekkon-soudan-30dai-josei/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 155,
+      "post_title": "年代別マッチングアプリの選び方｜20代・30代・40代のおすすめ",
+      "post_url": "https://otona-match.com/matching-app-nentai-betsu/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 155,
+      "post_title": "年代別マッチングアプリの選び方｜20代・30代・40代のおすすめ",
+      "post_url": "https://otona-match.com/matching-app-nentai-betsu/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 155,
+      "post_title": "年代別マッチングアプリの選び方｜20代・30代・40代のおすすめ",
+      "post_url": "https://otona-match.com/matching-app-nentai-betsu/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 154,
+      "post_title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-ryoukin-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 154,
+      "post_title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-ryoukin-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/o-net",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 154,
+      "post_title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-ryoukin-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/ibj-members",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 154,
+      "post_title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-ryoukin-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 154,
+      "post_title": "結婚相談所の料金相場まとめ｜入会金・月会費・成婚料を比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-ryoukin-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/partner-agent",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 153,
+      "post_title": "マッチングアプリで告白された体験談｜付き合うまでのリアルな流れ",
+      "post_url": "https://otona-match.com/matching-app-koppun-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 153,
+      "post_title": "マッチングアプリで告白された体験談｜付き合うまでのリアルな流れ",
+      "post_url": "https://otona-match.com/matching-app-koppun-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 151,
+      "post_title": "バツイチ・再婚向けマッチングアプリおすすめ｜子持ちでも出会える",
+      "post_url": "https://otona-match.com/matching-app-batuichi-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 151,
+      "post_title": "バツイチ・再婚向けマッチングアプリおすすめ｜子持ちでも出会える",
+      "post_url": "https://otona-match.com/matching-app-batuichi-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 151,
+      "post_title": "バツイチ・再婚向けマッチングアプリおすすめ｜子持ちでも出会える",
+      "post_url": "https://otona-match.com/matching-app-batuichi-saikon/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 150,
+      "post_title": "婚活パーティーとマッチングアプリどっちが出会える？比較検証",
+      "post_url": "https://otona-match.com/konkatsu-party-vs-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 150,
+      "post_title": "婚活パーティーとマッチングアプリどっちが出会える？比較検証",
+      "post_url": "https://otona-match.com/konkatsu-party-vs-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 150,
+      "post_title": "婚活パーティーとマッチングアプリどっちが出会える？比較検証",
+      "post_url": "https://otona-match.com/konkatsu-party-vs-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 148,
+      "post_title": "マッチングアプリに疲れた…原因と「アプリ疲れ」の対処法",
+      "post_url": "https://otona-match.com/matching-app-tsukare-taisaku-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 147,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review-2/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/youbride",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 147,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 147,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 147,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review-2/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/youbride",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 147,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 146,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 146,
+      "post_title": "ユーブライド（youbride）の評判｜30代以上の婚活に強い理由",
+      "post_url": "https://otona-match.com/youbride-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 144,
+      "post_title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "post_url": "https://otona-match.com/online-kekkon-soudan-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 144,
+      "post_title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "post_url": "https://otona-match.com/online-kekkon-soudan-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/sumariage",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 144,
+      "post_title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "post_url": "https://otona-match.com/online-kekkon-soudan-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/naco-do",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 144,
+      "post_title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "post_url": "https://otona-match.com/online-kekkon-soudan-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 144,
+      "post_title": "オンライン結婚相談所の比較｜エン婚活・スマリッジ・naco-do",
+      "post_url": "https://otona-match.com/online-kekkon-soudan-hikaku/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/sumariage",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 143,
+      "post_title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "post_url": "https://otona-match.com/matching-app-40dai-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/youbride",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 143,
+      "post_title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "post_url": "https://otona-match.com/matching-app-40dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 143,
+      "post_title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "post_url": "https://otona-match.com/matching-app-40dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 143,
+      "post_title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "post_url": "https://otona-match.com/matching-app-40dai-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 143,
+      "post_title": "40代におすすめのマッチングアプリ5選｜大人世代の出会い方",
+      "post_url": "https://otona-match.com/matching-app-40dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 142,
+      "post_title": "ワクワクメールの評判・安全性を検証｜出会えるコツと注意点",
+      "post_url": "https://otona-match.com/wakuwaku-mail-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 142,
+      "post_title": "ワクワクメールの評判・安全性を検証｜出会えるコツと注意点",
+      "post_url": "https://otona-match.com/wakuwaku-mail-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 142,
+      "post_title": "ワクワクメールの評判・安全性を検証｜出会えるコツと注意点",
+      "post_url": "https://otona-match.com/wakuwaku-mail-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 142,
+      "post_title": "ワクワクメールの評判・安全性を検証｜出会えるコツと注意点",
+      "post_url": "https://otona-match.com/wakuwaku-mail-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 139,
+      "post_title": "40代の婚活は厳しい？現実と成功率を上げる5つの戦略",
+      "post_url": "https://otona-match.com/konkatsu-40dai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 138,
+      "post_title": "marrish（マリッシュ）の評判｜再婚・シンママに人気の理由を検証",
+      "post_url": "https://otona-match.com/marrish-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 138,
+      "post_title": "marrish（マリッシュ）の評判｜再婚・シンママに人気の理由を検証",
+      "post_url": "https://otona-match.com/marrish-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 138,
+      "post_title": "marrish（マリッシュ）の評判｜再婚・シンママに人気の理由を検証",
+      "post_url": "https://otona-match.com/marrish-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 138,
+      "post_title": "marrish（マリッシュ）の評判｜再婚・シンママに人気の理由を検証",
+      "post_url": "https://otona-match.com/marrish-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 136,
+      "post_title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/en-konkatsu",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 136,
+      "post_title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/o-net",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 136,
+      "post_title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/ibj-members",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 136,
+      "post_title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/zwei",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 136,
+      "post_title": "結婚相談所おすすめ5選｜料金・成婚率・サポートで徹底比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-osusume/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/partner-agent",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 135,
+      "post_title": "タップル（tapple）の評判と使い方｜20代〜30代向けの恋活アプリ",
+      "post_url": "https://otona-match.com/tapple-review/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/tapple",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 135,
+      "post_title": "タップル（tapple）の評判と使い方｜20代〜30代向けの恋活アプリ",
+      "post_url": "https://otona-match.com/tapple-review/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/tapple",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 135,
+      "post_title": "タップル（tapple）の評判と使い方｜20代〜30代向けの恋活アプリ",
+      "post_url": "https://otona-match.com/tapple-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 134,
+      "post_title": "マッチングアプリのメッセージのコツ｜返信率が上がる最初の一通",
+      "post_url": "https://otona-match.com/matching-app-message-kotsu/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 133,
+      "post_title": "30代におすすめのマッチングアプリ5選｜年齢層データで選ぶ",
+      "post_url": "https://otona-match.com/matching-app-30dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 133,
+      "post_title": "30代におすすめのマッチングアプリ5選｜年齢層データで選ぶ",
+      "post_url": "https://otona-match.com/matching-app-30dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 133,
+      "post_title": "30代におすすめのマッチングアプリ5選｜年齢層データで選ぶ",
+      "post_url": "https://otona-match.com/matching-app-30dai-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 132,
+      "post_title": "Omiai（オミアイ）の評判・口コミを徹底レビュー｜30代に人気の理由",
+      "post_url": "https://otona-match.com/omiai-review/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/omiai",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 132,
+      "post_title": "Omiai（オミアイ）の評判・口コミを徹底レビュー｜30代に人気の理由",
+      "post_url": "https://otona-match.com/omiai-review/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/omiai",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 132,
+      "post_title": "Omiai（オミアイ）の評判・口コミを徹底レビュー｜30代に人気の理由",
+      "post_url": "https://otona-match.com/omiai-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 27,
+      "post_title": "40代・50代のマッチングアプリ体験談｜大人世代でも出会える？",
+      "post_url": "https://otona-match.com/40dai-50dai-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 27,
+      "post_title": "40代・50代のマッチングアプリ体験談｜大人世代でも出会える？",
+      "post_url": "https://otona-match.com/40dai-50dai-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 27,
+      "post_title": "40代・50代のマッチングアプリ体験談｜大人世代でも出会える？",
+      "post_url": "https://otona-match.com/40dai-50dai-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 26,
+      "post_title": "マッチングアプリで結婚した人のリアルな出会いストーリー5選",
+      "post_url": "https://otona-match.com/matching-app-kekkon-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 26,
+      "post_title": "マッチングアプリで結婚した人のリアルな出会いストーリー5選",
+      "post_url": "https://otona-match.com/matching-app-kekkon-taikendan/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 25,
+      "post_title": "マッチングアプリで実際に会う前の安全チェックリスト【10項目】",
+      "post_url": "https://otona-match.com/anzen-checklist/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 23,
+      "post_title": "マッチングアプリのサクラ・業者の見分け方｜騙されないための完全ガイド",
+      "post_url": "https://otona-match.com/sakura-gyosha-miwakekata/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 20,
+      "post_title": "マッチングアプリのプロフィール写真の撮り方｜「いいね」が3倍増えるコツ",
+      "post_url": "https://otona-match.com/profile-photo-tips/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 19,
+      "post_title": "30代からの婚活は遅い？成功するための戦略とおすすめサービス",
+      "post_url": "https://otona-match.com/konkatsu-30dai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 19,
+      "post_title": "30代からの婚活は遅い？成功するための戦略とおすすめサービス",
+      "post_url": "https://otona-match.com/konkatsu-30dai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 19,
+      "post_title": "30代からの婚活は遅い？成功するための戦略とおすすめサービス",
+      "post_url": "https://otona-match.com/konkatsu-30dai/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 18,
+      "post_title": "結婚相談所とマッチングアプリどっちがいい？料金・成婚率・サポートを比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-vs-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 18,
+      "post_title": "結婚相談所とマッチングアプリどっちがいい？料金・成婚率・サポートを比較",
+      "post_url": "https://otona-match.com/kekkon-soudan-vs-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 17,
+      "post_title": "【2026年版】婚活アプリおすすめ5選｜本気で結婚したい人のための完全ガイド",
+      "post_url": "https://otona-match.com/konkatsu-app-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 17,
+      "post_title": "【2026年版】婚活アプリおすすめ5選｜本気で結婚したい人のための完全ガイド",
+      "post_url": "https://otona-match.com/konkatsu-app-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 17,
+      "post_title": "【2026年版】婚活アプリおすすめ5選｜本気で結婚したい人のための完全ガイド",
+      "post_url": "https://otona-match.com/konkatsu-app-osusume/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 15,
+      "post_title": "ハッピーメールの評判・安全性を検証｜サクラや業者の見分け方も解説",
+      "post_url": "https://otona-match.com/happy-mail-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 14,
+      "post_title": "出会い系サイトとマッチングアプリの違い｜安全に使えるのはどっち？",
+      "post_url": "https://otona-match.com/deaikei-vs-matching-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 14,
+      "post_title": "出会い系サイトとマッチングアプリの違い｜安全に使えるのはどっち？",
+      "post_url": "https://otona-match.com/deaikei-vs-matching-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 14,
+      "post_title": "出会い系サイトとマッチングアプリの違い｜安全に使えるのはどっち？",
+      "post_url": "https://otona-match.com/deaikei-vs-matching-app/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 13,
+      "post_title": "マッチングアプリの料金比較｜無料で使えるアプリと有料プランの違い",
+      "post_url": "https://otona-match.com/matching-app-price-comparison/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 13,
+      "post_title": "マッチングアプリの料金比較｜無料で使えるアプリと有料プランの違い",
+      "post_url": "https://otona-match.com/matching-app-price-comparison/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 13,
+      "post_title": "マッチングアプリの料金比較｜無料で使えるアプリと有料プランの違い",
+      "post_url": "https://otona-match.com/matching-app-price-comparison/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 11,
+      "post_title": "with（ウィズ）の評判と本音レビュー｜性格診断マッチングは本当に当たる？",
+      "post_url": "https://otona-match.com/with-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 10,
+      "post_title": "Pairs（ペアーズ）の評判・口コミを徹底調査｜実際に使って分かったメリット・デメリット",
+      "post_url": "https://otona-match.com/pairs-review/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/with",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/tapple",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/omiai",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/marrish",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/with",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/omiai",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/marrish",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+DRY4GQ+3N2M+67JUA",
+      "status": 500,
+      "error": null
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 9,
+      "post_title": "【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較",
+      "post_url": "https://otona-match.com/matching-app-ranking-2026/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/pairs",
+      "status": null,
+      "error": "Connection Error"
+    }
+  ]
+}

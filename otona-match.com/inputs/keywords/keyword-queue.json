@@ -9,12 +9,7 @@
       "scheduled_date": "2026-03-17",
       "status": "published",
       "wp_id": 132,
-      "published_date": "2026-03-14",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "matching-app-price-comparison",
-        "konkatsu-app-osusume"
-      ]
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-30dai-osusume",
@@ -25,12 +20,7 @@
       "scheduled_date": "2026-03-19",
       "status": "published",
       "wp_id": 133,
-      "published_date": "2026-03-14",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "pairs-review",
-        "with-review"
-      ]
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-message-kotsu",
@@ -40,11 +30,6 @@
       "main_keyword": "マッチングアプリ メッセージ コツ",
       "scheduled_date": "2026-03-21",
       "status": "published",
-      "internal_links": [
-        "matching-app-no-reply",
-        "profile-photo-tips",
-        "first-date-manual"
-      ],
       "wp_id": 134,
       "published_date": "2026-03-14"
     },
@@ -56,11 +41,6 @@
       "main_keyword": "タップル 評判",
       "scheduled_date": "2026-03-24",
       "status": "published",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "matching-app-price-comparison",
-        "profile-photo-tips"
-      ],
       "wp_id": 135,
       "published_date": "2026-03-14"
     },
@@ -72,11 +52,6 @@
       "main_keyword": "結婚相談所 おすすめ",
       "scheduled_date": "2026-03-26",
       "status": "published",
-      "internal_links": [
-        "kekkon-soudan-vs-app",
-        "konkatsu-app-osusume",
-        "konkatsu-30dai"
-      ],
       "wp_id": 136,
       "published_date": "2026-03-14"
     },
@@ -89,13 +64,7 @@
       "scheduled_date": "2026-03-28",
       "status": "published",
       "wp_id": 137,
-      "published_date": "2026-03-14",
-      "internal_links": [
-        "matching-app-no-reply",
-        "matching-app-message-kotsu",
-        "first-date-manual",
-        "profile-photo-tips"
-      ]
+      "published_date": "2026-03-14"
     },
     {
       "slug": "marrish-review",
@@ -106,13 +75,7 @@
       "scheduled_date": "2026-03-31",
       "status": "published",
       "wp_id": 138,
-      "published_date": "2026-03-14",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "konkatsu-app-osusume",
-        "40dai-50dai-taikendan",
-        "matching-app-price-comparison"
-      ]
+      "published_date": "2026-03-14"
     },
     {
       "slug": "konkatsu-40dai",
@@ -120,13 +83,9 @@
       "category": "konkatsu",
       "type": "集客",
       "main_keyword": "40代 婚活",
-      "scheduled_date": "2026-04-02",
-      "status": "pending",
-      "internal_links": [
-        "konkatsu-30dai",
-        "40dai-50dai-taikendan",
-        "konkatsu-app-osusume"
-      ]
+      "status": "published",
+      "wp_id": 139,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-line-koukan",
@@ -134,13 +93,9 @@
       "category": "renai-technique",
       "type": "集客",
       "main_keyword": "マッチングアプリ LINE交換",
-      "scheduled_date": "2026-04-04",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-message-kotsu",
-        "anzen-checklist",
-        "first-date-manual"
-      ]
+      "status": "published",
+      "wp_id": 140,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "youbride-review",
@@ -148,13 +103,9 @@
       "category": "konkatsu",
       "type": "キラー",
       "main_keyword": "ユーブライド 評判",
-      "scheduled_date": "2026-04-07",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "konkatsu-app-osusume",
-        "kekkon-soudan-vs-app"
-      ]
+      "status": "published",
+      "wp_id": 147,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "wakuwaku-mail-review",
@@ -162,13 +113,9 @@
       "category": "deaikei",
       "type": "キラー",
       "main_keyword": "ワクワクメール 評判",
-      "scheduled_date": "2026-04-09",
-      "status": "pending",
-      "internal_links": [
-        "happy-mail-review",
-        "pcmax-review",
-        "sakura-gyosha-miwakekata"
-      ]
+      "status": "published",
+      "wp_id": 142,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-douki-fukusu",
@@ -176,13 +123,9 @@
       "category": "renai-technique",
       "type": "集客",
       "main_keyword": "マッチングアプリ 同時進行",
-      "scheduled_date": "2026-04-11",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-message-kotsu",
-        "matching-app-yamedoki",
-        "matching-app-no-reply"
-      ]
+      "status": "published",
+      "wp_id": 141,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-40dai-osusume",
@@ -190,13 +133,9 @@
       "category": "matching-apps",
       "type": "キラー",
       "main_keyword": "マッチングアプリ 40代 おすすめ",
-      "scheduled_date": "2026-04-14",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-ranking-2026",
-        "40dai-50dai-taikendan",
-        "marrish-review"
-      ]
+      "status": "published",
+      "wp_id": 143,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "online-kekkon-soudan-hikaku",
@@ -204,13 +143,9 @@
       "category": "konkatsu",
       "type": "収益",
       "main_keyword": "オンライン結婚相談所 比較",
-      "scheduled_date": "2026-04-16",
-      "status": "pending",
-      "internal_links": [
-        "kekkon-soudan-osusume",
-        "kekkon-soudan-vs-app",
-        "konkatsu-app-osusume"
-      ]
+      "status": "published",
+      "wp_id": 144,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-tsukare-taisaku",
@@ -218,13 +153,9 @@
       "category": "reviews",
       "type": "集客",
       "main_keyword": "マッチングアプリ 疲れた",
-      "scheduled_date": "2026-04-18",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-yamedoki",
-        "matching-app-no-reply",
-        "matching-app-kekkon-taikendan"
-      ]
+      "status": "published",
+      "wp_id": 148,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "deaikei-anzen-tsukaikata",
@@ -232,13 +163,9 @@
       "category": "deaikei",
       "type": "集客",
       "main_keyword": "出会い系 安全 使い方",
-      "scheduled_date": "2026-04-21",
-      "status": "pending",
-      "internal_links": [
-        "deaikei-vs-matching-app",
-        "sakura-gyosha-miwakekata",
-        "anzen-checklist"
-      ]
+      "status": "published",
+      "wp_id": 149,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "konkatsu-party-vs-app",
@@ -246,13 +173,9 @@
       "category": "konkatsu",
       "type": "集客",
       "main_keyword": "婚活パーティー マッチングアプリ 比較",
-      "scheduled_date": "2026-04-23",
-      "status": "pending",
-      "internal_links": [
-        "konkatsu-app-osusume",
-        "kekkon-soudan-vs-app",
-        "konkatsu-30dai"
-      ]
+      "status": "published",
+      "wp_id": 150,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-batuichi-saikon",
@@ -260,13 +183,9 @@
       "category": "reviews",
       "type": "集客",
       "main_keyword": "バツイチ マッチングアプリ",
-      "scheduled_date": "2026-04-25",
-      "status": "pending",
-      "internal_links": [
-        "marrish-review",
-        "40dai-50dai-taikendan",
-        "matching-app-kekkon-taikendan"
-      ]
+      "status": "published",
+      "wp_id": 151,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-shinjitsu-uso",
@@ -274,13 +193,9 @@
       "category": "safety",
       "type": "集客",
       "main_keyword": "マッチングアプリ 嘘 見抜く",
-      "scheduled_date": "2026-04-28",
-      "status": "pending",
-      "internal_links": [
-        "sakura-gyosha-miwakekata",
-        "anzen-checklist",
-        "matching-app-mibare-taisaku"
-      ]
+      "status": "published",
+      "wp_id": 152,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "matching-app-koppun-taikendan",
@@ -288,13 +203,9 @@
       "category": "reviews",
       "type": "集客",
       "main_keyword": "マッチングアプリ 告白 体験談",
-      "scheduled_date": "2026-04-30",
-      "status": "pending",
-      "internal_links": [
-        "matching-app-kekkon-taikendan",
-        "first-date-manual",
-        "matching-app-first-date-guide"
-      ]
+      "status": "published",
+      "wp_id": 153,
+      "published_date": "2026-03-14"
     },
     {
       "slug": "kekkon-soudan-ryoukin-hikaku",
@@ -302,12 +213,126 @@
       "category": "konkatsu",
       "type": "収益",
       "main_keyword": "結婚相談所 料金 比較",
-      "scheduled_date": "2026-05-02",
+      "status": "published",
+      "wp_id": 154,
+      "published_date": "2026-03-14"
+    },
+    {
+      "slug": "bumble-review",
+      "title": "Bumble（バンブル）の評判と使い方｜女性主導の海外発マッチングアプリ",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "Bumble 評判",
+      "scheduled_date": "2026-03-18",
+      "status": "processed",
+      "internal_links": [
+        "matching-app-ranking-2026",
+        "matching-app-igirisu-gaikokujin",
+        "matching-app-40dai-osusume"
+      ],
+      "processed_date": "2026-03-18",
+      "wp_id": 530
+    },
+    {
+      "slug": "tinder-review",
+      "title": "Tinder（ティンダー）の評判｜無料で出会える？料金・安全性を徹底検証",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "Tinder 評判",
+      "scheduled_date": "2026-03-18",
+      "status": "processed",
+      "internal_links": [
+        "matching-app-ranking-2026",
+        "matching-app-price-comparison",
+        "matching-app-mibare-taisaku"
+      ],
+      "processed_date": "2026-03-18",
+      "wp_id": 531
+    },
+    {
+      "slug": "zexy-enmusubi-review",
+      "title": "ゼクシィ縁結びの評判｜婚活ガチ勢に選ばれる理由と料金プラン",
+      "category": "konkatsu",
+      "type": "キラー",
+      "main_keyword": "ゼクシィ縁結び 評判",
+      "scheduled_date": "2026-03-18",
+      "status": "processed",
+      "internal_links": [
+        "konkatsu-app-osusume",
+        "kekkon-soudan-vs-app",
+        "matching-app-30dai-osusume"
+      ],
+      "processed_date": "2026-03-18",
+      "wp_id": 532
+    },
+    {
+      "slug": "matching-app-50dai-osusume",
+      "title": "50代におすすめのマッチングアプリ5選｜シニア世代の出会い方ガイド",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "マッチングアプリ 50代 おすすめ",
+      "scheduled_date": "2026-03-24",
       "status": "pending",
       "internal_links": [
-        "kekkon-soudan-osusume",
-        "kekkon-soudan-vs-app",
-        "online-kekkon-soudan-hikaku"
+        "40dai-50dai-taikendan",
+        "matching-app-40dai-osusume",
+        "marrish-review"
+      ]
+    },
+    {
+      "slug": "matching-app-dansei-ryoukin",
+      "title": "マッチングアプリの男性料金を比較｜コスパ最強はどれ？2026年版",
+      "category": "matching-apps",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 男性 料金",
+      "scheduled_date": "2026-03-26",
+      "status": "pending",
+      "internal_links": [
+        "matching-app-price-comparison",
+        "matching-app-saiyasune",
+        "matching-app-ranking-2026"
+      ]
+    },
+    {
+      "slug": "konkatsu-dansei-motenai",
+      "title": "婚活でモテない男性の共通点5つ｜今日からできる改善ポイント",
+      "category": "konkatsu",
+      "type": "集客",
+      "main_keyword": "婚活 モテない 男",
+      "scheduled_date": "2026-03-28",
+      "status": "pending",
+      "internal_links": [
+        "konkatsu-dansei-shippai",
+        "profile-photo-tips",
+        "matching-app-jikoshoukai"
+      ]
+    },
+    {
+      "slug": "matching-app-sotsugyou-timing",
+      "title": "マッチングアプリの卒業タイミング｜交際開始〜退会までの判断基準",
+      "category": "renai-technique",
+      "type": "集客",
+      "main_keyword": "マッチングアプリ 卒業 タイミング",
+      "scheduled_date": "2026-03-30",
+      "status": "pending",
+      "internal_links": [
+        "matching-app-yamedoki",
+        "matching-app-kekkon-taikendan",
+        "matching-app-tsukare-taisaku"
+      ]
+    },
+    {
+      "slug": "dine-review",
+      "title": "Dine（ダイン）の評判｜デート直結型アプリのメリット・デメリット",
+      "category": "matching-apps",
+      "type": "キラー",
+      "main_keyword": "Dine 評判",
+      "scheduled_date": "2026-04-01",
+      "status": "pending",
+      "internal_links": [
+        "matching-app-ranking-2026",
+        "matching-app-date-basho",
+        "first-date-manual"
       ]
     }
   ]

@@ -168,7 +168,8 @@ def main():
             failures = [r for r in results if not r["ok"]]
             msg = f"**{SITE_URL}** がダウンしています\n\n"
             for f in failures:
-                msg += f"- `{f['endpoint']}` -> {f['error'] or f'HTTP {f[\"status_code\"]}'}\n"
+                status_code = f['status_code']
+                msg += f"- `{f['endpoint']}` -> {f['error'] or f'HTTP {status_code}'}\n"
             send_discord_alert(secrets, msg, is_down=True)
 
         elif all_ok and was_down:

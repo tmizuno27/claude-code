@@ -99,18 +99,13 @@ def update_csv(pv_map):
         log("ERROR: 累計PV column not found in CSV header")
         return rows
 
-    permalink_col = header.index("パーマリンク")
-
-    # パーマリンク→PVマップ（旧スラッグマッピング不要、シンプル版）
-    permalink_pv = {}
-    for slug, pv in pv_map.items():
-        permalink_pv[slug] = permalink_pv.get(slug, 0) + pv
+    slug_col = header.index("ファイル名")
 
     updated = 0
     total_pv = 0
     for row in rows[1:]:
-        permalink = row[permalink_col] if len(row) > permalink_col else ""
-        pv = permalink_pv.get(permalink, 0)
+        slug = row[slug_col] if len(row) > slug_col else ""
+        pv = pv_map.get(slug, 0)
         while len(row) <= pv_col:
             row.append("")
         row[pv_col] = str(pv) if pv > 0 else ""

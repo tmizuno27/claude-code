@@ -22,7 +22,7 @@ let cachedData = null;
 
 function loadData() {
   if (cachedData) return cachedData;
-  const filePath = path.join(process.cwd(), '..', 'data', 'tools.json');
+  const filePath = path.join(process.cwd(), 'data', 'tools.json');
   const raw = fs.readFileSync(filePath, 'utf-8');
   const json = JSON.parse(raw);
 

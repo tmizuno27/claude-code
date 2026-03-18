@@ -1947,23 +1947,6 @@ def main():
         print('  set NOTION_TOKEN=secret_xxx')
         sys.exit(1)
 
-    # Determine parent
-    if args.parent_page_id:
-        parent = {"type": "page_id", "page_id": args.parent_page_id}
-        log.info(f"Creating templates under page: {args.parent_page_id}")
-    else:
-        # Create a master parent page at workspace level
-        # For workspace-level pages, we need a page_id; create under first available page
-        log.info("Creating master container page...")
-        master = _api("post", "/pages", {
-            "parent": {"type": "page_id", "page_id": args.parent_page_id} if args.parent_page_id else {"type": "workspace", "workspace": True},
-            "properties": {"title": {"title": rich("Gumroad Notion Templates")}},
-            "icon": {"type": "emoji", "emoji": "🎁"},
-        })
-        parent = {"type": "page_id", "page_id": master["id"]}
-        log.info(f"Master page created: {master['id']}")
-        log.info(f"URL: {master.get('url', 'N/A')}")
-
     # --dashboard-only mode: skip creation, just append dashboard blocks to existing pages
     if args.dashboard_only:
         links_path = os.path.join(os.path.dirname(__file__), "..", "docs", "template_links.json")
@@ -2113,6 +2096,23 @@ def main():
 
         print("\nDashboard-only mode complete.")
         return
+
+    # Determine parent
+    if args.parent_page_id:
+        parent = {"type": "page_id", "page_id": args.parent_page_id}
+        log.info(f"Creating templates under page: {args.parent_page_id}")
+    else:
+        # Create a master parent page at workspace level
+        # For workspace-level pages, we need a page_id; create under first available page
+        log.info("Creating master container page...")
+        master = _api("post", "/pages", {
+            "parent": {"type": "page_id", "page_id": args.parent_page_id} if args.parent_page_id else {"type": "workspace", "workspace": True},
+            "properties": {"title": {"title": rich("Gumroad Notion Templates")}},
+            "icon": {"type": "emoji", "emoji": "🎁"},
+        })
+        parent = {"type": "page_id", "page_id": master["id"]}
+        log.info(f"Master page created: {master['id']}")
+        log.info(f"URL: {master.get('url', 'N/A')}")
 
     # Build templates
     results = []

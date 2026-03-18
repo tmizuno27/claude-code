@@ -142,21 +142,35 @@ def write_article_list(sh, rows):
         'horizontalAlignment': 'CENTER',
     })
 
-    # 記事タイプ別の色分け + ステータス列
+    # 記事タイプ別の色分け + ステータス列（バッチで一括送信）
     print("書式設定中...")
+    format_requests = []
     for i, row in enumerate(rows[1:], start=2):
         atype = row[3] if len(row) > 3 else ''
         color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
-        ws.format(f'A{i}:{last_col}{i}', {'backgroundColor': color})
+        format_requests.append({
+            'repeatCell': {
+                'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+                'cell': {'userEnteredFormat': {'backgroundColor': color}},
+                'fields': 'userEnteredFormat.backgroundColor'
+            }
+        })
         status = row[7] if len(row) > 7 else ''
         if status == 'ドラフト':
-            ws.format(f'H{i}', {
-                'backgroundColor': {'red': 1.0, 'green': 0.95, 'blue': 0.7},
-                'textFormat': {'bold': True}
+            format_requests.append({
+                'repeatCell': {
+                    'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 7, 'endColumnIndex': 8},
+                    'cell': {'userEnteredFormat': {'backgroundColor': {'red': 1.0, 'green': 0.95, 'blue': 0.7}, 'textFormat': {'bold': True}}},
+                    'fields': 'userEnteredFormat.backgroundColor,userEnteredFormat.textFormat.bold'
+                }
             })
-
-    # フィルター
-    ws.set_basic_filter(f'A1:{last_col}{len(rows)}')
+    format_requests.append({
+        'setBasicFilter': {
+            'filter': {'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': len(rows), 'startColumnIndex': 0, 'endColumnIndex': num_cols}}
+        }
+    })
+    if format_requests:
+        sh.batch_update({'requests': format_requests})
 
     # 列幅・ヘッダー固定
     # A:#, B:公開順, C:柱, D:記事タイプ, E:カテゴリ, F:メインKW, G:記事タイトル,

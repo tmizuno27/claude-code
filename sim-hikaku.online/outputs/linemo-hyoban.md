@@ -5,7 +5,7 @@ slug: "linemo-hyoban"
 category: "carrier-review"
 type: "cluster"
 main_kw: "LINEMO 評判 口コミ"
-status: "draft"
+status: "published"
 created: "2026-03-15"
 word_count: 8100
 ---

@@ -1,46 +1,24 @@
 {
   "carriers": {
-    "uq-mobile": {
-      "name": "UQモバイル",
-      "asp": "バリューコマース",
-      "url": "https://YOUR-AFFILIATE-LINK/uq-mobile",
-      "commission": 6480,
-      "status": "未提携",
-      "priority": 1
-    },
-    "rakuten-mobile": {
-      "name": "楽天モバイル",
-      "asp": "A8.net",
-      "url": "https://YOUR-AFFILIATE-LINK/rakuten-mobile",
-      "commission": 1851,
-      "status": "未提携",
-      "priority": 2
-    },
-    "linemo": {
-      "name": "LINEMO",
-      "asp": "バリューコマース",
-      "url": "https://YOUR-AFFILIATE-LINK/linemo",
-      "commission": 0,
-      "status": "未提携",
-      "priority": 3,
-      "note": "報酬単価要確認"
-    },
-    "mineo": {
-      "name": "mineo",
-      "asp": "バリューコマース",
-      "url": "https://YOUR-AFFILIATE-LINK/mineo",
-      "commission": 2700,
-      "status": "未提携",
-      "priority": 4
-    },
-    "povo": {
-      "name": "povo2.0",
+    "his-mobile": {
+      "name": "HISモバイル",
       "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/povo",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100pggx00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pggx00ophx",
       "commission": 0,
-      "status": "未提携",
-      "priority": 5,
-      "note": "報酬単価要確認"
+      "status": "提携済",
+      "priority": 1,
+      "note": "アクセストレード提携済（2026-03-17）"
+    },
+    "libmo": {
+      "name": "LIBMO",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100lmjk00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100lmjk00ophx",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 2,
+      "note": "アクセストレード提携済（2026-03-17）"
     },
     "ymobile": {
       "name": "ワイモバイル（Yステーション）",
@@ -49,44 +27,107 @@
       "tracking_img": "https://www16.a8.net/0.gif?a8mat=4AZH48+1XNS3M+424K+BXIYQ",
       "commission": 0,
       "status": "提携済",
+      "priority": 3,
+      "note": "Yステーション経由（Y!mobile正規代理店）"
+    },
+    "uq-mobile": {
+      "name": "UQモバイル",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 0,
+      "status": "申請中",
+      "priority": 4,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "rakuten-mobile": {
+      "name": "楽天モバイル",
+      "asp": "A8.net",
+      "url": null,
+      "commission": 1851,
+      "status": "未提携",
+      "priority": 5
+    },
+    "linemo": {
+      "name": "LINEMO",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 0,
+      "status": "申請中",
       "priority": 6,
-      "note": "Yステーション経由（Y!mobile正規代理店）、報酬単価要確認"
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "mineo": {
+      "name": "mineo",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 0,
+      "status": "申請中",
+      "priority": 7,
+      "note": "アクセストレード申請中（2026-03-17）"
     },
     "iijmio": {
       "name": "IIJmio",
       "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/iijmio",
+      "url": null,
       "commission": 0,
-      "status": "未提携",
-      "priority": 7,
-      "note": "報酬単価要確認"
+      "status": "申請中",
+      "priority": 8,
+      "note": "アクセストレード申請中（2026-03-17）"
     },
     "ahamo": {
       "name": "ahamo",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/ahamo",
+      "asp": "A8.net",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM",
+      "tracking_img": "https://www17.a8.net/0.gif?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM",
       "commission": 0,
-      "status": "未提携",
-      "priority": 8,
-      "note": "報酬単価要確認"
-    },
-    "his-mobile": {
-      "name": "HISモバイル",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/his-mobile",
-      "commission": 0,
-      "status": "未提携",
+      "status": "提携済",
       "priority": 9,
-      "note": "報酬単価要確認"
+      "note": "A8.net提携済（2026-03-18）SIM比較オンラインで提携"
+    },
+    "nuro-mobile": {
+      "name": "NUROモバイル",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 0,
+      "status": "申請中",
+      "priority": 10,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "aeon-mobile": {
+      "name": "イオンモバイル",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 0,
+      "status": "申請中",
+      "priority": 11,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "povo": {
+      "name": "povo2.0",
+      "asp": "なし",
+      "url": null,
+      "commission": 0,
+      "status": "案件なし",
+      "priority": 99,
+      "note": "アクセストレードに案件なし"
     },
     "nihon-tsushin": {
       "name": "日本通信SIM",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/nihon-tsushin",
+      "asp": "なし",
+      "url": null,
       "commission": 0,
-      "status": "未提携",
-      "priority": 10,
-      "note": "報酬単価要確認"
+      "status": "案件なし",
+      "priority": 99,
+      "note": "アクセストレードに案件なし"
+    },
+    "biglobe-mobile": {
+      "name": "BIGLOBEモバイル",
+      "asp": "なし",
+      "url": null,
+      "commission": 0,
+      "status": "案件なし",
+      "priority": 99,
+      "note": "アクセストレードに案件なし"
     },
     "tone-mobile": {
       "name": "TONEモバイル",
@@ -94,38 +135,143 @@
       "url": null,
       "commission": 0,
       "status": "案件なし",
+      "priority": 99,
+      "note": "アクセストレード・A8.net共に案件なし"
+    }
+  },
+  "wifi_wimax": {
+    "plaio-wimax": {
+      "name": "PLAIO WiMAX",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100pzk500ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pzk500ophx",
+      "commission": 12000,
+      "status": "提携済",
+      "priority": 1,
+      "note": "バナーリンクのみ（テキストリンクなし）"
+    },
+    "gmo-dokomo-hikari": {
+      "name": "GMOとくとくBB-ドコモ光",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100ki0f00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100ki0f00ophx",
+      "commission": 9000,
+      "status": "提携済",
+      "priority": 2,
+      "note": "アクセストレード提携済（2026-03-17）"
+    },
+    "biglobe-wimax": {
+      "name": "BIGLOBE WiMAX +5G",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100asjx00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100asjx00ophx",
+      "commission": 6205,
+      "status": "提携済",
+      "priority": 3,
+      "note": "アクセストレード提携済（2026-03-17）"
+    },
+    "gmo-hikari-access": {
+      "name": "GMOとくとくBB-GMO光アクセス",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100p1c800ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100p1c800ophx",
+      "commission": 6000,
+      "status": "提携済",
+      "priority": 4,
+      "note": "アクセストレード提携済（2026-03-17）"
+    },
+    "broad-wimax": {
+      "name": "Broad WiMAX",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 5000,
+      "status": "申請中",
+      "priority": 5,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "kashimo-wimax": {
+      "name": "カシモWiMAX",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": 4500,
+      "status": "申請中",
+      "priority": 6,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "vision-wimax": {
+      "name": "VisionWiMAX",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432457&p_id=3359&pc_id=7984&pl_id=47733",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432457&p_id=3359&pc_id=7984&pl_id=47733",
+      "commission": 7000,
+      "status": "提携済",
+      "priority": 7,
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
+    },
+    "dinomo-wifi": {
+      "name": "dinomoWiFi",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432451&p_id=5538&pc_id=15178&pl_id=71447",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432451&p_id=5538&pc_id=15178&pl_id=71447",
+      "commission": 3000,
+      "status": "提携済",
+      "priority": 8,
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
+    },
+    "wifi-rental-dotcom": {
+      "name": "WiFiレンタルどっとこむ",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432456&p_id=2628&pc_id=5879&pl_id=33478",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432456&p_id=2628&pc_id=5879&pl_id=33478",
+      "commission": 1200,
+      "status": "提携済",
+      "priority": 9,
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
+    },
+    "5g-connect": {
+      "name": "5G CONNECT",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432458&p_id=4143&pc_id=10502&pl_id=56647",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432458&p_id=4143&pc_id=10502&pl_id=56647",
+      "commission": "2,307〜4,615円/件",
+      "status": "提携済",
+      "priority": 10,
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
+    },
+    "nomad-sim": {
+      "name": "Nomad SIM",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432452&p_id=2448&pc_id=5368&pl_id=66658",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432452&p_id=2448&pc_id=5368&pl_id=66658",
+      "commission": "1,000円 + eSIM10%",
+      "status": "提携済",
       "priority": 11,
-      "note": "A8.net・もしもアフィリエイト共に案件なし"
-    },
-    "biglobe-mobile": {
-      "name": "BIGLOBEモバイル",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/biglobe-mobile",
-      "commission": 0,
-      "status": "未提携",
-      "priority": 12,
-      "note": "報酬単価要確認"
-    },
-    "nuro-mobile": {
-      "name": "NUROモバイル",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/nuro-mobile",
-      "commission": 0,
-      "status": "未提携",
-      "priority": 13,
-      "note": "報酬単価要確認"
-    },
-    "aeon-mobile": {
-      "name": "イオンモバイル",
-      "asp": "アクセストレード",
-      "url": "https://YOUR-AFFILIATE-LINK/aeon-mobile",
-      "commission": 0,
-      "status": "未提携",
-      "priority": 14,
-      "note": "報酬単価要確認"
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
     }
   },
   "esim_services": {
+    "esim-san": {
+      "name": "eSIM-san（イーシムさん）",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432463&p_id=5941&pc_id=16548&pl_id=75885",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432463&p_id=5941&pc_id=16548&pl_id=75885",
+      "url_accesstrade": "https://h.accesstrade.net/sp/cc?rk=0100prr900ophx",
+      "tracking_img_accesstrade": "https://h.accesstrade.net/sp/rr?rk=0100prr900ophx",
+      "commission": "15%（もしも） / 10.90%（アクセストレード）",
+      "status": "提携済",
+      "priority": 1,
+      "note": "もしも15% > アクセストレード10.90% → もしも優先使用"
+    },
+    "japanconnect-esim": {
+      "name": "JapanConnect eSIM",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100pycq00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pycq00ophx",
+      "commission": "7.30%",
+      "status": "提携済",
+      "priority": 2,
+      "note": "アクセストレード提携済（2026-03-17）"
+    },
     "travesim": {
       "name": "TRAVeSIM",
       "asp": "A8.net",
@@ -133,6 +279,7 @@
       "tracking_img": "https://www19.a8.net/0.gif?a8mat=4AZH48+2M2JWI+58IY+5YJRM",
       "commission": "新規購入10%",
       "status": "提携済",
+      "priority": 3,
       "note": "海外eSIM記事用 140カ国対応"
     },
     "voye-global": {
@@ -142,15 +289,8 @@
       "tracking_img": "https://www17.a8.net/0.gif?a8mat=4AZH48+2G47UQ+5TBA+5YJRM",
       "commission": "購入15.3%",
       "status": "提携済",
+      "priority": 4,
       "note": "海外eSIM記事用 各国最低2回線"
-    },
-    "airalo": {
-      "name": "Airalo",
-      "asp": "なし",
-      "url": null,
-      "commission": 0,
-      "status": "案件なし",
-      "note": "A8.net・もしもアフィリエイト共に案件なし"
     },
     "trifa": {
       "name": "trifa（トリファ）",
@@ -159,15 +299,188 @@
       "tracking_img": "https://www10.a8.net/0.gif?a8mat=4AZH4C+CWZK8I+5UDW+5YRHE",
       "commission": 0,
       "status": "提携済",
+      "priority": 5,
       "note": "海外eSIM記事用 国内利用者数No.1"
+    },
+    "airalo": {
+      "name": "Airalo",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": "9.70%",
+      "status": "申請中",
+      "priority": 6,
+      "note": "アクセストレード申請中（2026-03-17）"
+    },
+    "world-esim": {
+      "name": "World eSIM",
+      "asp": "アクセストレード",
+      "url": null,
+      "commission": "10.90%",
+      "status": "申請中",
+      "priority": 7,
+      "note": "アクセストレード申請中（2026-03-17）"
     },
     "ubigi": {
       "name": "Ubigi",
       "asp": "A8.net",
-      "url": "https://YOUR-AFFILIATE-LINK/ubigi",
+      "url": null,
       "commission": 0,
       "status": "pending_approval",
       "note": "A8.netにて申請中"
+    }
+  },
+  "valuecommerce": {
+    "linemo-vc": {
+      "name": "LINEMO",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567978",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567978",
+      "commission": 3000,
+      "status": "提携済",
+      "priority": 1,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "ymobile-vc-online": {
+      "name": "ワイモバイル（オンラインストア）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567979",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567979",
+      "commission": 5600,
+      "status": "提携済",
+      "priority": 2,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "ymobile-vc-yakkan": {
+      "name": "ワイモバイル（ヤフー店）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567980",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567980",
+      "commission": 5600,
+      "status": "提携済",
+      "priority": 3,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "uq-mobile-vc-top": {
+      "name": "UQモバイル（TOP）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567984",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567984",
+      "commission": 3300,
+      "status": "提携済",
+      "priority": 4,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "uq-mobile-vc-sim": {
+      "name": "UQモバイル（SIMのみ）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567985",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567985",
+      "commission": 3300,
+      "status": "提携済",
+      "priority": 5,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "iijmio-vc-top": {
+      "name": "IIJmio（TOP）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567986",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567986",
+      "commission": 1800,
+      "status": "提携済",
+      "priority": 6,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "iijmio-vc-sim": {
+      "name": "IIJmio（SIMのみ）",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567987",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567987",
+      "commission": 1800,
+      "status": "提携済",
+      "priority": 7,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "au-hikari-vc": {
+      "name": "auひかり",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567989",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567989",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 8,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "softbank-hikari-vc": {
+      "name": "SoftBank光",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567990",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567990",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 9,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "flets-hikari-vc": {
+      "name": "フレッツ光",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567991",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567991",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 10,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "iijmio-hikari-vc": {
+      "name": "IIJmioひかり",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567992",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567992",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 11,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "uq-wimax-vc": {
+      "name": "UQ WiMAX",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567993",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567993",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 12,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "broad-wimax-vc": {
+      "name": "Broad WiMAX",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567994",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567994",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 13,
+      "note": "VC提携済（2026-03-18）"
+    },
+    "biglobe-wimax-vc": {
+      "name": "BIGLOBE WiMAX",
+      "asp": "バリューコマース",
+      "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567995",
+      "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567995",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 14,
+      "note": "VC提携済（2026-03-18）"
+    }
+  },
+  "shopping": {
+    "rakuten": {
+      "name": "楽天市場",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432434&p_id=54&pc_id=54&pl_id=621",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432434&p_id=54&pc_id=54&pl_id=621",
+      "commission": "購入額の2%",
+      "status": "提携済",
+      "priority": 1,
+      "note": "もしもアフィリエイト提携済（2026-03-17）"
     }
   }
 }

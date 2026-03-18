@@ -228,8 +228,7 @@ auで購入したスマホは、SIMカードを入れ替えるだけで格安SIM
 |:---|:---:|---:|
 | ベストプラン | 〜3GB | 990円 |
 | ベストプラン | 〜10GB | 2,090円 |
-| ベストプランV | 〜20GB | 2,970円 |
-| ベストプランV | 〜30GB | 3,960円 |
+| ベストプランV | 〜30GB | 2,970円 |
 
 #### LINEMOのメリット
 
@@ -290,7 +289,7 @@ auで購入したスマホは、SIMカードを入れ替えるだけで格安SIM
 
 #### 節約額
 
-使い放題MAX＋（7,458円）→ IIJmio 5GB（990円）= <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月6,248円、年74,976円の節約</strong></span>
+使い放題MAX＋（7,458円）→ IIJmio 5GB（950円）= <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>月6,508円、年78,096円の節約</strong></span>
 
 <span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>注意点</strong></span>: MVNOのため、お昼12〜13時の速度低下は避けられません。店舗サポートなし（完全オンライン）。auのキャリアメールは使えなくなります。
 

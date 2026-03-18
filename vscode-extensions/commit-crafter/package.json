@@ -1,6 +1,6 @@
 {
-  "name": "commit-crafter",
-  "displayName": "Commit Crafter",
+  "name": "m27-commit-crafter",
+  "displayName": "M27 Commit Crafter",
   "description": "Generate structured, conventional commit messages with templates and smart analysis of staged changes.",
   "version": "1.0.0",
   "publisher": "miccho27",

@@ -1,0 +1,862 @@
+<!-- wp:html -->
+<style>
+/* ===== CSS Custom Properties ===== */
+:root {
+  --nao-black: #1d1d1f;
+  --nao-dark: #2d2d2f;
+  --nao-gray-900: #333336;
+  --nao-gray-700: #6e6e73;
+  --nao-gray-500: #86868b;
+  --nao-gray-300: #d2d2d7;
+  --nao-gray-100: #f5f5f7;
+  --nao-white: #ffffff;
+  --nao-blue: #0071e3;
+  --nao-blue-hover: #0077ed;
+  --nao-font: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  --nao-radius: 16px;
+  --nao-radius-sm: 12px;
+  --nao-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  --nao-shadow-hover: 0 8px 30px rgba(0,0,0,0.10);
+  --nao-max-w: 1080px;
+  --nao-section-py: 72px;
+}
+
+/* ===== Reset & Base ===== */
+.nao-home {
+  font-family: var(--nao-font);
+  color: var(--nao-black);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+.nao-home *, .nao-home *::before, .nao-home *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.nao-home h1, .nao-home h2, .nao-home h3, .nao-home h4 {
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+.nao-full {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nao-inner {
+  max-width: var(--nao-max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ===== Animation Base ===== */
+.nao-anim {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.nao-anim.nao-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Section Common ===== */
+.nao-section-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.nao-section-head h2 {
+  font-size: 56px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.07 !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  color: #1d1d1f !important;
+}
+.nao-section-head p {
+  font-size: 15px;
+  color: var(--nao-gray-700);
+  margin-top: 12px;
+}
+
+/* ===== 1. Hero ===== */
+.nao-hero {
+  background: #fff;
+  padding: 96px 24px 0;
+  text-align: center;
+  overflow: hidden;
+}
+.nao-hero-eyebrow {
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--nao-gray-700);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.nao-hero h1 {
+  font-size: 72px !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.025em !important;
+  margin-bottom: 24px !important;
+  color: #1d1d1f !important;
+}
+.nao-hero-sub {
+  font-size: 21px;
+  color: var(--nao-gray-700);
+  line-height: 1.52;
+  max-width: 560px;
+  margin: 0 auto 32px;
+}
+.nao-hero-visual {
+  width: 100%;
+  max-width: 980px;
+  margin: 56px auto 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+.nao-hero-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ===== 2. Three Themes ===== */
+.nao-themes {
+  background: var(--nao-white);
+  padding: var(--nao-section-py) 24px;
+}
+.nao-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: var(--nao-max-w);
+  margin: 0 auto;
+}
+.nao-theme-card {
+  background: var(--nao-gray-100);
+  border: none;
+  border-radius: 28px;
+  padding: 40px 48px 36px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+.nao-theme-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.nao-theme-card:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+.nao-theme-card:hover::before { opacity: 1; }
+.nao-theme-card .nao-tc-icon {
+  font-size: 56px;
+  margin-bottom: 24px;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+.nao-theme-card .nao-tc-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.nao-theme-card h3 {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  letter-spacing: -0.3px !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  color: #1d1d1f !important;
+}
+.nao-theme-card p {
+  font-size: 15px;
+  color: var(--nao-gray-700);
+  line-height: 1.65;
+}
+
+/* ===== 3. Latest Stories ===== */
+.nao-latest {
+  background: linear-gradient(180deg, #e8e8ed 0%, #d2d2d7 40%, #c7c7cc 100%);
+  padding: var(--nao-section-py) 24px;
+  position: relative;
+  overflow: hidden;
+}
+.nao-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: var(--nao-max-w);
+  margin: 0 auto;
+}
+.nao-post-card {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1 / 1;
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 24px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nao-post-card:hover {
+  transform: scale(1.02) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.12);
+}
+.nao-post-card .nao-pc-thumb {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nao-post-card:hover .nao-pc-thumb {
+  transform: scale(1.06);
+}
+.nao-post-card .nao-pc-img {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.nao-post-card .nao-pc-body {
+  padding: 24px 24px 28px;
+}
+.nao-pc-cat {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nao-gray-500);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.nao-pc-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.47;
+  margin-bottom: 16px;
+}
+.nao-pc-date {
+  font-size: 12px;
+  color: var(--nao-gray-500);
+  font-feature-settings: 'tnum';
+}
+/* Skeleton loading */
+.nao-skeleton {
+  background: linear-gradient(90deg, #eee 25%, #f5f5f5 50%, #eee 75%);
+  background-size: 200% 100%;
+  animation: nao-shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+@keyframes nao-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.nao-skeleton-thumb { aspect-ratio: 16/9; }
+.nao-skeleton-line { height: 14px; margin-bottom: 8px; }
+.nao-skeleton-line.--short { width: 60%; }
+
+/* ===== 4. Popular Articles ===== */
+.nao-popular {
+  background: var(--nao-white);
+  padding: var(--nao-section-py) 24px;
+}
+.nao-popular-list {
+  max-width: 720px;
+  margin: 0 auto;
+  list-style: none;
+}
+.nao-popular-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
+}
+.nao-popular-item:hover { padding-left: 8px; }
+.nao-popular-item:first-child { border-top: 1px solid rgba(0,0,0,0.06); }
+.nao-popular-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.06); }
+.nao-popular-num {
+  font-size: 48px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d2d2d7, #e8e8ed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 60px;
+  text-align: center;
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+.nao-popular-body { flex: 1; }
+.nao-popular-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.47;
+  margin-bottom: 6px;
+}
+
+/* ===== 5. Topics ===== */
+.nao-topics {
+  background: var(--nao-white);
+  padding: var(--nao-section-py) 24px;
+}
+.nao-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: var(--nao-max-w);
+  margin: 0 auto;
+}
+.nao-topic-tile {
+  background: var(--nao-gray-100);
+  border-radius: 24px;
+  padding: 44px 24px 40px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--nao-black);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.nao-topic-tile:hover {
+  box-shadow: var(--nao-shadow-hover);
+  transform: translateY(-4px);
+}
+.nao-topic-tile .nao-tt-icon {
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--nao-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin: 0 auto 20px;
+}
+.nao-topic-tile .nao-tt-name {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* ===== 6. Author ===== */
+.nao-author {
+  background: linear-gradient(180deg, #f5f5f7 0%, #fbfbfd 100%) !important;
+  padding: var(--nao-section-py) 24px;
+}
+.nao-author-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+.nao-author-label {
+  font-size: 17px;
+  color: var(--nao-gray-500);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.nao-author-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+  border: 4px solid rgba(255,255,255,0.9);
+}
+.nao-author-name {
+  font-size: 36px !important;
+  font-weight: 700 !important;
+  margin-bottom: 16px !important;
+  letter-spacing: -0.02em !important;
+  color: #1d1d1f !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+.nao-author-desc {
+  font-size: 17px;
+  color: var(--nao-gray-700);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.nao-author-tags {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.nao-author-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--nao-black);
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 8px 18px;
+  border-radius: 100px;
+}
+.nao-author-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.nao-author-links a {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--nao-blue);
+  text-decoration: none;
+}
+.nao-author-links a:hover { text-decoration: underline; }
+
+/* ===== 7. CTA ===== */
+.nao-cta {
+  background: #000 !important;
+  padding: 72px 24px;
+  text-align: center;
+  overflow: hidden;
+}
+.nao-cta h2 {
+  font-size: 56px !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  margin-bottom: 20px !important;
+  letter-spacing: -0.025em !important;
+  line-height: 1.07 !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+.nao-cta p {
+  font-size: 17px;
+  color: #c7c7cc !important;
+  margin-bottom: 44px;
+  line-height: 1.8;
+}
+.nao-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.nao-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  border: none;
+  min-width: 180px;
+}
+.nao-btn-primary {
+  background: var(--nao-blue);
+  color: var(--nao-white);
+}
+.nao-btn-primary:hover {
+  background: var(--nao-blue-hover);
+  transform: scale(1.04);
+}
+.nao-btn-outline {
+  background: transparent;
+  color: var(--nao-white);
+  border: 1.5px solid rgba(255,255,255,0.4);
+}
+.nao-btn-outline:hover {
+  border-color: var(--nao-white);
+  color: var(--nao-white);
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===== 8. Footer ===== */
+.nao-footer {
+  background: #f5f5f7 !important;
+  padding: 20px 24px;
+  border-top: 1px solid #d2d2d7;
+}
+.nao-footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 0;
+  border-bottom: 1px solid #d2d2d7;
+}
+.nao-footer-col h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1d1d1f !important;
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+}
+.nao-footer-col ul {
+  list-style: none;
+}
+.nao-footer-col li {
+  margin-bottom: 8px;
+}
+.nao-footer-col a {
+  font-size: 12px;
+  color: #6e6e73;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nao-footer-col a:hover { color: #0071e3; }
+.nao-footer-copy {
+  text-align: left;
+  font-size: 12px;
+  color: var(--nao-gray-500);
+  padding: 20px 0 12px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .nao-hero { padding: 64px 24px 0; }
+  .nao-hero h1 { font-size: 40px; }
+  .nao-hero-eyebrow { font-size: 17px; }
+  .nao-hero-sub { font-size: 17px; }
+
+  .nao-section-head h2 { font-size: 36px; }
+  :root { --nao-section-py: 64px; }
+
+  .nao-themes-grid,
+  .nao-posts-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  .nao-footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .nao-cta h2 { font-size: 30px; }
+  .nao-topics-grid { grid-template-columns: repeat(2, 1fr); }
+  .nao-cta-buttons { flex-direction: column; align-items: center; }
+
+  .nao-popular-num { font-size: 24px; min-width: 36px; }
+}
+</style>
+
+<div class="nao-home">
+
+  <!-- ========== 1. HERO ========== -->
+  <section class="nao-hero nao-full">
+    <p class="nao-hero-eyebrow nao-anim" data-anim="fade-up">南米おやじの海外生活ラボ</p>
+    <h1 class="nao-anim" data-anim="fade-up">パラグアイから、<br>家族4人のリアル。</h1>
+    <p class="nao-hero-sub nao-anim" data-anim="fade-up">移住・お金・仕事・教育——<br>在住者だから書ける1次情報を発信します。</p>
+    <div class="nao-hero-visual nao-anim" data-anim="fade-up">
+      <img
+        src="https://nambei-oyaji.com/wp-content/uploads/2026/03/family-illustration-1.png"
+        alt="パラグアイで暮らす家族4人のイラスト"
+        class="nao-hero-img"
+        width="980"
+        height="600"
+        loading="eager"
+      >
+    </div>
+  </section>
+
+  <!-- ========== 2. THREE THEMES ========== -->
+  <section class="nao-themes nao-full">
+    <div class="nao-inner">
+      <div class="nao-section-head">
+        <h2 class="nao-anim" data-anim="fade-up">3つのテーマで発信中</h2>
+      </div>
+      <div class="nao-themes-grid">
+        <a href="/category/paraguay/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg viewBox="0 0 60 40" width="48" height="32" style="border-radius:6px; overflow:hidden; display:block;">
+              <rect width="60" height="13.33" fill="#D52B1E"/>
+              <rect y="13.33" width="60" height="13.34" fill="#FFFFFF"/>
+              <rect y="26.67" width="60" height="13.33" fill="#0038A8"/>
+              <circle cx="30" cy="20" r="6.5" fill="none" stroke="#4B8B3B" stroke-width="1.3"/>
+              <circle cx="30" cy="20" r="4.5" fill="none" stroke="#C8A951" stroke-width="0.6"/>
+              <polygon points="30,17 30.8,19.2 33,19.2 31.1,20.6 31.8,22.8 30,21.4 28.2,22.8 28.9,20.6 27,19.2 29.2,19.2" fill="#C8A951"/>
+            </svg>
+          </div>
+          <h3>パラグアイ生活</h3>
+          <p>気候・治安・生活費・食文化<br>在住者だけが知るリアルな情報</p>
+        </a>
+        <a href="/category/side-business/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="6" y="8" width="28" height="19" rx="2" fill="#1d1d1f"/>
+              <rect x="8" y="10" width="24" height="15" rx="1" fill="url(#naoScreenGrad)"/>
+              <rect x="3" y="27" width="34" height="3" rx="1.5" fill="#6e6e73"/>
+              <rect x="15" y="28" width="10" height="1" rx="0.5" fill="#86868b"/>
+              <defs>
+                <linearGradient id="naoScreenGrad" x1="8" y1="10" x2="32" y2="25" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <h3>海外からの稼ぎ方</h3>
+          <p>リモートワーク・副業・ブログ<br>場所に縛られない稼ぎ方を実践中</p>
+        </a>
+        <a href="/category/ijuu-junbi/" class="nao-theme-card nao-anim" data-anim="fade-up">
+          <div class="nao-tc-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="8" y="6" width="24" height="30" rx="2" fill="#f5f5f7" stroke="#d2d2d7" stroke-width="1.5"/>
+              <path d="M13 14h14M13 19h14M13 24h10" stroke="#86868b" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="30" cy="30" r="8" fill="#34C759"/>
+              <path d="M27 30l2 2 4-4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>お金と手続き</h3>
+          <p>ビザ・永住権・海外送金・費用<br>移住前に知りたいお金の全知識</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 3. LATEST STORIES ========== -->
+  <section class="nao-latest nao-full">
+    <div class="nao-inner">
+      <div class="nao-section-head">
+        <h2 class="nao-anim" data-anim="fade-up">新着ストーリー</h2>
+      </div>
+      <div class="nao-posts-grid">
+        <a href="/paraguay-immigration-cost/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-passport1.jpg" alt="パラグアイ移住の費用" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイ移住の費用はいくら？<br>初期費用から月々の生活費まで全公開</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/paraguay-living-cost/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-latin-st.jpg" alt="パラグアイの生活費" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイの生活費を完全公開！<br>1ヶ月の家計簿と物価を日本と徹底比較</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/paraguay-safety-security/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-asuncion-city.jpg" alt="パラグアイの治安" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">パラグアイの治安は本当に危険？<br>在住者が語る2026年最新の治安事情と対策</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/moving-abroad-with-kids/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-intl-school.jpg" alt="子連れ海外移住" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">パラグアイ生活</p>
+            <h3 class="nao-pc-title">子連れ海外移住の準備と注意点<br>家族4人でパラグアイに移住した体験談</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/working-after-moving-abroad/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-rw-laptop.jpg" alt="海外移住後の働き方" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">副業・稼ぎ方</p>
+            <h3 class="nao-pc-title">海外移住後の働き方・収入源5選<br>パラグアイ在住者が実践中の方法</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+        <a href="/international-money-transfer-comparison/" class="nao-post-card nao-anim" data-anim="fade-up">
+          <div class="nao-pc-img"><img src="https://nambei-oyaji.com/wp-content/uploads/2026/03/nao-money-ex.jpg" alt="海外送金サービス比較" class="nao-pc-thumb" loading="lazy"></div>
+          <div class="nao-pc-body">
+            <p class="nao-pc-cat">副業・稼ぎ方</p>
+            <h3 class="nao-pc-title">海外送金サービス徹底比較<br>Wise・Revolut・銀行の手数料を完全解説</h3>
+            <span class="nao-pc-date">2026.03.08</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 4. POPULAR ARTICLES ========== -->
+  <section class="nao-popular nao-full">
+    <div class="nao-inner">
+      <div class="nao-section-head">
+        <h2 class="nao-anim" data-anim="fade-up">よく読まれている記事</h2>
+      </div>
+      <ol class="nao-popular-list" id="nao-popular-posts">
+        <!-- Skeleton placeholders (replaced by JS) -->
+        <li class="nao-popular-item">
+          <span class="nao-popular-num">01</span>
+          <div class="nao-popular-body">
+            <div class="nao-skeleton nao-skeleton-line"></div>
+            <div class="nao-skeleton nao-skeleton-line --short"></div>
+          </div>
+        </li>
+        <li class="nao-popular-item">
+          <span class="nao-popular-num">02</span>
+          <div class="nao-popular-body">
+            <div class="nao-skeleton nao-skeleton-line"></div>
+            <div class="nao-skeleton nao-skeleton-line --short"></div>
+          </div>
+        </li>
+        <li class="nao-popular-item">
+          <span class="nao-popular-num">03</span>
+          <div class="nao-popular-body">
+            <div class="nao-skeleton nao-skeleton-line"></div>
+            <div class="nao-skeleton nao-skeleton-line --short"></div>
+          </div>
+        </li>
+        <li class="nao-popular-item">
+          <span class="nao-popular-num">04</span>
+          <div class="nao-popular-body">
+            <div class="nao-skeleton nao-skeleton-line"></div>
+            <div class="nao-skeleton nao-skeleton-line --short"></div>
+          </div>
+        </li>
+        <li class="nao-popular-item">
+          <span class="nao-popular-num">05</span>
+          <div class="nao-popular-body">
+            <div class="nao-skeleton nao-skeleton-line"></div>
+            <div class="nao-skeleton nao-skeleton-line --short"></div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========== 5. TOPICS ========== -->
+  <section class="nao-topics nao-full">
+    <div class="nao-inner">
+      <div class="nao-section-head">
+        <h2 class="nao-anim" data-anim="fade-up">トピックから探す</h2>
+      </div>
+      <div class="nao-topics-grid">
+        <a href="/tag/移住費用/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">📋</span>
+          <span class="nao-tt-name">移住費用・生活費</span>
+        </a>
+        <a href="/tag/永住権/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">✈️</span>
+          <span class="nao-tt-name">永住権・ビザ</span>
+        </a>
+        <a href="/tag/治安/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">🛡️</span>
+          <span class="nao-tt-name">治安・安全</span>
+        </a>
+        <a href="/tag/子育て/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">👶</span>
+          <span class="nao-tt-name">子育て・教育</span>
+        </a>
+        <a href="/category/side-business/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">💻</span>
+          <span class="nao-tt-name">リモートワーク</span>
+        </a>
+        <a href="/category/side-business/" class="nao-topic-tile nao-anim" data-anim="fade-up">
+          <span class="nao-tt-icon">💰</span>
+          <span class="nao-tt-name">副業・稼ぎ方</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 6. AUTHOR ========== -->
+  <section class="nao-author nao-full" id="about">
+    <div class="nao-author-inner nao-anim" data-anim="fade-up">
+      <p class="nao-author-label">このブログを書いている人</p>
+      <img
+        src="https://nambei-oyaji.com/wp-content/uploads/2026/03/profile.png"
+        alt="南米おやじのプロフィール画像"
+        class="nao-author-avatar"
+        width="120"
+        height="120"
+        loading="lazy"
+      >
+      <h3 class="nao-author-name">南米おやじ</h3>
+      <p class="nao-author-desc">南米パラグアイ・アスンシオン在住。<br>家族4人で海外移住し、リモートワークと副業で<br>場所に縛られない生き方を実践中。</p>
+      <div class="nao-author-tags">
+        <span class="nao-author-tag"><svg viewBox="0 0 20 14" width="18" height="12" style="vertical-align:-2px; margin-right:4px; border-radius:2px; overflow:hidden;"><rect width="20" height="4.67" fill="#D52B1E"/><rect y="4.67" width="20" height="4.66" fill="#FFF"/><rect y="9.33" width="20" height="4.67" fill="#0038A8"/></svg>アスンシオン在住</span>
+        <span class="nao-author-tag">👨‍👩‍👧‍👦 2児のパパ</span>
+        <span class="nao-author-tag">🌏 3カ国の海外経験</span>
+      </div>
+      <div class="nao-author-links">
+        <a href="/about/">プロフィールを読む ›</a>
+        <a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener">Xをフォロー ›</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 7. CTA ========== -->
+  <section class="nao-cta nao-full">
+    <div class="nao-inner nao-anim" data-anim="fade-up">
+      <h2>最新情報を受け取る</h2>
+      <p>Xで毎日発信中。フォローすると、<br>最新記事・移住Tipsが届きます。</p>
+      <div class="nao-cta-buttons">
+        <a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener" class="nao-btn nao-btn-primary">X をフォローする</a>
+        <a href="/category/paraguay/" class="nao-btn nao-btn-primary">記事一覧を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 8. FOOTER ========== -->
+  <footer class="nao-footer nao-full">
+    <div class="nao-footer-grid">
+      <div class="nao-footer-col">
+        <h4>カテゴリ</h4>
+        <ul>
+          <li><a href="/category/paraguay/">パラグアイ生活</a></li>
+          <li><a href="/category/side-business/">海外からの稼ぎ方</a></li>
+          <li><a href="/category/ijuu-junbi/">お金と手続き</a></li>
+        </ul>
+      </div>
+      <div class="nao-footer-col">
+        <h4>サイト情報</h4>
+        <ul>
+          <li><a href="/about/">運営者について</a></li>
+          <li><a href="/privacy-policy/">プライバシーポリシー</a></li>
+          <li><a href="/contact/">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div class="nao-footer-col">
+        <h4>フォローする</h4>
+        <ul>
+          <li><a href="https://x.com/nambei_oyaji" target="_blank" rel="noopener">𝕏 Twitter / X</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="nao-footer-copy">&copy; 2026 南米おやじの海外生活ラボ All Rights Reserved.</p>
+  </footer>
+
+</div>
+<!-- /wp:html -->

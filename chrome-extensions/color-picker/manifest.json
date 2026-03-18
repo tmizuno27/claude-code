@@ -3,7 +3,7 @@
   "name": "Color Picker & Converter",
   "version": "1.0.0",
   "description": "Pick colors from any page, convert formats (HEX/RGB/HSL/CMYK), check WCAG contrast, and generate palettes.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

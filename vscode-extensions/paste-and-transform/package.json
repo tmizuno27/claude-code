@@ -1,9 +1,9 @@
 {
-  "name": "paste-and-transform",
-  "displayName": "Paste & Transform",
+  "name": "m27-paste-and-transform",
+  "displayName": "M27 Paste & Transform",
   "description": "Paste clipboard content with instant transformations: camelCase, snake_case, Base64, JSON format, URL encode, and more.",
   "version": "1.0.0",
-  "publisher": "miccho27",
+  "publisher": "miccho27-dev",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {

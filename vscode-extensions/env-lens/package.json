@@ -1,9 +1,9 @@
 {
-  "name": "env-lens",
-  "displayName": "ENV Lens",
+  "name": "m27-env-lens-tool",
+  "displayName": "M27 Env File Lens",
   "description": "Browse, compare, and analyze .env files. Highlight missing keys, detect secrets, generate .env.example automatically.",
   "version": "1.0.0",
-  "publisher": "miccho27",
+  "publisher": "miccho27-dev",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {

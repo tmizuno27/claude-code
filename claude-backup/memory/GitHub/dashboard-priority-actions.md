@@ -1,6 +1,6 @@
 ---
-name: ダッシュボード優先アクション機能
-description: 「優先アクション」「優先タスク」と言えば、ダッシュボードの収益最大化アクション管理を指す
+name: ダッシュボード優先アクション＋自動同期体制
+description: ビジネスダッシュボード（Gist）の優先アクション機能と自動ステータス同期体制
 type: project
 ---
 
@@ -17,17 +17,39 @@ type: project
 - ダッシュボードHTML上で✅+打ち消し線+完了時刻表示
 - Gistにも自動反映
 
-## 関連ファイル
-- `nambei-oyaji.com/outputs/reports/action-status.json` — 完了状態管理
-- `nambei-oyaji.com/scripts/analytics/dashboard_updater.py` — HTML更新+Gistアップロード（1時間ごと自動実行）
-- `nambei-oyaji.com/scripts/analytics/daily_business_report.py` — `generate_priority_actions()` で毎朝自動生成
-- `nambei-oyaji.com/outputs/reports/daily-business-dashboard.html` — ダッシュボード本体
-
-## ダッシュボード自動更新
-- Task Scheduler `DashboardUpdate` — 毎時実行（タイムスタンプ更新+アクション状態反映+Gistアップ）
-- Task Scheduler `DailyBusinessReport` — 毎朝5時（全データ収集+優先アクション再生成+Discord通知）
+## ダッシュボードGist URL（固定・ブックマーク用）
+- `https://gist.github.com/tmizuno27/16a8680cadf8aed0c207777f7468963b`
 - Gist ID: `16a8680cadf8aed0c207777f7468963b`
-- 閲覧URL: htmlpreview.github.io 経由
+
+## 自動ステータス同期体制（2026-03-17構築）
+
+### スクリプト
+- `dashboard_status_sync.py` — 実データからステータス・スコアを自動計算してHTML更新+Gistアップロード
+- `dashboard_updater.py` — アクション完了状態反映+ステータス同期呼び出し（毎時実行）
+- `daily_business_report.py` — レポート生成時にステータス同期を実行してからGist更新
+
+### 自動更新される項目
+- ブログ記事数（3サイト、CSV読み取り）
+- GA4接続ステータス（API実アクセスで判定）
+- Chrome拡張数、VS Code拡張数
+- AccessTrade承認状況
+- 定期タスク数
+- ビジネス健全性スコア（5カテゴリ×20点、忖度禁止の厳格評価）
+- 日付・タイムスタンプ
+
+### トリガー
+- 毎時: DashboardUpdate（Task Scheduler）→ dashboard_updater.py
+- 毎日: daily_business_report.py 実行時
+- 即時: wp_publisher.py 記事投稿後にバックグラウンド同期
+
+### 削除済みセクション（2026-03-17）
+- 今週のスケジュール（Weekly Schedule）
+- Notion連携
+- ドメイン・サーバー管理
+- コンテンツパイプライン
+
+### ナビゲーション修正（2026-03-17）
+- サイドバーの`scrollTo`→`navScrollTo`にリネーム（window.scrollToとの名前衝突修正）
 
 **Why:** 月間売上$0→Phase1 ¥50,000/月を目指すため、毎日データドリブンで最も収益効率の高いアクションに集中する
 **How to apply:** ユーザーが「優先アクション」「優先タスク」と言ったら、action-status.jsonの確認・完了操作・新規生成のいずれかを行う

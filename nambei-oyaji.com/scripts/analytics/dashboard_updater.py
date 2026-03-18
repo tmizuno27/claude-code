@@ -129,12 +129,34 @@ def apply_action_status_to_html(html, actions):
 
 
 def update_timestamp(html):
-    """フッターのタイムスタンプを現在時刻に更新"""
+    """フッターのタイムスタンプ・ヘッダー日付・時刻を現在時刻に更新"""
     now = datetime.now()
     new_ts = now.strftime("%Y/%m/%d %H:%M") + " PYT"
     html = re.sub(
         r'(<span>)\d{4}/\d{2}/\d{2} \d{2}:\d{2} PYT(</span>)',
         rf'\g<1>{new_ts}\2',
+        html
+    )
+    # Update header date (e.g. 03.16 → 03.17)
+    new_header_date = now.strftime("%m.%d")
+    html = re.sub(
+        r'(<div class="header-date">)\d{2}\.\d{2}(</div>)',
+        rf'\g<1>{new_header_date}\2',
+        html
+    )
+    # Update header subtitle date (2026 — 09:00 PYT)
+    new_subtitle = now.strftime("%Y — %H:%M") + " PYT"
+    html = re.sub(
+        r'\d{4} — \d{2}:\d{2} PYT',
+        new_subtitle,
+        html,
+        count=1
+    )
+    # Update title tag
+    new_title_date = now.strftime("%Y.%m.%d")
+    html = re.sub(
+        r'(<title>日次ビジネス総合レポート — )\d{4}\.\d{2}\.\d{2}(</title>)',
+        rf'\g<1>{new_title_date}\2',
         html
     )
     # Update header time
@@ -202,6 +224,14 @@ def update_dashboard():
 
     # Apply action status
     html = apply_action_status_to_html(html, status["actions"])
+
+    # ステータス自動同期（記事数・GA4・拡張数等）
+    try:
+        from dashboard_status_sync import apply_updates
+        html = apply_updates(html)
+        logger.info("ステータス同期完了")
+    except Exception as e:
+        logger.warning(f"ステータス同期スキップ: {e}")
 
     # Update timestamp
     html = update_timestamp(html)

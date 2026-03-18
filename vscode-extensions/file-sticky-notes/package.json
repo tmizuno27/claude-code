@@ -1,6 +1,6 @@
 {
-  "name": "file-sticky-notes",
-  "displayName": "File Sticky Notes",
+  "name": "m27-file-sticky-notes",
+  "displayName": "M27 File Sticky Notes",
   "description": "Attach virtual sticky notes to any file or line. Notes persist across sessions.",
   "version": "0.1.0",
   "publisher": "miccho27",

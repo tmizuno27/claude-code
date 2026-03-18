@@ -1,0 +1,174 @@
+{
+  "posting_times_pyt": [
+    "10:00",
+    "14:00",
+    "19:00"
+  ],
+  "note": "3 posts/day: 10AM=value, 2PM=value, 7PM=promo(every other day) or value",
+  "tweets": [
+    {
+      "id": 1,
+      "type": "promo",
+      "product": "Freelance Business OS",
+      "text": "I was using 6 different apps to manage my freelance business.\n\nNow I use 1 Notion template.\n\nClients. Projects. Invoices. Time tracking. All connected.\n\nFreelance Business OS — link your entire business together.\n\nhttps://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": true
+    },
+    {
+      "id": 2,
+      "type": "promo",
+      "product": "Content Creator Dashboard",
+      "text": "The #1 reason creators burn out?\n\nNot having a system.\n\nContent Creator Dashboard for Notion:\n- Content calendar\n- Ideas bank\n- Analytics tracker\n- Brand deal pipeline\n\nStop winging it. Start planning.\n\nhttps://tatsuya27.gumroad.com/l/ahymjd",
+      "posted": false
+    },
+    {
+      "id": 3,
+      "type": "promo",
+      "product": "Student Study Hub",
+      "text": "College hack: I track every assignment, study session, and grade in Notion.\n\nResult? Zero missed deadlines. GPA up 0.4 points.\n\nStudent Study Hub — $9.\n\nYour future self will thank you.\n\nhttps://tatsuya27.gumroad.com/l/qbxihb",
+      "posted": false
+    },
+    {
+      "id": 4,
+      "type": "promo",
+      "product": "Life OS / Second Brain",
+      "text": "Your brain holds ideas. Your Life OS holds everything else.\n\nGoals. Habits. Tasks. Journal. Notes. Finances. Health.\n\n10 databases. 45+ views. One Notion workspace.\n\nThis is the last productivity system you'll ever need.\n\nhttps://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false
+    },
+    {
+      "id": 5,
+      "type": "promo",
+      "product": "Small Business CRM",
+      "text": "You don't need Salesforce.\n\nYou need a CRM you'll actually use.\n\nSmall Business CRM for Notion:\n- Contact management\n- Deal pipeline\n- Activity tracking\n- Follow-up reminders\n\n$0/month to run. $17 once.\n\nhttps://tatsuya27.gumroad.com/l/sbrzyv",
+      "posted": false
+    },
+    {
+      "id": 6,
+      "type": "promo",
+      "product": "Side Hustle Tracker",
+      "text": "\"My side hustle is going great!\"\n\n\"What's your profit margin?\"\n\n\"...\"\n\nIf you can't answer that, you need Side Hustle Tracker.\n\nTrack income, expenses, time, and your REAL $/hour per hustle.\n\nhttps://tatsuya27.gumroad.com/l/hyilko",
+      "posted": false
+    },
+    {
+      "id": 7,
+      "type": "promo",
+      "product": "Social Media Planner",
+      "text": "POV: It's Monday morning and your entire week of social media is already planned.\n\nContent calendar. Hashtag library. Analytics tracker.\n\nSocial Media Planner for Notion — never scramble for content again.\n\nhttps://tatsuya27.gumroad.com/l/piaiby",
+      "posted": false
+    },
+    {
+      "id": 8,
+      "type": "promo",
+      "product": "Job Search Tracker",
+      "text": "Treat your job search like a project and everything changes.\n\nJob Search Tracker for Notion:\n- Application pipeline\n- Interview prep\n- Contact management\n- Follow-up system\n\n$9. Worth every penny.\n\nhttps://tatsuya27.gumroad.com/l/xeygaj",
+      "posted": false
+    },
+    {
+      "id": 9,
+      "type": "promo",
+      "product": "Book & Learning Tracker",
+      "text": "I read 30 books last year and remember key ideas from all of them.\n\nMy secret? I take notes in Notion as I read.\n\nBook & Learning Tracker:\n- Reading list with progress\n- Notes & highlights\n- Course tracker\n\nRead more. Forget less.\n\nhttps://tatsuya27.gumroad.com/l/zuesph",
+      "posted": false
+    },
+    {
+      "id": 10,
+      "type": "promo",
+      "product": "Ultimate Bundle",
+      "text": "10 Notion templates.\n70+ databases.\n300+ views.\n\nNormally $142.\nToday: $49 (66% OFF).\n\nFreelance OS. Content Creator. Life OS. CRM. Side Hustle. Social Media. Job Search. Study Hub. Books. Digital Products.\n\nYour entire life, organized.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false
+    },
+    {
+      "id": 101,
+      "type": "value",
+      "text": "The 2-minute rule changed my life:\n\nIf a task takes less than 2 minutes, do it NOW.\n\nNo list. No reminder. No postponing.\n\nYou'd be amazed how much gets done when you stop deferring tiny tasks.\n\n#Productivity #GTD",
+      "posted": true,
+      "posted_at": "2026-03-17 22:37:14",
+      "tweet_id": "2034081664373055923"
+    },
+    {
+      "id": 102,
+      "type": "value",
+      "text": "Stop organizing your tasks by project.\n\nStart organizing by energy level:\n\n🟢 High energy: Deep work, writing, strategy\n🟡 Medium: Emails, meetings, planning\n🔴 Low: Admin, filing, simple updates\n\nMatch your tasks to how you feel right now.\n\n#ProductivityTips",
+      "posted": true,
+      "posted_at": "2026-03-18 14:00:03",
+      "tweet_id": "2034313895322566721"
+    },
+    {
+      "id": 103,
+      "type": "value",
+      "text": "Notion databases are not spreadsheets.\n\nThey're connected systems.\n\nOne task links to a project, which links to a client, which links to an invoice.\n\nThat's the power most people miss.\n\n#Notion #NotionTemplate",
+      "posted": false
+    },
+    {
+      "id": 104,
+      "type": "value",
+      "text": "The Sunday Reset method (15 min):\n\n1. Review last week's wins (3 min)\n2. Clear your inbox to zero (5 min)\n3. Set 3 priorities for next week (3 min)\n4. Schedule your deep work blocks (4 min)\n\nStart Monday with zero anxiety.\n\n#Productivity #WeeklyReview",
+      "posted": false
+    },
+    {
+      "id": 105,
+      "type": "value",
+      "text": "Unpopular opinion: You don't need more tools.\n\nYou need fewer tools that work together.\n\nOne workspace. One system. One source of truth.\n\nThat's it.\n\n#Notion #Productivity #Minimalism",
+      "posted": false
+    },
+    {
+      "id": 106,
+      "type": "value",
+      "text": "3 Notion formulas everyone should know:\n\n1. dateBetween(now(), prop(\"Due Date\"), \"days\") — days until deadline\n2. if(prop(\"Status\") == \"Done\", true, false) — completion check\n3. format(prop(\"Revenue\") - prop(\"Cost\")) — profit calc\n\n#NotionTips",
+      "posted": false
+    },
+    {
+      "id": 107,
+      "type": "value",
+      "text": "Your to-do list is lying to you.\n\nIt says everything is equal priority.\n\nIt's not.\n\nPick 3 things. Finish those. Then decide what's next.\n\nDone > planned.\n\n#Productivity #Focus",
+      "posted": false
+    },
+    {
+      "id": 108,
+      "type": "value",
+      "text": "The best automation isn't AI.\n\nIt's a template.\n\nSomething you built once, that works every time, with zero effort to repeat.\n\nTemplates are underrated.\n\n#Automation #Notion #Templates",
+      "posted": false
+    },
+    {
+      "id": 109,
+      "type": "value",
+      "text": "How to build a Second Brain in Notion:\n\n1. Capture: Save everything to an Inbox DB\n2. Organize: Move to Projects / Areas / Resources\n3. Distill: Highlight the key points\n4. Express: Use your notes to create something\n\nStop hoarding info. Start using it.\n\n#SecondBrain #PARA",
+      "posted": false
+    },
+    {
+      "id": 110,
+      "type": "value",
+      "text": "Want to 10x your Notion setup?\n\nUse linked databases.\n\nSame data. Different views. Different filters.\n\nYour CRM page shows clients.\nYour project page shows the same clients, filtered by project.\n\nOne update. Everywhere.\n\n#Notion #NotionTips",
+      "posted": false
+    },
+    {
+      "id": 111,
+      "type": "value",
+      "text": "Freelancers: Track your time. Seriously.\n\nNot for billing (though that helps).\n\nBut to know your real hourly rate.\n\nMost freelancers think they earn $50/hr.\nAfter admin, it's closer to $20.\n\nKnow your numbers.\n\n#Freelance #Productivity",
+      "posted": false
+    },
+    {
+      "id": 112,
+      "type": "value",
+      "text": "Digital declutter checklist:\n\n☐ Unsubscribe from 10 emails\n☐ Delete unused apps\n☐ Organize your desktop\n☐ Clean your Downloads folder\n☐ Consolidate your notes into 1 app\n\nTime: 30 minutes.\nMental clarity: priceless.\n\n#DigitalMinimalism",
+      "posted": false
+    },
+    {
+      "id": 113,
+      "type": "value",
+      "text": "The difference between busy and productive:\n\nBusy: 12 hours, 40 tasks, exhausted\nProductive: 6 hours, 3 tasks, satisfied\n\nIt's not about doing more.\nIt's about doing what matters.\n\n#Productivity #DeepWork",
+      "posted": false
+    },
+    {
+      "id": 114,
+      "type": "value",
+      "text": "Every creator needs 3 databases in Notion:\n\n1. Content Pipeline (ideas → draft → published)\n2. Audience Insights (who's engaging, what works)\n3. Revenue Tracker (what's actually making money)\n\nEverything else is optional.\n\n#ContentCreator #Notion",
+      "posted": false
+    },
+    {
+      "id": 115,
+      "type": "value",
+      "text": "Automation rule of thumb:\n\nIf you do it more than 3 times, automate it.\nIf you do it more than 10 times, template it.\nIf you do it more than 50 times, build a system.\n\nStop repeating yourself.\n\n#Automation #Productivity",
+      "posted": false
+    }
+  ]
+}

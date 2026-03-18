@@ -39,7 +39,7 @@
         "name": "Mega",
         "price": 49.99,
         "rate_limit": {
-          "requests_per_month": 5000000,
+          "requests_per_month": 2000000,
           "requests_per_second": 100
         },
         "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]

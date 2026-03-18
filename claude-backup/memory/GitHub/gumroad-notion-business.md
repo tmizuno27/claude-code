@@ -23,8 +23,11 @@ Notionテンプレート10本をGumroadで販売する完全自動事業（2026-
 10. Digital Products Business OS ($15)
 11. Ultimate Bundle — 全10本セット ($49)
 
-## ステータス
+## ステータス（2026-03-16更新）
 - 設計書・出品テキスト・マーケティング素材: 完成
-- Notion上でのテンプレート実構築: 未着手
-- Gumroad出品: 未着手
+- Notion上でのテンプレート実構築: **完了**（10本全てNotion APIで自動作成済み）
+- 自動構築スクリプト: `scripts/create_all_templates.py`, `scripts/share_templates.py`
+- 親ページID: 31be2be6f3228050ace6e3e25ddf4a00
+- Gumroad出品: **未着手**（アカウント開設が必要）
+- 次ステップ: Notion共有ON → Gumroadアカウント開設 → 出品テキストコピペ → 公開
 - 収益目標: 月$300〜$2,000（6ヶ月後）

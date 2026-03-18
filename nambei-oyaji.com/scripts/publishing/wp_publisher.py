@@ -538,5 +538,18 @@ def main():
             logger.info(f"    編集: {post['edit_url']}")
 
 
+def _trigger_dashboard_sync():
+    """ダッシュボードのステータスを即時同期"""
+    try:
+        import subprocess as _sp
+        sync_script = Path(__file__).parent.parent / "analytics" / "dashboard_status_sync.py"
+        if sync_script.exists():
+            _sp.Popen([sys.executable, str(sync_script)], start_new_session=True)
+            logger.info("ダッシュボードステータス同期をトリガー")
+    except Exception:
+        pass
+
+
 if __name__ == "__main__":
     main()
+    _trigger_dashboard_sync()

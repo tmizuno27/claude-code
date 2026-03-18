@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-03-17",
+  "total_posts_updated": 2,
+  "changes": [
+    {
+      "post_id": 24,
+      "post_title": "サブ回線におすすめの格安SIM7選｜月額0円〜で障害対策も万全",
+      "post_url": "https://sim-hikaku.online/sub-kaisen-kakuyasu-sim-osusume/",
+      "related_links_added": [
+        {
+          "title": "【2026年最新】格安SIM20社の料金比較一覧表｜最安プランはどこ？",
+          "url": "https://sim-hikaku.online/kakuyasu-sim-ryokin-hikaku-ichiran/",
+          "score": 1648
+        }
+      ],
+      "status": "updated"
+    },
+    {
+      "post_id": 27,
+      "post_title": "【2026年最新】格安SIM20社の料金比較一覧表｜最安プランはどこ？",
+      "post_url": "https://sim-hikaku.online/kakuyasu-sim-ryokin-hikaku-ichiran/",
+      "related_links_added": [
+        {
+          "title": "サブ回線におすすめの格安SIM7選｜月額0円〜で障害対策も万全",
+          "url": "https://sim-hikaku.online/sub-kaisen-kakuyasu-sim-osusume/",
+          "score": 1648
+        }
+      ],
+      "status": "updated"
+    }
+  ]
+}

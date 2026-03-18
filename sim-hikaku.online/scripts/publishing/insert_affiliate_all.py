@@ -117,10 +117,23 @@ def replace_keyword(content, keyword, link_html, affiliate_url, max_replace=2):
     return ''.join(result), count
 
 
+def parse_commission(val):
+    """報酬値を数値に変換（比較用）"""
+    if isinstance(val, (int, float)):
+        return float(val)
+    if isinstance(val, str):
+        cleaned = re.sub(r'[¥円/件（）\(\)\s〜~]', '', val)
+        cleaned = cleaned.replace(',', '').replace('、', '')
+        m = re.search(r'[\d.]+', cleaned)
+        if m:
+            return float(m.group())
+    return 0.0
+
+
 def build_link_rules(affiliates):
     """affiliate-links.json から挿入ルールリストを構築。
-    提携済のもののみ使用。carriers + esim_services 両方を処理。"""
-    rules = []
+    提携済のもののみ使用。全セクション処理。同一キーワードは単価順で最も高いもののみ採用。"""
+    raw_rules = []
 
     # carriers
     carriers = affiliates.get("carriers", {})
@@ -132,6 +145,7 @@ def build_link_rules(affiliates):
             continue
         name = carrier["name"]
         tracking_img_url = carrier.get("tracking_img", "")
+        commission = parse_commission(carrier.get("commission", 0))
 
         # キャリア名でマッチ
         keywords = [name]
@@ -141,12 +155,36 @@ def build_link_rules(affiliates):
 
         for kw in keywords:
             link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
-            rules.append({
+            raw_rules.append({
                 "keyword": kw,
                 "link_html": link_html,
                 "url": url,
                 "name": name,
                 "tracking_img_url": tracking_img_url,
+                "commission": commission,
+            })
+
+    # wifi_wimax
+    wifi = affiliates.get("wifi_wimax", {})
+    for key, svc in wifi.items():
+        if svc.get("status") != "提携済":
+            continue
+        url = svc.get("url")
+        if not url or "YOUR-AFFILIATE-LINK" in url:
+            continue
+        name = svc["name"]
+        tracking_img_url = svc.get("tracking_img", "") or svc.get("tracking_img_moshimo", "")
+        commission = parse_commission(svc.get("commission", 0))
+        keywords = [name]
+        for kw in keywords:
+            link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
+            raw_rules.append({
+                "keyword": kw,
+                "link_html": link_html,
+                "url": url,
+                "name": name,
+                "tracking_img_url": tracking_img_url,
+                "commission": commission,
             })
 
     # esim_services
@@ -158,7 +196,8 @@ def build_link_rules(affiliates):
         if not url or "YOUR-AFFILIATE-LINK" in url:
             continue
         name = svc["name"]
-        tracking_img_url = svc.get("tracking_img", "")
+        tracking_img_url = svc.get("tracking_img", "") or svc.get("tracking_img_moshimo", "")
+        commission = parse_commission(svc.get("commission", 0))
 
         # サービス名の各表記でマッチ
         keywords = [name]
@@ -174,13 +213,95 @@ def build_link_rules(affiliates):
 
         for kw in keywords:
             link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
-            rules.append({
+            raw_rules.append({
                 "keyword": kw,
                 "link_html": link_html,
                 "url": url,
                 "name": name,
                 "tracking_img_url": tracking_img_url,
+                "commission": commission,
             })
+
+    # valuecommerce
+    vc = affiliates.get("valuecommerce", {})
+    for key, svc in vc.items():
+        if svc.get("status") != "提携済":
+            continue
+        url = svc.get("url")
+        if not url:
+            continue
+        name = svc["name"]
+        tracking_img_url = svc.get("tracking_img", "")
+        commission = parse_commission(svc.get("commission", 0))
+        keywords = [name]
+        # キャリア名の別表記を追加
+        if "ワイモバイル" in name:
+            keywords.extend(["ワイモバイル", "Y!mobile", "Ymobile"])
+        elif "UQモバイル" in name:
+            keywords.extend(["UQモバイル", "UQ mobile"])
+        elif "IIJmio" in name and "ひかり" not in name:
+            keywords.extend(["IIJmio", "アイアイジェイミオ"])
+        elif "LINEMO" in name:
+            keywords.extend(["LINEMO", "ラインモ"])
+        elif "Broad WiMAX" in name:
+            keywords.extend(["Broad WiMAX", "ブロードワイマックス"])
+        elif "UQ WiMAX" in name:
+            keywords.extend(["UQ WiMAX", "UQワイマックス"])
+        elif "BIGLOBE WiMAX" in name:
+            keywords.extend(["BIGLOBE WiMAX", "ビッグローブワイマックス"])
+        elif "auひかり" in name:
+            keywords.extend(["auひかり", "au光"])
+        elif "SoftBank光" in name:
+            keywords.extend(["SoftBank光", "ソフトバンク光"])
+        elif "フレッツ光" in name:
+            keywords.extend(["フレッツ光"])
+        elif "IIJmioひかり" in name:
+            keywords.extend(["IIJmioひかり"])
+        keywords = list(dict.fromkeys(keywords))
+
+        for kw in keywords:
+            link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
+            raw_rules.append({
+                "keyword": kw,
+                "link_html": link_html,
+                "url": url,
+                "name": name,
+                "tracking_img_url": tracking_img_url,
+                "commission": commission,
+            })
+
+    # shopping
+    shopping = affiliates.get("shopping", {})
+    for key, svc in shopping.items():
+        if svc.get("status") != "提携済":
+            continue
+        url = svc.get("url")
+        if not url or "YOUR-AFFILIATE-LINK" in url:
+            continue
+        name = svc["name"]
+        tracking_img_url = svc.get("tracking_img", "") or svc.get("tracking_img_moshimo", "")
+        commission = parse_commission(svc.get("commission", 0))
+        keywords = [name]
+        for kw in keywords:
+            link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
+            raw_rules.append({
+                "keyword": kw,
+                "link_html": link_html,
+                "url": url,
+                "name": name,
+                "tracking_img_url": tracking_img_url,
+                "commission": commission,
+            })
+
+    # 同一キーワードは単価が高い方のみ採用
+    raw_rules.sort(key=lambda r: r["commission"], reverse=True)
+    rules = []
+    seen_keywords = set()
+    for rule in raw_rules:
+        if rule["keyword"] in seen_keywords:
+            continue
+        seen_keywords.add(rule["keyword"])
+        rules.append(rule)
 
     return rules
 

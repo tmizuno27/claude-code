@@ -4,7 +4,8 @@ description: Chrome Web Storeに10個の拡張を出品。Rick Blyth方式のポ
 type: project
 ---
 
-Chrome拡張ポートフォリオ事業を2026-03-16に開始。10個の拡張を開発しChrome Web Storeに審査申請済み。
+Chrome拡張ポートフォリオ事業を2026-03-16に開始。10個の拡張を開発しChrome Web Storeに審査申請。
+2026-03-17時点: 2本公開済み（Regex Tester, AI Text Rewriter）、8本審査待ち。Color Picker & Converterは`activeTab`未使用で却下→修正して再提出済み。
 
 **Why:** RapidAPI 20本と同じ「マーケットプレイスに出して放置」モデルの横展開。開発コスト$0、運用コスト$0。
 

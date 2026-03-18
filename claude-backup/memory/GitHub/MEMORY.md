@@ -28,6 +28,7 @@
 - **優先アクション/優先タスク**: [dashboard-priority-actions.md](dashboard-priority-actions.md) — 毎朝Claude APIが収益最大化ベースで自動生成、ダッシュボードで✅管理
 - **Sheets同期**: `tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
+- **タスク稼働確認ルール**: [feedback_proactive_task_check.md](feedback_proactive_task_check.md) — 変更時は依存スクリプト全確認、会話冒頭でログ健全性チェック
 
 ## WordPress REST API（nambei-oyaji.com）
 - 認証: `nambei-oyaji.com/config/secrets.json` + `wp-credentials.json`
@@ -55,9 +56,12 @@
 - 同期: `python C:/Users/tmizu/run_notion_init.py`
 - notion-client非使用（requestsで直接API呼び出し）
 
-## アフィリエイト
-- A8.net: 3サイトとも提携済み、`insert_affiliate_all.py` で全記事に一括挿入完了（2026-03-16）
-- **アクセストレード進捗**: [accesstrade-affiliate-pending.md](accesstrade-affiliate-pending.md) — nambei+sim承認済、otona申請中。承認後に一括作業予定
+## アフィリエイト（4 ASP × 3サイト）
+- **全体概要**: [affiliate-asp-overview.md](affiliate-asp-overview.md) — 4 ASP × 3サイトの提携状況サマリー
+- **A8.net**: 3サイトとも提携済み、一括挿入完了（2026-03-16）
+- **アクセストレード**: [accesstrade-affiliate-pending.md](accesstrade-affiliate-pending.md) — 3サイト承認済、提携済+申請中多数、一括挿入完了（2026-03-17）
+- **もしもアフィリエイト**: [moshimo-affiliate-progress.md](moshimo-affiliate-progress.md) — 3サイト登録済、一括挿入完了（2026-03-17）
+- **Value Commerce**: 3サイトメディア登録済（2026-03-17）、プログラム提携未着手
 
 ## Apify DaaS事業（稼働中）
 - **詳細**: [apify-business.md](apify-business.md)
@@ -72,10 +76,10 @@
 - PayPal payout接続済み、日次ヘルスチェック自動化済み
 - **プロジェクトパス**: `claude-code/api-services/`
 
-## Chrome拡張ポートフォリオ事業（審査中）
+## Chrome拡張ポートフォリオ事業（2/10本公開済み）
 - **詳細**: [chrome-extensions-business.md](chrome-extensions-business.md)
-- 10個の拡張を開発・Chrome Web Store審査申請済み（2026-03-16）
-- Rick Blyth方式（量産×放置）、運用コスト$0
+- 公開済み2本: Regex Tester, AI Text Rewriter（2026-03-17確認）
+- 審査待ち8本: JSON Formatter Pro, Color Picker, Lorem Ipsum, Hash & Encode, Page Speed, WHOIS Lookup, Currency Converter, SEO Inspector
 - **プロジェクトパス**: `claude-code/chrome-extensions/`
 
 ## WP Linker Micro SaaS（稼働中）
@@ -96,22 +100,25 @@
 - Bybit口座開設待ち（パラグアイ住所証明の準備中）
 - **プロジェクトパス**: `claude-code/trading/`
 
-## Gumroad Notionテンプレート販売事業（構築済み）
-- **詳細**: [gumroad-notion-business.md](gumroad-notion-business.md)
-- テンプレート10本+バンドル、設計書・出品テキスト・マーケティング素材完成
-- Notion実構築→Gumroad出品が次ステップ
+## Gumroad Notionテンプレート販売事業（全11商品 完全セットアップ済み + X自動投稿稼働中）
+- **進捗**: [gumroad-listing-progress.md](gumroad-listing-progress.md)
+- 全10本+バンドル($49) = 11商品 Cover/Thumbnail/Summary/タグ全て設定済み（2026-03-17）
+- アカウント: tatsuya27.gumroad.com（n8nテンプレート9本も同アカウント、こちらも全整備済み）
+- **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿（10:00/14:00/19:00 PYT）
+- **Gumroad出品時の注意**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — サムネ必須、Pillow自動生成
 - **プロジェクトパス**: `claude-code/gumroad-notion/`
 
-## POD Printful×Etsy事業 AsuInk（構築済み）
+## POD Printful×Etsy事業 AsuInk（アカウント開設待ち）
 - **詳細**: [pod-etsy-business.md](pod-etsy-business.md)
-- 50デザイン×3商品=150リスティング、プロンプト・出品テキスト完成
-- Etsy/Printfulアカウント開設→デザイン生成が次ステップ
+- 50プロンプト・150リスティング・自動化スクリプト3本完成
+- Geminiデザイン生成は有料プランが必要（無料枠では画像生成不可）
+- 次: Etsy/Printfulアカウント開設 → Gemini有料プランまたは代替画像生成 → デザイン量産
 - **プロジェクトパス**: `claude-code/pod-etsy/`
 
-## VS Code拡張ポートフォリオ事業（構築済み）
+## VS Code拡張ポートフォリオ事業（10/10本公開済み）
 - **詳細**: [vscode-extensions-business.md](vscode-extensions-business.md)
-- 10本企画、うち3本フルコード完成（Paste & Transform, Console Cleaner, ENV Lens）
-- Azure DevOps PAT取得→Marketplace公開が次ステップ
+- Publisher: miccho27（全10本公開完了 2026-03-17）
+- miccho27-devにも10本公開済み（重複あり、整理は後日）
 - **プロジェクトパス**: `claude-code/vscode-extensions/`
 
 ## n8nテンプレート販売事業（一時停止）
@@ -132,6 +139,7 @@
 - 確認不要: 許可を得ずどんどん自動で進めること
 - 改行ルール: 1文字だけ次行に飛び出す改行は絶対禁止
 - **コピペ形式**: [feedback_copypaste_format.md](feedback_copypaste_format.md) — 入力してもらう内容は必ずコードブロックで提示
+- **ダッシュボード**: [feedback_dashboard_realtime.md](feedback_dashboard_realtime.md) — 全項目リアルタイム自動更新必須、ハードコード禁止
 - 居住地: パラグアイ（PYT, UTC-3通年）
 - Googleカレンダー: JST設定（時差12時間）
 - X API: [x-api-credentials.md](x-api-credentials.md)
@@ -140,6 +148,15 @@
 - **詳細**: [stripe-pending-tasks.md](stripe-pending-tasks.md)
 - WP Linker決済、n8nテンプレート、Notionテンプレート、pSEO、Chrome拡張等が全てStripeブロック中
 - ユーザーが「Stripe連携できました」と言ったら即座にこのリストを実行
+
+## 優先タスク（2026-03-17更新）
+- **Gumroad X自動投稿**: @prodhq27稼働開始。25本のツイート（価値15+商品10）が自動投稿される。次はReddit投稿
+- **RapidAPI**: 残り10本の出品（11-20）
+- **Chrome拡張**: 審査待ち8本の通過確認
+- **Value Commerce**: プログラム提携（3サイト分）
+
+## Fiverr案件（進行中）
+- **Dennis C SSWリサーチ**: [fiverr-dennis-ssw-research.md](fiverr-dennis-ssw-research.md) — 質問リスト待ち、Standard/Premium提案済み
 
 ## セーブポイント（Gitタグ）
 - savepoint-article-design-v1/v2 (2026-03-09): 記事ページデザイン完成

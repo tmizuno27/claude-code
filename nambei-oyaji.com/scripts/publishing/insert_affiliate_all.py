@@ -142,24 +142,36 @@ def build_link_rules(affiliates):
             if link.get("status") == "pending_approval":
                 continue
 
-            tracking_img = link.get("tracking_img", "")
-            for kw in link.get("anchor_text", []):
+            # tracking_img または tracking_img_moshimo からURLを抽出
+            tracking_img_url = ""
+            tracking_img_raw = link.get("tracking_img", "")
+            tracking_img_moshimo = link.get("tracking_img_moshimo", "")
+            tracking_img_vc = link.get("tracking_img_vc", "")
+
+            if tracking_img_raw:
+                img_match = re.search(r'src="([^"]+)"', tracking_img_raw)
+                if img_match:
+                    tracking_img_url = img_match.group(1)
+                elif not tracking_img_raw.startswith("<"):
+                    # URLそのものが入っている場合
+                    tracking_img_url = tracking_img_raw
+            elif tracking_img_moshimo:
+                tracking_img_url = tracking_img_moshimo
+            elif tracking_img_vc:
+                tracking_img_url = tracking_img_vc
+
+            # anchor_text があればそれを使用、なければ name をキーワードに
+            keywords = link.get("anchor_text", [link["name"]])
+
+            for kw in keywords:
                 link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
                 rules.append({
                     "keyword": kw,
                     "link_html": link_html,
                     "url": url,
                     "name": link["name"],
-                    "tracking_img": tracking_img,
-                    "tracking_img_url": "",
+                    "tracking_img_url": tracking_img_url,
                 })
-            # tracking_img のURLを抽出
-            if tracking_img:
-                img_match = re.search(r'src="([^"]+)"', tracking_img)
-                if img_match:
-                    for r in rules:
-                        if r["url"] == url:
-                            r["tracking_img_url"] = img_match.group(1)
 
     return rules
 
@@ -215,6 +227,11 @@ def main():
     print(f"=== nambei-oyaji.com アフィリエイトリンク一括挿入 ===")
     print(f"モード: {'DRY RUN（--apply で実行）' if dry_run else '本番実行'}")
     print(f"挿入ルール: {len(rules)}件")
+    seen = set()
+    for r in rules:
+        if r["name"] not in seen:
+            print(f"  - {r['name']}: {r['keyword']}")
+            seen.add(r["name"])
     print()
 
     wp = WPClient(config)

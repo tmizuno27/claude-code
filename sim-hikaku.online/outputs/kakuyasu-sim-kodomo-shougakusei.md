@@ -5,7 +5,7 @@ slug: "kakuyasu-sim-kodomo-shougakusei"
 category: "yoto-betsu"
 type: "cluster"
 main_kw: "格安SIM 子供 小学生 おすすめ"
-status: "draft"
+status: "published"
 created: "2026-03-14"
 word_count: 8500
 ---
@@ -171,8 +171,7 @@ word_count: 8500
 |:---:|---:|
 | 〜3GB | **990円** |
 | 〜10GB | 2,090円 |
-| 〜20GB（ベストプランV） | 2,970円 |
-| 〜30GB（ベストプランV） | 3,960円 |
+| 〜30GB（ベストプランV） | 2,970円 |
 
 ### メリット
 - <span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>LINEのトーク・通話・ビデオ通話のデータ消費がゼロ</strong></span>

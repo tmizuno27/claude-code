@@ -291,7 +291,7 @@ word_count: 7800
 - 契約縛り・解約金なし
 
 ### デメリット
-- <span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>10GB超〜20GBの段階がない（ベストプランVで20GB〜30GB/月額2,970〜3,960円）</strong></span>
+- <span style="background: linear-gradient(transparent 60%, #ffd6e7 60%)"><strong>10GB超〜20GBの段階がない（ベストプランVは30GBで月額2,970円）</strong></span>
 - 通話料が22円/30秒と高め
 - 店舗サポートなし（オンライン完結）
 

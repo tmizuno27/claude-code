@@ -147,6 +147,28 @@ def build_link_rules(affiliates):
                     "tracking_img_url": tracking_img_url,
                 })
 
+    # アクセストレード等: htmlフィールドなしでurl直接指定のエントリ
+    for cat_key, cat in categories.items():
+        for link in cat.get("links", []):
+            status = link.get("status", "")
+            if status != "active":
+                continue
+            if link.get("html"):
+                continue  # 既に上で処理済み
+            url = link.get("url", "")
+            if not url or "YOUR-AFFILIATE-LINK" in url:
+                continue
+            tracking_img_url = link.get("tracking_img", "") or link.get("tracking_img_moshimo", "") or link.get("tracking_img_vc", "")
+            for kw in link.get("anchor_text", []):
+                link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
+                rules.append({
+                    "keyword": kw,
+                    "link_html": link_html,
+                    "url": url,
+                    "name": link["name"],
+                    "tracking_img_url": tracking_img_url,
+                })
+
     return rules
 
 

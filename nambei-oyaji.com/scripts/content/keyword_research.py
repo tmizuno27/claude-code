@@ -233,10 +233,18 @@ def load_published_keywords() -> set[str]:
 
     try:
         with open(PUBLISHED_LOG, encoding="utf-8") as f:
-            log_data: list[dict] = json.load(f)
+            raw_data = json.load(f)
+
+        # Support both list format and dict with "posts" key
+        if isinstance(raw_data, dict):
+            log_data: list[dict] = raw_data.get("posts", [])
+        else:
+            log_data = raw_data
 
         published = set()
         for entry in log_data:
+            if not isinstance(entry, dict):
+                continue
             kw = entry.get("keyword", "").strip()
             if kw:
                 published.add(kw)
@@ -273,6 +281,15 @@ def load_seed_keywords() -> list[str]:
         calendar: dict = json.load(f)
 
     seeds: list[str] = calendar.get("seed_keywords", [])
+
+    # content_pillars 内の seed_keywords も収集する
+    if not seeds:
+        pillars = calendar.get("content_pillars", {})
+        for pillar_data in pillars.values():
+            if isinstance(pillar_data, dict):
+                pillar_seeds = pillar_data.get("seed_keywords", [])
+                seeds.extend(pillar_seeds)
+
     if not seeds:
         raise ValueError("content-calendar.json に seed_keywords が定義されていません")
 

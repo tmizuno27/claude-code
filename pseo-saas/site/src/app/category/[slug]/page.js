@@ -20,8 +20,8 @@ export default async function CategoryPage({ params }) {
   const cat = getCategoryBySlug(slug);
   if (!cat) return <div className="container" style={{ padding: '80px 20px' }}>Category not found.</div>;
 
-  const tools = getToolsByCategory(params.slug);
-  const pairs = getComparisonPairs().filter(p => p.category === params.slug);
+  const tools = getToolsByCategory(slug);
+  const pairs = getComparisonPairs().filter(p => p.category === slug);
 
   return (
     <>

@@ -5,7 +5,7 @@ slug: "kakuyasu-sim-norikae-tejun-pillar"
 category: "norikae-guide"
 type: "pillar"
 main_kw: "格安SIM 乗り換え 手順 方法"
-status: "draft"
+status: "published"
 created: "2026-03-15"
 word_count: 8200
 ---
@@ -189,7 +189,7 @@ SIMロック解除が必要な可能性があります。各キャリアのMy pa
 │
 ├─ 3GB以下 → 日本通信SIM（290円〜）/ NUROモバイル（792円）
 │
-├─ 3〜10GB → IIJmio（990円/5GB〜）/ HISモバイル（990円/7GB）
+├─ 3〜10GB → IIJmio（950円/5GB〜）/ HISモバイル（990円/7GB）
 │
 ├─ 10〜20GB → 日本通信SIM（1,390円/20GB）/ IIJmio（2,000円/20GB）
 │
@@ -234,7 +234,7 @@ SIMロック解除が必要な可能性があります。各キャリアのMy pa
 
 **IIJmio「ギガプラン」**
 
-- 月額：<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>990円（5GB）〜2,000円（20GB）</strong></span>
+- 月額：<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>950円（5GB）〜2,000円（25GB）</strong></span>
 - 回線：ドコモ/au（選択可）
 - 通話料：11円/30秒
 - 特徴：8つの容量プランから選べる柔軟性。端末セールも頻繁に開催
@@ -262,7 +262,7 @@ SIMロック解除が必要な可能性があります。各キャリアのMy pa
 
 **ワイモバイル**
 
-- 月額：<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>2,365円（S/4GB）〜4,015円（L/30GB）</strong></span>
+- 月額：<span style="background: linear-gradient(transparent 60%, #fff3cd 60%)"><strong>3,058円（S/5GB）〜5,258円（L/35GB）</strong></span>
 - 回線：ソフトバンク（MNO）
 - 特徴：家族割で2回線目以降 月額1,100円引き。全国のワイモバイルショップ・ソフトバンクショップで対面サポートあり
 - おすすめの人：家族みんなで乗り換える人、店舗サポートがほしい人
@@ -284,8 +284,8 @@ SIMロック解除が必要な可能性があります。各キャリアのMy pa
 | povo2.0 | 0円〜 | 都度購入 | au | 550円/月 | ○ | ○ |
 | ahamo | 2,970円 | 30GB | ドコモ | 付属 | ○ | ○ |
 | 楽天モバイル | 1,078円〜 | 3GB〜無制限 | 楽天 | 無料※ | ○ | ○ |
-| UQモバイル | 2,178円〜 | 4GB〜 | au | 880円/月 | ○ | ○ |
-| ワイモバイル | 2,365円〜 | 4GB〜 | SB | 880円/月 | ○ | ○ |
+| UQモバイル | 2,948円〜 | 〜30GB | au | 880円/月 | ○ | ○ |
+| ワイモバイル | 3,058円〜 | 5GB〜 | SB | 880円/月 | ○ | ○ |
 
 </div>
 

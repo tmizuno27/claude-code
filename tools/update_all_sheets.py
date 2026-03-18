@@ -62,6 +62,7 @@ SITES = {
         'col_internal': 12,
         'col_category': 4,
         'col_kw': 5,
+        'col_pv': 15,
         'col_notes': 18,
     },
     'otona': {
@@ -71,20 +72,21 @@ SITES = {
         'gsc_cred': REPO_ROOT / 'otona-match.com' / 'config' / 'gsc-credentials.json',
         'start_date': datetime(2026, 3, 15),
         'header_color': {'red': 0.6, 'green': 0.2, 'blue': 0.5},
-        # CSV: id,slug,title,status,published_date,category,type,word_count,affiliate_count,internal_links,wp_url,notes
+        # CSV: id,slug,title,status,published_date,category,type,word_count,affiliate_count,internal_links,累計PV,wp_url,notes
         'col_title': 2,
         'col_status': 3,
         'col_type': 6,
         'col_pillar': None,
-        'col_permalink': None,  # wp_url(10)から抽出
-        'col_wp_url': 10,
+        'col_permalink': None,  # wp_url(11)から抽出
+        'col_wp_url': 11,
         'col_publish_date': 4,
         'col_word_count': 7,
         'col_affiliate': 8,
         'col_internal': 9,
+        'col_pv': 10,
         'col_category': 5,
         'col_kw': None,
-        'col_notes': 11,
+        'col_notes': 12,
     },
     'sim': {
         'label': 'SIM比較',
@@ -93,20 +95,21 @@ SITES = {
         'gsc_cred': REPO_ROOT / 'sim-hikaku.online' / 'config' / 'gsc-credentials.json',
         'start_date': datetime(2026, 3, 14),
         'header_color': {'red': 0.1, 'green': 0.5, 'blue': 0.4},
-        # CSV: 公開順,タイトル,ステータス,公開日,柱,記事タイプ,カテゴリ,メインKW,文字数,アフィリ数,内部リンク数,ファイル名,WordPress ID,WordPress URL,備考
+        # CSV: 公開順,タイトル,ステータス,公開日,柱,記事タイプ,カテゴリ,メインKW,文字数,アフィリ数,内部リンク数,累計PV,ファイル名,WordPress ID,WordPress URL,備考
         'col_title': 1,
         'col_status': 2,
         'col_type': 5,
         'col_pillar': 4,
         'col_permalink': None,
-        'col_wp_url': 13,
+        'col_wp_url': 14,
         'col_publish_date': 3,
         'col_word_count': 8,
         'col_affiliate': 9,
         'col_internal': 10,
+        'col_pv': 11,
         'col_category': 6,
         'col_kw': 7,
-        'col_notes': 14,
+        'col_notes': 15,
     },
 }
 
@@ -191,7 +194,7 @@ def write_article_list(sh, site_key, site_cfg, rows):
 
     # 統一ヘッダー
     header = ['#', 'タイトル', 'ステータス', '公開日', '記事タイプ', 'カテゴリ', 'メインKW',
-              '文字数', 'アフィリ数', '内部リンク数', 'URL', '備考']
+              '文字数', 'アフィリ数', '内部リンク数', '累計PV', 'URL', '備考']
     num_cols = len(header)
     last_col = chr(ord('A') + num_cols - 1)
 
@@ -208,6 +211,7 @@ def write_article_list(sh, site_key, site_cfg, rows):
         raw_status = safe_get(row, site_cfg['col_status']).strip()
         status = STATUS_NORMALIZE.get(raw_status, raw_status)
 
+        pv = safe_get(row, site_cfg.get('col_pv'), '0')
         sheet_data.append([
             i,
             cell_title,
@@ -219,6 +223,7 @@ def write_article_list(sh, site_key, site_cfg, rows):
             safe_get(row, site_cfg['col_word_count']),
             safe_get(row, site_cfg['col_affiliate']),
             safe_get(row, site_cfg['col_internal']),
+            pv,
             url,
             safe_get(row, site_cfg['col_notes']),
         ])
@@ -286,9 +291,9 @@ def write_article_list(sh, site_key, site_cfg, rows):
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 4, 'endIndex': 5}, 'properties': {'pixelSize': 90}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 5, 'endIndex': 6}, 'properties': {'pixelSize': 120}, 'fields': 'pixelSize'}},
         {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 6, 'endIndex': 7}, 'properties': {'pixelSize': 200}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 7, 'endIndex': 10}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 10, 'endIndex': 11}, 'properties': {'pixelSize': 300}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 11, 'endIndex': 12}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 7, 'endIndex': 11}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 11, 'endIndex': 12}, 'properties': {'pixelSize': 300}, 'fields': 'pixelSize'}},
+        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 12, 'endIndex': 13}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
         {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}},
     ])
     sh.batch_update({'requests': fmt_requests})

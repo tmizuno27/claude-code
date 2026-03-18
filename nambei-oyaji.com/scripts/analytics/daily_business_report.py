@@ -675,7 +675,8 @@ def generate_priority_actions(blog_data: list, rapidapi_data: dict,
         rapidapi_info = (
             f"RapidAPI: API数={rapidapi_data.get('api_count', 0)}, "
             f"状態={rapidapi_data.get('status')}, "
-            f"出品済み=10/20, 月売上=$0"
+            f"出品済み=20/20, 月売上=$0, "
+            f"料金プラン=統一済み（Basic$0/500req, Pro$5.99, Ultra$14.99, Mega$49.99/2M req）"
         )
 
         actors = apify_data.get("actors", [])
@@ -1147,6 +1148,26 @@ def update_gist_dashboard():
             return
 
         html_content = dashboard_path.read_text(encoding="utf-8")
+        # HTMLの日付・時刻を現在に更新
+        now = datetime.now()
+        html_content = re.sub(
+            r'(<div class="header-date">)\d{2}\.\d{2}(</div>)',
+            rf'\g<1>{now.strftime("%m.%d")}\2', html_content
+        )
+        html_content = re.sub(
+            r'\d{4} — \d{2}:\d{2} PYT',
+            f'{now.strftime("%Y — %H:%M")} PYT', html_content, count=1
+        )
+        html_content = re.sub(
+            r'(<title>日次ビジネス総合レポート — )\d{4}\.\d{2}\.\d{2}(</title>)',
+            rf'\g<1>{now.strftime("%Y.%m.%d")}\2', html_content
+        )
+        html_content = re.sub(
+            r'(<span class="header-time" id="header-time">)\d{2}:\d{2}:\d{2} PYT(</span>)',
+            rf'\g<1>{now.strftime("%H:%M:%S")} PYT\2', html_content
+        )
+        # ローカルHTMLも更新
+        dashboard_path.write_text(html_content, encoding="utf-8")
         resp = requests.patch(
             f"https://api.github.com/gists/{GIST_ID}",
             headers={"Authorization": f"token {token}", "Accept": "application/vnd.github+json"},
@@ -1254,6 +1275,19 @@ def main():
                 logger.info(f"優先アクション {len(actions)}件 → action-status.json + HTML更新完了")
         except Exception as e:
             logger.warning(f"優先アクション生成タイムアウト: {e}")
+
+    # ─── ダッシュボードステータス同期 ───
+    logger.info("ダッシュボードステータス同期中...")
+    try:
+        from dashboard_status_sync import apply_updates
+        dashboard_path = REPORTS_DIR / "daily-business-dashboard.html"
+        if dashboard_path.exists():
+            dash_html = dashboard_path.read_text(encoding="utf-8")
+            dash_html = apply_updates(dash_html)
+            dashboard_path.write_text(dash_html, encoding="utf-8")
+            logger.info("ステータス同期完了")
+    except Exception as e:
+        logger.warning(f"ステータス同期エラー: {e}")
 
     # ─── Gistダッシュボード更新 ───
     logger.info("Gistダッシュボード更新中...")

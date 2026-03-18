@@ -151,41 +151,49 @@ def write_article_list(sh, rows):
         'horizontalAlignment': 'CENTER',
     })
 
-    # 記事タイプ別の色分け + ステータス列
+    # 記事タイプ別の色分け + ステータス列（バッチで一括送信）
     print("書式設定中...")
+    format_requests = []
     for i, row in enumerate(rows[1:], start=2):
         atype = row[3] if len(row) > 3 else ''
         color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
-        ws.format(f'A{i}:{last_col}{i}', {'backgroundColor': color})
+        format_requests.append({
+            'repeatCell': {
+                'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+                'cell': {'userEnteredFormat': {'backgroundColor': color}},
+                'fields': 'userEnteredFormat.backgroundColor'
+            }
+        })
         status = row[7] if len(row) > 7 else ''
         if status == 'ドラフト':
-            ws.format(f'H{i}', {
-                'backgroundColor': {'red': 1.0, 'green': 0.95, 'blue': 0.7},
-                'textFormat': {'bold': True}
+            format_requests.append({
+                'repeatCell': {
+                    'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 7, 'endColumnIndex': 8},
+                    'cell': {'userEnteredFormat': {'backgroundColor': {'red': 1.0, 'green': 0.95, 'blue': 0.7}, 'textFormat': {'bold': True}}},
+                    'fields': 'userEnteredFormat.backgroundColor,userEnteredFormat.textFormat.bold'
+                }
             })
+    format_requests.append({
+        'setBasicFilter': {
+            'filter': {'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': len(rows), 'startColumnIndex': 0, 'endColumnIndex': num_cols}}
+        }
+    })
+    if format_requests:
+        sh.batch_update({'requests': format_requests})
 
-    # フィルター
-    ws.set_basic_filter(f'A1:{last_col}{len(rows)}')
-
-    # 列幅・ヘッダー固定
-    sh.batch_update({'requests': [
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 0, 'endIndex': 1}, 'properties': {'pixelSize': 40}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 1, 'endIndex': 2}, 'properties': {'pixelSize': 65}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 2, 'endIndex': 3}, 'properties': {'pixelSize': 90}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 3, 'endIndex': 4}, 'properties': {'pixelSize': 90}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 4, 'endIndex': 5}, 'properties': {'pixelSize': 110}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 5, 'endIndex': 6}, 'properties': {'pixelSize': 200}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 6, 'endIndex': 7}, 'properties': {'pixelSize': 450}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 7, 'endIndex': 8}, 'properties': {'pixelSize': 85}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 8, 'endIndex': 9}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 9, 'endIndex': 13}, 'properties': {'pixelSize': 80}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 13, 'endIndex': 14}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 14, 'endIndex': 15}, 'properties': {'pixelSize': 280}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 15, 'endIndex': 16}, 'properties': {'pixelSize': 70}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 16, 'endIndex': 18}, 'properties': {'pixelSize': 95}, 'fields': 'pixelSize'}},
-        {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': 18, 'endIndex': 19}, 'properties': {'pixelSize': 250}, 'fields': 'pixelSize'}},
-        {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}},
-    ]})
+    # 列幅・ヘッダー固定（CSV: 公開順,タイトル,ステータス,公開日,柱,記事タイプ,カテゴリ,メインKW,文字数,アフィリ数,内部リンク数,ファイル名,WordPress ID,WordPress URL,備考）
+    col_widths = [40, 350, 85, 110, 90, 90, 120, 200, 80, 80, 80, 200, 80, 280, 250]
+    dimension_requests = []
+    for ci, pw in enumerate(col_widths):
+        if ci >= num_cols:
+            break
+        dimension_requests.append(
+            {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': ci, 'endIndex': ci + 1}, 'properties': {'pixelSize': pw}, 'fields': 'pixelSize'}}
+        )
+    dimension_requests.append(
+        {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}}
+    )
+    sh.batch_update({'requests': dimension_requests})
 
     # 記事一覧シートを先頭に移動
     sh.batch_update({'requests': [

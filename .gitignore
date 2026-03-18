@@ -4,13 +4,25 @@
 **/x-credentials.json
 **/credentials/
 **/service-account.json
+gumroad-secrets.json
+.env
+.env.*
 
 # Python
 **/__pycache__/
 *.pyc
+*.pyo
+
+# Node.js
+node_modules/
+
+# ビルド出力
+.next/
+dist/
+out/
+
+# VS Code拡張ビルド
+*.vsix
 
 # ログ
-auto-sync.log
 *.log
-gumroad-secrets.json
-pseo-saas/site/node_modules/

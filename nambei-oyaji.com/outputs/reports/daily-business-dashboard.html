@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日次ビジネス総合レポート — 2026.03.16</title>
+<title>日次ビジネス総合レポート — 2026.03.18</title>
 <style>
 /* Meiryo font - no import needed (system font) */
 
@@ -483,6 +483,7 @@ footer{
   .blog-metric .bm-lbl{font-size:0.7rem}
 
   /* SNS */
+  .sns-accounts{grid-template-columns:1fr}
   .sns-grid{grid-template-columns:1fr;gap:0.8rem}
   .sns-hero{padding:1rem}
   .sns-followers{font-size:2.2rem}
@@ -619,6 +620,7 @@ footer{
 .idx-row .iv{font-family:'Meiryo','メイリオ',sans-serif;font-weight:500}
 
 /* ═══ SNS ═══ */
+.sns-accounts{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
 .sns-grid{display:grid;grid-template-columns:200px 1fr;gap:1.2rem;align-items:start}
 .sns-hero{text-align:center;padding:1.5rem}
 .sns-followers{font-family:'Meiryo','メイリオ',sans-serif;font-size:2.8rem;font-weight:300;color:var(--blue);line-height:1}
@@ -689,6 +691,7 @@ footer{
 .notion-info .ni-id{font-family:'Meiryo','メイリオ',sans-serif;font-size:0.8rem;color:var(--text3)}
 
 @media(max-width:1100px){
+  .sns-accounts{grid-template-columns:1fr}
   .sns-grid{grid-template-columns:1fr}
   .domain-grid{grid-template-columns:1fr}
   .fin-grid{grid-template-columns:1fr}
@@ -717,17 +720,16 @@ footer{
 <nav class="sidebar">
   <div class="logo">B</div>
   <div class="nav-items">
-    <div class="nav-item active" data-tooltip="ダッシュボード" onclick="scrollTo('#top')">📊</div>
-    <div class="nav-item" data-tooltip="ブログ" onclick="scrollTo('#blogs')">📝</div>
-    <div class="nav-item" data-tooltip="SNS" onclick="scrollTo('#sns')">🐦</div>
-    <div class="nav-item" data-tooltip="API" onclick="scrollTo('#apis')">⚡</div>
-    <div class="nav-item" data-tooltip="Chrome拡張" onclick="scrollTo('#chrome')">🧩</div>
-    <div class="nav-item" data-tooltip="事業" onclick="scrollTo('#biz')">📦</div>
-    <div class="nav-item" data-tooltip="収益" onclick="scrollTo('#revenue')">💰</div>
-    <div class="nav-item" data-tooltip="財務" onclick="scrollTo('#finance')">🏦</div>
-    <div class="nav-item" data-tooltip="スケジュール" onclick="scrollTo('#schedule')">📅</div>
-    <div class="nav-item" data-tooltip="システム" onclick="scrollTo('#system')">🔧</div>
-    <div class="nav-item" data-tooltip="アクション" onclick="scrollTo('#actions')">🎯</div>
+    <div class="nav-item active" data-tooltip="ダッシュボード" onclick="navScrollTo('#top')">📊</div>
+    <div class="nav-item" data-tooltip="ブログ" onclick="navScrollTo('#blogs')">📝</div>
+    <div class="nav-item" data-tooltip="SNS" onclick="navScrollTo('#sns')">🐦</div>
+    <div class="nav-item" data-tooltip="API" onclick="navScrollTo('#apis')">⚡</div>
+    <div class="nav-item" data-tooltip="Chrome拡張" onclick="navScrollTo('#chrome')">🧩</div>
+    <div class="nav-item" data-tooltip="事業" onclick="navScrollTo('#biz')">📦</div>
+    <div class="nav-item" data-tooltip="収益" onclick="navScrollTo('#revenue')">💰</div>
+    <div class="nav-item" data-tooltip="財務" onclick="navScrollTo('#finance')">🏦</div>
+    <div class="nav-item" data-tooltip="システム" onclick="navScrollTo('#system')">🔧</div>
+    <div class="nav-item" data-tooltip="アクション" onclick="navScrollTo('#actions')">🎯</div>
   </div>
 </nav>
 
@@ -742,8 +744,8 @@ footer{
       <div class="subtitle">全事業横断ダッシュボード — 12事業 / 3サイト / 25 API / 4 Chrome拡張</div>
     </div>
     <div class="header-right">
-      <div class="header-date">03.16</div>
-      <div class="header-time">2026 — 09:00 PYT</div>
+      <div class="header-date">03.18</div>
+      <div class="header-time">2026 — 17:26 PYT</div>
       <div id="live-clock"></div>
     </div>
   </header>
@@ -770,11 +772,11 @@ footer{
         </div>
       </div>
       <div class="score-breakdown">
-        <div class="sb-item"><span>資産量</span><span class="sb-v">18/20</span></div>
-        <div class="sb-item"><span>計測基盤</span><span class="sb-v" style="color:var(--orange)">12/20</span></div>
-        <div class="sb-item"><span>収益化</span><span class="sb-v" style="color:var(--orange)">8/20</span></div>
+        <div class="sb-item"><span>資産量</span><span class="sb-v" style="color:var(--orange)">10/20</span></div>
+        <div class="sb-item"><span>計測基盤</span><span class="sb-v">16/20</span></div>
+        <div class="sb-item"><span>収益化</span><span class="sb-v" style="color:var(--orange)">3/20</span></div>
         <div class="sb-item"><span>自動化</span><span class="sb-v">16/20</span></div>
-        <div class="sb-item"><span>インフラ</span><span class="sb-v">17/20</span></div>
+        <div class="sb-item"><span>インフラ</span><span class="sb-v">20/20</span></div>
       </div>
     </div>
     <div class="exec-card">
@@ -788,7 +790,7 @@ footer{
       <div class="exec-tags">
         <span class="exec-tag ok">資産構築 完了</span>
         <span class="exec-tag ok">自動化 52タスク</span>
-        <span class="exec-tag ok">GA4 接続済(1/3)</span>
+        <span class="exec-tag ok">GA4 接続済(3/3)</span>
         <span class="exec-tag ok">GSC 3サイト接続</span>
         <span class="exec-tag ok">X API 接続済</span>
         <span class="exec-tag warn">売上 $0</span>
@@ -929,12 +931,12 @@ footer{
       </div>
       <div class="blog-ring-row">
         <div class="blog-ring">
-          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--blue)" stroke-dasharray="163.4" stroke-dashoffset="142.2"/></svg>
-          <div class="br-center" style="color:var(--blue)">13</div>
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--blue)" stroke-dasharray="163.4" stroke-dashoffset="122.6"/></svg>
+          <div class="br-center" style="color:var(--blue)">25</div>
         </div>
         <div class="blog-info">
           <div class="bi-row"><span class="bi-label">目標</span><span class="bi-val">100記事</span></div>
-          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">13%</span></div>
+          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">25%</span></div>
           <div class="bi-row"><span class="bi-label">柱</span><span class="bi-val">PY生活 + 副業</span></div>
         </div>
       </div>
@@ -975,12 +977,12 @@ footer{
       </div>
       <div class="blog-ring-row">
         <div class="blog-ring">
-          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--teal)" stroke-dasharray="163.4" stroke-dashoffset="160.1"/></svg>
-          <div class="br-center" style="color:var(--teal)">2</div>
+          <svg width="64" height="64" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" class="ring-bg"/><circle cx="32" cy="32" r="26" class="ring-val" stroke="var(--teal)" stroke-dasharray="163.4" stroke-dashoffset="119.3"/></svg>
+          <div class="br-center" style="color:var(--teal)">27</div>
         </div>
         <div class="blog-info">
           <div class="bi-row"><span class="bi-label">目標</span><span class="bi-val">100記事</span></div>
-          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">2%</span></div>
+          <div class="bi-row"><span class="bi-label">進捗</span><span class="bi-val">27%</span></div>
           <div class="bi-row"><span class="bi-label">柱</span><span class="bi-val">格安SIM比較</span></div>
         </div>
       </div>
@@ -996,89 +998,45 @@ footer{
   <div class="section-header anim" id="sns">
     <div class="icon" style="background:rgba(0,98,224,0.08)">🐦</div>
     <h2>X (Twitter) SNS</h2>
-    <span class="badge">日3投稿目標</span>
+    <span class="badge">2アカウント運用</span>
   </div>
-  <div class="card anim" style="padding:1.4rem">
-    <div class="sns-grid">
-      <div class="sns-hero">
-        <div class="sns-followers">30</div>
-        <div class="sns-flabel">フォロワー @nambei_oyaji</div>
-        <div style="margin-top:1rem;font-size:0.85rem;color:var(--text3)">目標: 500人<br>(Phase 1)</div>
-      </div>
-      <div>
-        <div class="sns-stats">
-          <div class="card sns-stat"><div class="ss-val" style="color:var(--blue)">18</div><div class="ss-lbl">総ツイート数</div></div>
-          <div class="card sns-stat"><div class="ss-val" style="color:var(--green)">0</div><div class="ss-lbl">フォロー中</div></div>
-          <div class="card sns-stat"><div class="ss-val" style="color:var(--purple)">6%</div><div class="ss-lbl">目標達成率</div></div>
+  <div class="sns-accounts anim">
+    <!-- @nambei_oyaji -->
+    <div class="card" style="padding:1.4rem">
+      <div class="sns-grid">
+        <div class="sns-hero">
+          <div class="sns-followers">31</div>
+          <div class="sns-flabel">フォロワー<br>@nambei_oyaji</div>
+          <div style="margin-top:0.8rem;font-size:0.82rem;color:var(--text3)">目標: 500人<br>(Phase 1)</div>
         </div>
-        <div class="sns-preview">
-          📌 X API接続済み — フォロワー30人 / 目標500人（Phase 1）まであと470人
+        <div>
+          <div style="font-size:0.78rem;font-weight:600;color:var(--text2);margin-bottom:0.5rem;letter-spacing:0.04em">🇵🇾 南米おやじの海外生活ラボ</div>
+          <div class="sns-stats">
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--blue)">18</div><div class="ss-lbl">総ツイート</div></div>
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--green)">0</div><div class="ss-lbl">フォロー中</div></div>
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--purple)">6%</div><div class="ss-lbl">達成率</div></div>
+          </div>
+          <div class="sns-preview">📌 日本語ブログ集客用 — 日3投稿（自動）</div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- CONTENT PIPELINE -->
-  <div class="section-header anim">
-    <div class="icon" style="background:rgba(8,132,168,0.08)">📊</div>
-    <h2>コンテンツパイプライン</h2>
-    <span class="badge">週3記事 + 日3投稿</span>
-  </div>
-  <div class="pipe-grid anim">
-    <div class="card pipe-card">
-      <div class="pipe-num" style="color:var(--blue)">0</div>
-      <div class="pipe-label">今週公開</div>
-      <div class="pipe-target">目標: 3本</div>
-      <div class="week-bars">
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="月"></div>
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="火"></div>
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="水"></div>
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="木"></div>
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="金"></div>
-        <div class="week-bar" style="height:3px;background:var(--blue);opacity:0.12" data-day="土"></div>
-        <div class="week-bar" style="height:4px;background:var(--blue);opacity:0.35" data-day="日"></div>
-      </div>
-    </div>
-    <div class="card pipe-card">
-      <div class="pipe-num" style="color:var(--teal)">0</div>
-      <div class="pipe-label">ドラフト待ち</div>
-      <div class="pipe-target">体験談追記 → 公開</div>
-      <div class="week-bars">
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="月"></div>
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="火"></div>
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="水"></div>
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="木"></div>
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="金"></div>
-        <div class="week-bar" style="height:3px;background:var(--teal);opacity:0.12" data-day="土"></div>
-        <div class="week-bar" style="height:4px;background:var(--teal);opacity:0.35" data-day="日"></div>
-      </div>
-    </div>
-    <div class="card pipe-card">
-      <div class="pipe-num" style="color:var(--purple)">0</div>
-      <div class="pipe-label">KW候補</div>
-      <div class="pipe-target">次回記事ネタ</div>
-      <div class="week-bars">
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="月"></div>
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="火"></div>
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="水"></div>
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="木"></div>
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="金"></div>
-        <div class="week-bar" style="height:3px;background:var(--purple);opacity:0.12" data-day="土"></div>
-        <div class="week-bar" style="height:4px;background:var(--purple);opacity:0.35" data-day="日"></div>
-      </div>
-    </div>
-    <div class="card pipe-card">
-      <div class="pipe-num" style="color:var(--green)">0</div>
-      <div class="pipe-label">X投稿(今週)</div>
-      <div class="pipe-target">目標: 21投稿</div>
-      <div class="week-bars">
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="月"></div>
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="火"></div>
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="水"></div>
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="木"></div>
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="金"></div>
-        <div class="week-bar" style="height:3px;background:var(--green);opacity:0.12" data-day="土"></div>
-        <div class="week-bar" style="height:4px;background:var(--green);opacity:0.35" data-day="日"></div>
+    <!-- @prodhq27 -->
+    <div class="card" style="padding:1.4rem">
+      <div class="sns-grid">
+        <div class="sns-hero">
+          <div class="sns-followers" style="color:var(--teal)">0</div>
+          <div class="sns-flabel">フォロワー<br>@prodhq27</div>
+          <div style="margin-top:0.8rem;font-size:0.82rem;color:var(--text3)">目標: 1,000人<br>(Phase 1)</div>
+        </div>
+        <div>
+          <div style="font-size:0.78rem;font-weight:600;color:var(--text2);margin-bottom:0.5rem;letter-spacing:0.04em">🚀 Productivity HQ（Gumroad販促）</div>
+          <div class="sns-stats">
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--teal)">7</div><div class="ss-lbl">総ツイート</div></div>
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--green)">0</div><div class="ss-lbl">フォロー中</div></div>
+            <div class="card sns-stat"><div class="ss-val" style="color:var(--purple)">0%</div><div class="ss-lbl">達成率</div></div>
+          </div>
+          <div class="sns-preview">📌 英語Gumroad商品販促用 — 日3投稿（自動）残25本キュー</div>
+        </div>
       </div>
     </div>
   </div>
@@ -1123,7 +1081,7 @@ footer{
   <div class="section-header anim" id="chrome">
     <div class="icon" style="background:rgba(196,43,34,0.08)">🧩</div>
     <h2>Chrome拡張</h2>
-    <span class="badge">4本 — Chrome Web Store</span>
+    <span class="badge">10本 — Chrome Web Store</span>
   </div>
   <div class="biz-grid anim">
     <div class="card biz-card">
@@ -1212,14 +1170,15 @@ footer{
       <div class="card">
         <div class="seo-list">
           <div class="seo-row"><span class="sr-name">nambei-oyaji.com GA4</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
-          <div class="seo-row"><span class="sr-name">otona-match.com GA4</span><span class="status-badge"><span class="status-dot orange"></span>権限未付与</span></div>
-          <div class="seo-row"><span class="sr-name">sim-hikaku.online GA4</span><span class="status-badge"><span class="status-dot orange"></span>権限未付与</span></div>
+          <div class="seo-row"><span class="sr-name">otona-match.com GA4</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
+          <div class="seo-row"><span class="sr-name">sim-hikaku.online GA4</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
           <div class="seo-row"><span class="sr-name">Search Console (3サイト)</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
           <div class="seo-row"><span class="sr-name">X API (@nambei_oyaji)</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
+          <div class="seo-row"><span class="sr-name">X API (@prodhq27)</span><span class="status-badge"><span class="status-dot green"></span>接続済み</span></div>
           <div style="border-top:1px solid rgba(0,0,0,0.05);margin:0.2rem 0"></div>
           <div class="seo-row"><span class="sr-name">Rank Math SEO</span><span class="status-badge"><span class="status-dot green"></span>3サイト</span></div>
           <div class="seo-row"><span class="sr-name">A8.net</span><span class="status-badge"><span class="status-dot green"></span>3サイト提携</span></div>
-          <div class="seo-row"><span class="sr-name">AccessTrade</span><span class="status-badge"><span class="status-dot green"></span>2サイト承認</span></div>
+          <div class="seo-row"><span class="sr-name">AccessTrade</span><span class="status-badge"><span class="status-dot green"></span>3サイト承認</span></div>
           <div class="seo-row"><span class="sr-name">Cocoon + Apple CSS</span><span class="status-badge"><span class="status-dot green"></span>適用済</span></div>
         </div>
       </div>
@@ -1279,7 +1238,7 @@ footer{
         <div class="idx-center"><div class="idx-pct" style="color:var(--blue)">46%</div></div>
       </div>
       <div class="idx-detail">
-        <div class="idx-row"><span class="il">公開記事</span><span class="iv">13</span></div>
+        <div class="idx-row"><span class="il">公開記事</span><span class="iv">25</span></div>
         <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--green)">6ページ</span></div>
         <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--blue)">8</span></div>
         <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv">49</span></div>
@@ -1300,7 +1259,7 @@ footer{
         <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--red)">0ページ</span></div>
         <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
         <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
-        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--orange)">未接続</span></div>
+        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--green)">接続済み</span></div>
       </div>
     </div>
     <div class="card idx-card">
@@ -1313,11 +1272,11 @@ footer{
         <div class="idx-center"><div class="idx-pct" style="color:var(--red)">0%</div></div>
       </div>
       <div class="idx-detail">
-        <div class="idx-row"><span class="il">公開記事</span><span class="iv">2</span></div>
+        <div class="idx-row"><span class="il">公開記事</span><span class="iv">27</span></div>
         <div class="idx-row"><span class="il">検索表示</span><span class="iv" style="color:var(--red)">0ページ</span></div>
         <div class="idx-row"><span class="il">クリック(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
         <div class="idx-row"><span class="il">表示回数(30d)</span><span class="iv" style="color:var(--text3)">0</span></div>
-        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--orange)">未接続</span></div>
+        <div class="idx-row"><span class="il">GA4</span><span class="iv" style="color:var(--green)">接続済み</span></div>
       </div>
     </div>
   </div>
@@ -1343,7 +1302,7 @@ footer{
         <tr>
           <td>otona-match.com</td>
           <td><span class="status-badge"><span class="status-dot green"></span>提携済</span></td>
-          <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
+          <td><span class="status-badge"><span class="status-dot green"></span>承認済</span></td>
           <td><span class="status-badge"><span class="status-dot orange"></span>申請中</span></td>
           <td class="mono" style="font-weight:600">¥0</td>
         </tr>
@@ -1356,42 +1315,6 @@ footer{
         </tr>
       </tbody>
     </table></div>
-  </div>
-
-  <!-- DOMAIN MANAGEMENT -->
-  <div class="section-header anim">
-    <div class="icon" style="background:rgba(8,148,178,0.08)">🌐</div>
-    <h2>ドメイン・サーバー管理</h2>
-    <span class="badge">ConoHa WING</span>
-  </div>
-  <div class="domain-grid anim">
-    <div class="card domain-card">
-      <div class="domain-name">nambei-oyaji.com</div>
-      <div class="domain-rows">
-        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
-        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
-        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
-        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
-      </div>
-    </div>
-    <div class="card domain-card">
-      <div class="domain-name">otona-match.com</div>
-      <div class="domain-rows">
-        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
-        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
-        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
-        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
-      </div>
-    </div>
-    <div class="card domain-card">
-      <div class="domain-name">sim-hikaku.online</div>
-      <div class="domain-rows">
-        <div class="domain-row"><span class="dl">SSL</span><span class="dv" style="color:var(--green)">有効</span></div>
-        <div class="domain-row"><span class="dl">サーバー</span><span class="dv" style="color:var(--green)">稼働中</span></div>
-        <div class="domain-row"><span class="dl">テーマ</span><span class="dv">Cocoon</span></div>
-        <div class="domain-row"><span class="dl">SEO</span><span class="dv">Rank Math</span></div>
-      </div>
-    </div>
   </div>
 
   <!-- FINANCE -->
@@ -1430,31 +1353,6 @@ footer{
     </div>
   </div>
 
-  <!-- WEEKLY SCHEDULE -->
-  <div class="section-header anim" id="schedule">
-    <div class="icon" style="background:rgba(154,114,0,0.08)">📅</div>
-    <h2>今週のスケジュール</h2>
-    <span class="badge">Week 12</span>
-  </div>
-  <div class="card anim" style="padding:1.4rem">
-    <div class="sched-week">
-      <div class="sched-day publish"><div class="sd-name">月</div><div class="sd-num">16</div><div class="sd-tag">柱1記事</div></div>
-      <div class="sched-day"><div class="sd-name">火</div><div class="sd-num">17</div></div>
-      <div class="sched-day publish"><div class="sd-name">水</div><div class="sd-num">18</div><div class="sd-tag">柱2記事</div></div>
-      <div class="sched-day"><div class="sd-name">木</div><div class="sd-num">19</div></div>
-      <div class="sched-day publish"><div class="sd-name">金</div><div class="sd-num">20</div><div class="sd-tag">交互記事</div></div>
-      <div class="sched-day"><div class="sd-name">土</div><div class="sd-num">21</div></div>
-      <div class="sched-day today"><div class="sd-name">日</div><div class="sd-num">22</div><div class="sd-tag" style="background:rgba(154,114,0,0.08);color:var(--gold)">X投稿生成</div></div>
-    </div>
-    <div class="sched-items">
-      <div class="sched-item"><span class="si-time">毎日</span><div class="si-dot" style="background:var(--blue)"></div><span>X投稿 × 3回（自動生成 + 手動 + リプ交流）</span></div>
-      <div class="sched-item"><span class="si-time">月水金</span><div class="si-dot" style="background:var(--green)"></div><span>記事生成 → WP投稿 → 体験談追記 → 公開</span></div>
-      <div class="sched-item"><span class="si-time">毎週月</span><div class="si-dot" style="background:var(--purple)"></div><span>週次レポート + KW候補20件生成</span></div>
-      <div class="sched-item"><span class="si-time">毎週金</span><div class="si-dot" style="background:var(--teal)"></div><span>内部リンク自動挿入</span></div>
-      <div class="sched-item"><span class="si-time">毎週日</span><div class="si-dot" style="background:var(--gold)"></div><span>1週間分のX投稿コンテンツ生成</span></div>
-    </div>
-  </div>
-
   <!-- TASK EXECUTION LOG -->
   <div class="section-header anim">
     <div class="icon" style="background:rgba(0,98,224,0.08)">📋</div>
@@ -1482,35 +1380,11 @@ footer{
     </div>
   </div>
 
-  <!-- NOTION SYNC -->
-  <div class="section-header anim">
-    <div class="icon" style="background:rgba(0,0,0,0.06)">📓</div>
-    <h2>Notion連携</h2>
-  </div>
-  <div class="card anim" style="padding:1rem 1.4rem">
-    <div class="notion-row">
-      <div class="notion-icon">📓</div>
-      <div class="notion-info">
-        <div class="ni-name">記事管理データベース</div>
-        <div class="ni-id">DB: 31be2be6-f322-81fd-8d66-c0348a3fc2ac</div>
-      </div>
-      <span class="status-badge"><span class="status-dot green"></span>接続済み</span>
-    </div>
-    <div class="notion-row" style="border-top:1px solid rgba(0,0,0,0.04)">
-      <div class="notion-icon">🔄</div>
-      <div class="notion-info">
-        <div class="ni-name">同期方法</div>
-        <div class="ni-id">requests直接API（notion-client非使用）</div>
-      </div>
-      <span class="status-badge"><span class="status-dot green"></span>手動実行</span>
-    </div>
-  </div>
-
   <!-- SYSTEM HEALTH -->
   <div class="section-header anim" id="system"><div class="icon" style="background:rgba(22,135,58,0.08)">🔧</div><h2>システム健全性</h2><span class="badge">全自動</span></div>
   <div class="health-grid anim">
     <div class="card health-card"><div class="health-icon">🔄</div><div class="health-val">正常</div><div class="health-lbl">GitHub Auto-Sync</div><div class="health-sub">23,410 entries</div></div>
-    <div class="card health-card"><div class="health-icon">📋</div><div class="health-val">52</div><div class="health-lbl">定期タスク</div><div class="health-sub">Task Scheduler</div></div>
+    <div class="card health-card"><div class="health-icon">📋</div><div class="health-val">67</div><div class="health-lbl">定期タスク</div><div class="health-sub">Task Scheduler</div></div>
     <div class="card health-card"><div class="health-icon">🩺</div><div class="health-val">稼働</div><div class="health-lbl">Healthchecks.io</div><div class="health-sub">Discord通知</div></div>
     <div class="card health-card"><div class="health-icon">📡</div><div class="health-val" style="color:var(--green)">5分</div><div class="health-lbl">Sheets同期</div><div class="health-sub">CSV自動取得</div></div>
   </div>
@@ -1524,28 +1398,30 @@ footer{
     <div class="t-row rev-grid"><span>RapidAPI — 20 APIs</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>稼働中</span></span></div>
     <div class="t-row rev-grid"><span>Apify Store — 5 Actors</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>稼働中</span></span></div>
     <div class="t-row rev-grid"><span>A8.net アフィリエイト</span><span class="mono t-right">¥0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>3サイト</span></span></div>
-    <div class="t-row rev-grid"><span>AccessTrade</span><span class="mono t-right">¥0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>2サイト</span></span></div>
+    <div class="t-row rev-grid"><span>AccessTrade</span><span class="mono t-right">¥0</span><span class="t-right"><span class="status-badge"><span class="status-dot green"></span>3サイト</span></span></div>
     <div class="t-row rev-grid"><span>Google AdSense</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>承認待ち</span></span></div>
-    <div class="t-row rev-grid"><span>Chrome拡張 — 4本</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>審査中</span></span></div>
+    <div class="t-row rev-grid"><span>Chrome拡張 — 10本</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>審査中</span></span></div>
     <div class="t-row rev-grid"><span>pSEO AIツール比較</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot orange"></span>デプロイ待ち</span></span></div>
     <div class="t-row rev-grid"><span>n8nテンプレート</span><span class="mono t-right">$0</span><span class="t-right"><span class="status-badge"><span class="status-dot red"></span>KYC停止</span></span></div>
     <div class="t-row t-total rev-grid"><span style="font-weight:700">全事業合計</span><span class="mono t-right" style="font-weight:700;font-size:0.88rem">$0</span><span></span></div>
   </div>
 
   <!-- ACTIONS -->
-  <div class="section-header anim" id="actions"><div class="icon" style="background:rgba(196,43,34,0.08)">🎯</div><h2>今日の優先アクション</h2><span class="badge">4/6 完了</span></div>
+  <div class="section-header anim" id="actions"><div class="icon" style="background:rgba(196,43,34,0.08)">🎯</div><h2>今日の優先アクション</h2><span class="badge">7/8 完了</span></div>
   <div class="action-list anim" id="action-list">
-    <div class="action-item done" data-action-id="apify-payout-setup"><span class="a-check">✅</span><span class="a-pri p1">P1</span><div class="a-text"><strong>ApifyPayPal支払設定</strong><span class="done-time">✓ 17:42</span><span class="done-time">✓ 17:42</span><span class="done-time">✓ 17:42</span><span class="done-time">✓ 17:42</span><span class="done-time">✓ 17:42</span><span class="a-reason">設定完了即日出金可能になりActorが収益化　⏱15分 → 月3,000〜15,000円の可能性</span></div></div>
-    <div class="action-item" data-action-id="rapidapi-publish-10"><span class="a-check">☐</span><span class="a-pri p1">P1</span><div class="a-text"><strong>未出品API10本を出品</strong><span class="a-reason">出品するだけで課金開始の即時収益化　⏱1時間 → 月5,000〜30,000円の可能性</span></div></div>
-    <div class="action-item done" data-action-id="otona-ga4-fix"><span class="a-check">✅</span><span class="a-pri p2">P2</span><div class="a-text"><strong>otona-matchGA4権限修正</strong><span class="done-time">✓ 17:48</span><span class="done-time">✓ 17:48</span><span class="done-time">✓ 17:48</span><span class="done-time">✓ 17:48</span><span class="a-reason">データ取得不可でPDCAが回せず改善不能　⏱15分 → 月10,000〜50,000円の可能性</span></div></div>
-    <div class="action-item done" data-action-id="sim-ga4-fix"><span class="a-check">✅</span><span class="a-pri p2">P2</span><div class="a-text"><strong>sim-hikakuGA4権限修正</strong><span class="done-time">✓ 17:48</span><span class="done-time">✓ 17:48</span><span class="done-time">✓ 17:48</span><span class="a-reason">62記事サイトのデータ計測基盤を即時回復　⏱15分 → 月5,000〜20,000円の可能性</span></div></div>
-    <div class="action-item" data-action-id="pseo-vercel-deploy"><span class="a-check">☐</span><span class="a-pri p3">P3</span><div class="a-text"><strong>pSEOサイトVercel公開</strong><span class="a-reason">4003ページが未公開で収益ゼロ、デプロイ即インデックス開始　⏱1時間 → 月20,000〜100,000円の可能性</span></div></div>
-    <div class="action-item done" data-action-id="nambei-ctr-improve"><span class="a-check">✅</span><span class="a-pri p3">P3</span><div class="a-text"><strong>南米ブログCTR改善</strong><span class="done-time">✓ 17:27</span><span class="done-time">✓ 17:27</span><span class="done-time">✓ 17:27</span><span class="done-time">✓ 17:27</span><span class="done-time">✓ 17:27</span><span class="done-time">✓ 17:27</span><span class="a-reason">表示7860回でクリック8件はCTR0.1%、タイトル修正で即PV増　⏱1時間 → 月3,000〜10,000円の可能性</span></div></div>
+    <div class="action-item" data-action-id="apify-paypal-setup"><span class="a-check">☐</span><span class="a-pri p1">P1</span><div class="a-text"><strong>ApifyペイアウトPayPal設定</strong><span class="a-reason">設定するだけで既存Actorの収益受取が可能になる　⏱15分 → 月$0→$50+の可能性</span></div></div>
+    <div class="action-item done" data-action-id="rapidapi-publish-remaining"><span class="a-check">✅</span><span class="a-pri p1">P1</span><div class="a-text"><strong>RapidAPI残り10本を出品</strong><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="a-reason">出品するだけで課金対象APIが2倍になる　⏱1時間 → 月$20〜$100の可能性</span></div></div>
+    <div class="action-item done" data-action-id="pseo-vercel-deploy"><span class="a-check">✅</span><span class="a-pri p1">P1</span><div class="a-text"><strong>pSEOサイトVercelデプロイ</strong><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="a-reason">デプロイ完了でページ量産→インデックス開始　⏱1時間 → 月¥10,000〜¥50,000の可能性</span></div></div>
+    <div class="action-item done" data-action-id="stripe-kyc-resolve"><span class="a-check">✅</span><span class="a-pri p1">P1</span><div class="a-text"><strong>Stripe KYC問題を解決</strong><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="done-time">✓ 14:06</span><span class="a-reason">10本のn8nテンプレート販売即再開可能　⏱1時間 → 月¥10,000〜¥30,000の可能性</span></div></div>
+    <div class="action-item done" data-action-id="gsc-index-fix"><span class="a-check">✅</span><span class="a-pri p1">P1</span><div class="a-text"><strong>3サイトGSC表示ゼロを調査</strong><span class="done-time">✓ 16:49</span><span class="done-time">✓ 16:49</span><span class="done-time">✓ 16:49</span><span class="a-reason">インデックス未登録なら改善できず収益化不可　⏱1時間 → 既存64記事の収益化ボトルネック解消</span></div></div>
+    <div class="action-item done" data-action-id="otona-match-afi-check"><span class="a-check">✅</span><span class="a-pri p2">P2</span><div class="a-text"><strong>マッチングナビASP提携確認</strong><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="done-time">✓ 14:08</span><span class="a-reason">64記事最大サイトでアフィリ設定漏れがあれば即損失　⏱15分 → 月¥5,000〜¥20,000の可能性</span></div></div>
+    <div class="action-item done" data-action-id="rapidapi-pricing-review"><span class="a-check">✅</span><span class="a-pri p2">P2</span><div class="a-text"><strong>RapidAPI料金プラン見直し</strong><span class="done-time">✓ 17:00</span><span class="a-reason">無料枠のみ設定だと売上$0が続く　⏱15分 → 月$10〜$50の可能性</span></div></div>
+    <div class="action-item done" data-action-id="x-post-start"><span class="a-check">✅</span><span class="a-pri p2">P2</span><div class="a-text"><strong>X投稿を今日から開始</strong><span class="done-time">✓ 14:09</span><span class="done-time">✓ 14:09</span><span class="done-time">✓ 14:09</span><span class="done-time">✓ 14:09</span><span class="done-time">✓ 14:09</span><span class="done-time">✓ 14:09</span><span class="a-reason">ツイート0では集客ゼロ確定。最速で流入経路を作る　⏱15分 → 全事業への集客底上げ</span></div></div>
   </div>
 
   <footer>
     <span>自動生成 — daily_business_report.py — v3.0</span>
-    <span>2026/03/16 18:00 PYT</span>
+    <span>2026/03/18 17:26 PYT</span>
   </footer>
 
 </main>
@@ -1561,7 +1437,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   const sr=document.getElementById('score-ring');
   const sv=document.getElementById('score-val');
   if(sr){
-    const score=71;// 71/100
+    const score=65;// 65/100
     const offset=339.3-(339.3*score/100);
     setTimeout(()=>{sr.style.strokeDashoffset=offset},500);
     // Animate number
@@ -1600,7 +1476,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 });
 
-function scrollTo(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
+function navScrollTo(sel){const el=document.querySelector(sel);if(el)el.scrollIntoView({behavior:'smooth',block:'start'})}
 </script>
 </body>
 </html>

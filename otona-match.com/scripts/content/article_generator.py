@@ -86,7 +86,8 @@ def generate_article(item, secrets, affiliate_links):
     aff_info = []
     for cat in affiliate_links.get("categories", {}).values():
         for link in cat.get("links", []):
-            aff_info.append(f"- {link['name']}: {link['url']} ({link['commission']})")
+            url = link.get('url') or '(HTMLタグ形式)'
+            aff_info.append(f"- {link['name']}: {url} ({link.get('commission', 'N/A')})")
     aff_text = "\n".join(aff_info) if aff_info else "アフィリエイトリンクは未設定"
 
     # 内部リンク情報

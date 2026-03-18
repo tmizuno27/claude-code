@@ -1,6 +1,6 @@
 {
-  "name": "doc-snapshot",
-  "displayName": "Doc Snapshot",
+  "name": "m27-doc-snapshot",
+  "displayName": "M27 Doc Snapshot",
   "description": "Take snapshots of any document and compare them later. Local version control without Git.",
   "version": "0.1.0",
   "publisher": "miccho27",

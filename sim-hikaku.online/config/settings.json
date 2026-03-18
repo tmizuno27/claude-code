@@ -23,6 +23,12 @@
     "site_url": "https://sim-hikaku.online",
     "credentials_file": "gsc-credentials.json"
   },
+  "claude_api": {
+    "api_key": "SEE secrets.json",
+    "model": "claude-sonnet-4-6",
+    "max_tokens": 8192,
+    "monthly_budget_usd": 5
+  },
   "discord": {
     "webhook_url": ""
   },

@@ -5,7 +5,7 @@
 export async function googleDaily(geo = 'US', limit = 25) {
   const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'TrendsAggregator/1.0' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAggregator/1.0; +https://apify.com/miccho27)' },
   });
   if (!res.ok) throw new Error(`Google Trends returned ${res.status}`);
   const xml = await res.text();
@@ -85,7 +85,7 @@ export async function hackerNewsTrending(limit = 25) {
 // ── Reddit Trending ──
 export async function redditTrending(limit = 25) {
   const res = await fetch(`https://www.reddit.com/r/popular.json?limit=${limit}`, {
-    headers: { 'User-Agent': 'TrendsAggregator/1.0' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAggregator/1.0; +https://apify.com/miccho27)' },
   });
   if (!res.ok) throw new Error(`Reddit returned ${res.status}`);
   const body = await res.json();

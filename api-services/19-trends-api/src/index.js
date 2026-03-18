@@ -57,7 +57,7 @@ async function googleDaily(geo = 'US') {
 
   const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'TrendsAPI/1.0' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAPI/1.0; +https://rapidapi.com)' },
   });
   if (!res.ok) throw new Error(`Google Trends returned ${res.status}`);
   const xml = await res.text();
@@ -135,7 +135,7 @@ async function redditTrending() {
   if (cached) return cached;
 
   const res = await fetch('https://www.reddit.com/r/popular.json?limit=25', {
-    headers: { 'User-Agent': 'TrendsAPI/1.0' },
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAPI/1.0; +https://rapidapi.com)' },
   });
   if (!res.ok) throw new Error(`Reddit returned ${res.status}`);
   const body = await res.json();

@@ -1,6 +1,6 @@
 {
-  "name": "i18n-helper",
-  "displayName": "i18n Helper",
+  "name": "m27-i18n-helper",
+  "displayName": "M27 i18n Helper",
   "description": "Autocomplete translation keys, detect missing translations, and manage i18n JSON files.",
   "version": "0.1.0",
   "publisher": "miccho27",

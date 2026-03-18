@@ -1,47 +1,61 @@
 {
-  "date": "2026-03-16",
+  "date": "2026-03-18",
   "actions": [
     {
-      "id": "apify-payout-setup",
-      "title": "ApifyPayPal支払設定",
-      "priority": "P1",
-      "done": true,
-      "done_at": "17:42"
-    },
-    {
-      "id": "rapidapi-publish-10",
-      "title": "未出品API10本を出品",
+      "id": "apify-paypal-setup",
+      "title": "ApifyペイアウトPayPal設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "otona-ga4-fix",
-      "title": "otona-matchGA4権限修正",
-      "priority": "P2",
+      "id": "rapidapi-publish-remaining",
+      "title": "RapidAPI残り10本を出品",
+      "priority": "P1",
       "done": true,
-      "done_at": "17:48"
-    },
-    {
-      "id": "sim-ga4-fix",
-      "title": "sim-hikakuGA4権限修正",
-      "priority": "P2",
-      "done": true,
-      "done_at": "17:48"
+      "done_at": "14:06"
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトVercel公開",
-      "priority": "P3",
-      "done": false,
-      "done_at": null
+      "title": "pSEOサイトVercelデプロイ",
+      "priority": "P1",
+      "done": true,
+      "done_at": "14:06"
     },
     {
-      "id": "nambei-ctr-improve",
-      "title": "南米ブログCTR改善",
-      "priority": "P3",
+      "id": "stripe-kyc-resolve",
+      "title": "Stripe KYC問題を解決",
+      "priority": "P1",
       "done": true,
-      "done_at": "17:27"
+      "done_at": "14:06"
+    },
+    {
+      "id": "gsc-index-fix",
+      "title": "3サイトGSC表示ゼロを調査",
+      "priority": "P1",
+      "done": true,
+      "done_at": "16:49"
+    },
+    {
+      "id": "otona-match-afi-check",
+      "title": "マッチングナビASP提携確認",
+      "priority": "P2",
+      "done": true,
+      "done_at": "14:08"
+    },
+    {
+      "id": "rapidapi-pricing-review",
+      "title": "RapidAPI料金プラン見直し",
+      "priority": "P2",
+      "done": true,
+      "done_at": "17:00"
+    },
+    {
+      "id": "x-post-start",
+      "title": "X投稿を今日から開始",
+      "priority": "P2",
+      "done": true,
+      "done_at": "14:09"
     }
   ]
 }

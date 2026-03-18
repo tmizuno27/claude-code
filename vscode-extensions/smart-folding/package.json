@@ -1,6 +1,6 @@
 {
-  "name": "smart-folding",
-  "displayName": "Smart Folding",
+  "name": "m27-smart-folding",
+  "displayName": "M27 Smart Folding",
   "description": "Custom folding regions with named markers, fold by type (imports, functions, classes, comments), and fold presets.",
   "version": "0.1.0",
   "publisher": "miccho27",

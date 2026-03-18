@@ -1,9 +1,9 @@
 {
-  "name": "console-cleaner",
-  "displayName": "Console Cleaner",
+  "name": "m27-console-cleaner-tool",
+  "displayName": "M27 Debug Log Cleaner",
   "description": "Find, remove, or comment out all console.log, console.error, console.warn, debugger, and print() statements across your workspace.",
   "version": "1.0.0",
-  "publisher": "miccho27",
+  "publisher": "miccho27-dev",
   "license": "MIT",
   "icon": "images/icon.png",
   "repository": {

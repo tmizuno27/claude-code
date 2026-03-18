@@ -14,6 +14,37 @@
           "asp": "A8.net",
           "epc": 5.05,
           "context": "再婚・バツイチ向け。40代以上の記事で使用"
+        },
+        {
+          "name": "concoi（こんこい）",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100pvup00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pvup00opif",
+          "anchor_text": ["concoi", "こんこい"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ比較記事で使用",
+          "note": "アクセストレード提携済（2026-03-17）"
+        },
+        {
+          "name": "バチェラーデート",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["バチェラーデート"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ比較記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）iOS/Android両方"
+        },
+        {
+          "name": "ヒトオシ",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["ヒトオシ"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ紹介サービス",
+          "note": "アクセストレード申請中（2026-03-17）"
         }
       ]
     },
@@ -52,9 +83,94 @@
       ]
     },
     "konkatsu_service": {
-      "description": "結婚相談所系（超高単価）",
+      "description": "結婚相談所・婚活系（超高単価）",
       "priority": 3,
       "links": [
+        {
+          "name": "naco-do",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100o94500opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100o94500opif",
+          "url_moshimo": "//af.moshimo.com/af/c/click?a_id=5432435&p_id=2896&pc_id=6646&pl_id=36905",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432435&p_id=2896&pc_id=6646&pl_id=36905",
+          "anchor_text": ["naco-do", "ナコード"],
+          "commission": "3,250円/件",
+          "asp": "アクセストレード",
+          "context": "オンライン結婚相談所比較・婚活記事で使用",
+          "note": "アクセストレード・もしも両方提携済（2026-03-17）"
+        },
+        {
+          "name": "ウェルスマ",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432440&p_id=3750&pc_id=9201&pl_id=52304",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432440&p_id=3750&pc_id=9201&pl_id=52304",
+          "anchor_text": ["ウェルスマ"],
+          "commission": "16,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "結婚相談所比較・婚活記事で使用"
+        },
+        {
+          "name": "サブスク婚活",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432442&p_id=3509&pc_id=8461&pl_id=49639",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432442&p_id=3509&pc_id=8461&pl_id=49639",
+          "anchor_text": ["サブスク婚活"],
+          "commission": "28,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "IBJ加盟の低価格結婚相談所。婚活記事で使用"
+        },
+        {
+          "name": "ラポールアンカー（フィーリングテスト）",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432441&p_id=3935&pc_id=9803&pl_id=54500",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432441&p_id=3935&pc_id=9803&pl_id=54500",
+          "anchor_text": ["結婚フィーリングテスト", "ラポールアンカー"],
+          "commission": "1,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "婚活診断・フィーリングテスト記事で使用"
+        },
+        {
+          "name": "ラポールアンカー結婚相談所",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432446&p_id=3117&pc_id=7208&pl_id=40962",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432446&p_id=3117&pc_id=7208&pl_id=40962",
+          "anchor_text": ["ラポールアンカー"],
+          "commission": "12,111円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "結婚相談所比較・婚活記事で使用"
+        },
+        {
+          "name": "カラーズ（友情結婚）",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432448&p_id=1392&pc_id=2379&pl_id=20818",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432448&p_id=1392&pc_id=2379&pl_id=20818",
+          "anchor_text": ["カラーズ", "友情結婚相談所カラーズ"],
+          "commission": "2,160円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "友情結婚・共生婚。特殊な婚活ニーズ記事で使用"
+        },
+        {
+          "name": "パートナーエージェント OTOCON",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100dq7e00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100dq7e00opif",
+          "anchor_text": ["パートナーエージェント", "OTOCON"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "結婚相談所比較・婚活パーティー記事で使用",
+          "note": "アクセストレード提携済（2026-03-17）"
+        },
+        {
+          "name": "エンジェル",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=01001o9t00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=01001o9t00opif",
+          "anchor_text": ["エンジェル"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "婚活・結婚相談所記事で使用",
+          "note": "アクセストレード提携済（2026-03-17）"
+        },
         {
           "name": "パートナーエージェント",
           "status": "pending_approval",
@@ -74,6 +190,292 @@
           "asp": "A8.net",
           "epc": 9.91,
           "context": "婚活サイト・オンライン結婚相談所記事で使用"
+        },
+        {
+          "name": "IBJメンバーズ",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["IBJメンバーズ"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "結婚相談所比較記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "誠心（SEISHIN）",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["誠心", "SEISHIN"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "結婚相談所比較記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "エン婚活エージェント",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["エン婚活エージェント"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "オンライン結婚相談所比較記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "サンマリエ",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["サンマリエ"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "結婚相談所比較記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "婚活・結婚おうえんネット",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["婚活・結婚おうえんネット"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "婚活記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "1on1 for Singles",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["1on1 for Singles"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "婚活記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "キッカケエージェント",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["キッカケエージェント"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "婚活記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        },
+        {
+          "name": "パートナーエージェントEQ診断テスト",
+          "status": "pending_approval",
+          "url": null,
+          "anchor_text": ["EQ診断テスト"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "婚活記事で使用",
+          "note": "アクセストレード申請中（2026-03-17）"
+        }
+      ]
+    },
+    "fashion": {
+      "description": "メンズファッション系（デート準備向け）",
+      "priority": 4,
+      "links": [
+        {
+          "name": "UWear（ユーウェア）",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432449&p_id=1063&pc_id=1536&pl_id=15844",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432449&p_id=1063&pc_id=1536&pl_id=15844",
+          "anchor_text": ["UWear", "ユーウェア"],
+          "commission": "5,000円/件",
+          "asp": "もしもアフィリエイト",
+          "context": "メンズファッションレンタル。デート服・プロフィール写真撮影準備記事で使用"
+        }
+      ]
+    },
+    "valuecommerce": {
+      "description": "バリューコマース提携プログラム（デート・婚活周辺）",
+      "priority": 5,
+      "links": [
+        {
+          "name": "ハナユメ（式場予約）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567969,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567969",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567969",
+          "anchor_text": ["ハナユメ", "Hanayume"],
+          "commission": "¥11,000/件",
+          "context": "婚活記事の結婚式場探し導線。★最高単価"
+        },
+        {
+          "name": "一休レストラン（TOP）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567960,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567960",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567960",
+          "anchor_text": ["一休レストラン"],
+          "commission": "予約の数%",
+          "context": "デート記事全般"
+        },
+        {
+          "name": "一休レストラン（夜景）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567961,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567961",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567961",
+          "anchor_text": ["一休レストラン 夜景"],
+          "commission": "予約の数%",
+          "context": "夜景デート記事"
+        },
+        {
+          "name": "一休レストラン（個室）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567962,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567962",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567962",
+          "anchor_text": ["一休レストラン 個室"],
+          "commission": "予約の数%",
+          "context": "個室デート記事"
+        },
+        {
+          "name": "ホットペッパーグルメ",
+          "status": "pending_approval",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567958,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567958",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567958",
+          "anchor_text": ["ホットペッパーグルメ"],
+          "commission": "予約の数%",
+          "context": "デート記事全般"
+        },
+        {
+          "name": "ヒトサラ",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567963,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567963",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567963",
+          "anchor_text": ["ヒトサラ"],
+          "commission": "予約の数%",
+          "context": "デート記事全般"
+        },
+        {
+          "name": "OZmall レストランTOP",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567971,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567971",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567971",
+          "anchor_text": ["OZmall", "オズモール"],
+          "commission": "¥315/件",
+          "context": "デート記事全般"
+        },
+        {
+          "name": "OZmall プロポーズディナー",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567972,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567972",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567972",
+          "anchor_text": ["プロポーズディナー"],
+          "commission": "¥315/件",
+          "context": "婚活・告白記事"
+        },
+        {
+          "name": "LARA Christie（ジュエリー）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567966,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567966",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567966",
+          "anchor_text": ["LARA Christie", "ララクリスティー"],
+          "commission": "購入額の10%",
+          "context": "プレゼント・記念日記事"
+        },
+        {
+          "name": "日比谷花壇",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567974,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567974",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567974",
+          "anchor_text": ["日比谷花壇"],
+          "commission": "購入額の数%",
+          "context": "記念日・告白記事"
+        },
+        {
+          "name": "青山フラワーマーケット",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567976,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567976",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567976",
+          "anchor_text": ["青山フラワーマーケット"],
+          "commission": "購入額の数%",
+          "context": "デート・プレゼント記事"
+        },
+        {
+          "name": "Cake.jp",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567975,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567975",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567975",
+          "anchor_text": ["Cake.jp"],
+          "commission": "購入額の数%",
+          "context": "記念日・サプライズ記事"
+        },
+        {
+          "name": "BookLive（電子書籍）",
+          "status": "pending_approval",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567959,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567959",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567959",
+          "anchor_text": ["BookLive", "ブックライブ"],
+          "commission": "購入額の10%",
+          "context": "恋愛テクニック・恋愛本記事"
+        },
+        {
+          "name": "Renta!（電子書籍）",
+          "status": "active",
+          "asp": "バリューコマース",
+          "sid": 3765527,
+          "pid": 892567965,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567965",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567965",
+          "anchor_text": ["Renta!", "レンタ"],
+          "commission": "購入額の数%",
+          "context": "恋愛テクニック・恋愛漫画記事"
+        }
+      ]
+    },
+    "shopping": {
+      "description": "ショッピング系（楽天市場：購入額の2%）",
+      "priority": 9,
+      "links": [
+        {
+          "name": "楽天市場",
+          "status": "active",
+          "url": "//af.moshimo.com/af/c/click?a_id=5432433&p_id=54&pc_id=54&pl_id=621",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432433&p_id=54&pc_id=54&pl_id=621",
+          "anchor_text": ["楽天市場"],
+          "commission": "購入額の2%",
+          "asp": "もしもアフィリエイト",
+          "context": "デート準備グッズ購入等の文脈で"
         }
       ]
     }
