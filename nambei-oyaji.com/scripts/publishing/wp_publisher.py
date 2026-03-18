@@ -487,6 +487,23 @@ def main():
         except Exception as e:
             logger.error(f"予期しないエラー: {e}")
 
+    # 投稿成功した記事にアフィリエイトリンクを自動挿入
+    if success_count > 0:
+        affiliate_script = Path(__file__).parent / "insert_affiliate_all.py"
+        if affiliate_script.exists():
+            try:
+                import subprocess
+                result_aff = subprocess.run(
+                    [sys.executable, str(affiliate_script), "--apply"],
+                    capture_output=True, text=True, timeout=120
+                )
+                if result_aff.returncode == 0:
+                    logger.info("アフィリエイトリンク自動挿入完了")
+                else:
+                    logger.warning(f"アフィリエイトリンク挿入失敗: {result_aff.stderr[:200]}")
+            except Exception as e:
+                logger.warning(f"アフィリエイトリンク挿入エラー: {e}")
+
     # 履歴を保存
     save_wp_log(wp_log)
 
