@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AI Text Rewriter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Select text and rewrite it with AI. Casual, Professional, Shorter, Longer, or Fix Grammar.",
   "permissions": ["activeTab", "storage", "contextMenus"],
   "action": {
