@@ -2,7 +2,7 @@
 import os
 from pathlib import Path
 
-BASE_URL = "https://ai-tool-compare.vercel.app"
+BASE_URL = "https://out-indol-theta.vercel.app"
 OUT_DIR = Path(r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\pseo-saas\site\out")
 TODAY = "2026-03-19"
 
