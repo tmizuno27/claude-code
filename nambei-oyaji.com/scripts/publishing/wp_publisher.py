@@ -149,8 +149,34 @@ def strip_h1_from_html(html):
     return re.sub(r'<h1[^>]*>.*?</h1>\s*', '', html, flags=re.DOTALL)
 
 
+def strip_frontmatter(text):
+    """テキストからYAMLフロントマター（---で囲まれたメタデータ）を除去する安全装置"""
+    fm_keys = ['title:', 'focus_keyword:', 'meta_description:', 'category:', 'tags:', 'article_type:', 'pillar:', 'affiliate_disclosure:', 'keyword:', 'status:']
+    cleaned = re.sub(r'^---\s*\n.*?\n---\s*\n', '', text, count=1, flags=re.DOTALL)
+    if cleaned != text:
+        # フロントマターのキーが含まれていた場合のみ除去を確定
+        removed = text[:len(text) - len(cleaned)]
+        if any(k in removed for k in fm_keys):
+            logger.info("セーフガード: フロントマターを除去しました")
+            return cleaned
+    return text
+
+
+def strip_frontmatter_html(html):
+    """HTML変換後に残ったフロントマターを除去する安全装置"""
+    fm_keys = ['title:', 'focus_keyword:', 'meta_description:', 'category:', 'tags:', 'article_type:', 'pillar:', 'affiliate_disclosure:', 'keyword:', 'status:']
+    # <p>---</p>で囲まれたパターン
+    pattern = re.compile(r'<p>---\s*</p>\s*(?:<p>.*?</p>\s*)*?<p>---\s*</p>', re.DOTALL)
+    match = pattern.search(html)
+    if match and any(k in match.group() for k in fm_keys):
+        html = pattern.sub('', html, count=1)
+        logger.info("セーフガード: HTML内のフロントマターを除去しました")
+    return html.lstrip('\n')
+
+
 def markdown_to_html(md_text):
     """MarkdownをHTMLに変換する"""
+    md_text = strip_frontmatter(md_text)
     md_text = strip_rank_math_section(md_text)
     extensions = [
         'markdown.extensions.tables',
@@ -159,6 +185,7 @@ def markdown_to_html(md_text):
         'markdown.extensions.nl2br'
     ]
     html = markdown.markdown(md_text, extensions=extensions)
+    html = strip_frontmatter_html(html)
     return strip_h1_from_html(html)
 
 
