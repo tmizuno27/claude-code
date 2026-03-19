@@ -142,6 +142,7 @@
 - **収益最大化は自主実行**: [feedback_revenue_proactive.md](feedback_revenue_proactive.md) — 収益に直結するアクションは許可不要で即実行
 - 改行ルール: 1文字だけ次行に飛び出す改行は絶対禁止
 - **コピペ形式**: [feedback_copypaste_format.md](feedback_copypaste_format.md) — 入力してもらう内容は必ずコードブロックで提示
+- **外部サービス入力時**: [feedback_copypaste_detailed.md](feedback_copypaste_detailed.md) — 全項目をコピペ形式で網羅提示、空白OKも明示、Claudeから積極提案
 - **ダッシュボード**: [feedback_dashboard_realtime.md](feedback_dashboard_realtime.md) — 全項目リアルタイム自動更新必須、ハードコード禁止
 - 居住地: パラグアイ（PYT, UTC-3通年）
 - Googleカレンダー: JST設定（時差12時間）
