@@ -393,13 +393,14 @@
           "name": "LARA Christie（ジュエリー）",
           "status": "active",
           "asp": "バリューコマース",
-          "sid": 3765527,
-          "pid": 892567966,
-          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765527&pid=892567966",
-          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765527&pid=892567966",
-          "anchor_text": ["LARA Christie", "ララクリスティー"],
+          "sid": 3765528,
+          "pid": 892568336,
+          "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892568336",
+          "tracking_img": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892568336",
+          "anchor_text": ["LARA Christie", "ララクリスティー", "ペアアクセサリー"],
           "commission": "購入額の10%",
-          "context": "プレゼント・記念日記事"
+          "context": "プレゼント・記念日・告白・交際記念・ペアアクセサリー記事",
+          "note": "A8.net南米おやじアカウント（sid=3765528）で承認済み（2026-03-19）"
         },
         {
           "name": "日比谷花壇",
