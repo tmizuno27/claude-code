@@ -286,12 +286,13 @@
       "type": "集客",
       "main_keyword": "マッチングアプリ 男性 料金",
       "scheduled_date": "2026-03-26",
-      "status": "pending",
+      "status": "processed",
       "internal_links": [
         "matching-app-price-comparison",
         "matching-app-saiyasune",
         "matching-app-ranking-2026"
-      ]
+      ],
+      "processed_date": "2026-03-19"
     },
     {
       "slug": "konkatsu-dansei-motenai",
