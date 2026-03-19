@@ -1,16 +1,17 @@
 {
   "name": "Link Preview - Website Metadata API",
   "description": "Extract rich metadata from any URL. Returns Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more. Fast response with 1-hour caching. Perfect for building link previews, social cards, and SEO tools.",
-  "category": "Data",
+  "category": "Social",
   "tags": [
     "link-preview",
     "metadata",
     "open-graph",
     "twitter-card",
-    "seo",
-    "favicon",
-    "rss",
-    "web-scraping"
+    "free-api",
+    "rest-api",
+    "unfurl",
+    "url-metadata",
+    "social-media"
   ],
   "pricing": [
     {
@@ -64,5 +65,5 @@
       }
     }
   ],
-  "long_description": "Extract rich metadata from any URL. Returns Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more. Fast response with 1-hour caching. Perfect for building link previews, social cards, and SEO tools.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "long_description": "## Overview\n\nExtract rich metadata from any URL including Open Graph tags, Twitter Cards, favicons, RSS feeds, and author info. Fast responses with 1-hour caching. Perfect for building link previews, social sharing cards, and SEO tools.\n\n## Key Features\n\n- ✅ Open Graph and Twitter Card metadata extraction\n- ✅ Favicon, RSS feed, and author detection\n- ✅ Bulk preview for up to 10 URLs in a single request\n- ✅ 1-hour smart caching for fast repeat requests\n- ✅ CORS enabled for direct browser usage\n\n## Use Cases\n\n- **Chat Applications**: Generate rich link previews like Slack and Discord\n- **Social Media Tools**: Preview how URLs will appear when shared\n- **SEO Auditing**: Check Open Graph and meta tag implementation\n- **Content Aggregators**: Extract titles, descriptions, and images from links\n- **CMS Integrations**: Auto-populate link cards in blog posts and pages\n\n## Quick Start\n\n```\nGET /preview?url=https://github.com\n```\n\nReturns JSON with `title`, `description`, `image`, `favicon`, `og_tags`, `twitter_card`, and more.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all metadata extraction. No credit card required."
 }

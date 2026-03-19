@@ -2,15 +2,19 @@
   "name": "Social Video Downloader API",
   "slug": "social-video-downloader-api",
   "description": "Extract video download URLs from TikTok, Twitter/X, Instagram, YouTube, and Facebook by parsing public HTML pages. Fast and reliable.",
-  "long_description": "A lightweight Social Video Downloader API built on Cloudflare Workers. Extract direct video download URLs and metadata from major social media platforms including TikTok, Twitter/X, Instagram, YouTube, and Facebook. Simply pass a video URL and get back the direct download link. Also supports metadata-only mode to get video info without the download URL. No browser automation or headless browsers required — pure HTML parsing for maximum speed.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
+  "long_description": "## Overview\n\nExtract video download URLs and metadata from TikTok, Twitter/X, Instagram, YouTube, and Facebook. Lightweight API built on Cloudflare Workers using pure HTML parsing — no browser automation or headless browsers required for maximum speed.\n\n## Key Features\n\n- ✅ Support for 5 major platforms: TikTok, Twitter/X, Instagram, YouTube, Facebook\n- ✅ Direct video download URL extraction\n- ✅ Metadata-only mode for video info without download\n- ✅ Platform auto-detection from URL pattern\n- ✅ Ultra-fast HTML parsing (no headless browser overhead)\n\n## Use Cases\n\n- **Content Archiving**: Save social media videos for backup and compliance\n- **Video Aggregators**: Build multi-platform video feeds and playlists\n- **Social Media Tools**: Provide download functionality in social management apps\n- **Research**: Collect video metadata for social media analytics\n- **Mobile Apps**: Enable video saving and offline viewing features\n\n## Quick Start\n\n```\nGET /download?url=https://www.tiktok.com/@user/video/123456789\n```\n\nReturns JSON with `download_url`, `title`, `author`, `thumbnail`, and platform info.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier supports all 5 platforms. No credit card required.",
   "category": "Video_Images",
   "tags": [
     "video-downloader",
     "social-media",
     "tiktok",
     "youtube",
+    "free-api",
+    "rest-api",
     "instagram",
-    "twitter"
+    "twitter",
+    "video-extraction",
+    "media-download"
   ],
   "website": "https://social-video-api.your-domain.workers.dev",
   "pricing": {

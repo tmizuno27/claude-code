@@ -9,8 +9,11 @@
     "verification",
     "email-checker",
     "disposable-email",
-    "mx-lookup",
-    "spam-prevention"
+    "free-api",
+    "rest-api",
+    "email-hygiene",
+    "bounce-detection",
+    "saas-tools"
   ],
   "pricing": [
     {
@@ -74,5 +77,5 @@
       }
     }
   ],
-  "long_description": "Production-ready email validation API that checks format (RFC 5322), MX records, disposable domains (500+), free providers, role-based addresses, and suggests typo corrections. All checks performed without sending any emails. Powered by Cloudflare Workers for ultra-low latency worldwide.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "long_description": "## Overview\n\nProduction-ready Email Validation API that checks format (RFC 5322), MX records, disposable domains (500+), free providers, and role-based addresses — all without sending any emails. Powered by Cloudflare Workers for ultra-low latency worldwide.\n\n## Key Features\n\n- ✅ RFC 5322 format validation with detailed error messages\n- ✅ MX record verification for deliverability checking\n- ✅ Disposable/temporary email detection (500+ domains)\n- ✅ Typo correction suggestions (e.g., gmial.com → gmail.com)\n- ✅ Bulk validation of up to 50 emails per request (Pro+)\n\n## Use Cases\n\n- **SaaS Signups**: Block disposable emails and validate format at registration\n- **Email Marketing**: Clean your mailing list before sending campaigns\n- **E-commerce**: Reduce failed order confirmation emails\n- **Lead Generation**: Ensure collected emails are valid and deliverable\n- **CRM Data Quality**: Periodic list hygiene and deduplication\n\n## Quick Start\n\n```\nGET /validate?email=user@example.com\n```\n\nReturns JSON with `is_valid`, `is_disposable`, `has_mx`, `suggestion`, and more.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all validation checks. No credit card required."
 }

@@ -2,15 +2,19 @@
   "name": "Crypto Data API",
   "slug": "crypto-data-api",
   "description": "Real-time cryptocurrency prices, market data, trending coins, historical data, and exchange info. Powered by CoinCap API with built-in caching.",
-  "long_description": "A comprehensive Cryptocurrency Data API built on Cloudflare Workers with intelligent caching. Get real-time prices for multiple coins, detailed coin information, search by name or symbol, trending coins, paginated market listings, historical prices on specific dates, top exchanges, and global crypto market statistics. Data sourced from CoinCap API v2 (free, no auth required). Built-in response caching for optimal performance.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
+  "long_description": "## Overview\n\nComprehensive cryptocurrency data API providing real-time prices, market data, trending coins, historical prices, exchange info, and global market statistics. Data sourced from CoinCap API with intelligent caching for optimal performance. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Real-time prices for multiple coins with currency conversion\n- ✅ Detailed coin information (market cap, volume, supply, rank)\n- ✅ Historical price lookup on any specific date\n- ✅ Trending coins, market listings, and exchange rankings\n- ✅ Global crypto market cap and volume statistics\n\n## Use Cases\n\n- **Crypto Dashboards**: Display real-time prices and portfolio values\n- **Trading Bots**: Feed price data into algorithmic trading strategies\n- **Portfolio Trackers**: Calculate holdings value with historical data\n- **News & Media**: Show trending coins alongside market data\n- **Financial Apps**: Integrate crypto prices into multi-asset platforms\n\n## Quick Start\n\n```\nGET /price?ids=bitcoin,ethereum&vs=usd\n```\n\nReturns current prices, 24h change, market cap, and volume for each coin.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes price lookup, search, and global stats. No credit card required.",
   "category": "Finance",
   "tags": [
     "cryptocurrency",
     "bitcoin",
     "ethereum",
     "crypto-prices",
-    "market-data",
-    "blockchain"
+    "free-api",
+    "rest-api",
+    "defi",
+    "crypto-api",
+    "coin-prices",
+    "market-data"
   ],
   "website": "https://crypto-data-api.your-domain.workers.dev",
   "pricing": {

@@ -2,15 +2,19 @@
   "name": "AI Translate API",
   "slug": "ai-translate-api",
   "description": "AI-powered translation supporting 40+ languages, language detection, and batch translation. Built on Cloudflare Workers AI with M2M100 model.",
-  "long_description": "A fast AI Translation API powered by Cloudflare Workers AI using Meta's M2M100-1.2B model. Supports 40+ languages including English, Spanish, French, German, Japanese, Chinese, Korean, Arabic, Hindi, and many more. Features include single text translation, automatic language detection (via Llama 3.1), and batch translation of up to 10 texts in a single request. Ultra-low latency via Cloudflare's global edge network. Perfect for multilingual apps, content localization, and automation workflows.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
+  "long_description": "## Overview\n\nAI-powered translation API supporting 40+ languages with automatic language detection and batch translation. Built on Cloudflare Workers AI using Meta's M2M100-1.2B model. A fast, free alternative to DeepL and Google Translate APIs.\n\n## Key Features\n\n- ✅ 40+ languages including EN, ES, FR, DE, JA, ZH, KO, AR, HI\n- ✅ Automatic language detection powered by Llama 3.1\n- ✅ Batch translation of up to 10 texts per request\n- ✅ ISO 639-1 language codes for easy integration\n- ✅ Ultra-low latency via Cloudflare's global edge network\n\n## Use Cases\n\n- **App Localization**: Translate UI strings and content for multilingual apps\n- **Customer Support**: Auto-translate incoming tickets and replies\n- **E-commerce**: Translate product listings for international markets\n- **Content Marketing**: Localize blog posts and marketing copy\n- **Chat Applications**: Real-time message translation in multilingual groups\n\n## Quick Start\n\n```\nPOST /translate\nContent-Type: application/json\n\n{\"text\": \"Hello, how are you?\", \"source_lang\": \"en\", \"target_lang\": \"es\"}\n```\n\nReturns `{\"translated_text\": \"Hola, ¿cómo estás?\", \"source_lang\": \"en\", \"target_lang\": \"es\"}`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier supports all 40+ languages. No credit card required.",
   "category": "Translation",
   "tags": [
     "translation",
     "ai",
     "multilingual",
     "language-detection",
-    "m2m100",
-    "localization"
+    "free-api",
+    "rest-api",
+    "deepl-alternative",
+    "free-translation",
+    "localization",
+    "m2m100"
   ],
   "website": "https://ai-translate-api.your-domain.workers.dev",
   "pricing": {

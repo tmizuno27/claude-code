@@ -7,11 +7,11 @@
     "formatter",
     "validator",
     "csv",
-    "diff",
-    "transform",
-    "minify",
-    "prettify",
-    "developer-tools"
+    "free-api",
+    "rest-api",
+    "developer-tools",
+    "data-conversion",
+    "json-diff"
   ],
   "base_url": "https://json-formatter-api.t-mizuno27.workers.dev",
   "pricing": [
@@ -83,5 +83,5 @@
       "description": "Convert JSON array of objects to CSV string"
     }
   ],
-  "long_description": "A comprehensive JSON processing API built on Cloudflare Workers for ultra-low latency worldwide.\n\n**Key Features:**\n- **Format & Minify**: Prettify JSON with custom indentation or compress to minimal size\n- **Validate**: Check JSON syntax with detailed error messages including position, plus stats (key count, nesting depth, byte size)\n- **Diff**: Deep recursive comparison of two JSON structures, reporting added/removed/changed keys with full dot-notation paths\n- **Transform**: JMESPath-like query language to extract nested data — supports wildcards, array indexing, and filters\n- **CSV Conversion**: Bidirectional CSV-JSON conversion with auto-type detection (numbers, booleans, nulls) and proper quote escaping\n\n**Use Cases:**\n- CI/CD pipelines needing JSON validation\n- Data migration between CSV and JSON formats\n- API response comparison and regression testing\n- Configuration file processing and transformation\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "long_description": "## Overview\n\nAll-in-one JSON toolkit: format, minify, validate, diff, transform (JMESPath-like queries), and convert between CSV and JSON. Zero dependencies, built on Cloudflare Workers for blazing-fast responses worldwide.\n\n## Key Features\n\n- ✅ Format/prettify and minify JSON with configurable indentation\n- ✅ Validate JSON syntax with detailed error messages and structure stats\n- ✅ Deep diff comparison of two JSON objects with dot-notation paths\n- ✅ JMESPath-like query/transform for extracting nested data\n- ✅ Bidirectional CSV-JSON conversion with auto-type detection\n\n## Use Cases\n\n- **CI/CD Pipelines**: Validate JSON config files before deployment\n- **Data Migration**: Convert between CSV and JSON formats effortlessly\n- **API Testing**: Compare API responses for regression detection\n- **Development**: Format and inspect JSON payloads during debugging\n- **ETL Workflows**: Transform and extract data from complex JSON structures\n\n## Quick Start\n\n```\nPOST /validate\nContent-Type: application/json\n\n{\"json\": \"{\\\"name\\\": \\\"test\\\", \\\"value\\\": 123}\"}\n```\n\nReturns `valid: true` with stats including key count, nesting depth, and byte size.\n\n## Pricing\n\n| Plan | Price | Requests/day | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $5 | 10,000 | 10/sec |\n| Ultra | $15 | 100,000 | 50/sec |\n\nFree tier includes all 7 endpoints. No credit card required."
 }

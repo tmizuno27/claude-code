@@ -7,7 +7,11 @@
     "exchange-rate",
     "forex",
     "conversion",
-    "ECB",
+    "free-api",
+    "rest-api",
+    "fx-rates",
+    "currency-converter",
+    "ecb",
     "finance"
   ],
   "website": "https://currency-exchange-api.t-mizuno27.workers.dev",
@@ -111,6 +115,6 @@
       ]
     }
   ],
-  "longDescription": "## Currency Exchange Rate API\n\nAccess real-time and historical currency exchange rates from the European Central Bank (ECB).\n\n### Features\n- **30+ currencies** including USD, EUR, GBP, JPY, CNY, BRL, and more\n- **Real-time rates** updated daily by the ECB\n- **Historical data** back to January 1999\n- **Currency conversion** with precise calculations\n- **Fast responses** with 1-hour server-side caching\n\n### Use Cases\n- E-commerce price conversion\n- Financial dashboards\n- Travel apps\n- Accounting software\n- Portfolio tracking\n\n### Data Source\nAll rates are sourced from the European Central Bank via the Frankfurter API, ensuring reliable and accurate data.",
-  "long_description": "Real-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "longDescription": "## Overview\n\nReal-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n## Key Features\n\n- ✅ 30+ currencies including USD, EUR, GBP, JPY, CNY, BRL\n- ✅ Real-time rates updated daily by the ECB\n- ✅ Historical exchange rates back to January 1999\n- ✅ Direct currency conversion with precise calculations\n- ✅ List all supported currencies with full names\n\n## Use Cases\n\n- **E-commerce**: Display prices in local currencies for international shoppers\n- **Financial Dashboards**: Show real-time FX rates and historical trends\n- **Travel Apps**: Currency conversion tools for travelers\n- **Accounting Software**: Multi-currency invoice and expense tracking\n- **Portfolio Management**: Track international investment values\n\n## Quick Start\n\n```\nGET /convert?from=USD&to=EUR&amount=100\n```\n\nReturns the converted amount, exchange rate, and timestamp.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 10,000 | 10/sec |\n| Ultra | $14.99 | 100,000 | 50/sec |\n\nFree tier includes all endpoints. No credit card required.",
+  "long_description": "## Overview\n\nReal-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n## Key Features\n\n- ✅ 30+ currencies including USD, EUR, GBP, JPY, CNY, BRL\n- ✅ Real-time rates updated daily by the ECB\n- ✅ Historical exchange rates back to January 1999\n- ✅ Direct currency conversion with precise calculations\n- ✅ List all supported currencies with full names\n\n## Use Cases\n\n- **E-commerce**: Display prices in local currencies for international shoppers\n- **Financial Dashboards**: Show real-time FX rates and historical trends\n- **Travel Apps**: Currency conversion tools for travelers\n- **Accounting Software**: Multi-currency invoice and expense tracking\n- **Portfolio Management**: Track international investment values\n\n## Quick Start\n\n```\nGET /convert?from=USD&to=EUR&amount=100\n```\n\nReturns the converted amount, exchange rate, and timestamp.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 10,000 | 10/sec |\n| Ultra | $14.99 | 100,000 | 50/sec |\n\nFree tier includes all endpoints. No credit card required."
 }

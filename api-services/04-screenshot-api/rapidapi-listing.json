@@ -8,8 +8,11 @@
     "webpage",
     "capture",
     "thumbnail",
-    "website",
-    "image"
+    "free-api",
+    "rest-api",
+    "web-capture",
+    "page-screenshot",
+    "website"
   ],
   "pricing": {
     "plans": [
@@ -101,5 +104,5 @@
       "description": "Check API status"
     }
   ],
-  "long_description": "A fast, reliable API for capturing website screenshots. Supports custom viewport sizes, full-page capture, JPEG/PNG formats, and configurable delays for JS-heavy sites. Results are cached for fast repeat requests.\n\nFeatures:\n- Capture any public URL as PNG or JPEG\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable delay for dynamic content\n- JPEG quality control\n- 1-hour result caching\n- CORS enabled for browser use\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "long_description": "## Overview\n\nFast and reliable Website Screenshot API for capturing any public webpage as PNG or JPEG. Supports custom viewport sizes, full-page capture, configurable delays for JavaScript-heavy sites, and result caching. Powered by Cloudflare Workers.\n\n## Key Features\n\n- ✅ Capture any public URL as PNG or JPEG with quality control\n- ✅ Custom viewport width and height for responsive testing\n- ✅ Full-page screenshot support for long pages\n- ✅ Configurable delay (up to 5000ms) for dynamic content\n- ✅ 1-hour result caching and CORS enabled for browser use\n\n## Use Cases\n\n- **Website Monitoring**: Capture periodic screenshots for visual regression testing\n- **Thumbnail Generation**: Create preview images for link directories and portfolios\n- **SEO Tools**: Visual audits and competitor page snapshots\n- **Archiving**: Save webpage snapshots for compliance and record-keeping\n- **Social Sharing**: Generate custom Open Graph images from live pages\n\n## Quick Start\n\n```\nGET /screenshot?url=https://example.com&width=1280&format=png\n```\n\nReturns the screenshot image directly. Add `&full_page=true` for full scrollable page capture.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $5 | 5,000 | 10/sec |\n| Ultra | $15 | 25,000 | 50/sec |\n\nFree tier includes all formats and viewport options. No credit card required."
 }

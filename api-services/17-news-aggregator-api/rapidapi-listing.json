@@ -2,15 +2,19 @@
   "name": "News Aggregator API",
   "slug": "news-aggregator-api",
   "description": "Aggregated news from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Top stories, tech news, business news, and search.",
-  "long_description": "A free News Aggregator API built on Cloudflare Workers that pulls content from multiple public sources. Get top news from BBC, NYT, and Reuters; tech news from TechCrunch RSS, Hacker News, and Dev.to; business news from Reuters and Bloomberg; search Hacker News stories; and browse trending Dev.to articles. Built-in response caching (5 minutes) for fast responses. No upstream API keys required — all data comes from free RSS feeds and public APIs.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
+  "long_description": "## Overview\n\nFree News Aggregator API pulling content from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Get top stories, tech news, business news, and search articles — all from one unified endpoint. No upstream API keys required. Built on Cloudflare Workers with 5-minute caching.\n\n## Key Features\n\n- ✅ Top news from BBC, NYT, and Reuters\n- ✅ Tech news from TechCrunch, Hacker News, and Dev.to\n- ✅ Business news from Reuters and Bloomberg\n- ✅ Full-text search via Hacker News API\n- ✅ Trending Dev.to articles with tags and reactions\n\n## Use Cases\n\n- **News Dashboards**: Build a multi-source news aggregator UI\n- **Content Discovery**: Find trending stories for content curation\n- **Slack/Discord Bots**: Post daily top news to team channels\n- **Research**: Search and collect news articles on specific topics\n- **Mobile Apps**: Provide a unified news feed from multiple sources\n\n## Quick Start\n\n```\nGET /top\n```\n\nReturns JSON array of top news articles with `title`, `url`, `source`, `published_at`, and `description`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes all news sources and search. No credit card required.",
   "category": "News_Media",
   "tags": [
     "news",
     "rss",
     "aggregator",
     "hackernews",
+    "free-api",
+    "rest-api",
     "tech-news",
-    "bbc"
+    "bbc",
+    "headlines",
+    "content-discovery"
   ],
   "website": "https://news-aggregator-api.your-domain.workers.dev",
   "pricing": {

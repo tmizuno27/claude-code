@@ -2,13 +2,16 @@
   "name": "QR Code Generator API",
   "slug": "qr-code-generator-api",
   "description": "Generate QR codes in PNG, SVG, or Base64 format with customizable size, colors, and error correction levels. Fast, reliable, and easy to integrate.",
-  "long_description": "A high-performance QR Code Generator API built on Cloudflare Workers for ultra-low latency worldwide. Generate QR codes from any text or URL with full customization options including size, foreground/background colors, output format (PNG, SVG, Base64), and error correction levels (L/M/Q/H). Perfect for e-commerce, marketing, event management, and any application requiring dynamic QR code generation.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
+  "long_description": "## Overview\n\nFree QR Code Generator API built on Cloudflare Workers for ultra-low latency worldwide. Generate QR codes from any text or URL in PNG, SVG, or Base64 format with full customization of size, colors, and error correction levels.\n\n## Key Features\n\n- ✅ Multiple output formats: PNG, SVG, and Base64\n- ✅ Customizable foreground and background colors (hex)\n- ✅ Adjustable error correction levels (L/M/Q/H)\n- ✅ Configurable image size from 10px to 1000px\n- ✅ Ultra-fast response via Cloudflare edge network (<50ms)\n\n## Use Cases\n\n- **E-commerce**: Generate QR codes for product pages, payments, and receipts\n- **Marketing**: Create QR codes for flyers, business cards, and posters\n- **Event Management**: Generate ticket QR codes and check-in systems\n- **Mobile Apps**: Deep-link QR codes for app downloads and promotions\n- **Inventory**: Asset tagging and tracking with scannable QR codes\n\n## Quick Start\n\n```\nGET /generate?text=https://example.com&size=300&format=png\n```\n\nReturns a PNG image of the QR code. Add `&color=FF0000&bgcolor=FFFFFF` for custom colors.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes PNG output, default colors, and sizes up to 500px. No credit card required.",
   "category": "Tools",
   "tags": [
     "qr-code",
     "barcode",
     "image-generation",
-    "utilities",
+    "free-api",
+    "rest-api",
+    "qr-generator",
+    "marketing-tools",
     "developer-tools"
   ],
   "website": "https://qr-code-api.your-domain.workers.dev",

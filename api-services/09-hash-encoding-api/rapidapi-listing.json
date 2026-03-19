@@ -7,9 +7,10 @@
     "sha256",
     "md5",
     "bcrypt",
-    "hmac",
-    "encoding",
-    "base64",
+    "free-api",
+    "rest-api",
+    "password-hash",
+    "data-encoding",
     "cryptography",
     "security"
   ],
@@ -209,5 +210,5 @@
       ]
     }
   ],
-  "long_description": "All-in-one hashing, HMAC, encoding/decoding, bcrypt, and secure random generation API. Supports MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashing with hex and base64 output. Encode/decode in Base64, URL, HTML, and Hex formats. Bcrypt password hashing with configurable rounds and constant-time comparison. Cryptographically secure random byte generation.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
+  "long_description": "## Overview\n\nAll-in-one hashing, HMAC, encoding/decoding, bcrypt, and secure random generation API. Supports MD5, SHA-1, SHA-256, SHA-384, SHA-512 with hex and base64 output. Includes bcrypt password hashing with constant-time comparison. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Multiple hash algorithms: MD5, SHA-1, SHA-256, SHA-384, SHA-512\n- ✅ HMAC signature generation with custom secret keys\n- ✅ Bcrypt password hashing with configurable rounds (4-31)\n- ✅ Encode/decode in Base64, URL, HTML entities, and Hex\n- ✅ Cryptographically secure random byte generation\n\n## Use Cases\n\n- **Authentication Systems**: Hash and verify passwords with bcrypt\n- **API Security**: Generate HMAC signatures for webhook verification\n- **Data Integrity**: Compute file and content checksums (SHA-256)\n- **Web Development**: Encode/decode URLs, HTML entities, and Base64 data\n- **Security Auditing**: Generate secure random tokens and API keys\n\n## Quick Start\n\n```\nPOST /hash\nContent-Type: application/json\n\n{\"text\": \"Hello World\", \"algorithm\": \"sha256\"}\n```\n\nReturns JSON with `hex` and `base64` hash values.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5 | 50,000 | 10/sec |\n| Ultra | $15 | 500,000 | 50/sec |\n\nFree tier includes all 8 endpoints. No credit card required."
 }
