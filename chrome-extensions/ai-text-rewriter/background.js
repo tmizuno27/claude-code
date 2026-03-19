@@ -1,3 +1,29 @@
+// Freemium constants
+const FREE_DAILY_LIMIT = 5;
+const GUMROAD_URL = "https://tatsuya27.gumroad.com/l/ai-text-rewriter-pro";
+
+// Usage tracking
+async function getUsageToday() {
+  const data = await chrome.storage.local.get("rewriter_usage");
+  const usage = data.rewriter_usage || { count: 0, date: "" };
+  const today = new Date().toISOString().slice(0, 10);
+  if (usage.date !== today) return { count: 0, date: today };
+  return usage;
+}
+
+async function incrementUsage() {
+  const usage = await getUsageToday();
+  usage.count++;
+  await chrome.storage.local.set({ rewriter_usage: usage });
+  return usage;
+}
+
+async function isPro() {
+  const data = await chrome.storage.sync.get("rewriter_license_key");
+  const key = data.rewriter_license_key;
+  return !!(key && key.length >= 8);
+}
+
 // Context menu setup
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
