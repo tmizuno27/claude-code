@@ -6,6 +6,82 @@
   const matchList = $('#match-list');
   const regexError = $('#regex-error');
 
+  const GUMROAD_URL = 'https://tatsuya27.gumroad.com/l/regex-tester-pro';
+
+  // --- License ---
+  let isPro = false;
+
+  function checkLicense(cb) {
+    chrome.storage.sync.get('regex_license_key', d => {
+      const key = d.regex_license_key;
+      isPro = !!(key && key.length >= 8);
+      updateProBadge();
+      if (cb) cb(isPro);
+    });
+  }
+
+  function updateProBadge() {
+    const badge = $('#pro-badge');
+    if (isPro) {
+      badge.textContent = 'PRO';
+      badge.className = 'pro-badge active';
+    } else {
+      badge.textContent = 'FREE';
+      badge.className = 'pro-badge';
+    }
+    // Update lock icons
+    document.querySelectorAll('.pro-lock').forEach(el => {
+      el.style.display = isPro ? 'none' : 'inline';
+    });
+  }
+
+  function showUpgradeModal() {
+    $('#upgrade-overlay').classList.remove('hidden');
+  }
+
+  checkLicense();
+
+  // --- License panel ---
+  $('#btn-license').addEventListener('click', () => {
+    $('#panel-license').classList.toggle('hidden');
+    $('#panel-presets').classList.add('hidden');
+    $('#panel-favorites').classList.add('hidden');
+    chrome.storage.sync.get('regex_license_key', d => {
+      if (d.regex_license_key) {
+        $('#license-key-input').value = d.regex_license_key;
+        $('#license-status').textContent = 'Pro license active';
+        $('#license-status').className = 'license-status ok';
+      }
+    });
+  });
+
+  $('#save-license-btn').addEventListener('click', () => {
+    const key = $('#license-key-input').value.trim();
+    if (!key || key.length < 8) {
+      $('#license-status').textContent = 'Invalid license key';
+      $('#license-status').className = 'license-status err';
+      return;
+    }
+    chrome.storage.sync.set({ regex_license_key: key }, () => {
+      $('#license-status').textContent = 'License activated! Enjoy Pro.';
+      $('#license-status').className = 'license-status ok';
+      checkLicense();
+    });
+  });
+
+  $('#remove-license-btn').addEventListener('click', () => {
+    chrome.storage.sync.remove('regex_license_key', () => {
+      $('#license-key-input').value = '';
+      $('#license-status').textContent = 'License removed';
+      $('#license-status').className = 'license-status err';
+      checkLicense();
+    });
+  });
+
+  $('#close-upgrade').addEventListener('click', () => {
+    $('#upgrade-overlay').classList.add('hidden');
+  });
+
   // --- Flags ---
   const flagBtns = document.querySelectorAll('.flag');
   const getFlags = () => Array.from(flagBtns).filter(b => b.classList.contains('active')).map(b => b.dataset.flag).join('');
@@ -29,11 +105,14 @@
 
   $('#btn-presets').addEventListener('click', () => {
     panelFavs.classList.add('hidden');
+    $('#panel-license').classList.add('hidden');
     panelPresets.classList.toggle('hidden');
     if (!panelPresets.classList.contains('hidden')) renderPresets();
   });
   $('#btn-favorites').addEventListener('click', () => {
+    if (!isPro) { showUpgradeModal(); return; }
     panelPresets.classList.add('hidden');
+    $('#panel-license').classList.add('hidden');
     panelFavs.classList.toggle('hidden');
     if (!panelFavs.classList.contains('hidden')) renderFavorites();
   });
@@ -50,7 +129,7 @@
     });
   }
 
-  // --- Favorites ---
+  // --- Favorites (Pro only for saving) ---
   function loadFavorites(cb) {
     chrome.storage.local.get({ favorites: [] }, d => cb(d.favorites));
   }
@@ -59,6 +138,7 @@
   }
 
   $('#btn-save').addEventListener('click', () => {
+    if (!isPro) { showUpgradeModal(); return; }
     const pattern = regexInput.value.trim();
     if (!pattern) return;
     const flags = getFlags();
@@ -90,7 +170,6 @@
         });
         el.addEventListener('click', () => {
           regexInput.value = f.pattern;
-          // restore flags
           flagBtns.forEach(b => b.classList.remove('active'));
           if (f.flags) f.flags.split('').forEach(c => { const b = document.querySelector(`.flag[data-flag="${c}"]`); if (b) b.classList.add('active'); });
           panelFavs.classList.add('hidden');
@@ -100,6 +179,47 @@
       });
     });
   }
+
+  // --- Export (Pro only) ---
+  $('#btn-export').addEventListener('click', () => {
+    if (!isPro) { showUpgradeModal(); return; }
+    const pattern = regexInput.value;
+    const text = testInput.value;
+    const flags = getFlags();
+    if (!pattern || !text) return;
+
+    let re;
+    try { re = new RegExp(pattern, flags); } catch (e) { return; }
+
+    const matches = [];
+    if (re.global) {
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        matches.push({ index: m.index, match: m[0], groups: m.slice(1) });
+        if (m[0].length === 0) re.lastIndex++;
+        if (matches.length > 500) break;
+      }
+    } else {
+      const m = re.exec(text);
+      if (m) matches.push({ index: m.index, match: m[0], groups: m.slice(1) });
+    }
+
+    const output = {
+      regex: pattern,
+      flags: flags,
+      testString: text,
+      matchCount: matches.length,
+      matches: matches
+    };
+
+    const blob = new Blob([JSON.stringify(output, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'regex-results.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  });
 
   // --- Core ---
   regexInput.addEventListener('input', run);

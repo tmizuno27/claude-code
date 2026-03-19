@@ -9,8 +9,11 @@
     <header>
       <h1>Regex Tester</h1>
       <div class="header-actions">
+        <span id="pro-badge" class="pro-badge">FREE</span>
         <button id="btn-presets" class="icon-btn" title="Presets">&#9733;</button>
-        <button id="btn-favorites" class="icon-btn" title="Favorites">&#9829;</button>
+        <button id="btn-favorites" class="icon-btn" title="Favorites (Pro)">&#9829;<span class="pro-lock">&#128274;</span></button>
+        <button id="btn-export" class="icon-btn" title="Export Results (Pro)">&#8681;<span class="pro-lock">&#128274;</span></button>
+        <button id="btn-license" class="icon-btn" title="License Key">&#128273;</button>
       </div>
     </header>
 
@@ -28,7 +31,7 @@
           <button class="flag" data-flag="s">s</button>
           <button class="flag" data-flag="u">u</button>
         </div>
-        <button id="btn-save" class="icon-btn" title="Save to favorites">+</button>
+        <button id="btn-save" class="icon-btn" title="Save to favorites (Pro)">+<span class="pro-lock">&#128274;</span></button>
       </div>
       <div id="regex-error" class="error"></div>
     </div>
@@ -51,7 +54,7 @@
       <div id="match-list" class="match-list"><span class="muted">No matches</span></div>
     </div>
 
-    <!-- Panels (presets / favorites) -->
+    <!-- Panels (presets / favorites / license) -->
     <div id="panel-presets" class="panel hidden">
       <h2>Presets</h2>
       <div id="preset-list" class="preset-list"></div>
@@ -59,6 +62,31 @@
     <div id="panel-favorites" class="panel hidden">
       <h2>Favorites</h2>
       <div id="favorite-list" class="preset-list"></div>
+    </div>
+    <div id="panel-license" class="panel hidden">
+      <h2>License Key</h2>
+      <p class="license-hint">Enter your Pro license key to unlock Save Patterns, Favorites, and Export.</p>
+      <div class="license-input-row">
+        <input type="text" id="license-key-input" placeholder="Enter license key..." spellcheck="false">
+      </div>
+      <div class="license-btn-row">
+        <button id="save-license-btn" class="license-btn primary">Activate</button>
+        <button id="remove-license-btn" class="license-btn danger">Remove</button>
+      </div>
+      <p id="license-status" class="license-status"></p>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div id="upgrade-overlay" class="upgrade-overlay hidden">
+      <div class="upgrade-modal">
+        <h2>Pro Feature</h2>
+        <p>Save Patterns, Favorites, and Export Results are Pro features.</p>
+        <p class="upgrade-feature">Upgrade to <strong>Regex Tester Pro</strong> for full access.</p>
+        <div class="upgrade-price">$19.99 <span class="price-note">one-time</span></div>
+        <a href="https://tatsuya27.gumroad.com/l/regex-tester-pro" target="_blank" class="upgrade-cta">Get Pro License</a>
+        <p class="license-hint" style="margin-top:8px;">Already have a key? Click the key icon above.</p>
+        <button id="close-upgrade" class="close-upgrade-btn">Maybe Later</button>
+      </div>
     </div>
   </div>
   <script src="popup.js"></script>
