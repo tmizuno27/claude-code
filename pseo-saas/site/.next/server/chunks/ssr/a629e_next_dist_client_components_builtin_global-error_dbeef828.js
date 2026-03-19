@@ -1,3 +1,0 @@
-module.exports=[31397,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(48466);a.n(d("[project]/マイドライブ/GitHub/claude-code/pseo-saas/site/node_modules/next/dist/client/components/builtin/global-error.js <module evaluation>"))},99612,(a,b,c)=>{let{createClientModuleProxy:d}=a.r(48466);a.n(d("[project]/マイドライブ/GitHub/claude-code/pseo-saas/site/node_modules/next/dist/client/components/builtin/global-error.js"))},23710,a=>{"use strict";a.i(31397);var b=a.i(99612);a.n(b)}];
-
-//# sourceMappingURL=a629e_next_dist_client_components_builtin_global-error_dbeef828.js.map
