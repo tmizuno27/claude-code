@@ -267,17 +267,19 @@
     },
     {
       "slug": "matching-app-50dai-osusume",
-      "title": "50代におすすめのマッチングアプリ5選｜シニア世代の出会い方ガイド",
+      "title": "50代におすすめのマッチングアプリ6選｜料金・特徴を徹底比較",
       "category": "matching-apps",
       "type": "キラー",
       "main_keyword": "マッチングアプリ 50代 おすすめ",
       "scheduled_date": "2026-03-24",
-      "status": "pending",
+      "status": "processed",
       "internal_links": [
         "40dai-50dai-taikendan",
         "matching-app-40dai-osusume",
         "marrish-review"
-      ]
+      ],
+      "processed_date": "2026-03-18",
+      "wp_id": 699
     },
     {
       "slug": "matching-app-dansei-ryoukin",
