@@ -82,12 +82,12 @@ id,slug,title,status,published_date,category,type,word_count,affiliate_count,int
 724,uwear-date-fashion,マッチングアプリのデート服で失敗しない！UWearで婚活・恋活の第一印象を劇的に変える方法,draft,,renai-technique,収益,4300,1,4,0,,
 725,kekkon-soudanjo-muryou-soudan,結婚相談所の無料相談・無料体験を最大限に活用する方法｜5社のカウンセリング比較,draft,,konkatsu,集客,4500,4,4,0,,
 726,s-marriage-review,スマリッジの評判・口コミ｜業界最安クラスのオンライン結婚相談所を徹底レビュー,draft,,konkatsu,キラー,4100,1,5,0,,
-727,marrish-review,marrish（マリッシュ）の評判・口コミ｜再婚・バツイチ向けアプリの実力を徹底検証,draft,,matching-apps,キラー,4800,1,4,0,,
-728,youbride-review,youbride（ユーブライド）の評判・口コミ｜30代40代の婚活アプリの実力を徹底検証,draft,,matching-apps,キラー,5800,1,5,0,,
-729,omiai-review,Omiai（オミアイ）の評判・口コミ2026年最新｜真剣婚活アプリの実力を徹底検証,draft,,matching-apps,キラー,5000,0,5,0,,
+727,marrish-review,marrish（マリッシュ）の評判・口コミ｜再婚・バツイチ向けアプリの実力を徹底検証,リライト用,,matching-apps,キラー,4800,1,4,0,,既存ID:138を上書き
+728,youbride-review,youbride（ユーブライド）の評判・口コミ｜30代40代の婚活アプリの実力を徹底検証,リライト用,,matching-apps,キラー,5800,1,5,0,,既存ID:147を上書き
+729,omiai-review,Omiai（オミアイ）の評判・口コミ2026年最新｜真剣婚活アプリの実力を徹底検証,リライト用,,matching-apps,キラー,5000,0,5,0,,既存ID:132を上書き
 730,en-konkatsu-review,エン婚活エージェントの評判・口コミ｜コスパ最強のオンライン結婚相談所を徹底レビュー,draft,,konkatsu,キラー,7155,1,5,0,,
-731,tapple-review,tapple（タップル）の評判・口コミ2026年最新｜おでかけ機能で即デートできるアプリの実力を徹底検証,draft,,matching-apps,キラー,5500,0,4,0,,
-732,zexy-enmusubi-review,ゼクシィ縁結びの評判・口コミ2026年最新｜リクルートの婚活アプリの実力を徹底検証,draft,,matching-apps,キラー,5200,0,4,0,,
+731,tapple-review,tapple（タップル）の評判・口コミ2026年最新｜おでかけ機能で即デートできるアプリの実力を徹底検証,リライト用,,matching-apps,キラー,5500,0,4,0,,既存ID:135を上書き
+732,zexy-enmusubi-review,ゼクシィ縁結びの評判・口コミ2026年最新｜リクルートの婚活アプリの実力を徹底検証,リライト用,,matching-apps,キラー,5200,0,4,0,,既存記事を上書き
 733,bachelor-date-review,バチェラーデートの評判・口コミ｜AI完全マッチングの実力を徹底検証,draft,,matching-apps,キラー,4800,0,4,0,,
 734,matching-app-40dai-osusume,40代におすすめのマッチングアプリ7選｜中高年でも出会えるアプリの選び方,draft,,age-group,ランキング,5000,1,5,0,,
 735,matching-app-message-henshinritsu,マッチングアプリのメッセージ返信率を3倍にする方法｜最初の一通目から2回目デートまで,draft,,renai-technique,集客,5000,0,4,0,,
