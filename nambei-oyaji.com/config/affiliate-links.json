@@ -50,12 +50,20 @@
         },
         {
           "name": "Surfshark",
-          "url": "https://px.a8.net/svt/ejp?a8mat=4AZH4C+CHIAIA+4LSW+BX3J6",
-          "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www12.a8.net/0.gif?a8mat=4AZH4C+CHIAIA+4LSW+BX3J6\" alt=\"\">",
-          "anchor_text": ["Surfshark", "サーフシャーク"],
+          "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+5TKLPU+4LSW+5YJRM",
+          "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www18.a8.net/0.gif?a8mat=4AZGCA+5TKLPU+4LSW+5YJRM\" alt=\"\">",
+          "anchor_text": ["Surfshark", "サーフシャーク", "ISP追跡を回避する【SurfShark】"],
           "commission": "2,000〜4,000円/件",
           "asp": "A8.net",
-          "context": "コスパ重視の選択肢として使用"
+          "context": "コスパ重視の選択肢として使用",
+          "alt_links": {
+            "isp_tracking": {
+              "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+5TKLPU+4LSW+62U36",
+              "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www10.a8.net/0.gif?a8mat=4AZGCA+5TKLPU+4LSW+62U36\" alt=\"\">",
+              "anchor_text": "ISP追跡を回避する【SurfShark】",
+              "note": "セキュリティ・プライバシー文脈向け。クリック率5%以上・EPC50以上"
+            }
+          }
         }
       ]
     },
