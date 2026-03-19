@@ -74,6 +74,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
+  // Close upgrade overlay
+  $("#closeUpgrade").addEventListener("click", () => {
+    $("#upgradeOverlay").classList.add("hidden");
+  });
+
   // Load last result from context menu
   chrome.storage.local.get("lastResult", (data) => {
     if (data.lastResult) {
