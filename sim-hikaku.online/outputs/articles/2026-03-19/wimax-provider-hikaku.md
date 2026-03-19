@@ -6,7 +6,7 @@ date: "2026-03-19"
 status: "draft"
 category: "料金比較"
 type: "収益"
-word_count: 5480
+word_count: 5328
 affiliate_links_used: ["PLAIO WiMAX", "GMOとくとくBB", "BIGLOBE WiMAX", "VisionWiMAX", "Broad WiMAX", "カシモWiMAX"]
 ---
 
