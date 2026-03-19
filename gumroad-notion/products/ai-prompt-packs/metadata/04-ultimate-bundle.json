@@ -1,0 +1,20 @@
+{
+  "product_name": "Ultimate AI Blogger Bundle",
+  "subtitle": "All 3 Prompt Packs — 130 Prompts + Production Code",
+  "price": 49,
+  "currency": "USD",
+  "url_slug": "ultimate-ai-blogger-bundle",
+  "tags": ["AI prompts", "SEO", "WordPress", "affiliate marketing", "automation", "blogging", "content creation", "bundle"],
+  "category": "Digital Products > Bundles",
+  "description_short": "All 3 prompt packs in one bundle. 130 prompts + production Python code. SEO articles, WordPress automation, affiliate content. Save $18.",
+  "description_gumroad": "## Everything You Need to Automate Your Blog — $49 (Save $18)\n\nGet all 3 prompt packs in one bundle:\n\n### Pack 1: SEO Article Writer Mega Pack (50 prompts) — Value: $19\nKeyword research, article generation, on-page SEO, content enhancement, technical SEO.\n\n### Pack 2: WordPress Automation Kit (30 prompts + code) — Value: $29\nREST API scripts, bulk publishing, internal linking, analytics, full pipeline automation.\n\n### Pack 3: Affiliate Content Generator (50 prompts) — Value: $19\nComparison articles, reviews, CTA optimization, Japanese market ASP templates.\n\n---\n\n### Total: 130 prompts + production code\n### Individual value: $67 → Bundle price: $49 (27% OFF)\n\n---\n\n### What Makes This Different\n\nThese prompts are **extracted from a real production system** that:\n- Publishes 3+ articles per week automatically\n- Runs internal linking every Friday\n- Generates weekly analytics reports\n- Manages affiliate links across 3 sites\n- Tracks keywords and rankings\n\nEvery prompt has been refined through hundreds of runs. What didn't work was removed. What performed well was kept and improved.\n\n### The Complete Pipeline\n\n```\nKeyword Research → Content Planning → Article Writing → SEO Optimization\n    → Internal Linking → Affiliate Link Insertion → Publishing\n        → Social Promotion → Analytics → Content Refresh\n```\n\nThis bundle covers every step.\n\n### Included Files\n```\nultimate-ai-blogger-bundle/\n├── 01-seo-article-writer-mega-pack.md    (50 prompts)\n├── 02-wordpress-automation-prompt-kit.md  (30 prompts + code)\n├── 03-affiliate-content-generator.md      (50 prompts)\n└── README.md\n```\n\n### Who This Is For\n- Solo bloggers who want to 3x their output\n- Affiliate marketers building content at scale\n- WordPress developers automating client sites\n- Content agencies standardizing their workflow\n- Anyone serious about content-driven revenue\n\n### FAQ\n\n**Q: What AI models do these work with?**\nA: Any LLM — Claude, ChatGPT, Gemini, Llama, Mistral. The prompts are model-agnostic.\n\n**Q: Do I need coding skills for the WordPress kit?**\nA: Basic Python knowledge helps. The code is well-commented and ready to run.\n\n**Q: Is the Affiliate pack only for Japanese markets?**\nA: It includes Japan-specific templates (A8.net, moshimo) but most prompts work globally.\n\n**Q: Will these prompts get my content ranked?**\nA: The prompts produce well-structured, SEO-optimized content. Rankings depend on many factors (domain authority, backlinks, competition), but these prompts give your content the best possible on-page foundation.\n\n**130 prompts. Production code. Complete pipeline. Start now.**",
+  "thumbnail": "04-ultimate-bundle.png",
+  "cover": "04-ultimate-bundle-cover.png",
+  "file_deliverable": "ultimate-ai-blogger-bundle.zip",
+  "includes": [
+    "01-seo-article-writer-mega-pack.md",
+    "02-wordpress-automation-prompt-kit.md",
+    "03-affiliate-content-generator-prompts.md",
+    "04-ultimate-ai-blogger-bundle.md"
+  ]
+}
