@@ -247,7 +247,7 @@ def main():
 
     # 投稿成功した記事にアフィリエイトリンクを自動挿入
     if success_count > 0:
-        import subprocess, sys
+        import subprocess
         affiliate_script = Path(__file__).parent / "insert_affiliate_all.py"
         if affiliate_script.exists():
             try:

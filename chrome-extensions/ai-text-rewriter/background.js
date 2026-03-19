@@ -145,13 +145,46 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 // Message handler for popup
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.action === "rewrite") {
-    callOpenAI(msg.text, msg.mode)
-      .then(async (result) => {
+    (async () => {
+      const pro = await isPro();
+      if (!pro) {
+        const usage = await getUsageToday();
+        if (usage.count >= FREE_DAILY_LIMIT) {
+          sendResponse({ success: false, error: "LIMIT_REACHED", limit: FREE_DAILY_LIMIT, gumroadUrl: GUMROAD_URL });
+          return;
+        }
+      }
+      try {
+        const result = await callOpenAI(msg.text, msg.mode);
         await saveHistory(msg.text, result, msg.mode);
-        sendResponse({ success: true, result });
-      })
-      .catch((e) => sendResponse({ success: false, error: e.message }));
+        if (!pro) await incrementUsage();
+        const usage = await getUsageToday();
+        sendResponse({ success: true, result, usage: { count: usage.count, limit: FREE_DAILY_LIMIT, isPro: pro } });
+      } catch (e) {
+        sendResponse({ success: false, error: e.message });
+      }
+    })();
     return true; // async
+  }
+  if (msg.action === "getUsageInfo") {
+    (async () => {
+      const pro = await isPro();
+      const usage = await getUsageToday();
+      sendResponse({ count: usage.count, limit: FREE_DAILY_LIMIT, isPro: pro, gumroadUrl: GUMROAD_URL });
+    })();
+    return true;
+  }
+  if (msg.action === "saveLicenseKey") {
+    chrome.storage.sync.set({ rewriter_license_key: msg.key }).then(() => sendResponse({ success: true }));
+    return true;
+  }
+  if (msg.action === "getLicenseKey") {
+    chrome.storage.sync.get("rewriter_license_key").then((data) => sendResponse({ key: data.rewriter_license_key || "" }));
+    return true;
+  }
+  if (msg.action === "removeLicenseKey") {
+    chrome.storage.sync.remove("rewriter_license_key").then(() => sendResponse({ success: true }));
+    return true;
   }
   if (msg.action === "saveKey") {
     const enc = obfuscate(msg.key);

@@ -12,6 +12,48 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
 
+  // Load usage info
+  updateUsageBadge();
+
+  // License key panel
+  $("#licenseBtn").addEventListener("click", () => {
+    $("#licensePanel").classList.toggle("hidden");
+    chrome.runtime.sendMessage({ action: "getLicenseKey" }, (res) => {
+      if (res?.key) {
+        $("#licenseKeyInput").value = res.key;
+        $("#licenseStatus").textContent = "Pro license active";
+        $("#licenseStatus").className = "status ok";
+      }
+    });
+  });
+
+  $("#saveLicenseBtn").addEventListener("click", () => {
+    const key = $("#licenseKeyInput").value.trim();
+    if (!key || key.length < 8) {
+      $("#licenseStatus").textContent = "Invalid license key";
+      $("#licenseStatus").className = "status err";
+      return;
+    }
+    chrome.runtime.sendMessage({ action: "saveLicenseKey", key }, (res) => {
+      if (res?.success) {
+        $("#licenseStatus").textContent = "License activated! Enjoy Pro.";
+        $("#licenseStatus").className = "status ok";
+        updateUsageBadge();
+      }
+    });
+  });
+
+  $("#removeLicenseBtn").addEventListener("click", () => {
+    chrome.runtime.sendMessage({ action: "removeLicenseKey" }, (res) => {
+      if (res?.success) {
+        $("#licenseKeyInput").value = "";
+        $("#licenseStatus").textContent = "License removed";
+        $("#licenseStatus").className = "status err";
+        updateUsageBadge();
+      }
+    });
+  });
+
   // Mode buttons
   $$(".mode-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -99,6 +141,24 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
+function updateUsageBadge() {
+  chrome.runtime.sendMessage({ action: "getUsageInfo" }, (res) => {
+    if (!res) return;
+    const badge = $("#usageBadge");
+    if (res.isPro) {
+      badge.textContent = "PRO";
+      badge.className = "usage-badge pro";
+    } else {
+      badge.textContent = `${res.count}/${res.limit} today`;
+      badge.className = "usage-badge" + (res.count >= res.limit ? " depleted" : "");
+    }
+  });
+}
+
+function showUpgradeModal() {
+  $("#upgradeOverlay").classList.remove("hidden");
+}
+
 function showStatus(msg, ok) {
   const el = $("#keyStatus");
   el.textContent = msg;
@@ -119,9 +179,16 @@ async function doRewrite() {
     $("#loading").classList.add("hidden");
     $("#rewriteBtn").disabled = false;
 
+    if (res?.error === "LIMIT_REACHED") {
+      showUpgradeModal();
+      updateUsageBadge();
+      return;
+    }
+
     if (res?.success) {
       $("#resultText").textContent = res.result;
       $("#resultSection").classList.remove("hidden");
+      updateUsageBadge();
     } else {
       const errEl = $("#errorMsg");
       errEl.textContent = res?.error === "NO_API_KEY"
