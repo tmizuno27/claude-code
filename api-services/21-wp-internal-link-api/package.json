@@ -1,0 +1,13 @@
+{
+  "name": "wp-internal-link-api",
+  "version": "1.0.0",
+  "description": "Cloudflare Workers API for WordPress internal link optimization - analyzes content and suggests relevant internal links",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
