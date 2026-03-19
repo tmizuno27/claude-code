@@ -98,7 +98,7 @@
 - **詳細**: [trading-bot.md](trading-bot.md)
 - バックテスト＆最適化完了。最優秀: MAクロス+RSI × BTC/USDT (Sharpe 4.91)
 - Bybit口座開設待ち（パラグアイ住所証明の準備中）
-- **プロジェクトパス**: `claude-code/trading/`
+- **プロジェクトパス**: `claude-code/trading-bot/`（バックテスト: `archive/trading-backtest/`）
 
 ## Gumroad Notionテンプレート販売事業（全11商品 完全セットアップ済み + X自動投稿稼働中）
 - **進捗**: [gumroad-listing-progress.md](gumroad-listing-progress.md)
