@@ -177,7 +177,12 @@ export default {
       case '/':
         return jsonResponse({
           name: 'Currency Exchange Rate API',
-          version: '1.0.0',
+          
+        _premium: {
+          message: "You are using the FREE tier of Currency Exchange API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
+          upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/currency-exchange-api/pricing",
+          plans: ["Pro ($5.99/mo)", "Ultra ($14.99/mo)", "Mega ($49.99/mo)"]
+        },
           endpoints: {
             rates: '/rates?base=USD',
             convert: '/convert?from=USD&to=EUR&amount=100',

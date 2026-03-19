@@ -2,9 +2,16 @@
   "name": "SEO Analyzer API",
   "slug": "seo-analyzer-api",
   "description": "Analyze any webpage for SEO factors including meta tags, headings, links, Open Graph, structured data, and get an overall SEO score with breakdown.",
-  "long_description": "A comprehensive SEO Analyzer API built on Cloudflare Workers. Analyze any public webpage and get detailed SEO insights: title tag, meta description, heading structure (H1-H6), image alt attributes, internal/external links, canonical URL, robots meta, Open Graph tags, Twitter Card, JSON-LD structured data, word count, language, viewport, favicon, hreflang tags, and an overall SEO score with detailed breakdown. Perfect for SEO audits, competitor analysis, and automated site monitoring.",
+  "long_description": "A comprehensive SEO Analyzer API built on Cloudflare Workers. Analyze any public webpage and get detailed SEO insights: title tag, meta description, heading structure (H1-H6), image alt attributes, internal/external links, canonical URL, robots meta, Open Graph tags, Twitter Card, JSON-LD structured data, word count, language, viewport, favicon, hreflang tags, and an overall SEO score with detailed breakdown. Perfect for SEO audits, competitor analysis, and automated site monitoring.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Data",
-  "tags": ["seo", "website-analysis", "meta-tags", "seo-audit", "web-scraping", "developer-tools"],
+  "tags": [
+    "seo",
+    "website-analysis",
+    "meta-tags",
+    "seo-audit",
+    "web-scraping",
+    "developer-tools"
+  ],
   "website": "https://seo-analyzer-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Full SEO analysis", "SEO score", "Up to 500 requests/month"]
+        "features": [
+          "Full SEO analysis",
+          "SEO score",
+          "Up to 500 requests/month"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "Heading/link analysis", "Score breakdown", "Priority support"]
+        "features": [
+          "All endpoints",
+          "Heading/link analysis",
+          "Score breakdown",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,7 +77,12 @@
       "path": "/analyze",
       "description": "Complete SEO analysis of a webpage",
       "parameters": [
-        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage to analyze" }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL of the webpage to analyze"
+        }
       ]
     },
     {
@@ -62,7 +91,12 @@
       "path": "/headings",
       "description": "Extract heading structure (H1-H6) only",
       "parameters": [
-        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL of the webpage"
+        }
       ]
     },
     {
@@ -71,7 +105,12 @@
       "path": "/links",
       "description": "Analyze internal and external links",
       "parameters": [
-        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL of the webpage"
+        }
       ]
     },
     {
@@ -80,7 +119,12 @@
       "path": "/score",
       "description": "Get SEO score with detailed breakdown",
       "parameters": [
-        { "name": "url", "type": "string", "required": true, "description": "URL of the webpage" }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL of the webpage"
+        }
       ]
     },
     {

@@ -2,9 +2,16 @@
   "name": "Company Data API",
   "slug": "company-data-api",
   "description": "Company/business information from public sources. Search companies, get details via Wikidata, look up domains, and enrich with technology detection.",
-  "long_description": "A Company Data Enrichment API built on Cloudflare Workers. Search for companies via Wikidata, get detailed company information (founding date, headquarters, website, industry, CEO, employees), look up company info by domain (website metadata + RDAP registration data), and perform full company enrichment including technology stack detection, social media links, and contact information. Data sourced from Wikidata, RDAP, and web scraping. Perfect for CRM enrichment, lead generation, and competitive intelligence.",
+  "long_description": "A Company Data Enrichment API built on Cloudflare Workers. Search for companies via Wikidata, get detailed company information (founding date, headquarters, website, industry, CEO, employees), look up company info by domain (website metadata + RDAP registration data), and perform full company enrichment including technology stack detection, social media links, and contact information. Data sourced from Wikidata, RDAP, and web scraping. Perfect for CRM enrichment, lead generation, and competitive intelligence.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Data",
-  "tags": ["company-data", "enrichment", "wikidata", "business-info", "domain-lookup", "lead-generation"],
+  "tags": [
+    "company-data",
+    "enrichment",
+    "wikidata",
+    "business-info",
+    "domain-lookup",
+    "lead-generation"
+  ],
   "website": "https://company-data-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Company search", "Domain lookup", "Up to 500 requests/month"]
+        "features": [
+          "Company search",
+          "Domain lookup",
+          "Up to 500 requests/month"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "Full enrichment", "Tech detection", "Priority support"]
+        "features": [
+          "All endpoints",
+          "Full enrichment",
+          "Tech detection",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,7 +77,12 @@
       "path": "/search",
       "description": "Search for companies by name via Wikidata",
       "parameters": [
-        { "name": "q", "type": "string", "required": true, "description": "Company name to search" }
+        {
+          "name": "q",
+          "type": "string",
+          "required": true,
+          "description": "Company name to search"
+        }
       ]
     },
     {
@@ -62,8 +91,18 @@
       "path": "/company",
       "description": "Get detailed company information from Wikidata",
       "parameters": [
-        { "name": "jurisdiction", "type": "string", "required": true, "description": "Wikidata ID (e.g., Q95 for Google)" },
-        { "name": "number", "type": "string", "required": false, "description": "Company number (optional)" }
+        {
+          "name": "jurisdiction",
+          "type": "string",
+          "required": true,
+          "description": "Wikidata ID (e.g., Q95 for Google)"
+        },
+        {
+          "name": "number",
+          "type": "string",
+          "required": false,
+          "description": "Company number (optional)"
+        }
       ]
     },
     {
@@ -72,7 +111,12 @@
       "path": "/domain",
       "description": "Get company info by domain (website metadata + RDAP)",
       "parameters": [
-        { "name": "domain", "type": "string", "required": true, "description": "Domain name (e.g., google.com)" }
+        {
+          "name": "domain",
+          "type": "string",
+          "required": true,
+          "description": "Domain name (e.g., google.com)"
+        }
       ]
     },
     {
@@ -81,7 +125,12 @@
       "path": "/enrich",
       "description": "Full company enrichment including metadata, tech stack, social links, and contacts",
       "parameters": [
-        { "name": "domain", "type": "string", "required": true, "description": "Domain name to enrich" }
+        {
+          "name": "domain",
+          "type": "string",
+          "required": true,
+          "description": "Domain name to enrich"
+        }
       ]
     },
     {

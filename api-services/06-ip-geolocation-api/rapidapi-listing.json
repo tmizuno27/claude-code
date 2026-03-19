@@ -2,7 +2,16 @@
   "name": "IP Geolocation API",
   "description": "Fast, accurate IP geolocation lookup API. Get country, city, region, timezone, ISP, and proxy/VPN/datacenter detection for any IPv4 or IPv6 address. Powered by Cloudflare's global edge network for ultra-low latency. Includes bulk lookup (up to 20 IPs) and caller's own IP detection.",
   "category": "Data",
-  "tags": ["ip", "geolocation", "geoip", "ip-lookup", "ip-address", "location", "vpn-detection", "proxy-detection"],
+  "tags": [
+    "ip",
+    "geolocation",
+    "geoip",
+    "ip-lookup",
+    "ip-address",
+    "location",
+    "vpn-detection",
+    "proxy-detection"
+  ],
   "base_url": "https://ip-geolocation-api.t-mizuno27.workers.dev",
   "pricing": [
     {
@@ -51,7 +60,13 @@
       "name": "Lookup IP Geolocation",
       "description": "Get geolocation data for a specific IP address.",
       "parameters": [
-        { "name": "ip", "type": "query", "required": true, "description": "IPv4 or IPv6 address", "example": "8.8.8.8" }
+        {
+          "name": "ip",
+          "type": "query",
+          "required": true,
+          "description": "IPv4 or IPv6 address",
+          "example": "8.8.8.8"
+        }
       ]
     },
     {
@@ -59,8 +74,14 @@
       "path": "/lookup/bulk",
       "name": "Bulk IP Lookup",
       "description": "Lookup geolocation for up to 20 IP addresses in one request.",
-      "body_example": { "ips": ["8.8.8.8", "1.1.1.1", "208.67.222.222"] }
+      "body_example": {
+        "ips": [
+          "8.8.8.8",
+          "1.1.1.1",
+          "208.67.222.222"
+        ]
+      }
     }
   ],
-  "long_description": "## IP Geolocation API\n\nGet accurate geolocation data for any IP address with ultra-low latency.\n\n### Features\n- **Instant IP lookup** - Country, city, region, coordinates, timezone\n- **ISP detection** - Identify the internet service provider\n- **Proxy/VPN/Datacenter detection** - Know if traffic comes from proxies or data centers\n- **Own IP endpoint** - Simple /me endpoint returns caller's geolocation\n- **Bulk lookup** - Query up to 20 IPs in a single request\n- **Global edge network** - Powered by Cloudflare Workers for <50ms response times\n- **24-hour caching** - Consistent results with smart caching\n\n### Use Cases\n- Content localization and language detection\n- Fraud prevention and risk scoring\n- Analytics and visitor tracking\n- Geo-targeted advertising\n- Access control and compliance"
+  "long_description": "## IP Geolocation API\n\nGet accurate geolocation data for any IP address with ultra-low latency.\n\n### Features\n- **Instant IP lookup** - Country, city, region, coordinates, timezone\n- **ISP detection** - Identify the internet service provider\n- **Proxy/VPN/Datacenter detection** - Know if traffic comes from proxies or data centers\n- **Own IP endpoint** - Simple /me endpoint returns caller's geolocation\n- **Bulk lookup** - Query up to 20 IPs in a single request\n- **Global edge network** - Powered by Cloudflare Workers for <50ms response times\n- **24-hour caching** - Consistent results with smart caching\n\n### Use Cases\n- Content localization and language detection\n- Fraud prevention and risk scoring\n- Analytics and visitor tracking\n- Geo-targeted advertising\n- Access control and compliance\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

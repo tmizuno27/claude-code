@@ -2,9 +2,16 @@
   "name": "Trends Aggregator API",
   "slug": "trends-aggregator-api",
   "description": "Trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt. All in one API with built-in caching.",
-  "long_description": "A multi-platform Trends Aggregator API built on Cloudflare Workers. Get trending topics from five major platforms: Google Trends daily search trends (with geo filtering), Hacker News top stories, Reddit popular posts, GitHub trending repositories (past week), and Product Hunt today's top products. Each source includes rich metadata like traffic volume, scores, comments, stars, and related articles. Built-in caching for fast responses. Perfect for dashboards, content discovery, and trend monitoring.",
+  "long_description": "A multi-platform Trends Aggregator API built on Cloudflare Workers. Get trending topics from five major platforms: Google Trends daily search trends (with geo filtering), Hacker News top stories, Reddit popular posts, GitHub trending repositories (past week), and Product Hunt today's top products. Each source includes rich metadata like traffic volume, scores, comments, stars, and related articles. Built-in caching for fast responses. Perfect for dashboards, content discovery, and trend monitoring.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Data",
-  "tags": ["trends", "google-trends", "reddit", "hackernews", "github", "product-hunt"],
+  "tags": [
+    "trends",
+    "google-trends",
+    "reddit",
+    "hackernews",
+    "github",
+    "product-hunt"
+  ],
   "website": "https://trends-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Google Trends", "Hacker News trending", "Reddit trending"]
+        "features": [
+          "Google Trends",
+          "Hacker News trending",
+          "Reddit trending"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All 5 platforms", "GitHub trending", "Product Hunt", "Priority support"]
+        "features": [
+          "All 5 platforms",
+          "GitHub trending",
+          "Product Hunt",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited platforms", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited platforms",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,7 +77,13 @@
       "path": "/google/daily",
       "description": "Get daily trending search topics from Google Trends",
       "parameters": [
-        { "name": "geo", "type": "string", "required": false, "default": "US", "description": "Country code for geo-filtered trends (e.g., US, JP, GB)" }
+        {
+          "name": "geo",
+          "type": "string",
+          "required": false,
+          "default": "US",
+          "description": "Country code for geo-filtered trends (e.g., US, JP, GB)"
+        }
       ]
     },
     {

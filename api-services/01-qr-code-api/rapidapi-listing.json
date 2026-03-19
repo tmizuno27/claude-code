@@ -2,9 +2,15 @@
   "name": "QR Code Generator API",
   "slug": "qr-code-generator-api",
   "description": "Generate QR codes in PNG, SVG, or Base64 format with customizable size, colors, and error correction levels. Fast, reliable, and easy to integrate.",
-  "long_description": "A high-performance QR Code Generator API built on Cloudflare Workers for ultra-low latency worldwide. Generate QR codes from any text or URL with full customization options including size, foreground/background colors, output format (PNG, SVG, Base64), and error correction levels (L/M/Q/H). Perfect for e-commerce, marketing, event management, and any application requiring dynamic QR code generation.",
+  "long_description": "A high-performance QR Code Generator API built on Cloudflare Workers for ultra-low latency worldwide. Generate QR codes from any text or URL with full customization options including size, foreground/background colors, output format (PNG, SVG, Base64), and error correction levels (L/M/Q/H). Perfect for e-commerce, marketing, event management, and any application requiring dynamic QR code generation.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Tools",
-  "tags": ["qr-code", "barcode", "image-generation", "utilities", "developer-tools"],
+  "tags": [
+    "qr-code",
+    "barcode",
+    "image-generation",
+    "utilities",
+    "developer-tools"
+  ],
   "website": "https://qr-code-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +21,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["PNG output", "Default colors", "Up to 500px"]
+        "features": [
+          "PNG output",
+          "Default colors",
+          "Up to 500px"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +34,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All formats (PNG/SVG/Base64)", "Custom colors", "Up to 1000px", "Priority support"]
+        "features": [
+          "All formats (PNG/SVG/Base64)",
+          "Custom colors",
+          "Up to 1000px",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +48,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +61,11 @@
           "requests_per_month": 5000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited formats", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited formats",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,12 +76,58 @@
       "path": "/generate",
       "description": "Generate a QR code from text or URL",
       "parameters": [
-        { "name": "text", "type": "string", "required": true, "description": "Text or URL to encode" },
-        { "name": "size", "type": "integer", "required": false, "default": 300, "description": "Image size in pixels (10-1000)" },
-        { "name": "format", "type": "string", "required": false, "default": "png", "enum": ["png", "svg", "base64"], "description": "Output format" },
-        { "name": "color", "type": "string", "required": false, "default": "000000", "description": "Foreground color (6-digit hex)" },
-        { "name": "bgcolor", "type": "string", "required": false, "default": "ffffff", "description": "Background color (6-digit hex)" },
-        { "name": "error_correction", "type": "string", "required": false, "default": "M", "enum": ["L", "M", "Q", "H"], "description": "Error correction level" }
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text or URL to encode"
+        },
+        {
+          "name": "size",
+          "type": "integer",
+          "required": false,
+          "default": 300,
+          "description": "Image size in pixels (10-1000)"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "default": "png",
+          "enum": [
+            "png",
+            "svg",
+            "base64"
+          ],
+          "description": "Output format"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "required": false,
+          "default": "000000",
+          "description": "Foreground color (6-digit hex)"
+        },
+        {
+          "name": "bgcolor",
+          "type": "string",
+          "required": false,
+          "default": "ffffff",
+          "description": "Background color (6-digit hex)"
+        },
+        {
+          "name": "error_correction",
+          "type": "string",
+          "required": false,
+          "default": "M",
+          "enum": [
+            "L",
+            "M",
+            "Q",
+            "H"
+          ],
+          "description": "Error correction level"
+        }
       ]
     },
     {

@@ -2,9 +2,16 @@
   "name": "WHOIS Domain API",
   "slug": "whois-domain-api",
   "description": "Domain WHOIS/RDAP lookup, DNS records query, and domain availability check using RDAP protocol and Cloudflare DNS-over-HTTPS.",
-  "long_description": "A fast and reliable WHOIS Domain API built on Cloudflare Workers. Perform domain WHOIS lookups using the modern RDAP protocol (Registration Data Access Protocol), query DNS records (A, AAAA, MX, NS, TXT, CNAME) via Cloudflare DNS-over-HTTPS, check domain availability, and list all RDAP-supported TLDs. Returns registrar info, registration/expiration dates, nameservers, DNSSEC status, and more. Built-in caching for optimal performance.",
+  "long_description": "A fast and reliable WHOIS Domain API built on Cloudflare Workers. Perform domain WHOIS lookups using the modern RDAP protocol (Registration Data Access Protocol), query DNS records (A, AAAA, MX, NS, TXT, CNAME) via Cloudflare DNS-over-HTTPS, check domain availability, and list all RDAP-supported TLDs. Returns registrar info, registration/expiration dates, nameservers, DNSSEC status, and more. Built-in caching for optimal performance.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Data",
-  "tags": ["whois", "domain", "dns", "rdap", "domain-availability", "registrar"],
+  "tags": [
+    "whois",
+    "domain",
+    "dns",
+    "rdap",
+    "domain-availability",
+    "registrar"
+  ],
   "website": "https://whois-domain-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["WHOIS lookup", "DNS query", "Domain availability check"]
+        "features": [
+          "WHOIS lookup",
+          "DNS query",
+          "Domain availability check"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "TLD list", "Cached responses", "Priority support"]
+        "features": [
+          "All endpoints",
+          "TLD list",
+          "Cached responses",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,7 +77,12 @@
       "path": "/lookup",
       "description": "Full RDAP/WHOIS domain lookup with registrar, dates, nameservers, and DNSSEC",
       "parameters": [
-        { "name": "domain", "type": "string", "required": true, "description": "Domain name to look up (e.g., example.com)" }
+        {
+          "name": "domain",
+          "type": "string",
+          "required": true,
+          "description": "Domain name to look up (e.g., example.com)"
+        }
       ]
     },
     {
@@ -62,7 +91,12 @@
       "path": "/dns",
       "description": "Query DNS records (A, AAAA, MX, NS, TXT, CNAME)",
       "parameters": [
-        { "name": "domain", "type": "string", "required": true, "description": "Domain name to query" }
+        {
+          "name": "domain",
+          "type": "string",
+          "required": true,
+          "description": "Domain name to query"
+        }
       ]
     },
     {
@@ -71,7 +105,12 @@
       "path": "/availability",
       "description": "Check if a domain is available for registration",
       "parameters": [
-        { "name": "domain", "type": "string", "required": true, "description": "Domain name to check" }
+        {
+          "name": "domain",
+          "type": "string",
+          "required": true,
+          "description": "Domain name to check"
+        }
       ]
     },
     {

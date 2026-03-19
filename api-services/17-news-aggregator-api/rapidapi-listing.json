@@ -2,9 +2,16 @@
   "name": "News Aggregator API",
   "slug": "news-aggregator-api",
   "description": "Aggregated news from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Top stories, tech news, business news, and search.",
-  "long_description": "A free News Aggregator API built on Cloudflare Workers that pulls content from multiple public sources. Get top news from BBC, NYT, and Reuters; tech news from TechCrunch RSS, Hacker News, and Dev.to; business news from Reuters and Bloomberg; search Hacker News stories; and browse trending Dev.to articles. Built-in response caching (5 minutes) for fast responses. No upstream API keys required — all data comes from free RSS feeds and public APIs.",
+  "long_description": "A free News Aggregator API built on Cloudflare Workers that pulls content from multiple public sources. Get top news from BBC, NYT, and Reuters; tech news from TechCrunch RSS, Hacker News, and Dev.to; business news from Reuters and Bloomberg; search Hacker News stories; and browse trending Dev.to articles. Built-in response caching (5 minutes) for fast responses. No upstream API keys required — all data comes from free RSS feeds and public APIs.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "News_Media",
-  "tags": ["news", "rss", "aggregator", "hackernews", "tech-news", "bbc"],
+  "tags": [
+    "news",
+    "rss",
+    "aggregator",
+    "hackernews",
+    "tech-news",
+    "bbc"
+  ],
   "website": "https://news-aggregator-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Top news", "Tech news", "Search"]
+        "features": [
+          "Top news",
+          "Tech news",
+          "Search"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "Business news", "Dev.to latest", "Priority support"]
+        "features": [
+          "All endpoints",
+          "Business news",
+          "Dev.to latest",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -71,7 +95,12 @@
       "path": "/search",
       "description": "Search news articles via Hacker News",
       "parameters": [
-        { "name": "q", "type": "string", "required": true, "description": "Search query" }
+        {
+          "name": "q",
+          "type": "string",
+          "required": true,
+          "description": "Search query"
+        }
       ]
     },
     {

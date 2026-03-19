@@ -2,9 +2,16 @@
   "name": "AI Translate API",
   "slug": "ai-translate-api",
   "description": "AI-powered translation supporting 40+ languages, language detection, and batch translation. Built on Cloudflare Workers AI with M2M100 model.",
-  "long_description": "A fast AI Translation API powered by Cloudflare Workers AI using Meta's M2M100-1.2B model. Supports 40+ languages including English, Spanish, French, German, Japanese, Chinese, Korean, Arabic, Hindi, and many more. Features include single text translation, automatic language detection (via Llama 3.1), and batch translation of up to 10 texts in a single request. Ultra-low latency via Cloudflare's global edge network. Perfect for multilingual apps, content localization, and automation workflows.",
+  "long_description": "A fast AI Translation API powered by Cloudflare Workers AI using Meta's M2M100-1.2B model. Supports 40+ languages including English, Spanish, French, German, Japanese, Chinese, Korean, Arabic, Hindi, and many more. Features include single text translation, automatic language detection (via Llama 3.1), and batch translation of up to 10 texts in a single request. Ultra-low latency via Cloudflare's global edge network. Perfect for multilingual apps, content localization, and automation workflows.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Translation",
-  "tags": ["translation", "ai", "multilingual", "language-detection", "m2m100", "localization"],
+  "tags": [
+    "translation",
+    "ai",
+    "multilingual",
+    "language-detection",
+    "m2m100",
+    "localization"
+  ],
   "website": "https://ai-translate-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Single translation", "40+ languages", "Language detection"]
+        "features": [
+          "Single translation",
+          "40+ languages",
+          "Language detection"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,11 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "Batch translation (10 texts)", "Priority support"]
+        "features": [
+          "All endpoints",
+          "Batch translation (10 texts)",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +48,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +61,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,9 +76,24 @@
       "path": "/translate",
       "description": "Translate text between languages",
       "parameters": [
-        { "name": "text", "type": "string", "required": true, "description": "Text to translate" },
-        { "name": "source_lang", "type": "string", "required": true, "description": "Source language code (ISO 639-1, e.g., en, es, ja)" },
-        { "name": "target_lang", "type": "string", "required": true, "description": "Target language code (ISO 639-1)" }
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to translate"
+        },
+        {
+          "name": "source_lang",
+          "type": "string",
+          "required": true,
+          "description": "Source language code (ISO 639-1, e.g., en, es, ja)"
+        },
+        {
+          "name": "target_lang",
+          "type": "string",
+          "required": true,
+          "description": "Target language code (ISO 639-1)"
+        }
       ]
     },
     {
@@ -64,7 +102,12 @@
       "path": "/detect",
       "description": "Detect the language of a text",
       "parameters": [
-        { "name": "text", "type": "string", "required": true, "description": "Text to detect language for" }
+        {
+          "name": "text",
+          "type": "string",
+          "required": true,
+          "description": "Text to detect language for"
+        }
       ]
     },
     {
@@ -73,9 +116,24 @@
       "path": "/batch",
       "description": "Translate multiple texts at once (max 10)",
       "parameters": [
-        { "name": "texts", "type": "array", "required": true, "description": "Array of texts to translate (max 10)" },
-        { "name": "source_lang", "type": "string", "required": true, "description": "Source language code" },
-        { "name": "target_lang", "type": "string", "required": true, "description": "Target language code" }
+        {
+          "name": "texts",
+          "type": "array",
+          "required": true,
+          "description": "Array of texts to translate (max 10)"
+        },
+        {
+          "name": "source_lang",
+          "type": "string",
+          "required": true,
+          "description": "Source language code"
+        },
+        {
+          "name": "target_lang",
+          "type": "string",
+          "required": true,
+          "description": "Target language code"
+        }
       ]
     },
     {

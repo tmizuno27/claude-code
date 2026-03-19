@@ -2,9 +2,16 @@
   "name": "Crypto Data API",
   "slug": "crypto-data-api",
   "description": "Real-time cryptocurrency prices, market data, trending coins, historical data, and exchange info. Powered by CoinCap API with built-in caching.",
-  "long_description": "A comprehensive Cryptocurrency Data API built on Cloudflare Workers with intelligent caching. Get real-time prices for multiple coins, detailed coin information, search by name or symbol, trending coins, paginated market listings, historical prices on specific dates, top exchanges, and global crypto market statistics. Data sourced from CoinCap API v2 (free, no auth required). Built-in response caching for optimal performance.",
+  "long_description": "A comprehensive Cryptocurrency Data API built on Cloudflare Workers with intelligent caching. Get real-time prices for multiple coins, detailed coin information, search by name or symbol, trending coins, paginated market listings, historical prices on specific dates, top exchanges, and global crypto market statistics. Data sourced from CoinCap API v2 (free, no auth required). Built-in response caching for optimal performance.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage.",
   "category": "Finance",
-  "tags": ["cryptocurrency", "bitcoin", "ethereum", "crypto-prices", "market-data", "blockchain"],
+  "tags": [
+    "cryptocurrency",
+    "bitcoin",
+    "ethereum",
+    "crypto-prices",
+    "market-data",
+    "blockchain"
+  ],
   "website": "https://crypto-data-api.your-domain.workers.dev",
   "pricing": {
     "plans": [
@@ -15,7 +22,11 @@
           "requests_per_month": 500,
           "requests_per_second": 1
         },
-        "features": ["Price lookup", "Coin search", "Global stats"]
+        "features": [
+          "Price lookup",
+          "Coin search",
+          "Global stats"
+        ]
       },
       {
         "name": "Pro",
@@ -24,7 +35,12 @@
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
-        "features": ["All endpoints", "Historical data", "Market listings", "Priority support"]
+        "features": [
+          "All endpoints",
+          "Historical data",
+          "Market listings",
+          "Priority support"
+        ]
       },
       {
         "name": "Ultra",
@@ -33,7 +49,11 @@
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
-        "features": ["All Pro features", "Highest rate limits", "Dedicated support"]
+        "features": [
+          "All Pro features",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
       },
       {
         "name": "Mega",
@@ -42,7 +62,11 @@
           "requests_per_month": 2000000,
           "requests_per_second": 100
         },
-        "features": ["Unlimited endpoints", "Maximum throughput", "SLA guarantee"]
+        "features": [
+          "Unlimited endpoints",
+          "Maximum throughput",
+          "SLA guarantee"
+        ]
       }
     ]
   },
@@ -53,8 +77,19 @@
       "path": "/price",
       "description": "Get current prices for one or more cryptocurrencies",
       "parameters": [
-        { "name": "ids", "type": "string", "required": true, "description": "Comma-separated coin IDs (e.g., bitcoin,ethereum)" },
-        { "name": "vs", "type": "string", "required": false, "default": "usd", "description": "Target currency for price conversion" }
+        {
+          "name": "ids",
+          "type": "string",
+          "required": true,
+          "description": "Comma-separated coin IDs (e.g., bitcoin,ethereum)"
+        },
+        {
+          "name": "vs",
+          "type": "string",
+          "required": false,
+          "default": "usd",
+          "description": "Target currency for price conversion"
+        }
       ]
     },
     {
@@ -63,7 +98,12 @@
       "path": "/coin/:id",
       "description": "Get detailed information for a specific coin",
       "parameters": [
-        { "name": "id", "type": "string", "required": true, "description": "Coin ID (e.g., bitcoin)" }
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Coin ID (e.g., bitcoin)"
+        }
       ]
     },
     {
@@ -72,7 +112,12 @@
       "path": "/search",
       "description": "Search coins by name or symbol",
       "parameters": [
-        { "name": "q", "type": "string", "required": true, "description": "Search query" }
+        {
+          "name": "q",
+          "type": "string",
+          "required": true,
+          "description": "Search query"
+        }
       ]
     },
     {
@@ -87,9 +132,27 @@
       "path": "/markets",
       "description": "Get paginated market listings",
       "parameters": [
-        { "name": "vs", "type": "string", "required": false, "default": "usd", "description": "Target currency" },
-        { "name": "per_page", "type": "integer", "required": false, "default": 100, "description": "Results per page" },
-        { "name": "page", "type": "integer", "required": false, "default": 1, "description": "Page number" }
+        {
+          "name": "vs",
+          "type": "string",
+          "required": false,
+          "default": "usd",
+          "description": "Target currency"
+        },
+        {
+          "name": "per_page",
+          "type": "integer",
+          "required": false,
+          "default": 100,
+          "description": "Results per page"
+        },
+        {
+          "name": "page",
+          "type": "integer",
+          "required": false,
+          "default": 1,
+          "description": "Page number"
+        }
       ]
     },
     {
@@ -98,8 +161,18 @@
       "path": "/history",
       "description": "Get historical price on a specific date",
       "parameters": [
-        { "name": "id", "type": "string", "required": true, "description": "Coin ID" },
-        { "name": "date", "type": "string", "required": true, "description": "Date in YYYY-MM-DD format" }
+        {
+          "name": "id",
+          "type": "string",
+          "required": true,
+          "description": "Coin ID"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "required": true,
+          "description": "Date in YYYY-MM-DD format"
+        }
       ]
     },
     {
