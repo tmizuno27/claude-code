@@ -583,6 +583,11 @@ def save_article(
 
     output_file = output_dir / f"{slug}.md"
 
+    # Claude APIの出力にフロントマターが含まれている場合は除去（二重挿入防止）
+    if article_content.strip().startswith('---'):
+        import re as _re
+        article_content = _re.sub(r'^---\s*\n.*?\n---\s*\n', '', article_content, count=1, flags=_re.DOTALL)
+
     # フロントマターと本文を結合
     full_content = f"{front_matter}\n\n{article_content}\n"
 

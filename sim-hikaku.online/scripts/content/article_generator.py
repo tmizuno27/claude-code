@@ -451,6 +451,11 @@ def save_article(keyword: str, article_content: str, front_matter: str) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
 
     output_file = output_dir / f"{slug}.md"
+
+    # Claude APIの出力にフロントマターが含まれている場合は除去（二重挿入防止）
+    if article_content.strip().startswith('---'):
+        article_content = re.sub(r'^---\s*\n.*?\n---\s*\n', '', article_content, count=1, flags=re.DOTALL)
+
     full_content = f"{front_matter}\n\n{article_content}\n"
 
     with open(output_file, mode="w", encoding="utf-8") as f:
