@@ -136,6 +136,7 @@
 - **パラグアイ移住理由**: [MEMORY.md旧版参照] 物価安・税金安・災害なし・花粉なし等
 
 ## ユーザー設定・好み
+- **自動作業は徹底的に**: [feedback_auto_work_exhaustive.md](feedback_auto_work_exhaustive.md) — 「自動で進めて」=全事業一括洗い出し+全実行。小出し禁止、コスト制限なし
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
 - 確認不要: 許可を得ずどんどん自動で進めること
 - **収益最大化は自主実行**: [feedback_revenue_proactive.md](feedback_revenue_proactive.md) — 収益に直結するアクションは許可不要で即実行
