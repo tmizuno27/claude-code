@@ -6,6 +6,9 @@ const CORS_HEADERS = {
 };
 
 function jsonResponse(data, status = 200, cacheMaxAge = 3600) {
+  if (status === 200 && typeof data === "object" && !Array.isArray(data)) {
+    data._upgrade = { note: "Upgrade for higher limits & priority support", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/currency-exchange-api/pricing" };
+  }
   return new Response(JSON.stringify(data), {
     status,
     headers: {

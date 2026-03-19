@@ -74,6 +74,9 @@ function checkRateLimit(ip) {
 }
 
 function jsonResponse(data, status = 200, cacheTtl = 0) {
+  if (status === 200 && typeof data === "object" && !Array.isArray(data)) {
+    data._upgrade = { note: "Upgrade for higher limits & priority support", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/weather-api/pricing" };
+  }
   const headers = {
     "Content-Type": "application/json",
     ...CORS_HEADERS,

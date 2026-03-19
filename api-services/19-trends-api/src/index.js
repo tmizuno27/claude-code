@@ -43,6 +43,9 @@ const CORS = {
 };
 
 function json(data, status = 200) {
+  if (status === 200 && typeof data === "object" && !Array.isArray(data)) {
+    data._upgrade = { note: "Upgrade for higher limits & priority support", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/trends-api/pricing" };
+  }
   return new Response(JSON.stringify(data), {
     status,
     headers: { 'Content-Type': 'application/json', ...CORS },

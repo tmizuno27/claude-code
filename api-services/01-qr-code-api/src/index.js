@@ -801,6 +801,7 @@ export default {
           data_uri: `data:image/png;base64,${base64}`,
           mime_type: 'image/png',
           size: pngData.length,
+          _upgrade: { note: "Upgrade for higher limits & priority support", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/qr-code-api/pricing" },
         }),
         {
           headers: { ...headers, 'Content-Type': 'application/json' },
