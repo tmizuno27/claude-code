@@ -2,7 +2,16 @@
   "name": "Link Preview - Website Metadata API",
   "description": "Extract rich metadata from any URL. Returns Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more. Fast response with 1-hour caching. Perfect for building link previews, social cards, and SEO tools.",
   "category": "Data",
-  "tags": ["link-preview", "metadata", "open-graph", "twitter-card", "seo", "favicon", "rss", "web-scraping"],
+  "tags": [
+    "link-preview",
+    "metadata",
+    "open-graph",
+    "twitter-card",
+    "seo",
+    "favicon",
+    "rss",
+    "web-scraping"
+  ],
   "pricing": [
     {
       "name": "Basic",
@@ -48,8 +57,12 @@
       "method": "POST",
       "path": "/preview/bulk",
       "body": {
-        "urls": ["https://example.com", "https://github.com"]
+        "urls": [
+          "https://example.com",
+          "https://github.com"
+        ]
       }
     }
-  ]
+  ],
+  "long_description": "Extract rich metadata from any URL. Returns Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more. Fast response with 1-hour caching. Perfect for building link previews, social cards, and SEO tools.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

@@ -2,7 +2,13 @@
   "name": "URL Shortener API",
   "description": "Create short URLs with custom aliases and track click statistics. Fast, reliable URL shortening powered by Cloudflare's edge network.",
   "category": "Tools",
-  "tags": ["url-shortener", "short-url", "link-shortener", "click-tracking", "analytics"],
+  "tags": [
+    "url-shortener",
+    "short-url",
+    "link-shortener",
+    "click-tracking",
+    "analytics"
+  ],
   "base_url": "https://url-shortener-api.t-mizuno27.workers.dev",
   "pricing": {
     "plans": [
@@ -10,13 +16,22 @@
         "name": "Basic",
         "price": 0,
         "rate_limit": "100 requests/day",
-        "features": ["Create short URLs", "Custom aliases", "Click statistics", "301 redirects"]
+        "features": [
+          "Create short URLs",
+          "Custom aliases",
+          "Click statistics",
+          "301 redirects"
+        ]
       },
       {
         "name": "Pro",
         "price": 5,
         "rate_limit": "10000 requests/day",
-        "features": ["Everything in Basic", "Priority support", "Higher rate limits"]
+        "features": [
+          "Everything in Basic",
+          "Priority support",
+          "Higher rate limits"
+        ]
       }
     ]
   },
@@ -45,5 +60,6 @@
       "path": "/delete/{alias}",
       "description": "Remove a short URL"
     }
-  ]
+  ],
+  "long_description": "Create short URLs with custom aliases and track click statistics. Fast, reliable URL shortening powered by Cloudflare's edge network.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

@@ -68,8 +68,11 @@
       "method": "POST",
       "path": "/validate/bulk",
       "body": {
-        "emails": ["user@example.com"]
+        "emails": [
+          "user@example.com"
+        ]
       }
     }
-  ]
+  ],
+  "long_description": "Production-ready email validation API that checks format (RFC 5322), MX records, disposable domains (500+), free providers, role-based addresses, and suggests typo corrections. All checks performed without sending any emails. Powered by Cloudflare Workers for ultra-low latency worldwide.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

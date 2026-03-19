@@ -3,7 +3,14 @@
   "tagline": "Capture website screenshots as PNG or JPEG images instantly",
   "description": "A fast, reliable API for capturing website screenshots. Supports custom viewport sizes, full-page capture, JPEG/PNG formats, and configurable delays for JS-heavy sites. Results are cached for fast repeat requests.\n\nFeatures:\n- Capture any public URL as PNG or JPEG\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable delay for dynamic content\n- JPEG quality control\n- 1-hour result caching\n- CORS enabled for browser use",
   "category": "Tools",
-  "tags": ["screenshot", "webpage", "capture", "thumbnail", "website", "image"],
+  "tags": [
+    "screenshot",
+    "webpage",
+    "capture",
+    "thumbnail",
+    "website",
+    "image"
+  ],
   "pricing": {
     "plans": [
       {
@@ -43,13 +50,48 @@
       "path": "/screenshot",
       "description": "Capture a screenshot of the given URL",
       "parameters": [
-        { "name": "url", "type": "string", "required": true, "description": "URL to capture" },
-        { "name": "width", "type": "integer", "required": false, "description": "Viewport width (default: 1280)" },
-        { "name": "height", "type": "integer", "required": false, "description": "Viewport height (default: 720, 0 for full page)" },
-        { "name": "format", "type": "string", "required": false, "description": "png or jpeg (default: png)" },
-        { "name": "quality", "type": "integer", "required": false, "description": "JPEG quality 1-100 (default: 80)" },
-        { "name": "delay", "type": "integer", "required": false, "description": "Wait ms before capture (max 5000)" },
-        { "name": "full_page", "type": "boolean", "required": false, "description": "Capture full scrollable page" }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL to capture"
+        },
+        {
+          "name": "width",
+          "type": "integer",
+          "required": false,
+          "description": "Viewport width (default: 1280)"
+        },
+        {
+          "name": "height",
+          "type": "integer",
+          "required": false,
+          "description": "Viewport height (default: 720, 0 for full page)"
+        },
+        {
+          "name": "format",
+          "type": "string",
+          "required": false,
+          "description": "png or jpeg (default: png)"
+        },
+        {
+          "name": "quality",
+          "type": "integer",
+          "required": false,
+          "description": "JPEG quality 1-100 (default: 80)"
+        },
+        {
+          "name": "delay",
+          "type": "integer",
+          "required": false,
+          "description": "Wait ms before capture (max 5000)"
+        },
+        {
+          "name": "full_page",
+          "type": "boolean",
+          "required": false,
+          "description": "Capture full scrollable page"
+        }
       ]
     },
     {
@@ -58,5 +100,6 @@
       "path": "/",
       "description": "Check API status"
     }
-  ]
+  ],
+  "long_description": "A fast, reliable API for capturing website screenshots. Supports custom viewport sizes, full-page capture, JPEG/PNG formats, and configurable delays for JS-heavy sites. Results are cached for fast repeat requests.\n\nFeatures:\n- Capture any public URL as PNG or JPEG\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable delay for dynamic content\n- JPEG quality control\n- 1-hour result caching\n- CORS enabled for browser use\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

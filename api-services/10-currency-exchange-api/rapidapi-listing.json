@@ -2,7 +2,14 @@
   "name": "Currency Exchange Rate API",
   "description": "Real-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.",
   "category": "Finance",
-  "tags": ["currency", "exchange-rate", "forex", "conversion", "ECB", "finance"],
+  "tags": [
+    "currency",
+    "exchange-rate",
+    "forex",
+    "conversion",
+    "ECB",
+    "finance"
+  ],
   "website": "https://currency-exchange-api.t-mizuno27.workers.dev",
   "baseUrl": "https://currency-exchange-api.t-mizuno27.workers.dev",
   "pricing": {
@@ -41,7 +48,13 @@
       "path": "/rates",
       "description": "Get latest exchange rates for a base currency. Returns all 30+ supported currencies.",
       "parameters": [
-        { "name": "base", "in": "query", "required": false, "default": "USD", "description": "Base currency code (ISO 4217)" }
+        {
+          "name": "base",
+          "in": "query",
+          "required": false,
+          "default": "USD",
+          "description": "Base currency code (ISO 4217)"
+        }
       ]
     },
     {
@@ -50,9 +63,24 @@
       "path": "/convert",
       "description": "Convert an amount from one currency to another using real-time rates.",
       "parameters": [
-        { "name": "from", "in": "query", "required": true, "description": "Source currency code" },
-        { "name": "to", "in": "query", "required": true, "description": "Target currency code" },
-        { "name": "amount", "in": "query", "required": true, "description": "Amount to convert" }
+        {
+          "name": "from",
+          "in": "query",
+          "required": true,
+          "description": "Source currency code"
+        },
+        {
+          "name": "to",
+          "in": "query",
+          "required": true,
+          "description": "Target currency code"
+        },
+        {
+          "name": "amount",
+          "in": "query",
+          "required": true,
+          "description": "Amount to convert"
+        }
       ]
     },
     {
@@ -67,10 +95,22 @@
       "path": "/historical",
       "description": "Get exchange rates for a specific historical date (back to 1999).",
       "parameters": [
-        { "name": "base", "in": "query", "required": false, "default": "USD", "description": "Base currency code" },
-        { "name": "date", "in": "query", "required": true, "description": "Date in YYYY-MM-DD format" }
+        {
+          "name": "base",
+          "in": "query",
+          "required": false,
+          "default": "USD",
+          "description": "Base currency code"
+        },
+        {
+          "name": "date",
+          "in": "query",
+          "required": true,
+          "description": "Date in YYYY-MM-DD format"
+        }
       ]
     }
   ],
-  "longDescription": "## Currency Exchange Rate API\n\nAccess real-time and historical currency exchange rates from the European Central Bank (ECB).\n\n### Features\n- **30+ currencies** including USD, EUR, GBP, JPY, CNY, BRL, and more\n- **Real-time rates** updated daily by the ECB\n- **Historical data** back to January 1999\n- **Currency conversion** with precise calculations\n- **Fast responses** with 1-hour server-side caching\n\n### Use Cases\n- E-commerce price conversion\n- Financial dashboards\n- Travel apps\n- Accounting software\n- Portfolio tracking\n\n### Data Source\nAll rates are sourced from the European Central Bank via the Frankfurter API, ensuring reliable and accurate data."
+  "longDescription": "## Currency Exchange Rate API\n\nAccess real-time and historical currency exchange rates from the European Central Bank (ECB).\n\n### Features\n- **30+ currencies** including USD, EUR, GBP, JPY, CNY, BRL, and more\n- **Real-time rates** updated daily by the ECB\n- **Historical data** back to January 1999\n- **Currency conversion** with precise calculations\n- **Fast responses** with 1-hour server-side caching\n\n### Use Cases\n- E-commerce price conversion\n- Financial dashboards\n- Travel apps\n- Accounting software\n- Portfolio tracking\n\n### Data Source\nAll rates are sourced from the European Central Bank via the Frankfurter API, ensuring reliable and accurate data.",
+  "long_description": "Real-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n💎 FREE tier available! Upgrade to Pro for 50,000 requests/month, higher rate limits, and priority support. Ultra and Mega plans available for enterprise-scale usage."
 }

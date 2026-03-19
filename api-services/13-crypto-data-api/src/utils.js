@@ -5,7 +5,11 @@ const CORS_HEADERS = {
 };
 
 function jsonResponse(data, status = 200, cacheTtl = 60) {
-  return new Response(JSON.stringify({ success: true, data }, null, 2), {
+  const body = { success: true, data };
+  if (status === 200 && typeof data === "object") {
+    body._upgrade = { note: "Upgrade for higher limits & priority support", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/crypto-data-api/pricing" };
+  }
+  return new Response(JSON.stringify(body, null, 2), {
     status,
     headers: {
       'Content-Type': 'application/json',
