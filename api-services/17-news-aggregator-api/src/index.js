@@ -97,7 +97,7 @@ async function handleRequest(request) {
     if (path === '/' || path === '') {
       return json({
         name: 'news-aggregator-api',
-        
+        
         _premium: {
           message: "You are using the FREE tier of News Aggregator API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/news-aggregator-api/pricing",

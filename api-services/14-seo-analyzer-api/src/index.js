@@ -131,7 +131,7 @@ export default {
     if (pathname === '/') {
       return json({
         name: 'SEO Analyzer API',
-        
+        
         _premium: {
           message: "You are using the FREE tier of SEO Analyzer API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api/pricing",

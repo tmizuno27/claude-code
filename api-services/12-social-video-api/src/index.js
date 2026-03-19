@@ -33,7 +33,7 @@ export default {
     if (path === '/' || path === '') {
       return jsonResponse({
         name: 'Social Video API',
-        
+        
         _premium: {
           message: "You are using the FREE tier of Social Video API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/social-video-api/pricing",

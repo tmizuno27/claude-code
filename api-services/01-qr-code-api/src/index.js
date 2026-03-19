@@ -691,7 +691,7 @@ export default {
       return new Response(
         JSON.stringify({
           name: 'QR Code Generator API',
-          
+          
         _premium: {
           message: "You are using the FREE tier of QR Code API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/qr-code-api/pricing",

@@ -180,7 +180,7 @@ export default {
       case '/':
         return jsonResponse({
           name: 'Currency Exchange Rate API',
-          
+          
         _premium: {
           message: "You are using the FREE tier of Currency Exchange API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/currency-exchange-api/pricing",

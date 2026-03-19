@@ -102,7 +102,7 @@ export default {
     if (path === '/' && request.method === 'GET') {
       return jsonResponse({
         service: 'Link Preview API',
-        
+        
         _premium: {
           message: "You are using the FREE tier of Link Preview API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/link-preview-api/pricing",

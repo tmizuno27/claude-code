@@ -161,7 +161,7 @@ export default {
     if (request.method === 'GET' && (path === '/' || path === '')) {
       return json({
         service: 'JSON Formatter & Validator API',
-        
+        
         _premium: {
           message: "You are using the FREE tier of JSON Formatter API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/json-formatter-api/pricing",

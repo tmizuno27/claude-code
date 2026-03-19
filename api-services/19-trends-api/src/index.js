@@ -278,7 +278,7 @@ export default {
       if (path === '/') {
         return json({
           name: 'Trends API',
-          
+          
         _premium: {
           message: "You are using the FREE tier of Trends API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/trends-api/pricing",

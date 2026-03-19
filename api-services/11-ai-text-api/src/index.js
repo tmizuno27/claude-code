@@ -179,7 +179,7 @@ export default {
     if (path === "/" && request.method === "GET") {
       return json({
         name: "AI Text API",
-        
+        
         _premium: {
           message: "You are using the FREE tier of AI Text API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/ai-text-api/pricing",

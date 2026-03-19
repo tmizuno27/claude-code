@@ -64,7 +64,7 @@ export default {
       if (path === '/' && request.method === 'GET') {
         return json({
           name: 'ai-translate-api',
-          
+          
         _premium: {
           message: "You are using the FREE tier of AI Translate API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/ai-translate-api/pricing",

@@ -25,7 +25,7 @@ export default {
       if (path === '/' || path === '') {
         return jsonResponse({
           name: 'Crypto Data API',
-          
+          
         _premium: {
           message: "You are using the FREE tier of Crypto Data API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/crypto-data-api/pricing",

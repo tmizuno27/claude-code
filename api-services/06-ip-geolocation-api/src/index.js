@@ -193,7 +193,7 @@ export default {
     if (path === '/' && request.method === 'GET') {
       return jsonResponse({
         name: 'IP Geolocation API',
-        
+        
         _premium: {
           message: "You are using the FREE tier of IP Geolocation API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/ip-geolocation-api/pricing",
