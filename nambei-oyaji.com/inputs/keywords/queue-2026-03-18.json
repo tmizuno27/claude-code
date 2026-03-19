@@ -67,7 +67,9 @@
     "keyword": "海外送金 手数料 比較 銀行",
     "type": "longtail",
     "priority": 9,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\nambei-oyaji.com\\outputs\\articles\\2026-03-19\\article-kaigai-soukin-tesuuryou-hikaku.html",
+    "processed_date": "2026-03-19"
   },
   {
     "keyword": "海外送金 手数料 比較 個人",
