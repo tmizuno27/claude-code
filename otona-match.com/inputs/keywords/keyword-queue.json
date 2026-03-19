@@ -303,12 +303,13 @@
       "type": "集客",
       "main_keyword": "婚活 モテない 男",
       "scheduled_date": "2026-03-28",
-      "status": "pending",
+      "status": "processed",
       "internal_links": [
         "konkatsu-dansei-shippai",
         "profile-photo-tips",
         "matching-app-jikoshoukai"
-      ]
+      ],
+      "processed_date": "2026-03-19"
     },
     {
       "slug": "matching-app-sotsugyou-timing",
