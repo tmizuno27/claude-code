@@ -108,7 +108,26 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
   const mode = data.lastMode || "professional";
 
   try {
+    const pro = await isPro();
+    if (!pro) {
+      const usage = await getUsageToday();
+      if (usage.count >= FREE_DAILY_LIMIT) {
+        await chrome.scripting.executeScript({
+          target: { tabId: tab.id },
+          func: (url) => {
+            const toast = document.createElement("div");
+            toast.innerHTML = `Daily limit reached (5 rewrites). <a href="${url}" target="_blank" style="color:#fbbf24;text-decoration:underline;">Upgrade to Pro</a>`;
+            toast.style.cssText = "position:fixed;bottom:20px;right:20px;background:#ef4444;color:white;padding:12px 20px;border-radius:8px;font-family:-apple-system,sans-serif;font-weight:600;font-size:14px;z-index:999999;box-shadow:0 4px 20px rgba(0,0,0,0.3);";
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 5000);
+          },
+          args: [GUMROAD_URL]
+        });
+        return;
+      }
+    }
     const result = await callOpenAI(text, mode);
+    if (!pro) await incrementUsage();
     await saveHistory(text, result, mode);
     // Send result to popup via storage (user opens popup to see it)
     await chrome.storage.local.set({ lastResult: { original: text, rewritten: result, mode } });

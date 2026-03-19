@@ -216,3 +216,137 @@ textarea:focus { border-color: #a855f7; }
   font-size: 14px;
   padding: 0 4px;
 }
+
+/* Pro badge */
+.pro-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 8px;
+  background: rgba(100,116,139,0.2);
+  color: #64748b;
+  letter-spacing: .5px;
+}
+.pro-badge.active {
+  background: rgba(34,197,94,0.15);
+  color: #22c55e;
+}
+
+/* Pro lock icon */
+.pro-lock {
+  font-size: 8px;
+  margin-left: 1px;
+  vertical-align: super;
+}
+
+/* License panel */
+.license-hint {
+  font-size: 11px;
+  color: #64748b;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.license-input-row {
+  margin-bottom: 8px;
+}
+.license-input-row input {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #e2e8f0;
+  padding: 6px 10px;
+  font-size: 12px;
+  outline: none;
+}
+.license-input-row input:focus { border-color: #a855f7; }
+.license-btn-row { display: flex; gap: 6px; margin-bottom: 6px; }
+.license-btn {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.license-btn.primary { background: #a855f7; color: #fff; }
+.license-btn.primary:hover { background: #9333ea; }
+.license-btn.danger { background: transparent; color: #f87171; border: 1px solid #f87171; }
+.license-btn.danger:hover { background: rgba(248,113,113,0.1); }
+.license-status { font-size: 11px; min-height: 14px; }
+.license-status.ok { color: #22c55e; }
+.license-status.err { color: #f87171; }
+
+/* Upgrade overlay */
+.upgrade-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15,23,42,0.92);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+.upgrade-overlay.hidden { display: none; }
+.upgrade-modal {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+}
+.upgrade-modal h2 {
+  color: #a855f7;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.upgrade-modal p {
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+.upgrade-feature { color: #e2e8f0 !important; }
+.upgrade-price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #a855f7;
+  margin: 12px 0;
+}
+.price-note {
+  font-size: 12px;
+  font-weight: 400;
+  color: #94a3b8;
+}
+.upgrade-cta {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #a855f7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+.upgrade-cta:hover { background: #9333ea; }
+.close-upgrade-btn {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  background: transparent;
+  color: #64748b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.close-upgrade-btn:hover { color: #a855f7; border-color: #a855f7; }
