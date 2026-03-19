@@ -138,6 +138,7 @@
 ## ユーザー設定・好み
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
 - 確認不要: 許可を得ずどんどん自動で進めること
+- **収益最大化は自主実行**: [feedback_revenue_proactive.md](feedback_revenue_proactive.md) — 収益に直結するアクションは許可不要で即実行
 - 改行ルール: 1文字だけ次行に飛び出す改行は絶対禁止
 - **コピペ形式**: [feedback_copypaste_format.md](feedback_copypaste_format.md) — 入力してもらう内容は必ずコードブロックで提示
 - **ダッシュボード**: [feedback_dashboard_realtime.md](feedback_dashboard_realtime.md) — 全項目リアルタイム自動更新必須、ハードコード禁止
