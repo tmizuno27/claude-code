@@ -10,7 +10,10 @@ export const metadata = {
     template: '%s | AI Tool Compare',
   },
   description: 'Compare AI tools side-by-side. Detailed comparisons of features, pricing, and ratings to help you choose the perfect AI tool.',
-  metadataBase: new URL('https://aitoolcompare.com'),
+  metadataBase: new URL('https://out-indol-theta.vercel.app'),
+  verification: {
+    google: 'ugn5HFr2hl7GqdPfPacONozz2ZW10w7gF05sM9C8jJE',
+  },
   openGraph: {
     siteName: 'AI Tool Compare',
     type: 'website',
