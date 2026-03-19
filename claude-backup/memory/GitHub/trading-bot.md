@@ -15,9 +15,12 @@ Bybit向け仮想通貨自動売買ツールを構築済み。
 - 最適パラメータ: fast_ma=7, slow_ma=30, rsi_filter=60, sl_atr=2.0, tp_atr=2.0
 - 全3ペア（BTC/ETH/SOL）でMAクロス+RSI戦略がプラス
 
-**プロジェクトパス:** `claude-code/trading/`
-- `backtest/` — バックテスト＆最適化スクリプト
-- `live/` — ライブ取引エンジン（ccxt経由）
-- `live/config_template.json` — テンプレート（APIキー入力用）
+**プロジェクトパス:** `claude-code/trading-bot/`（ライブ取引用）
+- `src/bot.py` — ライブ取引エンジン（ccxt経由）
+- `src/exchange.py` — 取引所接続
+- `src/strategy.py` — 売買戦略
+- `config/` — APIキー設定
+
+**バックテストコード:** `claude-code/archive/trading-backtest/`（アーカイブ済み）
 
 **How to apply:** Bybit口座開設完了の連絡があったら、テストネットAPIキー設定→ペーパートレード→少額リアル稼働の順で進める。
