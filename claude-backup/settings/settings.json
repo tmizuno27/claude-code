@@ -43,5 +43,38 @@
       "C:\\Users\\tmizu"
     ]
   },
-  "autoUpdatesChannel": "latest"
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -Command \"(New-Object Media.SoundPlayer 'C:\\Windows\\Media\\Windows Balloon.wav').PlaySync()\"",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -Command \"(New-Object Media.SoundPlayer 'C:\\Windows\\Media\\Windows Balloon.wav').PlaySync()\"",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "autoUpdatesChannel": "latest",
+  "effortLevel": "low",
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  }
 }
