@@ -19,29 +19,29 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-19T12:00:00"
     },
     {
       "id": "gsc-zero-investigation",
       "title": "GSC表示0件の原因特定",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-19T09:00:00"
     },
     {
       "id": "rapidapi-free-to-paid",
       "title": "RapidAPI無料Actorに誘導文追加",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-19T12:30:00"
     },
     {
       "id": "otona-match-affiliate-check",
       "title": "マッチングナビにアフィリエイト設置確認",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-19T09:30:00"
     },
     {
       "id": "x-first-post",
