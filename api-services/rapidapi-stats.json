@@ -1,8 +1,8 @@
 {
   "last_updated": "2026-03-18T04:50:00",
-  "total_apis": 20,
+  "total_apis": 21,
   "listed_on_rapidapi": 10,
-  "pending_listing": 10,
+  "pending_listing": 11,
   "monthly_revenue": 0,
   "monthly_revenue_usd": 0,
   "total_subscribers": 0,
@@ -223,6 +223,17 @@
       "id": "20",
       "name": "Company Data API",
       "subdomain": "company-data-api",
+      "rapidapi_listed": false,
+      "subscribers": 0,
+      "requests": 0,
+      "api_calls_30d": 0,
+      "revenue_30d": 0,
+      "status": "active"
+    },
+    {
+      "id": "21",
+      "name": "WP Internal Link Optimization API",
+      "subdomain": "wp-internal-link-api",
       "rapidapi_listed": false,
       "subscribers": 0,
       "requests": 0,

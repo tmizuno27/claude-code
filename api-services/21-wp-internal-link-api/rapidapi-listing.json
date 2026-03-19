@@ -1,0 +1,128 @@
+{
+  "name": "WP Internal Link Optimization API",
+  "slug": "wp-internal-link-api",
+  "description": "Analyze WordPress article content and get intelligent internal link suggestions with anchor text, relevance scores, and insert positions. Supports sitemap parsing.",
+  "long_description": "A powerful WordPress Internal Link Optimization API built on Cloudflare Workers. Feed it your article HTML and either a sitemap URL or list of existing pages, and get back ranked internal link suggestions with:\n\n- Relevance scores based on keyword overlap (unigrams, bigrams, trigrams)\n- Recommended anchor text extracted from your article\n- Character-level insert positions for precise link placement\n- Already-linked detection to avoid duplicate links\n- Matching keywords for transparency\n\nAlso includes a /suggest endpoint for lightweight keyword-to-URL matching.\n\nSupports both English and Japanese content. Perfect for WordPress bloggers, SEO agencies, and content management automation.\n\n💎 FREE tier: 100 requests/month. Upgrade to Pro for 1,000 requests or Ultra for 10,000 requests.",
+  "category": "Data",
+  "tags": [
+    "wordpress",
+    "internal-links",
+    "seo",
+    "content-optimization",
+    "link-building",
+    "anchor-text"
+  ],
+  "website": "https://wp-internal-link-api.t-mizuno27.workers.dev",
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 100,
+          "requests_per_second": 1
+        },
+        "features": [
+          "POST /analyze endpoint",
+          "POST /suggest endpoint",
+          "Sitemap parsing",
+          "Up to 100 requests/month"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": 9.99,
+        "rate_limit": {
+          "requests_per_month": 1000,
+          "requests_per_second": 5
+        },
+        "features": [
+          "All endpoints",
+          "1,000 requests/month",
+          "Priority support",
+          "Higher rate limits"
+        ]
+      },
+      {
+        "name": "Ultra",
+        "price": 29.99,
+        "rate_limit": {
+          "requests_per_month": 10000,
+          "requests_per_second": 20
+        },
+        "features": [
+          "All Pro features",
+          "10,000 requests/month",
+          "Highest rate limits",
+          "Dedicated support"
+        ]
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Analyze Internal Links",
+      "method": "POST",
+      "path": "/analyze",
+      "description": "Analyze article HTML against sitemap or page list and return ranked link suggestions",
+      "parameters": [
+        {
+          "name": "article_html",
+          "type": "string",
+          "required": true,
+          "description": "HTML content of the article to analyze"
+        },
+        {
+          "name": "article_title",
+          "type": "string",
+          "required": false,
+          "description": "Title of the article"
+        },
+        {
+          "name": "sitemap_url",
+          "type": "string",
+          "required": false,
+          "description": "URL of XML sitemap (alternative to pages)"
+        },
+        {
+          "name": "pages",
+          "type": "array",
+          "required": false,
+          "description": "Array of {url, title, content} objects (alternative to sitemap_url)"
+        }
+      ]
+    },
+    {
+      "name": "Suggest Keyword Links",
+      "method": "POST",
+      "path": "/suggest",
+      "description": "Match article keywords to existing page URLs",
+      "parameters": [
+        {
+          "name": "article_text",
+          "type": "string",
+          "required": true,
+          "description": "Plain text content of the article"
+        },
+        {
+          "name": "pages",
+          "type": "array",
+          "required": true,
+          "description": "Array of {url, title} objects"
+        }
+      ]
+    },
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "path": "/health",
+      "description": "Check if the API is running"
+    },
+    {
+      "name": "API Info",
+      "method": "GET",
+      "path": "/",
+      "description": "Get API information and available endpoints"
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "WP Internal Link Optimization API",
+    "version": "1.0.0",
+    "description": "Analyze WordPress article content and get intelligent internal link suggestions. Supports sitemap parsing, keyword matching, relevance scoring, and anchor text recommendations."
+  },
+  "servers": [
+    { "url": "https://wp-internal-link-api.t-mizuno27.workers.dev" }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "getApiInfo",
+        "summary": "API information and available endpoints",
+        "responses": {
+          "200": {
+            "description": "API info",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "endpoints": { "type": "object" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Health check endpoint",
+        "responses": {
+          "200": {
+            "description": "Service is healthy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": { "type": "string", "example": "ok" },
+                    "timestamp": { "type": "string", "format": "date-time" },
+                    "version": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyze": {
+      "post": {
+        "operationId": "analyzeInternalLinks",
+        "summary": "Analyze article content and suggest internal links",
+        "description": "Accepts article HTML and either a sitemap URL or a list of existing pages. Returns ranked internal link suggestions with anchor text, relevance scores, and insert positions.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AnalyzeRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Link suggestions",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/AnalyzeResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "422": { "$ref": "#/components/responses/UnprocessableEntity" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "502": { "$ref": "#/components/responses/UpstreamError" }
+        }
+      }
+    },
+    "/suggest": {
+      "post": {
+        "operationId": "suggestKeywordLinks",
+        "summary": "Match article keywords to existing page URLs",
+        "description": "Accepts plain article text and a list of existing pages. Returns keyword-to-URL pairs for internal linking.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/SuggestRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Keyword matches",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SuggestResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "429": { "$ref": "#/components/responses/RateLimited" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AnalyzeRequest": {
+        "type": "object",
+        "required": ["article_html"],
+        "properties": {
+          "article_html": { "type": "string", "description": "HTML content of the article to analyze" },
+          "article_title": { "type": "string", "description": "Title of the article (optional)" },
+          "sitemap_url": { "type": "string", "format": "uri", "description": "URL of the sitemap to parse for existing pages" },
+          "pages": {
+            "type": "array",
+            "description": "List of existing pages (alternative to sitemap_url)",
+            "items": {
+              "type": "object",
+              "required": ["url"],
+              "properties": {
+                "url": { "type": "string" },
+                "title": { "type": "string" },
+                "content": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "AnalyzeResponse": {
+        "type": "object",
+        "properties": {
+          "article_title": { "type": "string", "nullable": true },
+          "total_pages_analyzed": { "type": "integer" },
+          "total_suggestions": { "type": "integer" },
+          "suggestions": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/LinkSuggestion" }
+          }
+        }
+      },
+      "LinkSuggestion": {
+        "type": "object",
+        "properties": {
+          "target_url": { "type": "string" },
+          "target_title": { "type": "string" },
+          "relevance_score": { "type": "integer", "description": "Number of overlapping keywords" },
+          "confidence": { "type": "number", "format": "float", "minimum": 0, "maximum": 1 },
+          "anchor_text": { "type": "string", "description": "Recommended anchor text for the link" },
+          "insert_position": { "type": "integer", "nullable": true, "description": "Character position in plain text where link can be inserted" },
+          "already_linked": { "type": "boolean" },
+          "matching_keywords": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "SuggestRequest": {
+        "type": "object",
+        "required": ["article_text", "pages"],
+        "properties": {
+          "article_text": { "type": "string", "description": "Plain text content of the article" },
+          "pages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["url", "title"],
+              "properties": {
+                "url": { "type": "string" },
+                "title": { "type": "string" }
+              }
+            }
+          }
+        }
+      },
+      "SuggestResponse": {
+        "type": "object",
+        "properties": {
+          "total_matches": { "type": "integer" },
+          "keyword_matches": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "keyword": { "type": "string" },
+                "target_url": { "type": "string" },
+                "target_title": { "type": "string" },
+                "position_in_text": { "type": "integer", "nullable": true }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Missing or invalid request parameters",
+        "content": {
+          "application/json": {
+            "schema": { "type": "object", "properties": { "error": { "type": "string" } } }
+          }
+        }
+      },
+      "UnprocessableEntity": {
+        "description": "Sitemap contained no URLs",
+        "content": {
+          "application/json": {
+            "schema": { "type": "object", "properties": { "error": { "type": "string" } } }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "Rate limit exceeded (20 requests/minute)",
+        "content": {
+          "application/json": {
+            "schema": { "type": "object", "properties": { "error": { "type": "string" } } }
+          }
+        }
+      },
+      "UpstreamError": {
+        "description": "Failed to fetch sitemap or analyze content",
+        "content": {
+          "application/json": {
+            "schema": { "type": "object", "properties": { "error": { "type": "string" } } }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "Internal processing error",
+        "content": {
+          "application/json": {
+            "schema": { "type": "object", "properties": { "error": { "type": "string" } } }
+          }
+        }
+      }
+    }
+  }
+}
