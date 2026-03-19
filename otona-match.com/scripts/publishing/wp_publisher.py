@@ -12,6 +12,7 @@ import ssl
 import os
 import sys
 import csv
+import re
 from pathlib import Path
 from datetime import datetime
 
@@ -56,7 +57,27 @@ def wp_post(endpoint, data, auth, ctx):
         print(f"  HTTP Error {e.code}: {e.read().decode()[:300]}")
         return None
 
+def strip_frontmatter(text):
+    """テキスト/HTMLからYAMLフロントマターを除去する安全装置"""
+    fm_keys = ['title:', 'focus_keyword:', 'meta_description:', 'category:', 'tags:', 'article_type:', 'pillar:', 'affiliate_disclosure:', 'keyword:', 'status:']
+    # Markdownフロントマター
+    cleaned = re.sub(r'^---\s*\n.*?\n---\s*\n', '', text, count=1, flags=re.DOTALL)
+    if cleaned != text:
+        removed = text[:len(text) - len(cleaned)]
+        if any(k in removed for k in fm_keys):
+            print("  [安全装置] フロントマターを除去しました")
+            return cleaned.lstrip('\n')
+    # HTML内フロントマター（<p>---</p>パターン）
+    pattern = re.compile(r'<p>---\s*</p>\s*(?:<p>.*?</p>\s*)*?<p>---\s*</p>', re.DOTALL)
+    match = pattern.search(text)
+    if match and any(k in match.group() for k in fm_keys):
+        text = pattern.sub('', text, count=1)
+        print("  [安全装置] HTML内のフロントマターを除去しました")
+    return text.lstrip('\n')
+
+
 def publish_article(title, slug, content, categories, excerpt, status="publish"):
+    content = strip_frontmatter(content)
     auth, ctx = get_wp_client()
     data = {
         "title": title,

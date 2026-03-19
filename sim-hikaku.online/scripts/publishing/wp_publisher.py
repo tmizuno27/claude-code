@@ -64,6 +64,17 @@ def extract_frontmatter(md_content):
     return fm
 
 
+def strip_frontmatter_html(html):
+    """HTML変換後に残ったフロントマターを除去する安全装置"""
+    fm_keys = ['title:', 'focus_keyword:', 'meta_description:', 'category:', 'tags:', 'article_type:', 'pillar:', 'affiliate_disclosure:', 'keyword:', 'status:']
+    pattern = re.compile(r'<p>---\s*</p>\s*(?:<p>.*?</p>\s*)*?<p>---\s*</p>', re.DOTALL)
+    match = pattern.search(html)
+    if match and any(k in match.group() for k in fm_keys):
+        html = pattern.sub('', html, count=1)
+        print("  [安全装置] HTML内のフロントマターを除去しました")
+    return html.lstrip('\n')
+
+
 def md_to_html(md_content):
     content = re.sub(r"^---.*?---\s*", "", md_content, flags=re.DOTALL)
     lines = content.split("\n")
@@ -132,6 +143,7 @@ def md_to_html(md_content):
     html = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", html)
     html = re.sub(r"\[(.+?)\]\((.+?)\)", r'<a href="\2">\1</a>', html)
     html = re.sub(r"`(.+?)`", r"<code>\1</code>", html)
+    html = strip_frontmatter_html(html)
     return html
 
 
