@@ -12,6 +12,14 @@ export async function generateMetadata({ params }) {
   return {
     title: `${tool.name} Review — Features, Pricing & Ratings (2026)`,
     description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}. See features, pros, cons, and comparisons.`,
+    alternates: {
+      canonical: `/tool/${slug}/`,
+    },
+    twitter: {
+      card: 'summary',
+      title: `${tool.name} Review (2026)`,
+      description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}.`,
+    },
   };
 }
 
@@ -115,6 +123,18 @@ export default async function ToolPage({ params }) {
             </div>
           </div>
         )}
+
+        {/* CTA */}
+        <div className="cta-buttons" style={{ marginBottom: 40 }}>
+          <a
+            href={tool.affiliate_url || tool.website}
+            target="_blank"
+            rel={tool.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+            className="cta-btn cta-btn-a"
+          >
+            Try {tool.name} {tool.free_plan ? '(Free)' : ''} &rarr;
+          </a>
+        </div>
 
         <div className="prose" style={{ marginBottom: 60 }}>
           <p>
