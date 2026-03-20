@@ -1,128 +1,5 @@
 {
-  "queue": [
-    {
-      "id": "gumroad-012",
-      "category": "gumroad-notion",
-      "name": "Wedding Planning Hub",
-      "price": 17,
-      "rationale": "ウェディングプランニングは高需要ニッチ。Gumroadで$15-25帯に競合少ない。感情的価値が高く衝動買いされやすい",
-      "target_audience": "婚約中のカップル、ウェディングプランナー、DIYウェディングを計画する人",
-      "key_features": ["Guest list manager with RSVP tracking", "Budget tracker by category", "Vendor comparison board", "Timeline & checklist by months-out", "Seating chart planner", "Registry tracker"],
-      "priority": 9,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "gumroad-013",
-      "category": "gumroad-notion",
-      "name": "Property Investment Tracker",
-      "price": 19,
-      "rationale": "不動産投資追跡は2026年トレンドニッチ。投資家は管理ツールに高い金額を払う。既存テンプレにない分野",
-      "target_audience": "不動産投資家、Airbnbホスト、不動産ポートフォリオ管理者",
-      "key_features": ["Property portfolio dashboard", "Rental income & expense tracker", "Mortgage calculator", "Tenant management", "Maintenance request log", "ROI & cash flow analysis"],
-      "priority": 9,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "gumroad-014",
-      "category": "gumroad-notion",
-      "name": "Travel Planner & Journal",
-      "price": 12,
-      "rationale": "旅行計画テンプレは安定需要。季節変動で夏前にピーク。写真日記機能で差別化",
-      "target_audience": "旅行好き、デジタルノマド、バックパッカー、家族旅行の計画者",
-      "key_features": ["Trip itinerary builder", "Packing checklist by trip type", "Budget tracker with currency converter", "Accommodation comparison", "Travel journal with photo gallery", "Bucket list tracker"],
-      "priority": 8,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "gumroad-015",
-      "category": "gumroad-notion",
-      "name": "Habit Tracker & Goal System",
-      "price": 9,
-      "rationale": "習慣トラッカーは検索量トップクラス。$9の低価格でエントリー商品として機能。バンドルへの導線",
-      "target_audience": "自己改善に取り組む人、生産性向上を目指す人、新年の目標を立てる人",
-      "key_features": ["Daily habit check-in board", "Streak counter with visual progress", "Goal setting framework (OKR style)", "Weekly & monthly review templates", "Accountability journal", "Reward system tracker"],
-      "priority": 8,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "gumroad-016",
-      "category": "gumroad-notion",
-      "name": "Personal Finance Dashboard",
-      "price": 14,
-      "rationale": "家計管理は年間通じて安定需要。スプレッドシートからNotionへの移行ニーズが強い。サブスク管理機能で差別化",
-      "target_audience": "家計を管理したい個人、節約を始めたい人、投資初心者、フリーランサー",
-      "key_features": ["Income & expense tracker", "Subscription manager with renewal alerts", "Savings goals with progress bars", "Debt payoff planner", "Net worth calculator", "Monthly budget templates"],
-      "priority": 8,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "rapidapi-022",
-      "category": "rapidapi",
-      "name": "PDF Generator API",
-      "price": 5.99,
-      "rationale": "HTML→PDF変換APIは開発者需要が非常に高い。既存21本に変換系APIがない。Puppeteer不要で軽量実装可能",
-      "target_audience": "Webアプリ開発者、SaaS事業者、請求書・レポート自動生成",
-      "key_features": ["HTML to PDF conversion", "Markdown to PDF", "Custom page size & margins", "Header/footer templates", "Batch generation"],
-      "priority": 9,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "rapidapi-023",
-      "category": "rapidapi",
-      "name": "Placeholder Image API",
-      "price": 5.99,
-      "rationale": "プレースホルダー画像APIは開発・デザイン用途で恒常需要。実装がシンプルで安定運用可能。既存APIにない",
-      "target_audience": "フロントエンド開発者、デザイナー、プロトタイプ制作者",
-      "key_features": ["Custom size placeholder images", "Text overlay on images", "Category-based placeholders", "SVG and PNG output", "Gradient backgrounds"],
-      "priority": 7,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "rapidapi-024",
-      "category": "rapidapi",
-      "name": "Markdown Converter API",
-      "price": 5.99,
-      "rationale": "Markdown↔HTML変換はCMS・ブログ・ドキュメントで頻繁に必要。軽量実装可能。既存APIと相性良い",
-      "target_audience": "CMS開発者、ブログプラットフォーム、技術ドキュメント制作者",
-      "key_features": ["Markdown to HTML", "HTML to Markdown", "GitHub Flavored Markdown support", "Syntax highlighting for code blocks", "Table of contents generation"],
-      "priority": 7,
-      "status": "queued",
-      "created": "2026-03-20"
-    },
-    {
-      "id": "prompt-005",
-      "category": "gumroad-notion",
-      "name": "AI Side Hustle Starter Kit",
-      "price": 19,
-      "rationale": "AI×副業は2026年最大のトレンド。AIプロンプト+Notionテンプレのハイブリッド商品で高単価化。Gumroadで上位表示されやすいKW",
-      "target_audience": "AIを使って副業を始めたい人、フリーランサー、コンテンツクリエイター",
-      "key_features": ["50 AI prompts for content creation", "Client acquisition Notion template", "Income tracker dashboard", "AI tool comparison database", "Weekly workflow planner", "Pricing calculator"],
-      "priority": 10,
-      "status": "completed",
-      "created": "2026-03-20",
-      "completed_at": "2026-03-20",
-      "output_dir": "product-factory/outputs/2026-03-20/ai-side-hustle-starter-kit/"
-    },
-    {
-      "id": "gumroad-017",
-      "category": "gumroad-notion",
-      "name": "Airbnb Host Management Hub",
-      "price": 17,
-      "rationale": "Airbnbホスト向けテンプレは高需要ニッチ。ホストは管理ツールに投資する。Property Investment Trackerとの相乗効果",
-      "target_audience": "Airbnbホスト、短期レンタル事業者、不動産投資家",
-      "key_features": ["Listing performance dashboard", "Guest communication templates", "Cleaning schedule manager", "Revenue & expense tracker per property", "Review response templates", "Pricing strategy planner"],
-      "priority": 8,
-      "status": "queued",
-      "created": "2026-03-20"
-    }
-  ],
+  "queue": [],
   "completed": [
     {
       "id": "gumroad-011",
@@ -133,6 +10,106 @@
       "created": "2026-03-20",
       "completed_at": "2026-03-20",
       "output_dir": "product-factory/outputs/2026-03-20/startup-launch-checklist/"
+    },
+    {
+      "id": "prompt-005",
+      "category": "gumroad-notion",
+      "name": "AI Side Hustle Starter Kit",
+      "price": 19,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/ai-side-hustle-starter-kit/"
+    },
+    {
+      "id": "gumroad-012",
+      "category": "gumroad-notion",
+      "name": "Wedding Planning Hub",
+      "price": 17,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/wedding-planning-hub/"
+    },
+    {
+      "id": "gumroad-013",
+      "category": "gumroad-notion",
+      "name": "Property Investment Tracker",
+      "price": 19,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/property-investment-tracker/"
+    },
+    {
+      "id": "gumroad-014",
+      "category": "gumroad-notion",
+      "name": "Travel Planner & Journal",
+      "price": 12,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/travel-planner-journal/"
+    },
+    {
+      "id": "gumroad-015",
+      "category": "gumroad-notion",
+      "name": "Habit Tracker & Goal System",
+      "price": 9,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/habit-tracker-goal-system/"
+    },
+    {
+      "id": "gumroad-016",
+      "category": "gumroad-notion",
+      "name": "Personal Finance Dashboard",
+      "price": 14,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/personal-finance-dashboard/"
+    },
+    {
+      "id": "gumroad-017",
+      "category": "gumroad-notion",
+      "name": "Airbnb Host Management Hub",
+      "price": 17,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/airbnb-host-management-hub/"
+    },
+    {
+      "id": "rapidapi-022",
+      "category": "rapidapi",
+      "name": "PDF Generator API",
+      "price": 5.99,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/pdf-generator-api/"
+    },
+    {
+      "id": "rapidapi-023",
+      "category": "rapidapi",
+      "name": "Placeholder Image API",
+      "price": 5.99,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/placeholder-image-api/"
+    },
+    {
+      "id": "rapidapi-024",
+      "category": "rapidapi",
+      "name": "Markdown Converter API",
+      "price": 5.99,
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/markdown-converter-api/"
     }
   ]
 }
