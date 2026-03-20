@@ -122,7 +122,9 @@
       "id": 106,
       "type": "value",
       "text": "3 Notion formulas everyone should know:\n\n1. dateBetween(now(), prop(\"Due Date\"), \"days\") — days until deadline\n2. if(prop(\"Status\") == \"Done\", true, false) — completion check\n3. format(prop(\"Revenue\") - prop(\"Cost\")) — profit calc\n\n#NotionTips",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-20 10:00:07",
+      "tweet_id": "2034978288192418025"
     },
     {
       "id": 107,
