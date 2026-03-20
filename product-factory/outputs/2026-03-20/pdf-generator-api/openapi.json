@@ -1,0 +1,211 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "PDF Generator API",
+    "description": "Generate PDF documents from HTML, Markdown, or URLs. Supports custom page sizes, margins, headers, and footers.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://pdf-generator-api.miccho27.workers.dev"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Health check",
+        "responses": {
+          "200": {
+            "description": "API status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "version": { "type": "string" },
+                    "status": { "type": "string" },
+                    "endpoints": { "type": "array", "items": { "type": "string" } }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/generate": {
+      "post": {
+        "operationId": "generateFromHtml",
+        "summary": "Generate PDF from HTML",
+        "description": "Converts an HTML string into a PDF document. Supports custom page size, margins, headers, and footers.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/HtmlRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PDF document",
+            "content": {
+              "application/pdf": {
+                "schema": { "type": "string", "format": "binary" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/from-markdown": {
+      "post": {
+        "operationId": "generateFromMarkdown",
+        "summary": "Generate PDF from Markdown",
+        "description": "Converts a Markdown string into a PDF document.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/MarkdownRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PDF document",
+            "content": {
+              "application/pdf": {
+                "schema": { "type": "string", "format": "binary" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    },
+    "/from-url": {
+      "post": {
+        "operationId": "generateFromUrl",
+        "summary": "Generate PDF from URL",
+        "description": "Fetches the HTML content of a URL and converts it into a PDF document.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/UrlRequest" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "PDF document",
+            "content": {
+              "application/pdf": {
+                "schema": { "type": "string", "format": "binary" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/BadRequest" },
+          "502": {
+            "description": "Failed to fetch URL",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          },
+          "500": { "$ref": "#/components/responses/InternalError" }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "PageOptions": {
+        "type": "object",
+        "properties": {
+          "page_size": { "type": "string", "enum": ["A4", "A3", "Letter", "Legal"], "default": "A4" },
+          "orientation": { "type": "string", "enum": ["portrait", "landscape"], "default": "portrait" },
+          "margin_top": { "type": "number", "default": 72 },
+          "margin_bottom": { "type": "number", "default": 72 },
+          "margin_left": { "type": "number", "default": 72 },
+          "margin_right": { "type": "number", "default": 72 },
+          "font_size": { "type": "number", "default": 12 },
+          "line_height": { "type": "number", "default": 1.4 },
+          "header": { "type": "string", "description": "Header text for each page" },
+          "footer": { "type": "string", "description": "Footer text. Use {{page}} and {{pages}} as placeholders." },
+          "filename": { "type": "string", "default": "document.pdf" }
+        }
+      },
+      "HtmlRequest": {
+        "allOf": [
+          { "$ref": "#/components/schemas/PageOptions" },
+          {
+            "type": "object",
+            "required": ["html"],
+            "properties": {
+              "html": { "type": "string", "description": "HTML content to convert" }
+            }
+          }
+        ]
+      },
+      "MarkdownRequest": {
+        "allOf": [
+          { "$ref": "#/components/schemas/PageOptions" },
+          {
+            "type": "object",
+            "required": ["markdown"],
+            "properties": {
+              "markdown": { "type": "string", "description": "Markdown content to convert" }
+            }
+          }
+        ]
+      },
+      "UrlRequest": {
+        "allOf": [
+          { "$ref": "#/components/schemas/PageOptions" },
+          {
+            "type": "object",
+            "required": ["url"],
+            "properties": {
+              "url": { "type": "string", "format": "uri", "description": "URL to fetch and convert" }
+            }
+          }
+        ]
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Bad request",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "Internal server error",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/Error" }
+          }
+        }
+      }
+    }
+  }
+}

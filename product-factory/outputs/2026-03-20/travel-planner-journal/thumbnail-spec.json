@@ -1,0 +1,70 @@
+{
+  "width": 600,
+  "height": 600,
+  "background": {
+    "type": "linear_gradient",
+    "direction": "top_left_to_bottom_right",
+    "colors": ["#0D9488", "#F97316"],
+    "description": "Teal to coral sunset gradient"
+  },
+  "overlay": {
+    "type": "image",
+    "content": "world_map_silhouette",
+    "opacity": 0.08,
+    "position": "center",
+    "size": "cover"
+  },
+  "icon": {
+    "type": "emoji_or_svg",
+    "content": "airplane",
+    "size": 48,
+    "color": "#FFFFFF",
+    "position": { "x": "center", "y": 140 }
+  },
+  "dotted_path": {
+    "type": "arc",
+    "color": "#FFFFFF",
+    "opacity": 0.4,
+    "stroke_width": 2,
+    "dash": [6, 8],
+    "from": { "x": 120, "y": 160 },
+    "to": { "x": 480, "y": 160 },
+    "arc_height": 60
+  },
+  "title": {
+    "text": "Travel Planner\n& Journal",
+    "font": "serif_bold",
+    "size": 44,
+    "color": "#FFFFFF",
+    "position": { "x": "center", "y": 270 },
+    "alignment": "center",
+    "line_spacing": 1.2
+  },
+  "subtitle": {
+    "text": "Plan. Pack. Explore. Remember.",
+    "font": "sans_regular",
+    "size": 18,
+    "color": "#FFFFFF",
+    "opacity": 0.9,
+    "position": { "x": "center", "y": 390 },
+    "alignment": "center"
+  },
+  "badge": {
+    "text": "Notion Template",
+    "font": "sans_medium",
+    "size": 13,
+    "color": "#0D9488",
+    "background": "#FFFFFF",
+    "border_radius": 20,
+    "padding": { "x": 16, "y": 6 },
+    "position": { "x": "center", "y": 440 }
+  },
+  "price_tag": {
+    "text": "$12",
+    "font": "sans_bold",
+    "size": 16,
+    "color": "#FFFFFF",
+    "position": { "x": 540, "y": 560 },
+    "alignment": "right"
+  }
+}

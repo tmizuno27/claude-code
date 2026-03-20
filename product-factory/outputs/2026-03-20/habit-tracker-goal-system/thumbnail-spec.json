@@ -1,0 +1,81 @@
+{
+  "product_name": "Habit Tracker & Goal System",
+  "dimensions": {
+    "width": 1280,
+    "height": 720
+  },
+  "background": {
+    "type": "gradient",
+    "direction": "top_left_to_bottom_right",
+    "color_start": "#0A1628",
+    "color_end": "#0F2B3C"
+  },
+  "elements": [
+    {
+      "type": "circle_progress_ring",
+      "position": { "x": 640, "y": 280 },
+      "radius": 120,
+      "stroke_width": 14,
+      "track_color": "#1E3A4F",
+      "fill_color": "#34D399",
+      "percentage": 75,
+      "inner_text": {
+        "text": "75%",
+        "font_size": 48,
+        "font_weight": "bold",
+        "color": "#FFFFFF"
+      }
+    },
+    {
+      "type": "text",
+      "text": "Habit Tracker",
+      "position": { "x": 640, "y": 450 },
+      "font_size": 36,
+      "font_weight": "bold",
+      "color": "#FFFFFF",
+      "alignment": "center"
+    },
+    {
+      "type": "text",
+      "text": "& Goal System",
+      "position": { "x": 640, "y": 495 },
+      "font_size": 28,
+      "font_weight": "normal",
+      "color": "#94A3B8",
+      "alignment": "center"
+    },
+    {
+      "type": "text",
+      "text": "Notion Template",
+      "position": { "x": 640, "y": 540 },
+      "font_size": 16,
+      "font_weight": "normal",
+      "color": "#5EEAD4",
+      "alignment": "center"
+    },
+    {
+      "type": "icon_row",
+      "position": { "x": 640, "y": 600 },
+      "spacing": 60,
+      "icons": [
+        { "emoji": "\ud83d\udd25", "label": "Streaks", "color": "#5EEAD4" },
+        { "emoji": "\ud83c\udfaf", "label": "Goals", "color": "#5EEAD4" },
+        { "emoji": "\ud83d\udcd6", "label": "Journal", "color": "#5EEAD4" },
+        { "emoji": "\u2b50", "label": "Rewards", "color": "#5EEAD4" }
+      ],
+      "label_font_size": 11,
+      "label_color": "#5EEAD4"
+    },
+    {
+      "type": "price_badge",
+      "position": { "x": 1180, "y": 650 },
+      "text": "$9",
+      "font_size": 20,
+      "font_weight": "bold",
+      "text_color": "#FFFFFF",
+      "background_color": "#059669",
+      "border_radius": 20,
+      "padding": { "x": 20, "y": 8 }
+    }
+  ]
+}

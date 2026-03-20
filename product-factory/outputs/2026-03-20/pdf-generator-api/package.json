@@ -1,0 +1,23 @@
+{
+  "name": "pdf-generator-api",
+  "version": "1.0.0",
+  "description": "PDF Generator API — Cloudflare Worker. Generate PDFs from HTML, Markdown, or URLs with custom page settings.",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": [
+    "pdf",
+    "html-to-pdf",
+    "markdown-to-pdf",
+    "cloudflare-workers",
+    "rapidapi"
+  ],
+  "author": "miccho27",
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

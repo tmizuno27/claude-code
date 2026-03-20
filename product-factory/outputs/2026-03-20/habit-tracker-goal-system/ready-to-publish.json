@@ -1,0 +1,36 @@
+{
+  "product": "Habit Tracker & Goal System",
+  "price": "$9",
+  "checklist": [
+    {
+      "step": 1,
+      "task": "Build Notion template",
+      "description": "Create all 7 databases, 17 views, dashboard layout, relations, formulas, and sample data as specified in template-design.md",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "task": "Generate thumbnail",
+      "description": "Create 1280x720 thumbnail image using thumbnail-spec.json and upload to Gumroad listing",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "task": "Create Gumroad listing",
+      "description": "Publish product on Gumroad using listing.md content: title, price ($9), description, tags, cover image, and Notion template link",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "task": "Test template duplication",
+      "description": "Duplicate the Notion template from a different account to verify all databases, views, relations, formulas, and sample data copy correctly",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "task": "Schedule X promotion",
+      "description": "Queue value_post, promo_post, and thread_post from x-posts.json into the @prodhq27 posting schedule",
+      "status": "pending"
+    }
+  ]
+}

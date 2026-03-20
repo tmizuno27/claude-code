@@ -1,0 +1,71 @@
+{
+  "product": "PDF Generator API",
+  "created": "2026-03-20",
+  "checklist": [
+    {
+      "step": 1,
+      "action": "Install dependencies",
+      "command": "npm install",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "action": "Test locally",
+      "command": "npm run dev",
+      "test": "curl -X POST http://localhost:8787/generate -H 'Content-Type: application/json' -d '{\"html\":\"<h1>Hello</h1><p>Test document</p>\"}'",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "action": "Deploy to Cloudflare Workers",
+      "command": "npm run deploy",
+      "expected_url": "https://pdf-generator-api.miccho27.workers.dev",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "action": "Verify production health check",
+      "command": "curl https://pdf-generator-api.miccho27.workers.dev/",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "action": "Add API to RapidAPI Studio",
+      "instructions": [
+        "Go to https://rapidapi.com/studio",
+        "Click 'Add New API'",
+        "Name: PDF Generator API",
+        "Category: Tools",
+        "Import openapi.json for endpoint definitions",
+        "Set Base URL to Cloudflare Worker URL"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 6,
+      "action": "Configure pricing plans in RapidAPI",
+      "instructions": [
+        "Basic (Free): 500 req/month",
+        "Pro ($5.99): 50,000 req/month",
+        "Ultra ($14.99): 500,000 req/month",
+        "Mega ($49.99): 5,000,000 req/month"
+      ],
+      "status": "pending"
+    },
+    {
+      "step": 7,
+      "action": "Add description and tags from rapidapi-listing.json",
+      "status": "pending"
+    },
+    {
+      "step": 8,
+      "action": "Test endpoints via RapidAPI playground",
+      "status": "pending"
+    },
+    {
+      "step": 9,
+      "action": "Publish / Make API public",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "name": "PDF Generator API",
+  "slug": "pdf-generator-api",
+  "description": "Generate PDF documents from HTML, Markdown, or URLs with custom page sizes, margins, headers, and footers. Lightweight, fast, serverless.",
+  "long_description": "## Overview\n\nPDF Generator API lets you create PDF documents programmatically from HTML, Markdown, or any public URL. Built on Cloudflare Workers for ultra-low latency worldwide.\n\n## Key Features\n\n- **HTML to PDF** — Convert raw HTML strings into clean PDF documents\n- **Markdown to PDF** — Pass Markdown content and get a formatted PDF back\n- **URL to PDF** — Provide any public URL and receive its content as a PDF\n- **Custom Page Settings** — A4, A3, Letter, Legal page sizes with portrait/landscape orientation\n- **Configurable Margins** — Set top, bottom, left, and right margins in points\n- **Headers & Footers** — Add custom header/footer text with page number placeholders ({{page}}, {{pages}})\n- **Font Control** — Adjustable font size and line height\n- **Custom Filename** — Set the output filename in the Content-Disposition header\n\n## Use Cases\n\n- Invoice and receipt generation\n- Report export from web dashboards\n- Documentation archiving\n- Email content to PDF conversion\n- Blog post / article PDF export\n- Batch document generation pipelines\n\n## Technical Details\n\n- Returns binary PDF with `application/pdf` content type\n- No external dependencies or headless browsers — pure serverless\n- Sub-100ms response times for typical documents\n- Proper error handling with descriptive JSON error messages",
+  "category": "Tools",
+  "tags": [
+    "pdf",
+    "html-to-pdf",
+    "markdown-to-pdf",
+    "document-generation",
+    "pdf-converter",
+    "pdf-generator",
+    "serverless"
+  ],
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": {
+          "requests_per_month": 500
+        }
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": {
+          "requests_per_month": 50000
+        }
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": {
+          "requests_per_month": 500000
+        }
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": {
+          "requests_per_month": 5000000
+        }
+      }
+    ]
+  },
+  "endpoints": [
+    {
+      "name": "Health Check",
+      "method": "GET",
+      "route": "/",
+      "description": "Returns API status and available endpoints"
+    },
+    {
+      "name": "Generate from HTML",
+      "method": "POST",
+      "route": "/generate",
+      "description": "Convert HTML string to PDF. Supports custom page size, margins, headers, footers.",
+      "body_params": [
+        { "name": "html", "type": "string", "required": true, "description": "HTML content to convert" },
+        { "name": "page_size", "type": "string", "required": false, "description": "A4, A3, Letter, Legal (default: A4)" },
+        { "name": "orientation", "type": "string", "required": false, "description": "portrait or landscape (default: portrait)" },
+        { "name": "margin_top", "type": "number", "required": false, "description": "Top margin in points (default: 72)" },
+        { "name": "margin_bottom", "type": "number", "required": false, "description": "Bottom margin in points (default: 72)" },
+        { "name": "margin_left", "type": "number", "required": false, "description": "Left margin in points (default: 72)" },
+        { "name": "margin_right", "type": "number", "required": false, "description": "Right margin in points (default: 72)" },
+        { "name": "font_size", "type": "number", "required": false, "description": "Font size in points (default: 12)" },
+        { "name": "header", "type": "string", "required": false, "description": "Header text for each page" },
+        { "name": "footer", "type": "string", "required": false, "description": "Footer text. Use {{page}} and {{pages}} placeholders" },
+        { "name": "filename", "type": "string", "required": false, "description": "Output filename (default: document.pdf)" }
+      ]
+    },
+    {
+      "name": "Generate from Markdown",
+      "method": "POST",
+      "route": "/from-markdown",
+      "description": "Convert Markdown string to PDF.",
+      "body_params": [
+        { "name": "markdown", "type": "string", "required": true, "description": "Markdown content to convert" },
+        { "name": "page_size", "type": "string", "required": false },
+        { "name": "orientation", "type": "string", "required": false },
+        { "name": "header", "type": "string", "required": false },
+        { "name": "footer", "type": "string", "required": false },
+        { "name": "filename", "type": "string", "required": false }
+      ]
+    },
+    {
+      "name": "Generate from URL",
+      "method": "POST",
+      "route": "/from-url",
+      "description": "Fetch a URL and convert its HTML content to PDF.",
+      "body_params": [
+        { "name": "url", "type": "string", "required": true, "description": "Public URL to fetch and convert" },
+        { "name": "page_size", "type": "string", "required": false },
+        { "name": "orientation", "type": "string", "required": false },
+        { "name": "header", "type": "string", "required": false },
+        { "name": "footer", "type": "string", "required": false },
+        { "name": "filename", "type": "string", "required": false }
+      ]
+    }
+  ]
+}

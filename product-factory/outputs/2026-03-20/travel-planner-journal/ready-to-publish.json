@@ -1,0 +1,36 @@
+{
+  "product": "Travel Planner & Journal",
+  "price": "$12",
+  "checklist": [
+    {
+      "step": 1,
+      "task": "Build Notion template from template-design.md",
+      "details": "Create all 8 databases, 22 views, relations, formulas, sample data, packing presets, and dashboard layout",
+      "done": false
+    },
+    {
+      "step": 2,
+      "task": "Generate thumbnail image from thumbnail-spec.json",
+      "details": "Create 600x600 thumbnail using Pillow or Canva matching the spec",
+      "done": false
+    },
+    {
+      "step": 3,
+      "task": "Publish on Gumroad using listing.md",
+      "details": "Create product at tatsuya27.gumroad.com with title, description, tags, price $12, thumbnail, and Notion duplicate link",
+      "done": false
+    },
+    {
+      "step": 4,
+      "task": "Test the template",
+      "details": "Duplicate template to a test workspace, verify all relations work, formulas calculate correctly, views filter properly, and sample data displays",
+      "done": false
+    },
+    {
+      "step": 5,
+      "task": "Schedule X promotion posts from x-posts.json",
+      "details": "Queue value_post, promo_post, and thread_post via @prodhq27 automated posting schedule",
+      "done": false
+    }
+  ]
+}
