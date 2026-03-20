@@ -15,4 +15,17 @@ Claude Codeエージェント4体（product-factory, market-researcher, product-
 - `/market-researcher` で新企画を5-10件自動追加
 - Phase 1: Gumroad Notionテンプレ優先、Phase 2: RapidAPI、Phase 3: 自己改善ループ
 - プロジェクトパス: `claude-code/product-factory/`
-- 2026-03-20 Phase 1完了（エージェント4体+テスト商品1つ生成済み）
+
+## 進捗
+- **Phase 1完了（2026-03-20）:**
+  - エージェント4体定義済み
+  - Gumroad Notionテンプレート8商品 → Notion API構築+共有リンク取得+Gumroad出品 全完了
+  - RapidAPI 3本（PDF Generator, Placeholder Image, Markdown Converter）→ CF Workersデプロイ+RapidAPI Studio出品 全完了
+  - サムネイル38枚生成済み、X投稿16件スケジュール済み
+  - pipeline.json: 全11件completed
+
+## 次のステップ（Phase 2 — 2026-03-22日曜お昼から再開予定）
+1. `run_pipeline.py` — 毎日9:00 PYTにTask Schedulerで自動実行
+2. market-researcher — 毎週月曜に10件の商品企画を自動生成
+3. `deploy_rapidapi.py` — wrangler deployラッパー
+4. Phase 3: nightly_review.py（23:00 PYT自己改善ループ）、collect_stats.py

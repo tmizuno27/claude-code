@@ -71,7 +71,7 @@
 
 ## RapidAPI API販売事業（全21本出品済み）
 - **詳細**: [rapidapi-business.md](rapidapi-business.md)
-- 全21 API、Cloudflare Workers デプロイ済み・Rapid Studio全出品完了（2026-03-20確認）
+- 全24 API、Cloudflare Workers デプロイ済み・Rapid Studio全出品完了（2026-03-20確認）
 - 運用コスト$0、完全自動（集客・課金・サポート全てRapidAPI側）
 - PayPal payout接続済み、日次ヘルスチェック自動化済み
 - **プロジェクトパス**: `claude-code/api-services/`
