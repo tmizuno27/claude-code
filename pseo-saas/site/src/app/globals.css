@@ -552,4 +552,43 @@ a:hover {
   .compare-header h1 { font-size: 1.5rem; }
   .main-nav { gap: 12px; }
   .main-nav a { font-size: 0.8rem; }
+  .cta-buttons { flex-direction: column; }
+}
+
+/* CTA Buttons */
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 32px auto;
+  max-width: 600px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  flex: 1;
+  text-align: center;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.cta-btn-a {
+  background: var(--accent);
+  color: #fff;
+}
+
+.cta-btn-b {
+  background: var(--green);
+  color: #fff;
 }

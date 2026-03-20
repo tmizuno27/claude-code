@@ -14,9 +14,17 @@ export async function generateMetadata({ params }) {
   return {
     title: `${toolA.name} vs ${toolB.name}: Which is Better in 2026?`,
     description: `Detailed comparison of ${toolA.name} and ${toolB.name}. Compare features, pricing, ratings, pros & cons to find the best option for your needs.`,
+    alternates: {
+      canonical: `/compare/${slug}/`,
+    },
     openGraph: {
       title: `${toolA.name} vs ${toolB.name} Comparison`,
       description: `Side-by-side comparison of ${toolA.name} (${toolA.rating?.overall || 0}/10) and ${toolB.name} (${toolB.rating?.overall || 0}/10). Features, pricing, and honest verdict.`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${toolA.name} vs ${toolB.name}: Which is Better in 2026?`,
+      description: `Side-by-side comparison of ${toolA.name} and ${toolB.name}. Features, pricing, and honest verdict.`,
     },
   };
 }
@@ -206,6 +214,26 @@ export default async function ComparePage({ params }) {
         <div className="verdict-box">
           <h2>Our Verdict</h2>
           <p>{content.verdict}</p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="cta-buttons">
+          <a
+            href={toolA.affiliate_url || toolA.website}
+            target="_blank"
+            rel={toolA.affiliate_url ? 'sponsored noopener' : 'noopener'}
+            className="cta-btn cta-btn-a"
+          >
+            Try {toolA.name} {toolA.free_plan ? '(Free)' : ''} &rarr;
+          </a>
+          <a
+            href={toolB.affiliate_url || toolB.website}
+            target="_blank"
+            rel={toolB.affiliate_url ? 'sponsored noopener' : 'noopener'}
+            className="cta-btn cta-btn-b"
+          >
+            Try {toolB.name} {toolB.free_plan ? '(Free)' : ''} &rarr;
+          </a>
         </div>
 
         {/* FAQ */}
