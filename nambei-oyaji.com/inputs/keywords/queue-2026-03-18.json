@@ -115,7 +115,9 @@
     "keyword": "パラグアイ 移住 仕事",
     "type": "longtail",
     "priority": 15,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\nambei-oyaji.com\\outputs\\articles\\2026-03-20\\article-94915.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "パラグアイ 移住 失敗",
