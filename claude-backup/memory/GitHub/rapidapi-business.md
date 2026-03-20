@@ -1,12 +1,12 @@
 ---
 name: RapidAPI API販売事業
-description: Cloudflare Workers上の10個のAPIをRapidAPIマーケットプレイスで販売する完全自動化ビジネス
+description: Cloudflare Workers上の21個のAPIをRapidAPIマーケットプレイスで販売する完全自動化ビジネス（全出品済み）
 type: project
 ---
 
 ## RapidAPI API-as-a-Service事業
 
-- **ステータス**: 全20 API デプロイ済み・RapidAPI出品完了（2026-03-16）
+- **ステータス**: 全21 API デプロイ済み・Rapid Studio登録完了（2026-03-20確認）
 - **決定経緯**: Gumroad Stripe KYC問題でn8nテンプレート事業が停止 → 5並行リサーチで完全自動モデルを再調査 → RapidAPI選定
 - **プロジェクトパス**: `claude-code/api-services/`
 
