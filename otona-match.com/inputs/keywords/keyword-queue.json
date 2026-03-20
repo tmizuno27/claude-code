@@ -318,12 +318,14 @@
       "type": "集客",
       "main_keyword": "マッチングアプリ 卒業 タイミング",
       "scheduled_date": "2026-03-20",
-      "status": "pending",
+      "status": "processed",
       "internal_links": [
         "matching-app-yamedoki",
         "matching-app-kekkon-taikendan",
         "matching-app-tsukare-taisaku"
-      ]
+      ],
+      "processed_date": "2026-03-20",
+      "wp_id": 989
     },
     {
       "slug": "dine-review",
