@@ -1781,11 +1781,11 @@ def build_personal_finance_dashboard(parent: dict) -> dict:
         "Month": p_date(),
         "Total Income": p_number("dollar"),
         "Total Expenses": p_number("dollar"),
-        "Net Cash Flow": p_formula('prop("Total Income") - prop("Total Expenses")'),
-        "Savings Rate": p_formula('if(prop("Total Income") > 0, round(prop("Net Cash Flow") / prop("Total Income") * 100), 0)'),
+        "Net Cash Flow": p_number("dollar"),
+        "Savings Rate": p_number("percent"),
         "Total Assets": p_number("dollar"),
         "Total Liabilities": p_number("dollar"),
-        "Net Worth": p_formula('prop("Total Assets") - prop("Total Liabilities")'),
+        "Net Worth": p_number("dollar"),
         "Notes": p_rt(),
     })
     snapshots_id = snapshots_db["id"]
