@@ -30,4 +30,5 @@ Apify Store上に5つのActorを公開・収益化設定済み。
 ### 注意事項
 - Apifyは毎日自動テストを実行。3日連続失敗で「under maintenance」マーク
 - Redditソース（Trends Aggregator）は403エラーが出る場合あり（他ソースは正常）
-- PayPal payout未設定（Billing → Payout method から後日設定）
+- PayPal payout: t.mizuno27@gmail.com で設定済み（2026-03-20）、本人確認レビュー中（1-2営業日）
+- Payout設定ページ: Apify Console → Insights → Payouts タブ（左メニュー Development → Insights）
