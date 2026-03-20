@@ -1,5 +1,6 @@
 {
-  "queue": [
+  "queue": [],
+  "completed": [
     {
       "id": "gumroad-011",
       "category": "gumroad-notion",
@@ -15,9 +16,10 @@
         "Budget planner for startup costs"
       ],
       "priority": 9,
-      "status": "queued",
-      "created": "2026-03-20"
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/startup-launch-checklist/"
     }
-  ],
-  "completed": []
+  ]
 }

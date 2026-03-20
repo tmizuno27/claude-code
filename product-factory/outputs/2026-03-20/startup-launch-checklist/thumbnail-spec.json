@@ -1,0 +1,16 @@
+{
+  "width": 600,
+  "height": 600,
+  "background": {
+    "type": "gradient",
+    "colors": ["#0f0f23", "#1a1a3e"]
+  },
+  "title": "Startup Launch Checklist",
+  "subtitle": "From Idea to Launch Day",
+  "font_size_title": 34,
+  "font_size_subtitle": 16,
+  "title_color": "#FFFFFF",
+  "subtitle_color": "#B0B0C0",
+  "icon": "🚀",
+  "accent_color": "#6C63FF"
+}
