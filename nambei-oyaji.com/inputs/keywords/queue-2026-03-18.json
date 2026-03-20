@@ -99,7 +99,9 @@
     "keyword": "海外移住 準備 お金",
     "type": "longtail",
     "priority": 13,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\nambei-oyaji.com\\outputs\\articles\\2026-03-20\\article-80636.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "海外送金 比較 個人",
