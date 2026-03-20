@@ -1,0 +1,16 @@
+{
+  "width": 600,
+  "height": 600,
+  "background": {
+    "type": "gradient",
+    "colors": ["#7B2FF7", "#F72F8E"]
+  },
+  "title": "AI Side Hustle Starter Kit",
+  "subtitle": "50 AI Prompts + Notion System",
+  "font_size_title": 32,
+  "font_size_subtitle": 16,
+  "title_color": "#FFFFFF",
+  "subtitle_color": "#F0D0FF",
+  "icon": "🤖",
+  "accent_color": "#FFD700"
+}

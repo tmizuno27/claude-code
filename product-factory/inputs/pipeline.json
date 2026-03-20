@@ -105,8 +105,10 @@
       "target_audience": "AIを使って副業を始めたい人、フリーランサー、コンテンツクリエイター",
       "key_features": ["50 AI prompts for content creation", "Client acquisition Notion template", "Income tracker dashboard", "AI tool comparison database", "Weekly workflow planner", "Pricing calculator"],
       "priority": 10,
-      "status": "queued",
-      "created": "2026-03-20"
+      "status": "completed",
+      "created": "2026-03-20",
+      "completed_at": "2026-03-20",
+      "output_dir": "product-factory/outputs/2026-03-20/ai-side-hustle-starter-kit/"
     },
     {
       "id": "gumroad-017",
