@@ -107,7 +107,9 @@
     "keyword": "格安sim 比較 安い",
     "type": "longtail",
     "priority": 14,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\sim.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "格安sim 比較 子供",
