@@ -9,7 +9,11 @@
         {
           "name": "Wise",
           "url": "https://wise.com/invite/dic/tatsuyam155",
-          "anchor_text": ["Wise", "ワイズ", "Wise（旧TransferWise）"],
+          "anchor_text": [
+            "Wise",
+            "ワイズ",
+            "Wise（旧TransferWise）"
+          ],
           "commission": "紹介1件あたり約3,000〜5,000円",
           "asp": "直接（紹介プログラム）",
           "context": "海外送金、日本→パラグアイの送金、生活費の送金、為替手数料比較の文脈で使用",
@@ -18,7 +22,10 @@
         {
           "name": "Revolut",
           "url": "https://revolut.com/referral/?referral-code=tatsuygyho!MAR1-26-AR-JP-L1&geo-redirect",
-          "anchor_text": ["Revolut", "レボリュート"],
+          "anchor_text": [
+            "Revolut",
+            "レボリュート"
+          ],
           "commission": "紹介1件あたり約1,500円",
           "asp": "直接",
           "context": "多通貨デビットカード、海外での支払い、ATM引き出しの文脈で使用"
@@ -33,7 +40,10 @@
         {
           "name": "NordVPN",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGC9+FJ21TE+3YFI+66OZ6",
-          "anchor_text": ["NordVPN", "ノードVPN"],
+          "anchor_text": [
+            "NordVPN",
+            "ノードVPN"
+          ],
           "commission": "3,000〜5,000円/件",
           "asp": "A8.net",
           "context": "海外から日本のサービスに接続、動画配信、銀行アクセスの文脈で使用",
@@ -43,7 +53,10 @@
           "name": "ExpressVPN",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZH4C+D44RHU+5JSS+5YRHE",
           "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4AZH4C+D44RHU+5JSS+5YRHE\" alt=\"\">",
-          "anchor_text": ["ExpressVPN", "エクスプレスVPN"],
+          "anchor_text": [
+            "ExpressVPN",
+            "エクスプレスVPN"
+          ],
           "commission": "3,000〜5,000円/件",
           "asp": "A8.net",
           "context": "NordVPNとの比較対象として使用"
@@ -52,7 +65,11 @@
           "name": "Surfshark",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+5TKLPU+4LSW+5YJRM",
           "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www18.a8.net/0.gif?a8mat=4AZGCA+5TKLPU+4LSW+5YJRM\" alt=\"\">",
-          "anchor_text": ["Surfshark", "サーフシャーク", "ISP追跡を回避する【SurfShark】"],
+          "anchor_text": [
+            "Surfshark",
+            "サーフシャーク",
+            "ISP追跡を回避する【SurfShark】"
+          ],
           "commission": "2,000〜4,000円/件",
           "asp": "A8.net",
           "context": "コスパ重視の選択肢として使用",
@@ -77,7 +94,10 @@
           "url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
           "url_moshimo": "//af.moshimo.com/af/c/click?a_id=5432414&p_id=2312&pc_id=4967&pl_id=30490",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432414&p_id=2312&pc_id=4967&pl_id=30490",
-          "anchor_text": ["ConoHa WING", "コノハウィング"],
+          "anchor_text": [
+            "ConoHa WING",
+            "コノハウィング"
+          ],
           "commission": "5,000〜12,000円/件",
           "asp": "A8.net",
           "context": "海外生活ブログ開設、WordPress、海外からのサーバー選びの文脈で使用",
@@ -86,7 +106,10 @@
         {
           "name": "エックスサーバー",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGC9+FSKZHU+CO4+61JSI",
-          "anchor_text": ["エックスサーバー", "Xserver"],
+          "anchor_text": [
+            "エックスサーバー",
+            "Xserver"
+          ],
           "commission": "5,000〜10,000円/件",
           "asp": "A8.net",
           "context": "ConoHaとの比較対象として使用"
@@ -95,7 +118,10 @@
           "name": "ロリポップ",
           "url": "//af.moshimo.com/af/c/click?a_id=5432415&p_id=16&pc_id=16&pl_id=14954",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432415&p_id=16&pc_id=16&pl_id=14954",
-          "anchor_text": ["ロリポップ", "ロリポップ!"],
+          "anchor_text": [
+            "ロリポップ",
+            "ロリポップ!"
+          ],
           "commission": "100〜5,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "低価格レンタルサーバー。ConoHa/エックスサーバーとの比較対象として"
@@ -110,8 +136,11 @@
         {
           "name": "DMM英会話",
           "status": "pending_approval",
-          "url": "https://YOUR-AFFILIATE-LINK/dmm-eikaiwa",
-          "anchor_text": ["DMM英会話", "DMMオンライン英会話"],
+          "url": "//af.moshimo.com/af/c/click?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
+          "anchor_text": [
+            "DMM英会話",
+            "DMMオンライン英会話"
+          ],
           "commission": "無料体験で1,500〜3,000円",
           "asp": "A8.net",
           "context": "スペイン語レッスンもある。海外移住前の語学準備として"
@@ -120,7 +149,10 @@
           "name": "ワールドトーク",
           "url": "//af.moshimo.com/af/c/click?a_id=5432428&p_id=3671&pc_id=8937&pl_id=51478",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432428&p_id=3671&pc_id=8937&pl_id=51478",
-          "anchor_text": ["ワールドトーク", "WorldTalk"],
+          "anchor_text": [
+            "ワールドトーク",
+            "WorldTalk"
+          ],
           "commission": "1,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "日本人講師のオンライン英会話。海外移住前の語学準備として"
@@ -130,7 +162,10 @@
           "url": "https://h.accesstrade.net/sp/cc?rk=0100pr9000opi9",
           "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pr9000opi9",
           "url_a8": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+6AU69E+35VG+64Z8Y",
-          "anchor_text": ["ネイティブキャンプ", "NativeCamp"],
+          "anchor_text": [
+            "ネイティブキャンプ",
+            "NativeCamp"
+          ],
           "commission": "新規無料会員登録1,100円",
           "asp": "アクセストレード",
           "context": "予約不要・レッスンし放題のオンライン英会話。海外移住前の語学準備として",
@@ -146,16 +181,21 @@
         {
           "name": "エポスカード",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+2DR76+38L8+BXQOH",
-          "anchor_text": ["エポスカード", "EPOS"],
+          "anchor_text": [
+            "エポスカード",
+            "EPOS"
+          ],
           "commission": "新規カード発行2,600円",
           "asp": "A8.net",
           "context": "海外旅行保険自動付帯、年会費無料。海外移住者の定番"
         },
         {
           "name": "楽天プレミアムカード",
-          "status": "pending_approval",
-          "url": "https://YOUR-AFFILIATE-LINK/rakuten-premium",
-          "anchor_text": ["楽天プレミアムカード"],
+          "status": "pending",
+          "url": "",
+          "anchor_text": [
+            "楽天プレミアムカード"
+          ],
           "commission": "カード発行で5,000〜10,000円",
           "asp": "もしもアフィリエイト",
           "note": "もしもアフィリエイト自体のサイト審査待ち",
@@ -172,7 +212,10 @@
           "name": "DMM WEBCAMP 学習コース",
           "url": "//af.moshimo.com/af/c/click?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
-          "anchor_text": ["DMM WEBCAMP", "DMMウェブキャンプ"],
+          "anchor_text": [
+            "DMM WEBCAMP",
+            "DMMウェブキャンプ"
+          ],
           "commission": "1,000〜10,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "海外からオンラインでプログラミング・スキルアップを学ぶ文脈で使用"
@@ -181,7 +224,10 @@
           "name": "DMM WEBCAMP エンジニア転職",
           "url": "//af.moshimo.com/af/c/click?a_id=5424891&p_id=1363&pc_id=2297&pl_id=68018",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5424891&p_id=1363&pc_id=2297&pl_id=68018",
-          "anchor_text": ["DMM WEBCAMP エンジニア転職", "DMM WEBCAMP PRO"],
+          "anchor_text": [
+            "DMM WEBCAMP エンジニア転職",
+            "DMM WEBCAMP PRO"
+          ],
           "commission": "1,000〜30,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "エンジニア転職特化。海外からキャリアチェンジしたい人向け"
@@ -197,16 +243,22 @@
           "name": "クラウドワークス",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+52S3HU+2OM2+100IDU",
           "tracking_img": "<img border=\"0\" width=\"1\" height=\"1\" src=\"https://www12.a8.net/0.gif?a8mat=4AZGCA+52S3HU+2OM2+100IDU\" alt=\"\">",
-          "anchor_text": ["クラウドワークス", "CrowdWorks"],
+          "anchor_text": [
+            "クラウドワークス",
+            "CrowdWorks"
+          ],
           "commission": "会員登録で500円",
           "asp": "A8.net",
           "context": "海外からリモートで日本の仕事を受注する文脈で使用"
         },
         {
           "name": "ランサーズ",
-          "status": "pending_approval",
-          "url": "https://YOUR-AFFILIATE-LINK/lancers",
-          "anchor_text": ["ランサーズ", "Lancers"],
+          "status": "pending_affiliate",
+          "url": "https://www.lancers.jp/",
+          "anchor_text": [
+            "ランサーズ",
+            "Lancers"
+          ],
           "commission": "会員登録で500円",
           "asp": "A8.net",
           "context": "海外からリモートで日本の仕事を受注する文脈で使用"
@@ -214,7 +266,10 @@
         {
           "name": "ココナラ",
           "url": "https://px.a8.net/svt/ejp?a8mat=4AZGCA+53YYPE+2PEO+1HMAQQ",
-          "anchor_text": ["ココナラ", "coconala"],
+          "anchor_text": [
+            "ココナラ",
+            "coconala"
+          ],
           "commission": "会員登録で300円",
           "asp": "A8.net",
           "context": "海外在住の経験を活かしたスキル販売"
@@ -230,7 +285,10 @@
           "name": "eSIM-san（イーシムさん）",
           "url": "https://h.accesstrade.net/sp/cc?rk=0100prr900opi9",
           "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100prr900opi9",
-          "anchor_text": ["eSIM-san", "イーシムさん"],
+          "anchor_text": [
+            "eSIM-san",
+            "イーシムさん"
+          ],
           "commission": "10.90%",
           "asp": "アクセストレード",
           "context": "海外eSIM比較、パラグアイで使えるeSIM記事で使用",
@@ -240,7 +298,10 @@
           "name": "Airalo eSIM",
           "status": "pending_approval",
           "url": null,
-          "anchor_text": ["Airalo", "エアラロ"],
+          "anchor_text": [
+            "Airalo",
+            "エアラロ"
+          ],
           "commission": "9.70%",
           "asp": "アクセストレード",
           "context": "世界200+国対応の海外eSIM",
@@ -250,7 +311,9 @@
           "name": "World eSIM",
           "status": "pending_approval",
           "url": null,
-          "anchor_text": ["World eSIM"],
+          "anchor_text": [
+            "World eSIM"
+          ],
           "commission": "10.90%",
           "asp": "アクセストレード",
           "context": "海外旅行向けeSIM",
@@ -267,7 +330,11 @@
           "name": "LiPLUS 引越し",
           "url": "https://h.accesstrade.net/sp/cc?rk=0100q3m900opi9",
           "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100q3m900opi9",
-          "anchor_text": ["LiPLUS", "引越し見積もり", "LiPLUS引越し"],
+          "anchor_text": [
+            "LiPLUS",
+            "引越し見積もり",
+            "LiPLUS引越し"
+          ],
           "commission": "19,800円/件",
           "asp": "アクセストレード",
           "context": "海外移住前の引越し手配、荷物整理、見積もり比較の文脈で使用",
@@ -284,7 +351,10 @@
           "name": "グローバルWiFi",
           "url": "//af.moshimo.com/af/c/click?a_id=5432419&p_id=2627&pc_id=5877&pl_id=33477",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432419&p_id=2627&pc_id=5877&pl_id=33477",
-          "anchor_text": ["グローバルWiFi", "Global WiFi"],
+          "anchor_text": [
+            "グローバルWiFi",
+            "Global WiFi"
+          ],
           "commission": "1,200円/件",
           "asp": "もしもアフィリエイト",
           "context": "海外WiFiレンタル。パラグアイ旅行・短期滞在向け"
@@ -293,7 +363,9 @@
           "name": "VisionWiMAX",
           "url": "//af.moshimo.com/af/c/click?a_id=5432420&p_id=3359&pc_id=7984&pl_id=47733",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432420&p_id=3359&pc_id=7984&pl_id=47733",
-          "anchor_text": ["VisionWiMAX"],
+          "anchor_text": [
+            "VisionWiMAX"
+          ],
           "commission": "7,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "国内モバイルルーター。日本での一時帰国時のWiFi環境として"
@@ -302,7 +374,10 @@
           "name": "dinomoWiFi",
           "url": "//af.moshimo.com/af/c/click?a_id=5432421&p_id=5538&pc_id=15178&pl_id=71447",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432421&p_id=5538&pc_id=15178&pl_id=71447",
-          "anchor_text": ["dinomoWiFi", "ディノモWiFi"],
+          "anchor_text": [
+            "dinomoWiFi",
+            "ディノモWiFi"
+          ],
           "commission": "3,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "eSIM/SIM/WiFiレンタル。海外旅行・移住者の通信手段として"
@@ -318,7 +393,10 @@
           "name": "The Beyond Border",
           "url": "//af.moshimo.com/af/c/click?a_id=5432430&p_id=1678&pc_id=3136&pl_id=24078",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432430&p_id=1678&pc_id=3136&pl_id=24078",
-          "anchor_text": ["The Beyond Border", "ビヨンドボーダー"],
+          "anchor_text": [
+            "The Beyond Border",
+            "ビヨンドボーダー"
+          ],
           "commission": "5,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "海外経験者・留学経験者専門の転職エージェント"
@@ -327,7 +405,9 @@
           "name": "べとわーく",
           "url": "//af.moshimo.com/af/c/click?a_id=5432426&p_id=5058&pc_id=13650&pl_id=66437",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432426&p_id=5058&pc_id=13650&pl_id=66437",
-          "anchor_text": ["べとわーく"],
+          "anchor_text": [
+            "べとわーく"
+          ],
           "commission": "7,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "ベトナム特化転職エージェント。東南アジア転職の文脈で"
@@ -336,7 +416,10 @@
           "name": "CEBRIDGE",
           "url": "//af.moshimo.com/af/c/click?a_id=5432427&p_id=4201&pc_id=10658&pl_id=57293",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432427&p_id=4201&pc_id=10658&pl_id=57293",
-          "anchor_text": ["CEBRIDGE", "セブリッジ"],
+          "anchor_text": [
+            "CEBRIDGE",
+            "セブリッジ"
+          ],
           "commission": "1,500〜3,000円/件",
           "asp": "もしもアフィリエイト",
           "context": "フィリピン留学専門。海外留学・語学留学の文脈で"
@@ -352,7 +435,9 @@
           "name": "楽天市場",
           "url": "//af.moshimo.com/af/c/click?a_id=5424888&p_id=54&pc_id=54&pl_id=621",
           "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5424888&p_id=54&pc_id=54&pl_id=621",
-          "anchor_text": ["楽天市場"],
+          "anchor_text": [
+            "楽天市場"
+          ],
           "commission": "購入額の2%",
           "asp": "もしもアフィリエイト",
           "context": "海外移住準備の持ち物購入、日本からの通販の文脈で"
@@ -368,7 +453,10 @@
           "name": "ふるなび",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567810",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567810",
-          "anchor_text": ["ふるなび", "ふるさと納税「ふるなび」"],
+          "anchor_text": [
+            "ふるなび",
+            "ふるさと納税「ふるなび」"
+          ],
           "commission": "寄附額の1.21%",
           "asp": "Value Commerce",
           "context": "ふるさと納税、海外在住者の節税、一時帰国準備の文脈で使用",
@@ -385,7 +473,10 @@
           "name": "ワイモバイル（アフィ限定特典）",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567817",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567817",
-          "anchor_text": ["ワイモバイル", "Y!mobile"],
+          "anchor_text": [
+            "ワイモバイル",
+            "Y!mobile"
+          ],
           "commission": "5,600円/件（新規・MNP）、1,150円/件（機種変更等）",
           "asp": "Value Commerce",
           "context": "一時帰国SIM、海外在住者の日本番号維持、格安SIM比較の文脈で使用。アフィ限定特典LP",
@@ -395,7 +486,10 @@
           "name": "ワイモバイル（トップページ）",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567818",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567818",
-          "anchor_text": ["ワイモバイル公式", "ワイモバイルオンラインストア"],
+          "anchor_text": [
+            "ワイモバイル公式",
+            "ワイモバイルオンラインストア"
+          ],
           "commission": "5,600円/件（新規・MNP）、1,150円/件（機種変更等）",
           "asp": "Value Commerce",
           "context": "汎用リンクとして使用。トップページへの誘導",
@@ -412,7 +506,10 @@
           "name": "グローバルWiFi",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567823",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567823",
-          "anchor_text": ["グローバルWiFi", "海外WiFiレンタル"],
+          "anchor_text": [
+            "グローバルWiFi",
+            "海外WiFiレンタル"
+          ],
           "commission": "1,200円/件",
           "asp": "Value Commerce",
           "context": "海外WiFiレンタル。パラグアイ渡航、一時帰国、海外出張の文脈で使用",
@@ -429,7 +526,11 @@
           "name": "HIS 海外ツアー",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567778",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567778",
-          "anchor_text": ["HIS", "エイチ・アイ・エス", "H.I.S."],
+          "anchor_text": [
+            "HIS",
+            "エイチ・アイ・エス",
+            "H.I.S."
+          ],
           "commission": "1,047円/件（海外ツアー）",
           "asp": "Value Commerce",
           "context": "海外ツアー予約。パラグアイ渡航、南米旅行の文脈で使用",
@@ -439,7 +540,10 @@
           "name": "HIS 海外航空券",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567779",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567779",
-          "anchor_text": ["HIS航空券", "HIS 航空券"],
+          "anchor_text": [
+            "HIS航空券",
+            "HIS 航空券"
+          ],
           "commission": "1,047円/件",
           "asp": "Value Commerce",
           "context": "海外航空券予約。パラグアイへの渡航、一時帰国の文脈で使用",
@@ -449,7 +553,10 @@
           "name": "エクスペディア",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567809",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567809",
-          "anchor_text": ["エクスペディア", "Expedia"],
+          "anchor_text": [
+            "エクスペディア",
+            "Expedia"
+          ],
           "commission": "4.4%",
           "asp": "Value Commerce",
           "context": "海外・国内ホテル・航空券予約。パラグアイ渡航、南米旅行、海外ホテルの文脈で使用"
@@ -458,7 +565,10 @@
           "name": "日本旅行 バリ得",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567792",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567792",
-          "anchor_text": ["日本旅行", "日本旅行バリ得"],
+          "anchor_text": [
+            "日本旅行",
+            "日本旅行バリ得"
+          ],
           "commission": "¥1,257/件",
           "asp": "Value Commerce",
           "context": "JR+宿泊セットプラン。一時帰国時の国内移動・新幹線の文脈で使用",
@@ -468,7 +578,10 @@
           "name": "日本旅行 JRセットプラン",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567793",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567793",
-          "anchor_text": ["日本旅行JR", "JRセットプラン"],
+          "anchor_text": [
+            "日本旅行JR",
+            "JRセットプラン"
+          ],
           "commission": "¥1,257/件",
           "asp": "Value Commerce",
           "context": "JR+宿泊予約。一時帰国時の新幹線+ホテルセットの文脈で使用",
@@ -478,7 +591,10 @@
           "name": "Yahoo!トラベル",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567791",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567791",
-          "anchor_text": ["Yahoo!トラベル", "ヤフートラベル"],
+          "anchor_text": [
+            "Yahoo!トラベル",
+            "ヤフートラベル"
+          ],
           "commission": "1.1%",
           "asp": "Value Commerce",
           "context": "国内ホテル予約。一時帰国時の宿泊予約の文脈で使用"
@@ -487,7 +603,10 @@
           "name": "JTB 国内旅行",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567790",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567790",
-          "anchor_text": ["JTB", "JTB国内旅行"],
+          "anchor_text": [
+            "JTB",
+            "JTB国内旅行"
+          ],
           "commission": "2.09%",
           "asp": "Value Commerce",
           "context": "国内ホテル・ツアー予約。一時帰国時の宿泊・国内旅行の文脈で使用"
@@ -496,7 +615,11 @@
           "name": "JALパック 国内ツアー",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567789",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567789",
-          "anchor_text": ["JALパック国内", "JAL国内ツアー", "JALダイナミックパッケージ"],
+          "anchor_text": [
+            "JALパック国内",
+            "JAL国内ツアー",
+            "JALダイナミックパッケージ"
+          ],
           "commission": "1.1%",
           "asp": "Value Commerce",
           "context": "JAL国内ダイナミックパッケージ。一時帰国時の国内移動の文脈で使用"
@@ -505,7 +628,11 @@
           "name": "JALパック 海外ツアー",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567785",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567785",
-          "anchor_text": ["JALパック", "ジャルパック", "JAL海外ツアー"],
+          "anchor_text": [
+            "JALパック",
+            "ジャルパック",
+            "JAL海外ツアー"
+          ],
           "commission": "1.1%",
           "asp": "Value Commerce",
           "context": "JAL海外ツアー・ダイナミックパッケージ。南米渡航、一時帰国の航空券の文脈で使用"
@@ -514,7 +641,10 @@
           "name": "じゃらんパック",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567784",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567784",
-          "anchor_text": ["じゃらんパック", "じゃらん航空券+ホテル"],
+          "anchor_text": [
+            "じゃらんパック",
+            "じゃらん航空券+ホテル"
+          ],
           "commission": "1.1%",
           "asp": "Value Commerce",
           "context": "航空券+ホテルセット予約。一時帰国の渡航費節約の文脈で使用",
@@ -524,7 +654,11 @@
           "name": "じゃらんnet",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567783",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567783",
-          "anchor_text": ["じゃらん", "じゃらんnet", "じゃらんネット"],
+          "anchor_text": [
+            "じゃらん",
+            "じゃらんnet",
+            "じゃらんネット"
+          ],
           "commission": "1.1%",
           "asp": "Value Commerce",
           "context": "国内ホテル・宿予約。一時帰国時の宿泊予約の文脈で使用",
@@ -534,7 +668,10 @@
           "name": "HIS 国内旅行",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567780",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567780",
-          "anchor_text": ["HIS国内旅行", "HIS 国内旅行"],
+          "anchor_text": [
+            "HIS国内旅行",
+            "HIS 国内旅行"
+          ],
           "commission": "1,047円/件",
           "asp": "Value Commerce",
           "context": "国内旅行・一時帰国時の旅行予約で使用",
@@ -544,7 +681,10 @@
           "name": "クラブツーリズム 海外旅行",
           "url": "//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765528&pid=892567822",
           "tracking_img_vc": "//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765528&pid=892567822",
-          "anchor_text": ["クラブツーリズム", "クラブツーリズム海外旅行"],
+          "anchor_text": [
+            "クラブツーリズム",
+            "クラブツーリズム海外旅行"
+          ],
           "commission": "3,105円/件",
           "asp": "Value Commerce",
           "context": "海外ツアー予約。南米旅行、パラグアイ渡航の文脈で使用",
@@ -561,7 +701,9 @@
           "status": "active",
           "url": "https://h.accesstrade.net/sp/cc?rk=0100pzo400opi9",
           "tracking_img": "<img src=\"https://h.accesstrade.net/sp/rr?rk=0100pzo400opi9\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" />",
-          "anchor_text": ["MillenVPN"],
+          "anchor_text": [
+            "MillenVPN"
+          ],
           "commission": 0,
           "asp": "アクセストレード",
           "context": "日本製VPN、海外から日本のサービスにアクセス",

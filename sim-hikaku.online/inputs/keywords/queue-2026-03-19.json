@@ -131,7 +131,9 @@
     "keyword": "mineo 評判 地方",
     "type": "longtail",
     "priority": 17,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\mineo.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "格安sim 比較 無制限",
