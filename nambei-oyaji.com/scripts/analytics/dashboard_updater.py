@@ -70,7 +70,7 @@ def mark_action(action_id, done=True):
 def list_actions():
     """アクション一覧を表示"""
     data = load_action_status()
-    print(f"\n📋 今日の優先アクション ({data.get('date', '?')})")
+    print(f"\n📋 今日の優先タスク ({data.get('date', '?')})")
     print("=" * 50)
     done_count = 0
     for a in data["actions"]:
@@ -103,7 +103,12 @@ def apply_action_status_to_html(html, actions):
             replacement = rf'\1>✅</span>'
             html = re.sub(pattern, replacement, html)
 
-            # Add done time after </strong>
+            # Remove existing done-time spans, then add current one
+            html = re.sub(
+                rf'(data-action-id="{re.escape(aid)}".*?</strong>)(?:<span class="done-time">.*?</span>)*',
+                r'\1',
+                html
+            )
             if action.get("done_at"):
                 pattern = rf'(data-action-id="{re.escape(aid)}".*?</strong>)'
                 time_tag = f'<span class="done-time">✓ {action["done_at"]}</span>'
