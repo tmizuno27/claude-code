@@ -44,10 +44,12 @@ async function getRate(from, to) {
 
   let rates = null;
   try {
-    const res = await fetch(`${API_PRIMARY}?base=${from}`);
+    const res = await fetch(`${API_PRIMARY}/rates?base=${from}`);
     if (res.ok) {
       const data = await res.json();
-      rates = data.rates || data;
+      if (data.rates && typeof data.rates === 'object') {
+        rates = data.rates;
+      }
     }
   } catch (e) { /* fall through */ }
 
