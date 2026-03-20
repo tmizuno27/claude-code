@@ -40,15 +40,15 @@
       "id": "otona-match-affiliate-check",
       "title": "マッチングナビにアフィリエイト設置確認",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-20 09:41"
     },
     {
       "id": "x-first-post",
       "title": "X投稿開始（今日1本）",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-20 09:41"
     }
   ]
 }
