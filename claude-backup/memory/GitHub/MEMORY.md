@@ -88,6 +88,12 @@
 - 本番URL: https://wp-linker.vercel.app
 - **プロジェクトパス**: `claude-code/wp-linker/`
 
+## Product Factory — AIエージェント×デジタル商品自動量産（Phase 1完了）
+- **詳細**: [product-factory-business.md](product-factory-business.md)
+- Felix(OpenClaw)モデル。4エージェント: product-factory, market-researcher, product-builder, listing-publisher
+- Phase 1完了（2026-03-20）: エージェント4体+テスト商品「Startup Launch Checklist」生成済み
+- **プロジェクトパス**: `claude-code/product-factory/`
+
 ## pSEO AIツール比較サイト（構築中）
 - **詳細**: [pseo-site.md](pseo-site.md)
 - Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み（2026-03-15）
