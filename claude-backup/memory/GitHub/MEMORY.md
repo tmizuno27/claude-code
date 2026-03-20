@@ -69,9 +69,9 @@
 - ユーザー名: miccho27、Creator plan（$7.26/半年）
 - **プロジェクトパス**: `claude-code/api-services/apify-actors/`
 
-## RapidAPI API販売事業（稼働中）
+## RapidAPI API販売事業（全21本出品済み）
 - **詳細**: [rapidapi-business.md](rapidapi-business.md)
-- 全20 API、Cloudflare Workers デプロイ済み（API 1-10はRapidAPI出品済、11-20は出品待ち）
+- 全21 API、Cloudflare Workers デプロイ済み・Rapid Studio全出品完了（2026-03-20確認）
 - 運用コスト$0、完全自動（集客・課金・サポート全てRapidAPI側）
 - PayPal payout接続済み、日次ヘルスチェック自動化済み
 - **プロジェクトパス**: `claude-code/api-services/`
@@ -155,7 +155,7 @@
 
 ## 優先タスク（2026-03-17更新）
 - **Gumroad X自動投稿**: @prodhq27稼働開始。25本のツイート（価値15+商品10）が自動投稿中
-- **RapidAPI**: 残り11本の出品（11-21）
+- **RapidAPI**: 全21本出品済み（売上$0 → SEO/導線改善が必要）
 - **Chrome拡張**: 審査待ち8本の通過確認
 - **Value Commerce**: プログラム提携（3サイト分）
 

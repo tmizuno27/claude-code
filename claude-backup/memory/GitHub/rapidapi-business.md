@@ -16,7 +16,7 @@ type: project
 - **販売**: RapidAPI Hub（25%手数料、PayPal payout接続済み）
 - **運用コスト**: $0
 
-### 20 APIs（全デプロイ済み）
+### 21 APIs（全デプロイ・全出品済み）
 1. QR Code Generator API ★RapidAPI出品済
 2. Email Validation API ★
 3. Link Preview & Website Metadata API ★
@@ -37,6 +37,7 @@ type: project
 18. AI Translation API（Workers AI / m2m100）★
 19. Trends API（Google/Reddit/GitHub）★
 20. Company Data Enrichment API（OpenCorporates）★
+21. WP Internal Link Optimizer API ★
 
 ### プライシング（全API共通）
 - BASIC: $0/100req, PRO: $9.99/10K, ULTRA: $24.99/50K, MEGA: $49.99/500K
