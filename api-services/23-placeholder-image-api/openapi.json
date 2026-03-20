@@ -1,0 +1,212 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Placeholder Image API",
+    "description": "Generate custom placeholder images with text overlay, gradient backgrounds, and category-based presets. Returns SVG (and PNG) images on-the-fly.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://placeholder-image-api.miccho27.workers.dev"
+    }
+  ],
+  "paths": {
+    "/image": {
+      "get": {
+        "operationId": "generateImage",
+        "summary": "Generate a placeholder image",
+        "description": "Creates a custom placeholder image with configurable size, text, colors, gradient background, and category preset.",
+        "parameters": [
+          {
+            "name": "width",
+            "in": "query",
+            "description": "Image width in pixels (1-4000)",
+            "schema": { "type": "integer", "default": 400, "minimum": 1, "maximum": 4000 }
+          },
+          {
+            "name": "height",
+            "in": "query",
+            "description": "Image height in pixels (1-4000)",
+            "schema": { "type": "integer", "default": 300, "minimum": 1, "maximum": 4000 }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "Text to overlay on the image. Defaults to 'WIDTHxHEIGHT'.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "bg",
+            "in": "query",
+            "description": "Gradient preset name",
+            "schema": {
+              "type": "string",
+              "enum": ["blue", "sunset", "ocean", "forest", "fire", "purple", "dark", "sky", "peach", "mint"],
+              "default": "blue"
+            }
+          },
+          {
+            "name": "color1",
+            "in": "query",
+            "description": "Custom gradient start color (hex, e.g. ff0000)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "color2",
+            "in": "query",
+            "description": "Custom gradient end color (hex, e.g. 0000ff)",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "textColor",
+            "in": "query",
+            "description": "Text color (hex, e.g. ffffff)",
+            "schema": { "type": "string", "default": "ffffff" }
+          },
+          {
+            "name": "fontSize",
+            "in": "query",
+            "description": "Font size in pixels. Auto-calculated if omitted.",
+            "schema": { "type": "integer" }
+          },
+          {
+            "name": "fontFamily",
+            "in": "query",
+            "description": "CSS font-family string",
+            "schema": { "type": "string", "default": "Arial, Helvetica, sans-serif" }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "description": "Category preset (overrides bg and sets default text)",
+            "schema": {
+              "type": "string",
+              "enum": ["avatar", "banner", "thumbnail", "product", "hero", "card", "icon", "cover"]
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Output format",
+            "schema": { "type": "string", "enum": ["svg", "png"], "default": "svg" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Generated placeholder image",
+            "content": {
+              "image/svg+xml": {
+                "schema": { "type": "string" }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/gradients": {
+      "get": {
+        "operationId": "listGradients",
+        "summary": "List available gradient presets",
+        "responses": {
+          "200": {
+            "description": "List of gradient presets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "gradients": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "colors": { "type": "array", "items": { "type": "string" } }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "operationId": "listCategories",
+        "summary": "List available category presets",
+        "responses": {
+          "200": {
+            "description": "List of category presets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "categories": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": { "type": "string" },
+                          "defaultText": { "type": "string" },
+                          "gradient": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/": {
+      "get": {
+        "operationId": "healthCheck",
+        "summary": "Health check and API info",
+        "responses": {
+          "200": {
+            "description": "API status and endpoint list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "service": { "type": "string" },
+                    "status": { "type": "string" },
+                    "version": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" }
+        }
+      }
+    }
+  }
+}

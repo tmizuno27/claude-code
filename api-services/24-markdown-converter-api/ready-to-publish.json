@@ -1,0 +1,51 @@
+{
+  "product_name": "Markdown Converter API",
+  "product_type": "cloudflare-worker-api",
+  "created_date": "2026-03-20",
+  "status": "ready",
+  "deployment": {
+    "platform": "Cloudflare Workers",
+    "worker_name": "markdown-converter-api",
+    "deploy_command": "npx wrangler deploy",
+    "estimated_url": "https://markdown-converter-api.miccho27.workers.dev"
+  },
+  "rapidapi": {
+    "listing_ready": true,
+    "listing_file": "rapidapi-listing.json",
+    "openapi_file": "openapi.json",
+    "plans": ["Basic ($0)", "Pro ($5.99)", "Ultra ($14.99)", "Mega ($49.99)"],
+    "category": "Text_Analysis"
+  },
+  "files": [
+    "src/index.js",
+    "wrangler.toml",
+    "package.json",
+    "openapi.json",
+    "rapidapi-listing.json",
+    "ready-to-publish.json"
+  ],
+  "features": [
+    "Markdown to HTML conversion",
+    "HTML to Markdown conversion",
+    "Table of Contents generation",
+    "GitHub Flavored Markdown (tables, task lists, strikethrough)",
+    "Syntax highlighting CSS classes for code blocks",
+    "Pure JavaScript (zero external dependencies)",
+    "CORS enabled"
+  ],
+  "endpoints": [
+    { "method": "POST", "path": "/md-to-html", "description": "Convert Markdown to HTML" },
+    { "method": "POST", "path": "/html-to-md", "description": "Convert HTML to Markdown" },
+    { "method": "POST", "path": "/toc", "description": "Generate Table of Contents from Markdown" }
+  ],
+  "checklist": {
+    "code_complete": true,
+    "openapi_spec": true,
+    "rapidapi_listing": true,
+    "wrangler_config": true,
+    "package_json": true,
+    "no_external_dependencies": true,
+    "cors_enabled": true,
+    "error_handling": true
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "placeholder-image-api",
+  "version": "1.0.0",
+  "description": "Custom placeholder image generator with text overlay, gradients, and categories",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "curl -s http://localhost:8787/image?width=300&height=200&text=Hello"
+  },
+  "keywords": ["placeholder", "image", "svg", "api", "cloudflare-worker"],
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

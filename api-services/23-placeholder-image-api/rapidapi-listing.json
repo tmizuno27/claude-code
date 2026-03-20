@@ -1,0 +1,62 @@
+{
+  "name": "Placeholder Image API",
+  "tagline": "Generate custom placeholder images with text, gradients & categories in SVG/PNG",
+  "description": "Generate beautiful placeholder images on-the-fly for your web projects, mockups, and prototypes.\n\n**Features:**\n- Custom width & height (up to 4000x4000)\n- Text overlay with configurable font, size, and color\n- 10 stunning gradient background presets (blue, sunset, ocean, forest, fire, purple, dark, sky, peach, mint)\n- Custom gradient colors (any hex color pair)\n- 8 category presets (avatar, banner, thumbnail, product, hero, card, icon, cover)\n- SVG and PNG output formats\n- Auto-sized text based on image dimensions\n- CORS-enabled for browser use\n- Lightning-fast edge delivery via Cloudflare\n\n**Use Cases:**\n- Web development placeholders\n- UI/UX mockups and wireframes\n- Social media image templates\n- Email template previews\n- App development prototyping\n- Dynamic OG images",
+  "category": "Media",
+  "tags": ["placeholder", "image", "svg", "generator", "mockup", "gradient", "design"],
+  "pricing": {
+    "plans": [
+      {
+        "name": "Basic",
+        "price": 0,
+        "rate_limit": "100 requests/month",
+        "features": [
+          "100 images per month",
+          "All gradient presets",
+          "All category presets",
+          "SVG output",
+          "Max 1000x1000 resolution"
+        ]
+      },
+      {
+        "name": "Pro",
+        "price": 5.99,
+        "rate_limit": "5,000 requests/month",
+        "features": [
+          "5,000 images per month",
+          "All gradient presets",
+          "Custom gradient colors",
+          "SVG & PNG output",
+          "Max 2000x2000 resolution",
+          "Custom fonts"
+        ]
+      },
+      {
+        "name": "Ultra",
+        "price": 14.99,
+        "rate_limit": "50,000 requests/month",
+        "features": [
+          "50,000 images per month",
+          "All features included",
+          "Max 4000x4000 resolution",
+          "Priority support"
+        ]
+      },
+      {
+        "name": "Mega",
+        "price": 49.99,
+        "rate_limit": "500,000 requests/month",
+        "features": [
+          "500,000 images per month",
+          "All features included",
+          "Max 4000x4000 resolution",
+          "Dedicated support",
+          "SLA guarantee"
+        ]
+      }
+    ]
+  },
+  "base_url": "https://placeholder-image-api.miccho27.workers.dev",
+  "endpoints_count": 4,
+  "auth_type": "X-RapidAPI-Key"
+}
