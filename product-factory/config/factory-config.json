@@ -1,0 +1,49 @@
+{
+  "version": "1.0.0",
+  "daily_limit": 3,
+  "categories": {
+    "gumroad-notion": {
+      "enabled": true,
+      "priority": 1,
+      "price_range": {"min": 9, "max": 19},
+      "bundle_price": 49,
+      "output_dir": "gumroad-notion/listings/",
+      "reference_template": "gumroad-notion/listings/01-freelance-business-os.md"
+    },
+    "rapidapi": {
+      "enabled": true,
+      "priority": 2,
+      "pricing_plans": [
+        {"name": "Basic", "price": 0, "requests": 500},
+        {"name": "Pro", "price": 5.99, "requests": 50000},
+        {"name": "Ultra", "price": 14.99, "requests": 500000},
+        {"name": "Mega", "price": 49.99, "requests": 5000000}
+      ],
+      "output_dir": "api-services/",
+      "reference_template": "api-services/01-qr-code-api/"
+    },
+    "chrome-ext": {
+      "enabled": false,
+      "priority": 3,
+      "output_dir": "chrome-extensions/",
+      "reference_template": "chrome-extensions/json-formatter/"
+    },
+    "vscode-ext": {
+      "enabled": false,
+      "priority": 4,
+      "publisher": "miccho27",
+      "output_dir": "vscode-extensions/",
+      "reference_template": "vscode-extensions/paste-and-transform/"
+    }
+  },
+  "x_marketing": {
+    "account": "@prodhq27",
+    "posts_per_product": 3,
+    "schedule_times_pyt": ["10:00", "14:00", "19:00"]
+  },
+  "nightly_review": {
+    "enabled": false,
+    "time_pyt": "23:00",
+    "healthcheck_url": ""
+  }
+}
