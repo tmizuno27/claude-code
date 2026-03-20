@@ -1,5 +1,5 @@
-const API_PRIMARY = 'https://currency-exchange-api.t-mizuno27.workers.dev';
-const API_FALLBACK = 'https://api.exchangerate-api.com/v4/latest/';
+const API_PRIMARY = 'https://api.exchangerate-api.com/v4/latest/';
+const API_FALLBACK = 'https://currency-exchange-api.t-mizuno27.workers.dev/rates?base=';
 const CACHE_TTL = 3600000; // 1 hour
 
 // Context menu
@@ -28,7 +28,6 @@ chrome.contextMenus.onClicked.addListener(async (info) => {
   if (!rate) return;
 
   const result = (amount * rate).toFixed(2);
-  // Send notification-style alert via badge
   chrome.action.setBadgeText({ text: '!' });
   chrome.action.setBadgeBackgroundColor({ color: '#10b981' });
   chrome.action.setTitle({ title: `${amount} ${from} = ${result} ${to}` });
@@ -43,24 +42,29 @@ async function getRate(from, to) {
   }
 
   let rates = null;
+
+  // Primary: exchangerate-api.com (160+ currencies, free, reliable)
   try {
-    const res = await fetch(`${API_PRIMARY}/rates?base=${from}`);
+    const res = await fetch(`${API_PRIMARY}${from}`);
     if (res.ok) {
       const data = await res.json();
       if (data.rates && typeof data.rates === 'object') {
         rates = data.rates;
       }
     }
-  } catch (e) { /* fall through */ }
+  } catch (e) { /* fall through to fallback */ }
 
+  // Fallback: custom Cloudflare Worker API
   if (!rates) {
     try {
       const res = await fetch(`${API_FALLBACK}${from}`);
       if (res.ok) {
         const data = await res.json();
-        rates = data.rates;
+        if (data.rates && typeof data.rates === 'object') {
+          rates = data.rates;
+        }
       }
-    } catch (e) { /* fail silently */ }
+    } catch (e) { /* both APIs failed */ }
   }
 
   if (rates) {
