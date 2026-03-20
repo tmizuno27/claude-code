@@ -1,0 +1,39 @@
+{
+  "product": "Placeholder Image API",
+  "type": "cloudflare-worker",
+  "status": "ready",
+  "created": "2026-03-20",
+  "files": {
+    "worker": "src/index.js",
+    "config": "wrangler.toml",
+    "openapi": "openapi.json",
+    "listing": "rapidapi-listing.json",
+    "package": "package.json"
+  },
+  "deploy_steps": [
+    "cd placeholder-image-api",
+    "npm install",
+    "npx wrangler deploy",
+    "Import openapi.json to RapidAPI Studio",
+    "Configure 4 pricing plans per rapidapi-listing.json",
+    "Set base URL to https://placeholder-image-api.miccho27.workers.dev"
+  ],
+  "test_urls": [
+    "/health",
+    "/image?width=300&height=200&text=Hello&bg=sunset&format=svg",
+    "/image?width=600&height=400&category=banner",
+    "/image?width=200&height=200&color1=ff6600&color2=cc0066&text=Custom",
+    "/gradients",
+    "/categories"
+  ],
+  "checklist": {
+    "worker_code": true,
+    "wrangler_config": true,
+    "openapi_spec": true,
+    "rapidapi_listing": true,
+    "package_json": true,
+    "cors_enabled": true,
+    "error_handling": true,
+    "health_endpoint": true
+  }
+}
