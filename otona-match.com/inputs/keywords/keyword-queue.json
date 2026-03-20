@@ -334,12 +334,14 @@
       "type": "キラー",
       "main_keyword": "Dine 評判",
       "scheduled_date": "2026-03-20",
-      "status": "pending",
+      "status": "processed",
       "internal_links": [
         "matching-app-ranking-2026",
         "matching-app-date-basho",
         "first-date-manual"
-      ]
+      ],
+      "processed_date": "2026-03-20",
+      "wp_id": 990
     }
   ]
 }

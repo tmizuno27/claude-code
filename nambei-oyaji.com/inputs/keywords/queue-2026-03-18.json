@@ -91,7 +91,9 @@
     "keyword": "パラグアイ 医療 費",
     "type": "longtail",
     "priority": 12,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\nambei-oyaji.com\\outputs\\articles\\2026-03-20\\article-55834.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "海外移住 準備 お金",
