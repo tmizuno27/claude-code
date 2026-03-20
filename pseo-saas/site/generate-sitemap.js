@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOMAIN = 'https://ai-tool-compare.vercel.app';
+const DOMAIN = 'https://ai-tool-compare-nu.vercel.app';
 const TODAY = new Date().toISOString().split('T')[0];
 
 const toolsPath = path.join(__dirname, '..', 'data', 'tools.json');
