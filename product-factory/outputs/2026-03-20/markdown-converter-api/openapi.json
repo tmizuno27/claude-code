@@ -1,0 +1,233 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Markdown Converter API",
+    "description": "Convert between Markdown and HTML with full GitHub Flavored Markdown support, syntax highlighting CSS classes, and automatic Table of Contents generation.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "API Support"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://markdown-converter-api.miccho27.workers.dev",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "API Info",
+        "description": "Returns API name, version, and available endpoints.",
+        "operationId": "getInfo",
+        "responses": {
+          "200": {
+            "description": "API information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string", "example": "Markdown Converter API" },
+                    "version": { "type": "string", "example": "1.0.0" },
+                    "endpoints": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "method": { "type": "string" },
+                          "path": { "type": "string" },
+                          "description": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/md-to-html": {
+      "post": {
+        "summary": "Markdown to HTML",
+        "description": "Convert Markdown text to HTML. Supports GitHub Flavored Markdown (tables, task lists, strikethrough), fenced code blocks with language-specific CSS classes for syntax highlighting, blockquotes, images, links, and more.",
+        "operationId": "mdToHtml",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["markdown"],
+                "properties": {
+                  "markdown": {
+                    "type": "string",
+                    "description": "Markdown text to convert",
+                    "example": "# Hello World\n\nThis is **bold** and ~~strikethrough~~.\n\n```javascript\nconsole.log('hi');\n```\n\n| Name | Age |\n|------|-----|\n| Alice | 30 |\n\n- [x] Done\n- [ ] Todo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful conversion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "html": {
+                      "type": "string",
+                      "description": "Converted HTML output"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/html-to-md": {
+      "post": {
+        "summary": "HTML to Markdown",
+        "description": "Convert HTML content back to Markdown. Handles headings, paragraphs, lists, tables, code blocks, links, images, bold, italic, strikethrough, and blockquotes.",
+        "operationId": "htmlToMd",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["html"],
+                "properties": {
+                  "html": {
+                    "type": "string",
+                    "description": "HTML content to convert",
+                    "example": "<h1>Hello World</h1><p>This is <strong>bold</strong> and <del>strikethrough</del>.</p>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful conversion",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "markdown": {
+                      "type": "string",
+                      "description": "Converted Markdown output"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/toc": {
+      "post": {
+        "summary": "Generate Table of Contents",
+        "description": "Extract headings from Markdown and generate a Table of Contents with anchor links. Returns TOC as structured items, Markdown, and HTML.",
+        "operationId": "generateToc",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["markdown"],
+                "properties": {
+                  "markdown": {
+                    "type": "string",
+                    "description": "Markdown text to extract TOC from",
+                    "example": "# Introduction\n\n## Getting Started\n\n### Installation\n\n### Configuration\n\n## Usage\n\n## FAQ"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful TOC generation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "toc": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "level": { "type": "integer", "description": "Heading level (1-6)" },
+                              "text": { "type": "string", "description": "Heading text" },
+                              "id": { "type": "string", "description": "Anchor ID" }
+                            }
+                          }
+                        },
+                        "markdown": { "type": "string", "description": "TOC as Markdown list" },
+                        "html": { "type": "string", "description": "TOC as HTML list" }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/Error" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}

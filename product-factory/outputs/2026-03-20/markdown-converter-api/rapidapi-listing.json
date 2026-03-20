@@ -1,0 +1,47 @@
+{
+  "name": "Markdown Converter API",
+  "tagline": "Convert Markdown to HTML and back with full GFM support, syntax highlighting, and TOC generation",
+  "description": "A fast, lightweight Markdown Converter API powered by Cloudflare Workers. Convert Markdown to HTML, HTML to Markdown, and generate Table of Contents — all with zero external dependencies.\n\n**Key Features:**\n- **Markdown → HTML**: Full GitHub Flavored Markdown (GFM) support including tables, task lists, and strikethrough\n- **HTML → Markdown**: Reverse conversion preserving structure and formatting\n- **Table of Contents**: Auto-generate TOC from headings with anchor links\n- **Syntax Highlighting**: Code blocks get language-specific CSS classes (`language-*`) ready for Prism.js / highlight.js\n- **Pure JavaScript**: No external libraries, ultra-fast response times\n- **CORS Enabled**: Use directly from browser-based applications\n\n**Use Cases:**\n- CMS and blog platforms needing Markdown rendering\n- Documentation sites with auto-generated navigation\n- Static site generators and build tools\n- Browser extensions and editor plugins\n- API-powered content pipelines",
+  "category": "Text_Analysis",
+  "tags": ["markdown", "html", "converter", "gfm", "syntax-highlighting", "table-of-contents"],
+  "logo_url": "",
+  "website": "",
+  "plans": [
+    {
+      "name": "Basic",
+      "price_monthly": 0,
+      "rate_limit": {
+        "requests_per_month": 100,
+        "requests_per_minute": 10
+      },
+      "features": ["All 3 endpoints", "GFM support", "Syntax highlight classes", "100 requests/month"]
+    },
+    {
+      "name": "Pro",
+      "price_monthly": 5.99,
+      "rate_limit": {
+        "requests_per_month": 10000,
+        "requests_per_minute": 60
+      },
+      "features": ["All 3 endpoints", "GFM support", "Syntax highlight classes", "10,000 requests/month", "Priority support"]
+    },
+    {
+      "name": "Ultra",
+      "price_monthly": 14.99,
+      "rate_limit": {
+        "requests_per_month": 100000,
+        "requests_per_minute": 200
+      },
+      "features": ["All 3 endpoints", "GFM support", "Syntax highlight classes", "100,000 requests/month", "Priority support"]
+    },
+    {
+      "name": "Mega",
+      "price_monthly": 49.99,
+      "rate_limit": {
+        "requests_per_month": 1000000,
+        "requests_per_minute": 1000
+      },
+      "features": ["All 3 endpoints", "GFM support", "Syntax highlight classes", "1,000,000 requests/month", "Dedicated support"]
+    }
+  ]
+}
