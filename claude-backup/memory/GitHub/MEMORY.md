@@ -106,7 +106,7 @@
 - アカウント: tatsuya27.gumroad.com（n8nテンプレート9本も同アカウント、こちらも全整備済み）
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿（10:00/14:00/19:00 PYT）
 - **Gumroad出品時の注意**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — サムネ必須、Pillow自動生成
-- **Reddit投稿スケジュール**: [reddit-posting-schedule.md](reddit-posting-schedule.md) — 3/19 r/productivity、3/20 r/sidehustle、当日通知必須
+- **Reddit投稿**: [feedback_reddit_posting.md](feedback_reddit_posting.md) — 新アカウントでの宣伝投稿は繰り返し削除される。Reddit集客は現時点で非推奨
 - **プロジェクトパス**: `claude-code/gumroad-notion/`
 
 ## POD Printful×Etsy事業 AsuInk（アカウント開設待ち）
@@ -154,8 +154,8 @@
 - ユーザーが「Stripe連携できました」と言ったら即座にこのリストを実行
 
 ## 優先タスク（2026-03-17更新）
-- **Gumroad X自動投稿**: @prodhq27稼働開始。25本のツイート（価値15+商品10）が自動投稿される。次はReddit投稿
-- **RapidAPI**: 残り10本の出品（11-20）
+- **Gumroad X自動投稿**: @prodhq27稼働開始。25本のツイート（価値15+商品10）が自動投稿中
+- **RapidAPI**: 残り11本の出品（11-21）
 - **Chrome拡張**: 審査待ち8本の通過確認
 - **Value Commerce**: プログラム提携（3サイト分）
 
