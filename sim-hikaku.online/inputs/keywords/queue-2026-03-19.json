@@ -147,7 +147,9 @@
     "keyword": "ahamo 評判 知恵袋",
     "type": "longtail",
     "priority": 19,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\ahamo.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "linemo 評判 悪い",
