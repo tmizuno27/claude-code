@@ -99,7 +99,9 @@
     "keyword": "povo 評判 悪い",
     "type": "longtail",
     "priority": 13,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\povo.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "格安sim 比較 安い",
