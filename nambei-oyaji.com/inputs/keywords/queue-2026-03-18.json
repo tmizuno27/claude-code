@@ -155,6 +155,8 @@
     "keyword": "南米 パラグアイ 治安",
     "type": "longtail",
     "priority": 20,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\nambei-oyaji.com\\outputs\\articles\\2026-03-20\\article-68390.md",
+    "processed_date": "2026-03-20"
   }
 ]
