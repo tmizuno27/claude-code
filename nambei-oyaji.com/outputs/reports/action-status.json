@@ -19,8 +19,8 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-20 10:48"
     },
     {
       "id": "gsc-zero-investigation",
