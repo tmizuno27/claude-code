@@ -1,0 +1,16 @@
+{
+  "width": 600,
+  "height": 600,
+  "background": {
+    "type": "gradient",
+    "colors": ["#0a0f1f", "#0d1f2b"]
+  },
+  "title": "Airbnb Host Management Hub",
+  "subtitle": "Listings · Guests · Revenue",
+  "font_size_title": 30,
+  "font_size_subtitle": 16,
+  "title_color": "#FFFFFF",
+  "subtitle_color": "#87CEEB",
+  "icon": "🏡",
+  "accent_color": "#FF5A5F"
+}

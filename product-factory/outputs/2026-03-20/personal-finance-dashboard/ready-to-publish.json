@@ -1,0 +1,54 @@
+{
+  "product": {
+    "name": "Personal Finance Dashboard",
+    "type": "notion_template",
+    "price_usd": 14,
+    "currency": "USD",
+    "platform": "gumroad",
+    "account": "tatsuya27.gumroad.com",
+    "url_slug": "personal-finance-dashboard",
+    "expected_url": "https://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+  },
+  "target_audience": [
+    "Individuals who want to manage household finances",
+    "People starting a savings habit",
+    "Beginner investors tracking net worth",
+    "Freelancers managing irregular income"
+  ],
+  "files_created": {
+    "listing": "listing.md",
+    "template_design": "template-design.md",
+    "thumbnail_spec": "thumbnail-spec.json",
+    "x_posts": "x-posts.json",
+    "ready_to_publish": "ready-to-publish.json"
+  },
+  "template_stats": {
+    "databases": 8,
+    "views": 24,
+    "pages": 7,
+    "formulas": 5,
+    "sample_data": true
+  },
+  "checklist": {
+    "listing_copy": true,
+    "template_design_spec": true,
+    "thumbnail_spec": true,
+    "x_posts_value": 5,
+    "x_posts_promo": 5,
+    "x_posts_thread": 1,
+    "all_english": true
+  },
+  "next_steps": [
+    "Generate thumbnail image using Pillow based on thumbnail-spec.json",
+    "Build Notion template following template-design.md",
+    "Populate sample data as specified",
+    "Create Gumroad listing using listing.md content",
+    "Upload thumbnail to Gumroad",
+    "Set price to $14",
+    "Publish and get shareable link",
+    "Update x-posts.json URLs with actual Gumroad link",
+    "Schedule X posts via @prodhq27 automation"
+  ],
+  "created_at": "2026-03-20",
+  "status": "ready_for_build"
+}

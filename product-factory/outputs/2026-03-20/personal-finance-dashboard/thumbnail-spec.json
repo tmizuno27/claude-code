@@ -1,0 +1,133 @@
+{
+  "product_name": "Personal Finance Dashboard",
+  "dimensions": {
+    "width": 1280,
+    "height": 720
+  },
+  "background": {
+    "type": "gradient",
+    "colors": ["#0f172a", "#1e293b"],
+    "direction": "top_to_bottom"
+  },
+  "layout": {
+    "style": "mockup_showcase",
+    "description": "Dark premium background with a Notion-style UI mockup in the center showing key dashboard elements"
+  },
+  "elements": [
+    {
+      "type": "text",
+      "content": "Personal Finance Dashboard",
+      "position": { "x": "center", "y": 60 },
+      "font_size": 42,
+      "font_weight": "bold",
+      "color": "#ffffff",
+      "font": "Inter"
+    },
+    {
+      "type": "text",
+      "content": "Notion Template",
+      "position": { "x": "center", "y": 115 },
+      "font_size": 18,
+      "font_weight": "medium",
+      "color": "#94a3b8",
+      "font": "Inter"
+    },
+    {
+      "type": "mockup_card",
+      "position": { "x": 60, "y": 160 },
+      "width": 360,
+      "height": 200,
+      "background": "#1e293b",
+      "border_radius": 12,
+      "border": "1px solid #334155",
+      "content": {
+        "title": "This Month",
+        "items": [
+          { "label": "Income", "value": "$5,400", "color": "#22c55e" },
+          { "label": "Expenses", "value": "$3,180", "color": "#ef4444" },
+          { "label": "Net Cash Flow", "value": "+$2,220", "color": "#22c55e" }
+        ]
+      }
+    },
+    {
+      "type": "mockup_card",
+      "position": { "x": 460, "y": 160 },
+      "width": 360,
+      "height": 200,
+      "background": "#1e293b",
+      "border_radius": 12,
+      "border": "1px solid #334155",
+      "content": {
+        "title": "Savings Goals",
+        "items": [
+          { "label": "Emergency Fund", "progress": 0.62, "bar_color": "#3b82f6" },
+          { "label": "Vacation", "progress": 0.32, "bar_color": "#8b5cf6" },
+          { "label": "New Laptop", "progress": 0.27, "bar_color": "#06b6d4" }
+        ]
+      }
+    },
+    {
+      "type": "mockup_card",
+      "position": { "x": 860, "y": 160 },
+      "width": 360,
+      "height": 200,
+      "background": "#1e293b",
+      "border_radius": 12,
+      "border": "1px solid #334155",
+      "content": {
+        "title": "Net Worth",
+        "value": "$25,660",
+        "color": "#22c55e",
+        "subtitle": "+$1,840 this month"
+      }
+    },
+    {
+      "type": "mockup_card",
+      "position": { "x": 60, "y": 390 },
+      "width": 560,
+      "height": 200,
+      "background": "#1e293b",
+      "border_radius": 12,
+      "border": "1px solid #334155",
+      "content": {
+        "title": "Recent Transactions",
+        "rows": [
+          { "name": "Salary", "amount": "+$4,200", "color": "#22c55e", "date": "Mar 1" },
+          { "name": "Rent", "amount": "-$1,200", "color": "#ef4444", "date": "Mar 1" },
+          { "name": "Groceries", "amount": "-$84.50", "color": "#ef4444", "date": "Mar 3" },
+          { "name": "Freelance", "amount": "+$750", "color": "#22c55e", "date": "Mar 5" }
+        ]
+      }
+    },
+    {
+      "type": "mockup_card",
+      "position": { "x": 660, "y": 390 },
+      "width": 560,
+      "height": 200,
+      "background": "#1e293b",
+      "border_radius": 12,
+      "border": "1px solid #334155",
+      "content": {
+        "title": "Subscriptions",
+        "rows": [
+          { "name": "Netflix", "cost": "$15.49/mo", "status": "Renews in 3 days", "alert": true },
+          { "name": "Spotify", "cost": "$10.99/mo", "status": "Renews Mar 28" },
+          { "name": "ChatGPT Plus", "cost": "$20.00/mo", "status": "Renews Apr 1" }
+        ]
+      }
+    },
+    {
+      "type": "price_badge",
+      "content": "$14",
+      "position": { "x": 1180, "y": 50 },
+      "background": "#22c55e",
+      "color": "#ffffff",
+      "font_size": 22,
+      "font_weight": "bold",
+      "border_radius": 20,
+      "padding": { "x": 20, "y": 8 }
+    }
+  ],
+  "generation_tool": "pillow",
+  "output_filename": "personal-finance-dashboard-thumbnail.png"
+}

@@ -1,0 +1,73 @@
+{
+  "product": "Personal Finance Dashboard",
+  "account": "@prodhq27",
+  "posts": {
+    "value": [
+      {
+        "id": "value_1",
+        "type": "value",
+        "text": "The 50/30/20 rule is simple:\n\n50% needs\n30% wants\n20% savings\n\nBut most people never track whether they actually follow it.\n\nStart by logging every transaction for just one week. You'll be surprised where your money really goes."
+      },
+      {
+        "id": "value_2",
+        "type": "value",
+        "text": "Subscriptions are the silent budget killer.\n\nThe average person spends $219/month on subscriptions they forgot about.\n\nQuick audit:\n- Open your bank statement\n- Highlight every recurring charge\n- Ask: \"Would I sign up for this today?\"\n\nIf not, cancel it. Today."
+      },
+      {
+        "id": "value_3",
+        "type": "value",
+        "text": "Two debt payoff strategies:\n\nSnowball: Pay smallest debt first. Wins feel good. Builds momentum.\n\nAvalanche: Pay highest interest first. Saves more money long-term.\n\nBoth work. Pick the one you'll actually stick with.\n\nConsistency beats optimization every time."
+      },
+      {
+        "id": "value_4",
+        "type": "value",
+        "text": "Your net worth is not your salary.\n\nNet worth = what you own - what you owe\n\nSomeone earning $40k with $20k saved has a higher net worth than someone earning $120k with $50k in debt.\n\nTrack it monthly. Even if the number is negative. Awareness is step one."
+      },
+      {
+        "id": "value_5",
+        "type": "value",
+        "text": "5 money habits that changed my finances:\n\n1. Track every expense (yes, even coffee)\n2. Automate savings on payday\n3. Review subscriptions monthly\n4. Set 3 specific savings goals\n5. Check net worth on the 1st of each month\n\nSmall systems beat big willpower."
+      }
+    ],
+    "promo": [
+      {
+        "id": "promo_1",
+        "type": "promo",
+        "text": "I built a Notion template that replaced 3 finance apps for me:\n\n- Income & expense tracking\n- Subscription manager with renewal alerts\n- Savings goals with progress bars\n- Debt payoff planner\n- Net worth calculator\n- Monthly budget templates\n\nAll in one workspace. $14, no monthly fees.\n\nhttps://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+      },
+      {
+        "id": "promo_2",
+        "type": "promo",
+        "text": "Budgeting apps want $10/month.\n\nThat's $120/year to track your money.\n\nI made a Notion finance dashboard that does the same thing for a one-time $14.\n\nNo subscriptions. No data shared with third parties. Your finances, your workspace.\n\nhttps://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+      },
+      {
+        "id": "promo_3",
+        "type": "promo",
+        "text": "Personal Finance Dashboard for Notion is live.\n\n8 connected databases. 24 views. Pre-loaded with sample data so you can start in minutes.\n\nTrack income, expenses, subscriptions, savings, debt, and net worth — all in one place.\n\n$14 one-time.\n\nhttps://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+      },
+      {
+        "id": "promo_4",
+        "type": "promo",
+        "text": "If you use Notion and still track finances in spreadsheets, this is for you.\n\nPersonal Finance Dashboard:\n- Visual savings progress bars\n- Subscription renewal alerts\n- Snowball & avalanche debt views\n- Monthly net worth snapshots\n\nOne template. Zero maintenance.\n\nhttps://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+      },
+      {
+        "id": "promo_5",
+        "type": "promo",
+        "text": "Most people don't budget because it's boring.\n\nSo I made it visual.\n\nProgress bars for savings goals. Color-coded cash flow. Renewal alerts for subscriptions. All inside Notion.\n\nPersonal Finance Dashboard — $14\n\nhttps://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+      }
+    ],
+    "thread": [
+      {
+        "id": "thread_1",
+        "type": "thread",
+        "tweets": [
+          "I track every dollar I earn and spend inside Notion.\n\nHere's the exact system I use (and why I stopped paying for finance apps):\n\n[thread]",
+          "1/ Income & Expense Tracker\n\nEvery transaction gets logged with category, payment method, and date.\n\nI can filter by month, by category, or by type (income vs expense).\n\nTakes 30 seconds per entry. I do it right after every purchase.",
+          "2/ Subscription Manager\n\nI list every recurring charge with its renewal date.\n\nA formula automatically warns me when something renews within 7 days.\n\nLast month I caught a $22 app I hadn't used in 3 months. Cancelled immediately.",
+          "3/ Savings Goals with Progress Bars\n\nEach goal shows a visual progress bar.\n\nSeeing \"Emergency Fund: 62% ████████░░\" is way more motivating than a number in a spreadsheet.\n\nI contribute to goals on payday. Non-negotiable.",
+          "4/ Debt Payoff + Net Worth\n\nI track every debt with its interest rate and payment schedule.\n\nAt the end of each month, I log a snapshot: total assets, total liabilities, net worth.\n\nWatching that number trend up is addictive (in a good way).\n\nI packaged this entire system into a Notion template: https://tatsuya27.gumroad.com/l/personal-finance-dashboard"
+        ]
+      }
+    ]
+  }
+}
