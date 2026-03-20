@@ -443,6 +443,8 @@ def main():
                         help="投稿する記事数の上限 (0=全件)")
     parser.add_argument("--dry-run", action="store_true",
                         help="投稿せずにプレビューのみ")
+    parser.add_argument("--skip-factcheck", action="store_true",
+                        help="ファクトチェックをスキップ（手動チェック済みの場合）")
     args = parser.parse_args()
 
     logger.info("=== WordPress自動投稿スクリプト開始 ===")
@@ -487,8 +489,8 @@ def main():
     skip_count = 0
     published_posts = []
     for article in articles:
-        # publish時はファクトチェック必須
-        if args.status == "publish":
+        # publish時はファクトチェック必須（--skip-factcheckで省略可）
+        if args.status == "publish" and not args.skip_factcheck:
             title = article["front_matter"].get("title", "無題")
             logger.info(f"ファクトチェック中: {title}")
             passed, reason = fact_check_article(config, article["body"])
