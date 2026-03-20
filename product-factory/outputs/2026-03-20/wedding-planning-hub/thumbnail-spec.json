@@ -1,0 +1,16 @@
+{
+  "width": 600,
+  "height": 600,
+  "background": {
+    "type": "gradient",
+    "colors": ["#f5e6e0", "#e8c4b8"]
+  },
+  "title": "Wedding Planning Hub",
+  "subtitle": "Every Detail. One Place.",
+  "font_size_title": 34,
+  "font_size_subtitle": 16,
+  "title_color": "#FFFFFF",
+  "subtitle_color": "#f0e0da",
+  "icon": "💒",
+  "accent_color": "#c9a96e"
+}

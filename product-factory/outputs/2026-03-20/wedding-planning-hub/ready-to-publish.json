@@ -1,0 +1,44 @@
+{
+  "product_id": "gumroad-012",
+  "product_name": "Wedding Planning Hub",
+  "category": "gumroad-notion",
+  "generated_at": "2026-03-20",
+  "files": {
+    "listing": "listing.md",
+    "template_design": "template-design.md",
+    "thumbnail_spec": "thumbnail-spec.json",
+    "x_posts": "x-posts.json"
+  },
+  "manual_steps": [
+    {
+      "step": 1,
+      "action": "Notionでテンプレートを構築",
+      "detail": "template-design.md の設計書に従い、7つのDBとダッシュボードを作成",
+      "status": "pending"
+    },
+    {
+      "step": 2,
+      "action": "テンプレートを公開共有",
+      "detail": "Notion → Share → Share to web → Allow duplicate as template → リンク取得",
+      "status": "pending"
+    },
+    {
+      "step": 3,
+      "action": "サムネイル生成",
+      "detail": "generate_thumbnails.py にthumbnail-spec.jsonのパラメータを追加して実行",
+      "status": "pending"
+    },
+    {
+      "step": 4,
+      "action": "Gumroadに出品",
+      "detail": "Gumroad → New Product → Digital Product → listing.mdの内容をコピペ → サムネ添付 → テンプレートリンクをPDFに記載 → $17(Pay what you want) → Publish",
+      "status": "pending"
+    },
+    {
+      "step": 5,
+      "action": "X投稿をスケジュールに追加",
+      "detail": "x-posts.jsonの3投稿をgumroad-notion/config/x-schedule.jsonに追加",
+      "status": "pending"
+    }
+  ]
+}
