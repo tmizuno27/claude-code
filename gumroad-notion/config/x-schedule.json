@@ -130,7 +130,9 @@
       "id": 107,
       "type": "value",
       "text": "Your to-do list is lying to you.\n\nIt says everything is equal priority.\n\nIt's not.\n\nPick 3 things. Finish those. Then decide what's next.\n\nDone > planned.\n\n#Productivity #Focus",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-20 16:55:59",
+      "tweet_id": "2035082939214565388"
     },
     {
       "id": 108,
