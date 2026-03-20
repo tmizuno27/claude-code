@@ -51,7 +51,9 @@
     "keyword": "linemo 評判 ミニ プラン",
     "type": "longtail",
     "priority": 7,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\linemo.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "格安sim 比較 速度 povo",
