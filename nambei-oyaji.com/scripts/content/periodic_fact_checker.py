@@ -253,14 +253,29 @@ def fact_check_article(api_key, article_text, filename=""):
         if start >= 0 and end > start:
             result_text = result_text[start:end]
 
+        # Claude API が返す JSON のよくある問題を修正
+        # 1. 末尾カンマ（配列・オブジェクト閉じ括弧の直前）
+        result_text = re.sub(r",\s*([}\]])", r"\1", result_text)
+        # 2. 制御文字の除去（改行・タブ以外）
+        result_text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", result_text)
+
         return json.loads(result_text)
 
     except json.JSONDecodeError as e:
         logger.warning(f"JSON パースエラー ({filename}): {e}")
+        # フォールバック: 緩い正規表現で verdict だけ抽出
+        verdict_match = re.search(r'"verdict"\s*:\s*"([^"]+)"', result_text)
+        if verdict_match:
+            logger.info(f"  verdict を正規表現で抽出: {verdict_match.group(1)}")
+            return {"verdict": verdict_match.group(1), "issues": [], "raw": result_text}
         return {"verdict": "PARSE_ERROR", "issues": [], "raw": result_text}
     except Exception as e:
+        error_msg = str(e)
         logger.error(f"ファクトチェック API エラー ({filename}): {e}")
-        return {"verdict": "API_ERROR", "issues": [], "error": str(e)}
+        # API クレジット不足の場合は早期終了のシグナルを返す
+        if "credit balance is too low" in error_msg:
+            return {"verdict": "CREDIT_EXHAUSTED", "issues": [], "error": error_msg}
+        return {"verdict": "API_ERROR", "issues": [], "error": error_msg}
 
 
 def auto_fix_article(api_key, article_text, issues):
@@ -300,7 +315,7 @@ def generate_report(results, report_path):
         f"- 検査記事数: {len(results)}",
         f"- 要修正: {sum(1 for r in results if r.get('verdict') == 'NEEDS_UPDATE')}",
         f"- 問題なし: {sum(1 for r in results if r.get('verdict') == 'OK')}",
-        f"- エラー: {sum(1 for r in results if r.get('verdict') in ('API_ERROR', 'PARSE_ERROR', 'SKIP'))}",
+        f"- エラー: {sum(1 for r in results if r.get('verdict') in ('API_ERROR', 'PARSE_ERROR', 'SKIP', 'CREDIT_EXHAUSTED'))}",
         "",
     ]
 
@@ -453,6 +468,11 @@ def main():
             logger.info(f"  結果: {verdict}")
 
         results.append(result)
+
+        # API クレジット不足の場合は残り記事をスキップ
+        if verdict == "CREDIT_EXHAUSTED":
+            logger.error("API クレジット不足のため残り記事をスキップします")
+            break
 
     # レポート生成
     date_str = datetime.now().strftime("%Y-%m-%d")

@@ -2,7 +2,7 @@
 title: "パラグアイ治安悪い？【2026年】アスンシオン在住者が本音で解説"
 keyword: "パラグアイ 治安 悪い"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4315
 affiliate_links_used:
   - "Wise"

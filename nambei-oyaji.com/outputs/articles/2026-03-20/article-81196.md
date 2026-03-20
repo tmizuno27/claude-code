@@ -2,7 +2,7 @@
 title: "パラグアイ移住 失敗【2026年】本当にあった後悔と回避策を現地在住者が語る"
 keyword: "パラグアイ 移住 失敗"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4485
 affiliate_links_used:
   - "Wise"

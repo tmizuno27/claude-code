@@ -2,7 +2,7 @@
 title: "南米 パラグアイ 治安【2026年】移住前に知っておきたいリアルな安全情報"
 keyword: "南米 パラグアイ 治安"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4470
 affiliate_links_used:
   - "HIS 海外ツアー"

@@ -2,7 +2,7 @@
 title: "パラグアイ移住条件【2026年】永住権・査証の取得手順を現地在住者が解説"
 keyword: "パラグアイ 移住 条件"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 3952
 affiliate_links_used:
   - "Wise"

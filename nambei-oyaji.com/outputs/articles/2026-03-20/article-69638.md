@@ -2,7 +2,7 @@
 title: "海外送金 比較 個人【2026年】パラグアイ在住者が本音で選んだおすすめサービス3選"
 keyword: "海外送金 比較 個人"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4661
 affiliate_links_used:
   - "Wise"

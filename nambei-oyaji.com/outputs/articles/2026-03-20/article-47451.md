@@ -2,7 +2,7 @@
 title: "パラグアイ移住ビザ【2026年】取得手順と費用・注意点を現地在住者が解説"
 keyword: "パラグアイ 移住 ビザ"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4251
 affiliate_links_used:
   - "Wise"

@@ -2,7 +2,7 @@
 title: "パラグアイの医療費【2026年】実際にかかった費用と病院の使い方を完全解説"
 keyword: "パラグアイ 医療 費"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4501
 affiliate_links_used:
   - "Wise"

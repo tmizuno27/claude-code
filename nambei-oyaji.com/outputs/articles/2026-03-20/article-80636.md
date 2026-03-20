@@ -2,7 +2,7 @@
 title: "海外移住 準備 お金【2026年】出発前に知っておきたい費用と節約術"
 keyword: "海外移住 準備 お金"
 date: 2026-03-20
-status: "draft"
+status: "published"
 word_count: 4507
 affiliate_links_used:
   - "DMM英会話"
