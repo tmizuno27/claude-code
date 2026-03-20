@@ -59,7 +59,9 @@
     "keyword": "格安sim 比較 速度 povo",
     "type": "longtail",
     "priority": 8,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sim-hikaku.online\\outputs\\articles\\2026-03-20\\sim-povo.md",
+    "processed_date": "2026-03-20"
   },
   {
     "keyword": "格安sim 乗り換え 手順 mnp",
