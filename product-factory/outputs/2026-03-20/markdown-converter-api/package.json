@@ -1,0 +1,16 @@
+{
+  "name": "markdown-converter-api",
+  "version": "1.0.0",
+  "description": "Markdown Converter API — Convert between Markdown and HTML with GFM support, syntax highlighting, and TOC generation",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "keywords": ["markdown", "html", "converter", "gfm", "cloudflare-workers"],
+  "license": "MIT",
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
