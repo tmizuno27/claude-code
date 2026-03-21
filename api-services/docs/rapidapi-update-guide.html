@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RapidAPI Listing Update Guide - 全24本</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f7; color: #1d1d1f; padding: 20px; }
+h1 { text-align: center; margin: 20px 0 10px; font-size: 28px; }
+.subtitle { text-align: center; color: #86868b; margin-bottom: 10px; font-size: 14px; }
+.warning-box { background: #fff3cd; border: 2px solid #ffc107; border-radius: 12px; padding: 16px 20px; margin: 0 auto 30px; max-width: 900px; }
+.warning-box h3 { color: #856404; margin-bottom: 8px; }
+.warning-box ul { margin-left: 20px; color: #856404; }
+.warning-box li { margin-bottom: 4px; }
+.progress-bar { text-align: center; margin-bottom: 20px; font-size: 18px; font-weight: 600; }
+.progress-bar span { color: #34c759; }
+.api-card { background: #fff; border-radius: 16px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); margin: 0 auto 24px; max-width: 900px; overflow: hidden; }
+.api-header { display: flex; align-items: center; justify-content: space-between; padding: 16px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; cursor: pointer; }
+.api-header.done { background: linear-gradient(135deg, #34c759 0%, #30d158 100%); }
+.api-header h2 { font-size: 18px; }
+.api-header .num { background: rgba(255,255,255,0.25); border-radius: 8px; padding: 4px 10px; font-size: 14px; margin-right: 12px; }
+.api-header label { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.api-header input[type="checkbox"] { width: 20px; height: 20px; accent-color: #fff; }
+.api-body { padding: 20px; display: none; }
+.api-body.open { display: block; }
+.field { margin-bottom: 16px; }
+.field-label { font-weight: 600; font-size: 13px; color: #86868b; text-transform: uppercase; margin-bottom: 4px; }
+.field-value { background: #f5f5f7; border-radius: 8px; padding: 12px 14px; font-size: 14px; position: relative; white-space: pre-wrap; word-break: break-word; line-height: 1.6; }
+.field-value code { font-family: 'SF Mono', Menlo, monospace; font-size: 13px; }
+.copy-btn { position: absolute; top: 8px; right: 8px; background: #007aff; color: #fff; border: none; border-radius: 6px; padding: 4px 12px; font-size: 12px; cursor: pointer; transition: background 0.2s; }
+.copy-btn:hover { background: #005ec4; }
+.copy-btn.copied { background: #34c759; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { background: #e8e8ed; border-radius: 6px; padding: 3px 10px; font-size: 12px; color: #555; }
+.toggle-all { text-align: center; margin-bottom: 20px; }
+.toggle-all button { background: #007aff; color: #fff; border: none; border-radius: 8px; padding: 8px 20px; font-size: 14px; cursor: pointer; margin: 0 6px; }
+.toggle-all button:hover { background: #005ec4; }
+</style>
+</head>
+<body>
+
+<h1>RapidAPI Listing Update Guide</h1>
+<p class="subtitle">全24本 - コピペ用リスティング情報一覧 (Generated: 2026-03-21)</p>
+
+<div class="warning-box">
+<h3>!! 重要: Visibility設定 !!</h3>
+<ul>
+<li><strong>全APIのVisibilityを「Private」から「Public」に変更すること</strong></li>
+<li>RapidAPI Hub > My APIs > 各API > Settings > Visibility > <strong>Public</strong> を選択</li>
+<li>Publicにしないと検索結果に表示されず、誰もSubscribeできない</li>
+<li>Long Descriptionは RapidAPI の「About」タブにMarkdownとして貼り付ける</li>
+</ul>
+</div>
+
+<div class="progress-bar">更新済み: <span id="done-count">0</span> / 24</div>
+
+<div class="toggle-all">
+<button onclick="toggleAll(true)">全て開く</button>
+<button onclick="toggleAll(false)">全て閉じる</button>
+</div>
+
+<div id="api-list"></div>
+
+<script>
+const apis = [
+  {
+    num: "01", name: "QR Code Generator API", category: "Tools",
+    short: "Free QR Code Generator - PNG, SVG, Base64, Custom Colors, No Auth",
+    long: `## Why QR Code Generator API?\n- ✅ Zero authentication required — start generating QR codes instantly\n- ✅ 3 output formats (PNG, SVG, Base64) with full color customization\n- ✅ Sub-50ms response via Cloudflare's global edge network (300+ locations)\n\n## Key Features\n- PNG, SVG, and Base64 output formats\n- Custom foreground & background colors (hex)\n- Adjustable error correction levels (L/M/Q/H)\n- Configurable size from 10px to 1000px\n- CORS enabled for browser-side usage\n\n## Use Cases\n- **E-commerce**: QR codes for product pages, payments, and receipts\n- **Marketing**: Flyers, business cards, and poster campaigns\n- **Event Management**: Ticket QR codes and check-in systems\n- **Mobile Apps**: Deep-link QR codes for app downloads\n\n## Quick Start\n\`\`\`\nGET /generate?text=https://example.com&size=300&format=png&color=FF0000&bgcolor=FFFFFF\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes all formats and colors. No credit card required.`,
+    tags: ["qr-code","barcode","image-generation","free-api","rest-api","qr-generator","marketing-tools","developer-tools","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "02", name: "Email Validation API", category: "Data",
+    short: "Free Email Validation: Disposable Detection, MX Lookup, Bounce Check",
+    long: `## Why Email Validation API?\n- ✅ Validates without sending any emails — instant, non-intrusive checks\n- ✅ 500+ disposable domain blacklist with typo correction (gmial→gmail)\n- ✅ MX record verification + RFC 5322 format validation in one call\n\n## Key Features\n- RFC 5322 format validation with detailed error messages\n- MX record verification for deliverability\n- Disposable/temporary email detection (500+ domains)\n- Typo correction suggestions\n- Bulk validation up to 50 emails per request (Pro+)\n\n## Use Cases\n- **SaaS Signups**: Block disposable emails at registration\n- **Email Marketing**: Clean mailing lists before campaigns\n- **E-commerce**: Reduce failed order confirmation emails\n- **Lead Generation**: Ensure collected emails are valid\n\n## Quick Start\n\`\`\`\nGET /validate?email=user@example.com\n\`\`\`\nReturns JSON with \`is_valid\`, \`is_disposable\`, \`has_mx\`, \`suggestion\`, and more.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all validation checks. No credit card required.`,
+    tags: ["email","validation","verification","email-checker","disposable-email","free-api","rest-api","email-hygiene","bounce-detection","saas-tools","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "03", name: "Link Preview - Website Metadata API", category: "Social",
+    short: "Free Link Preview: Open Graph, Twitter Card, Favicon, RSS Metadata",
+    long: `## Why Link Preview API?\n- ✅ Extracts Open Graph, Twitter Card, favicon, RSS, and author in one call\n- ✅ 1-hour smart caching for blazing-fast repeat requests\n- ✅ CORS enabled — use directly from browser-based applications\n\n## Key Features\n- Open Graph and Twitter Card metadata extraction\n- Favicon, RSS feed, and author detection\n- Bulk preview for up to 10 URLs per request\n- 1-hour smart caching\n- CORS enabled for direct browser usage\n\n## Use Cases\n- **Chat Applications**: Rich link previews like Slack and Discord\n- **Social Media Tools**: Preview how URLs appear when shared\n- **SEO Auditing**: Check Open Graph and meta tag implementation\n- **Content Aggregators**: Extract titles, descriptions, and images\n\n## Quick Start\n\`\`\`\nGET /preview?url=https://github.com\n\`\`\`\nReturns JSON with \`title\`, \`description\`, \`image\`, \`favicon\`, \`og_tags\`, \`twitter_card\`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all metadata extraction. No credit card required.`,
+    tags: ["link-preview","metadata","open-graph","twitter-card","free-api","rest-api","unfurl","url-metadata","social-media","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "04", name: "Website Screenshot API", category: "Tools",
+    short: "Free Website Screenshot: PNG/JPEG, Custom Viewport, Full Page Capture",
+    long: `## Why Website Screenshot API?\n- ✅ Capture any public URL as PNG or JPEG with custom viewport sizes\n- ✅ Full-page capture mode for long scrolling pages\n- ✅ Configurable delay for JavaScript-heavy sites\n\n## Key Features\n- PNG and JPEG output formats with quality control\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable render delay for dynamic content\n- 1-hour result caching\n- CORS enabled\n\n## Use Cases\n- **SEO Monitoring**: Visual regression testing for websites\n- **Social Sharing**: Generate thumbnails and OG images\n- **Archiving**: Capture webpage snapshots for records\n- **QA Testing**: Automated visual testing across viewports\n\n## Quick Start\n\`\`\`\nGET /capture?url=https://example.com&width=1280&height=720&format=png\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes PNG output and default viewport. No credit card required.`,
+    tags: ["screenshot","webpage","capture","thumbnail","free-api","rest-api","web-capture","page-screenshot","website","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "05", name: "Text Analysis / NLP API", category: "Text Analysis",
+    short: "Free Text Analysis: Sentiment, Keywords, Readability Score",
+    long: `## Why Text Analysis API?\n- ✅ Pure JavaScript NLP — no external AI dependencies, no rate limits from third parties\n- ✅ 6-in-1: Sentiment, keywords, readability, language detection, summarization, metrics\n- ✅ AFINN lexicon with negation handling + TF-IDF keyword extraction\n\n## Key Features\n- Sentiment analysis with confidence score (AFINN-style, 200+ words)\n- TF-IDF keyword extraction (top 10 ranked)\n- Flesch-Kincaid readability scoring\n- Language detection (10 languages)\n- Extractive summarization (TextRank-inspired)\n- Word/character/sentence/paragraph counts + reading time\n\n## Use Cases\n- **Content Marketing**: Analyze sentiment and readability before publishing\n- **Social Listening**: Monitor brand sentiment across text data\n- **SEO Tools**: Extract keywords and optimize content\n- **Chatbots**: Detect language and sentiment in user messages\n\n## Quick Start\n\`\`\`\nPOST /analyze\n{"text": "Your text here", "features": ["sentiment", "keywords", "readability"]}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all analysis features. No credit card required.`,
+    tags: ["nlp","text-analysis","sentiment-analysis","keyword-extraction","free-api","rest-api","text-mining","content-analysis","readability","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "06", name: "IP Geolocation API", category: "Location",
+    short: "Free IP Geolocation: VPN Detection, Fraud Prevention, Bulk Lookup",
+    long: `## Why IP Geolocation API?\n- ✅ VPN/proxy/datacenter detection built-in for fraud prevention\n- ✅ Bulk lookup up to 20 IPs per request + auto-detect caller's IP\n- ✅ Country, city, region, timezone, ISP, and ASN in one call\n\n## Key Features\n- IPv4 and IPv6 support\n- Country, city, region, latitude/longitude\n- Timezone and ISP/ASN information\n- VPN, proxy, and datacenter detection\n- Bulk lookup (up to 20 IPs)\n- Caller's own IP auto-detection\n\n## Use Cases\n- **Fraud Prevention**: Detect VPN/proxy usage in transactions\n- **Content Localization**: Serve region-specific content\n- **Analytics**: Enrich user data with geographic info\n- **Access Control**: Geo-restrict content by country\n\n## Quick Start\n\`\`\`\nGET /lookup?ip=8.8.8.8\n\`\`\`\nReturns JSON with \`country\`, \`city\`, \`region\`, \`timezone\`, \`isp\`, \`is_vpn\`, \`is_proxy\`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all lookup features. No credit card required.`,
+    tags: ["ip","geolocation","geoip","ip-lookup","free-api","rest-api","ip-info","geo-lookup","fraud-detection","vpn-detection","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "07", name: "URL Shortener API", category: "Tools",
+    short: "Free URL Shortener: Click Analytics, Custom Aliases, KV Storage",
+    long: `## Why URL Shortener API?\n- ✅ Custom aliases + click analytics with timestamps\n- ✅ Persistent storage via Cloudflare KV — links never expire\n- ✅ Zero external dependencies, ultra-fast redirects\n\n## Key Features\n- Create short URLs with custom aliases\n- Click tracking with timestamps and referrer data\n- Cloudflare KV storage for persistence\n- Instant redirects via edge network\n- CORS enabled for browser usage\n\n## Use Cases\n- **Marketing Campaigns**: Track link performance across channels\n- **Social Media**: Share clean, short URLs\n- **Email Marketing**: Trackable links in newsletters\n- **Analytics**: Measure click-through rates\n\n## Quick Start\n\`\`\`\nPOST /shorten\n{"url": "https://example.com/very/long/path", "alias": "my-link"}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes link creation and click stats. No credit card required.`,
+    tags: ["url-shortener","short-url","link-shortener","click-tracking","free-api","rest-api","bitly-alternative","link-management","analytics","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "08", name: "JSON Formatter & Validator API", category: "Tools",
+    short: "Free JSON Formatter: Validate, Minify, Diff, CSV Convert",
+    long: `## Why JSON Formatter API?\n- ✅ 6-in-1 toolkit: format, minify, validate, diff, transform, CSV convert\n- ✅ JMESPath-like query support for data transformation\n- ✅ Zero dependencies, sub-10ms response times\n\n## Key Features\n- Pretty-print JSON with custom indentation\n- Minify JSON for production\n- Validate JSON with detailed error messages\n- Diff two JSON objects with change highlighting\n- Convert between CSV and JSON\n- JMESPath-like query/transform\n\n## Use Cases\n- **Developer Tools**: Format and validate JSON in CI/CD pipelines\n- **Data Engineering**: Convert CSV to JSON and back\n- **API Development**: Compare API responses with JSON diff\n- **Debugging**: Validate and pretty-print malformed JSON\n\n## Quick Start\n\`\`\`\nPOST /format\n{"json": "{\\"key\\":\\"value\\"}", "indent": 2}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all operations. No credit card required.`,
+    tags: ["json","formatter","validator","csv","free-api","rest-api","developer-tools","data-conversion","json-diff","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "09", name: "Hash & Encoding API", category: "Tools",
+    short: "Free Hash & Encoding: SHA256, Bcrypt, Base64, HMAC",
+    long: `## Why Hash & Encoding API?\n- ✅ All-in-one: MD5, SHA-1/256/384/512, HMAC, bcrypt, Base64, URL, HTML encoding\n- ✅ Bcrypt with configurable rounds + constant-time comparison\n- ✅ Cryptographically secure random byte generation\n\n## Key Features\n- Hash: MD5, SHA-1, SHA-256, SHA-384, SHA-512 (hex/base64)\n- HMAC with any supported hash algorithm\n- Bcrypt password hashing with configurable rounds\n- Bcrypt constant-time password verification\n- Encode/decode: Base64, URL, HTML, Hex\n- Secure random byte generation\n\n## Use Cases\n- **Authentication**: Hash and verify passwords with bcrypt\n- **Data Integrity**: Generate checksums for file verification\n- **Security**: HMAC signatures for API authentication\n- **Development**: Quick encoding/decoding during development\n\n## Quick Start\n\`\`\`\nGET /hash?algorithm=sha256&data=hello&format=hex\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all hash and encoding operations. No credit card required.`,
+    tags: ["hash","sha256","md5","bcrypt","free-api","rest-api","password-hash","data-encoding","cryptography","security","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "10", name: "Currency Exchange Rate API", category: "Finance",
+    short: "Free Currency Exchange: 30+ Currencies, ECB Data, Historical Rates",
+    long: `## Why Currency Exchange API?\n- ✅ Official ECB (European Central Bank) data — reliable and authoritative\n- ✅ Historical rates back to 1999 for trend analysis\n- ✅ 30+ currencies with 1-hour cache for real-time accuracy\n\n## Key Features\n- 30+ currencies from ECB official feed\n- Real-time exchange rates with 1-hour caching\n- Currency conversion with amount calculation\n- Historical rates back to 1999\n- Latest rates endpoint for dashboards\n\n## Use Cases\n- **E-commerce**: Display prices in local currencies\n- **Finance Apps**: Real-time currency conversion widgets\n- **Accounting**: Historical rate lookups for bookkeeping\n- **Travel Apps**: Multi-currency converters\n\n## Quick Start\n\`\`\`\nGET /convert?from=USD&to=EUR&amount=100\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all conversion features. No credit card required.`,
+    tags: ["currency","exchange-rate","forex","conversion","free-api","rest-api","fx-rates","currency-converter","ecb","finance","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "11", name: "AI Text API", category: "Text",
+    short: "Free AI Text Generation: Summarize, Translate, Sentiment Analysis",
+    long: `## Why AI Text API?\n- ✅ Powered by Cloudflare Workers AI (Llama 3.1) — no external API keys needed\n- ✅ 5-in-1: Generate, summarize, translate, sentiment, rewrite\n- ✅ Serverless edge inference for low latency worldwide\n\n## Key Features\n- Text generation with customizable prompts\n- Summarization of long documents\n- Translation across multiple languages\n- Sentiment analysis with confidence scores\n- Text rewriting with tone control\n\n## Use Cases\n- **Content Creation**: Generate blog posts, product descriptions, social media\n- **Customer Support**: Summarize tickets and detect sentiment\n- **Localization**: Translate content for international markets\n- **SEO**: Rewrite content for freshness and uniqueness\n\n## Quick Start\n\`\`\`\nPOST /generate\n{"prompt": "Write a product description for...", "max_tokens": 500}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all AI features. No credit card required.`,
+    tags: ["ai","text-generation","summarization","translation","free-api","rest-api","gpt","chatgpt-alternative","text-rewrite","nlp","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "12", name: "Social Video Downloader API", category: "Video_Images",
+    short: "Free Social Video Downloader: TikTok, YouTube, Instagram",
+    long: `## Why Social Video Downloader API?\n- ✅ Multi-platform: TikTok, YouTube, Instagram, Twitter/X, Facebook\n- ✅ Extracts direct download URLs without watermarks (where available)\n- ✅ No scraping libraries — parses public HTML for reliability\n\n## Key Features\n- TikTok video download (with/without watermark)\n- YouTube video URL extraction\n- Instagram Reels and posts\n- Twitter/X video extraction\n- Facebook video download\n\n## Use Cases\n- **Content Repurposing**: Download and re-edit social media content\n- **Archiving**: Save important social media videos\n- **Analytics Tools**: Extract video metadata for analysis\n- **Media Monitoring**: Track and archive brand mentions\n\n## Quick Start\n\`\`\`\nGET /download?url=https://www.tiktok.com/@user/video/123456\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all platforms. No credit card required.`,
+    tags: ["video-downloader","social-media","tiktok","youtube","free-api","rest-api","instagram","twitter","video-extraction","media-download","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "13", name: "Crypto Data API", category: "Finance",
+    short: "Free Crypto Data: Bitcoin, Ethereum, Real-time Prices, Market Data",
+    long: `## Why Crypto Data API?\n- ✅ Real-time prices for Bitcoin, Ethereum, and 100+ cryptocurrencies\n- ✅ Market data: market cap, volume, price change, circulating supply\n- ✅ Trending coins and historical price data included\n\n## Key Features\n- Real-time cryptocurrency prices (USD, EUR, JPY, etc.)\n- Market cap, 24h volume, price change percentages\n- Trending/top coins rankings\n- Historical price data\n- Multi-currency support\n\n## Use Cases\n- **Portfolio Trackers**: Display real-time crypto holdings value\n- **Trading Bots**: Feed price data into automated strategies\n- **News Sites**: Show live crypto tickers and market data\n- **DeFi Apps**: Price feeds for decentralized applications\n\n## Quick Start\n\`\`\`\nGET /prices?coins=bitcoin,ethereum&currency=usd\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all price and market data. No credit card required.`,
+    tags: ["cryptocurrency","bitcoin","ethereum","crypto-prices","free-api","rest-api","defi","crypto-api","coin-prices","market-data","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "14", name: "SEO Analyzer API", category: "Tools",
+    short: "Free SEO Analyzer: Meta Tags, Headings, Structured Data, Score 0-100",
+    long: `## Why SEO Analyzer API?\n- ✅ Comprehensive on-page audit: meta tags, headings, links, structured data\n- ✅ SEO score 0-100 with actionable improvement recommendations\n- ✅ Checks Open Graph, Twitter Card, robots.txt, and canonical tags\n\n## Key Features\n- Meta title/description analysis with length validation\n- Heading structure analysis (H1-H6)\n- Internal/external link counting and analysis\n- Structured data (Schema.org) detection\n- Open Graph and Twitter Card validation\n- SEO score 0-100 with recommendations\n\n## Use Cases\n- **SEO Agencies**: Automated on-page audits for clients\n- **Content Teams**: Pre-publish SEO checklist validation\n- **Developers**: SEO monitoring in CI/CD pipelines\n- **Marketers**: Competitive analysis of competitor pages\n\n## Quick Start\n\`\`\`\nGET /analyze?url=https://example.com\n\`\`\`\nReturns JSON with \`score\`, \`meta\`, \`headings\`, \`links\`, \`structured_data\`, \`recommendations\`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full SEO analysis. No credit card required.`,
+    tags: ["seo","website-analysis","meta-tags","seo-audit","free-api","rest-api","lighthouse","page-audit","on-page-seo","developer-tools","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "15", name: "Weather API", category: "Weather",
+    short: "Free Weather API: Forecast, Hourly, Historical, Geocoding",
+    long: `## Why Weather API?\n- ✅ Current weather + daily forecast (16 days) + hourly forecast\n- ✅ Geocoding included — search by city name, not just coordinates\n- ✅ Historical weather data for trend analysis\n\n## Key Features\n- Current weather conditions (temperature, humidity, wind, etc.)\n- Daily forecast up to 16 days\n- Hourly forecast\n- Geocoding (city name to coordinates)\n- Historical weather data\n- Multiple units (metric/imperial)\n\n## Use Cases\n- **Travel Apps**: Weather forecasts for trip planning\n- **Agriculture**: Historical weather data for crop planning\n- **Event Planning**: Weather predictions for outdoor events\n- **IoT Dashboards**: Real-time weather monitoring\n\n## Quick Start\n\`\`\`\nGET /current?city=Tokyo&units=metric\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes current weather and 3-day forecast. No credit card required.`,
+    tags: ["weather","forecast","temperature","geocoding","free-api","rest-api","weather-forecast","openweathermap-alternative","historical-weather","climate","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "16", name: "WHOIS Domain API", category: "Tools",
+    short: "Free WHOIS Domain: RDAP, DNS Records, Availability Check",
+    long: `## Why WHOIS Domain API?\n- ✅ WHOIS + RDAP + DNS records + availability check in one API\n- ✅ Structured JSON output (not raw WHOIS text)\n- ✅ Supports all major TLDs with registrar and expiry info\n\n## Key Features\n- WHOIS/RDAP domain lookup with structured output\n- DNS records query (A, AAAA, MX, NS, TXT, CNAME, SOA)\n- Domain availability check\n- Registrar, creation/expiry dates, nameservers\n- SSL certificate information\n\n## Use Cases\n- **Domain Tools**: Build domain lookup and monitoring tools\n- **Security**: Investigate suspicious domains and phishing\n- **Brand Protection**: Monitor domain registrations for your brand\n- **SEO Tools**: Check domain age and authority signals\n\n## Quick Start\n\`\`\`\nGET /lookup?domain=example.com\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all lookup features. No credit card required.`,
+    tags: ["whois","domain","dns","rdap","free-api","rest-api","domain-info","ssl-check","nameserver","domain-availability","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "17", name: "News Aggregator API", category: "News_Media",
+    short: "Free News Aggregator: BBC, HN, Dev.to, Tech News, RSS Feed",
+    long: `## Why News Aggregator API?\n- ✅ Multi-source: BBC, NYT, Reuters, TechCrunch, Hacker News, Dev.to\n- ✅ Category and source filtering for targeted news feeds\n- ✅ RSS parsing with structured JSON output\n\n## Key Features\n- Aggregated headlines from 6+ major sources\n- Category filtering (tech, business, world, etc.)\n- Source-specific endpoints\n- Hacker News top/new/best stories\n- Dev.to trending articles\n- Structured JSON with title, URL, date, source\n\n## Use Cases\n- **News Apps**: Build custom news aggregator applications\n- **Dashboards**: Real-time news feeds for monitoring tools\n- **Chatbots**: Serve latest news in conversational interfaces\n- **Research**: Track industry news and trends\n\n## Quick Start\n\`\`\`\nGET /headlines?source=bbc&category=technology\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources and categories. No credit card required.`,
+    tags: ["news","rss","aggregator","hackernews","free-api","rest-api","tech-news","bbc","headlines","content-discovery","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "18", name: "AI Translate API", category: "Translation",
+    short: "Free AI Translation: 40+ Languages, Detection, Batch Support",
+    long: `## Why AI Translation API?\n- ✅ 40+ languages powered by Cloudflare Workers AI (M2M100)\n- ✅ Auto language detection — no need to specify source language\n- ✅ Batch translation for multiple texts in one request\n\n## Key Features\n- 40+ language pairs\n- Automatic source language detection\n- Batch translation (multiple texts per request)\n- Preserves formatting and structure\n- Edge-based AI inference for low latency\n\n## Use Cases\n- **Localization**: Translate app content for international markets\n- **Customer Support**: Real-time message translation\n- **Content Marketing**: Multi-language blog posts and social media\n- **E-commerce**: Translate product descriptions and reviews\n\n## Quick Start\n\`\`\`\nPOST /translate\n{"text": "Hello, world!", "target": "es"}\n\`\`\`\nReturns \`{"translated": "Hola, mundo!", "detected_language": "en"}\`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all languages and detection. No credit card required.`,
+    tags: ["translation","ai","multilingual","language-detection","free-api","rest-api","deepl-alternative","free-translation","localization","m2m100","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "19", name: "Trends Aggregator API", category: "Social",
+    short: "Free Trends Aggregator: Google, HN, Reddit, GitHub, Product Hunt",
+    long: `## Why Trends Aggregator API?\n- ✅ 5 platforms in 1: Google Trends, Hacker News, Reddit, GitHub, Product Hunt\n- ✅ Real-time trending topics across tech, business, and culture\n- ✅ Structured JSON with rankings, scores, and URLs\n\n## Key Features\n- Google Trends daily/real-time trending searches\n- Hacker News top stories and trending posts\n- Reddit trending subreddits and posts\n- GitHub trending repositories\n- Product Hunt daily top products\n\n## Use Cases\n- **Content Strategy**: Find trending topics for blog posts and social media\n- **Market Research**: Track emerging technologies and products\n- **News Dashboards**: Multi-platform trend monitoring\n- **SEO**: Capitalize on trending search queries\n\n## Quick Start\n\`\`\`\nGET /trends?source=google&geo=US\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources. No credit card required.`,
+    tags: ["trends","google-trends","reddit","hackernews","free-api","rest-api","trending-topics","social-trends","real-time","github","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "20", name: "Company Data API", category: "Business",
+    short: "Free Company Data: Enrichment, Domain Lookup, Business Search",
+    long: `## Why Company Data API?\n- ✅ Enrich company data from public sources (Wikidata, web scraping)\n- ✅ Domain-based lookup — just provide a website URL\n- ✅ Company search by name with fuzzy matching\n\n## Key Features\n- Company search by name\n- Domain-based company lookup\n- Industry, employee count, revenue data\n- Founded date, headquarters, description\n- Social media profiles and website\n- Wikidata integration for verified data\n\n## Use Cases\n- **Sales Teams**: Enrich CRM records with company data\n- **Lead Generation**: Research prospects before outreach\n- **Market Research**: Analyze companies in target industries\n- **Due Diligence**: Quick company background checks\n\n## Quick Start\n\`\`\`\nGET /search?name=Anthropic\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all search and enrichment features. No credit card required.`,
+    tags: ["company-data","enrichment","wikidata","business-info","free-api","rest-api","company-search","b2b-data","crm","lead-generation","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "21", name: "WP Internal Link Optimization API", category: "Tools",
+    short: "Free WP SEO: Internal Link Optimizer, Sitemap Analysis",
+    long: `## Why WP Internal Link API?\n- ✅ AI-powered internal link suggestions for WordPress articles\n- ✅ Analyzes content relevance and anchor text optimization\n- ✅ Sitemap parsing for comprehensive link opportunity discovery\n\n## Key Features\n- Internal link opportunity detection\n- Anchor text suggestions based on content relevance\n- WordPress sitemap analysis\n- Link density and distribution scoring\n- Orphan page detection\n- SEO impact estimation\n\n## Use Cases\n- **WordPress Bloggers**: Optimize internal linking structure\n- **SEO Agencies**: Automated internal link audits for clients\n- **Content Teams**: Discover linking opportunities between articles\n- **Site Migration**: Map internal links during redesigns\n\n## Quick Start\n\`\`\`\nPOST /analyze\n{"content": "<article HTML>", "sitemap_url": "https://example.com/sitemap.xml"}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full analysis. No credit card required.`,
+    tags: ["wordpress","internal-links","seo","content-optimization","free-api","rest-api","wordpress-seo","content-strategy","link-building","anchor-text","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "22", name: "PDF Generator API", category: "Tools",
+    short: "Free PDF Generator: HTML/Markdown/URL to PDF, Custom Layout",
+    long: `## Why PDF Generator API?\n- ✅ 3 input formats: HTML, Markdown, and URL — convert anything to PDF\n- ✅ Custom page size, margins, headers, footers, and orientation\n- ✅ Serverless generation on Cloudflare edge — no queue, instant results\n\n## Key Features\n- HTML to PDF with CSS support\n- Markdown to PDF with styling\n- URL to PDF (capture webpage as PDF)\n- Custom page size (A4, Letter, etc.)\n- Configurable margins, headers, and footers\n- Landscape/portrait orientation\n\n## Use Cases\n- **Invoicing**: Generate PDF invoices from HTML templates\n- **Reports**: Convert dashboards and reports to PDF\n- **Documentation**: Markdown docs to printable PDFs\n- **Archiving**: Save webpages as PDF documents\n\n## Quick Start\n\`\`\`\nPOST /generate\n{"html": "<h1>Invoice</h1><p>Total: $100</p>", "format": "A4"}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all input formats. No credit card required.`,
+    tags: ["pdf","html-to-pdf","markdown-to-pdf","document-generation","pdf-converter","pdf-generator","serverless","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "23", name: "Placeholder Image API", category: "Media",
+    short: "Free Placeholder Image: SVG/PNG, Gradients, Custom Text",
+    long: `## Why Placeholder Image API?\n- ✅ SVG and PNG output with 10 stunning gradient presets\n- ✅ Custom text overlay, font size, and colors\n- ✅ 8 category presets (avatar, banner, thumbnail, hero, etc.)\n\n## Key Features\n- Custom width & height (up to 4000x4000)\n- Text overlay with configurable font and color\n- 10 gradient presets (blue, sunset, ocean, forest, fire, etc.)\n- Custom gradient colors (any hex pair)\n- 8 category presets for common sizes\n- SVG and PNG output formats\n\n## Use Cases\n- **Web Development**: Placeholder images during development\n- **UI/UX Design**: Mockups and wireframe images\n- **Social Media**: Template images for posts\n- **App Prototyping**: Dynamic placeholder images\n\n## Quick Start\n\`\`\`\nGET /image?width=800&height=400&text=Hello&gradient=sunset&format=svg\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all formats and presets. No credit card required.`,
+    tags: ["placeholder","image","svg","generator","mockup","gradient","design","cloudflare-workers","no-api-key","free-tier"]
+  },
+  {
+    num: "24", name: "Markdown Converter API", category: "Text_Analysis",
+    short: "Free Markdown Converter: HTML to Markdown, TOC, GFM Support",
+    long: `## Why Markdown Converter API?\n- ✅ Bidirectional: Markdown→HTML and HTML→Markdown\n- ✅ Full GFM support: tables, task lists, strikethrough, code blocks\n- ✅ Auto-generated Table of Contents with anchor links\n\n## Key Features\n- Markdown to HTML conversion (full GFM support)\n- HTML to Markdown reverse conversion\n- Table of Contents auto-generation\n- Syntax highlighting CSS classes for code blocks\n- Tables, task lists, strikethrough support\n- Pure JavaScript — no external dependencies\n\n## Use Cases\n- **CMS Platforms**: Render Markdown content as HTML\n- **Documentation Sites**: Auto-generate navigation from headings\n- **Static Site Generators**: Markdown processing pipeline\n- **Editor Plugins**: Live Markdown preview\n\n## Quick Start\n\`\`\`\nPOST /convert\n{"markdown": "# Hello\\n\\nThis is **bold** text.", "toc": true}\n\`\`\`\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all conversion features. No credit card required.`,
+    tags: ["markdown","html","converter","gfm","syntax-highlighting","table-of-contents","cloudflare-workers","no-api-key","free-tier"]
+  }
+];
+
+const STORAGE_KEY = 'rapidapi-update-checklist';
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+}
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function updateCount() {
+  const state = loadState();
+  const count = apis.filter(a => state[a.num]).length;
+  document.getElementById('done-count').textContent = count;
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+  });
+}
+
+function toggleAll(open) {
+  document.querySelectorAll('.api-body').forEach(b => {
+    if (open) b.classList.add('open'); else b.classList.remove('open');
+  });
+}
+
+function render() {
+  const state = loadState();
+  const container = document.getElementById('api-list');
+  container.innerHTML = apis.map(api => {
+    const checked = state[api.num] ? 'checked' : '';
+    const doneClass = state[api.num] ? ' done' : '';
+    return `
+    <div class="api-card" id="api-${api.num}">
+      <div class="api-header${doneClass}" onclick="toggleBody('${api.num}', event)">
+        <div style="display:flex;align-items:center">
+          <span class="num">#${api.num}</span>
+          <h2>${api.name}</h2>
+        </div>
+        <label onclick="event.stopPropagation()">
+          <input type="checkbox" ${checked} onchange="toggleDone('${api.num}', this.checked)"> Done
+        </label>
+      </div>
+      <div class="api-body" id="body-${api.num}">
+        <div class="field">
+          <div class="field-label">Category</div>
+          <div class="field-value">${api.category}<button class="copy-btn" onclick="copyText(this,'${api.category}')">Copy</button></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Short Description (for "Description" field)</div>
+          <div class="field-value">${escapeHtml(api.short)}<button class="copy-btn" onclick="copyText(this,${JSON.stringify(api.short)})">Copy</button></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Long Description (for "About" tab - Markdown)</div>
+          <div class="field-value"><code>${escapeHtml(api.long.replace(/\\n/g, '\n'))}</code><button class="copy-btn" onclick="copyText(this,${JSON.stringify(api.long.replace(/\\n/g, '\n'))})">Copy</button></div>
+        </div>
+        <div class="field">
+          <div class="field-label">Tags (comma-separated, paste into Tags field one by one)</div>
+          <div class="field-value">
+            <div class="tags">${api.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+            <button class="copy-btn" onclick="copyText(this,${JSON.stringify(api.tags.join(', '))})">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+  updateCount();
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toggleBody(num, e) {
+  document.getElementById('body-' + num).classList.toggle('open');
+}
+
+function toggleDone(num, checked) {
+  const state = loadState();
+  state[num] = checked;
+  saveState(state);
+  const header = document.querySelector(`#api-${num} .api-header`);
+  if (checked) header.classList.add('done'); else header.classList.remove('done');
+  updateCount();
+}
+
+render();
+</script>
+</body>
+</html>
