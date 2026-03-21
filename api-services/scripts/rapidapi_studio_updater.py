@@ -257,7 +257,27 @@ def main():
 
         # Cookie同意ダイアログを閉じる
         dismiss_cookie_dialog(page)
-        time.sleep(2)
+        time.sleep(3)
+
+        # ページを再読み込みしてコンテンツ表示を待つ
+        print("  ページを再読み込み中...")
+        page.reload(wait_until="domcontentloaded", timeout=30000)
+        time.sleep(5)
+
+        # もう一度Cookie同意を処理（再読み込みで再表示される場合）
+        dismiss_cookie_dialog(page)
+        time.sleep(3)
+
+        # コンテンツが表示されるまで待機（最大30秒）
+        print("  コンテンツの読み込みを待機中...")
+        for wait in range(15):
+            count = page.evaluate('''() => {
+                return document.querySelectorAll('a[href]').length;
+            }''')
+            if count > 10:
+                print(f"  コンテンツ検出 (リンク数: {count})")
+                break
+            time.sleep(2)
 
         take_screenshot(page, "00_studio_list")
 
