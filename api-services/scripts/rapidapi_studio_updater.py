@@ -1,6 +1,8 @@
-"""
-RapidAPI Studio 全24本API リスティング自動更新スクリプト
-Playwrightでブラウザ自動操作し、各APIの Short/Long Description + Visibility を更新する。
+#!/usr/bin/env python3
+"""RapidAPI Studio 全API リスティング自動更新スクリプト (v2)
+
+全カードを順番にクリックし、Base URLでJSONとマッチングする方式。
+Chrome --remote-debugging-port=9222 で起動済みであること。
 """
 
 import json
@@ -9,441 +11,326 @@ import sys
 import time
 import glob
 from datetime import datetime
-from pathlib import Path
+from playwright.sync_api import sync_playwright
 
-try:
-    from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeout
-except ImportError:
-    print("=" * 60)
-    print("Playwright が未インストールです。以下を実行してください:")
-    print()
-    print("  pip install playwright")
-    print("  playwright install chromium")
-    print()
-    print("=" * 60)
-    sys.exit(1)
-
-# === 設定 ===
-BASE_DIR = Path(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services")
-SCREENSHOT_DIR = BASE_DIR / "scripts" / "screenshots"
 STUDIO_URL = "https://rapidapi.com/studio/"
-WAIT_BETWEEN_APIS = 3  # 秒
+SCREENSHOT_DIR = os.path.join(os.path.dirname(__file__), "screenshots")
+WAIT_BETWEEN_APIS = 3
+
+os.makedirs(SCREENSHOT_DIR, exist_ok=True)
 
 
-def load_all_listings() -> list[dict]:
-    """全APIディレクトリから rapidapi-listing.json を読み込む"""
-    listings = []
-    for d in sorted(BASE_DIR.iterdir()):
-        if not d.is_dir() or not d.name[:2].isdigit():
-            continue
-        json_path = d / "rapidapi-listing.json"
-        if not json_path.exists():
-            print(f"  [SKIP] {d.name}: rapidapi-listing.json なし")
-            continue
-        with open(json_path, "r", encoding="utf-8") as f:
-            data = json.load(f)
-        data["_dir"] = d.name
-        data["_path"] = str(json_path)
-        listings.append(data)
-    print(f"\n合計 {len(listings)} 件の listing.json を読み込みました\n")
+def take_screenshot(page, name):
+    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+    path = os.path.join(SCREENSHOT_DIR, f"{ts}_{name}.png")
+    try:
+        page.screenshot(path=path, full_page=False)
+    except:
+        pass
+
+
+def load_listings():
+    base = os.path.dirname(os.path.dirname(__file__))
+    listings = {}
+    for d in sorted(glob.glob(os.path.join(base, "*-*-api"))):
+        jf = os.path.join(d, "rapidapi-listing.json")
+        if os.path.exists(jf):
+            with open(jf, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                # Base URLのsubdomainをキーにする
+                website = data.get("website", "")
+                if website:
+                    # https://xxx.t-mizuno27.workers.dev -> xxx
+                    subdomain = website.replace("https://", "").split(".")[0]
+                    listings[subdomain] = {
+                        "data": data,
+                        "dir": os.path.basename(d),
+                        "path": jf,
+                    }
     return listings
 
 
-def take_screenshot(page, name: str):
-    """スクリーンショットを保存"""
-    SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
-    ts = datetime.now().strftime("%Y%m%d_%H%M%S")
-    path = SCREENSHOT_DIR / f"{ts}_{name}.png"
-    page.screenshot(path=str(path), full_page=False)
-    return path
+def update_api_page(page, listing_data, card_index):
+    """現在開いているHub Listing > General ページを更新する"""
+    result = {"details": []}
+    data = listing_data["data"]
 
-
-def clear_and_type(page, selector: str, text: str, field_name: str = ""):
-    """フィールドをクリアして新しいテキストを入力"""
-    try:
-        el = page.locator(selector).first
-        el.click()
-        time.sleep(0.3)
-        # 全選択 → 削除 → 入力
-        page.keyboard.press("Control+a")
-        time.sleep(0.1)
-        page.keyboard.press("Backspace")
-        time.sleep(0.1)
-        el.fill(text)
-        time.sleep(0.3)
-        print(f"    [OK] {field_name} 更新完了")
-        return True
-    except Exception as e:
-        print(f"    [ERROR] {field_name}: {e}")
-        return False
-
-
-def update_single_api(page, listing: dict, index: int, total: int) -> dict:
-    """1つのAPIを更新する。結果dictを返す"""
-    api_name = listing.get("name", "Unknown")
-    dir_name = listing.get("_dir", "")
-    result = {"name": api_name, "dir": dir_name, "status": "unknown", "details": []}
-
-    print(f"\n{'='*60}")
-    print(f"[{index+1}/{total}] {api_name} ({dir_name})")
-    print(f"{'='*60}")
-
-    try:
-        # Studio一覧ページにいることを確認
-        if "/studio" not in page.url:
-            page.goto(STUDIO_URL, wait_until="networkidle", timeout=30000)
-            time.sleep(2)
-
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_01_list")
-
-        # APIカードを探してクリック
-        # カード内のAPI名テキストでマッチング
-        api_card = None
-        # 方法1: テキストで探す
-        cards = page.locator('[class*="card"], [class*="Card"], [class*="api"], [class*="Api"], [class*="item"], [class*="Item"], a[href*="/studio/"]')
-        card_count = cards.count()
-        print(f"  カード候補: {card_count} 件")
-
-        # まずリンクテキストで直接探す
-        link = page.get_by_text(api_name, exact=False).first
-        if link.is_visible(timeout=3000):
-            api_card = link
-            print(f"  テキストマッチでカード発見: {api_name}")
-
-        if api_card is None:
-            # slug で href マッチ
-            slug = listing.get("slug", "")
-            if slug:
-                link2 = page.locator(f'a[href*="{slug}"]').first
-                if link2.is_visible(timeout=3000):
-                    api_card = link2
-                    print(f"  slugマッチでカード発見: {slug}")
-
-        if api_card is None:
-            print(f"  [FAIL] カードが見つかりません")
-            result["status"] = "card_not_found"
-            return result
-
-        api_card.click()
-        time.sleep(3)
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_02_api_page")
-
-        # 「Hub Listing」をクリック（左サイドバー）
-        hub_listing_clicked = False
-        for selector in [
-            'text="Hub Listing"',
-            '[data-testid*="hub-listing"]',
-            'a:has-text("Hub Listing")',
-            'button:has-text("Hub Listing")',
-            'span:has-text("Hub Listing")',
-        ]:
-            try:
-                el = page.locator(selector).first
-                if el.is_visible(timeout=2000):
-                    el.click()
-                    hub_listing_clicked = True
-                    print("  Hub Listing クリック")
-                    time.sleep(2)
-                    break
-            except:
-                continue
-
-        if not hub_listing_clicked:
-            # URLで直接遷移を試みる
-            print("  Hub Listing ボタンが見つかりません。URL遷移を試みます...")
-            # 現在のURLから推測
-            current_url = page.url
-            if "/studio/" in current_url:
-                # hub-listing パスを付加
-                hub_url = current_url.rstrip("/") + "/hub-listing"
-                page.goto(hub_url, wait_until="networkidle", timeout=15000)
-                time.sleep(2)
-                hub_listing_clicked = True
-
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_03_hub_listing")
-
-        # 「General」タブ or 「General Information」をクリック
-        for selector in [
-            'text="General"',
-            'text="General Information"',
-            '[data-testid*="general"]',
-            'a:has-text("General")',
-            'button:has-text("General")',
-        ]:
-            try:
-                el = page.locator(selector).first
-                if el.is_visible(timeout=2000):
-                    el.click()
-                    print("  General タブクリック")
-                    time.sleep(2)
-                    break
-            except:
-                continue
-
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_04_general")
-
-        # === Short Description 更新 ===
-        short_desc = listing.get("description", "")
-        if short_desc:
-            updated = False
-            for selector in [
-                'textarea[name*="short"], textarea[name*="Short"]',
-                'textarea[placeholder*="short description" i]',
-                'input[name*="short"], input[name*="Short"]',
-                'textarea[name*="description"]:not([name*="long"])',
-                # General ページの最初のtextarea
-                'textarea:nth-of-type(1)',
-            ]:
-                try:
-                    el = page.locator(selector).first
-                    if el.is_visible(timeout=1500):
-                        el.click()
-                        time.sleep(0.2)
-                        page.keyboard.press("Control+a")
-                        page.keyboard.press("Backspace")
-                        el.fill(short_desc)
-                        time.sleep(0.3)
-                        print(f"    [OK] Short Description 更新完了")
-                        result["details"].append("short_desc: OK")
-                        updated = True
-                        break
-                except:
-                    continue
-            if not updated:
-                # ラベルから探す
-                try:
-                    label = page.get_by_text("Short Description", exact=False).first
-                    textarea = label.locator("..").locator("textarea, input").first
-                    textarea.click()
-                    page.keyboard.press("Control+a")
-                    page.keyboard.press("Backspace")
-                    textarea.fill(short_desc)
-                    print(f"    [OK] Short Description (ラベル経由)")
-                    result["details"].append("short_desc: OK")
-                    updated = True
-                except:
-                    pass
-            if not updated:
-                print(f"    [WARN] Short Description フィールドが見つかりません")
-                result["details"].append("short_desc: NOT_FOUND")
-
-        # === Long Description 更新 ===
-        long_desc = listing.get("long_description", "")
-        if long_desc:
-            updated = False
-            for selector in [
-                'textarea[name*="long"], textarea[name*="Long"]',
-                'textarea[placeholder*="long description" i]',
-                # General ページの2番目のtextarea
-                'textarea:nth-of-type(2)',
-            ]:
-                try:
-                    el = page.locator(selector).first
-                    if el.is_visible(timeout=1500):
-                        el.click()
-                        time.sleep(0.2)
-                        page.keyboard.press("Control+a")
-                        page.keyboard.press("Backspace")
-                        el.fill(long_desc)
-                        time.sleep(0.3)
-                        print(f"    [OK] Long Description 更新完了")
-                        result["details"].append("long_desc: OK")
-                        updated = True
-                        break
-                except:
-                    continue
-            if not updated:
-                try:
-                    label = page.get_by_text("Long Description", exact=False).first
-                    textarea = label.locator("..").locator("textarea, input").first
-                    textarea.click()
-                    page.keyboard.press("Control+a")
-                    page.keyboard.press("Backspace")
-                    textarea.fill(long_desc)
-                    print(f"    [OK] Long Description (ラベル経由)")
-                    result["details"].append("long_desc: OK")
-                    updated = True
-                except:
-                    pass
-            if not updated:
-                print(f"    [WARN] Long Description フィールドが見つかりません")
-                result["details"].append("long_desc: NOT_FOUND")
-
-        # === Visibility 確認・切替 ===
+    # Short Description
+    short_desc = data.get("description", "")
+    if short_desc:
         try:
-            # Private/Public のトグルまたはラジオボタンを探す
-            visibility_changed = False
-            # トグルスイッチ
-            for selector in [
-                'text="Private"',
-                '[data-testid*="visibility"]',
-                '[class*="visibility" i]',
-                '[class*="toggle" i]',
-            ]:
-                try:
-                    el = page.locator(selector).first
-                    if el.is_visible(timeout=1500):
-                        # Privateが表示されている → Publicに切り替え
-                        # Public ボタンまたはトグルをクリック
-                        public_btn = page.get_by_text("Public", exact=True).first
-                        if public_btn.is_visible(timeout=1500):
-                            public_btn.click()
-                            time.sleep(1)
-                            print(f"    [OK] Visibility → Public に切り替え")
-                            result["details"].append("visibility: switched_to_public")
-                            visibility_changed = True
-                        break
-                except:
-                    continue
-            if not visibility_changed:
-                # 既に Public の可能性
-                try:
-                    pub = page.get_by_text("Public", exact=True).first
-                    if pub.is_visible(timeout=1000):
-                        print(f"    [INFO] Visibility: 既に Public")
-                        result["details"].append("visibility: already_public")
-                except:
-                    print(f"    [WARN] Visibility セクションが見つかりません")
-                    result["details"].append("visibility: NOT_FOUND")
-        except Exception as e:
-            print(f"    [ERROR] Visibility: {e}")
-            result["details"].append(f"visibility: ERROR")
-
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_05_after_update")
-
-        # === 保存 ===
-        try:
-            save_btn = None
-            for selector in [
-                'button:has-text("Save")',
-                'button[type="submit"]',
-                '[data-testid*="save"]',
-                'button:has-text("Update")',
-            ]:
-                try:
-                    el = page.locator(selector).first
-                    if el.is_visible(timeout=1500):
-                        save_btn = el
-                        break
-                except:
-                    continue
-            if save_btn:
-                save_btn.click()
-                time.sleep(2)
-                print(f"    [OK] 保存完了")
-                result["details"].append("save: OK")
+            label = page.get_by_text("Short Description")
+            # ラベルの次のtextareaを探す
+            textarea = page.locator('textarea').nth(0)
+            if textarea.is_visible(timeout=3000):
+                textarea.click()
+                time.sleep(0.3)
+                textarea.fill("")
+                time.sleep(0.2)
+                textarea.fill(short_desc)
+                time.sleep(0.5)
+                # フォーカスを外して保存をトリガー
+                page.keyboard.press("Tab")
+                time.sleep(1)
+                print(f"    [OK] Short Description")
+                result["details"].append("short: OK")
             else:
-                print(f"    [INFO] Saveボタンなし（自動保存の可能性）")
-                result["details"].append("save: auto_save_assumed")
+                print(f"    [WARN] Short Description textarea not visible")
+                result["details"].append("short: NOT_FOUND")
         except Exception as e:
-            print(f"    [WARN] 保存: {e}")
+            print(f"    [WARN] Short Description error: {e}")
+            result["details"].append(f"short: ERROR")
 
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_06_saved")
-
-        result["status"] = "success"
-
-        # Studio一覧に戻る
-        page.goto(STUDIO_URL, wait_until="networkidle", timeout=30000)
-        time.sleep(2)
-
-    except Exception as e:
-        print(f"  [ERROR] {api_name}: {e}")
-        result["status"] = f"error: {str(e)[:100]}"
-        take_screenshot(page, f"{index+1:02d}_{dir_name}_ERROR")
-        # Studio一覧に戻る
+    # Long Description
+    long_desc = data.get("long_description", "")
+    if long_desc:
         try:
-            page.goto(STUDIO_URL, wait_until="networkidle", timeout=15000)
-            time.sleep(2)
-        except:
-            pass
+            textarea = page.locator('textarea').nth(1)
+            if textarea.is_visible(timeout=3000):
+                textarea.click()
+                time.sleep(0.3)
+                textarea.fill("")
+                time.sleep(0.2)
+                textarea.fill(long_desc)
+                time.sleep(0.5)
+                page.keyboard.press("Tab")
+                time.sleep(1)
+                print(f"    [OK] Long Description")
+                result["details"].append("long: OK")
+            else:
+                print(f"    [WARN] Long Description textarea not visible")
+                result["details"].append("long: NOT_FOUND")
+        except Exception as e:
+            print(f"    [WARN] Long Description error: {e}")
+            result["details"].append(f"long: ERROR")
+
+    # Visibility - Private -> Public
+    try:
+        private_text = page.get_by_text("API Project is Private")
+        if private_text.is_visible(timeout=2000):
+            # チェックボックスをチェック
+            checkbox = page.locator('input[type="checkbox"]').first
+            if checkbox.is_visible(timeout=2000):
+                checkbox.check()
+                time.sleep(0.5)
+            # トグルスイッチをクリック
+            toggle = private_text.locator("..").locator("..").locator('[role="switch"], input[type="checkbox"], [class*="toggle"], [class*="Toggle"]').first
+            if toggle.is_visible(timeout=2000):
+                toggle.click()
+                time.sleep(1)
+                print(f"    [OK] Visibility -> Public")
+                result["details"].append("visibility: Public")
+            else:
+                print(f"    [INFO] Toggle not found, trying other approach...")
+                # ページ内のすべてのトグル/スイッチを探す
+                page.evaluate('''() => {
+                    const toggles = document.querySelectorAll('[role="switch"], .toggle, [class*="Toggle"]');
+                    toggles.forEach(t => { if(t.offsetParent !== null) t.click(); });
+                }''')
+                time.sleep(1)
+                result["details"].append("visibility: attempted")
+        else:
+            public_text = page.get_by_text("API Project is Public")
+            if public_text.is_visible(timeout=1000):
+                print(f"    [OK] Already Public")
+                result["details"].append("visibility: already_public")
+    except:
+        result["details"].append("visibility: skip")
+
+    # Save ボタンがあればクリック
+    try:
+        for btn_text in ["Save", "save", "Update"]:
+            btn = page.get_by_role("button", name=btn_text)
+            if btn.is_visible(timeout=1000):
+                btn.click()
+                time.sleep(2)
+                print(f"    [OK] Save clicked")
+                result["details"].append("save: OK")
+                break
+    except:
+        pass
 
     return result
 
 
 def main():
     print("=" * 60)
-    print("RapidAPI Studio 全24本API リスティング自動更新")
+    print("RapidAPI Studio 全API リスティング自動更新 (v2)")
     print("=" * 60)
 
-    # listing.json 読み込み
-    listings = load_all_listings()
-    if not listings:
-        print("更新対象の listing.json が見つかりません")
-        sys.exit(1)
-
-    results = []
+    # リスティング読み込み
+    listings = load_listings()
+    print(f"\n{len(listings)} 件の listing.json を読み込みました")
+    for sub, info in listings.items():
+        print(f"  {sub} -> {info['data'].get('name', '?')}")
 
     with sync_playwright() as p:
-        # 既に起動済みのChrome（--remote-debugging-port=9222）に接続
         print("\nChrome (port 9222) に接続中...")
         try:
             browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
         except Exception as e:
             print(f"\nエラー: Chrome に接続できません。")
-            print(f"先に run-rapidapi-update.ps1 を実行するか、")
-            print(f"以下のコマンドでChromeを起動してください:")
-            print(f'  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" --remote-debugging-port=9222 https://rapidapi.com/studio/')
+            print(f'先に以下でChromeを起動: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" --remote-debugging-port=9222 --user-data-dir=C:\\Users\\tmizu\\chrome-debug-profile https://rapidapi.com/studio/')
             sys.exit(1)
+
         context = browser.contexts[0]
         page = context.pages[0] if context.pages else context.new_page()
 
         # Studio に遷移
         print("\nRapidAPI Studio を開いています...")
-        page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=60000)
-        time.sleep(2)
-        take_screenshot(page, "00_initial")
-
-        # ログイン待ち（APIカードが表示されるまで自動待機）
-        print("\n" + "=" * 60)
-        print("ブラウザでRapidAPI Studioにログインしてください。")
-        print("API一覧が表示されるまで自動で待機します...")
-        print("=" * 60)
-
-        # ページが読み込まれるまで待機（最大5分）
-        print("API一覧の表示を待機中... (最大5分)")
-        found = False
-        for attempt in range(60):
-            try:
-                # 様々なセレクタを試行
-                for selector in [
-                    'text="Rapid Studio"',
-                    'text="My APIs"',
-                    'text="Add API Project"',
-                    '[class*="Card"]',
-                    '[class*="card"]',
-                    '[class*="project"]',
-                    '[class*="Project"]',
-                    'a[href*="studio"]',
-                    'h2',
-                    'main',
-                ]:
-                    if page.query_selector(selector):
-                        print(f"  検出: {selector}")
-                        found = True
-                        break
-                if found:
-                    break
-            except Exception:
-                pass
-            time.sleep(5)
-
-        if not found:
-            print("  自動検出できませんでしたが、続行します...")
-
-        # ページ安定化待ち
+        page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=30000)
         time.sleep(5)
+        take_screenshot(page, "00_studio_list")
 
-        take_screenshot(page, "00_after_login")
-        print("\nAPI一覧を検出。更新を開始します...\n")
+        # 全カードのリンクを収集
+        print("\nAPI カードを収集中...")
 
-        # 全API更新
-        total = len(listings)
-        for i, listing in enumerate(listings):
-            result = update_single_api(page, listing, i, total)
+        # スクロールして全カードを表示
+        for _ in range(5):
+            page.evaluate("window.scrollBy(0, 500)")
+            time.sleep(0.5)
+        page.evaluate("window.scrollTo(0, 0)")
+        time.sleep(1)
+
+        # カード内のリンクを全て取得
+        card_links = page.evaluate('''() => {
+            const links = [];
+            // カード内のタイトルリンクを探す
+            document.querySelectorAll('a[href*="/studio/"]').forEach(a => {
+                const href = a.getAttribute('href');
+                const text = a.textContent.trim();
+                if (href && text && !links.some(l => l.href === href)) {
+                    links.push({ href: href, text: text });
+                }
+            });
+            return links;
+        }''')
+
+        if not card_links:
+            # 別のアプローチ: ページのH2/H3テキストを探す
+            card_links = page.evaluate('''() => {
+                const links = [];
+                document.querySelectorAll('h2, h3, [class*="title"], [class*="Title"], [class*="name"], [class*="Name"]').forEach(el => {
+                    const text = el.textContent.trim();
+                    const parent = el.closest('a') || el.closest('[href]');
+                    const href = parent ? parent.getAttribute('href') : '';
+                    if (text && text.length > 3 && text.length < 100) {
+                        links.push({ href: href || '', text: text });
+                    }
+                });
+                return links;
+            }''')
+
+        print(f"  {len(card_links)} 件のカードを検出")
+        for cl in card_links:
+            print(f"    {cl['text']} -> {cl['href']}")
+
+        if not card_links:
+            print("\nカードが見つかりません。スクリーンショットを確認してください。")
+            take_screenshot(page, "00_no_cards")
+            sys.exit(1)
+
+        results = []
+        total = len(card_links)
+
+        for i, card_info in enumerate(card_links):
+            card_text = card_info["text"]
+            card_href = card_info["href"]
+            print(f"\n{'='*60}")
+            print(f"[{i+1}/{total}] {card_text}")
+            print(f"{'='*60}")
+
+            result = {
+                "name": card_text,
+                "status": "unknown",
+                "details": [],
+            }
+
+            try:
+                # カードをクリック（hrefがあればURLで遷移）
+                if card_href:
+                    full_url = card_href if card_href.startswith("http") else f"https://rapidapi.com{card_href}"
+                    page.goto(full_url, wait_until="domcontentloaded", timeout=15000)
+                else:
+                    page.get_by_text(card_text, exact=True).first.click()
+                time.sleep(3)
+
+                # Hub Listing をクリック
+                hub_clicked = False
+                try:
+                    hub = page.get_by_text("Hub Listing").first
+                    if hub.is_visible(timeout=3000):
+                        hub.click()
+                        time.sleep(2)
+                        hub_clicked = True
+                        print("  Hub Listing クリック")
+                except:
+                    pass
+
+                if not hub_clicked:
+                    # URL で直接遷移
+                    current = page.url.rstrip("/")
+                    page.goto(current + "/hub-listing", wait_until="domcontentloaded", timeout=10000)
+                    time.sleep(2)
+
+                take_screenshot(page, f"{i+1:02d}_hub_listing")
+
+                # Base URL を読み取ってJSONマッチング
+                base_url_input = page.locator('input[value*="workers.dev"]').first
+                matched_listing = None
+                if base_url_input.is_visible(timeout=3000):
+                    base_url = base_url_input.input_value()
+                    subdomain = base_url.replace("https://", "").split(".")[0]
+                    print(f"  Base URL: {base_url} (subdomain: {subdomain})")
+                    matched_listing = listings.get(subdomain)
+
+                if not matched_listing:
+                    # 名前で部分マッチ
+                    for sub, info in listings.items():
+                        api_name = info["data"].get("name", "")
+                        if card_text.lower() in api_name.lower() or api_name.lower() in card_text.lower():
+                            matched_listing = info
+                            print(f"  名前マッチ: {card_text} -> {api_name}")
+                            break
+
+                if not matched_listing:
+                    print(f"  [SKIP] マッチするJSONが見つかりません")
+                    result["status"] = "no_match"
+                    results.append(result)
+                    page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=15000)
+                    time.sleep(3)
+                    continue
+
+                print(f"  マッチ: {matched_listing['dir']}")
+
+                # General タブがあればクリック
+                try:
+                    gen = page.get_by_text("General", exact=True).first
+                    if gen.is_visible(timeout=2000):
+                        gen.click()
+                        time.sleep(2)
+                except:
+                    pass
+
+                take_screenshot(page, f"{i+1:02d}_general_before")
+
+                # 更新実行
+                update_result = update_api_page(page, matched_listing, i)
+                result["details"] = update_result["details"]
+                result["status"] = "success" if any("OK" in d for d in result["details"]) else "partial"
+
+                take_screenshot(page, f"{i+1:02d}_general_after")
+
+            except Exception as e:
+                print(f"  [ERROR] {e}")
+                result["status"] = f"error: {str(e)[:80]}"
+                take_screenshot(page, f"{i+1:02d}_error")
+
             results.append(result)
-            if i < total - 1:
-                print(f"\n  次のAPIまで {WAIT_BETWEEN_APIS}秒 待機...")
-                time.sleep(WAIT_BETWEEN_APIS)
+
+            # Studio一覧に戻る
+            page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=15000)
+            time.sleep(WAIT_BETWEEN_APIS)
 
         browser.close()
 
@@ -453,34 +340,36 @@ def main():
     print("=" * 60)
 
     success = [r for r in results if r["status"] == "success"]
-    failed = [r for r in results if r["status"] != "success"]
+    partial = [r for r in results if r["status"] == "partial"]
+    failed = [r for r in results if r["status"] not in ("success", "partial")]
 
     print(f"\n成功: {len(success)}/{len(results)}")
+    print(f"部分成功: {len(partial)}/{len(results)}")
     print(f"失敗: {len(failed)}/{len(results)}")
 
     if success:
         print("\n--- 成功 ---")
         for r in success:
-            details = ", ".join(r["details"]) if r["details"] else "no details"
-            print(f"  [OK] {r['name']} ({r['dir']}) - {details}")
+            details = ", ".join(r["details"])
+            print(f"  [OK] {r['name']} - {details}")
+
+    if partial:
+        print("\n--- 部分成功 ---")
+        for r in partial:
+            details = ", ".join(r["details"])
+            print(f"  [PARTIAL] {r['name']} - {details}")
 
     if failed:
         print("\n--- 失敗 ---")
         for r in failed:
-            print(f"  [NG] {r['name']} ({r['dir']}) - {r['status']}")
+            print(f"  [NG] {r['name']} - {r['status']}")
 
     print(f"\nスクリーンショット: {SCREENSHOT_DIR}")
 
-    # レポートをJSONで保存
-    report_path = BASE_DIR / "scripts" / "update_report.json"
+    # レポート保存
+    report_path = os.path.join(os.path.dirname(__file__), "update_report.json")
     with open(report_path, "w", encoding="utf-8") as f:
-        json.dump({
-            "timestamp": datetime.now().isoformat(),
-            "total": len(results),
-            "success": len(success),
-            "failed": len(failed),
-            "results": results,
-        }, f, ensure_ascii=False, indent=2)
+        json.dump({"timestamp": datetime.now().isoformat(), "results": results}, f, indent=2, ensure_ascii=False)
     print(f"レポート保存: {report_path}")
 
 
