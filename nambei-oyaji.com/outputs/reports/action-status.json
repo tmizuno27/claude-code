@@ -58,11 +58,11 @@
     },
     {
       "id": "sim-hikaku-affiliate-insert",
-      "title": "sim-hikaku.online ワイモバイルA8リンク一括挿入（50件）",
+      "title": "sim-hikaku.online アフィリエイトリンク一括挿入（51記事）",
       "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "result": "check_affiliates.pyで50件未設置検出。insert_affiliate_all.pyで一括対応可能"
+      "done": true,
+      "done_at": "2026-03-21T11:00:00",
+      "result": "51記事に一括挿入完了（全SUCCESS）。ワイモバイル/UQモバイル/LINEMO/IIJmio/ahamo/HISモバイル/LIBMO/光回線/eSIM系を含む多数の案件リンクを設置"
     }
   ]
 }
