@@ -50,23 +50,78 @@ def load_listings():
 
 
 def dismiss_cookie_dialog(page):
-    """Cookie同意ダイアログを閉じる"""
-    try:
-        for btn_text in ["Accept All", "Accept all", "Accept", "Reject All", "OK", "Close"]:
-            btn = page.get_by_role("button", name=btn_text)
-            if btn.is_visible(timeout=1000):
+    """Cookie同意ダイアログを閉じる（OneTrust対応）"""
+    print("  Cookie同意ダイアログを確認中...")
+    dismissed = False
+
+    # 方法1: OneTrust の Accept ボタン（複数のID/クラスを試行）
+    for selector in [
+        '#onetrust-accept-btn-handler',
+        '#accept-recommended-btn-handler',
+        '.onetrust-close-btn-handler',
+        '#onetrust-reject-all-handler',
+        'button.onetrust-close-btn-handler',
+        '[aria-label="Close"]',
+        '[aria-label="close"]',
+    ]:
+        try:
+            btn = page.locator(selector)
+            if btn.is_visible(timeout=1500):
                 btn.click()
-                time.sleep(1)
-                print("  Cookie同意ダイアログを閉じました")
-                return
-        # ボタンが見つからない場合、OneTrustのAcceptボタンを試す
-        ot_btn = page.locator('#onetrust-accept-btn-handler')
-        if ot_btn.is_visible(timeout=1000):
-            ot_btn.click()
-            time.sleep(1)
-            print("  Cookie同意ダイアログを閉じました (OneTrust)")
-    except:
-        pass
+                time.sleep(2)
+                print(f"  Cookie同意を閉じました ({selector})")
+                dismissed = True
+                break
+        except:
+            continue
+
+    # 方法2: テキストベースでボタンを探す
+    if not dismissed:
+        for btn_text in ["Accept All Cookies", "Accept All", "Accept all cookies",
+                         "Accept", "Reject All", "Reject all", "OK", "I Accept",
+                         "Allow All", "Allow all", "Got it", "Close"]:
+            try:
+                btn = page.get_by_role("button", name=btn_text)
+                if btn.is_visible(timeout=1000):
+                    btn.click()
+                    time.sleep(2)
+                    print(f"  Cookie同意を閉じました ({btn_text})")
+                    dismissed = True
+                    break
+            except:
+                continue
+
+    # 方法3: JavaScriptでOneTrustオーバーレイを強制削除
+    if not dismissed:
+        try:
+            page.evaluate('''() => {
+                // OneTrust バナー/オーバーレイを全て非表示
+                const selectors = [
+                    '#onetrust-banner-sdk',
+                    '#onetrust-consent-sdk',
+                    '.onetrust-pc-dark-filter',
+                    '#onetrust-pc-sdk',
+                    '[class*="onetrust"]',
+                    '[id*="onetrust"]',
+                ];
+                selectors.forEach(sel => {
+                    document.querySelectorAll(sel).forEach(el => {
+                        el.style.display = 'none';
+                        el.remove();
+                    });
+                });
+                // bodyのoverflow制限を解除
+                document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
+            }''')
+            time.sleep(2)
+            print("  Cookie同意オーバーレイをJS強制削除しました")
+            dismissed = True
+        except:
+            pass
+
+    if not dismissed:
+        print("  Cookie同意ダイアログが見つかりませんでした（既に閉じ済み？）")
 
 
 def update_api_page(page, listing_data, card_index):
