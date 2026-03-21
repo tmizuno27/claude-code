@@ -10,12 +10,7 @@
     "keyword-extraction",
     "free-api",
     "rest-api",
-    "text-mining",
-    "content-analysis",
-    "readability",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "readability"
   ],
   "pricing": {
     "plans": [

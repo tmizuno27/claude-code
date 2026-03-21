@@ -1,21 +1,15 @@
 {
   "name": "Currency Exchange Rate API",
-  "description": "Free Currency Exchange API - 30+ Currencies, ECB Rates, Historical Data",
+  "description": "Free Currency Exchange API - 30+ Currencies, ECB Rates, Historical Data | 500/mo free",
   "category": "Finance",
   "tags": [
     "currency",
     "exchange-rate",
     "forex",
-    "conversion",
     "free-api",
     "rest-api",
-    "fx-rates",
     "currency-converter",
-    "ecb",
-    "finance",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "finance"
   ],
   "website": "https://currency-exchange-api.t-mizuno27.workers.dev",
   "baseUrl": "https://currency-exchange-api.t-mizuno27.workers.dev",
