@@ -1,4 +1,4 @@
-id,slug,title,status,published_date,category,type,word_count,affiliate_count,internal_links,累計PV,wp_url,notes
+﻿id,slug,title,status,published_date,category,type,word_count,affiliate_count,internal_links,累計PV,wp_url,notes
 9,matching-app-ranking-2026,【2026年最新】マッチングアプリおすすめランキングTOP10｜目的別に徹底比較,publish,2026-03-15,matching-apps,キラー,5297,0,5,1,https://otona-match.com/matching-app-ranking-2026/,メインKW：マッチングアプリ おすすめ｜リライト済2026-03-15
 10,pairs-review,Pairs（ペアーズ）の評判・口コミを徹底調査｜実際に使って分かったメリット・デメリット,publish,2026-03-15,matching-apps,キラー,2996,0,3,,https://otona-match.com/pairs-review/,メインKW：ペアーズ 評判｜リライト済2026-03-15
 11,with-review,with（ウィズ）の評判と本音レビュー｜性格診断マッチングは本当に当たる？,publish,2026-03-15,matching-apps,キラー,2612,0,3,,https://otona-match.com/with-review/,メインKW：with 評判｜リライト済2026-03-15
@@ -118,3 +118,5 @@ id,slug,title,status,published_date,category,type,word_count,affiliate_count,int
 760,toukare-date-shinsa-review,東カレデートの審査基準と通過率｜ハイスペック限定アプリの実態を徹底調査,draft,,matching-apps,キラー,5000,0,5,,,Batch9
 989,matching-app-sotsugyou-timing,マッチングアプリの卒業タイミング｜交際開始〜退会までの判断基準,publish,2026-03-20,renai-technique,集客,0,0,3,,https://otona-match.com/matching-app-sotsugyou-timing/,公開済 2026-03-20
 990,dine-review,Dine（ダイン）の評判｜デート直結型アプリのメリット・デメリット,publish,2026-03-20,matching-apps,キラー,0,0,3,,https://otona-match.com/dine-review/,公開済 2026-03-20
+146,youbride-review,ユーブライド（youbride）の評判｜30代以上の婚活に強い理由,publish,2026-03-15,,,10846,0,0,0,https://otona-match.com/youbride-review/,API自動追加
+145,matching-app-tsukare-taisaku,マッチングアプリに疲れた…原因と「アプリ疲れ」の対処法,publish,2026-03-15,,,10589,0,0,0,https://otona-match.com/matching-app-tsukare-taisaku/,API自動追加
