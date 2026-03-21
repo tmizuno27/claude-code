@@ -55,6 +55,14 @@
       "done": false,
       "done_at": null,
       "result": "管理画面で手動申請が必要"
+    },
+    {
+      "id": "sim-hikaku-affiliate-insert",
+      "title": "sim-hikaku.online ワイモバイルA8リンク一括挿入（50件）",
+      "priority": "P1",
+      "done": false,
+      "done_at": null,
+      "result": "check_affiliates.pyで50件未設置検出。insert_affiliate_all.pyで一括対応可能"
     }
   ]
 }
