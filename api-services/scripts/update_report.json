@@ -1,151 +1,19 @@
 {
-  "timestamp": "2026-03-21T05:56:12.199620",
-  "total": 24,
-  "success": 0,
-  "failed": 24,
+  "timestamp": "2026-03-21T06:01:02.140604",
   "results": [
     {
-      "name": "QR Code Generator API",
-      "dir": "01-qr-code-api",
-      "status": "card_not_found",
+      "name": "Privacy Preference Center",
+      "status": "error: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"",
       "details": []
     },
     {
-      "name": "Email Validation API",
-      "dir": "02-email-validation-api",
-      "status": "card_not_found",
+      "name": "Manage Consent Preferences",
+      "status": "error: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"",
       "details": []
     },
     {
-      "name": "Link Preview - Website Metadata API",
-      "dir": "03-link-preview-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Website Screenshot API",
-      "dir": "04-screenshot-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Text Analysis / NLP API",
-      "dir": "05-text-analysis-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "IP Geolocation API",
-      "dir": "06-ip-geolocation-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "URL Shortener API",
-      "dir": "07-url-shortener-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "JSON Formatter & Validator API",
-      "dir": "08-json-formatter-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Hash & Encoding API",
-      "dir": "09-hash-encoding-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Currency Exchange Rate API",
-      "dir": "10-currency-exchange-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "AI Text API",
-      "dir": "11-ai-text-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Social Video Downloader API",
-      "dir": "12-social-video-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Crypto Data API",
-      "dir": "13-crypto-data-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "SEO Analyzer API",
-      "dir": "14-seo-analyzer-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Weather API",
-      "dir": "15-weather-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "WHOIS Domain API",
-      "dir": "16-whois-domain-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "News Aggregator API",
-      "dir": "17-news-aggregator-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "AI Translate API",
-      "dir": "18-ai-translate-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Trends Aggregator API",
-      "dir": "19-trends-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Company Data API",
-      "dir": "20-company-data-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "WP Internal Link Optimization API",
-      "dir": "21-wp-internal-link-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "PDF Generator API",
-      "dir": "22-pdf-generator-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Placeholder Image API",
-      "dir": "23-placeholder-image-api",
-      "status": "card_not_found",
-      "details": []
-    },
-    {
-      "name": "Markdown Converter API",
-      "dir": "24-markdown-converter-api",
-      "status": "card_not_found",
+      "name": "Cookie List",
+      "status": "error: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for get_by_text(\"",
       "details": []
     }
   ]
