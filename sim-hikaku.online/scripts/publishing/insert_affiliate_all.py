@@ -306,13 +306,9 @@ def build_link_rules(affiliates):
     return rules
 
 
-def process_post(post, rules):
-    post_id = post["id"]
-    title = post.get("title", {}).get("rendered", "")
-    content = post.get("content", {}).get("raw", "")
-    if not content:
-        return None
-
+def process_content(content, rules):
+    """コンテンツにアフィリエイトリンクを挿入する共通ロジック。
+    Returns (new_content, changes_list) or (None, []) if no changes."""
     total_changes = []
     new_content = content
 
@@ -335,6 +331,20 @@ def process_post(post, rules):
                 new_content += "\n" + img_tag
 
     if not total_changes:
+        return None, []
+
+    return new_content, total_changes
+
+
+def process_post(post, rules):
+    post_id = post["id"]
+    title = post.get("title", {}).get("rendered", "")
+    content = post.get("content", {}).get("raw", "")
+    if not content:
+        return None
+
+    new_content, total_changes = process_content(content, rules)
+    if new_content is None:
         return None
 
     return {
