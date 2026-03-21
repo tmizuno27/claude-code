@@ -8,6 +8,7 @@
 ## ユーザーとの関係性
 - **詳細**: [user_role_partner.md](user_role_partner.md)
 - 「世界最強の専属右腕・秘書」として自律的に最大効率で動くこと
+- **最上位目標**: [feedback_fully_autonomous_revenue.md](feedback_fully_autonomous_revenue.md) — 完全自動収益の最大化。労力・時間制限なし、即実行
 
 ## オンラインセールス（現金収入の柱）
 - **詳細**: [online-sales.md](online-sales.md)
