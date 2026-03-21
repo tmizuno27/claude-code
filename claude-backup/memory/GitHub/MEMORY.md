@@ -141,6 +141,9 @@
 - **語学**: 日本語ネイティブ、英語・スペイン語は限定的（AI翻訳で補完）
 - **パラグアイ移住理由**: [MEMORY.md旧版参照] 物価安・税金安・災害なし・花粉なし等
 
+## エージェント・スキル操作
+- **一覧表示**: [feedback_agent_list_table.md](feedback_agent_list_table.md) — 「エージェント一覧」等で表形式出力（呼び出し方+得意作業）
+
 ## ユーザー設定・好み
 - **自動作業は徹底的に**: [feedback_auto_work_exhaustive.md](feedback_auto_work_exhaustive.md) — 「自動で進めて」=全事業一括洗い出し+全実行。小出し禁止、コスト制限なし
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
