@@ -373,24 +373,24 @@ def main():
 
     results = []
 
-    with sync_playwright() as p:
-        # 既存のChromeブラウザを使用（Googleログイン済みセッション利用）
-        chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-        user_data_dir = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Google", "Chrome", "User Data")
+    # Chromeをリモートデバッグモードで起動
+    import subprocess
+    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+    chrome_proc = subprocess.Popen([
+        chrome_path,
+        "--remote-debugging-port=9222",
+        "--no-first-run",
+        "--disable-blink-features=AutomationControlled",
+        "https://rapidapi.com/studio/"
+    ])
+    print("Chrome をリモートデバッグモードで起動しました。")
+    time.sleep(8)
 
-        # Chrome を --remote-debugging-port で起動して接続
-        # 既存のChromeプロファイルを使うことでGoogleログインをバイパス
-        browser = p.chromium.launch_persistent_context(
-            user_data_dir=user_data_dir,
-            executable_path=chrome_path,
-            headless=False,
-            slow_mo=200,
-            channel="chrome",
-            viewport={"width": 1400, "height": 900},
-            locale="en-US",
-            args=["--disable-blink-features=AutomationControlled"],
-        )
-        page = browser.new_page()
+    with sync_playwright() as p:
+        # 起動済みChromeに接続（IPv4明示）
+        browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
+        context = browser.contexts[0]
+        page = context.pages[0] if context.pages else context.new_page()
 
         # Studio に遷移
         print("\nRapidAPI Studio を開いています...")
