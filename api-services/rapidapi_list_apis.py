@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """
-RapidAPI Listing Automation Script (APIs 11-20)
+RapidAPI Listing Automation Script (APIs 1-24)
 ================================================
-Lists APIs 11-20 on RapidAPI using the RapidAPI Platform API.
+Updates all 24 APIs on RapidAPI using the RapidAPI Platform API.
 
 Usage:
     python rapidapi_list_apis.py --dry-run           # Preview what would be listed
-    python rapidapi_list_apis.py                     # Actually create listings
-    python rapidapi_list_apis.py --api-num 11        # List a single API
+    python rapidapi_list_apis.py                     # Actually update listings
+    python rapidapi_list_apis.py --api-num 11        # Update a single API
     python rapidapi_list_apis.py --manual            # Print step-by-step manual instructions
 
 Authentication:
@@ -70,8 +70,18 @@ STANDARD_PRICING = [
     },
 ]
 
-# Map API number → subdomain (matches healthcheck.py)
+# Map API number → subdomain (matches healthcheck.py + rapidapi-stats.json)
 API_SUBDOMAINS = {
+    1: "qr-code-api",
+    2: "email-validation-api",
+    3: "link-preview-api",
+    4: "screenshot-api",
+    5: "text-analysis-api",
+    6: "ip-geolocation-api",
+    7: "url-shortener-api",
+    8: "json-formatter-api",
+    9: "hash-encoding-api",
+    10: "currency-exchange-api",
     11: "ai-text-api",
     12: "social-video-api",
     13: "crypto-data-api",
@@ -82,6 +92,10 @@ API_SUBDOMAINS = {
     18: "ai-translate-api",
     19: "trends-api",
     20: "company-data-api",
+    21: "wp-internal-link-api",
+    22: "pdf-generator-api",
+    23: "placeholder-image-api",
+    24: "markdown-converter-api",
 }
 
 
@@ -141,6 +155,7 @@ def build_listing_payload(data: dict) -> dict:
     # Category mapping to RapidAPI categories
     category_map = {
         "Text": "Text Analysis",
+        "Text_Analysis": "Text Analysis",
         "Video_Images": "Video_Images",
         "Finance": "Finance",
         "Data": "Data",
@@ -150,6 +165,8 @@ def build_listing_payload(data: dict) -> dict:
         "Translation": "Translation",
         "News_Media": "News_Media",
         "Business": "Business",
+        "Media": "Media",
+        "Social": "Social",
     }
     raw_category = listing.get("category", "Tools")
     category = category_map.get(raw_category, raw_category)
@@ -290,7 +307,7 @@ LONG DESCRIPTION:
 def print_manual_instructions(apis_data: list[dict]):
     """Print manual step-by-step listing instructions for all APIs."""
     print("\n" + "=" * 60)
-    print("MANUAL LISTING INSTRUCTIONS FOR RAPIDAPI APIS 11-20")
+    print("MANUAL LISTING INSTRUCTIONS FOR RAPIDAPI APIS 1-24")
 
     print("=" * 60)
     print("\nPrerequisite: Log in at https://rapidapi.com/provider/dashboard\n")
@@ -413,14 +430,14 @@ def run_listing(apis_data: list[dict], api_key: str):
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Automate RapidAPI listing for APIs 11-20",
+        description="Automate RapidAPI listing for APIs 1-24",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   python rapidapi_list_apis.py --dry-run           # Preview listings
   python rapidapi_list_apis.py --manual            # Print manual steps
-  python rapidapi_list_apis.py                     # Actually list all APIs
-  python rapidapi_list_apis.py --api-num 15        # List only API 15
+  python rapidapi_list_apis.py                     # Actually update all APIs
+  python rapidapi_list_apis.py --api-num 15        # Update only API 15
   RAPIDAPI_KEY=xxx python rapidapi_list_apis.py    # Use key from env
         """,
     )
@@ -437,9 +454,9 @@ Examples:
     parser.add_argument(
         "--api-num",
         type=int,
-        choices=range(11, 21),
+        choices=range(1, 25),
         metavar="N",
-        help="List only a single API (11-20)",
+        help="Update only a single API (1-24)",
     )
     parser.add_argument(
         "--no-prompt",
@@ -453,7 +470,7 @@ def main():
     args = parse_args()
 
     # Determine which APIs to process
-    api_nums = [args.api_num] if args.api_num else list(range(11, 21))
+    api_nums = [args.api_num] if args.api_num else list(range(1, 25))
 
     # Load API data
     apis_data = []
