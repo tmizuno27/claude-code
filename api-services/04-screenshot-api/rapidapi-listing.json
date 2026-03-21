@@ -1,21 +1,15 @@
 {
   "name": "Website Screenshot API",
   "tagline": "Capture website screenshots as PNG or JPEG images instantly",
-  "description": "Free Website Screenshot API - Full Page Capture, PNG/JPEG, Custom Viewport",
+  "description": "Free Website Screenshot API - Full Page Capture, PNG/JPEG, Custom Viewport | 100/mo free",
   "category": "Tools",
   "tags": [
     "screenshot",
-    "webpage",
-    "capture",
-    "thumbnail",
-    "free-api",
-    "rest-api",
     "web-capture",
     "page-screenshot",
-    "website",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "free-api",
+    "rest-api",
+    "thumbnail"
   ],
   "pricing": {
     "plans": [

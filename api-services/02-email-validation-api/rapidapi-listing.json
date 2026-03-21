@@ -1,22 +1,16 @@
 {
   "name": "Email Validation API",
   "tagline": "Validate email addresses instantly without sending emails",
-  "description": "Free Email Validation API - Disposable Detection, MX Lookup, Typo Fix, No Auth",
+  "description": "Free Email Validation API - Disposable Detection, MX Lookup, Typo Fix | 500/mo free",
   "category": "Data",
   "tags": [
-    "email",
-    "validation",
-    "verification",
+    "email-validation",
     "email-checker",
     "disposable-email",
     "free-api",
     "rest-api",
-    "email-hygiene",
-    "bounce-detection",
-    "saas-tools",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "email-verification",
+    "bounce-detection"
   ],
   "pricing": [
     {

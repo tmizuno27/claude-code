@@ -1,20 +1,15 @@
 {
   "name": "Link Preview - Website Metadata API",
-  "description": "Free Link Preview API - Open Graph, Twitter Card, Favicon, RSS Extraction",
-  "category": "Social",
+  "description": "Free Link Preview API - Open Graph, Twitter Card, Favicon, RSS | 100/mo free",
+  "category": "Tools",
   "tags": [
     "link-preview",
-    "metadata",
     "open-graph",
     "twitter-card",
     "free-api",
     "rest-api",
-    "unfurl",
     "url-metadata",
-    "social-media",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "unfurl"
   ],
   "pricing": [
     {
