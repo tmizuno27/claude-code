@@ -1,8 +1,8 @@
 {
   "name": "AI Text API",
   "slug": "ai-text-api",
-  "description": "AI-powered text generation, summarization, translation, sentiment analysis, and rewriting. Built on Cloudflare Workers AI with Llama 3.1.",
-  "long_description": "## Overview\n\nAI-powered text generation, summarization, translation, sentiment analysis, and rewriting. Built on Cloudflare Workers AI with Meta Llama 3.1 8B Instruct. Ultra-low latency via Cloudflare's global edge network. No external API keys needed.\n\n## Key Features\n\n- ✅ Text generation from natural language prompts (configurable temperature)\n- ✅ Concise text summarization with adjustable length\n- ✅ Multi-language translation with auto-detection\n- ✅ Sentiment analysis with positive/negative/neutral + confidence score\n- ✅ Text rewriting in formal, casual, professional, or simple tones\n\n## Use Cases\n\n- **Content Creation**: Generate blog outlines, product descriptions, and social posts\n- **Customer Support**: Summarize long tickets and rewrite responses professionally\n- **Chatbots**: Power conversational AI with text generation and sentiment detection\n- **Localization**: Translate content between languages on the fly\n- **Marketing**: Rewrite copy in different tones for A/B testing\n\n## Quick Start\n\n```\nPOST /generate\nContent-Type: application/json\n\n{\"prompt\": \"Write 3 benefits of using REST APIs\", \"max_tokens\": 512}\n```\n\nReturns generated text. Use `/summarize`, `/translate`, `/sentiment`, or `/rewrite` for other functions.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes text generation and summarization. No credit card required.",
+  "description": "Free AI Text Generation: Summarize, Translate, Sentiment Analysis",
+  "long_description": "## Why AI Text API?\n- ✅ Powered by Cloudflare Workers AI (Llama 3.1) — no external API keys needed\n- ✅ 5-in-1: Generate, summarize, translate, sentiment, rewrite\n- ✅ Serverless edge inference for low latency worldwide\n\n## Key Features\n- Text generation with customizable prompts\n- Summarization of long documents\n- Translation across multiple languages\n- Sentiment analysis with confidence scores\n- Text rewriting with tone control\n\n## Use Cases\n- **Content Creation**: Generate blog posts, product descriptions, social media\n- **Customer Support**: Summarize tickets and detect sentiment\n- **Localization**: Translate content for international markets\n- **SEO**: Rewrite content for freshness and uniqueness\n\n## Quick Start\n```\nPOST /generate\n{\"prompt\": \"Write a product description for...\", \"max_tokens\": 500}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all AI features. No credit card required.",
   "category": "Text",
   "tags": [
     "ai",
@@ -14,7 +14,10 @@
     "gpt",
     "chatgpt-alternative",
     "text-rewrite",
-    "nlp"
+    "nlp",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://ai-text-api.your-domain.workers.dev",
   "pricing": {

@@ -1,8 +1,8 @@
 {
   "name": "SEO Analyzer API",
   "slug": "seo-analyzer-api",
-  "description": "Analyze any webpage for SEO factors including meta tags, headings, links, Open Graph, structured data, and get an overall SEO score with breakdown.",
-  "long_description": "## Overview\n\nComprehensive SEO Analyzer API that scores any public webpage on key SEO factors. Checks meta tags, heading structure, links, Open Graph, Twitter Card, structured data (JSON-LD), and returns an overall SEO score with detailed breakdown. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Overall SEO score (0-100) with per-factor breakdown\n- ✅ Title, meta description, canonical, robots, and viewport analysis\n- ✅ Heading structure audit (H1-H6 hierarchy)\n- ✅ Internal and external link analysis with counts\n- ✅ Open Graph, Twitter Card, and JSON-LD structured data detection\n\n## Use Cases\n\n- **SEO Auditing**: Quick on-page SEO health check for any URL\n- **Competitor Analysis**: Compare SEO scores across competing pages\n- **Automated Monitoring**: Track SEO score changes over time in CI/CD\n- **Agency Reporting**: Generate SEO reports for client websites\n- **Content Publishing**: Validate SEO before publishing new pages\n\n## Quick Start\n\n```\nGET /analyze?url=https://example.com\n```\n\nReturns JSON with `score`, `title`, `meta_description`, `headings`, `links`, `og_tags`, `structured_data`, and recommendations.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes full SEO analysis and score. No credit card required.",
+  "description": "Free SEO Analyzer: Meta Tags, Headings, Structured Data, Score 0-100",
+  "long_description": "## Why SEO Analyzer API?\n- ✅ Comprehensive on-page audit: meta tags, headings, links, structured data\n- ✅ SEO score 0-100 with actionable improvement recommendations\n- ✅ Checks Open Graph, Twitter Card, robots.txt, and canonical tags\n\n## Key Features\n- Meta title/description analysis with length validation\n- Heading structure analysis (H1-H6)\n- Internal/external link counting and analysis\n- Structured data (Schema.org) detection\n- Open Graph and Twitter Card validation\n- SEO score 0-100 with recommendations\n\n## Use Cases\n- **SEO Agencies**: Automated on-page audits for clients\n- **Content Teams**: Pre-publish SEO checklist validation\n- **Developers**: SEO monitoring in CI/CD pipelines\n- **Marketers**: Competitive analysis of competitor pages\n\n## Quick Start\n```\nGET /analyze?url=https://example.com\n```\nReturns JSON with `score`, `meta`, `headings`, `links`, `structured_data`, `recommendations`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full SEO analysis. No credit card required.",
   "category": "Tools",
   "tags": [
     "seo",
@@ -14,7 +14,10 @@
     "lighthouse",
     "page-audit",
     "on-page-seo",
-    "developer-tools"
+    "developer-tools",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://seo-analyzer-api.your-domain.workers.dev",
   "pricing": {

@@ -1,8 +1,8 @@
 {
   "name": "Crypto Data API",
   "slug": "crypto-data-api",
-  "description": "Real-time cryptocurrency prices, market data, trending coins, historical data, and exchange info. Powered by CoinCap API with built-in caching.",
-  "long_description": "## Overview\n\nComprehensive cryptocurrency data API providing real-time prices, market data, trending coins, historical prices, exchange info, and global market statistics. Data sourced from CoinCap API with intelligent caching for optimal performance. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Real-time prices for multiple coins with currency conversion\n- ✅ Detailed coin information (market cap, volume, supply, rank)\n- ✅ Historical price lookup on any specific date\n- ✅ Trending coins, market listings, and exchange rankings\n- ✅ Global crypto market cap and volume statistics\n\n## Use Cases\n\n- **Crypto Dashboards**: Display real-time prices and portfolio values\n- **Trading Bots**: Feed price data into algorithmic trading strategies\n- **Portfolio Trackers**: Calculate holdings value with historical data\n- **News & Media**: Show trending coins alongside market data\n- **Financial Apps**: Integrate crypto prices into multi-asset platforms\n\n## Quick Start\n\n```\nGET /price?ids=bitcoin,ethereum&vs=usd\n```\n\nReturns current prices, 24h change, market cap, and volume for each coin.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes price lookup, search, and global stats. No credit card required.",
+  "description": "Free Crypto Data: Bitcoin, Ethereum, Real-time Prices, Market Data",
+  "long_description": "## Why Crypto Data API?\n- ✅ Real-time prices for Bitcoin, Ethereum, and 100+ cryptocurrencies\n- ✅ Market data: market cap, volume, price change, circulating supply\n- ✅ Trending coins and historical price data included\n\n## Key Features\n- Real-time cryptocurrency prices (USD, EUR, JPY, etc.)\n- Market cap, 24h volume, price change percentages\n- Trending/top coins rankings\n- Historical price data\n- Multi-currency support\n\n## Use Cases\n- **Portfolio Trackers**: Display real-time crypto holdings value\n- **Trading Bots**: Feed price data into automated strategies\n- **News Sites**: Show live crypto tickers and market data\n- **DeFi Apps**: Price feeds for decentralized applications\n\n## Quick Start\n```\nGET /prices?coins=bitcoin,ethereum&currency=usd\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all price and market data. No credit card required.",
   "category": "Finance",
   "tags": [
     "cryptocurrency",
@@ -14,7 +14,10 @@
     "defi",
     "crypto-api",
     "coin-prices",
-    "market-data"
+    "market-data",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://crypto-data-api.your-domain.workers.dev",
   "pricing": {

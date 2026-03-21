@@ -1,8 +1,8 @@
 {
   "name": "Company Data API",
   "slug": "company-data-api",
-  "description": "Company/business information from public sources. Search companies, get details via Wikidata, look up domains, and enrich with technology detection.",
-  "long_description": "## Overview\n\nCompany Data Enrichment API providing company search, detailed information, domain-based lookup, and full enrichment with technology stack detection. Data sourced from Wikidata, RDAP, and web scraping. Perfect for CRM enrichment, lead generation, and competitive intelligence. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Company search via Wikidata (name, industry, headquarters, CEO)\n- ✅ Domain-based company lookup with website metadata + RDAP data\n- ✅ Full enrichment: tech stack detection, social media links, contact info\n- ✅ Founding date, employee count, and industry classification\n- ✅ Built-in caching for fast repeat queries\n\n## Use Cases\n\n- **CRM Enrichment**: Auto-populate company fields from domain or name\n- **Lead Generation**: Research companies and find contact information\n- **Sales Intelligence**: Identify technology stacks of target accounts\n- **Competitive Analysis**: Compare company data across competitors\n- **Due Diligence**: Quickly gather public company information for research\n\n## Quick Start\n\n```\nGET /search?q=Google\n```\n\nReturns matching companies with `name`, `wikidata_id`, `description`, `website`, and `industry`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes search and domain lookup. No credit card required.",
+  "description": "Free Company Data: Enrichment, Domain Lookup, Business Search",
+  "long_description": "## Why Company Data API?\n- ✅ Enrich company data from public sources (Wikidata, web scraping)\n- ✅ Domain-based lookup — just provide a website URL\n- ✅ Company search by name with fuzzy matching\n\n## Key Features\n- Company search by name\n- Domain-based company lookup\n- Industry, employee count, revenue data\n- Founded date, headquarters, description\n- Social media profiles and website\n- Wikidata integration for verified data\n\n## Use Cases\n- **Sales Teams**: Enrich CRM records with company data\n- **Lead Generation**: Research prospects before outreach\n- **Market Research**: Analyze companies in target industries\n- **Due Diligence**: Quick company background checks\n\n## Quick Start\n```\nGET /search?name=Anthropic\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all search and enrichment features. No credit card required.",
   "category": "Business",
   "tags": [
     "company-data",
@@ -14,7 +14,10 @@
     "company-search",
     "b2b-data",
     "crm",
-    "lead-generation"
+    "lead-generation",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://company-data-api.your-domain.workers.dev",
   "pricing": {

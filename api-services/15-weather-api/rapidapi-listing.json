@@ -1,8 +1,8 @@
 {
   "name": "Weather API",
   "slug": "weather-api",
-  "description": "Current weather, daily forecast (up to 16 days), hourly forecast, geocoding, and historical weather data. Powered by Open-Meteo, free and reliable.",
-  "long_description": "## Overview\n\nComprehensive Weather API providing current conditions, daily forecasts (up to 16 days), hourly forecasts (up to 384 hours), city geocoding, and historical weather data. Powered by Open-Meteo with intelligent caching. Built on Cloudflare Workers — no upstream API key required.\n\n## Key Features\n\n- ✅ Current weather: temperature, humidity, wind speed, weather condition\n- ✅ Daily forecast up to 16 days with min/max temps and precipitation\n- ✅ Hourly forecast up to 384 hours with detailed conditions\n- ✅ City-to-coordinates geocoding for easy location lookup\n- ✅ Historical weather data for any date range\n\n## Use Cases\n\n- **Travel Apps**: Show weather at destinations with multi-day forecasts\n- **Agriculture**: Monitor weather conditions for crop planning\n- **Event Planning**: Check weather forecasts for outdoor events\n- **IoT Dashboards**: Display current weather alongside sensor data\n- **Research**: Access historical weather data for analysis\n\n## Quick Start\n\n```\nGET /current?lat=35.6762&lon=139.6503\n```\n\nReturns JSON with `temperature`, `humidity`, `wind_speed`, `weather_code`, and human-readable `condition`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes current weather and geocoding. No credit card required.",
+  "description": "Free Weather API: Forecast, Hourly, Historical, Geocoding",
+  "long_description": "## Why Weather API?\n- ✅ Current weather + daily forecast (16 days) + hourly forecast\n- ✅ Geocoding included — search by city name, not just coordinates\n- ✅ Historical weather data for trend analysis\n\n## Key Features\n- Current weather conditions (temperature, humidity, wind, etc.)\n- Daily forecast up to 16 days\n- Hourly forecast\n- Geocoding (city name to coordinates)\n- Historical weather data\n- Multiple units (metric/imperial)\n\n## Use Cases\n- **Travel Apps**: Weather forecasts for trip planning\n- **Agriculture**: Historical weather data for crop planning\n- **Event Planning**: Weather predictions for outdoor events\n- **IoT Dashboards**: Real-time weather monitoring\n\n## Quick Start\n```\nGET /current?city=Tokyo&units=metric\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes current weather and 3-day forecast. No credit card required.",
   "category": "Weather",
   "tags": [
     "weather",
@@ -14,7 +14,10 @@
     "weather-forecast",
     "openweathermap-alternative",
     "historical-weather",
-    "climate"
+    "climate",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://weather-api.your-domain.workers.dev",
   "pricing": {

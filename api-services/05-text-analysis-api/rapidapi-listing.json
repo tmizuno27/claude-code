@@ -1,7 +1,7 @@
 {
   "name": "Text Analysis / NLP API",
   "tagline": "Analyze text with sentiment, keywords, readability, language detection & summarization - no AI API keys needed",
-  "description": "A pure JavaScript NLP API that provides comprehensive text analysis without any external AI dependencies. Features include:\n\n- **Sentiment Analysis**: AFINN-style lexicon with 200+ words, negation handling, and intensifiers. Returns positive/negative/neutral with confidence score.\n- **Keyword Extraction**: TF-IDF-based scoring with 200+ stop words removed. Returns top 10 keywords ranked by relevance.\n- **Readability Scoring**: Flesch-Kincaid Grade Level and Reading Ease formulas with syllable counting.\n- **Language Detection**: Supports 10 languages (English, Spanish, French, German, Portuguese, Italian, Dutch, Japanese, Chinese, Korean) using character frequency and common word matching.\n- **Extractive Summarization**: TextRank-inspired algorithm to extract the 3 most important sentences.\n- **Basic Metrics**: Word count, character count, sentence count, paragraph count, reading time, speaking time.\n\nAll processing runs on Cloudflare Workers edge network for ultra-low latency. No external API calls, no API keys to manage, no rate limits from third-party services.",
+  "description": "Free Text Analysis: Sentiment, Keywords, Readability Score",
   "category": "Text Analysis",
   "tags": [
     "nlp",
@@ -12,7 +12,10 @@
     "rest-api",
     "text-mining",
     "content-analysis",
-    "readability"
+    "readability",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "pricing": {
     "plans": [
@@ -54,5 +57,5 @@
       "text": "The quick brown fox jumps over the lazy dog. This is a simple test sentence for text analysis. Natural language processing is a fascinating field of computer science."
     }
   },
-  "long_description": "## Overview\n\nPure JavaScript NLP API providing comprehensive text analysis without external AI dependencies. Includes sentiment analysis, keyword extraction, readability scoring, language detection (10 languages), and extractive summarization. All processing runs on Cloudflare Workers edge network.\n\n## Key Features\n\n- ✅ Sentiment analysis with AFINN lexicon, negation handling, and confidence scores\n- ✅ TF-IDF keyword extraction with 200+ stop words filtered\n- ✅ Flesch-Kincaid readability scoring (Grade Level + Reading Ease)\n- ✅ Language detection for 10 languages (EN, ES, FR, DE, PT, IT, NL, JA, ZH, KO)\n- ✅ TextRank-inspired extractive summarization (top 3 sentences)\n\n## Use Cases\n\n- **Content Marketing**: Analyze readability and sentiment before publishing\n- **Social Listening**: Batch sentiment analysis of customer reviews and mentions\n- **SEO Tools**: Extract keywords and assess content quality\n- **Chatbots**: Detect user sentiment and language for routing\n- **Academic Research**: Text mining and corpus analysis at scale\n\n## Quick Start\n\n```\nPOST /analyze\nContent-Type: application/json\n\n{\"text\": \"Your text to analyze goes here...\"}\n```\n\nReturns JSON with `sentiment`, `keywords`, `readability`, `language`, `summary`, and basic metrics.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 5/sec |\n| Pro | $5.99 | 50,000 | 20/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n\nFree tier includes all analysis endpoints. No credit card required."
+  "long_description": "## Why Text Analysis API?\n- ✅ Pure JavaScript NLP — no external AI dependencies, no rate limits from third parties\n- ✅ 6-in-1: Sentiment, keywords, readability, language detection, summarization, metrics\n- ✅ AFINN lexicon with negation handling + TF-IDF keyword extraction\n\n## Key Features\n- Sentiment analysis with confidence score (AFINN-style, 200+ words)\n- TF-IDF keyword extraction (top 10 ranked)\n- Flesch-Kincaid readability scoring\n- Language detection (10 languages)\n- Extractive summarization (TextRank-inspired)\n- Word/character/sentence/paragraph counts + reading time\n\n## Use Cases\n- **Content Marketing**: Analyze sentiment and readability before publishing\n- **Social Listening**: Monitor brand sentiment across text data\n- **SEO Tools**: Extract keywords and optimize content\n- **Chatbots**: Detect language and sentiment in user messages\n\n## Quick Start\n```\nPOST /analyze\n{\"text\": \"Your text here\", \"features\": [\"sentiment\", \"keywords\", \"readability\"]}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all analysis features. No credit card required."
 }

@@ -1,6 +1,6 @@
 {
   "name": "Link Preview - Website Metadata API",
-  "description": "Extract rich metadata from any URL. Returns Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more. Fast response with 1-hour caching. Perfect for building link previews, social cards, and SEO tools.",
+  "description": "Free Link Preview: Open Graph, Twitter Card, Favicon, RSS Metadata",
   "category": "Social",
   "tags": [
     "link-preview",
@@ -11,7 +11,10 @@
     "rest-api",
     "unfurl",
     "url-metadata",
-    "social-media"
+    "social-media",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "pricing": [
     {
@@ -65,5 +68,5 @@
       }
     }
   ],
-  "long_description": "## Overview\n\nExtract rich metadata from any URL including Open Graph tags, Twitter Cards, favicons, RSS feeds, and author info. Fast responses with 1-hour caching. Perfect for building link previews, social sharing cards, and SEO tools.\n\n## Key Features\n\n- ✅ Open Graph and Twitter Card metadata extraction\n- ✅ Favicon, RSS feed, and author detection\n- ✅ Bulk preview for up to 10 URLs in a single request\n- ✅ 1-hour smart caching for fast repeat requests\n- ✅ CORS enabled for direct browser usage\n\n## Use Cases\n\n- **Chat Applications**: Generate rich link previews like Slack and Discord\n- **Social Media Tools**: Preview how URLs will appear when shared\n- **SEO Auditing**: Check Open Graph and meta tag implementation\n- **Content Aggregators**: Extract titles, descriptions, and images from links\n- **CMS Integrations**: Auto-populate link cards in blog posts and pages\n\n## Quick Start\n\n```\nGET /preview?url=https://github.com\n```\n\nReturns JSON with `title`, `description`, `image`, `favicon`, `og_tags`, `twitter_card`, and more.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all metadata extraction. No credit card required."
+  "long_description": "## Why Link Preview API?\n- ✅ Extracts Open Graph, Twitter Card, favicon, RSS, and author in one call\n- ✅ 1-hour smart caching for blazing-fast repeat requests\n- ✅ CORS enabled — use directly from browser-based applications\n\n## Key Features\n- Open Graph and Twitter Card metadata extraction\n- Favicon, RSS feed, and author detection\n- Bulk preview for up to 10 URLs per request\n- 1-hour smart caching\n- CORS enabled for direct browser usage\n\n## Use Cases\n- **Chat Applications**: Rich link previews like Slack and Discord\n- **Social Media Tools**: Preview how URLs appear when shared\n- **SEO Auditing**: Check Open Graph and meta tag implementation\n- **Content Aggregators**: Extract titles, descriptions, and images\n\n## Quick Start\n```\nGET /preview?url=https://github.com\n```\nReturns JSON with `title`, `description`, `image`, `favicon`, `og_tags`, `twitter_card`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all metadata extraction. No credit card required."
 }

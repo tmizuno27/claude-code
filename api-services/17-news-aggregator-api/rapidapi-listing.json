@@ -1,8 +1,8 @@
 {
   "name": "News Aggregator API",
   "slug": "news-aggregator-api",
-  "description": "Aggregated news from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Top stories, tech news, business news, and search.",
-  "long_description": "## Overview\n\nFree News Aggregator API pulling content from BBC, NYT, Reuters, TechCrunch, Hacker News, and Dev.to. Get top stories, tech news, business news, and search articles — all from one unified endpoint. No upstream API keys required. Built on Cloudflare Workers with 5-minute caching.\n\n## Key Features\n\n- ✅ Top news from BBC, NYT, and Reuters\n- ✅ Tech news from TechCrunch, Hacker News, and Dev.to\n- ✅ Business news from Reuters and Bloomberg\n- ✅ Full-text search via Hacker News API\n- ✅ Trending Dev.to articles with tags and reactions\n\n## Use Cases\n\n- **News Dashboards**: Build a multi-source news aggregator UI\n- **Content Discovery**: Find trending stories for content curation\n- **Slack/Discord Bots**: Post daily top news to team channels\n- **Research**: Search and collect news articles on specific topics\n- **Mobile Apps**: Provide a unified news feed from multiple sources\n\n## Quick Start\n\n```\nGET /top\n```\n\nReturns JSON array of top news articles with `title`, `url`, `source`, `published_at`, and `description`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes all news sources and search. No credit card required.",
+  "description": "Free News Aggregator: BBC, HN, Dev.to, Tech News, RSS Feed",
+  "long_description": "## Why News Aggregator API?\n- ✅ Multi-source: BBC, NYT, Reuters, TechCrunch, Hacker News, Dev.to\n- ✅ Category and source filtering for targeted news feeds\n- ✅ RSS parsing with structured JSON output\n\n## Key Features\n- Aggregated headlines from 6+ major sources\n- Category filtering (tech, business, world, etc.)\n- Source-specific endpoints\n- Hacker News top/new/best stories\n- Dev.to trending articles\n- Structured JSON with title, URL, date, source\n\n## Use Cases\n- **News Apps**: Build custom news aggregator applications\n- **Dashboards**: Real-time news feeds for monitoring tools\n- **Chatbots**: Serve latest news in conversational interfaces\n- **Research**: Track industry news and trends\n\n## Quick Start\n```\nGET /headlines?source=bbc&category=technology\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources and categories. No credit card required.",
   "category": "News_Media",
   "tags": [
     "news",
@@ -14,7 +14,10 @@
     "tech-news",
     "bbc",
     "headlines",
-    "content-discovery"
+    "content-discovery",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://news-aggregator-api.your-domain.workers.dev",
   "pricing": {

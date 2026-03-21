@@ -1,8 +1,8 @@
 {
   "name": "Trends Aggregator API",
   "slug": "trends-aggregator-api",
-  "description": "Trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt. All in one API with built-in caching.",
-  "long_description": "## Overview\n\nMulti-platform Trends Aggregator API combining trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt in one unified API. Rich metadata includes traffic volume, scores, comments, stars, and related articles. Built on Cloudflare Workers with intelligent caching.\n\n## Key Features\n\n- ✅ Google Trends daily search trends with geo filtering (US, JP, GB, etc.)\n- ✅ Top 25 Hacker News stories with scores and comments\n- ✅ Reddit popular posts with upvotes and subreddit info\n- ✅ GitHub trending repositories with stars, language, and descriptions\n- ✅ Product Hunt today's top products with votes and taglines\n\n## Use Cases\n\n- **Content Strategy**: Discover trending topics for timely blog posts and social media\n- **Market Research**: Track emerging trends across tech and mainstream audiences\n- **Dashboards**: Build a real-time trend monitoring wall for your team\n- **News Aggregation**: Combine multiple trend sources in one feed\n- **Product Development**: Spot trending technologies and tools early\n\n## Quick Start\n\n```\nGET /google/daily?geo=US\n```\n\nReturns JSON array of trending searches with `title`, `traffic_volume`, `related_queries`, and `articles`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes Google Trends, Hacker News, and Reddit. No credit card required.",
+  "description": "Free Trends Aggregator: Google, HN, Reddit, GitHub, Product Hunt",
+  "long_description": "## Why Trends Aggregator API?\n- ✅ 5 platforms in 1: Google Trends, Hacker News, Reddit, GitHub, Product Hunt\n- ✅ Real-time trending topics across tech, business, and culture\n- ✅ Structured JSON with rankings, scores, and URLs\n\n## Key Features\n- Google Trends daily/real-time trending searches\n- Hacker News top stories and trending posts\n- Reddit trending subreddits and posts\n- GitHub trending repositories\n- Product Hunt daily top products\n\n## Use Cases\n- **Content Strategy**: Find trending topics for blog posts and social media\n- **Market Research**: Track emerging technologies and products\n- **News Dashboards**: Multi-platform trend monitoring\n- **SEO**: Capitalize on trending search queries\n\n## Quick Start\n```\nGET /trends?source=google&geo=US\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources. No credit card required.",
   "category": "Social",
   "tags": [
     "trends",
@@ -14,7 +14,10 @@
     "trending-topics",
     "social-trends",
     "real-time",
-    "github"
+    "github",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://trends-api.your-domain.workers.dev",
   "pricing": {

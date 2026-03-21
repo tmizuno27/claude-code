@@ -1,8 +1,8 @@
 {
   "name": "WHOIS Domain API",
   "slug": "whois-domain-api",
-  "description": "Domain WHOIS/RDAP lookup, DNS records query, and domain availability check using RDAP protocol and Cloudflare DNS-over-HTTPS.",
-  "long_description": "## Overview\n\nFast and reliable domain information API combining WHOIS/RDAP lookup, DNS record queries, and domain availability checking. Uses the modern RDAP protocol and Cloudflare DNS-over-HTTPS for accurate, up-to-date results. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Full WHOIS/RDAP lookup: registrar, dates, nameservers, DNSSEC status\n- ✅ DNS record queries: A, AAAA, MX, NS, TXT, CNAME\n- ✅ Domain availability checking for registration\n- ✅ RDAP-supported TLD listing\n- ✅ Built-in caching for fast repeat lookups\n\n## Use Cases\n\n- **Domain Investing**: Check availability and expiration dates in bulk\n- **Security Auditing**: Investigate domain ownership and DNS configuration\n- **Brand Protection**: Monitor domain registrations for trademark infringement\n- **DevOps**: Verify DNS records and nameserver configuration\n- **Compliance**: Document domain registration details for legal requirements\n\n## Quick Start\n\n```\nGET /lookup?domain=example.com\n```\n\nReturns JSON with `registrar`, `created_date`, `expiry_date`, `nameservers`, `dnssec`, and registration status.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 2,000,000 | 100/sec |\n\nFree tier includes WHOIS, DNS, and availability checks. No credit card required.",
+  "description": "Free WHOIS Domain: RDAP, DNS Records, Availability Check",
+  "long_description": "## Why WHOIS Domain API?\n- ✅ WHOIS + RDAP + DNS records + availability check in one API\n- ✅ Structured JSON output (not raw WHOIS text)\n- ✅ Supports all major TLDs with registrar and expiry info\n\n## Key Features\n- WHOIS/RDAP domain lookup with structured output\n- DNS records query (A, AAAA, MX, NS, TXT, CNAME, SOA)\n- Domain availability check\n- Registrar, creation/expiry dates, nameservers\n- SSL certificate information\n\n## Use Cases\n- **Domain Tools**: Build domain lookup and monitoring tools\n- **Security**: Investigate suspicious domains and phishing\n- **Brand Protection**: Monitor domain registrations for your brand\n- **SEO Tools**: Check domain age and authority signals\n\n## Quick Start\n```\nGET /lookup?domain=example.com\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all lookup features. No credit card required.",
   "category": "Tools",
   "tags": [
     "whois",
@@ -14,7 +14,10 @@
     "domain-info",
     "ssl-check",
     "nameserver",
-    "domain-availability"
+    "domain-availability",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://whois-domain-api.your-domain.workers.dev",
   "pricing": {

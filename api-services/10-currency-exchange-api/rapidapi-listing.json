@@ -1,6 +1,6 @@
 {
   "name": "Currency Exchange Rate API",
-  "description": "Real-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.",
+  "description": "Free Currency Exchange: 30+ Currencies, ECB Data, Historical Rates",
   "category": "Finance",
   "tags": [
     "currency",
@@ -12,7 +12,10 @@
     "fx-rates",
     "currency-converter",
     "ecb",
-    "finance"
+    "finance",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://currency-exchange-api.t-mizuno27.workers.dev",
   "baseUrl": "https://currency-exchange-api.t-mizuno27.workers.dev",
@@ -116,5 +119,5 @@
     }
   ],
   "longDescription": "## Overview\n\nReal-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n## Key Features\n\n- ✅ 30+ currencies including USD, EUR, GBP, JPY, CNY, BRL\n- ✅ Real-time rates updated daily by the ECB\n- ✅ Historical exchange rates back to January 1999\n- ✅ Direct currency conversion with precise calculations\n- ✅ List all supported currencies with full names\n\n## Use Cases\n\n- **E-commerce**: Display prices in local currencies for international shoppers\n- **Financial Dashboards**: Show real-time FX rates and historical trends\n- **Travel Apps**: Currency conversion tools for travelers\n- **Accounting Software**: Multi-currency invoice and expense tracking\n- **Portfolio Management**: Track international investment values\n\n## Quick Start\n\n```\nGET /convert?from=USD&to=EUR&amount=100\n```\n\nReturns the converted amount, exchange rate, and timestamp.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 10,000 | 10/sec |\n| Ultra | $14.99 | 100,000 | 50/sec |\n\nFree tier includes all endpoints. No credit card required.",
-  "long_description": "## Overview\n\nReal-time and historical currency exchange rates from the European Central Bank (ECB). Supports 30+ currencies with conversion, latest rates, and historical data back to 1999. Fast responses with 1-hour caching. No external API key needed.\n\n## Key Features\n\n- ✅ 30+ currencies including USD, EUR, GBP, JPY, CNY, BRL\n- ✅ Real-time rates updated daily by the ECB\n- ✅ Historical exchange rates back to January 1999\n- ✅ Direct currency conversion with precise calculations\n- ✅ List all supported currencies with full names\n\n## Use Cases\n\n- **E-commerce**: Display prices in local currencies for international shoppers\n- **Financial Dashboards**: Show real-time FX rates and historical trends\n- **Travel Apps**: Currency conversion tools for travelers\n- **Accounting Software**: Multi-currency invoice and expense tracking\n- **Portfolio Management**: Track international investment values\n\n## Quick Start\n\n```\nGET /convert?from=USD&to=EUR&amount=100\n```\n\nReturns the converted amount, exchange rate, and timestamp.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 10,000 | 10/sec |\n| Ultra | $14.99 | 100,000 | 50/sec |\n\nFree tier includes all endpoints. No credit card required."
+  "long_description": "## Why Currency Exchange API?\n- ✅ Official ECB (European Central Bank) data — reliable and authoritative\n- ✅ Historical rates back to 1999 for trend analysis\n- ✅ 30+ currencies with 1-hour cache for real-time accuracy\n\n## Key Features\n- 30+ currencies from ECB official feed\n- Real-time exchange rates with 1-hour caching\n- Currency conversion with amount calculation\n- Historical rates back to 1999\n- Latest rates endpoint for dashboards\n\n## Use Cases\n- **E-commerce**: Display prices in local currencies\n- **Finance Apps**: Real-time currency conversion widgets\n- **Accounting**: Historical rate lookups for bookkeeping\n- **Travel Apps**: Multi-currency converters\n\n## Quick Start\n```\nGET /convert?from=USD&to=EUR&amount=100\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all conversion features. No credit card required."
 }

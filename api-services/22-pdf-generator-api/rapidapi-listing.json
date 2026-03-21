@@ -1,8 +1,8 @@
 {
   "name": "PDF Generator API",
   "slug": "pdf-generator-api",
-  "description": "Generate PDF documents from HTML, Markdown, or URLs with custom page sizes, margins, headers, and footers. Lightweight, fast, serverless.",
-  "long_description": "## Overview\n\nPDF Generator API lets you create PDF documents programmatically from HTML, Markdown, or any public URL. Built on Cloudflare Workers for ultra-low latency worldwide.\n\n## Key Features\n\n- **HTML to PDF** — Convert raw HTML strings into clean PDF documents\n- **Markdown to PDF** — Pass Markdown content and get a formatted PDF back\n- **URL to PDF** — Provide any public URL and receive its content as a PDF\n- **Custom Page Settings** — A4, A3, Letter, Legal page sizes with portrait/landscape orientation\n- **Configurable Margins** — Set top, bottom, left, and right margins in points\n- **Headers & Footers** — Add custom header/footer text with page number placeholders ({{page}}, {{pages}})\n- **Font Control** — Adjustable font size and line height\n- **Custom Filename** — Set the output filename in the Content-Disposition header\n\n## Use Cases\n\n- Invoice and receipt generation\n- Report export from web dashboards\n- Documentation archiving\n- Email content to PDF conversion\n- Blog post / article PDF export\n- Batch document generation pipelines\n\n## Technical Details\n\n- Returns binary PDF with `application/pdf` content type\n- No external dependencies or headless browsers — pure serverless\n- Sub-100ms response times for typical documents\n- Proper error handling with descriptive JSON error messages",
+  "description": "Free PDF Generator: HTML/Markdown/URL to PDF, Custom Layout",
+  "long_description": "## Why PDF Generator API?\n- ✅ 3 input formats: HTML, Markdown, and URL — convert anything to PDF\n- ✅ Custom page size, margins, headers, footers, and orientation\n- ✅ Serverless generation on Cloudflare edge — no queue, instant results\n\n## Key Features\n- HTML to PDF with CSS support\n- Markdown to PDF with styling\n- URL to PDF (capture webpage as PDF)\n- Custom page size (A4, Letter, etc.)\n- Configurable margins, headers, and footers\n- Landscape/portrait orientation\n\n## Use Cases\n- **Invoicing**: Generate PDF invoices from HTML templates\n- **Reports**: Convert dashboards and reports to PDF\n- **Documentation**: Markdown docs to printable PDFs\n- **Archiving**: Save webpages as PDF documents\n\n## Quick Start\n```\nPOST /generate\n{\"html\": \"<h1>Invoice</h1><p>Total: $100</p>\", \"format\": \"A4\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all input formats. No credit card required.",
   "category": "Tools",
   "tags": [
     "pdf",
@@ -11,7 +11,10 @@
     "document-generation",
     "pdf-converter",
     "pdf-generator",
-    "serverless"
+    "serverless",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "pricing": {
     "plans": [
@@ -58,17 +61,72 @@
       "route": "/generate",
       "description": "Convert HTML string to PDF. Supports custom page size, margins, headers, footers.",
       "body_params": [
-        { "name": "html", "type": "string", "required": true, "description": "HTML content to convert" },
-        { "name": "page_size", "type": "string", "required": false, "description": "A4, A3, Letter, Legal (default: A4)" },
-        { "name": "orientation", "type": "string", "required": false, "description": "portrait or landscape (default: portrait)" },
-        { "name": "margin_top", "type": "number", "required": false, "description": "Top margin in points (default: 72)" },
-        { "name": "margin_bottom", "type": "number", "required": false, "description": "Bottom margin in points (default: 72)" },
-        { "name": "margin_left", "type": "number", "required": false, "description": "Left margin in points (default: 72)" },
-        { "name": "margin_right", "type": "number", "required": false, "description": "Right margin in points (default: 72)" },
-        { "name": "font_size", "type": "number", "required": false, "description": "Font size in points (default: 12)" },
-        { "name": "header", "type": "string", "required": false, "description": "Header text for each page" },
-        { "name": "footer", "type": "string", "required": false, "description": "Footer text. Use {{page}} and {{pages}} placeholders" },
-        { "name": "filename", "type": "string", "required": false, "description": "Output filename (default: document.pdf)" }
+        {
+          "name": "html",
+          "type": "string",
+          "required": true,
+          "description": "HTML content to convert"
+        },
+        {
+          "name": "page_size",
+          "type": "string",
+          "required": false,
+          "description": "A4, A3, Letter, Legal (default: A4)"
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "required": false,
+          "description": "portrait or landscape (default: portrait)"
+        },
+        {
+          "name": "margin_top",
+          "type": "number",
+          "required": false,
+          "description": "Top margin in points (default: 72)"
+        },
+        {
+          "name": "margin_bottom",
+          "type": "number",
+          "required": false,
+          "description": "Bottom margin in points (default: 72)"
+        },
+        {
+          "name": "margin_left",
+          "type": "number",
+          "required": false,
+          "description": "Left margin in points (default: 72)"
+        },
+        {
+          "name": "margin_right",
+          "type": "number",
+          "required": false,
+          "description": "Right margin in points (default: 72)"
+        },
+        {
+          "name": "font_size",
+          "type": "number",
+          "required": false,
+          "description": "Font size in points (default: 12)"
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "required": false,
+          "description": "Header text for each page"
+        },
+        {
+          "name": "footer",
+          "type": "string",
+          "required": false,
+          "description": "Footer text. Use {{page}} and {{pages}} placeholders"
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "required": false,
+          "description": "Output filename (default: document.pdf)"
+        }
       ]
     },
     {
@@ -77,12 +135,37 @@
       "route": "/from-markdown",
       "description": "Convert Markdown string to PDF.",
       "body_params": [
-        { "name": "markdown", "type": "string", "required": true, "description": "Markdown content to convert" },
-        { "name": "page_size", "type": "string", "required": false },
-        { "name": "orientation", "type": "string", "required": false },
-        { "name": "header", "type": "string", "required": false },
-        { "name": "footer", "type": "string", "required": false },
-        { "name": "filename", "type": "string", "required": false }
+        {
+          "name": "markdown",
+          "type": "string",
+          "required": true,
+          "description": "Markdown content to convert"
+        },
+        {
+          "name": "page_size",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "required": false
+        }
       ]
     },
     {
@@ -91,12 +174,37 @@
       "route": "/from-url",
       "description": "Fetch a URL and convert its HTML content to PDF.",
       "body_params": [
-        { "name": "url", "type": "string", "required": true, "description": "Public URL to fetch and convert" },
-        { "name": "page_size", "type": "string", "required": false },
-        { "name": "orientation", "type": "string", "required": false },
-        { "name": "header", "type": "string", "required": false },
-        { "name": "footer", "type": "string", "required": false },
-        { "name": "filename", "type": "string", "required": false }
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "Public URL to fetch and convert"
+        },
+        {
+          "name": "page_size",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "footer",
+          "type": "string",
+          "required": false
+        },
+        {
+          "name": "filename",
+          "type": "string",
+          "required": false
+        }
       ]
     }
   ]

@@ -1,8 +1,8 @@
 {
   "name": "WP Internal Link Optimization API",
   "slug": "wp-internal-link-api",
-  "description": "Analyze WordPress article content and get intelligent internal link suggestions with anchor text, relevance scores, and insert positions. Supports sitemap parsing.",
-  "long_description": "## Overview\n\nWordPress Internal Link Optimization API that analyzes your article content and returns intelligent link suggestions with anchor text, relevance scores, and precise insert positions. Supports sitemap parsing and both English and Japanese content. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Relevance-scored link suggestions using unigram/bigram/trigram matching\n- ✅ Recommended anchor text extracted from article content\n- ✅ Character-level insert positions for precise link placement\n- ✅ Duplicate link detection to avoid over-linking\n- ✅ Sitemap URL parsing and manual page list support\n\n## Use Cases\n\n- **WordPress Bloggers**: Improve internal linking for better SEO and user flow\n- **SEO Agencies**: Automate internal link audits across client sites\n- **Content Teams**: Suggest relevant links as editors review articles\n- **CMS Automation**: Auto-insert internal links during content publishing pipelines\n- **Multilingual Sites**: Works with both English and Japanese content\n\n## Quick Start\n\n```\nPOST /analyze\nContent-Type: application/json\n\n{\"article_html\": \"<p>Your article HTML...</p>\", \"sitemap_url\": \"https://example.com/sitemap.xml\"}\n```\n\nReturns ranked suggestions with `url`, `anchor_text`, `relevance_score`, `insert_position`, and `matching_keywords`.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 1,000 | 5/sec |\n| Ultra | $29.99 | 10,000 | 20/sec |\n\nFree tier includes all analysis features. No credit card required.",
+  "description": "Free WP SEO: Internal Link Optimizer, Sitemap Analysis",
+  "long_description": "## Why WP Internal Link API?\n- ✅ AI-powered internal link suggestions for WordPress articles\n- ✅ Analyzes content relevance and anchor text optimization\n- ✅ Sitemap parsing for comprehensive link opportunity discovery\n\n## Key Features\n- Internal link opportunity detection\n- Anchor text suggestions based on content relevance\n- WordPress sitemap analysis\n- Link density and distribution scoring\n- Orphan page detection\n- SEO impact estimation\n\n## Use Cases\n- **WordPress Bloggers**: Optimize internal linking structure\n- **SEO Agencies**: Automated internal link audits for clients\n- **Content Teams**: Discover linking opportunities between articles\n- **Site Migration**: Map internal links during redesigns\n\n## Quick Start\n```\nPOST /analyze\n{\"content\": \"<article HTML>\", \"sitemap_url\": \"https://example.com/sitemap.xml\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full analysis. No credit card required.",
   "category": "Tools",
   "tags": [
     "wordpress",
@@ -14,7 +14,10 @@
     "wordpress-seo",
     "content-strategy",
     "link-building",
-    "anchor-text"
+    "anchor-text",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://wp-internal-link-api.t-mizuno27.workers.dev",
   "pricing": {

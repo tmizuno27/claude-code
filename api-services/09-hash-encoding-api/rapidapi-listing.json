@@ -1,6 +1,6 @@
 {
   "name": "Hash & Encoding API",
-  "description": "All-in-one hashing, HMAC, encoding/decoding, bcrypt, and secure random generation API. Supports MD5, SHA-1, SHA-256, SHA-384, SHA-512 hashing with hex and base64 output. Encode/decode in Base64, URL, HTML, and Hex formats. Bcrypt password hashing with configurable rounds and constant-time comparison. Cryptographically secure random byte generation.",
+  "description": "Free Hash & Encoding: SHA256, Bcrypt, Base64, HMAC",
   "category": "Tools",
   "tags": [
     "hash",
@@ -12,7 +12,10 @@
     "password-hash",
     "data-encoding",
     "cryptography",
-    "security"
+    "security",
+    "cloudflare-workers",
+    "no-api-key",
+    "free-tier"
   ],
   "website": "https://hash-encoding-api.t-mizuno27.workers.dev",
   "baseUrl": "https://hash-encoding-api.t-mizuno27.workers.dev",
@@ -210,5 +213,5 @@
       ]
     }
   ],
-  "long_description": "## Overview\n\nAll-in-one hashing, HMAC, encoding/decoding, bcrypt, and secure random generation API. Supports MD5, SHA-1, SHA-256, SHA-384, SHA-512 with hex and base64 output. Includes bcrypt password hashing with constant-time comparison. Built on Cloudflare Workers.\n\n## Key Features\n\n- ✅ Multiple hash algorithms: MD5, SHA-1, SHA-256, SHA-384, SHA-512\n- ✅ HMAC signature generation with custom secret keys\n- ✅ Bcrypt password hashing with configurable rounds (4-31)\n- ✅ Encode/decode in Base64, URL, HTML entities, and Hex\n- ✅ Cryptographically secure random byte generation\n\n## Use Cases\n\n- **Authentication Systems**: Hash and verify passwords with bcrypt\n- **API Security**: Generate HMAC signatures for webhook verification\n- **Data Integrity**: Compute file and content checksums (SHA-256)\n- **Web Development**: Encode/decode URLs, HTML entities, and Base64 data\n- **Security Auditing**: Generate secure random tokens and API keys\n\n## Quick Start\n\n```\nPOST /hash\nContent-Type: application/json\n\n{\"text\": \"Hello World\", \"algorithm\": \"sha256\"}\n```\n\nReturns JSON with `hex` and `base64` hash values.\n\n## Pricing\n\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5 | 50,000 | 10/sec |\n| Ultra | $15 | 500,000 | 50/sec |\n\nFree tier includes all 8 endpoints. No credit card required."
+  "long_description": "## Why Hash & Encoding API?\n- ✅ All-in-one: MD5, SHA-1/256/384/512, HMAC, bcrypt, Base64, URL, HTML encoding\n- ✅ Bcrypt with configurable rounds + constant-time comparison\n- ✅ Cryptographically secure random byte generation\n\n## Key Features\n- Hash: MD5, SHA-1, SHA-256, SHA-384, SHA-512 (hex/base64)\n- HMAC with any supported hash algorithm\n- Bcrypt password hashing with configurable rounds\n- Bcrypt constant-time password verification\n- Encode/decode: Base64, URL, HTML, Hex\n- Secure random byte generation\n\n## Use Cases\n- **Authentication**: Hash and verify passwords with bcrypt\n- **Data Integrity**: Generate checksums for file verification\n- **Security**: HMAC signatures for API authentication\n- **Development**: Quick encoding/decoding during development\n\n## Quick Start\n```\nGET /hash?algorithm=sha256&data=hello&format=hex\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all hash and encoding operations. No credit card required."
 }
