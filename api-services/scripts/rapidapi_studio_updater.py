@@ -374,16 +374,23 @@ def main():
     results = []
 
     with sync_playwright() as p:
-        # headful モードでブラウザ起動
-        browser = p.chromium.launch(
+        # 既存のChromeブラウザを使用（Googleログイン済みセッション利用）
+        chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
+        user_data_dir = os.path.join(os.environ.get("LOCALAPPDATA", ""), "Google", "Chrome", "User Data")
+
+        # Chrome を --remote-debugging-port で起動して接続
+        # 既存のChromeプロファイルを使うことでGoogleログインをバイパス
+        browser = p.chromium.launch_persistent_context(
+            user_data_dir=user_data_dir,
+            executable_path=chrome_path,
             headless=False,
-            slow_mo=200,  # 操作を少し遅くして安定化
-        )
-        context = browser.new_context(
+            slow_mo=200,
+            channel="chrome",
             viewport={"width": 1400, "height": 900},
             locale="en-US",
+            args=["--disable-blink-features=AutomationControlled"],
         )
-        page = context.new_page()
+        page = browser.new_page()
 
         # Studio に遷移
         print("\nRapidAPI Studio を開いています...")
