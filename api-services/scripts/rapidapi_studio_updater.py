@@ -387,19 +387,26 @@ def main():
 
         # Studio に遷移
         print("\nRapidAPI Studio を開いています...")
-        page.goto(STUDIO_URL, wait_until="networkidle", timeout=60000)
+        page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=60000)
         time.sleep(2)
         take_screenshot(page, "00_initial")
 
-        # ログイン待ち
+        # ログイン待ち（APIカードが表示されるまで自動待機）
         print("\n" + "=" * 60)
         print("ブラウザでRapidAPI Studioにログインしてください。")
-        print("ログインが完了し、API一覧が表示されたらEnterを押してください。")
+        print("API一覧が表示されるまで自動で待機します...")
         print("=" * 60)
-        input("\n>>> ログイン完了後、Enterキーを押してください... ")
+
+        # API一覧のカードが表示されるまで最大5分待機
+        try:
+            page.wait_for_selector('[class*="ApiCard"], [class*="api-card"], [data-testid*="api"], a[href*="/studio/"]', timeout=300000)
+        except Exception:
+            pass
+        # 追加で10秒待ってページ安定化
+        time.sleep(10)
 
         take_screenshot(page, "00_after_login")
-        print("\nログイン確認OK。更新を開始します...\n")
+        print("\nAPI一覧を検出。更新を開始します...\n")
 
         # 全API更新
         total = len(listings)
