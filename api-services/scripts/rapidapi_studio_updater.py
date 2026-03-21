@@ -399,13 +399,39 @@ def main():
         print("API一覧が表示されるまで自動で待機します...")
         print("=" * 60)
 
-        # API一覧のカードが表示されるまで最大5分待機
-        try:
-            page.wait_for_selector('[class*="ApiCard"], [class*="api-card"], [data-testid*="api"], a[href*="/studio/"]', timeout=300000)
-        except Exception:
-            pass
-        # 追加で10秒待ってページ安定化
-        time.sleep(10)
+        # ページが読み込まれるまで待機（最大5分）
+        print("API一覧の表示を待機中... (最大5分)")
+        found = False
+        for attempt in range(60):
+            try:
+                # 様々なセレクタを試行
+                for selector in [
+                    'text="Rapid Studio"',
+                    'text="My APIs"',
+                    'text="Add API Project"',
+                    '[class*="Card"]',
+                    '[class*="card"]',
+                    '[class*="project"]',
+                    '[class*="Project"]',
+                    'a[href*="studio"]',
+                    'h2',
+                    'main',
+                ]:
+                    if page.query_selector(selector):
+                        print(f"  検出: {selector}")
+                        found = True
+                        break
+                if found:
+                    break
+            except Exception:
+                pass
+            time.sleep(5)
+
+        if not found:
+            print("  自動検出できませんでしたが、続行します...")
+
+        # ページ安定化待ち
+        time.sleep(5)
 
         take_screenshot(page, "00_after_login")
         print("\nAPI一覧を検出。更新を開始します...\n")
