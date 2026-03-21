@@ -250,10 +250,29 @@ def main():
         context = browser.contexts[0]
         page = context.pages[0] if context.pages else context.new_page()
 
-        # Studio に遷移
-        print("\nRapidAPI Studio を開いています...")
-        page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=30000)
+        # 全ページ/タブを確認
+        print("\n接続中のページ一覧:")
+        for i, p in enumerate(context.pages):
+            print(f"  Page {i}: {p.url}")
+
+        # Studio URLのページを探す、なければ遷移
+        studio_page = None
+        for p in context.pages:
+            if "studio" in p.url.lower():
+                studio_page = p
+                break
+        if studio_page:
+            page = studio_page
+            print(f"\n既存のStudioページを使用: {page.url}")
+        else:
+            print("\nRapidAPI Studio を開いています...")
+            page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=30000)
         time.sleep(5)
+
+        # フレーム構造を確認
+        print(f"\nフレーム数: {len(page.frames)}")
+        for i, frame in enumerate(page.frames):
+            print(f"  Frame {i}: {frame.url[:80]}")
 
         # Cookie同意ダイアログを閉じる
         dismiss_cookie_dialog(page)
