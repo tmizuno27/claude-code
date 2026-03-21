@@ -2,15 +2,15 @@
   "date": "2026-03-21",
   "actions": [
     {
-      "id": "apify-paypal-setup",
-      "title": "ApifyにPayPal設定",
+      "id": "gsc-zero-investigation",
+      "title": "GSC表示0件の原因特定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "gumroad-stripe-kyc",
-      "title": "Stripe KYC解決",
+      "id": "apify-paypal-setup",
+      "title": "ApifyにPayPal設定",
       "priority": "P1",
       "done": false,
       "done_at": null
@@ -23,30 +23,30 @@
       "done_at": null
     },
     {
-      "id": "gsc-zero-investigation",
-      "title": "GSC表示0件の原因特定",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "rapidapi-free-to-paid",
-      "title": "RapidAPI無料Actorに誘導文追加",
+      "id": "gumroad-stripe-kyc",
+      "title": "Stripe KYC解決",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "otona-match-affiliate-check",
-      "title": "マッチングナビにアフィリエイト設置確認",
+      "id": "rapidapi-seo-improvement",
+      "title": "RapidAPI導線・SEO改善",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "x-first-post",
-      "title": "X投稿開始（今日1本）",
-      "priority": "P2",
+      "id": "chrome-ext-review-check",
+      "title": "Chrome拡張審査状況確認",
+      "priority": "P3",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "value-commerce-partnership",
+      "title": "Value Commerceプログラム提携",
+      "priority": "P3",
       "done": false,
       "done_at": null
     }
