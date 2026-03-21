@@ -32,22 +32,41 @@ def take_screenshot(page, name):
 def load_listings():
     base = os.path.dirname(os.path.dirname(__file__))
     listings = {}
-    for d in sorted(glob.glob(os.path.join(base, "*-*-api"))):
+    for d in sorted(glob.glob(os.path.join(base, "[0-9]*"))):
         jf = os.path.join(d, "rapidapi-listing.json")
         if os.path.exists(jf):
             with open(jf, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Base URLのsubdomainをキーにする
-                website = data.get("website", "")
-                if website:
-                    # https://xxx.t-mizuno27.workers.dev -> xxx
-                    subdomain = website.replace("https://", "").split(".")[0]
-                    listings[subdomain] = {
-                        "data": data,
-                        "dir": os.path.basename(d),
-                        "path": jf,
-                    }
+                dirname = os.path.basename(d)
+                # "01-qr-code-api" -> "qr-code-api" (番号プレフィックス除去)
+                key = "-".join(dirname.split("-")[1:])
+                listings[key] = {
+                    "data": data,
+                    "dir": dirname,
+                    "path": jf,
+                    "name": data.get("name", ""),
+                }
     return listings
+
+
+def dismiss_cookie_dialog(page):
+    """Cookie同意ダイアログを閉じる"""
+    try:
+        for btn_text in ["Accept All", "Accept all", "Accept", "Reject All", "OK", "Close"]:
+            btn = page.get_by_role("button", name=btn_text)
+            if btn.is_visible(timeout=1000):
+                btn.click()
+                time.sleep(1)
+                print("  Cookie同意ダイアログを閉じました")
+                return
+        # ボタンが見つからない場合、OneTrustのAcceptボタンを試す
+        ot_btn = page.locator('#onetrust-accept-btn-handler')
+        if ot_btn.is_visible(timeout=1000):
+            ot_btn.click()
+            time.sleep(1)
+            print("  Cookie同意ダイアログを閉じました (OneTrust)")
+    except:
+        pass
 
 
 def update_api_page(page, listing_data, card_index):
@@ -180,46 +199,75 @@ def main():
         print("\nRapidAPI Studio を開いています...")
         page.goto(STUDIO_URL, wait_until="domcontentloaded", timeout=30000)
         time.sleep(5)
+
+        # Cookie同意ダイアログを閉じる
+        dismiss_cookie_dialog(page)
+        time.sleep(2)
+
         take_screenshot(page, "00_studio_list")
 
         # 全カードのリンクを収集
         print("\nAPI カードを収集中...")
 
         # スクロールして全カードを表示
-        for _ in range(5):
+        for _ in range(10):
             page.evaluate("window.scrollBy(0, 500)")
             time.sleep(0.5)
         page.evaluate("window.scrollTo(0, 0)")
-        time.sleep(1)
+        time.sleep(2)
 
-        # カード内のリンクを全て取得
+        # APIカードを収集（Cookie/Privacy関連を除外）
         card_links = page.evaluate('''() => {
             const links = [];
-            // カード内のタイトルリンクを探す
+            const skipTexts = ['privacy', 'cookie', 'consent', 'manage', 'preference'];
+
+            // 方法1: Studio内のAPIプロジェクトリンク
             document.querySelectorAll('a[href*="/studio/"]').forEach(a => {
-                const href = a.getAttribute('href');
+                const href = a.getAttribute('href') || '';
                 const text = a.textContent.trim();
-                if (href && text && !links.some(l => l.href === href)) {
+                // /studio/ 直下ではなく、/studio/xxx/ のようなAPI個別ページへのリンク
+                if (href && text && text.length > 2 && text.length < 100
+                    && !skipTexts.some(s => text.toLowerCase().includes(s))
+                    && !links.some(l => l.href === href)
+                    && href !== '/studio/' && href !== '/studio') {
                     links.push({ href: href, text: text });
                 }
             });
-            return links;
-        }''')
 
-        if not card_links:
-            # 別のアプローチ: ページのH2/H3テキストを探す
-            card_links = page.evaluate('''() => {
-                const links = [];
-                document.querySelectorAll('h2, h3, [class*="title"], [class*="Title"], [class*="name"], [class*="Name"]').forEach(el => {
+            // 方法2: カード要素内のタイトルを探す
+            if (links.length === 0) {
+                document.querySelectorAll('[class*="ProjectCard"], [class*="project-card"], [class*="ApiCard"], [class*="api-card"]').forEach(card => {
+                    const titleEl = card.querySelector('h2, h3, h4, [class*="title"], [class*="name"]');
+                    const linkEl = card.querySelector('a');
+                    if (titleEl) {
+                        const text = titleEl.textContent.trim();
+                        const href = linkEl ? linkEl.getAttribute('href') : '';
+                        if (text && !skipTexts.some(s => text.toLowerCase().includes(s))) {
+                            links.push({ href: href || '', text: text });
+                        }
+                    }
+                });
+            }
+
+            // 方法3: ページ上の全てのクリック可能な要素でAPI名を持つもの
+            if (links.length === 0) {
+                const apiKeywords = ['API', 'Generator', 'Converter', 'Analyzer', 'Aggregator',
+                                     'Translator', 'Downloader', 'Validator', 'Formatter',
+                                     'Intelligence', 'Enrichment', 'Optimizer', 'Domain'];
+                document.querySelectorAll('h2, h3, h4, [class*="title"], [class*="Title"]').forEach(el => {
                     const text = el.textContent.trim();
-                    const parent = el.closest('a') || el.closest('[href]');
-                    const href = parent ? parent.getAttribute('href') : '';
-                    if (text && text.length > 3 && text.length < 100) {
+                    if (text && apiKeywords.some(k => text.includes(k))
+                        && !skipTexts.some(s => text.toLowerCase().includes(s))
+                        && !links.some(l => l.text === text)) {
+                        const parent = el.closest('a');
+                        const href = parent ? parent.getAttribute('href') : '';
                         links.push({ href: href || '', text: text });
                     }
                 });
-                return links;
-            }''')
+            }
+
+            return links;
+        }''')
 
         print(f"  {len(card_links)} 件のカードを検出")
         for cl in card_links:
@@ -276,19 +324,36 @@ def main():
                 take_screenshot(page, f"{i+1:02d}_hub_listing")
 
                 # Base URL を読み取ってJSONマッチング
-                base_url_input = page.locator('input[value*="workers.dev"]').first
                 matched_listing = None
-                if base_url_input.is_visible(timeout=3000):
-                    base_url = base_url_input.input_value()
-                    subdomain = base_url.replace("https://", "").split(".")[0]
-                    print(f"  Base URL: {base_url} (subdomain: {subdomain})")
-                    matched_listing = listings.get(subdomain)
 
+                # 方法1: Base URL input から subdomain を取得
+                try:
+                    base_url_input = page.locator('input[value*="workers.dev"]').first
+                    if base_url_input.is_visible(timeout=3000):
+                        base_url = base_url_input.input_value()
+                        subdomain = base_url.replace("https://", "").split(".")[0]
+                        print(f"  Base URL: {base_url} (subdomain: {subdomain})")
+                        matched_listing = listings.get(subdomain)
+                except:
+                    pass
+
+                # 方法2: ページURL から推測
                 if not matched_listing:
-                    # 名前で部分マッチ
-                    for sub, info in listings.items():
-                        api_name = info["data"].get("name", "")
-                        if card_text.lower() in api_name.lower() or api_name.lower() in card_text.lower():
+                    current_url = page.url
+                    for key, info in listings.items():
+                        if key in current_url.lower():
+                            matched_listing = info
+                            print(f"  URLマッチ: {key}")
+                            break
+
+                # 方法3: カード名で部分マッチ
+                if not matched_listing:
+                    for key, info in listings.items():
+                        api_name = info.get("name", "")
+                        # "QR Code Generator API" と "QR Code" のような部分一致
+                        if (card_text.lower() in api_name.lower()
+                            or api_name.lower() in card_text.lower()
+                            or any(w in card_text.lower() for w in key.split("-") if len(w) > 3)):
                             matched_listing = info
                             print(f"  名前マッチ: {card_text} -> {api_name}")
                             break
