@@ -1,12 +1,12 @@
 {
-  "date": "2026-03-20",
+  "date": "2026-03-21",
   "actions": [
     {
       "id": "apify-paypal-setup",
       "title": "ApifyにPayPal設定",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-20 10:29"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "gumroad-stripe-kyc",
@@ -19,36 +19,36 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-20 10:48"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "gsc-zero-investigation",
       "title": "GSC表示0件の原因特定",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-20 09:48"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "rapidapi-free-to-paid",
       "title": "RapidAPI無料Actorに誘導文追加",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-20 09:48"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "otona-match-affiliate-check",
       "title": "マッチングナビにアフィリエイト設置確認",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-20 09:41"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "x-first-post",
       "title": "X投稿開始（今日1本）",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-20 09:41"
+      "done": false,
+      "done_at": null
     }
   ]
 }
