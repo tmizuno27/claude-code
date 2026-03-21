@@ -16,7 +16,7 @@ Write-Host "Chrome stopped." -ForegroundColor Green
 # Step 2: Launch Chrome with remote debugging + separate user data dir
 Write-Host "Step 2: Launching Chrome with remote debugging..." -ForegroundColor Yellow
 $chromePath = "C:\Program Files\Google\Chrome\Application\chrome.exe"
-& $chromePath --remote-debugging-port=9222 --user-data-dir="$debugProfile" "https://rapidapi.com/studio/" &
+Start-Process $chromePath -ArgumentList "--remote-debugging-port=9222","--user-data-dir=$debugProfile","https://rapidapi.com/studio/"
 Write-Host "Waiting for Chrome to start..." -ForegroundColor Yellow
 Start-Sleep -Seconds 10
 
