@@ -21,8 +21,9 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-20",
+      "result": "ai-tool-compare-nu.vercel.appデプロイ済み。GSC登録+sitemap送信済み。残: カスタムドメイン+アフィリエイト設置"
     },
     {
       "id": "gumroad-stripe-kyc",
