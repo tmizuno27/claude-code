@@ -373,22 +373,17 @@ def main():
 
     results = []
 
-    # Chromeをリモートデバッグモードで起動
-    import subprocess
-    chrome_path = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
-    chrome_proc = subprocess.Popen([
-        chrome_path,
-        "--remote-debugging-port=9222",
-        "--no-first-run",
-        "--disable-blink-features=AutomationControlled",
-        "https://rapidapi.com/studio/"
-    ])
-    print("Chrome をリモートデバッグモードで起動しました。")
-    time.sleep(8)
-
     with sync_playwright() as p:
-        # 起動済みChromeに接続（IPv4明示）
-        browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
+        # 既に起動済みのChrome（--remote-debugging-port=9222）に接続
+        print("\nChrome (port 9222) に接続中...")
+        try:
+            browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
+        except Exception as e:
+            print(f"\nエラー: Chrome に接続できません。")
+            print(f"先に run-rapidapi-update.ps1 を実行するか、")
+            print(f"以下のコマンドでChromeを起動してください:")
+            print(f'  "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" --remote-debugging-port=9222 https://rapidapi.com/studio/')
+            sys.exit(1)
         context = browser.contexts[0]
         page = context.pages[0] if context.pages else context.new_page()
 
