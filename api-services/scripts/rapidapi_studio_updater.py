@@ -216,58 +216,62 @@ def main():
         page.evaluate("window.scrollTo(0, 0)")
         time.sleep(2)
 
-        # APIカードを収集（Cookie/Privacy関連を除外）
-        card_links = page.evaluate('''() => {
-            const links = [];
-            const skipTexts = ['privacy', 'cookie', 'consent', 'manage', 'preference'];
-
-            // 方法1: Studio内のAPIプロジェクトリンク
-            document.querySelectorAll('a[href*="/studio/"]').forEach(a => {
+        # まずページ構造をデバッグ出力
+        debug_info = page.evaluate('''() => {
+            const info = {
+                all_links: [],
+                all_headings: [],
+                body_classes: document.body.className,
+                main_content: '',
+            };
+            document.querySelectorAll('a').forEach(a => {
                 const href = a.getAttribute('href') || '';
-                const text = a.textContent.trim();
-                // /studio/ 直下ではなく、/studio/xxx/ のようなAPI個別ページへのリンク
-                if (href && text && text.length > 2 && text.length < 100
-                    && !skipTexts.some(s => text.toLowerCase().includes(s))
-                    && !links.some(l => l.href === href)
-                    && href !== '/studio/' && href !== '/studio') {
-                    links.push({ href: href, text: text });
-                }
+                const text = a.textContent.trim().substring(0, 80);
+                if (text && href) info.all_links.push({href, text});
             });
-
-            // 方法2: カード要素内のタイトルを探す
-            if (links.length === 0) {
-                document.querySelectorAll('[class*="ProjectCard"], [class*="project-card"], [class*="ApiCard"], [class*="api-card"]').forEach(card => {
-                    const titleEl = card.querySelector('h2, h3, h4, [class*="title"], [class*="name"]');
-                    const linkEl = card.querySelector('a');
-                    if (titleEl) {
-                        const text = titleEl.textContent.trim();
-                        const href = linkEl ? linkEl.getAttribute('href') : '';
-                        if (text && !skipTexts.some(s => text.toLowerCase().includes(s))) {
-                            links.push({ href: href || '', text: text });
-                        }
-                    }
-                });
-            }
-
-            // 方法3: ページ上の全てのクリック可能な要素でAPI名を持つもの
-            if (links.length === 0) {
-                const apiKeywords = ['API', 'Generator', 'Converter', 'Analyzer', 'Aggregator',
-                                     'Translator', 'Downloader', 'Validator', 'Formatter',
-                                     'Intelligence', 'Enrichment', 'Optimizer', 'Domain'];
-                document.querySelectorAll('h2, h3, h4, [class*="title"], [class*="Title"]').forEach(el => {
-                    const text = el.textContent.trim();
-                    if (text && apiKeywords.some(k => text.includes(k))
-                        && !skipTexts.some(s => text.toLowerCase().includes(s))
-                        && !links.some(l => l.text === text)) {
-                        const parent = el.closest('a');
-                        const href = parent ? parent.getAttribute('href') : '';
-                        links.push({ href: href || '', text: text });
-                    }
-                });
-            }
-
-            return links;
+            document.querySelectorAll('h1,h2,h3,h4,h5,h6,strong,b').forEach(el => {
+                const text = el.textContent.trim();
+                if (text && text.length > 2 && text.length < 100)
+                    info.all_headings.push(text);
+            });
+            // main contentのHTML抜粋
+            const main = document.querySelector('main, [role="main"], #root, #__next');
+            if (main) info.main_content = main.innerHTML.substring(0, 500);
+            return info;
         }''')
+
+        print(f"\n  [DEBUG] リンク数: {len(debug_info.get('all_links', []))}")
+        for link in debug_info.get('all_links', [])[:20]:
+            print(f"    {link['text'][:50]} -> {link['href'][:60]}")
+        print(f"\n  [DEBUG] 見出し数: {len(debug_info.get('all_headings', []))}")
+        for h in debug_info.get('all_headings', [])[:20]:
+            print(f"    {h}")
+
+        # APIカードを収集
+        skipTexts = ['privacy', 'cookie', 'consent', 'manage', 'preference',
+                     'sign in', 'log in', 'search', 'favorites', 'add api']
+        card_links = []
+
+        # 全リンクからStudioのAPI個別ページへのリンクを抽出
+        for link in debug_info.get('all_links', []):
+            href = link['href']
+            text = link['text']
+            if any(s in text.lower() for s in skipTexts):
+                continue
+            # Studio API個別ページへのリンク（/studio/XXXXX のパターン）
+            if '/studio/' in href and href.count('/') > 2:
+                if not any(cl['href'] == href for cl in card_links):
+                    card_links.append({'href': href, 'text': text})
+
+        # リンクが見つからない場合、見出しからAPI名を抽出
+        if not card_links:
+            apiKeywords = ['API', 'Generator', 'Converter', 'Analyzer', 'Aggregator',
+                          'Translator', 'Downloader', 'Validator', 'Formatter',
+                          'Intelligence', 'Enrichment', 'Optimizer', 'Domain', 'WHOIS']
+            for h in debug_info.get('all_headings', []):
+                if any(k in h for k in apiKeywords) and not any(s in h.lower() for s in skipTexts):
+                    if not any(cl['text'] == h for cl in card_links):
+                        card_links.append({'href': '', 'text': h})
 
         print(f"  {len(card_links)} 件のカードを検出")
         for cl in card_links:
