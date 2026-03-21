@@ -10,6 +10,7 @@ word_count: 4680
 affiliate_links_used: []
 ---
 
+
 # イオンモバイルの評判・口コミ｜全国イオン店舗サポートの実力を徹底検証
 
 「イオンモバイルって安いらしいけど、速度や品質は大丈夫？」「店舗でサポートしてもらえるって本当？」
@@ -223,7 +224,7 @@ affiliate_links_used: []
 
 MVNO共通の課題ですが、12時〜13時の昼休み時間帯は通信速度が大幅に低下します。実測で5〜6Mbps程度まで落ちるため、高画質動画の視聴や大容量データのダウンロードには向きません。
 
-昼休みにスマホで動画をよく見る方は、UQモバイルやワイモバイルなどのサブブランド系を検討した方が良いかもしれません。
+昼休みにスマホで動画をよく見る方は、<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567984" rel="nofollow" target="_blank">UQモバイル</a>や<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567979" rel="nofollow" target="_blank">ワイモバイル</a>などのサブブランド系を検討した方が良いかもしれません。
 
 ### 2. 支払いはクレジットカードのみ
 
@@ -249,8 +250,8 @@ MVNO共通の課題ですが、12時〜13時の昼休み時間帯は通信速度
 |---------|----------------|------|------------|
 | **イオンモバイル** | **1,078円** | ドコモ/au | **200店舗以上** |
 | mineo（マイピタ） | 1,518円 | ドコモ/au/SB | 約200店舗 |
-| IIJmio（ギガプラン） | 990円 | ドコモ/au | なし（オンラインのみ） |
-| UQモバイル（ミニミニ） | 2,365円 | au | auショップ全国 |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567986" rel="nofollow" target="_blank">IIJmio</a>（ギガプラン） | 990円 | ドコモ/au | なし（オンラインのみ） |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567984" rel="nofollow" target="_blank">UQモバイル</a>（ミニミニ） | 2,365円 | au | auショップ全国 |
 
 ### 20GBプラン比較
 
@@ -258,7 +259,7 @@ MVNO共通の課題ですが、12時〜13時の昼休み時間帯は通信速度
 |---------|----------------|------|------------|
 | **イオンモバイル** | **1,958円** | ドコモ/au | **200店舗以上** |
 | mineo（マイピタ） | 2,178円 | ドコモ/au/SB | 約200店舗 |
-| IIJmio（ギガプラン） | 2,000円 | ドコモ/au | なし |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567986" rel="nofollow" target="_blank">IIJmio</a>（ギガプラン） | 2,000円 | ドコモ/au | なし |
 | UQモバイル（コミコミ） | 3,278円 | au | auショップ全国 |
 
 ### 通信速度比較（全時間帯平均・下り）
@@ -306,7 +307,7 @@ MVNO共通の課題ですが、12時〜13時の昼休み時間帯は通信速度
 |---------|-------|------------|
 | **イオンモバイル** | **200店舗以上** | 契約・変更・故障・設定 |
 | UQモバイル | 全国auショップ（2,000店舗以上） | フルサポート |
-| ワイモバイル | 全国SBショップ（2,500店舗以上） | フルサポート |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567979" rel="nofollow" target="_blank">ワイモバイル</a> | 全国SBショップ（2,500店舗以上） | フルサポート |
 | mineo | 約200店舗（mineoショップ+取扱店） | 契約・変更中心 |
 | IIJmio | なし | オンラインのみ |
 
@@ -396,3 +397,7 @@ UQモバイルやワイモバイルには店舗数で及びませんが、**MVNO
 特にスマホ操作に慣れていないシニア世代や、家族全員分の乗り換えを検討しているファミリー層には、イオンの店舗に行けばすべて解決できるという安心感は何物にも代えがたいメリットです。
 
 > 格安SIMの基本的な選び方から知りたい方は「[格安SIMの選び方完全ガイド](/kakuyasu-sim-erabikata-guide)」をご覧ください。
+
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567979" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567984" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567986" width="1" height="1" style="border:none;" alt="" />

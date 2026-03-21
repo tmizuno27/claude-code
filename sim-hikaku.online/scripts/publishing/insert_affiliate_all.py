@@ -355,14 +355,74 @@ def process_post(post, rules):
     }
 
 
+def run_local(rules, dry_run, target_dir=None):
+    """outputs/articles/ 配下のローカルMarkdownファイルにアフィリエイトリンクを挿入。"""
+    import glob
+
+    if target_dir:
+        search_dir = Path(target_dir)
+    else:
+        search_dir = PROJECT_ROOT / "outputs" / "articles"
+
+    if not search_dir.exists():
+        print(f"エラー: ディレクトリが見つかりません: {search_dir}")
+        return
+
+    # 再帰的に .md ファイルを収集
+    md_files = sorted(search_dir.rglob("*.md"))
+    if not md_files:
+        print(f"対象ファイルなし: {search_dir}")
+        return
+
+    print(f"対象ディレクトリ: {search_dir}")
+    print(f"対象ファイル数: {len(md_files)}件\n")
+
+    updated = 0
+    skipped = 0
+
+    for md_path in md_files:
+        content = md_path.read_text(encoding="utf-8")
+
+        # frontmatter(---...---)とbodyを分離
+        frontmatter = ""
+        body = content
+        if content.startswith("---"):
+            parts = content.split("---", 2)
+            if len(parts) >= 3:
+                frontmatter = "---" + parts[1] + "---\n"
+                body = parts[2]
+
+        new_body, changes = process_content(body, rules)
+        if new_body is None:
+            skipped += 1
+            continue
+
+        rel_path = md_path.relative_to(search_dir)
+        changes_str = ", ".join(changes)
+        print(f"[{'予定' if dry_run else '更新'}] {rel_path}")
+        print(f"  → {changes_str}")
+
+        if not dry_run:
+            md_path.write_text(frontmatter + new_body, encoding="utf-8")
+            print(f"  SAVED")
+
+        updated += 1
+
+    print(f"\n=== ローカル結果 ===")
+    print(f"更新{'予定' if dry_run else '完了'}: {updated}件")
+    print(f"変更なし: {skipped}件")
+    if dry_run:
+        print(f"\n実行するには: python insert_affiliate_all.py --local --apply")
+
+
 def main():
     dry_run = "--apply" not in sys.argv
-    secrets = load_secrets()
+    local_mode = "--local" in sys.argv
     affiliates = load_affiliates()
     rules = build_link_rules(affiliates)
 
     print(f"=== sim-hikaku.online アフィリエイトリンク一括挿入 ===")
-    print(f"モード: {'DRY RUN（--apply で実行）' if dry_run else '本番実行'}")
+    print(f"モード: {'ローカルファイル' if local_mode else 'WordPress API'} / {'DRY RUN（--apply で実行）' if dry_run else '本番実行'}")
     print(f"有効なルール: {len(rules)}件")
     seen = set()
     for r in rules:
@@ -371,6 +431,16 @@ def main():
             seen.add(r["name"])
     print()
 
+    if local_mode:
+        # --dir オプションで対象ディレクトリを指定可能
+        target_dir = None
+        for i, arg in enumerate(sys.argv):
+            if arg == "--dir" and i + 1 < len(sys.argv):
+                target_dir = sys.argv[i + 1]
+        run_local(rules, dry_run, target_dir)
+        return
+
+    secrets = load_secrets()
     wp = WPClient(secrets)
     print("全公開記事を取得中...")
     posts = wp.get_all_posts()

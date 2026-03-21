@@ -12,6 +12,7 @@ affiliate_links_used:
   - "VisionWiMAX"
 ---
 
+
 # 楽天モバイルの評判は大阪でどう？リアルな口コミと速度を検証
 
 ※この記事にはプロモーションが含まれています。
@@ -51,7 +52,7 @@ X（旧Twitter）やGoogleマップのレビュー、Redditの日本語スレッ
 - **「大阪市内ではほぼ問題なし」**：梅田・難波・天王寺・心斎橋エリアでは繋がらないという声はほとんどない
 - **「料金の安さは本物」**：データをあまり使わない月は1,078円で収まり、節約効果を実感している声が多数
 - **「楽天リンクの無料通話が便利」**：仕事での電話が多い人にはかなりのコスト削減になっている
-- **「楽天市場のSPUポイント還元が美味しい」**：楽天経済圏を活用している人には追加メリット大
+- **「<a href="//af.moshimo.com/af/c/click?a_id=5432434&p_id=54&pc_id=54&pl_id=621" rel="nofollow" target="_blank">楽天市場</a>のSPUポイント還元が美味しい」**：楽天経済圏を活用している人には追加メリット大
 
 ### ネガティブな評判
 
@@ -105,10 +106,10 @@ X（旧Twitter）やGoogleマップのレビュー、Redditの日本語スレッ
 | サービス名 | 3GB以下 | 〜20GB | 無制限/大容量 | 通話料 | 回線 |
 |-----------|--------|--------|-------------|------|------|
 | 楽天モバイル | 1,078円 | 2,178円 | 3,278円 | 無料（リンク） | 楽天/au |
-| ahamo | ー | 2,970円(20GB) | ー | 5分無料 | ドコモ |
+| <a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM" rel="nofollow" target="_blank">ahamo</a> | ー | 2,970円(20GB) | ー | 5分無料 | ドコモ |
 | povo2.0 | 0円〜 | トッピング制 | 2,700円(150GB/30日) | 22円/30秒 | au |
-| LINEMO | 990円(3GB) | 2,728円(20GB) | ー | 5分無料 | ソフトバンク |
-| IIJmio | 850円(2GB) | 1,800円(15GB) | ー | 11円/30秒 | ドコモ/au |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567978" rel="nofollow" target="_blank">LINEMO</a> | 990円(3GB) | 2,728円(20GB) | ー | 5分無料 | ソフトバンク |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567986" rel="nofollow" target="_blank">IIJmio</a> | 850円(2GB) | 1,800円(15GB) | ー | 11円/30秒 | ドコモ/au |
 | mineo | 1,298円(1GB〜) | 1,518円(10GB) | 2,178円(20GB) | 22円/30秒 | ドコモ/au/SB |
 
 **大阪特有の事情として注目したいのがmineo**。mineoは大阪発祥の格安SIMで、関西エリアのサポート体制が充実しており、大阪在住のユーザーから根強い支持がある。ただし料金面では楽天モバイルの方が無制限プランで優位だ。
@@ -129,7 +130,7 @@ X（旧Twitter）やGoogleマップのレビュー、Redditの日本語スレッ
 「とりあえず試してみる」という使い方ができる。合わなければすぐ他社へ移れる安心感がある。
 
 **④ 楽天経済圏ユーザーにはポイント還元**
-楽天市場でのSPUポイント倍率アップ。楽天カードや楽天銀行と組み合わせると実質的なコストがさらに下がる。
+<a href="//af.moshimo.com/af/c/click?a_id=5432434&p_id=54&pc_id=54&pl_id=621" rel="nofollow" target="_blank">楽天市場</a>でのSPUポイント倍率アップ。楽天カードや楽天銀行と組み合わせると実質的なコストがさらに下がる。
 
 **⑤ 大阪市内中心部の電波は良好**
 梅田・難波・心斎橋などビジネス・観光エリアでのカバー率は高く、実用上の問題は少ない。
@@ -209,7 +210,7 @@ iPhoneはeSIM設定が簡単。AndroidはAPN設定が必要な機種もある（
 
 楽天モバイルをスマホ回線にしつつ、自宅Wi-Fiは別途モバイルルーターや光回線で確保する人も多い。特に大阪市内のマンション住まいで光回線工事ができない場合、WiMAXが有効な選択肢になる。
 
-[BIGLOBE WiMAX +5G](https://h.accesstrade.net/sp/cc?rk=0100asjx00ophx)は大阪エリアでのカバー率が高く、月間データ無制限（速度制限なし）で使えるプランが揃っている。楽天モバイルと組み合わせて「外はスマホ、自宅はWiMAX」という使い方をしているユーザーも多い。
+[<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567995" rel="nofollow" target="_blank">BIGLOBE WiMAX</a> +5G](https://h.accesstrade.net/sp/cc?rk=0100asjx00ophx)は大阪エリアでのカバー率が高く、月間データ無制限（速度制限なし）で使えるプランが揃っている。楽天モバイルと組み合わせて「外はスマホ、自宅はWiMAX」という使い方をしているユーザーも多い。
 
 また、工事不要で使いたい場合は[VisionWiMAX](//af.moshimo.com/af/c/click?a_id=5432457&p_id=3359&pc_id=7984&pl_id=47733)も候補に入れてほしい。キャッシュバックキャンペーンが充実しており、初期コストを抑えながら導入できる。
 
@@ -231,3 +232,9 @@ iPhoneはeSIM設定が簡単。AndroidはAPN設定が必要な機種もある（
 
 **著者：南米おやじ**
 格安SIM・モバイル通信を実際に使い比べてレビューしています。大阪エリアでの実測データや乗り換え体験をベースに、リアルな情報を発信しています。
+
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567978" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567986" width="1" height="1" style="border:none;" alt="" />
+<img src="//i.moshimo.com/af/i/impression?a_id=5432434&p_id=54&pc_id=54&pl_id=621" width="1" height="1" style="border:none;" alt="" />
+<img src="https://www17.a8.net/0.gif?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567995" width="1" height="1" style="border:none;" alt="" />

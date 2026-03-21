@@ -12,6 +12,7 @@ affiliate_links_used:
   - "PLAIO WiMAX"
 ---
 
+
 # 福岡で格安SIM速度を比較！乗り換え前に確認すべき5つのポイント
 
 ※この記事にはプロモーションが含まれています。
@@ -30,7 +31,7 @@ affiliate_links_used:
 
 大手キャリアは自社ユーザーを優先するため、格安SIM事業者に割り当てる帯域は限られている。その結果、**通信が集中する時間帯（昼12〜13時・夜18〜21時）に速度が著しく落ちる**のが格安SIMの弱点だ。
 
-一方、サブブランド（ワイモバイル・UQ mobile）や、大手キャリアが直接運営するahamoのような「オンライン専用プラン」は、親回線の帯域をより有利な条件で使えるため、混雑時でも比較的速度が安定している。
+一方、サブブランド（<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567979" rel="nofollow" target="_blank">ワイモバイル</a>・<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567984" rel="nofollow" target="_blank">UQ mobile</a>）や、大手キャリアが直接運営する<a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM" rel="nofollow" target="_blank">ahamo</a>のような「オンライン専用プラン」は、親回線の帯域をより有利な条件で使えるため、混雑時でも比較的速度が安定している。
 
 ### 福岡エリアでの速度傾向
 
@@ -50,11 +51,11 @@ affiliate_links_used:
 
 | サービス | 月額料金（目安） | データ容量 | 利用回線 | 混雑時速度 | 特徴 |
 |---|---|---|---|---|---|
-| ahamo | 2,970円 | 30GB | ドコモ | ◎ 速い | 大容量・安定速度・5G対応 |
-| ワイモバイル | 2,365円〜 | 4GB〜 | ソフトバンク | ◎ 速い | サブブランド・店舗サポートあり |
-| HISモバイル | 290円〜 | 100MB〜 | ドコモ/au | △ 普通 | 少量プランが激安・データ繰越あり |
-| LIBMO | 1,078円〜 | 3GB〜 | ドコモ | △ 普通 | 格安スタート・ドコモ系で安心 |
-| PLAIO WiMAX | 2,970円〜 | 無制限 | au/WiMAX | ○ 良好 | 自宅＋外出ルーター向け |
+| <a href="https://px.a8.net/svt/ejp?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM" rel="nofollow" target="_blank">ahamo</a> | 2,970円 | 30GB | ドコモ | ◎ 速い | 大容量・安定速度・5G対応 |
+| <a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567979" rel="nofollow" target="_blank">ワイモバイル</a> | 2,365円〜 | 4GB〜 | ソフトバンク | ◎ 速い | サブブランド・店舗サポートあり |
+| <a href="https://h.accesstrade.net/sp/cc?rk=0100pggx00ophx" rel="nofollow" target="_blank">HISモバイル</a> | 290円〜 | 100MB〜 | ドコモ/au | △ 普通 | 少量プランが激安・データ繰越あり |
+| <a href="https://h.accesstrade.net/sp/cc?rk=0100lmjk00ophx" rel="nofollow" target="_blank">LIBMO</a> | 1,078円〜 | 3GB〜 | ドコモ | △ 普通 | 格安スタート・ドコモ系で安心 |
+| <a href="https://h.accesstrade.net/sp/cc?rk=0100pzk500ophx" rel="nofollow" target="_blank">PLAIO WiMAX</a> | 2,970円〜 | 無制限 | au/WiMAX | ○ 良好 | 自宅＋外出ルーター向け |
 
 > ※混雑時速度の評価は「◎10Mbps以上安定」「○5〜10Mbps程度」「△1〜5Mbps程度」を目安にしている。実測値はエリアや時間帯により変動する。
 
@@ -144,7 +145,7 @@ affiliate_links_used:
 
 自宅のWi-Fiルーターとしても外出先でも使えるモバイルWi-FiルーターサービスがPLAIO WiMAXだ。月額2,970円前後から**データ無制限**で使えるため、スマホとタブレットを両方使う人、テレワーカー、動画視聴が多い人に向いている。
 
-福岡市内のUQ WiMAX電波エリアは比較的広く、博多・天神・福岡空港周辺もカバー。ただし郊外・山間部では5G/4G LTEエリア外になることもあるため、事前にエリア確認が必須だ。
+福岡市内の<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567993" rel="nofollow" target="_blank">UQ WiMAX</a>電波エリアは比較的広く、博多・天神・福岡空港周辺もカバー。ただし郊外・山間部では5G/4G LTEエリア外になることもあるため、事前にエリア確認が必須だ。
 
 **デメリット**はルーターを持ち歩く必要があること。スマホ単体での運用には向かない。
 
@@ -162,15 +163,15 @@ affiliate_links_used:
 
 ### ケース③：とにかく安く・サブ回線として持ちたい
 
-→ **HISモバイル** の少量プランがおすすめ。月290円〜で維持できる。
+→ **<a href="https://h.accesstrade.net/sp/cc?rk=0100pggx00ophx" rel="nofollow" target="_blank">HISモバイル</a>** の少量プランがおすすめ。月290円〜で維持できる。
 
 ### ケース④：コスパ重視でドコモ系を使いたい・通話は少なめ
 
-→ **LIBMO** がぴったり。3GBで月1,078円は純粋に安い。
+→ **<a href="https://h.accesstrade.net/sp/cc?rk=0100lmjk00ophx" rel="nofollow" target="_blank">LIBMO</a>** がぴったり。3GBで月1,078円は純粋に安い。
 
 ### ケース⑤：自宅Wi-Fi＋外出先も一体化したい
 
-→ **PLAIO WiMAX** を検討。データ無制限でルーター1台で完結する。
+→ **<a href="https://h.accesstrade.net/sp/cc?rk=0100pzk500ophx" rel="nofollow" target="_blank">PLAIO WiMAX</a>** を検討。データ無制限でルーター1台で完結する。
 
 ---
 
@@ -182,7 +183,7 @@ affiliate_links_used:
 
 現在の携帯会社（ドコモ・au・ソフトバンクなど）にMNP転出を申請する。My docomoやMy auなどのアプリ・Webから申請可能。即日発行されることが多い。
 
-> **注意**：2023年以降、MNP予約番号なしでワンストップ転入できるキャリアも増えた（ahamo・LINEMOなど）。乗り換え先がワンストップ対応かどうかを先に確認しよう。
+> **注意**：2023年以降、MNP予約番号なしでワンストップ転入できるキャリアも増えた（ahamo・<a href="//ck.jp.ap.valuecommerce.com/servlet/referral?sid=3765388&pid=892567978" rel="nofollow" target="_blank">LINEMO</a>など）。乗り換え先がワンストップ対応かどうかを先に確認しよう。
 
 ### ステップ2：新しいSIMを申し込む
 
@@ -217,3 +218,12 @@ affiliate_links_used:
 ---
 
 *著者：南米おやじ｜福岡在住。複数の格安SIMを実際に使い比べながら、コスパ最優先のスマホ運用を実践中。*
+
+<img src="https://h.accesstrade.net/sp/rr?rk=0100pzk500ophx" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567979" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567984" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567978" width="1" height="1" style="border:none;" alt="" />
+<img src="https://h.accesstrade.net/sp/rr?rk=0100pggx00ophx" width="1" height="1" style="border:none;" alt="" />
+<img src="https://h.accesstrade.net/sp/rr?rk=0100lmjk00ophx" width="1" height="1" style="border:none;" alt="" />
+<img src="https://www17.a8.net/0.gif?a8mat=4AZIOE+FQ7AMA+4TIO+5YJRM" width="1" height="1" style="border:none;" alt="" />
+<img src="//ad.jp.ap.valuecommerce.com/servlet/gifbanner?sid=3765388&pid=892567993" width="1" height="1" style="border:none;" alt="" />
