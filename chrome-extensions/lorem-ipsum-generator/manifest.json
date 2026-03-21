@@ -3,7 +3,7 @@
   "name": "Lorem Ipsum Generator",
   "version": "1.0.0",
   "description": "Generate dummy text (Lorem Ipsum) with one click. Supports paragraphs, sentences, words, and lists.",
-  "permissions": ["clipboardWrite"],
+  "permissions": [],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
