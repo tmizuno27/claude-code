@@ -1,6 +1,6 @@
 {
   "name": "IP Geolocation API",
-  "description": "Free IP Geolocation: VPN Detection, Fraud Prevention, Bulk Lookup",
+  "description": "Free IP Geolocation API - Country, City, VPN Detection, Bulk Lookup",
   "category": "Location",
   "tags": [
     "ip",
@@ -88,5 +88,5 @@
       }
     }
   ],
-  "long_description": "## Why IP Geolocation API?\n- ✅ VPN/proxy/datacenter detection built-in for fraud prevention\n- ✅ Bulk lookup up to 20 IPs per request + auto-detect caller's IP\n- ✅ Country, city, region, timezone, ISP, and ASN in one call\n\n## Key Features\n- IPv4 and IPv6 support\n- Country, city, region, latitude/longitude\n- Timezone and ISP/ASN information\n- VPN, proxy, and datacenter detection\n- Bulk lookup (up to 20 IPs)\n- Caller's own IP auto-detection\n\n## Use Cases\n- **Fraud Prevention**: Detect VPN/proxy usage in transactions\n- **Content Localization**: Serve region-specific content\n- **Analytics**: Enrich user data with geographic info\n- **Access Control**: Geo-restrict content by country\n\n## Quick Start\n```\nGET /lookup?ip=8.8.8.8\n```\nReturns JSON with `country`, `city`, `region`, `timezone`, `isp`, `is_vpn`, `is_proxy`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all lookup features. No credit card required."
+  "long_description": "## Why IP Geolocation API?\n- ✅ VPN/proxy/datacenter detection built-in for fraud prevention\n- ✅ Bulk lookup up to 20 IPs per request + auto-detect caller's IP\n- ✅ Country, city, region, timezone, ISP, and ASN in one call\n\n## Key Features\n- IPv4 and IPv6 support\n- Country, city, region, latitude/longitude\n- Timezone and ISP/ASN information\n- VPN, proxy, and datacenter detection\n- Bulk lookup (up to 20 IPs)\n- Caller's own IP auto-detection\n\n## Use Cases\n- **Fraud Prevention**: Detect VPN/proxy usage in transactions\n- **Content Localization**: Serve region-specific content\n- **Analytics**: Enrich user data with geographic info\n- **Access Control**: Geo-restrict content by country\n\n## Quick Start\n```\nGET /lookup?ip=8.8.8.8\n```\nReturns JSON with `country`, `city`, `region`, `timezone`, `isp`, `is_vpn`, `is_proxy`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all lookup features. No credit card required.\n\n## Alternative To\nA free **IP geolocation API alternative** to ipinfo.io, ipstack, and ip-api.com. Leverages Cloudflare native geo data for caller IP (zero latency).\n\n## Need More Requests?\nFree plan includes 500 lookups/month. **Pro ($5.99/mo)** scales to 50,000 lookups with bulk endpoint for fraud detection and analytics."
 }

@@ -1,6 +1,6 @@
 {
   "name": "JSON Formatter & Validator API",
-  "description": "Free JSON Formatter: Validate, Minify, Diff, CSV Convert",
+  "description": "Free JSON Formatter API - Validate, Minify, Diff, CSV Convert, Transform",
   "category": "Tools",
   "tags": [
     "json",
@@ -86,5 +86,5 @@
       "description": "Convert JSON array of objects to CSV string"
     }
   ],
-  "long_description": "## Why JSON Formatter API?\n- ✅ 6-in-1 toolkit: format, minify, validate, diff, transform, CSV convert\n- ✅ JMESPath-like query support for data transformation\n- ✅ Zero dependencies, sub-10ms response times\n\n## Key Features\n- Pretty-print JSON with custom indentation\n- Minify JSON for production\n- Validate JSON with detailed error messages\n- Diff two JSON objects with change highlighting\n- Convert between CSV and JSON\n- JMESPath-like query/transform\n\n## Use Cases\n- **Developer Tools**: Format and validate JSON in CI/CD pipelines\n- **Data Engineering**: Convert CSV to JSON and back\n- **API Development**: Compare API responses with JSON diff\n- **Debugging**: Validate and pretty-print malformed JSON\n\n## Quick Start\n```\nPOST /format\n{\"json\": \"{\\\"key\\\":\\\"value\\\"}\", \"indent\": 2}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all operations. No credit card required."
+  "long_description": "## Why JSON Formatter API?\n- ✅ 6-in-1 toolkit: format, minify, validate, diff, transform, CSV convert\n- ✅ JMESPath-like query support for data transformation\n- ✅ Zero dependencies, sub-10ms response times\n\n## Key Features\n- Pretty-print JSON with custom indentation\n- Minify JSON for production\n- Validate JSON with detailed error messages\n- Diff two JSON objects with change highlighting\n- Convert between CSV and JSON\n- JMESPath-like query/transform\n\n## Use Cases\n- **Developer Tools**: Format and validate JSON in CI/CD pipelines\n- **Data Engineering**: Convert CSV to JSON and back\n- **API Development**: Compare API responses with JSON diff\n- **Debugging**: Validate and pretty-print malformed JSON\n\n## Quick Start\n```\nPOST /format\n{\"json\": \"{\\\"key\\\":\\\"value\\\"}\", \"indent\": 2}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all operations. No credit card required.\n\n## Alternative To\nA programmatic **JSON tools API alternative** to JSONLint, JSON Formatter online, and JSONDiff. Automate JSON processing in your CI/CD pipeline.\n\n## Need More Requests?\nFree plan covers 500 operations/month. **Pro ($5.99/mo)** for 50,000 operations in build pipelines and ETL workflows."
 }

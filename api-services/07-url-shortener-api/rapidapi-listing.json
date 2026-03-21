@@ -1,6 +1,6 @@
 {
   "name": "URL Shortener API",
-  "description": "Free URL Shortener: Click Analytics, Custom Aliases, KV Storage",
+  "description": "Free URL Shortener API - Click Analytics, Custom Aliases, REST Interface",
   "category": "Tools",
   "tags": [
     "url-shortener",
@@ -68,5 +68,5 @@
       "description": "Remove a short URL"
     }
   ],
-  "long_description": "## Why URL Shortener API?\n- ✅ Custom aliases + click analytics with timestamps\n- ✅ Persistent storage via Cloudflare KV — links never expire\n- ✅ Zero external dependencies, ultra-fast redirects\n\n## Key Features\n- Create short URLs with custom aliases\n- Click tracking with timestamps and referrer data\n- Cloudflare KV storage for persistence\n- Instant redirects via edge network\n- CORS enabled for browser usage\n\n## Use Cases\n- **Marketing Campaigns**: Track link performance across channels\n- **Social Media**: Share clean, short URLs\n- **Email Marketing**: Trackable links in newsletters\n- **Analytics**: Measure click-through rates\n\n## Quick Start\n```\nPOST /shorten\n{\"url\": \"https://example.com/very/long/path\", \"alias\": \"my-link\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes link creation and click stats. No credit card required."
+  "long_description": "## Why URL Shortener API?\n- ✅ Custom aliases + click analytics with timestamps\n- ✅ Persistent storage via Cloudflare KV — links never expire\n- ✅ Zero external dependencies, ultra-fast redirects\n\n## Key Features\n- Create short URLs with custom aliases\n- Click tracking with timestamps and referrer data\n- Cloudflare KV storage for persistence\n- Instant redirects via edge network\n- CORS enabled for browser usage\n\n## Use Cases\n- **Marketing Campaigns**: Track link performance across channels\n- **Social Media**: Share clean, short URLs\n- **Email Marketing**: Trackable links in newsletters\n- **Analytics**: Measure click-through rates\n\n## Quick Start\n```\nPOST /shorten\n{\"url\": \"https://example.com/very/long/path\", \"alias\": \"my-link\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes link creation and click stats. No credit card required.\n\n## Alternative To\nA developer-first **URL shortener API alternative** to Bitly, Rebrandly, and TinyURL. Built-in click analytics with zero third-party dependencies.\n\n## Need More Requests?\nFree plan (500 links/month) for personal projects. **Pro ($5.99/mo)** unlocks 50,000 links with detailed click stats."
 }

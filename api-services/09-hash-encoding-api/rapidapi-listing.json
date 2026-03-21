@@ -1,6 +1,6 @@
 {
   "name": "Hash & Encoding API",
-  "description": "Free Hash & Encoding: SHA256, Bcrypt, Base64, HMAC",
+  "description": "Free Hash & Encoding API - SHA256, Bcrypt, Base64, HMAC, Web Crypto",
   "category": "Tools",
   "tags": [
     "hash",
@@ -213,5 +213,5 @@
       ]
     }
   ],
-  "long_description": "## Why Hash & Encoding API?\n- ✅ All-in-one: MD5, SHA-1/256/384/512, HMAC, bcrypt, Base64, URL, HTML encoding\n- ✅ Bcrypt with configurable rounds + constant-time comparison\n- ✅ Cryptographically secure random byte generation\n\n## Key Features\n- Hash: MD5, SHA-1, SHA-256, SHA-384, SHA-512 (hex/base64)\n- HMAC with any supported hash algorithm\n- Bcrypt password hashing with configurable rounds\n- Bcrypt constant-time password verification\n- Encode/decode: Base64, URL, HTML, Hex\n- Secure random byte generation\n\n## Use Cases\n- **Authentication**: Hash and verify passwords with bcrypt\n- **Data Integrity**: Generate checksums for file verification\n- **Security**: HMAC signatures for API authentication\n- **Development**: Quick encoding/decoding during development\n\n## Quick Start\n```\nGET /hash?algorithm=sha256&data=hello&format=hex\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all hash and encoding operations. No credit card required."
+  "long_description": "## Why Hash & Encoding API?\n- ✅ All-in-one: MD5, SHA-1/256/384/512, HMAC, bcrypt, Base64, URL, HTML encoding\n- ✅ Bcrypt with configurable rounds + constant-time comparison\n- ✅ Cryptographically secure random byte generation\n\n## Key Features\n- Hash: MD5, SHA-1, SHA-256, SHA-384, SHA-512 (hex/base64)\n- HMAC with any supported hash algorithm\n- Bcrypt password hashing with configurable rounds\n- Bcrypt constant-time password verification\n- Encode/decode: Base64, URL, HTML, Hex\n- Secure random byte generation\n\n## Use Cases\n- **Authentication**: Hash and verify passwords with bcrypt\n- **Data Integrity**: Generate checksums for file verification\n- **Security**: HMAC signatures for API authentication\n- **Development**: Quick encoding/decoding during development\n\n## Quick Start\n```\nGET /hash?algorithm=sha256&data=hello&format=hex\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all hash and encoding operations. No credit card required.\n\n## Alternative To\nA serverless **hashing API alternative** to hashapi.com and online hash generators. Uses Web Crypto API for security-grade hashing.\n\n## Need More Requests?\nFree tier (500 hashes/month) for testing. **Pro ($5.99/mo)** for production authentication and data integrity workflows."
 }

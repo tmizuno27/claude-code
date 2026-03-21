@@ -1,7 +1,7 @@
 {
   "name": "Markdown Converter API",
   "tagline": "Convert Markdown to HTML and back with full GFM support, syntax highlighting, and TOC generation",
-  "description": "Free Markdown Converter: HTML to Markdown, TOC, GFM Support",
+  "description": "Free Markdown Converter API - HTML to Markdown, TOC, GFM, Syntax Highlight",
   "category": "Text_Analysis",
   "tags": [
     "markdown",
@@ -12,7 +12,11 @@
     "table-of-contents",
     "cloudflare-workers",
     "no-api-key",
-    "free-tier"
+    "free-tier",
+    "free-api",
+    "rest-api",
+    "developer-tools",
+    "text-processing"
   ],
   "logo_url": "",
   "website": "",
@@ -77,5 +81,5 @@
       ]
     }
   ],
-  "long_description": "## Why Markdown Converter API?\n- ✅ Bidirectional: Markdown→HTML and HTML→Markdown\n- ✅ Full GFM support: tables, task lists, strikethrough, code blocks\n- ✅ Auto-generated Table of Contents with anchor links\n\n## Key Features\n- Markdown to HTML conversion (full GFM support)\n- HTML to Markdown reverse conversion\n- Table of Contents auto-generation\n- Syntax highlighting CSS classes for code blocks\n- Tables, task lists, strikethrough support\n- Pure JavaScript — no external dependencies\n\n## Use Cases\n- **CMS Platforms**: Render Markdown content as HTML\n- **Documentation Sites**: Auto-generate navigation from headings\n- **Static Site Generators**: Markdown processing pipeline\n- **Editor Plugins**: Live Markdown preview\n\n## Quick Start\n```\nPOST /convert\n{\"markdown\": \"# Hello\\n\\nThis is **bold** text.\", \"toc\": true}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all conversion features. No credit card required."
+  "long_description": "## Why Markdown Converter API?\n- ✅ Bidirectional: Markdown→HTML and HTML→Markdown\n- ✅ Full GFM support: tables, task lists, strikethrough, code blocks\n- ✅ Auto-generated Table of Contents with anchor links\n\n## Key Features\n- Markdown to HTML conversion (full GFM support)\n- HTML to Markdown reverse conversion\n- Table of Contents auto-generation\n- Syntax highlighting CSS classes for code blocks\n- Tables, task lists, strikethrough support\n- Pure JavaScript — no external dependencies\n\n## Use Cases\n- **CMS Platforms**: Render Markdown content as HTML\n- **Documentation Sites**: Auto-generate navigation from headings\n- **Static Site Generators**: Markdown processing pipeline\n- **Editor Plugins**: Live Markdown preview\n\n## Quick Start\n```\nPOST /convert\n{\"markdown\": \"# Hello\\n\\nThis is **bold** text.\", \"toc\": true}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all conversion features. No credit card required.\n\n## Alternative To\nA free **Markdown API alternative** to Showdown, Turndown, and Marked.js hosted solutions. Full GFM support with auto-generated Table of Contents.\n\n## Sample Response\n```json\n{\"html\":\"<h1>Hello</h1><p>This is <strong>bold</strong> text.</p>\",\"toc\":[{\"level\":1,\"text\":\"Hello\",\"id\":\"hello\"}]}\n```\n\n## Need More Requests?\nFree plan (500 conversions/month) for personal blogs. **Pro ($5.99/mo)** for CMS platforms and documentation sites with 10,000 conversions."
 }

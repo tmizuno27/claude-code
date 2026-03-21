@@ -1,7 +1,7 @@
 {
   "name": "Placeholder Image API",
   "tagline": "Generate custom placeholder images with text, gradients & categories in SVG/PNG",
-  "description": "Free Placeholder Image: SVG/PNG, Gradients, Custom Text",
+  "description": "Free Placeholder Image API - SVG/PNG, Gradients, Custom Text, Categories",
   "category": "Media",
   "tags": [
     "placeholder",
@@ -13,7 +13,10 @@
     "design",
     "cloudflare-workers",
     "no-api-key",
-    "free-tier"
+    "free-tier",
+    "free-api",
+    "rest-api",
+    "developer-tools"
   ],
   "pricing": {
     "plans": [
@@ -70,5 +73,5 @@
   "base_url": "https://placeholder-image-api.miccho27.workers.dev",
   "endpoints_count": 4,
   "auth_type": "X-RapidAPI-Key",
-  "long_description": "## Why Placeholder Image API?\n- ✅ SVG and PNG output with 10 stunning gradient presets\n- ✅ Custom text overlay, font size, and colors\n- ✅ 8 category presets (avatar, banner, thumbnail, hero, etc.)\n\n## Key Features\n- Custom width & height (up to 4000x4000)\n- Text overlay with configurable font and color\n- 10 gradient presets (blue, sunset, ocean, forest, fire, etc.)\n- Custom gradient colors (any hex pair)\n- 8 category presets for common sizes\n- SVG and PNG output formats\n\n## Use Cases\n- **Web Development**: Placeholder images during development\n- **UI/UX Design**: Mockups and wireframe images\n- **Social Media**: Template images for posts\n- **App Prototyping**: Dynamic placeholder images\n\n## Quick Start\n```\nGET /image?width=800&height=400&text=Hello&gradient=sunset&format=svg\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all formats and presets. No credit card required."
+  "long_description": "## Why Placeholder Image API?\n- ✅ SVG and PNG output with 10 stunning gradient presets\n- ✅ Custom text overlay, font size, and colors\n- ✅ 8 category presets (avatar, banner, thumbnail, hero, etc.)\n\n## Key Features\n- Custom width & height (up to 4000x4000)\n- Text overlay with configurable font and color\n- 10 gradient presets (blue, sunset, ocean, forest, fire, etc.)\n- Custom gradient colors (any hex pair)\n- 8 category presets for common sizes\n- SVG and PNG output formats\n\n## Use Cases\n- **Web Development**: Placeholder images during development\n- **UI/UX Design**: Mockups and wireframe images\n- **Social Media**: Template images for posts\n- **App Prototyping**: Dynamic placeholder images\n\n## Quick Start\n```\nGET /image?width=800&height=400&text=Hello&gradient=sunset&format=svg\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all formats and presets. No credit card required.\n\n## Alternative To\nA modern **placeholder image API alternative** to Placeholder.com, Lorem Picsum, and PlaceIMG. 10 gradient presets and category-based sizing.\n\n## Need More Requests?\nFree plan (100 images/month) for mockups. **Pro ($5.99/mo)** for design tools and prototyping platforms with 5,000 images."
 }

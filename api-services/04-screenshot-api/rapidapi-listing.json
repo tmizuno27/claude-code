@@ -1,7 +1,7 @@
 {
   "name": "Website Screenshot API",
   "tagline": "Capture website screenshots as PNG or JPEG images instantly",
-  "description": "Free Website Screenshot: PNG/JPEG, Custom Viewport, Full Page Capture",
+  "description": "Free Website Screenshot API - Full Page Capture, PNG/JPEG, Custom Viewport",
   "category": "Tools",
   "tags": [
     "screenshot",
@@ -107,5 +107,5 @@
       "description": "Check API status"
     }
   ],
-  "long_description": "## Why Website Screenshot API?\n- ✅ Capture any public URL as PNG or JPEG with custom viewport sizes\n- ✅ Full-page capture mode for long scrolling pages\n- ✅ Configurable delay for JavaScript-heavy sites\n\n## Key Features\n- PNG and JPEG output formats with quality control\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable render delay for dynamic content\n- 1-hour result caching\n- CORS enabled\n\n## Use Cases\n- **SEO Monitoring**: Visual regression testing for websites\n- **Social Sharing**: Generate thumbnails and OG images\n- **Archiving**: Capture webpage snapshots for records\n- **QA Testing**: Automated visual testing across viewports\n\n## Quick Start\n```\nGET /capture?url=https://example.com&width=1280&height=720&format=png\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes PNG output and default viewport. No credit card required."
+  "long_description": "## Why Website Screenshot API?\n- ✅ Capture any public URL as PNG or JPEG with custom viewport sizes\n- ✅ Full-page capture mode for long scrolling pages\n- ✅ Configurable delay for JavaScript-heavy sites\n\n## Key Features\n- PNG and JPEG output formats with quality control\n- Custom viewport width and height\n- Full-page screenshot support\n- Configurable render delay for dynamic content\n- 1-hour result caching\n- CORS enabled\n\n## Use Cases\n- **SEO Monitoring**: Visual regression testing for websites\n- **Social Sharing**: Generate thumbnails and OG images\n- **Archiving**: Capture webpage snapshots for records\n- **QA Testing**: Automated visual testing across viewports\n\n## Quick Start\n```\nGET /capture?url=https://example.com&width=1280&height=720&format=png\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes PNG output and default viewport. No credit card required.\n\n## Alternative To\nA zero-setup **screenshot API alternative** to Screenshotlayer, URL2PNG, and Apiflash. No browser farm needed.\n\n## Need More Requests?\nPrototype free (100 captures/month). **Pro ($9.99/mo)** delivers 5,000 screenshots with custom viewports and full-page capture."
 }
