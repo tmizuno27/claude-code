@@ -12,8 +12,8 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトVercelデプロイ",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "12:21"
     },
     {
       "id": "stripe-kyc-resolve",
