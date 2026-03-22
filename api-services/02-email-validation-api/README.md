@@ -1,12 +1,36 @@
-# Email Validation API
+# Free Email Validation API - Disposable Detection, MX Lookup, Typo Fix
 
-A production-ready email validation API built as a Cloudflare Worker. Validates email addresses without sending any emails using format checks, MX record lookups (via DNS over HTTPS), disposable domain detection, and more.
+> **Free tier: 500 requests/month** | Production-ready email verification without sending any emails
 
-## Endpoints
+Validate email addresses in real time with format checks, MX record lookups, disposable domain detection (500+ domains), free provider detection, role-based address detection, and typo suggestions. Built on Cloudflare Workers for sub-100ms global latency.
 
-### `GET /validate?email=user@example.com`
+## Why Choose This Email Validation API?
 
-Validate a single email address.
+- **No emails sent** -- validates via DNS/MX lookup, format checks, and domain intelligence
+- **Disposable email detection** -- blocks 500+ temporary/throwaway email domains (Mailinator, Guerrilla, etc.)
+- **Typo correction** -- suggests fixes for common domain typos (gmial.com -> gmail.com)
+- **Bulk validation** -- validate up to 50 emails in a single API call
+- **Confidence score** -- 0-100 scoring system for easy filtering
+- **Free tier** -- 500 requests/month at $0, perfect for form validation and sign-up flows
+
+## Use Cases
+
+- **SaaS sign-up forms** -- reject disposable emails and catch typos before account creation
+- **Email marketing** -- clean your mailing list to reduce bounce rates and protect sender reputation
+- **E-commerce checkout** -- validate customer emails to ensure order confirmations are delivered
+- **Lead generation** -- score and filter inbound leads by email quality
+- **CRM data hygiene** -- bulk validate existing contacts to remove invalid addresses
+- **Fraud prevention** -- flag disposable and role-based emails in high-risk transactions
+
+## Quick Start
+
+### Validate a Single Email
+
+```bash
+curl -X GET "https://email-validation-api.t-mizuno27.workers.dev/validate?email=user@example.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: email-validation-api.p.rapidapi.com"
+```
 
 **Response:**
 ```json
@@ -34,70 +58,100 @@ Validate a single email address.
 }
 ```
 
-### `POST /validate/bulk`
+### Detect a Disposable Email
 
-Validate up to 50 emails in a single request.
+```bash
+curl "https://email-validation-api.t-mizuno27.workers.dev/validate?email=test@mailinator.com"
+```
 
-**Request body:**
 ```json
 {
-  "emails": [
-    "user@example.com",
-    "test@mailinator.com",
-    "admin@gmial.com"
-  ]
+  "email": "test@mailinator.com",
+  "valid": false,
+  "is_disposable": true,
+  "score": 10
 }
 ```
 
-**Response:**
-```json
-{
-  "count": 3,
-  "results": [ ... ]
-}
+### Bulk Validation (up to 50 emails)
+
+```bash
+curl -X POST "https://email-validation-api.t-mizuno27.workers.dev/validate/bulk" \
+  -H "Content-Type: application/json" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"emails": ["user@example.com", "test@mailinator.com", "admin@gmial.com"]}'
 ```
 
-### `GET /` or `GET /health`
+### Python Example
 
-Health check / service info.
+```python
+import requests
+
+url = "https://email-validation-api.p.rapidapi.com/validate"
+params = {"email": "user@example.com"}
+headers = {
+    "X-RapidAPI-Key": "YOUR_KEY",
+    "X-RapidAPI-Host": "email-validation-api.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers, params=params)
+data = response.json()
+
+if data["valid"] and data["score"] >= 80:
+    print("Email is valid and high quality")
+elif data["suggestion"]:
+    print(f"Did you mean {data['suggestion']}?")
+```
+
+### Node.js Example
+
+```javascript
+const axios = require("axios");
+
+const { data } = await axios.get(
+  "https://email-validation-api.p.rapidapi.com/validate",
+  {
+    params: { email: "user@example.com" },
+    headers: {
+      "X-RapidAPI-Key": "YOUR_KEY",
+      "X-RapidAPI-Host": "email-validation-api.p.rapidapi.com",
+    },
+  }
+);
+
+console.log(`Valid: ${data.valid}, Score: ${data.score}`);
+```
 
 ## Validation Checks
 
-| Check | Description |
-|-------|-------------|
-| **Format** | RFC 5322 regex + length validation |
-| **MX Records** | DNS over HTTPS lookup via Cloudflare's 1.1.1.1 |
-| **Disposable** | 500+ known disposable/temporary email domains |
-| **Free Provider** | Detects Gmail, Yahoo, Hotmail, Outlook, etc. |
-| **Role-Based** | Detects admin@, info@, support@, etc. |
-| **Typo Suggestion** | Suggests corrections for common domain typos |
+| Check | Points | Description |
+|-------|--------|-------------|
+| **Format** | +30 | RFC 5322 regex + length validation |
+| **MX Records** | +40 | DNS over HTTPS lookup via Cloudflare 1.1.1.1 |
+| **Not Disposable** | +15 | 500+ known disposable/temporary domains |
+| **Not Role-Based** | +10 | Detects admin@, info@, support@, etc. |
+| **Disposable Penalty** | -20 | Detected as throwaway email domain |
 
-## Scoring (0-100)
+## Pricing
 
-- Format valid: +30
-- MX records found: +40
-- Not disposable: +15 (disposable: -20)
-- Not role-based: +10
-- No typo detected: +5
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
+| Ultra | $14.99 | 500,000 | 50 req/sec |
 
-## Deployment
+## Alternative To
+
+A free alternative to ZeroBounce, Hunter.io, and NeverBounce. Get the same core validation features -- MX lookup, disposable detection, typo correction -- without per-email pricing or expensive monthly minimums.
+
+## Keywords
+
+`email validation api`, `email verification`, `disposable email detection`, `mx lookup api`, `email hygiene`, `bounce detection`, `email typo fix`, `bulk email validation`, `free email api`, `saas email validation`
+
+## Development
 
 ```bash
 npm install
-npx wrangler deploy
+npm run dev      # Local development
+npm run deploy   # Deploy to Cloudflare
 ```
-
-## Local Development
-
-```bash
-npx wrangler dev
-```
-
-## Configuration
-
-Environment variables in `wrangler.toml`:
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `RATE_LIMIT_PER_MINUTE` | 60 | Rate limit per minute |
-| `BULK_MAX_EMAILS` | 50 | Max emails per bulk request |

@@ -258,6 +258,15 @@ def fact_check_article(api_key, article_text, filename=""):
         result_text = re.sub(r",\s*([}\]])", r"\1", result_text)
         # 2. 制御文字の除去（改行・タブ以外）
         result_text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", result_text)
+        # 3. 文字列値内の改行をエスケープ（JSON文字列内の生改行は不正）
+        result_text = re.sub(
+            r'("(?:[^"\\]|\\.)*")',
+            lambda m: m.group(0).replace("\n", "\\n").replace("\r", "\\r"),
+            result_text,
+        )
+        # 4. シングルクォートをダブルクォートに変換（キー・値両方）
+        # ただし文字列内のアポストロフィは除く（安全な範囲のみ）
+        result_text = re.sub(r"(?<=[\[{,:\s])'|'(?=[\]},:}\s])", '"', result_text)
 
         return json.loads(result_text)
 
