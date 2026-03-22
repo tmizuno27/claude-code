@@ -118,13 +118,13 @@ def run_batch(start_index=0, count=10):
         # Generate
         image_url = generate_image(prompt_data)
         if not image_url:
-            print(f"  ❌ Generation failed")
+            print(f"  [FAIL] Generation failed")
             fail_count += 1
             results.append({**prompt_data, "status": "failed", "filename": ""})
             time.sleep(DELAY_BETWEEN_REQUESTS)
             continue
 
-        print(f"  ✅ Generated: {image_url[:80]}...")
+        print(f"  [OK] Generated: {image_url[:80]}...")
 
         # Download
         filename = f"stock_{idx:04d}_{prompt_data['type']}_{prompt_data['category']}.png"
@@ -132,7 +132,7 @@ def run_batch(start_index=0, count=10):
 
         if download_image(image_url, filepath):
             size_kb = os.path.getsize(filepath) / 1024
-            print(f"  📥 Downloaded: {filename} ({size_kb:.0f} KB)")
+            print(f"  [DL] Downloaded: {filename} ({size_kb:.0f} KB)")
             success_count += 1
             results.append({
                 **prompt_data,
@@ -142,13 +142,13 @@ def run_batch(start_index=0, count=10):
                 "file_size_kb": f"{size_kb:.0f}"
             })
         else:
-            print(f"  ❌ Download failed")
+            print(f"  [FAIL] Download failed")
             fail_count += 1
             results.append({**prompt_data, "status": "download_failed", "filename": ""})
 
         # Rate limiting
         if i < len(batch) - 1:
-            print(f"  ⏳ Waiting {DELAY_BETWEEN_REQUESTS}s...")
+            print(f"  [WAIT] {DELAY_BETWEEN_REQUESTS}s...")
             time.sleep(DELAY_BETWEEN_REQUESTS)
 
     # Save results CSV
