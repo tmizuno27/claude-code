@@ -1,0 +1,142 @@
+{
+  "period": {
+    "start": "2026-03-15",
+    "end": "2026-03-21"
+  },
+  "generated": "2026-03-22T20:10:05.189326",
+  "kpi": {
+    "blog": {
+      "ga4": {
+        "sessions": 30,
+        "pageviews": 124,
+        "users": 25,
+        "new_users": 25,
+        "avg_session_duration": 233.8,
+        "bounce_rate": 0.5,
+        "prev_sessions": 62,
+        "prev_pageviews": 484,
+        "prev_users": 9
+      },
+      "search_console": {
+        "clicks": 5,
+        "impressions": 18,
+        "ctr": 27.78,
+        "position": 7.1
+      },
+      "wordpress": {
+        "total_published": 74,
+        "total_drafts": 11,
+        "new_posts_this_week": 10,
+        "new_posts": [
+          {
+            "title": "海外在住 副業 確定申告【2025年】パラグアイからでもできる申告手続きの全手順",
+            "url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f-%e5%89%af%e6%a5%ad-%e7%a2%ba%e5%ae%9a%e7%94%b3%e5%91%8a%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e3%81%a7-2/"
+          },
+          {
+            "title": "パラグアイの治安は【2025年】危険エリアと安全な暮らし方を現地在住者が解説",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b2%bb%e5%ae%89%e3%81%af%e3%80%902025%e5%b9%b4%e3%80%91%e5%8d%b1%e9%99%ba%e3%82%a8%e3%83%aa%e3%82%a2%e3%81%a8%e5%ae%89%e5%85%a8%e3%81%aa-2/"
+          },
+          {
+            "title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+            "url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb-2/"
+          },
+          {
+            "title": "パラグアイ移住後のリアルな収入事情【在住者が公開】月いくら稼いで生活している？",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e7%a7%bb%e4%bd%8f%e5%be%8c%e3%81%ae%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%aa%e5%8f%8e%e5%85%a5%e4%ba%8b%e6%83%85%e3%80%90%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c/"
+          },
+          {
+            "title": "パラグアイの日本人コミュニティ事情【在住者が語る】移住後の日本人ネットワーク活用法",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%97%a5%e6%9c%ac%e4%ba%ba%e3%82%b3%e3%83%9f%e3%83%a5%e3%83%8b%e3%83%86%e3%82%a3%e4%ba%8b%e6%83%85%e3%80%90%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c/"
+          },
+          {
+            "title": "パラグアイの医療・保険事情【在住者が解説】病院の選び方から保険加入まで",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e5%8c%bb%e7%99%82%e3%83%bb%e4%bf%9d%e9%99%ba%e4%ba%8b%e6%83%85%e3%80%90%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e8%a7%a3%e8%aa%ac%e3%80%91%e7%97%85/"
+          },
+          {
+            "title": "パラグアイで銀行口座を開設する方法【外国人向け完全ガイド2026年版】",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%a7%e9%8a%80%e8%a1%8c%e5%8f%a3%e5%ba%a7%e3%82%92%e9%96%8b%e8%a8%ad%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%90%e5%a4%96%e5%9b%bd%e4%ba%ba%e5%90%91/"
+          },
+          {
+            "title": "パラグアイの不動産事情【在住者が解説】外国人の購入方法・価格相場・投資利回り2026年版",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e4%b8%8d%e5%8b%95%e7%94%a3%e4%ba%8b%e6%83%85%e3%80%90%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e8%a7%a3%e8%aa%ac%e3%80%91%e5%a4%96%e5%9b%bd%e4%ba%ba/"
+          },
+          {
+            "title": "パラグアイの永住権の取り方を完全解説｜必要書類・費用・期間を在住者が徹底ガイド【2026年版】",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b0%b8%e4%bd%8f%e6%a8%a9%e3%81%ae%e5%8f%96%e3%82%8a%e6%96%b9%e3%82%92%e5%ae%8c%e5%85%a8%e8%a7%a3%e8%aa%ac%ef%bd%9c%e5%bf%85%e8%a6%81%e6%9b%b8/"
+          },
+          {
+            "title": "パラグアイの治安は？在住者が教える安全対策ガイド",
+            "url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b2%bb%e5%ae%89%e3%81%af%ef%bc%9f%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e6%95%99%e3%81%88%e3%82%8b%e5%ae%89%e5%85%a8%e5%af%be%e7%ad%96%e3%82%ac-2/"
+          }
+        ]
+      },
+      "articles": {
+        "total": 107,
+        "published": 86,
+        "drafts": 19,
+        "pillar1_paraguay": 48,
+        "pillar2_work": 0
+      }
+    },
+    "x": {
+      "posts_count": 17,
+      "likes": 0,
+      "retweets": 0,
+      "replies": 0,
+      "impressions": 0,
+      "engagement_rate": 0
+    },
+    "ebay": {
+      "total_products_tracked": 105,
+      "categories": 25,
+      "category_list": [
+        "JDMパーツ",
+        "アニメフィギュア",
+        "カメラ・レンズ",
+        "サンリオ・キャラクター",
+        "スニーカー",
+        "トレーディングカード",
+        "ブランド品",
+        "ポケモンカード",
+        "ミニカー",
+        "ミニ四駆・プラモデル",
+        "レトロゲーム",
+        "万年筆",
+        "仮面ライダー・戦隊",
+        "伝統工芸品",
+        "南部鉄瓶",
+        "和包丁",
+        "小型家電",
+        "帯付きレコード",
+        "日本製文房具",
+        "盆栽鉢",
+        "腕時計",
+        "釣り具",
+        "鉋・大工道具",
+        "鑿（のみ）",
+        "電子辞書"
+      ]
+    },
+    "freelance": {
+      "research_docs": 19,
+      "gigs_defined": 3
+    },
+    "finance": {
+      "total_invoices": 21,
+      "months_covered": [
+        "2025.04",
+        "2025.05",
+        "2025.06",
+        "2025.07",
+        "2025.08",
+        "2025.09",
+        "2025.10",
+        "2025.11",
+        "2025.12",
+        "2026.01",
+        "2026.02",
+        "2026.0_"
+      ]
+    }
+  }
+}
