@@ -1,0 +1,124 @@
+{
+  "executed_at": "2026-03-22T13:12:48.805065",
+  "mode": "LIVE",
+  "total_targets": 22,
+  "success": 22,
+  "failed": 0,
+  "skipped": 0,
+  "details": {
+    "success": [
+      {
+        "wp_id": 445,
+        "slug": "uq-f320e879",
+        "reason": "UQモバイル評判重複(悪い?)"
+      },
+      {
+        "wp_id": 466,
+        "slug": "uq-40dd0143",
+        "reason": "UQモバイル評判重複(地方)"
+      },
+      {
+        "wp_id": 468,
+        "slug": "uq-mobile-reputation-bad",
+        "reason": "UQモバイル評判重複(悪い7つ)"
+      },
+      {
+        "wp_id": 687,
+        "slug": "rakuten-mobile-review",
+        "reason": "楽天モバイル評判重複(レビュー)"
+      },
+      {
+        "wp_id": 442,
+        "slug": "article-0d7dc43b",
+        "reason": "楽天モバイル重複(田舎1)"
+      },
+      {
+        "wp_id": 394,
+        "slug": "article-c60c5a37",
+        "reason": "楽天モバイル重複(大阪)"
+      },
+      {
+        "wp_id": 392,
+        "slug": "article-0a0c1d12",
+        "reason": "楽天モバイル重複(最新)"
+      },
+      {
+        "wp_id": 391,
+        "slug": "article-04622",
+        "reason": "楽天モバイル重複(田舎2)"
+      },
+      {
+        "wp_id": 665,
+        "slug": "linemo-review",
+        "reason": "LINEMO評判重複(レビュー)"
+      },
+      {
+        "wp_id": 787,
+        "slug": "linemo",
+        "reason": "LINEMO評判重複(悪い)"
+      },
+      {
+        "wp_id": 632,
+        "slug": "ahamo-review",
+        "reason": "ahamo評判重複(レビュー)"
+      },
+      {
+        "wp_id": 784,
+        "slug": "ahamo",
+        "reason": "ahamo評判重複(知恵袋)"
+      },
+      {
+        "wp_id": 641,
+        "slug": "iijmio-review",
+        "reason": "IIJmio評判重複"
+      },
+      {
+        "wp_id": 668,
+        "slug": "mineo-review",
+        "reason": "mineo評判重複(レビュー)"
+      },
+      {
+        "wp_id": 788,
+        "slug": "mineo",
+        "reason": "mineo評判重複(地方)"
+      },
+      {
+        "wp_id": 712,
+        "slug": "ymobile-review",
+        "reason": "ワイモバイル評判重複(レビュー)"
+      },
+      {
+        "wp_id": 789,
+        "slug": "povo",
+        "reason": "povo評判重複(悪い)"
+      },
+      {
+        "wp_id": 653,
+        "slug": "kakuyasu-sim-ryoukin-hikaku",
+        "reason": "格安SIM料金比較重複"
+      },
+      {
+        "wp_id": 629,
+        "slug": "1gb-ika-kakuyasu-sim-ranking",
+        "reason": "1GB最安重複"
+      },
+      {
+        "wp_id": 628,
+        "slug": "10gb-kakuyasu-sim-ranking",
+        "reason": "10GB最安重複"
+      },
+      {
+        "wp_id": 652,
+        "slug": "kakuyasu-sim-norikae-guide",
+        "reason": "乗り換えガイド重複"
+      },
+      {
+        "wp_id": 790,
+        "slug": "sim-mnp",
+        "reason": "乗り換えMNP重複"
+      }
+    ],
+    "failed": [],
+    "skipped": []
+  }
+}
