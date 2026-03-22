@@ -31,6 +31,7 @@
 - **定期タスク（52個）**: [scheduled-tasks.md](scheduled-tasks.md) — 3サイト共通化済み（Healthchecks.io監視+Discord通知）
 - **タスク共通ルール**: [feedback_blog_tasks_shared.md](feedback_blog_tasks_shared.md) — 自動タスクは全3ブログに等しく適用
 - **優先アクション/優先タスク**: [dashboard-priority-actions.md](dashboard-priority-actions.md) — 毎朝Claude APIが収益最大化ベースで自動生成、ダッシュボードで✅管理
+- **日次優先タスク自動実行**: [feedback_daily_priority_auto_execute.md](feedback_daily_priority_auto_execute.md) — Claude自動実行可能なアクション（CTR改善・記事強化・流入分析・X投稿）は毎日自動実行
 - **Sheets同期**: `tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
 - **タスク稼働確認ルール**: [feedback_proactive_task_check.md](feedback_proactive_task_check.md) — 変更時は依存スクリプト全確認、会話冒頭でログ健全性チェック
