@@ -1,21 +1,21 @@
 # 日次ビジネス総合レポート — 2026年03月22日
-*生成日時: 2026年03月22日 12:05 (PYT)*
+*生成日時: 2026年03月22日 15:23 (PYT)*
 
 ## エグゼクティブサマリー
 
 ## 経営エグゼクティブサマリー
 
-3ブログ合計PV87・ユーザー25と流入数は依然低水準にあり、記事数227本の資産に対してトラフィックの収益化が追いついていない段階である。一方、RapidAPI 24本・Apify 5件のデータ取得基盤は稼働しており、コンテンツ自動化・差別化の技術インフラとしての活用余地は大きい。今日は最も記事単価効率の高いサイトを特定し、データ資産を活用した即効性コンテンツ施策に集中投下すべき局面である。
+3サイト合計PV88・ユーザー26と流入規模は依然として小さく、収益化フェーズには至っていない。一方でRapidAPI×24本・Apify×5件のデータ収集基盤は稼働しており、コンテンツ自動化・差別化の技術資産は整いつつある。今後はPV最大の南米おやじサイトへの集中投資と、API資産を活用した記事量産パイプラインの実装が最優先課題である。
 
 ---
 
 ### 箇条書き3点
 
-- 💪 **強み**：RapidAPI×24＋Apify×5の自動化インフラが整備済み。競合優位となるデータドリブンコンテンツの量産体制が整っている。
+- 💪 **強み** — RapidAPI24本＋Apify5件のデータ取得基盤が稼働済み。競合優位となる自動化コンテンツ生成の土台が整っている。
 
-- ⚠️ **懸念**：3サイト合計PV87は記事227本に対して極めて低く、**記事あたり平均0.38PV**。量の積み上げより検索意図の適合度・内部施策の見直しが急務。
+- ⚠️ **懸念** — 3サイト合計でPV88・ユーザー26は収益化ライン未満。記事数（計205本）に対してトラフィックが極端に少なく、SEO効果が出ていない。
 
-- ✅ **今日のアクション**：nambei-oyaji（PV効率最高）の上位流入記事をSearch Consoleで抽出し、Apifyデータを活用したリライト・内部リンク強化を1本実施して再インデックスを申請する。
+- ✅ **今日のアクション** — PV最上位の「南米おやじ」サイトでApify/RapidAPIを活用した高需要キーワード記事を1本量産し、**トラフィック→収益化の最短経路**を検証する。
 
 ---
 
@@ -23,9 +23,9 @@
 
 | サイト | PV | ユーザー | 検索表示 | クリック | 記事数 |
 |--------|-----|---------|---------|---------|--------|
-| [南米おやじの海外生活ラボ](https://nambei-oyaji.com) | 68 | 7 | 6 | 3 | 74 |
+| [南米おやじの海外生活ラボ](https://nambei-oyaji.com) | 69 | 8 | 6 | 3 | 74 |
 | [大人のマッチングナビ](https://otona-match.com) | 13 | 12 | 44 | 1 | 72 |
-| [SIM比較ナビ](https://sim-hikaku.online) | 6 | 6 | 69 | 0 | 81 |
+| [SIM比較ナビ](https://sim-hikaku.online) | 6 | 6 | 69 | 0 | 59 |
 
 ---
 
@@ -61,7 +61,7 @@
 | social-video-downloader | 8 | SUCCEEDED | 2026-03-16 |
 | seo-analyzer | 8 | SUCCEEDED | 2026-03-16 |
 | company-data-enricher | 9 | SUCCEEDED | 2026-03-16 |
-| trends-aggregator | 23 | SUCCEEDED | 2026-03-16 |
+| trends-aggregator | 24 | SUCCEEDED | 2026-03-16 |
 | keyword-research | 1 | SUCCEEDED | 2026-03-16 |
 
 ---
@@ -87,15 +87,15 @@
 ## 6. 定期タスク健全性
 
 - **GitHub自動同期**: 正常
-- **最終同期**: [2026-03-22 12:03:19]
-- **総ログエントリー数**: 2,273 件
+- **最終同期**: [2026-03-22 14:04:35]
+- **総ログエントリー数**: 2,402 件
 - **直近1時間のエントリー**: 0 件
 
 **最新ログ（直近3行）:**
 ```
-[2026-03-22 12:03:17] Changes detected:  D archive/ebook-template.md  D archive/generatepress-child.zip  D archive/prompt-collection.md  D nambei-oyaji.com/contact-desktop.png  D nambei-oyaji.com/contact-form-gap.png  D nambei-oyaji.com/contact-form-gap2.png  D nambei-oyaji.com/contact-form-gap3.png  D nambei-oyaji.com/contact-form-gap4.png  D nambei-oyaji.com/contact-mobile.png  D nambei-oyaji.com/contact_check.png  D nambei-oyaji.com/contact_check2.png  D nambei-oyaji.com/contact_check3.png  D nambei-oyaji.com/fix_aff.png  D nambei-oyaji.com/fix_task.png  D nambei-oyaji.com/header_check.png  D nambei-oyaji.com/header_final.png  D nambei-oyaji.com/nambei-oyaji-child-theme.zip  M nambei-oyaji.com/outputs/reports/daily-business-dashboard.html  D nambei-oyaji.com/screenshot_375.png  D nambei-oyaji.com/screenshot_414.png  D nambei-oyaji.com/temp_1008.html  D nambei-oyaji.com/temp_1065.html  D nambei-oyaji.com/temp_1066.html  D nambei-oyaji.com/temp_1067.html  D nambei-oyaji.com/temp_1068.html  D nambei-oyaji.com/temp_1069.html  D nambei-oyaji.com/temp_1070.html  D nambei-oyaji.com/temp_1214.html  D nambei-oyaji.com/temp_all_wp_content.json  D nambei-oyaji.com/temp_contact.html  D nambei-oyaji.com/temp_mobile_test.html  D nambei-oyaji.com/temp_page47_raw.html  D nambei-oyaji.com/temp_widget.txt  D nambei-oyaji.com/top_after_scroll.png  D nambei-oyaji.com/top_check.png  D nambei-oyaji.com/top_fixed.png  D nambei-oyaji.com/top_no_topics.png  D nambei-oyaji.com/wp-article-raw.html  D nambei-oyaji/outputs/articles/2026-03-03/article-kaigai-blog-shunyu.md  D nambei-oyaji/outputs/articles/2026-03-03/article-kaigai-ijuu-junbi-list.md  D nambei-oyaji/outputs/articles/2026-03-03/article-kaigai-ijuusha-skill.md  D nambei-oyaji/outputs/articles/2026-03-03/article-kaigai-remote-work-guide.md  D nambei-oyaji/outputs/articles/2026-03-03/article-kaigai-web-writer.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-eijuuken.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-fudousan.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-ginkou-kouzakaisetsu.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-iryou-hoken.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-nihonjin-community.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-remote-jimu.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-remote-work.md  D nambei-oyaji/outputs/articles/2026-03-03/article-paraguay-shuunyuu-jijou.md  D otona-match.com/debug-html.txt  D sim-hikaku.online/take-screenshots.js ?? archive/misc/ ?? archive/nambei-temp/ ?? nambei-oyaji.com/theme/nambei-oyaji-child-theme.zip ?? sim-hikaku.online/scripts/take-screenshots.js
-[2026-03-22 12:03:19] Commit OK
-[2026-03-22 12:03:19] Push OK - synced to GitHub
+[2026-03-22 14:04:34] Changes detected:  M .claude/agents/automation-workflow-team.md
+[2026-03-22 14:04:35] Commit OK
+[2026-03-22 14:04:35] Push OK - synced to GitHub
 ```
 
 ---
@@ -125,4 +125,4 @@
 
 ---
 
-*このレポートは自動生成されました。（2026/03/22 12:05 PYT）*
+*このレポートは自動生成されました。（2026/03/22 15:23 PYT）*

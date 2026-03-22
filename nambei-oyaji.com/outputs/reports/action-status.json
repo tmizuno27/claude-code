@@ -3,52 +3,52 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyPayPal出金設定",
+      "title": "ApifyのPayPal支払い設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトVercelデプロイ",
+      "title": "pSEOサイトをVercelデプロイ",
       "priority": "P1",
-      "done": true,
-      "done_at": "12:21"
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "rapidapi-free-to-paid",
+      "title": "RapidAPI無料Actorの販促",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC認証解決",
+      "title": "Stripe KYC認証を完了する",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "sim-gsc-ctr-fix",
-      "title": "SIMサイトCTR改善",
-      "priority": "P1",
-      "done": true,
-      "done_at": "12:17"
+      "title": "SIMサイトのtitleタグ改善",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "rapidapi-traffic-audit",
-      "title": "RapidAPI流入経路確認",
+      "id": "otona-gsc-ctr-fix",
+      "title": "マッチングサイトtitle改善",
       "priority": "P2",
-      "done": true,
-      "done_at": "12:18"
+      "done": false,
+      "done_at": null
     },
     {
-      "id": "nambei-content-boost",
-      "title": "南米サイト上位記事強化",
+      "id": "x-first-tweet",
+      "title": "X集客ツイートを3本投稿",
       "priority": "P2",
-      "done": true,
-      "done_at": "12:18"
-    },
-    {
-      "id": "x-first-post",
-      "title": "X集客投稿開始",
-      "priority": "P2",
-      "done": true,
-      "done_at": "12:19"
+      "done": false,
+      "done_at": null
     }
   ]
 }
