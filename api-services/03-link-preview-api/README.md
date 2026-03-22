@@ -1,19 +1,35 @@
-# Link Preview API
+# Free Link Preview API - Open Graph, Twitter Cards, Metadata Extraction
 
-Website metadata extraction API built on Cloudflare Workers. Extracts Open Graph tags, Twitter Cards, favicons, RSS feeds, and more from any URL.
+> **Free tier: 500 requests/month** | Extract rich metadata from any URL in milliseconds
 
-## Endpoints
+Extract Open Graph tags, Twitter Cards, favicons, RSS feeds, author info, and more from any URL. Supports bulk extraction (up to 10 URLs). Built on Cloudflare Workers with 1-hour caching.
 
-### GET /preview?url={url}
+## Why Choose This Link Preview API?
 
-Extract metadata from a single URL.
+- **Rich metadata** -- title, description, image, favicon, author, published date, language, keywords
+- **Social tags** -- Open Graph and Twitter Card extraction
+- **RSS/Atom discovery** -- automatically finds feed URLs
+- **Bulk extraction** -- process up to 10 URLs in a single request
+- **1-hour cache** -- repeated URLs served instantly from edge cache
+- **Free tier** -- 500 requests/month at $0
+
+## Use Cases
+
+- **Chat apps** -- generate rich link previews like Slack, Discord, or WhatsApp
+- **Social media tools** -- preview how links will appear when shared
+- **Content aggregators** -- extract metadata for news feeds and bookmarking apps
+- **SEO tools** -- verify Open Graph and meta tags across pages
+- **CMS plugins** -- auto-fill title, description, and image when embedding links
+- **Bookmark managers** -- enrich saved URLs with metadata
+
+## Quick Start
 
 ```bash
-curl "https://link-preview-api.YOUR-SUBDOMAIN.workers.dev/preview?url=https://github.com"
+curl -X GET "https://link-preview-api.t-mizuno27.workers.dev/preview?url=https://github.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
 
 **Response:**
-
 ```json
 {
   "url": "https://github.com",
@@ -23,77 +39,45 @@ curl "https://link-preview-api.YOUR-SUBDOMAIN.workers.dev/preview?url=https://gi
   "favicon": "https://github.githubassets.com/favicons/favicon.svg",
   "siteName": "GitHub",
   "type": "website",
-  "author": null,
-  "publishedDate": null,
   "language": "en",
-  "keywords": [],
   "twitter": { "card": "summary_large_image", "site": "@github" },
-  "themeColor": "#1e2327",
-  "canonical": "https://github.com",
   "feeds": [],
   "responseTime": 234
 }
 ```
 
-### POST /preview/bulk
-
-Extract metadata from up to 10 URLs in a single request.
+### Bulk Preview (up to 10 URLs)
 
 ```bash
-curl -X POST "https://link-preview-api.YOUR-SUBDOMAIN.workers.dev/preview/bulk" \
+curl -X POST "https://link-preview-api.t-mizuno27.workers.dev/preview/bulk" \
   -H "Content-Type: application/json" \
   -d '{"urls": ["https://github.com", "https://example.com"]}'
 ```
 
-**Response:**
+### Python Example
 
-```json
-{
-  "results": [
-    { "url": "https://github.com", "title": "GitHub", "..." : "..." },
-    { "url": "https://example.com", "title": "Example Domain", "..." : "..." }
-  ]
-}
+```python
+import requests
+
+url = "https://link-preview-api.p.rapidapi.com/preview"
+params = {"url": "https://github.com"}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "link-preview-api.p.rapidapi.com"}
+
+data = requests.get(url, headers=headers, params=params).json()
+print(f"{data['title']}: {data['description']}")
 ```
 
-## Extracted Metadata
+## Pricing
 
-| Field | Sources |
-|-------|---------|
-| title | og:title, twitter:title, `<title>` |
-| description | og:description, meta description |
-| image | og:image, twitter:image |
-| favicon | link[rel=icon], link[rel=apple-touch-icon], /favicon.ico fallback |
-| siteName | og:site_name |
-| type | og:type (default: "website") |
-| author | meta[name=author], article:author |
-| publishedDate | article:published_time, meta[name=date], `<time>` |
-| language | html[lang], og:locale |
-| keywords | meta[name=keywords] |
-| twitter | twitter:card, twitter:site |
-| themeColor | meta[name=theme-color] |
-| canonical | link[rel=canonical], og:url |
-| feeds | link[type=application/rss+xml], link[type=application/atom+xml] |
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
 
-## Features
+## Alternative To
 
-- 1-hour response caching via Cloudflare Cache API
-- 5-second fetch timeout
-- Follows redirects automatically
-- Resolves relative URLs for images and favicons
-- CORS enabled for browser usage
+A free alternative to LinkPreview.net, Microlink, and OpenGraph.io.
 
-## Deploy
+## Keywords
 
-```bash
-npm install
-npx wrangler deploy
-```
-
-## Configuration (wrangler.toml)
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| CACHE_TTL | 3600 | Cache duration in seconds |
-| FETCH_TIMEOUT | 5000 | Max fetch time in ms |
-| MAX_BULK_URLS | 10 | Max URLs per bulk request |
+`link preview api`, `url metadata`, `open graph api`, `twitter card extractor`, `unfurl url`, `website metadata`, `free link preview`, `og tags api`, `url preview`, `social media preview`

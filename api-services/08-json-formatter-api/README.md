@@ -1,64 +1,59 @@
-# JSON Formatter & Validator API
+# Free JSON Formatter & Validator API - Format, Minify, Diff, CSV Convert
 
-All-in-one JSON toolkit on Cloudflare Workers: format, minify, validate, diff, transform, and CSV conversion.
+> **Free tier: 500 requests/month** | All-in-one JSON toolkit on Cloudflare Workers
 
-**Base URL:** `https://json-formatter-api.t-mizuno27.workers.dev`
+Format, minify, validate, diff, transform, and convert JSON to/from CSV. A complete JSON processing toolkit deployed on Cloudflare Workers.
 
-## Endpoints
+## Why Choose This JSON API?
 
-| Method | Path | Description |
-|--------|------|-------------|
-| POST | `/format` | Prettify JSON with configurable indent |
-| POST | `/minify` | Minify JSON |
-| POST | `/validate` | Validate JSON, return errors and stats |
-| POST | `/diff` | Deep-compare two JSON objects |
-| POST | `/transform` | JMESPath-like query on JSON |
-| POST | `/csv-to-json` | Convert CSV string to JSON array |
-| POST | `/json-to-csv` | Convert JSON array to CSV string |
+- **All-in-one** -- format, minify, validate, diff, transform, and CSV conversion in one API
+- **JSON diff** -- compare two JSON objects and get a detailed diff
+- **CSV conversion** -- JSON to CSV and CSV to JSON
+- **JMESPath transforms** -- query and reshape JSON with JMESPath expressions
+- **Schema validation** -- validate JSON against custom schemas
+- **Free tier** -- 500 requests/month at $0
 
-## Examples
+## Use Cases
 
-### Format
+- **Developer tools** -- format/validate JSON in IDEs, dashboards, or CLI tools
+- **Data pipelines** -- convert between JSON and CSV in ETL workflows
+- **API testing** -- validate API responses against expected schemas
+- **CI/CD** -- automated JSON validation in build pipelines
+- **Debugging** -- diff two JSON payloads to find differences
+
+## Quick Start
+
 ```bash
-curl -X POST https://json-formatter-api.t-mizuno27.workers.dev/format \
+curl -X POST "https://json-formatter-api.t-mizuno27.workers.dev/format" \
   -H "Content-Type: application/json" \
-  -d '{"data": "{\"name\":\"John\",\"age\":30}", "indent": 4}'
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"json": "{\"name\":\"test\",\"value\":123}"}'
 ```
 
-### Validate
-```bash
-curl -X POST https://json-formatter-api.t-mizuno27.workers.dev/validate \
-  -H "Content-Type: application/json" \
-  -d '{"data": "{\"key\": \"value\"}"}'
+### Python Example
+
+```python
+import requests
+
+url = "https://json-formatter-api.p.rapidapi.com/validate"
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "json-formatter-api.p.rapidapi.com"}
+payload = {"json": '{"name": "test"}'}
+
+data = requests.post(url, headers=headers, json=payload).json()
+print(f"Valid: {data['valid']}")
 ```
 
-Response: `{"valid": true, "errors": [], "stats": {"keys": 1, "depth": 1, "size_bytes": 16}}`
+## Pricing
 
-### Diff
-```bash
-curl -X POST https://json-formatter-api.t-mizuno27.workers.dev/diff \
-  -H "Content-Type: application/json" \
-  -d '{"a": {"name": "John", "age": 30}, "b": {"name": "Jane", "age": 30, "city": "NYC"}}'
-```
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
 
-### Transform
-```bash
-curl -X POST https://json-formatter-api.t-mizuno27.workers.dev/transform \
-  -H "Content-Type: application/json" \
-  -d '{"data": {"items": [{"name": "A"}, {"name": "B"}]}, "query": "items[*].name"}'
-```
+## Alternative To
 
-### CSV to JSON
-```bash
-curl -X POST https://json-formatter-api.t-mizuno27.workers.dev/csv-to-json \
-  -H "Content-Type: application/json" \
-  -d '{"csv": "name,age\nJohn,30\nJane,25", "headers": true}'
-```
+A free alternative to JSONLint API, JSON Formatter Online, and ConvertCSV.
 
-## Development
+## Keywords
 
-```bash
-npm install
-npm run dev      # Local dev server
-npm run deploy   # Deploy to Cloudflare
-```
+`json formatter api`, `json validator`, `json minify`, `json diff api`, `json to csv`, `csv to json`, `json schema validation`, `free json api`, `json toolkit`, `developer tools api`
