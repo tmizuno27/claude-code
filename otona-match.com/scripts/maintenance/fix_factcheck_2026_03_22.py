@@ -83,13 +83,13 @@ def apply_fixes(post_id, content):
         # Context-aware replacement: only replace 3,700円 near Pairs/ペアーズ
         # Strategy: split into chunks around "3,700円", check surrounding context
         def pairs_price_replacer(m):
-            start = max(0, m.start() - 200)
+            start = max(0, m.start() - 500)
             context_before = content[start:m.start()].lower()
-            end = min(len(content), m.end() + 200)
+            end = min(len(content), m.end() + 500)
             context_after = content[m.end():end].lower()
             ctx = context_before + context_after
-            # Check for Pairs context, exclude tapple context
-            has_pairs = any(kw in ctx for kw in ["pairs", "ペアーズ"])
+            # Check for Pairs context (include エウレカ = Pairs' company)
+            has_pairs = any(kw in ctx for kw in ["pairs", "ペアーズ", "エウレカ"])
             has_tapple = any(kw in ctx for kw in ["tapple", "タップル"])
             # If tapple is closer than pairs, skip
             if has_tapple and not has_pairs:
