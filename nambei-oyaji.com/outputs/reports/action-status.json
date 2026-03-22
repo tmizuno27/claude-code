@@ -2,68 +2,46 @@
   "date": "2026-03-22",
   "actions": [
     {
-      "id": "gsc-zero-investigation",
-      "title": "GSC表示0件の原因特定",
-      "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "result": "サイト側に技術的ブロックなし。GSCでサイトマップ送信が必要（手動）"
-    },
-    {
       "id": "apify-paypal-setup",
-      "title": "ApifyにPayPal設定",
+      "title": "ApifyのPayPal設定",
       "priority": "P1",
       "done": false,
-      "done_at": null,
-      "result": "手動設定が必要"
+      "done_at": null
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトデプロイ",
+      "title": "pSEOサイトをVercelデプロイ",
       "priority": "P1",
       "done": false,
-      "done_at": null,
-      "result": "ai-tool-compare-nu.vercel.appデプロイ済み。GSC登録+sitemap送信済み。残: カスタムドメイン+アフィリエイト設置"
+      "done_at": null
     },
     {
-      "id": "gumroad-stripe-kyc",
-      "title": "Stripe KYC解決",
-      "priority": "P2",
-      "done": false,
-      "done_at": null,
-      "result": "本人確認書類提出が必要"
-    },
-    {
-      "id": "rapidapi-seo-improvement",
-      "title": "RapidAPI導線・SEO改善",
-      "priority": "P2",
-      "done": false,
-      "done_at": null,
-      "result": "全24本のlisting更新済み。Studio反映スクリプト実行が必要（手動）"
-    },
-    {
-      "id": "chrome-ext-review-check",
-      "title": "Chrome拡張審査状況確認",
-      "priority": "P3",
-      "done": false,
-      "done_at": null,
-      "result": "Lorem IpsumのclipboardWrite削除済み。再パッケージが必要（手動）"
-    },
-    {
-      "id": "value-commerce-partnership",
-      "title": "Value Commerceプログラム提携",
-      "priority": "P3",
-      "done": false,
-      "done_at": null,
-      "result": "管理画面で手動申請が必要"
-    },
-    {
-      "id": "sim-hikaku-affiliate-insert",
-      "title": "sim-hikaku.online アフィリエイトリンク一括挿入（51記事）",
+      "id": "stripe-kyc-resolve",
+      "title": "Stripe KYC問題を解決",
       "priority": "P1",
       "done": false,
-      "done_at": null,
-      "result": "51記事に一括挿入完了（全SUCCESS）。ワイモバイル/UQモバイル/LINEMO/IIJmio/ahamo/HISモバイル/LIBMO/光回線/eSIM系を含む多数の案件リンクを設置"
+      "done_at": null
+    },
+    {
+      "id": "sim-gsc-bottleneck",
+      "title": "SIMサイトのCTR0%原因調査",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "rapidapi-free-to-paid",
+      "title": "RapidAPI無料上限を引き下げ",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "otona-gsc-title-fix",
+      "title": "マッチングサイトtitle改善",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
     }
   ]
 }
