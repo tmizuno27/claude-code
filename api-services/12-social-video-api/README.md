@@ -1,46 +1,55 @@
-# Social Video API
+# Free Social Video Download API - Extract Video URLs from Social Platforms
 
-Cloudflare Workers API that extracts video download URLs from social media platforms by parsing their public HTML pages.
+> **Free tier: 500 requests/month** | Extract direct download URLs from social media videos
 
-## Supported Platforms
+Extract video download URLs from YouTube, TikTok, Instagram, Twitter/X, and more by parsing public HTML pages. No scraping libraries or headless browsers -- pure HTTP parsing on Cloudflare Workers.
 
-| Platform | Method |
-|----------|--------|
-| TikTok | oembed + page HTML (`__UNIVERSAL_DATA_FOR_REHYDRATION__`, `SIGI_STATE`) |
-| Twitter/X | Syndication API + embed page |
-| Instagram | Embed page (`/p/{shortcode}/embed/`) |
-| YouTube | oembed + watch page (`ytInitialPlayerResponse`) |
-| Facebook | Page HTML (og tags, `playable_url`, `sd_src`/`hd_src`) |
+## Why Choose This Social Video API?
 
-## Endpoints
+- **Multi-platform** -- YouTube, TikTok, Instagram, Twitter/X, Facebook, Reddit
+- **Direct URLs** -- returns direct video file URLs for downloading
+- **Multiple qualities** -- extracts all available video quality options
+- **No browser automation** -- fast HTML parsing, no Puppeteer overhead
+- **Free tier** -- 500 requests/month at $0
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| GET | `/download?url=<video_url>` | Extract video download URL |
-| GET | `/info?url=<video_url>` | Get metadata only (no download URL) |
-| GET | `/platforms` | List supported platforms |
+## Use Cases
 
-## Rate Limits
+- **Video downloaders** -- build video download tools and browser extensions
+- **Social media managers** -- archive and repurpose social video content
+- **Content aggregators** -- embed social videos in your platform
+- **Data analysis** -- collect video metadata for research
 
-20 requests per minute per IP (configurable via `wrangler.toml` vars).
-
-## Development
+## Quick Start
 
 ```bash
-npm install
-npm run dev      # Local dev server
-npm run deploy   # Deploy to Cloudflare Workers
+curl -X GET "https://social-video-api.t-mizuno27.workers.dev/extract?url=https://www.tiktok.com/@user/video/123" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
 
-## Limitations
+### Python Example
 
-- Platforms frequently change their HTML structure, which may break extractors
-- Some platforms (especially Instagram and Facebook) heavily restrict scraping and may require authentication
-- YouTube video URLs are often signature-protected and may not be directly downloadable
-- No external paid APIs are used; all extraction is from publicly accessible pages
-- Rate limiting is per-isolate (in-memory), not globally distributed
+```python
+import requests
 
-## OpenAPI Spec
+url = "https://social-video-api.p.rapidapi.com/extract"
+params = {"url": "https://www.tiktok.com/@user/video/123"}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "social-video-api.p.rapidapi.com"}
 
-See `openapi.json` for the full OpenAPI 3.0.3 specification (RapidAPI compatible).
+data = requests.get(url, headers=headers, params=params).json()
+print(f"Download URL: {data['video_url']}")
+```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to RapidAPI video downloader APIs, SaveFrom, and yt-dlp API wrappers.
+
+## Keywords
+
+`video download api`, `social video api`, `tiktok download api`, `youtube video url`, `instagram video download`, `twitter video api`, `free video api`, `social media downloader`, `video extractor api`, `video url extractor`

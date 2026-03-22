@@ -1,65 +1,58 @@
-# Crypto Data API
+# Free Crypto Data API - Prices, Market Cap, Charts from CoinGecko
 
-Cloudflare Workers API that aggregates cryptocurrency data from CoinGecko's free API.
+> **Free tier: 500 requests/month** | Real-time cryptocurrency data aggregated from CoinGecko
 
-## Endpoints
+Get real-time cryptocurrency prices, market cap, 24h volume, price changes, and historical chart data for thousands of coins. Powered by CoinGecko's free API with Cloudflare Workers caching.
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info and endpoint list |
-| GET | `/price?ids=bitcoin,ethereum&vs=usd` | Current prices (multiple coins/currencies) |
-| GET | `/coin/:id` | Detailed coin info (market cap, volume, ATH, etc.) |
-| GET | `/search?q=bitcoin` | Search coins by name/symbol |
-| GET | `/trending` | Top trending coins |
-| GET | `/markets?vs=usd&per_page=100&page=1` | Market listings with pagination |
-| GET | `/history?id=bitcoin&date=2025-01-15` | Historical price on specific date |
-| GET | `/exchanges` | List top exchanges |
-| GET | `/global` | Global crypto market stats |
+## Why Choose This Crypto Data API?
 
-## Cache TTLs
+- **CoinGecko data** -- reliable, comprehensive cryptocurrency market data
+- **10,000+ coins** -- Bitcoin, Ethereum, Solana, and thousands of altcoins
+- **Historical charts** -- price history for 1d, 7d, 30d, 90d, 1y time ranges
+- **Market overview** -- global market cap, dominance, trending coins
+- **Edge-cached** -- fast responses via Cloudflare Workers caching
+- **Free tier** -- 500 requests/month at $0
 
-- Price data: 60s
-- Coin details: 300s
-- Markets: 60s
-- Search: 300s
-- Trending: 600s
-- History: 3600s
-- Exchanges: 600s
-- Global: 600s
+## Use Cases
 
-## Rate Limits
+- **Portfolio trackers** -- display real-time crypto prices and portfolio value
+- **Trading bots** -- feed price data into automated trading strategies
+- **Fintech apps** -- integrate cryptocurrency data alongside traditional finance
+- **Price alerts** -- monitor price changes and trigger notifications
+- **Analytics dashboards** -- chart historical price and volume data
+- **DeFi apps** -- display token prices in decentralized finance interfaces
 
-- API: 30 requests/min per IP
-- CoinGecko free tier: ~30 calls/min (handled with caching)
-
-## Development
+## Quick Start
 
 ```bash
-npm install
-npm run dev      # Local dev server
-npm run deploy   # Deploy to Cloudflare
+curl -X GET "https://crypto-data-api.t-mizuno27.workers.dev/price?coin=bitcoin" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
 
-## Response Format
+### Python Example
 
-All responses use a consistent wrapper:
+```python
+import requests
 
-```json
-{
-  "success": true,
-  "data": { ... }
-}
+url = "https://crypto-data-api.p.rapidapi.com/price"
+params = {"coin": "bitcoin"}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "crypto-data-api.p.rapidapi.com"}
+
+data = requests.get(url, headers=headers, params=params).json()
+print(f"BTC: ${data['price_usd']:,.2f} | 24h: {data['change_24h']}%")
 ```
 
-Error responses:
+## Pricing
 
-```json
-{
-  "success": false,
-  "error": "Error message"
-}
-```
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
 
-## Data Source
+## Alternative To
 
-[CoinGecko API v3](https://www.coingecko.com/en/api) (free tier, no API key required).
+A free alternative to CoinMarketCap API, CoinGecko Pro, and CryptoCompare.
+
+## Keywords
+
+`crypto api`, `cryptocurrency api`, `bitcoin price api`, `crypto market data`, `coin prices api`, `free crypto api`, `defi api`, `crypto chart api`, `market cap api`, `coingecko alternative`

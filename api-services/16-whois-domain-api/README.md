@@ -1,67 +1,58 @@
-# WHOIS Domain API
+# Free WHOIS Domain API - Domain Lookup, DNS Records, RDAP
 
-Domain WHOIS/RDAP lookup and DNS query API powered by Cloudflare Workers.
+> **Free tier: 500 requests/month** | WHOIS/RDAP domain lookup and DNS queries via Cloudflare DoH
 
-Uses the free **RDAP** (Registration Data Access Protocol) for domain registration data and **Cloudflare DoH** for DNS record queries. No API keys required.
+Look up domain registration data (registrar, creation date, expiration, nameservers) via RDAP protocol and query DNS records (A, AAAA, MX, TXT, CNAME, NS) via Cloudflare DNS over HTTPS. No external API keys required.
 
-## Endpoints
+## Why Choose This WHOIS API?
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| GET | `/lookup?domain=example.com` | Full RDAP/WHOIS lookup (registrar, dates, nameservers, DNSSEC) |
-| GET | `/dns?domain=example.com` | DNS records (A, AAAA, MX, NS, TXT, CNAME) |
-| GET | `/availability?domain=example.com` | Check if domain is available |
-| GET | `/tld-list` | List all RDAP-supported TLDs |
+- **RDAP protocol** -- modern replacement for WHOIS with structured JSON responses
+- **DNS queries** -- A, AAAA, MX, TXT, CNAME, NS records via Cloudflare DoH
+- **No upstream keys** -- uses free RDAP and Cloudflare DNS, zero external costs
+- **Domain availability** -- check if a domain is registered
+- **SSL info** -- certificate expiration and issuer details
+- **Free tier** -- 500 requests/month at $0
 
-## How It Works
+## Use Cases
 
-### RDAP Lookup Flow
-1. Extract TLD from domain (e.g., `com` from `example.com`)
-2. Fetch IANA RDAP bootstrap (`https://data.iana.org/rdap/dns.json`) to find the RDAP server for that TLD
-3. Query `{rdap_server}/domain/{domain}`
-4. Parse response for registration info, registrar, nameservers, DNSSEC
+- **Domain research** -- check registration details, expiration dates, registrar info
+- **Cybersecurity** -- investigate suspicious domains, check DNS configurations
+- **SEO tools** -- verify domain age and authority signals
+- **Brand protection** -- monitor domain registrations for trademark infringement
+- **DevOps** -- verify DNS propagation and record configuration
+- **Domain investing** -- research domain history and expiration dates
 
-### DNS Lookup
-Queries Cloudflare DoH (`https://cloudflare-dns.com/dns-query`) with `Accept: application/dns-json` for each record type.
-
-## Rate Limiting
-
-20 requests per minute per IP. Size-based cleanup (no timers).
-
-## Caching
-
-| Data | TTL |
-|------|-----|
-| RDAP responses | 3600s (1 hour) |
-| DNS responses | 300s (5 minutes) |
-| IANA bootstrap | 86400s (24 hours) |
-
-## Setup
+## Quick Start
 
 ```bash
-npm install
-npm run dev      # local development
-npm run deploy   # deploy to Cloudflare Workers
+curl -X GET "https://whois-domain-api.t-mizuno27.workers.dev/lookup?domain=example.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
 
-## Example Response
+### Python Example
 
-### GET /lookup?domain=example.com
+```python
+import requests
 
-```json
-{
-  "domain": "example.com",
-  "status": ["client delete prohibited", "client transfer prohibited"],
-  "registered": "1995-08-14T04:00:00Z",
-  "expires": "2025-08-13T04:00:00Z",
-  "lastUpdated": "2024-08-14T07:01:44Z",
-  "registrar": {
-    "name": "RESERVED-Internet Assigned Numbers Authority",
-    "url": null,
-    "ianaId": "376"
-  },
-  "nameservers": ["a.iana-servers.net", "b.iana-servers.net"],
-  "dnssec": "signed"
-}
+url = "https://whois-domain-api.p.rapidapi.com/lookup"
+params = {"domain": "github.com"}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "whois-domain-api.p.rapidapi.com"}
+
+data = requests.get(url, headers=headers, params=params).json()
+print(f"Registrar: {data['registrar']} | Expires: {data['expiration_date']}")
 ```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to WhoisXML API, DomainTools, and SecurityTrails.
+
+## Keywords
+
+`whois api`, `domain lookup api`, `rdap api`, `dns records api`, `domain info`, `domain availability`, `free whois api`, `nameserver lookup`, `ssl check api`, `domain registration api`

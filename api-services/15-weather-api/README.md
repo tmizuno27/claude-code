@@ -1,45 +1,59 @@
-# Weather API
+# Free Weather API - Forecast, Current Conditions, Historical Data
 
-Free weather data API powered by [Open-Meteo](https://open-meteo.com/), deployed on Cloudflare Workers. No API key required.
+> **Free tier: 500 requests/month** | Open-Meteo powered weather data -- no API key for data source
 
-## Endpoints
+Get current weather, hourly/daily forecasts, and historical weather data for any location. Powered by Open-Meteo (free, open-source) and deployed on Cloudflare Workers.
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| GET | `/current?lat={lat}&lon={lon}` | Current weather |
-| GET | `/forecast?lat={lat}&lon={lon}&days={1-16}` | Daily forecast |
-| GET | `/hourly?lat={lat}&lon={lon}&hours={1-384}` | Hourly forecast |
-| GET | `/geocode?q={city_name}` | City name to coordinates |
-| GET | `/history?lat={lat}&lon={lon}&start={YYYY-MM-DD}&end={YYYY-MM-DD}` | Historical data |
+## Why Choose This Weather API?
 
-## Examples
+- **Open-Meteo data** -- accurate weather from NOAA, ECMWF, DWD, and other national agencies
+- **No upstream API key** -- Open-Meteo is fully free and open-source
+- **Current + forecast** -- current conditions, hourly (48h), and daily (7d) forecasts
+- **Historical data** -- access past weather data for any date and location
+- **Geocoding** -- search by city name or coordinates
+- **Free tier** -- 500 requests/month at $0
 
-```bash
-# Current weather in Tokyo
-curl "https://weather-api.YOUR.workers.dev/current?lat=35.68&lon=139.76"
+## Use Cases
 
-# 7-day forecast for Asuncion
-curl "https://weather-api.YOUR.workers.dev/forecast?lat=-25.26&lon=-57.58&days=7"
+- **Travel apps** -- show weather forecasts for destinations
+- **Agriculture** -- historical weather data for crop planning
+- **Event planning** -- check weather forecasts for outdoor events
+- **IoT dashboards** -- display local weather alongside sensor data
+- **Logistics** -- weather-aware route planning and delivery ETAs
+- **Energy** -- solar/wind forecast for renewable energy planning
 
-# Find coordinates for a city
-curl "https://weather-api.YOUR.workers.dev/geocode?q=Tokyo"
-
-# Historical data
-curl "https://weather-api.YOUR.workers.dev/history?lat=35.68&lon=139.76&start=2025-01-01&end=2025-01-07"
-```
-
-## Features
-
-- WMO weather code to human-readable description mapping
-- CORS enabled
-- Rate limiting: 30 requests/minute per IP
-- Cache: current 5min, forecast 30min, history 24h
-
-## Setup
+## Quick Start
 
 ```bash
-npm install
-npm run dev      # Local development
-npm run deploy   # Deploy to Cloudflare Workers
+curl -X GET "https://weather-api.t-mizuno27.workers.dev/current?city=Tokyo" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
+
+### Python Example
+
+```python
+import requests
+
+url = "https://weather-api.p.rapidapi.com/forecast"
+params = {"city": "New York", "days": 7}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "weather-api.p.rapidapi.com"}
+
+data = requests.get(url, headers=headers, params=params).json()
+for day in data["daily"]:
+    print(f"{day['date']}: {day['temp_max']}C / {day['temp_min']}C")
+```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to OpenWeatherMap API, WeatherAPI, and AccuWeather.
+
+## Keywords
+
+`weather api`, `weather forecast api`, `free weather api`, `current weather api`, `historical weather`, `open meteo api`, `weather data`, `temperature api`, `forecast api`, `openweathermap alternative`

@@ -1,38 +1,59 @@
-# AI Text API
+# Free AI Text API - Generate, Summarize, Translate, Rewrite with Llama 3.1
 
-Text generation, summarization, translation, sentiment analysis, and rewriting powered by Cloudflare Workers AI (Llama 3.1 8B Instruct, free tier).
+> **Free tier: 500 requests/month** | AI-powered text generation using Cloudflare Workers AI (Llama 3.1 8B)
 
-## Endpoints
+Generate text, summarize articles, translate content, analyze sentiment, and rewrite paragraphs using Llama 3.1 8B Instruct. Runs on Cloudflare Workers AI free tier -- no OpenAI key needed.
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| POST | `/generate` | Text generation (prompt, max_tokens, temperature) |
-| POST | `/summarize` | Summarize text (text, max_length) |
-| POST | `/translate` | Translate text (text, source_lang, target_lang) |
-| POST | `/sentiment` | Sentiment analysis (text) |
-| POST | `/rewrite` | Rewrite in different tone (text, tone: formal/casual/professional/simple) |
+## Why Choose This AI Text API?
 
-## Limits
+- **No API key hassle** -- powered by Cloudflare Workers AI, no separate OpenAI/Anthropic key required
+- **Multi-purpose** -- generate, summarize, translate, rewrite, and analyze sentiment in one API
+- **Llama 3.1 8B** -- Meta's open-source model, good balance of speed and quality
+- **$0 infrastructure cost** -- runs on Cloudflare's free AI inference tier
+- **Free tier** -- 500 requests/month at $0
 
-- Rate limit: 30 requests/minute per IP
-- Max prompt (`/generate`): 1,000 characters
-- Max text (`/summarize`, `/translate`, `/sentiment`, `/rewrite`): 5,000 characters
+## Use Cases
 
-## Setup
+- **Content creation** -- generate blog post drafts, product descriptions, social media posts
+- **Email automation** -- rewrite emails for tone, summarize long threads
+- **Customer support** -- auto-generate response drafts based on ticket content
+- **Education** -- summarize articles, translate study materials
+- **Developer tools** -- generate code comments, documentation, commit messages
+- **Chatbots** -- power conversational AI features in your app
 
-```bash
-npm install
-npx wrangler dev    # local dev
-npx wrangler deploy # deploy to Cloudflare
-```
-
-Requires a Cloudflare account with Workers AI enabled (free tier).
-
-## Example
+## Quick Start
 
 ```bash
-curl -X POST https://ai-text-api.YOUR-SUBDOMAIN.workers.dev/generate \
+curl -X POST "https://ai-text-api.t-mizuno27.workers.dev/generate" \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "Write a haiku about coding", "max_tokens": 100}'
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"prompt": "Write a product description for noise-canceling headphones", "max_tokens": 200}'
 ```
+
+### Python Example
+
+```python
+import requests
+
+url = "https://ai-text-api.p.rapidapi.com/summarize"
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "ai-text-api.p.rapidapi.com"}
+payload = {"text": "Your long article text here...", "max_length": 100}
+
+data = requests.post(url, headers=headers, json=payload).json()
+print(f"Summary: {data['summary']}")
+```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to OpenAI GPT API, Cohere, and AI21 Labs. No per-token billing, no API key management.
+
+## Keywords
+
+`ai text api`, `text generation api`, `summarize api`, `ai rewrite`, `llama api`, `free ai api`, `gpt alternative api`, `text summarization`, `ai translate api`, `chatgpt alternative`
