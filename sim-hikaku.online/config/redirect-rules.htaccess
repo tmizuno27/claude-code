@@ -1,0 +1,73 @@
+# === sim-hikaku.online 重複記事301リダイレクト ===
+# 生成日: 2026-03-22 13:11
+# 重複記事を正規URLにリダイレクト
+
+# UQモバイル評判重複(悪い?)
+Redirect 301 /uq-f320e879/ https://sim-hikaku.online/uq-mobile-hyoban-kuchikomi/
+
+# UQモバイル評判重複(地方)
+Redirect 301 /uq-40dd0143/ https://sim-hikaku.online/uq-mobile-hyoban-kuchikomi/
+
+# UQモバイル評判重複(悪い7つ)
+Redirect 301 /uq-mobile-reputation-bad/ https://sim-hikaku.online/uq-mobile-hyoban-kuchikomi/
+
+# 楽天モバイル評判重複(レビュー)
+Redirect 301 /rakuten-mobile-review/ https://sim-hikaku.online/rakuten-mobile-hyoban/
+
+# 楽天モバイル重複(田舎1)
+Redirect 301 /article-0d7dc43b/ https://sim-hikaku.online/rakuten-mobile-hyoban/
+Redirect 301 /article-0d7dc43b https://sim-hikaku.online/rakuten-mobile-hyoban/
+
+# 楽天モバイル重複(大阪)
+Redirect 301 /article-c60c5a37/ https://sim-hikaku.online/rakuten-mobile-hyoban/
+Redirect 301 /article-c60c5a37 https://sim-hikaku.online/rakuten-mobile-hyoban/
+
+# 楽天モバイル重複(最新)
+Redirect 301 /article-0a0c1d12/ https://sim-hikaku.online/rakuten-mobile-hyoban/
+Redirect 301 /article-0a0c1d12 https://sim-hikaku.online/rakuten-mobile-hyoban/
+
+# 楽天モバイル重複(田舎2)
+Redirect 301 /article-04622/ https://sim-hikaku.online/rakuten-mobile-hyoban/
+Redirect 301 /article-04622 https://sim-hikaku.online/rakuten-mobile-hyoban/
+
+# LINEMO評判重複(レビュー)
+Redirect 301 /linemo-review/ https://sim-hikaku.online/linemo-hyoban/
+
+# LINEMO評判重複(悪い)
+Redirect 301 /linemo/ https://sim-hikaku.online/linemo-hyoban/
+
+# ahamo評判重複(レビュー)
+Redirect 301 /ahamo-review/ https://sim-hikaku.online/ahamo-hyoban/
+
+# ahamo評判重複(知恵袋)
+Redirect 301 /ahamo/ https://sim-hikaku.online/ahamo-hyoban/
+
+# IIJmio評判重複
+Redirect 301 /iijmio-review/ https://sim-hikaku.online/iijmio-hyoban/
+
+# mineo評判重複(レビュー)
+Redirect 301 /mineo-review/ https://sim-hikaku.online/mineo-hyoban/
+
+# mineo評判重複(地方)
+Redirect 301 /mineo/ https://sim-hikaku.online/mineo-hyoban/
+
+# ワイモバイル評判重複(レビュー)
+Redirect 301 /ymobile-review/ https://sim-hikaku.online/ymobile-hyoban/
+
+# povo評判重複(悪い)
+Redirect 301 /povo/ https://sim-hikaku.online/povo-review/
+
+# 格安SIM料金比較重複
+Redirect 301 /kakuyasu-sim-ryoukin-hikaku/ https://sim-hikaku.online/kakuyasu-sim-ryokin-hikaku-ichiran/
+
+# 1GB最安重複
+Redirect 301 /1gb-ika-kakuyasu-sim-ranking/ https://sim-hikaku.online/kakuyasu-sim-1gb-hikaku/
+
+# 10GB最安重複
+Redirect 301 /10gb-kakuyasu-sim-ranking/ https://sim-hikaku.online/kakuyasu-sim-10gb-hikaku/
+
+# 乗り換えガイド重複
+Redirect 301 /kakuyasu-sim-norikae-guide/ https://sim-hikaku.online/kakuyasu-sim-norikae-tejun-pillar/
+
+# 乗り換えMNP重複
+Redirect 301 /sim-mnp/ https://sim-hikaku.online/kakuyasu-sim-norikae-tejun-pillar/
