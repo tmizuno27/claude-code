@@ -3,43 +3,50 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyのPayPal設定",
+      "title": "ApifyPayPal出金設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトをVercelデプロイ",
+      "title": "pSEOサイトVercelデプロイ",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題を解決",
+      "title": "Stripe KYC認証解決",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "sim-gsc-bottleneck",
-      "title": "SIMサイトのCTR0%原因調査",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "rapidapi-free-to-paid",
-      "title": "RapidAPI無料上限を引き下げ",
+      "id": "rapidapi-review-listings",
+      "title": "RapidAPI説明文改善",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "otona-gsc-title-fix",
-      "title": "マッチングサイトtitle改善",
+      "id": "sim-hikaku-gsc-fix",
+      "title": "SIM比較表示→クリック改善",
       "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "otona-match-ctr-fix",
+      "title": "マッチングnavititle改善",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "x-account-launch",
+      "title": "Xアカウント開設・投稿開始",
+      "priority": "P3",
       "done": false,
       "done_at": null
     }
