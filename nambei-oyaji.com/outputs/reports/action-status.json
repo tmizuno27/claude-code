@@ -26,8 +26,8 @@
       "id": "sim-gsc-ctr-fix",
       "title": "SIMサイトCTR改善",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "12:17"
     },
     {
       "id": "rapidapi-traffic-audit",
@@ -40,8 +40,8 @@
       "id": "nambei-content-boost",
       "title": "南米サイト上位記事強化",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "12:18"
     },
     {
       "id": "x-first-post",

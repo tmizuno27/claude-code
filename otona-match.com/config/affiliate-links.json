@@ -60,6 +60,17 @@
           "note": "アクセストレード提携済（2026-03-22）iOSアプリ版"
         },
         {
+          "name": "バチェラーデート【Androidアプリ】",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100pt8f00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pt8f00opif",
+          "anchor_text": ["バチェラーデート"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ比較記事で使用（Androidアプリ訴求）",
+          "note": "アクセストレード提携済（2026-03-22）Androidアプリ版"
+        },
+        {
           "name": "ヒトオシ",
           "status": "pending_approval",
           "url": null,
