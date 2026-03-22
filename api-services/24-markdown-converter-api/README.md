@@ -1,66 +1,60 @@
-# Markdown Converter API
+# Free Markdown Converter API - HTML to Markdown, GFM, TOC, Syntax Highlight
 
-Bidirectional Markdown/HTML conversion with full GFM support, syntax highlighting, and auto-generated Table of Contents. Deployed on Cloudflare Workers.
+> **Free tier: 500 requests/month** | Bidirectional Markdown/HTML conversion with full GFM support
 
-## Endpoints
+Convert Markdown to HTML and HTML back to Markdown. Supports GitHub Flavored Markdown (GFM), auto-generated Table of Contents, syntax highlighting for code blocks, and tables.
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| POST | `/convert` | Markdown to HTML (with optional TOC) |
-| POST | `/reverse` | HTML to Markdown |
-| POST | `/toc` | Extract Table of Contents from Markdown |
+## Why Choose This Markdown Converter API?
 
-## Usage
+- **Bidirectional** -- Markdown to HTML and HTML to Markdown
+- **GFM support** -- tables, task lists, strikethrough, autolinks
+- **Table of Contents** -- auto-generate TOC from headings
+- **Syntax highlighting** -- code block highlighting for 100+ languages
+- **Sanitized output** -- XSS-safe HTML output
+- **Free tier** -- 500 requests/month at $0
 
-### Markdown to HTML
+## Use Cases
+
+- **CMS platforms** -- render Markdown content as HTML for web display
+- **Documentation tools** -- convert between Markdown and HTML formats
+- **Blog engines** -- process Markdown blog posts into styled HTML
+- **Email templates** -- convert Markdown drafts to HTML emails
+- **Developer tools** -- format README files and documentation
+- **Migration tools** -- convert HTML content to Markdown for Git-based CMS
+
+## Quick Start
 
 ```bash
-curl -X POST https://markdown-converter-api.t-mizuno27.workers.dev/convert \
+curl -X POST "https://markdown-converter-api.t-mizuno27.workers.dev/to-html" \
   -H "Content-Type: application/json" \
-  -d '{"markdown": "# Hello\n\nThis is **bold** text.", "toc": true}'
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"markdown": "# Hello World\n\nThis is **bold** text.", "toc": true}'
 ```
 
-**Response:**
-```json
-{
-  "html": "<h1 id=\"hello\">Hello</h1>\n<p>This is <strong>bold</strong> text.</p>",
-  "toc": [{"level": 1, "text": "Hello", "id": "hello"}]
-}
+### Python Example
+
+```python
+import requests
+
+url = "https://markdown-converter-api.p.rapidapi.com/to-html"
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "markdown-converter-api.p.rapidapi.com"}
+payload = {"markdown": "# My Document\n\n- Item 1\n- Item 2", "toc": True}
+
+data = requests.post(url, headers=headers, json=payload).json()
+print(data["html"])
 ```
 
-### HTML to Markdown
+## Pricing
 
-```bash
-curl -X POST https://markdown-converter-api.t-mizuno27.workers.dev/reverse \
-  -H "Content-Type: application/json" \
-  -d '{"html": "<h1>Hello</h1><p>This is <strong>bold</strong> text.</p>"}'
-```
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $5.99 | 50,000 | 10 req/sec |
 
-### Extract TOC
+## Alternative To
 
-```bash
-curl -X POST https://markdown-converter-api.t-mizuno27.workers.dev/toc \
-  -H "Content-Type: application/json" \
-  -d '{"markdown": "# Chapter 1\n## Section 1.1\n# Chapter 2"}'
-```
+A free alternative to Showdown.js API, Marked API, and Pandoc API.
 
-## Features
+## Keywords
 
-- Full GFM support (tables, task lists, strikethrough)
-- Syntax highlighting CSS classes for code blocks
-- Auto-generated Table of Contents with anchor links
-- Bidirectional conversion (MD to HTML and HTML to MD)
-- Pure JavaScript, no external dependencies
-
-## Rate Limiting
-
-20 requests per minute per IP.
-
-## Development
-
-```bash
-npm install
-npm run dev      # Local development
-npm run deploy   # Deploy to Cloudflare
-```
+`markdown to html api`, `html to markdown`, `markdown converter`, `gfm api`, `markdown parser api`, `free markdown api`, `toc generator`, `syntax highlighting api`, `markdown render api`, `text conversion api`
