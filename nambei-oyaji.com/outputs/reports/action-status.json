@@ -3,7 +3,7 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyPayPal出金設定",
+      "title": "ApifyにPayPal出金設定",
       "priority": "P1",
       "done": false,
       "done_at": null
@@ -17,29 +17,36 @@
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題解決",
+      "title": "Stripe KYC認証を完了させる",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "sim-content-audit",
-      "title": "SIMサイト記事品質監査",
+      "id": "rapidapi-review-listings",
+      "title": "RapidAPI上位APIのSEO最適化",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "rapidapi-free-to-paid",
-      "title": "RapidAPI無料枠削減検討",
+      "id": "sim-hikaku-gsc-fix",
+      "title": "SIM比較サイトのCTR改善",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "nambei-gsc-analysis",
-      "title": "南米おやじGSC検索分析",
+      "id": "otona-match-gsc-fix",
+      "title": "マッチングサイトtitle/meta改善",
       "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "x-account-activate",
+      "title": "Xアカウント開設＋初投稿",
+      "priority": "P3",
       "done": false,
       "done_at": null
     }
