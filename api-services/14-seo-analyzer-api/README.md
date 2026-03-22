@@ -1,8 +1,32 @@
 # Free SEO Analyzer API - On-Page SEO Audit with Scoring
 
-> **Free tier: 500 requests/month** | Analyze any URL's SEO elements and get a detailed score (0-100)
+> **Free tier: 500 requests/month** | 19 SEO checks with weighted scoring (0-100)
 
 Analyze any web page's SEO elements including title, meta description, headings, images, links, Open Graph, Twitter Cards, JSON-LD structured data, and more. Returns a weighted SEO score (0-100) based on 19 checks. Built on Cloudflare Workers.
+
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api) (free plan available)
+2. Copy your API key
+3. Analyze any page:
+
+```bash
+curl "https://seo-analyzer-api.p.rapidapi.com/analyze?url=https://example.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: seo-analyzer-api.p.rapidapi.com"
+```
+
+## How It Compares
+
+| Feature | This API | Ahrefs API | Moz API | Screaming Frog |
+|---------|----------|------------|---------|----------------|
+| Free tier | 500 req/mo | No free tier | Limited | Desktop only |
+| Price | $0-$24.99/mo | $99+/mo | $99+/mo | $259/yr |
+| SEO score | 0-100 weighted | Different metrics | Domain Authority | No score |
+| On-page audit | 19 checks | Comprehensive | Limited | Comprehensive |
+| Structured data | JSON-LD, OG, Twitter | Yes | No | Yes |
+| API response time | Sub-500ms | Variable | Variable | N/A (desktop) |
+| Setup | RapidAPI key only | Account + API key | Account + API key | Install software |
 
 ## Why Choose This SEO Analyzer API?
 
@@ -150,13 +174,30 @@ console.log(`SEO Score: ${data.seo_score}/100`);
 | Pro | $9.99 | 50,000 | 100 req/min |
 | Ultra | $24.99 | 500,000 | 500 req/min |
 
+## FAQ
+
+**Q: What SEO checks are included in the score?**
+A: Title (length + presence), meta description, H1, heading hierarchy, image alt text, internal/external links, canonical URL, robots meta, Open Graph, Twitter Card, JSON-LD, word count, page size, viewport, favicon, hreflang, and language tag -- 19 checks total with weighted scoring.
+
+**Q: Can I analyze JavaScript-rendered pages (SPAs)?**
+A: The API analyzes the initial HTML response. Client-side rendered content (React, Vue, Angular SPAs) may not be fully captured. For SPAs, ensure server-side rendering (SSR) or pre-rendering is enabled.
+
+**Q: How is the SEO score calculated?**
+A: Each of the 19 checks has a weight based on SEO impact. Title and meta description carry the highest weight. The total is normalized to 0-100.
+
+**Q: Can I use this in a CI/CD pipeline?**
+A: Yes. Use the /score endpoint to get just the numeric score. Fail builds if score drops below a threshold (e.g., `if score < 70 then fail`).
+
+**Q: Is there a bulk analysis endpoint?**
+A: Not currently. For bulk analysis, loop through the /analyze endpoint. At 20 req/min rate limit, you can audit 20 pages per minute.
+
 ## Alternative To
 
-A free alternative to Ahrefs Site Audit API, Moz API, and Screaming Frog. Get instant on-page SEO analysis without monthly subscriptions or complex setup.
+A free alternative to Ahrefs Site Audit API ($99+/mo), Moz API ($99+/mo), and Screaming Frog ($259/yr). Get instant on-page SEO analysis with a simple REST API call -- no monthly subscriptions, no complex setup.
 
 ## Keywords
 
-`seo analyzer api`, `seo audit api`, `on-page seo`, `website seo score`, `seo check api`, `meta tag analyzer`, `heading analysis`, `structured data checker`, `free seo api`, `page audit api`
+`seo analyzer api`, `seo audit api`, `on-page seo`, `website seo score`, `seo check api`, `meta tag analyzer`, `heading analysis`, `structured data checker`, `free seo api`, `page audit api`, `ahrefs alternative`, `seo score api`, `website audit api`
 
 ## Development
 
