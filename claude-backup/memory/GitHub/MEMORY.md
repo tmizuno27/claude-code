@@ -151,6 +151,7 @@
 - **一覧表示**: [feedback_agent_list_table.md](feedback_agent_list_table.md) — 「エージェント一覧」等で表形式出力（呼び出し方+得意作業）
 
 ## ユーザー設定・好み
+- **先送り禁止**: [feedback_no_postpone.md](feedback_no_postpone.md) — 「次回対応」は禁止。今できることは今やる（全事業共通）
 - **手動より自動化優先**: [feedback_automate_over_manual.md](feedback_automate_over_manual.md) — 繰り返し手動作業は最初から自動化を提案
 - **自動作業は徹底的に**: [feedback_auto_work_exhaustive.md](feedback_auto_work_exhaustive.md) — 「自動で進めて」=全事業一括洗い出し+全実行。小出し禁止、コスト制限なし
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
