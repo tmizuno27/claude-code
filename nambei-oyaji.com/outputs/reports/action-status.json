@@ -1,12 +1,12 @@
 {
-  "date": "2026-03-21",
+  "date": "2026-03-22",
   "actions": [
     {
       "id": "gsc-zero-investigation",
       "title": "GSC表示0件の原因特定",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-21T10:15:00",
+      "done": false,
+      "done_at": null,
       "result": "サイト側に技術的ブロックなし。GSCでサイトマップ送信が必要（手動）"
     },
     {
@@ -21,8 +21,8 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトデプロイ",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-20",
+      "done": false,
+      "done_at": null,
       "result": "ai-tool-compare-nu.vercel.appデプロイ済み。GSC登録+sitemap送信済み。残: カスタムドメイン+アフィリエイト設置"
     },
     {
@@ -37,16 +37,16 @@
       "id": "rapidapi-seo-improvement",
       "title": "RapidAPI導線・SEO改善",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-21T10:30:00",
+      "done": false,
+      "done_at": null,
       "result": "全24本のlisting更新済み。Studio反映スクリプト実行が必要（手動）"
     },
     {
       "id": "chrome-ext-review-check",
       "title": "Chrome拡張審査状況確認",
       "priority": "P3",
-      "done": true,
-      "done_at": "2026-03-21T10:15:00",
+      "done": false,
+      "done_at": null,
       "result": "Lorem IpsumのclipboardWrite削除済み。再パッケージが必要（手動）"
     },
     {
@@ -61,8 +61,8 @@
       "id": "sim-hikaku-affiliate-insert",
       "title": "sim-hikaku.online アフィリエイトリンク一括挿入（51記事）",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-21T11:00:00",
+      "done": false,
+      "done_at": null,
       "result": "51記事に一括挿入完了（全SUCCESS）。ワイモバイル/UQモバイル/LINEMO/IIJmio/ahamo/HISモバイル/LIBMO/光回線/eSIM系を含む多数の案件リンクを設置"
     }
   ]
