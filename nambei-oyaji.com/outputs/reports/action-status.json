@@ -17,36 +17,29 @@
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC認証解決",
+      "title": "Stripe KYC問題解決",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "rapidapi-review-listings",
-      "title": "RapidAPI説明文改善",
+      "id": "sim-content-audit",
+      "title": "SIMサイト記事品質監査",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "sim-hikaku-gsc-fix",
-      "title": "SIM比較表示→クリック改善",
+      "id": "rapidapi-free-to-paid",
+      "title": "RapidAPI無料枠削減検討",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "otona-match-ctr-fix",
-      "title": "マッチングnavititle改善",
+      "id": "nambei-gsc-analysis",
+      "title": "南米おやじGSC検索分析",
       "priority": "P2",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "x-account-launch",
-      "title": "Xアカウント開設・投稿開始",
-      "priority": "P3",
       "done": false,
       "done_at": null
     }
