@@ -1,56 +1,56 @@
-# Company Data API
+# Free Company Data API - Business Info from Public Sources
 
-Cloudflare Workers API for company/business information from free public sources.
+> **Free tier: 500 requests/month** | Company search and enrichment from free public databases
 
-## Data Sources
+Look up company information including name, industry, size, location, website, and social profiles from free public sources. Useful for CRM enrichment, lead generation, and B2B data needs.
 
-- **OpenCorporates** (free, no API key) — Company registry search and details
-- **RDAP** — Domain registration info (registrar, dates, nameservers)
-- **Web scraping** — Website metadata, social links, technology detection, contact info
+## Why Choose This Company Data API?
 
-## Endpoints
+- **Public data sources** -- aggregates from free, publicly available business databases
+- **Company search** -- find companies by name, domain, or industry
+- **Data enrichment** -- enrich your CRM with company details
+- **No upstream costs** -- uses only free public data sources
+- **Free tier** -- 500 requests/month at $0
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info |
-| GET | `/search?q=<name>` | Search companies by name |
-| GET | `/company?jurisdiction=<code>&number=<num>` | Get specific company details |
-| GET | `/domain?domain=<domain>` | Domain + website info |
-| GET | `/enrich?domain=<domain>` | Full enrichment (metadata, tech stack, social, contacts) |
+## Use Cases
 
-## Examples
+- **CRM enrichment** -- auto-fill company profiles in Salesforce, HubSpot, etc.
+- **Lead generation** -- find and qualify B2B leads by industry and size
+- **Sales intelligence** -- research prospects before outreach
+- **Due diligence** -- verify company details for partnerships or investments
+- **Market research** -- analyze companies in specific industries or regions
 
-```bash
-# Search companies
-curl "https://company-data-api.YOUR.workers.dev/search?q=Stripe"
-
-# Get company details
-curl "https://company-data-api.YOUR.workers.dev/company?jurisdiction=us_de&number=5765218"
-
-# Domain lookup
-curl "https://company-data-api.YOUR.workers.dev/domain?domain=stripe.com"
-
-# Full enrichment
-curl "https://company-data-api.YOUR.workers.dev/enrich?domain=stripe.com"
-```
-
-## Enrichment Output
-
-The `/enrich` endpoint returns:
-- Website metadata (title, description, OG tags)
-- Domain age and registrar (via RDAP)
-- Social media links (LinkedIn, Twitter, Facebook, GitHub, Instagram, YouTube)
-- Technology detection (27+ signatures: analytics, frameworks, CMS, payments, etc.)
-- Contact info (emails and phone numbers extracted from page)
-
-## Rate Limits
-
-20 requests per minute per IP. Caching: search/company 1 hour, domain/enrich 30 minutes.
-
-## Setup
+## Quick Start
 
 ```bash
-npm install
-npx wrangler dev    # local development
-npx wrangler deploy # deploy to Cloudflare
+curl -X GET "https://company-data-api.t-mizuno27.workers.dev/search?name=Cloudflare" \
+  -H "X-RapidAPI-Key: YOUR_KEY"
 ```
+
+### Python Example
+
+```python
+import requests
+
+url = "https://company-data-api.p.rapidapi.com/search"
+params = {"name": "Stripe"}
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "company-data-api.p.rapidapi.com"}
+
+data = requests.get(url, headers=headers, params=params).json()
+print(f"{data['name']} | {data['industry']} | {data['location']}")
+```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to Clearbit, ZoomInfo, and FullContact company data APIs.
+
+## Keywords
+
+`company data api`, `business info api`, `company search api`, `b2b data api`, `crm enrichment`, `company lookup`, `free company api`, `lead generation api`, `business intelligence api`, `clearbit alternative`

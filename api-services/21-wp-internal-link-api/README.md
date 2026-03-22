@@ -1,53 +1,62 @@
-# WP Internal Link Optimization API
+# Free WordPress Internal Link API - SEO Link Suggestions
 
-Cloudflare Workers API that analyzes WordPress article content and suggests internal links based on keyword matching and relevance scoring.
+> **Free tier: 500 requests/month** | Analyze WordPress content and suggest internal link opportunities
 
-## Endpoints
+Analyze your WordPress article content and get intelligent internal link suggestions based on keyword matching and relevance scoring. Improve your site's SEO by building a stronger internal linking structure.
 
-### POST /analyze
-Analyze article HTML against a sitemap or list of existing pages. Returns ranked internal link suggestions with anchor text, confidence scores, and insert positions.
+## Why Choose This WP Internal Link API?
 
-**Request body:**
-```json
-{
-  "article_html": "<h1>My Article</h1><p>Content about WordPress SEO...</p>",
-  "article_title": "My Article Title",
-  "sitemap_url": "https://example.com/sitemap.xml",
-  "pages": [
-    { "url": "https://example.com/page1", "title": "Page One", "content": "optional content" }
-  ]
-}
-```
-Provide either `sitemap_url` OR `pages`, not both required.
+- **Keyword matching** -- identifies link opportunities based on content analysis
+- **Relevance scoring** -- ranks suggestions by contextual relevance
+- **WordPress-native** -- designed specifically for WordPress content workflows
+- **Bulk analysis** -- analyze multiple articles in one request
+- **Free tier** -- 500 requests/month at $0
 
-### POST /suggest
-Lightweight keyword-to-URL matching. Returns keyword matches found in article text that correspond to existing page titles.
+## Use Cases
 
-**Request body:**
-```json
-{
-  "article_text": "Plain text content about WordPress SEO optimization...",
-  "pages": [
-    { "url": "https://example.com/seo-guide", "title": "SEO Optimization Guide" }
-  ]
-}
-```
+- **WordPress SEO** -- strengthen internal linking for better crawlability and rankings
+- **Content management** -- find link opportunities when publishing new articles
+- **SEO audits** -- identify pages with too few or too many internal links
+- **Content strategy** -- discover content gaps based on orphan pages
+- **Agency workflows** -- bulk analyze client WordPress sites
 
-### GET /health
-Returns `{ "status": "ok" }`.
-
-## Development
+## Quick Start
 
 ```bash
-npm install
-npm run dev      # Local dev server
-npm run deploy   # Deploy to Cloudflare
+curl -X POST "https://wp-internal-link-api.t-mizuno27.workers.dev/analyze" \
+  -H "Content-Type: application/json" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"content": "Your article HTML content...", "articles": [{"title": "Related Post", "url": "/related-post", "keywords": ["keyword1"]}]}'
 ```
 
-## Pricing (RapidAPI)
+### Python Example
 
-| Plan | Price | Requests/month |
-|------|-------|---------------|
-| Free | $0 | 100 |
-| Pro | $9.99 | 1,000 |
-| Ultra | $29.99 | 10,000 |
+```python
+import requests
+
+url = "https://wp-internal-link-api.p.rapidapi.com/analyze"
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "wp-internal-link-api.p.rapidapi.com"}
+payload = {
+    "content": "<p>Your article content about SEO...</p>",
+    "articles": [{"title": "SEO Guide", "url": "/seo-guide", "keywords": ["seo", "optimization"]}]
+}
+
+data = requests.post(url, headers=headers, json=payload).json()
+for suggestion in data["suggestions"]:
+    print(f"Link '{suggestion['anchor']}' to {suggestion['url']} (score: {suggestion['score']})")
+```
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
+
+## Alternative To
+
+A free alternative to Link Whisper, Yoast Internal Linking, and Internal Link Juicer.
+
+## Keywords
+
+`wordpress internal links`, `internal link api`, `wordpress seo api`, `link suggestion api`, `seo internal linking`, `content linking`, `free wordpress api`, `link optimization`, `site structure api`, `wp seo tool`

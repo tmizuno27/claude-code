@@ -1,57 +1,59 @@
-# AI Translate API
+# Free AI Translation API - 100+ Languages via Meta M2M-100
 
-Translation API powered by Cloudflare Workers AI (free tier) using the `@cf/meta/m2m100-1.2b` model.
+> **Free tier: 500 requests/month** | Neural machine translation powered by Cloudflare Workers AI
 
-## Endpoints
+Translate text between 100+ languages using Meta's M2M-100 1.2B model running on Cloudflare Workers AI free tier. No Google Translate or DeepL API key needed.
 
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/` | API info with supported languages |
-| POST | `/translate` | Translate text |
-| POST | `/detect` | Detect language (uses Llama 3.1 8B) |
-| POST | `/batch` | Batch translate up to 10 texts |
-| GET | `/languages` | List supported language codes |
+## Why Choose This Translation API?
 
-## Usage
+- **100+ languages** -- powered by Meta's M2M-100 multilingual model
+- **No upstream API key** -- runs on Cloudflare Workers AI free tier
+- **Direct translation** -- translates between any language pair without pivoting through English
+- **Neural quality** -- modern transformer model, not rule-based translation
+- **Free tier** -- 500 requests/month at $0
 
-### Translate
+## Use Cases
+
+- **SaaS localization** -- translate UI strings and content dynamically
+- **Customer support** -- translate incoming tickets and outgoing responses
+- **E-commerce** -- translate product listings for international markets
+- **Chat apps** -- real-time message translation between users
+- **Content platforms** -- offer auto-translation for user-generated content
+- **Education** -- translate study materials and assignments
+
+## Quick Start
 
 ```bash
-curl -X POST https://ai-translate-api.<account>.workers.dev/translate \
+curl -X POST "https://ai-translate-api.t-mizuno27.workers.dev/translate" \
   -H "Content-Type: application/json" \
-  -d '{"text": "Hello world", "source_lang": "en", "target_lang": "ja"}'
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -d '{"text": "Hello, how are you?", "source": "en", "target": "es"}'
 ```
 
-### Detect Language
+### Python Example
 
-```bash
-curl -X POST https://ai-translate-api.<account>.workers.dev/detect \
-  -H "Content-Type: application/json" \
-  -d '{"text": "Bonjour le monde"}'
+```python
+import requests
+
+url = "https://ai-translate-api.p.rapidapi.com/translate"
+headers = {"X-RapidAPI-Key": "YOUR_KEY", "X-RapidAPI-Host": "ai-translate-api.p.rapidapi.com"}
+payload = {"text": "Good morning", "source": "en", "target": "ja"}
+
+data = requests.post(url, headers=headers, json=payload).json()
+print(f"Translation: {data['translated_text']}")
 ```
 
-### Batch Translate
+## Pricing
 
-```bash
-curl -X POST https://ai-translate-api.<account>.workers.dev/batch \
-  -H "Content-Type: application/json" \
-  -d '{"texts": ["hello", "world"], "source_lang": "en", "target_lang": "es"}'
-```
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
 
-## Supported Languages (44)
+## Alternative To
 
-en, es, fr, de, it, pt, nl, pl, ru, zh, ja, ko, ar, hi, tr, vi, th, id, cs, ro, da, fi, hu, no, sv, uk, bg, el, hr, sk, sl, sr, lt, lv, et, mt, ga, cy, af, sw, ha, ig, yo, zu
+A free alternative to DeepL API, Google Translate API, and LibreTranslate.
 
-## Rate Limiting
+## Keywords
 
-30 requests per minute per IP.
-
-## Setup
-
-```bash
-npm install
-npx wrangler dev    # local development
-npx wrangler deploy # deploy to Cloudflare
-```
-
-Requires a Cloudflare account with Workers AI enabled (free tier).
+`translation api`, `ai translate api`, `free translation api`, `multilingual api`, `machine translation`, `deepl alternative`, `google translate alternative`, `m2m100 api`, `language translation`, `text translation api`
