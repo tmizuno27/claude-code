@@ -67,8 +67,6 @@
       }
     ]
   },
-  "autoUpdatesChannel": "latest",
-  "effortLevel": "low",
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
       "source": {
@@ -76,5 +74,10 @@
         "repo": "anthropics/claude-plugins-official"
       }
     }
+  },
+  "effortLevel": "low",
+  "autoUpdatesChannel": "latest",
+  "enabledPlugins": {
+    "discord@claude-plugins-official": true
   }
 }
