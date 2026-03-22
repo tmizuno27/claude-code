@@ -76,53 +76,28 @@ def fix_192(content: str) -> tuple[str, list[str]]:
 
 
 def fix_185(content: str) -> tuple[str, list[str]]:
-    """ID:185 — コンフォートモード → プライベートモード"""
-    changes = []
-    # Replace feature name
-    if 'コンフォートモード' in content:
-        content = content.replace('コンフォートモード', 'プライベートモード（VIPオプション必要）')
-        changes.append("Replaced 'コンフォートモード' -> 'プライベートモード（VIPオプション必要）'")
-    else:
-        changes.append("WARNING: 'コンフォートモード' not found")
-
-    # Remove (無料) near プライベートモード
-    content_new = re.sub(r'プライベートモード（VIPオプション必要）\s*[（(]無料[）)]', 'プライベートモード（VIPオプション必要）', content)
-    if content_new != content:
-        changes.append("Removed (無料) near プライベートモード")
-        content = content_new
-
-    # Also check original context: if (無料) was right after コンフォートモード before replacement
-    content_new = re.sub(r'プライベートモード（VIPオプション必要）\s*（無料）', 'プライベートモード（VIPオプション必要）', content)
-    if content_new != content:
-        changes.append("Removed （無料） near feature")
-        content = content_new
-
-    return content, changes
+    """ID:185 — Already correct (プライベートモード exists). Skip."""
+    return content, ["SKIP: Already has プライベートモード (コンフォートモード not present)"]
 
 
 def fix_15(content: str) -> tuple[str, list[str]]:
     """ID:15 — ハッピーメール ポイント数"""
     changes = []
-    # 370P near 3,000円 → 320P
-    new, n = re.subn(r'(?<=3,000円.{0,50})370P', '320P', content, flags=re.DOTALL)
-    if n == 0:
-        new, n = re.subn(r'370P(?=.{0,50}3,000円)', '320P', content, flags=re.DOTALL)
-    if n == 0:
-        # Try broader
-        new, n = re.subn(r'370P', '320P', content)
-    if n > 0:
-        changes.append(f"Replaced '370P' -> '320P' ({n}x)")
-        content = new
+    # Article uses "ポイント" not "P"
+    if '370ポイント' in content:
+        content = content.replace('370ポイント', '320ポイント')
+        changes.append("Replaced '370ポイント' -> '320ポイント'")
 
-    # 650P near 5,000円 → 550P
-    new, n = re.subn(r'(?<=5,000円.{0,50})650P', '550P', content, flags=re.DOTALL)
-    if n == 0:
-        new, n = re.subn(r'650P(?=.{0,50}5,000円)', '550P', content, flags=re.DOTALL)
-    if n == 0:
-        new, n = re.subn(r'650P', '550P', content)
-    if n > 0:
-        changes.append(f"Replaced '650P' -> '550P' ({n}x)")
-        content = new
+    if '650ポイント' in content:
+        content = content.replace('650ポイント', '550ポイント')
+        changes.append("Replaced '650ポイント' -> '550ポイント'")
+
+    # Fallback: try P notation
+    if not changes:
+        for old, new_val in [('370P', '320P'), ('650P', '550P')]:
+            if old in content:
+                content = content.replace(old, new_val)
+                changes.append(f"Replaced '{old}' -> '{new_val}'")
 
     if not changes:
         changes.append("WARNING: No point values found to fix")
@@ -130,30 +105,18 @@ def fix_15(content: str) -> tuple[str, list[str]]:
 
 
 def fix_16(content: str) -> tuple[str, list[str]]:
-    """ID:16 — PCMAX プロフ閲覧 4P→1P"""
+    """ID:16 — PCMAX プロフ閲覧 4ポイント（40円）→1ポイント（10円）"""
     changes = []
-    # Look for 4P near プロフ context
-    # Try pattern: number P near プロフィール閲覧 or プロフ閲覧
-    pat = r'(プロフ(?:ィール)?閲覧.{0,80}?)4P'
-    new, n = re.subn(pat, r'\g<1>1P', content, flags=re.DOTALL)
-    if n == 0:
-        pat2 = r'4P(.{0,80}?プロフ(?:ィール)?閲覧)'
-        new, n = re.subn(pat2, r'1P\1', content, flags=re.DOTALL)
-    if n == 0:
-        # Try just replacing 4P in table-like context
-        new, n = re.subn(r'4P', '1P', content)
-    if n > 0:
-        changes.append(f"Replaced '4P' -> '1P' ({n}x)")
-        content = new
+    # The article uses "4ポイント（40円）" pattern
+    if '4ポイント（40円）' in content:
+        content = content.replace('4ポイント（40円）', '1ポイント（10円）')
+        changes.append("Replaced '4ポイント（40円）' -> '1ポイント（10円）'")
+    elif '4ポイント(40円)' in content:
+        content = content.replace('4ポイント(40円)', '1ポイント(10円)')
+        changes.append("Replaced '4ポイント(40円)' -> '1ポイント(10円)'")
+    else:
+        changes.append("WARNING: '4ポイント（40円）' pattern not found")
 
-    # 40円 → 10円 near プロフ context
-    new, n = re.subn(r'40円', '10円', content)
-    if n > 0:
-        changes.append(f"Replaced '40円' -> '10円' ({n}x)")
-        content = new
-
-    if not changes:
-        changes.append("WARNING: No PCMAX profile cost found")
     return content, changes
 
 
