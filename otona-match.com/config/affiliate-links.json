@@ -49,6 +49,17 @@
           "note": "アクセストレード提携済（2026-03-22）女性LP_01"
         },
         {
+          "name": "バチェラーデート【iOSアプリ】",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100p6i900opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100p6i900opif",
+          "anchor_text": ["バチェラーデート"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ比較記事で使用（iOSアプリ訴求）",
+          "note": "アクセストレード提携済（2026-03-22）iOSアプリ版"
+        },
+        {
           "name": "ヒトオシ",
           "status": "pending_approval",
           "url": null,
