@@ -3,11 +3,14 @@ Run with --apply to actually update articles. Without it, dry-run only.
 """
 
 import argparse
+import io
 import json
 import re
 import sys
 from datetime import datetime
 from pathlib import Path
+
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 import requests
 from requests.auth import HTTPBasicAuth
