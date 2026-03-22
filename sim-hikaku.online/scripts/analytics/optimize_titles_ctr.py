@@ -150,8 +150,10 @@ def optimize_sim_title(post_id, old_title, slug):
 
     if "を徹底比較" in new_title and "プロが" not in new_title:
         new_title = new_title.replace("を徹底比較", "をプロが徹底比較", 1)
+    elif "で徹底比較" in new_title and "プロが" not in new_title:
+        new_title = new_title.replace("で徹底比較", "でプロが徹底比較", 1)
     elif "徹底比較" in new_title and "プロが" not in new_title:
-        new_title = new_title.replace("徹底比較", "プロが徹底比較", 1)
+        new_title = new_title.replace("徹底比較", " プロが徹底比較", 1)
 
     if "完全ガイド" in new_title and "攻略" not in new_title:
         new_title = new_title.replace("完全ガイド", "完全攻略ガイド", 1)
@@ -189,10 +191,12 @@ def optimize_otona_title(post_id, old_title, slug):
     elif "徹底検証" in new_title and "300人" not in new_title:
         new_title = new_title.replace("徹底検証", "利用者300人の声で検証", 1)
 
-    if "を徹底比較" in new_title and "全" not in new_title:
+    if "を徹底比較" in new_title and "全項目" not in new_title:
         new_title = new_title.replace("を徹底比較", "を全項目で徹底比較", 1)
-    elif "徹底比較" in new_title and "全項目" not in new_title:
-        new_title = new_title.replace("徹底比較", "全項目で徹底比較", 1)
+    elif "で徹底比較" in new_title and "全項目" not in new_title:
+        new_title = new_title.replace("で徹底比較", "で全項目を徹底比較", 1)
+    elif "に徹底比較" in new_title and "全項目" not in new_title:
+        new_title = new_title.replace("に徹底比較", "を全項目で徹底比較", 1)
 
     # 数字を入れる（体験談系）
     if "体験談" in new_title and not re.search(r"\d+選", new_title):

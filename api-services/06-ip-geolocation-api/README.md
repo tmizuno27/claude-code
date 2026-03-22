@@ -1,8 +1,32 @@
 # Free IP Geolocation API - Country, City, VPN Detection, Bulk Lookup
 
-> **Free tier: 500 requests/month** | Your only subscriber-proven API -- already generating $9.99/mo revenue
+> **Free tier: 500 requests/month** | VPN detection + bulk lookups + 15 data fields per IP
 
 Look up any IP address to get country, city, region, timezone, ISP, and VPN/proxy/datacenter detection. Supports single IP lookup, own-IP detection, and bulk lookups (up to 20 IPs). Powered by Cloudflare Workers with 24-hour caching.
+
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/ip-geolocation-api) (free plan available)
+2. Copy your API key
+3. Look up any IP:
+
+```bash
+curl "https://ip-geolocation-api.p.rapidapi.com/lookup?ip=8.8.8.8" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: ip-geolocation-api.p.rapidapi.com"
+```
+
+## How It Compares
+
+| Feature | This API | ipinfo.io | ipstack | ip-api.com |
+|---------|----------|-----------|---------|------------|
+| Free tier | 500 req/mo | 50K req/mo | 100 req/mo | 45 req/min (no HTTPS) |
+| HTTPS on free | Yes | Yes | No | No |
+| VPN detection | Yes | Paid add-on ($99/mo) | Paid add-on | No |
+| Bulk lookup | 20 IPs/request | 1,000 (paid) | 1 per request | 100/batch |
+| Price (paid) | $5.99/mo | $99/mo | $9.99/mo | $13/mo |
+| Own-IP endpoint | /me (zero-cost) | Yes | Yes | Yes |
+| Edge caching | 24h (CF Workers) | No | No | No |
 
 ## Why Choose This IP Geolocation API?
 
@@ -141,13 +165,30 @@ Batch lookup up to 20 IPs. Body: `{"ips": ["8.8.8.8", "1.1.1.1"]}`
 | Pro | $5.99 | 50,000 | 10 req/sec |
 | Ultra | $14.99 | 500,000 | 50 req/sec |
 
+## FAQ
+
+**Q: How accurate is the geolocation data?**
+A: City-level accuracy is typically 80-90% for fixed-line IPs. Mobile and VPN IPs may resolve to ISP headquarters. Country-level accuracy is 99%+.
+
+**Q: How does VPN/proxy detection work?**
+A: The `is_datacenter` field uses ISP name pattern matching against known cloud/hosting providers. The `is_vpn` and `is_proxy` fields use the upstream data source's classification.
+
+**Q: What happens when I hit the rate limit?**
+A: You receive a 429 status code with a retry-after header. Upgrade to Pro for 10x the rate limit.
+
+**Q: Can I look up IPv6 addresses?**
+A: Yes. Both IPv4 and IPv6 are supported on the /lookup endpoint.
+
+**Q: What's the /me endpoint for?**
+A: It returns the geolocation of the caller's IP using Cloudflare's built-in request.cf data -- zero external API calls, making it the fastest endpoint.
+
 ## Alternative To
 
-A free alternative to ipinfo.io, ipstack, and ip-api.com Pro. Get VPN detection, bulk lookups, and rich geolocation data without per-lookup pricing.
+A free alternative to ipinfo.io ($99/mo for VPN detection), ipstack, and ip-api.com Pro. Get VPN detection, bulk lookups, and rich geolocation data at a fraction of the cost.
 
 ## Keywords
 
-`ip geolocation api`, `ip lookup`, `geoip`, `ip to location`, `vpn detection api`, `proxy detection`, `ip address api`, `geolocation rest api`, `free ip api`, `bulk ip lookup`
+`ip geolocation api`, `ip lookup`, `geoip`, `ip to location`, `vpn detection api`, `proxy detection`, `ip address api`, `geolocation rest api`, `free ip api`, `bulk ip lookup`, `ipinfo alternative`, `ip geolocation free`, `ip to country api`
 
 ## Development
 

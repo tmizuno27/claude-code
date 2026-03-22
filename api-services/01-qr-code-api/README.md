@@ -1,8 +1,34 @@
 # Free QR Code Generator API - PNG, SVG, Base64 | No Auth Required
 
-> **Free tier: 500 requests/month** | Lightning-fast QR code generation on Cloudflare Workers edge network
+> **Free tier: 500 requests/month** | PNG, SVG, Base64 with custom colors in sub-100ms
 
 Generate production-ready QR codes in PNG, SVG, or Base64 format with custom colors, sizes, and error correction levels. No API key setup needed -- just subscribe on RapidAPI and start generating.
+
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/qr-code-generator-api) (free plan available)
+2. Copy your API key
+3. Generate your first QR code:
+
+```bash
+curl "https://qr-code-generator-api.p.rapidapi.com/generate?text=https://example.com&size=400" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: qr-code-generator-api.p.rapidapi.com" \
+  -o qrcode.png
+```
+
+## How It Compares
+
+| Feature | This API | goqr.me | QR Server | QRickit |
+|---------|----------|---------|-----------|---------|
+| Free tier | 500 req/mo | Unlimited (no SLA) | Unlimited (no SLA) | Limited |
+| Output formats | PNG, SVG, Base64 | PNG, SVG, EPS | PNG | PNG, SVG |
+| Custom colors | Yes (fg + bg) | Yes | Limited | Yes |
+| Error correction | L/M/Q/H selectable | Fixed | Fixed | Limited |
+| Base64 JSON | Yes | No | No | No |
+| Edge latency | Sub-100ms (CF) | Variable | Variable | Variable |
+| Rate limiting | Documented headers | Undocumented | Undocumented | Undocumented |
+| SLA/Support | RapidAPI backed | None | None | None |
 
 ## Why Choose This QR Code API?
 
@@ -128,13 +154,30 @@ Default: 60 requests per minute per IP. Headers returned:
 - `X-RateLimit-Remaining` -- Remaining requests
 - `X-RateLimit-Reset` -- Seconds until window resets
 
+## FAQ
+
+**Q: What's the maximum text/URL length?**
+A: Up to 4,296 characters. For long URLs, consider a URL shortener first.
+
+**Q: Can I use custom brand colors?**
+A: Yes. Set `color` (foreground) and `bgcolor` (background) parameters with 6-digit hex values. Example: `color=1a73e8&bgcolor=f0f0f0`
+
+**Q: What's the difference between PNG, SVG, and Base64?**
+A: PNG is a raster image (good for most uses). SVG is vector (scales infinitely, ideal for print). Base64 returns JSON with an embeddable data URI (no file download needed).
+
+**Q: What error correction level should I use?**
+A: `M` (15%) is the default and works for most cases. Use `H` (30%) if the QR code will be printed on curved surfaces or partially obscured.
+
+**Q: Is there a batch/bulk generation endpoint?**
+A: Not currently. For bulk generation, loop through the /generate endpoint. At 60 req/min rate limit, you can generate 60 QR codes per minute.
+
 ## Alternative To
 
-Looking for a free alternative to goqr.me, QR Server, or QRickit? This API offers the same QR generation capabilities with better customization, multiple output formats, and a generous free tier.
+A free, SLA-backed alternative to goqr.me, QR Server, and QRickit. Same QR generation capabilities with custom colors, multiple output formats, documented rate limits, and RapidAPI support.
 
 ## Keywords
 
-`qr code api`, `qr code generator`, `free qr api`, `generate qr code`, `qr code rest api`, `svg qr code`, `base64 qr code`, `custom qr code`, `qr code for marketing`, `cloudflare workers api`
+`qr code api`, `qr code generator`, `free qr api`, `generate qr code`, `qr code rest api`, `svg qr code`, `base64 qr code`, `custom qr code`, `qr code for marketing`, `cloudflare workers api`, `qr code generator free`, `qr code api rest`
 
 ## Development
 
