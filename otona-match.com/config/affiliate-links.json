@@ -27,14 +27,26 @@
           "note": "アクセストレード提携済（2026-03-17）"
         },
         {
-          "name": "バチェラーデート",
-          "status": "pending_approval",
-          "url": null,
+          "name": "バチェラーデート（男性LP）",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100p30q00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100p30q00opif",
           "anchor_text": ["バチェラーデート"],
           "commission": 0,
           "asp": "アクセストレード",
-          "context": "マッチングアプリ比較記事で使用",
-          "note": "アクセストレード申請中（2026-03-17）iOS/Android両方"
+          "context": "マッチングアプリ比較記事で使用（男性向け記事・デフォルト）",
+          "note": "アクセストレード提携済（2026-03-22）男性LP_01"
+        },
+        {
+          "name": "バチェラーデート（女性LP）",
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=0100p30r00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100p30r00opif",
+          "anchor_text": ["バチェラーデート"],
+          "commission": 0,
+          "asp": "アクセストレード",
+          "context": "マッチングアプリ比較記事で使用（女性向け記事）",
+          "note": "アクセストレード提携済（2026-03-22）女性LP_01"
         },
         {
           "name": "ヒトオシ",
