@@ -101,10 +101,10 @@
 - Phase 1完了（2026-03-20）: エージェント4体+テスト商品「Startup Launch Checklist」生成済み
 - **プロジェクトパス**: `claude-code/product-factory/`
 
-## pSEO AIツール比較サイト（構築中）
+## pSEO AIツール比較サイト（稼働中）
 - **詳細**: [pseo-site.md](pseo-site.md)
-- Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み（2026-03-15）
-- デプロイ未完（Vercel + ドメイン取得が必要）
+- Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み
+- Vercelデプロイ完了（2026-03-20）: `ai-tool-compare-nu.vercel.app`、GSC登録済み
 - **プロジェクトパス**: `claude-code/pseo-saas/`
 
 ## 仮想通貨自動売買（Bybit口座開設待ち）
@@ -162,6 +162,7 @@
 - **コピペ形式**: [feedback_copypaste_format.md](feedback_copypaste_format.md) — 入力してもらう内容は必ずコードブロックで提示
 - **外部サービス入力時**: [feedback_copypaste_detailed.md](feedback_copypaste_detailed.md) — 全項目をコピペ形式で網羅提示、空白OKも明示、Claudeから積極提案
 - **ダッシュボード**: [feedback_dashboard_realtime.md](feedback_dashboard_realtime.md) — 全項目リアルタイム自動更新必須、ハードコード禁止
+- **日次レポート鮮度チェック**: [feedback_daily_report_verify.md](feedback_daily_report_verify.md) — レポート更新時は全事業ステータスの最新性を必ず検証
 - 居住地: パラグアイ（PYT, UTC-3通年）
 - Googleカレンダー: JST設定（時差12時間）
 - X API: [x-api-credentials.md](x-api-credentials.md)
