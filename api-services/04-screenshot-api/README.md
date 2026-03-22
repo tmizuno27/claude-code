@@ -1,53 +1,131 @@
-# Website Screenshot API
+# Free Website Screenshot API - Capture Any Page as PNG or JPEG
 
-Cloudflare Worker that captures website screenshots via [thum.io](https://www.thum.io/) with caching, rate limiting, and CORS support.
+> **Free tier: 500 requests/month** | Full-page and viewport screenshots with custom dimensions
 
-## Endpoint
+Capture screenshots of any website as PNG or JPEG. Supports custom viewport sizes, full-page capture, JPEG quality control, and render delay for JavaScript-heavy pages. Powered by Cloudflare Workers with 1-hour caching.
 
-```
-GET /screenshot?url=https://example.com
-```
+## Why Choose This Screenshot API?
 
-### Parameters
+- **Multiple output formats** -- PNG for crisp screenshots, JPEG with quality control (1-100)
+- **Full-page capture** -- scroll the entire page and capture everything
+- **Custom viewports** -- desktop (1920x1080), tablet (768x1024), mobile (375x812)
+- **Render delay** -- wait up to 5 seconds for JavaScript content to load
+- **1-hour caching** -- repeat requests served instantly from Cloudflare edge cache
+- **Free tier** -- 500 screenshots/month at $0
 
-| Parameter   | Type    | Default | Description                          |
-|-------------|---------|---------|--------------------------------------|
-| `url`       | string  | —       | **Required.** Target URL to capture  |
-| `width`     | integer | 1280    | Viewport width (320–3840)            |
-| `height`    | integer | 720     | Viewport height (0 = full page)      |
-| `format`    | string  | png     | `png` or `jpeg`                      |
-| `quality`   | integer | 80      | JPEG quality (1–100)                 |
-| `delay`     | integer | 0       | Wait ms before capture (max 5000)    |
-| `full_page` | boolean | false   | Capture full scrollable page         |
+## Use Cases
 
-### Response
+- **SEO monitoring** -- capture competitor pages for visual comparison over time
+- **Social media previews** -- generate Open Graph images from web pages
+- **Testing and QA** -- automated visual regression testing across viewports
+- **Portfolio builders** -- auto-generate thumbnails for website showcases
+- **PDF reports** -- embed website screenshots in automated reports
+- **Link preview services** -- show visual previews of shared URLs
+- **Archiving** -- capture web pages for compliance or record-keeping
 
-Returns the screenshot image directly (`image/png` or `image/jpeg`).
+## Quick Start
 
-### Examples
+### Basic Screenshot (PNG)
 
 ```bash
-# Basic screenshot
-curl "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com" -o screenshot.png
-
-# Full page JPEG
-curl "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com&full_page=true&format=jpeg&quality=90" -o full.jpg
-
-# Custom viewport
-curl "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com&width=375&height=812" -o mobile.png
+curl -X GET "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -o screenshot.png
 ```
 
-## Deploy
+### Full Page JPEG
+
+```bash
+curl -X GET "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com&full_page=true&format=jpeg&quality=90" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -o fullpage.jpg
+```
+
+### Mobile Viewport
+
+```bash
+curl -X GET "https://screenshot-api.t-mizuno27.workers.dev/screenshot?url=https://example.com&width=375&height=812" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -o mobile.png
+```
+
+### Python Example
+
+```python
+import requests
+
+url = "https://screenshot-api.p.rapidapi.com/screenshot"
+params = {
+    "url": "https://github.com",
+    "width": 1280,
+    "height": 720,
+    "format": "png"
+}
+headers = {
+    "X-RapidAPI-Key": "YOUR_KEY",
+    "X-RapidAPI-Host": "screenshot-api.p.rapidapi.com"
+}
+
+response = requests.get(url, headers=headers, params=params)
+with open("screenshot.png", "wb") as f:
+    f.write(response.content)
+```
+
+### Node.js Example
+
+```javascript
+const axios = require("axios");
+const fs = require("fs");
+
+const response = await axios.get(
+  "https://screenshot-api.p.rapidapi.com/screenshot",
+  {
+    params: { url: "https://github.com", width: 1280, format: "png" },
+    headers: {
+      "X-RapidAPI-Key": "YOUR_KEY",
+      "X-RapidAPI-Host": "screenshot-api.p.rapidapi.com",
+    },
+    responseType: "arraybuffer",
+  }
+);
+fs.writeFileSync("screenshot.png", response.data);
+```
+
+## API Reference
+
+### `GET /screenshot`
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `url` | string | Yes | -- | Target URL to capture |
+| `width` | integer | No | 1280 | Viewport width (320-3840) |
+| `height` | integer | No | 720 | Viewport height (0 = full page) |
+| `format` | string | No | `png` | Output: `png` or `jpeg` |
+| `quality` | integer | No | 80 | JPEG quality (1-100) |
+| `delay` | integer | No | 0 | Wait ms before capture (max 5000) |
+| `full_page` | boolean | No | false | Capture full scrollable page |
+
+Returns the screenshot image directly with appropriate `Content-Type` header.
+
+## Pricing
+
+| Plan | Price | Requests/mo | Rate Limit |
+|------|-------|-------------|------------|
+| Basic (FREE) | $0 | 500 | 1 req/sec |
+| Pro | $9.99 | 50,000 | 10 req/sec |
+| Ultra | $24.99 | 500,000 | 50 req/sec |
+
+## Alternative To
+
+A free alternative to ScreenshotAPI, URLBox, and Screenshotlayer. Capture website screenshots without complex setup or per-screenshot billing.
+
+## Keywords
+
+`screenshot api`, `website screenshot`, `capture webpage`, `web screenshot api`, `page capture`, `full page screenshot`, `url to image`, `website thumbnail`, `free screenshot api`, `headless browser api`
+
+## Development
 
 ```bash
 npm install
 npx wrangler deploy
 ```
-
-## Configuration
-
-Environment variables in `wrangler.toml`:
-
-- `CACHE_TTL` — Cache duration in seconds (default: 3600)
-- `RATE_LIMIT_MAX` — Max requests per window (default: 60)
-- `RATE_LIMIT_WINDOW` — Window in seconds (default: 60)
