@@ -186,6 +186,9 @@
 - **Chrome拡張**: 審査待ち8本の通過確認
 - **Value Commerce**: プログラム提携（3サイト分）
 
+## Dev.toアカウント
+- **詳細**: [devto-account.md](devto-account.md) — miccho27、RapidAPI販促記事3本draft投稿済み
+
 ## Fiverr案件（進行中）
 - **Dennis C SSWリサーチ**: [fiverr-dennis-ssw-research.md](fiverr-dennis-ssw-research.md) — 質問リスト待ち、Standard/Premium提案済み
 
