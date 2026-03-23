@@ -11,13 +11,13 @@
     "rdap",
     "free-api",
     "rest-api",
-    "domain-info",
+    "developer-tools",
+    "domaintools-alternative",
+    "whoisxml-alternative",
+    "domain-availability",
     "ssl-check",
     "nameserver",
-    "domain-availability",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "cloudflare-edge"
   ],
   "website": "https://whois-domain-api.your-domain.workers.dev",
   "pricing": {

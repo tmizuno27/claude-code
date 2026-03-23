@@ -1,7 +1,7 @@
 {
   "name": "News Aggregator API",
   "slug": "news-aggregator-api",
-  "description": "Free News API - BBC, Reuters, HN, Dev.to, Tech & Business Headlines",
+  "description": "Free News API - BBC, Reuters, HN, Dev.to Headlines | NewsAPI Alt",
   "long_description": "## Why News Aggregator API?\n- ✅ Multi-source: BBC, NYT, Reuters, TechCrunch, Hacker News, Dev.to\n- ✅ Category and source filtering for targeted news feeds\n- ✅ RSS parsing with structured JSON output\n\n## Key Features\n- Aggregated headlines from 6+ major sources\n- Category filtering (tech, business, world, etc.)\n- Source-specific endpoints\n- Hacker News top/new/best stories\n- Dev.to trending articles\n- Structured JSON with title, URL, date, source\n\n## Use Cases\n- **News Apps**: Build custom news aggregator applications\n- **Dashboards**: Real-time news feeds for monitoring tools\n- **Chatbots**: Serve latest news in conversational interfaces\n- **Research**: Track industry news and trends\n\n## Quick Start\n```\nGET /headlines?source=bbc&category=technology\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources and categories. No credit card required.\n\n## Alternative To\nA free **news API alternative** to NewsAPI.org, GNews, and Currents API. Aggregates RSS feeds and public APIs from top sources.\n\n## Need More Requests?\nFree plan (500 queries/month) for news readers. **Pro ($5.99/mo)** for content aggregation platforms with 50,000 requests.",
   "category": "News_Media",
   "tags": [
@@ -11,13 +11,13 @@
     "hackernews",
     "free-api",
     "rest-api",
+    "developer-tools",
+    "newsapi-alternative",
+    "gnews-alternative",
     "tech-news",
-    "bbc",
     "headlines",
     "content-discovery",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "cloudflare-edge"
   ],
   "website": "https://news-aggregator-api.your-domain.workers.dev",
   "pricing": {
