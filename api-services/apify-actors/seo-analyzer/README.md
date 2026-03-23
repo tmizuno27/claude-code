@@ -1,6 +1,6 @@
-# SEO Analyzer
+# SEO Analyzer - Free Website SEO Audit Tool
 
-Comprehensive SEO analysis for any webpage. Extracts 15+ SEO factors and calculates an overall score out of 100.
+Comprehensive SEO analysis for any webpage. Extracts 15+ SEO factors and calculates an overall score out of 100. A free alternative to Ahrefs Site Audit, Screaming Frog, and Moz Pro.
 
 ## Features
 
@@ -39,6 +39,38 @@ Comprehensive SEO analysis for any webpage. Extracts 15+ SEO factors and calcula
 - Content optimization monitoring
 - SEO reporting automation
 
+## Why Choose This Actor?
+
+- **15+ SEO checks** in a single run -- title, meta, headings, images, links, OG, Twitter Cards, JSON-LD, canonical, robots, viewport, favicon, hreflang
+- **Weighted scoring** -- not just pass/fail, but a meaningful 0-100 score
+- **Bulk processing** -- analyze hundreds of URLs in one Actor run
+- **No API keys** -- runs entirely on Apify, no external service dependencies
+- **Free to try** -- pay only for Apify compute usage
+
+## How It Compares
+
+| Feature | This Actor | Ahrefs Site Audit | Screaming Frog | Moz Pro |
+|---------|-----------|------------------|----------------|---------|
+| Price | Pay per run ($0.01-0.10) | $99/mo | $259/yr | $99/mo |
+| SEO Score | Yes (0-100) | Yes | No (raw data) | Yes |
+| Heading structure | Yes | Yes | Yes | Yes |
+| Image alt audit | Yes | Yes | Yes | Yes |
+| JSON-LD detection | Yes | Yes | Yes | No |
+| Open Graph check | Yes | No | No | No |
+| API/automation | Yes (Apify API) | Yes | Limited | Yes |
+| Bulk URLs | Yes (unlimited) | Site-based | 500 free | Site-based |
+
+## FAQ
+
+**Q: How many URLs can I analyze in one run?**
+A: No hard limit. Processing time and cost scale linearly with URL count. Typical runs analyze 10-1,000 URLs.
+
+**Q: What is the SEO score based on?**
+A: Weighted scoring across all checks: title optimization (15pts), meta description (10pts), heading structure (10pts), image alt coverage (10pts), link health (10pts), technical SEO (15pts), structured data (10pts), social meta (10pts), and more.
+
+**Q: Can I use this in CI/CD pipelines?**
+A: Yes. Trigger the Actor via Apify API and check results programmatically. Perfect for automated SEO regression testing before deployments.
+
 ## Pricing
 
-Pay Per Event — charged per URL analyzed.
+Pay Per Event -- charged per URL analyzed.
