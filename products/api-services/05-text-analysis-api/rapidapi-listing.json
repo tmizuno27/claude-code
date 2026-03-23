@@ -10,7 +10,13 @@
     "keyword-extraction",
     "free-api",
     "rest-api",
-    "readability"
+    "readability",
+    "language-detection",
+    "text-summarization",
+    "tfidf",
+    "content-analysis",
+    "seo-readability",
+    "monkeylearn-alternative"
   ],
   "pricing": {
     "plans": [
