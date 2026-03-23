@@ -92,7 +92,9 @@ def backup_items(items, item_type, backup_dir):
 
     for item in items:
         item_id = item.get("id")
-        slug = item.get("slug", f"id-{item_id}")
+        raw_slug = item.get("slug", f"id-{item_id}")
+        # Windows パス長制限対策: slugが100文字超の場合はIDベースに切り替え
+        slug = raw_slug if len(raw_slug) <= 100 else f"id-{item_id}"
         title = item.get("title", {}).get("rendered", "No Title")
         content = item.get("content", {}).get("rendered", "")
         status = item.get("status", "unknown")

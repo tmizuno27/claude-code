@@ -23,7 +23,8 @@ import json
 import os
 import sys
 import time
-from datetime import datetime
+import re
+from datetime import datetime, timedelta
 from copy import deepcopy
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -182,6 +183,26 @@ def show_stats(data):
     print()
 
 
+COOLDOWN_MINUTES = 15
+
+
+def get_last_post_time():
+    """Read last successful post timestamp from log file."""
+    if not os.path.exists(LOG_PATH):
+        return None
+    try:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        for line in reversed(lines):
+            if "OK:" in line or "OK THREAD:" in line:
+                match = re.search(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]", line)
+                if match:
+                    return datetime.strptime(match.group(1), "%Y-%m-%d %H:%M:%S")
+        return None
+    except Exception:
+        return None
+
+
 def main():
     args = sys.argv[1:]
     dry_run = "--dry-run" in args
@@ -199,6 +220,14 @@ def main():
         return
 
     now = datetime.now()
+
+    # Duplicate post prevention: skip if last post was within COOLDOWN_MINUTES
+    if not dry_run:
+        last_post = get_last_post_time()
+        if last_post and (now - last_post) < timedelta(minutes=COOLDOWN_MINUTES):
+            elapsed = int((now - last_post).total_seconds() / 60)
+            log(f"SKIP: Last post was {elapsed}min ago (cooldown: {COOLDOWN_MINUTES}min). Aborting.")
+            return
 
     # Determine category
     category = force_type if force_type else determine_category(now)

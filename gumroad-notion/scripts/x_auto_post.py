@@ -14,8 +14,9 @@ marks it as posted, and logs the result.
 import tweepy
 import json
 import os
+import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CRED_PATH = os.path.join(BASE_DIR, "config", "x-credentials.json")
