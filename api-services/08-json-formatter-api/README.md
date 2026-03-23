@@ -4,6 +4,34 @@
 
 Format, minify, validate, diff, transform, and convert JSON to/from CSV. A complete JSON processing toolkit deployed on Cloudflare Workers.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/json-formatter-api) (free plan available)
+2. Copy your API key
+3. Format your first JSON:
+
+```bash
+curl -X POST "https://json-formatter-api.p.rapidapi.com/format" \
+  -H "Content-Type: application/json" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: json-formatter-api.p.rapidapi.com" \
+  -d '{"json": "{\"name\":\"test\",\"value\":123}"}'
+```
+
+## How It Compares
+
+| Feature | This API | JSONLint | JSON Formatter Online | ConvertCSV |
+|---------|----------|----------|----------------------|------------|
+| Free tier | 500 req/mo | Web only | Web only | Web only |
+| API access | Yes (REST) | No | No | No |
+| Format + Minify | Yes | Yes | Yes | No |
+| JSON Diff | Yes | No | No | No |
+| JSON to CSV | Yes | No | No | Yes (web) |
+| CSV to JSON | Yes | No | No | Yes (web) |
+| JMESPath transform | Yes | No | No | No |
+| Schema validation | Yes | No | No | No |
+| Edge latency | Sub-50ms (CF) | N/A | N/A | N/A |
+
 ## Why Choose This JSON API?
 
 - **All-in-one** -- format, minify, validate, diff, transform, and CSV conversion in one API
@@ -12,6 +40,18 @@ Format, minify, validate, diff, transform, and convert JSON to/from CSV. A compl
 - **JMESPath transforms** -- query and reshape JSON with JMESPath expressions
 - **Schema validation** -- validate JSON against custom schemas
 - **Free tier** -- 500 requests/month at $0
+
+## Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/format` | POST | Pretty-print JSON with indentation |
+| `/minify` | POST | Remove whitespace from JSON |
+| `/validate` | POST | Validate JSON syntax and against schema |
+| `/diff` | POST | Compare two JSON objects |
+| `/transform` | POST | JMESPath query and reshape |
+| `/csv-to-json` | POST | Convert CSV to JSON array |
+| `/json-to-csv` | POST | Convert JSON array to CSV |
 
 ## Use Cases
 
@@ -43,6 +83,42 @@ data = requests.post(url, headers=headers, json=payload).json()
 print(f"Valid: {data['valid']}")
 ```
 
+### Node.js Example
+
+```javascript
+const axios = require("axios");
+
+const { data } = await axios.post(
+  "https://json-formatter-api.p.rapidapi.com/diff",
+  {
+    json1: '{"a": 1, "b": 2}',
+    json2: '{"a": 1, "b": 3, "c": 4}'
+  },
+  {
+    headers: {
+      "X-RapidAPI-Key": "YOUR_KEY",
+      "X-RapidAPI-Host": "json-formatter-api.p.rapidapi.com",
+    },
+  }
+);
+
+console.log(`Differences: ${JSON.stringify(data.diff)}`);
+```
+
+## FAQ
+
+**Q: What is JMESPath?**
+A: JMESPath is a query language for JSON, similar to XPath for XML. Use it to extract and reshape data from complex JSON structures. Example: `people[?age > 20].name` extracts names of people older than 20.
+
+**Q: Can I validate against a JSON Schema?**
+A: Yes. Pass a `schema` field alongside your JSON to `/validate` and it will validate against your custom JSON Schema.
+
+**Q: What CSV formats are supported?**
+A: Standard comma-separated values. The JSON-to-CSV endpoint flattens nested objects. Custom delimiters are supported via the `delimiter` parameter.
+
+**Q: Is there a size limit?**
+A: JSON payloads up to 1MB are supported. For larger files, split into chunks.
+
 ## Pricing
 
 | Plan | Price | Requests/mo | Rate Limit |
@@ -52,7 +128,7 @@ print(f"Valid: {data['valid']}")
 
 ## Alternative To
 
-A free alternative to JSONLint API, JSON Formatter Online, and ConvertCSV.
+A free alternative to JSONLint API, JSON Formatter Online, and ConvertCSV. The only API that combines formatting, validation, diffing, JMESPath transforms, and CSV conversion in one endpoint.
 
 ## Keywords
 
