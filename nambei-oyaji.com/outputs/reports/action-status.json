@@ -12,8 +12,9 @@
       "id": "pseo-vercel-deploy",
       "title": "pSEOサイトをVercelデプロイ",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-20",
+      "completed_date": "2026-03-20"
     },
     {
       "id": "rapidapi-free-to-paid",
