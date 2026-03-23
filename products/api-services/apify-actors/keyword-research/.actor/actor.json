@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "keyword-research",
-  "title": "Keyword Research (Google Suggest)",
-  "description": "Fetches Google Suggest autocomplete suggestions for seed keywords, scores and ranks them by longtail potential, and outputs prioritized keyword candidates.",
+  "title": "Keyword Research - Google Autocomplete Expander & Scorer",
+  "description": "Free Ahrefs & SEMrush alternative. Expand seed keywords using Google Autocomplete suggestions, auto-generate question variants, and score results by longtail potential. Supports 50+ languages (Japanese, English, Spanish, etc.). No API keys required. Perfect for SEO, content marketing, and blog keyword strategy.",
   "version": "0.1",
   "buildTag": "latest",
   "input": "./input_schema.json",

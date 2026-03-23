@@ -11,13 +11,13 @@
     "geocoding",
     "free-api",
     "rest-api",
-    "weather-forecast",
+    "developer-tools",
     "openweathermap-alternative",
+    "weatherapi-alternative",
     "historical-weather",
-    "climate",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "hourly-forecast",
+    "open-meteo",
+    "cloudflare-edge"
   ],
   "website": "https://weather-api.your-domain.workers.dev",
   "pricing": {
