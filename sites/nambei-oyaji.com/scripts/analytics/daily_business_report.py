@@ -24,9 +24,9 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# プロジェクトルート（nambei-oyaji.com/scripts/analytics/ から3つ上）
+# プロジェクトルート（sites/nambei-oyaji.com/scripts/analytics/ から3つ上）
 PROJECT_ROOT = Path(__file__).parent.parent.parent
-WORKSPACE_ROOT = PROJECT_ROOT.parent  # claude-code/
+WORKSPACE_ROOT = PROJECT_ROOT.parent.parent  # claude-code/ (sites/ の1つ上)
 REPORTS_DIR = PROJECT_ROOT / "outputs" / "reports"
 
 # 各サイトの設定ファイルパス
