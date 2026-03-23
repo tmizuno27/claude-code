@@ -58,7 +58,8 @@ class WPClient:
         posts = []
         page = 1
         while True:
-            url = f"{self.base_url}/posts?status=publish&per_page=100&page={page}&context=edit"
+            sep = "&" if "?" in self.base_url else "?"
+            url = f"{self.base_url}/posts{sep}status=publish&per_page=100&page={page}&context=edit"
             resp = requests.get(url, headers=self.headers, timeout=30)
             if resp.status_code != 200:
                 break
@@ -71,7 +72,8 @@ class WPClient:
         return posts
 
     def update_post(self, post_id, content):
-        url = f"{self.base_url}/posts/{post_id}"
+        sep = "&" if "?" in self.base_url else "?"
+        url = f"{self.base_url}/posts/{post_id}{sep}"
         resp = requests.post(url, headers=self.headers, json={"content": content}, timeout=30)
         return resp.status_code == 200
 
