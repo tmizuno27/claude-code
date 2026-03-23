@@ -149,9 +149,11 @@ def build_link_rules(affiliates):
 
         # キャリア名でマッチ
         keywords = [name]
-        # ワイモバイル → Y!mobile も追加
+        # キャリア名の別表記を追加
         if "ワイモバイル" in name:
             keywords.extend(["ワイモバイル", "Y!mobile", "Ymobile"])
+        elif "誰でもスマホ" in name:
+            keywords.extend(["誰でもスマホ", "だれでもスマホ", "審査なし スマホ"])
 
         for kw in keywords:
             link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
@@ -207,6 +209,8 @@ def build_link_rules(affiliates):
             keywords.extend(["Voye Global", "ボイエ"])
         elif "trifa" in name:
             keywords.extend(["trifa", "トリファ"])
+        elif "JAPAN&GLOBAL" in name:
+            keywords.extend(["JAPAN&GLOBAL eSIM", "JAPAN＆GLOBAL eSIM", "ジャパングローバルeSIM"])
 
         # 重複除去
         keywords = list(dict.fromkeys(keywords))
