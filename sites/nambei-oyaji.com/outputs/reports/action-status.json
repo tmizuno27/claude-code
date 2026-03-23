@@ -3,56 +3,49 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyPayPal出金設定",
+      "title": "ApifyペイアウトPayPal設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "sim-gsc-ctr-fix",
-      "title": "SIMサイトGSCクリック改善",
+      "id": "nambei-ga4-fix",
+      "title": "南米おやじGA4タイムアウト修正",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "otona-gsc-ctr-fix",
-      "title": "マッチングGSCクリック改善",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "pseo-deploy-content",
-      "title": "pSEOサイト初稿投入",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "rapidapi-review-apis",
-      "title": "RapidAPI売上ゼロ原因調査",
+      "id": "pseo-deploy-check",
+      "title": "pSEOサイトページ数0の原因調査",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "StripeKYC問題を解決",
+      "title": "Stripe KYC認証解決",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "nambei-top-article-rewrite",
-      "title": "南米サイト上位記事リライト",
+      "id": "rapidapi-ctr-check",
+      "title": "RapidAPI上位API訴求文改善",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "sim-match-gsc-analysis",
+      "title": "GSC表示クリック0の原因分析",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
       "id": "x-first-post",
-      "title": "X投稿開始（0→毎日）",
+      "title": "X集客ツイート10本スケジュール投稿",
       "priority": "P2",
       "done": false,
       "done_at": null
