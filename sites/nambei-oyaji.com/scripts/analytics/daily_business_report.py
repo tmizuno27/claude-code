@@ -32,29 +32,29 @@ REPORTS_DIR = PROJECT_ROOT / "outputs" / "reports"
 # 各サイトの設定ファイルパス
 SITE_CONFIGS = {
     "nambei-oyaji.com": {
-        "config_path": WORKSPACE_ROOT / "nambei-oyaji.com" / "config" / "settings.json",
-        "secrets_path": WORKSPACE_ROOT / "nambei-oyaji.com" / "config" / "secrets.json",
-        "published_dir": WORKSPACE_ROOT / "nambei-oyaji.com" / "published",
+        "config_path": WORKSPACE_ROOT / "sites" / "nambei-oyaji.com" / "config" / "settings.json",
+        "secrets_path": WORKSPACE_ROOT / "sites" / "nambei-oyaji.com" / "config" / "secrets.json",
+        "published_dir": WORKSPACE_ROOT / "sites" / "nambei-oyaji.com" / "published",
         "display_name": "南米おやじの海外生活ラボ",
     },
     "otona-match.com": {
-        "config_path": WORKSPACE_ROOT / "otona-match.com" / "config" / "settings.json",
-        "secrets_path": WORKSPACE_ROOT / "otona-match.com" / "config" / "secrets.json",
-        "published_dir": WORKSPACE_ROOT / "otona-match.com" / "published",
+        "config_path": WORKSPACE_ROOT / "sites" / "otona-match.com" / "config" / "settings.json",
+        "secrets_path": WORKSPACE_ROOT / "sites" / "otona-match.com" / "config" / "secrets.json",
+        "published_dir": WORKSPACE_ROOT / "sites" / "otona-match.com" / "published",
         "display_name": "大人のマッチングナビ",
     },
     "sim-hikaku.online": {
-        "config_path": WORKSPACE_ROOT / "sim-hikaku.online" / "config" / "settings.json",
-        "secrets_path": WORKSPACE_ROOT / "sim-hikaku.online" / "config" / "secrets.json",
-        "published_dir": WORKSPACE_ROOT / "sim-hikaku.online" / "published",
+        "config_path": WORKSPACE_ROOT / "sites" / "sim-hikaku.online" / "config" / "settings.json",
+        "secrets_path": WORKSPACE_ROOT / "sites" / "sim-hikaku.online" / "config" / "secrets.json",
+        "published_dir": WORKSPACE_ROOT / "sites" / "sim-hikaku.online" / "published",
         "display_name": "SIM比較ナビ",
     },
 }
 
 # その他パス
-RAPIDAPI_STATS_PATH = WORKSPACE_ROOT / "api-services" / "rapidapi-stats.json"
-PSEO_DIR = WORKSPACE_ROOT / "pseo-saas"
-N8N_DIR = WORKSPACE_ROOT / "n8n-templates"
+RAPIDAPI_STATS_PATH = WORKSPACE_ROOT / "products" / "api-services" / "rapidapi-stats.json"
+PSEO_DIR = WORKSPACE_ROOT / "saas" / "pseo-saas"
+N8N_DIR = WORKSPACE_ROOT / "products" / "n8n-templates"
 AUTO_SYNC_LOG = WORKSPACE_ROOT / "logs" / "auto-sync.log"
 APIFY_AUTH_PATH = Path.home() / ".apify" / "auth.json"
 
@@ -212,7 +212,7 @@ def collect_blog_data() -> list:
         secrets = load_secrets(site_meta["secrets_path"])
 
         # 共通credentials（nambei-oyaji.com配下のga4-credentials.jsonを全サイトで共用）
-        shared_creds = WORKSPACE_ROOT / "nambei-oyaji.com" / "config" / "ga4-credentials.json"
+        shared_creds = WORKSPACE_ROOT / "sites" / "nambei-oyaji.com" / "config" / "ga4-credentials.json"
 
         ga4_cfg = config.get("google_analytics", {})
         property_id = ga4_cfg.get("property_id", "")
@@ -273,7 +273,7 @@ def collect_rapidapi_data() -> dict:
     api_count = 0
     try:
         api_dirs = [
-            d for d in (WORKSPACE_ROOT / "api-services").iterdir()
+            d for d in (WORKSPACE_ROOT / "products" / "api-services").iterdir()
             if d.is_dir() and d.name[0].isdigit()
         ]
         api_count = len(api_dirs)
@@ -456,7 +456,7 @@ def collect_n8n_data() -> dict:
 
 def collect_x_data() -> dict:
     """X APIからフォロワー数・ツイート数を取得する"""
-    x_creds_path = WORKSPACE_ROOT / "nambei-oyaji.com" / "config" / "x-credentials.json"
+    x_creds_path = WORKSPACE_ROOT / "sites" / "nambei-oyaji.com" / "config" / "x-credentials.json"
     if not x_creds_path.exists():
         return {"status": "認証ファイルなし", "followers": 0, "tweets": 0}
 
