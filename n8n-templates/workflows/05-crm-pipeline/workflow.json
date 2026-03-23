@@ -1,0 +1,220 @@
+{
+  "name": "CRM Pipeline Automation",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "crm" }, { "name": "sales" }, { "name": "pipeline" }, { "name": "hubspot" }],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "New Form Submission",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 200],
+      "parameters": { "path": "new-lead", "httpMethod": "POST", "responseMode": "onReceived", "options": {} },
+      "webhookId": "new-lead-webhook"
+    },
+    {
+      "id": "trigger-002",
+      "name": "Stripe Payment Received",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 420],
+      "parameters": { "path": "stripe-payment", "httpMethod": "POST", "responseMode": "onReceived", "options": {} },
+      "webhookId": "stripe-payment-webhook"
+    },
+    {
+      "id": "trigger-003",
+      "name": "Schedule - Daily Check",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [0, 640],
+      "parameters": { "rule": { "interval": [{ "field": "cronExpression", "expression": "0 9 * * 1-5" }] } }
+    },
+    {
+      "id": "create-contact",
+      "name": "Create/Update HubSpot Contact",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [300, 200],
+      "parameters": {
+        "resource": "contact",
+        "operation": "upsert",
+        "email": "={{ $json.email }}",
+        "additionalFields": {
+          "firstName": "={{ $json.first_name || $json.name?.split(' ')[0] || '' }}",
+          "lastName": "={{ $json.last_name || $json.name?.split(' ').slice(1).join(' ') || '' }}",
+          "phone": "={{ $json.phone || '' }}",
+          "company": "={{ $json.company || '' }}",
+          "lifecycleStage": "lead"
+        }
+      },
+      "credentials": { "hubspotApi": { "id": "HUBSPOT_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "id": "create-deal",
+      "name": "Create Deal",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [540, 200],
+      "parameters": {
+        "resource": "deal",
+        "operation": "create",
+        "dealName": "={{ $json.company || $json.email }} - {{ $now.toFormat('yyyy-MM') }}",
+        "dealStage": "appointmentscheduled",
+        "additionalFields": {
+          "amount": "={{ $json.estimated_value || 0 }}",
+          "pipeline": "default",
+          "closeDate": "={{ $now.plus({days: 30}).toFormat('yyyy-MM-dd') }}"
+        }
+      },
+      "credentials": { "hubspotApi": { "id": "HUBSPOT_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "id": "score-lead",
+      "name": "Score Lead with AI",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [780, 200],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Score this lead from 1-100 based on likelihood to convert.\n\nLead Data:\n- Name: {{ $json.first_name }} {{ $json.last_name }}\n- Email: {{ $json.email }}\n- Company: {{ $json.company }}\n- Source: {{ $json.source || 'website' }}\n- Message: {{ $json.message || 'N/A' }}\n\nScoring criteria:\n- Business email domain (not gmail/yahoo): +20\n- Company name provided: +15\n- Specific message about needs: +20\n- Title includes C-level/VP/Director: +15\n- Industry match: +15\n- Company size > 50: +15\n\nRespond in JSON: { \"score\": 0-100, \"tier\": \"hot|warm|cold\", \"reasoning\": \"brief explanation\", \"recommended_action\": \"next step\" }",
+        "messages": { "messageValues": [{ "message": "You are a B2B lead scoring expert. Score objectively based on available data." }] }
+      }
+    },
+    {
+      "id": "llm-score",
+      "name": "OpenAI - Lead Scorer",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [780, 420],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.2, "maxTokens": 300 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI" } }
+    },
+    {
+      "id": "route-001",
+      "name": "Route by Score",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [1020, 200],
+      "parameters": {
+        "rules": {
+          "values": [
+            { "outputKey": "hot", "conditions": { "conditions": [{ "leftValue": "={{ JSON.parse($json.text || '{}').tier }}", "rightValue": "hot", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "warm", "conditions": { "conditions": [{ "leftValue": "={{ JSON.parse($json.text || '{}').tier }}", "rightValue": "warm", "operator": { "type": "string", "operation": "equals" } }] } }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      }
+    },
+    {
+      "id": "notify-hot",
+      "name": "Alert Sales - Hot Lead",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1260, 100],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#sales-alerts", "mode": "name" },
+        "text": "=:fire: *HOT LEAD!* Score: {{ JSON.parse($('Score Lead with AI').item.json.text || '{}').score }}/100\n\n*{{ $('Create/Update HubSpot Contact').item.json.first_name }} {{ $('Create/Update HubSpot Contact').item.json.last_name }}* at {{ $json.company }}\n*Action:* {{ JSON.parse($('Score Lead with AI').item.json.text || '{}').recommended_action }}",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "id": "email-warm",
+      "name": "Send Nurture Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1260, 250],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{ $('Create/Update HubSpot Contact').item.json.email }}",
+        "subject": "Thanks for reaching out!",
+        "message": "=Hi {{ $('Create/Update HubSpot Contact').item.json.first_name }},\n\nThanks for your interest! I wanted to personally follow up and see if you have any questions.\n\nWould you be open to a quick 15-minute call this week?\n\nBest,\n{{ YOUR_NAME }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "id": "email-cold",
+      "name": "Add to Drip Sequence",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [1260, 400],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Drip Queue", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "email": "={{ $('Create/Update HubSpot Contact').item.json.email }}",
+            "name": "={{ $('Create/Update HubSpot Contact').item.json.first_name }}",
+            "drip_stage": "1",
+            "next_send": "={{ $now.plus({days: 3}).toISO() }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "id": "update-payment",
+      "name": "Update Deal - Payment Received",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [300, 420],
+      "parameters": {
+        "resource": "deal",
+        "operation": "update",
+        "dealId": "={{ $json.metadata?.deal_id || '' }}",
+        "updateFields": { "dealStage": "closedwon", "amount": "={{ ($json.amount || 0) / 100 }}" }
+      },
+      "credentials": { "hubspotApi": { "id": "HUBSPOT_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "id": "stale-check",
+      "name": "Check Stale Deals",
+      "type": "n8n-nodes-base.hubspot",
+      "typeVersion": 2,
+      "position": [300, 640],
+      "parameters": {
+        "resource": "deal",
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 50,
+        "filters": { "dealStage": "appointmentscheduled" }
+      },
+      "credentials": { "hubspotApi": { "id": "HUBSPOT_CREDENTIAL_ID", "name": "HubSpot" } }
+    },
+    {
+      "id": "stale-notify",
+      "name": "Notify Stale Deals",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [540, 640],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#sales-alerts", "mode": "name" },
+        "text": "=:hourglass: *Stale Deal Report*\n\n{{ $json.length || 0 }} deals still in 'Appointment Scheduled' stage. Review and update status.",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    }
+  ],
+  "connections": {
+    "New Form Submission": { "main": [[{ "node": "Create/Update HubSpot Contact", "type": "main", "index": 0 }]] },
+    "Create/Update HubSpot Contact": { "main": [[{ "node": "Create Deal", "type": "main", "index": 0 }]] },
+    "Create Deal": { "main": [[{ "node": "Score Lead with AI", "type": "main", "index": 0 }]] },
+    "Score Lead with AI": { "main": [[{ "node": "Route by Score", "type": "main", "index": 0 }]] },
+    "OpenAI - Lead Scorer": { "ai_languageModel": [[{ "node": "Score Lead with AI", "type": "ai_languageModel", "index": 0 }]] },
+    "Route by Score": { "main": [[{ "node": "Alert Sales - Hot Lead", "type": "main", "index": 0 }], [{ "node": "Send Nurture Email", "type": "main", "index": 0 }], [{ "node": "Add to Drip Sequence", "type": "main", "index": 0 }]] },
+    "Stripe Payment Received": { "main": [[{ "node": "Update Deal - Payment Received", "type": "main", "index": 0 }]] },
+    "Schedule - Daily Check": { "main": [[{ "node": "Check Stale Deals", "type": "main", "index": 0 }]] },
+    "Check Stale Deals": { "main": [[{ "node": "Notify Stale Deals", "type": "main", "index": 0 }]] }
+  }
+}

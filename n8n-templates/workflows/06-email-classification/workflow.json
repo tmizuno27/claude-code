@@ -1,0 +1,188 @@
+{
+  "name": "Email Classification & Auto-Routing",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "email" }, { "name": "classification" }, { "name": "ai" }, { "name": "productivity" }],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Email Trigger (IMAP)",
+      "type": "n8n-nodes-base.emailReadImap",
+      "typeVersion": 2,
+      "position": [0, 300],
+      "parameters": { "mailbox": "INBOX", "options": { "forceReconnect": 300 } },
+      "credentials": { "imap": { "id": "IMAP_CREDENTIAL_ID", "name": "Email Account" } }
+    },
+    {
+      "id": "extract-001",
+      "name": "Extract Email Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"from\": \"{{ $json.from }}\",\n  \"from_name\": \"{{ $json.fromName || '' }}\",\n  \"to\": \"{{ $json.to }}\",\n  \"subject\": \"{{ $json.subject }}\",\n  \"body\": \"{{ ($json.text || '').substring(0, 2000) }}\",\n  \"date\": \"{{ $json.date }}\",\n  \"has_attachments\": {{ ($json.attachments || []).length > 0 }},\n  \"attachment_count\": {{ ($json.attachments || []).length }}\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "classify-001",
+      "name": "AI Classify Email",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [480, 300],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Classify this email:\n\nFrom: {{ $json.from_name }} <{{ $json.from }}>\nSubject: {{ $json.subject }}\nBody: {{ $json.body }}\nAttachments: {{ $json.attachment_count }}\n\nRespond in JSON:\n{\n  \"category\": \"urgent|client|invoice|newsletter|spam|internal|personal|support|sales_inquiry\",\n  \"priority\": \"high|medium|low\",\n  \"action_required\": true/false,\n  \"suggested_action\": \"reply|forward|archive|delete|schedule_meeting|create_task\",\n  \"forward_to\": \"email or department if should be forwarded\",\n  \"summary\": \"one-line summary\",\n  \"sentiment\": \"positive|neutral|negative\",\n  \"is_spam\": true/false,\n  \"auto_reply_appropriate\": true/false,\n  \"draft_reply\": \"suggested reply text if action_required is true (max 100 words)\"\n}",
+        "messages": { "messageValues": [{ "message": "You are an executive assistant email classifier. Be accurate and decisive. Mark as spam: marketing emails, cold outreach, newsletters the user didn't subscribe to. Mark as urgent: deadlines within 24h, client escalations, payment issues." }] }
+      }
+    },
+    {
+      "id": "llm-001",
+      "name": "OpenAI - Classifier",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1,
+      "position": [480, 520],
+      "parameters": { "model": "gpt-4o-mini", "options": { "temperature": 0.1, "maxTokens": 500 } },
+      "credentials": { "openAiApi": { "id": "OPENAI_CREDENTIAL_ID", "name": "OpenAI" } }
+    },
+    {
+      "id": "parse-001",
+      "name": "Parse Classification",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [720, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"email\": {{ JSON.stringify($('Extract Email Data').item.json) }},\n  \"classification\": {{ $json.text }}\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "spam-check",
+      "name": "Is Spam?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [960, 300],
+      "parameters": {
+        "conditions": { "boolean": [{ "value1": "={{ $json.classification?.is_spam }}", "value2": true }] },
+        "options": {}
+      }
+    },
+    {
+      "id": "label-spam",
+      "name": "Move to Spam",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1200, 180],
+      "parameters": {
+        "resource": "message",
+        "operation": "addLabels",
+        "messageId": "={{ $('Email Trigger (IMAP)').item.json.messageId }}",
+        "labelIds": ["SPAM"]
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "id": "route-001",
+      "name": "Route by Category",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3,
+      "position": [1200, 400],
+      "parameters": {
+        "rules": {
+          "values": [
+            { "outputKey": "urgent", "conditions": { "conditions": [{ "leftValue": "={{ $json.classification?.priority }}", "rightValue": "high", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "invoice", "conditions": { "conditions": [{ "leftValue": "={{ $json.classification?.category }}", "rightValue": "invoice", "operator": { "type": "string", "operation": "equals" } }] } },
+            { "outputKey": "client", "conditions": { "conditions": [{ "leftValue": "={{ $json.classification?.category }}", "rightValue": "client", "operator": { "type": "string", "operation": "equals" } }] } }
+          ]
+        },
+        "options": { "fallbackOutput": "extra" }
+      }
+    },
+    {
+      "id": "urgent-notify",
+      "name": "Slack Alert - Urgent",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1440, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#urgent", "mode": "name" },
+        "text": "=:rotating_light: *URGENT EMAIL*\n\nFrom: {{ $json.email.from_name }} <{{ $json.email.from }}>\nSubject: {{ $json.email.subject }}\nSummary: {{ $json.classification?.summary }}\nAction: {{ $json.classification?.suggested_action }}",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "id": "invoice-forward",
+      "name": "Forward to Accounting",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1440, 350],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{YOUR_ACCOUNTING_EMAIL}}",
+        "subject": "=[Invoice] {{ $json.email.subject }}",
+        "message": "=Forwarded invoice from {{ $json.email.from_name }}.\n\nOriginal: {{ $json.email.body }}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "id": "client-label",
+      "name": "Label as Client",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [1440, 500],
+      "parameters": {
+        "resource": "message",
+        "operation": "addLabels",
+        "messageId": "={{ $('Email Trigger (IMAP)').item.json.messageId }}",
+        "labelIds": ["Label_Client"]
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "id": "log-001",
+      "name": "Log Classification",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [1680, 400],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Email Log", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "date": "={{ $now.toISO() }}",
+            "from": "={{ $json.email?.from || '' }}",
+            "subject": "={{ $json.email?.subject || '' }}",
+            "category": "={{ $json.classification?.category || '' }}",
+            "priority": "={{ $json.classification?.priority || '' }}",
+            "action": "={{ $json.classification?.suggested_action || '' }}",
+            "summary": "={{ $json.classification?.summary || '' }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    }
+  ],
+  "connections": {
+    "Email Trigger (IMAP)": { "main": [[{ "node": "Extract Email Data", "type": "main", "index": 0 }]] },
+    "Extract Email Data": { "main": [[{ "node": "AI Classify Email", "type": "main", "index": 0 }]] },
+    "AI Classify Email": { "main": [[{ "node": "Parse Classification", "type": "main", "index": 0 }]] },
+    "OpenAI - Classifier": { "ai_languageModel": [[{ "node": "AI Classify Email", "type": "ai_languageModel", "index": 0 }]] },
+    "Parse Classification": { "main": [[{ "node": "Is Spam?", "type": "main", "index": 0 }]] },
+    "Is Spam?": { "main": [[{ "node": "Move to Spam", "type": "main", "index": 0 }], [{ "node": "Route by Category", "type": "main", "index": 0 }]] },
+    "Route by Category": { "main": [[{ "node": "Slack Alert - Urgent", "type": "main", "index": 0 }], [{ "node": "Forward to Accounting", "type": "main", "index": 0 }], [{ "node": "Label as Client", "type": "main", "index": 0 }], [{ "node": "Log Classification", "type": "main", "index": 0 }]] },
+    "Slack Alert - Urgent": { "main": [[{ "node": "Log Classification", "type": "main", "index": 0 }]] },
+    "Forward to Accounting": { "main": [[{ "node": "Log Classification", "type": "main", "index": 0 }]] },
+    "Client Label": { "main": [[{ "node": "Log Classification", "type": "main", "index": 0 }]] }
+  }
+}

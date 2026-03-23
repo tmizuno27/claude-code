@@ -1,0 +1,154 @@
+{
+  "name": "Shopify Order Automation",
+  "active": false,
+  "settings": { "executionOrder": "v1", "saveManualExecutions": true },
+  "tags": [{ "name": "shopify" }, { "name": "ecommerce" }, { "name": "orders" }, { "name": "fulfillment" }],
+  "nodes": [
+    {
+      "id": "trigger-001",
+      "name": "Shopify Order Created",
+      "type": "n8n-nodes-base.shopifyTrigger",
+      "typeVersion": 1,
+      "position": [0, 300],
+      "parameters": { "topic": "orders/create" },
+      "credentials": { "shopifyApi": { "id": "SHOPIFY_CREDENTIAL_ID", "name": "Shopify Store" } }
+    },
+    {
+      "id": "extract-001",
+      "name": "Extract Order Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [240, 300],
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "={\n  \"order_id\": \"{{ $json.id }}\",\n  \"order_number\": \"{{ $json.order_number }}\",\n  \"customer_email\": \"{{ $json.email }}\",\n  \"customer_name\": \"{{ $json.customer?.first_name }} {{ $json.customer?.last_name }}\",\n  \"total_price\": \"{{ $json.total_price }}\",\n  \"currency\": \"{{ $json.currency }}\",\n  \"financial_status\": \"{{ $json.financial_status }}\",\n  \"fulfillment_status\": \"{{ $json.fulfillment_status || 'unfulfilled' }}\",\n  \"line_items\": {{ JSON.stringify($json.line_items?.map(i => ({name: i.name, quantity: i.quantity, price: i.price, sku: i.sku})) || []) }},\n  \"shipping_address\": {{ JSON.stringify($json.shipping_address || {}) }},\n  \"tags\": \"{{ $json.tags || '' }}\",\n  \"note\": \"{{ $json.note || '' }}\",\n  \"created_at\": \"{{ $json.created_at }}\"\n}",
+        "options": {}
+      }
+    },
+    {
+      "id": "fraud-check",
+      "name": "Fraud Risk Check",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [480, 300],
+      "parameters": {
+        "conditions": {
+          "number": [{ "value1": "={{ parseFloat($json.total_price) }}", "operation": "larger", "value2": 500 }]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "high-value-review",
+      "name": "Flag High Value Order",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [720, 180],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#orders", "mode": "name" },
+        "text": "=:moneybag: *High Value Order #{{ $json.order_number }}*\n\nCustomer: {{ $json.customer_name }} ({{ $json.customer_email }})\nTotal: {{ $json.currency }} {{ $json.total_price }}\nItems: {{ $json.line_items?.map(i => i.name).join(', ') }}\n\nPlease verify before fulfillment.",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "id": "log-order",
+      "name": "Log to Order Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.4,
+      "position": [720, 400],
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR_SPREADSHEET_ID", "mode": "id" },
+        "sheetName": { "__rl": true, "value": "Orders", "mode": "name" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "order_number": "={{ $json.order_number }}",
+            "date": "={{ $json.created_at }}",
+            "customer": "={{ $json.customer_name }}",
+            "email": "={{ $json.customer_email }}",
+            "total": "={{ $json.total_price }}",
+            "currency": "={{ $json.currency }}",
+            "items": "={{ $json.line_items?.map(i => `${i.name} x${i.quantity}`).join(', ') }}",
+            "status": "={{ $json.financial_status }}",
+            "fulfillment": "={{ $json.fulfillment_status }}"
+          }
+        },
+        "options": {}
+      },
+      "credentials": { "googleSheetsOAuth2Api": { "id": "SHEETS_CREDENTIAL_ID", "name": "Google Sheets" } }
+    },
+    {
+      "id": "thank-you",
+      "name": "Send Thank You Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [960, 300],
+      "parameters": {
+        "resource": "message",
+        "operation": "send",
+        "toList": "={{ $('Extract Order Data').item.json.customer_email }}",
+        "subject": "=Thank you for your order #{{ $('Extract Order Data').item.json.order_number }}!",
+        "message": "=Hi {{ $('Extract Order Data').item.json.customer_name?.split(' ')[0] }},\n\nThank you for your order! We're preparing it now and will send tracking details soon.\n\nOrder Summary:\n{{ $('Extract Order Data').item.json.line_items?.map(i => `- ${i.name} x${i.quantity}: $${i.price}`).join('\\n') }}\n\nTotal: {{ $('Extract Order Data').item.json.currency }} {{ $('Extract Order Data').item.json.total_price }}\n\nIf you have any questions, just reply to this email.\n\nBest,\n{{YOUR_STORE_NAME}}",
+        "emailType": "text",
+        "options": {}
+      },
+      "credentials": { "gmailOAuth2": { "id": "GMAIL_CREDENTIAL_ID", "name": "Gmail" } }
+    },
+    {
+      "id": "inventory-check",
+      "name": "Check Inventory",
+      "type": "n8n-nodes-base.shopify",
+      "typeVersion": 1,
+      "position": [960, 500],
+      "parameters": {
+        "resource": "product",
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 50
+      },
+      "credentials": { "shopifyApi": { "id": "SHOPIFY_CREDENTIAL_ID", "name": "Shopify Store" } }
+    },
+    {
+      "id": "low-stock",
+      "name": "Low Stock Alert",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.2,
+      "position": [1200, 500],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "channel": { "__rl": true, "value": "#inventory", "mode": "name" },
+        "text": "=:warning: *Low Stock Alert*\n\nAfter Order #{{ $('Extract Order Data').item.json.order_number }}, check inventory for:\n{{ $('Extract Order Data').item.json.line_items?.map(i => `- ${i.name} (SKU: ${i.sku})`).join('\\n') }}",
+        "otherOptions": {}
+      },
+      "credentials": { "slackOAuth2Api": { "id": "SLACK_CREDENTIAL_ID", "name": "Slack" } }
+    },
+    {
+      "id": "tag-order",
+      "name": "Tag Order in Shopify",
+      "type": "n8n-nodes-base.shopify",
+      "typeVersion": 1,
+      "position": [1200, 300],
+      "parameters": {
+        "resource": "order",
+        "operation": "update",
+        "orderId": "={{ $('Extract Order Data').item.json.order_id }}",
+        "updateFields": { "tags": "=processed,{{ parseFloat($('Extract Order Data').item.json.total_price) > 500 ? 'high-value,' : '' }}auto-email-sent" }
+      },
+      "credentials": { "shopifyApi": { "id": "SHOPIFY_CREDENTIAL_ID", "name": "Shopify Store" } }
+    }
+  ],
+  "connections": {
+    "Shopify Order Created": { "main": [[{ "node": "Extract Order Data", "type": "main", "index": 0 }]] },
+    "Extract Order Data": { "main": [[{ "node": "Fraud Risk Check", "type": "main", "index": 0 }]] },
+    "Fraud Risk Check": { "main": [[{ "node": "Flag High Value Order", "type": "main", "index": 0 }], [{ "node": "Log to Order Sheet", "type": "main", "index": 0 }]] },
+    "Flag High Value Order": { "main": [[{ "node": "Log to Order Sheet", "type": "main", "index": 0 }]] },
+    "Log to Order Sheet": { "main": [[{ "node": "Send Thank You Email", "type": "main", "index": 0 }, { "node": "Check Inventory", "type": "main", "index": 0 }]] },
+    "Send Thank You Email": { "main": [[{ "node": "Tag Order in Shopify", "type": "main", "index": 0 }]] },
+    "Check Inventory": { "main": [[{ "node": "Low Stock Alert", "type": "main", "index": 0 }]] }
+  }
+}
