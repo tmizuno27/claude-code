@@ -11,13 +11,13 @@
     "hackernews",
     "free-api",
     "rest-api",
+    "developer-tools",
+    "serpapi-alternative",
+    "product-hunt",
+    "github-trending",
+    "social-listening",
     "trending-topics",
-    "social-trends",
-    "real-time",
-    "github",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "cloudflare-edge"
   ],
   "website": "https://trends-api.your-domain.workers.dev",
   "pricing": {
