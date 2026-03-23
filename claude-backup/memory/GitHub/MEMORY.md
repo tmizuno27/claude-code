@@ -135,6 +135,12 @@
 - miccho27-devにも10本公開済み（重複あり、整理は後日）
 - **プロジェクトパス**: `claude-code/vscode-extensions/`
 
+## Stock Assets事業（出品準備中）
+- **詳細**: [stock-assets-business.md](stock-assets-business.md)
+- 630プロンプト完成、87枚生成+アップスケール済み、Adobe Stock/Freepik用メタデータCSV完成
+- 次: Adobe Stockアカウント開設→87枚テスト出品→残り543枚生成
+- **プロジェクトパス**: `claude-code/stock-assets/`
+
 ## n8nテンプレート販売事業（一時停止）
 - **詳細**: [n8n-template-business.md](n8n-template-business.md)
 - 9/10本Gumroad出品済みだがStripe KYC認証問題で停止中
