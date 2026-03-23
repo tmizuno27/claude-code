@@ -1,22 +1,22 @@
 {
   "name": "Placeholder Image API",
   "tagline": "Generate custom placeholder images with text, gradients & categories in SVG/PNG",
-  "description": "Free Placeholder Image API - SVG/PNG, Gradients, Custom Text, Categories",
+  "description": "Free Placeholder Image API - SVG/PNG, Gradients, Text | Picsum Alt",
   "category": "Media",
   "tags": [
     "placeholder",
     "image",
     "svg",
     "generator",
-    "mockup",
-    "gradient",
-    "design",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier",
     "free-api",
     "rest-api",
-    "developer-tools"
+    "developer-tools",
+    "picsum-alternative",
+    "placeholder-com-alternative",
+    "mockup",
+    "gradient",
+    "design-tools",
+    "cloudflare-edge"
   ],
   "pricing": {
     "plans": [
