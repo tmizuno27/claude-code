@@ -1,23 +1,23 @@
 {
   "name": "AI Text API",
   "slug": "ai-text-api",
-  "description": "Free AI Text API - Generate, Summarize, Translate, Rewrite with Llama 3.1",
+  "description": "Free AI Text API - Generate, Summarize, Rewrite, Llama 3.1 | GPT Alt",
   "long_description": "## Why AI Text API?\n- ✅ Powered by Cloudflare Workers AI (Llama 3.1) — no external API keys needed\n- ✅ 5-in-1: Generate, summarize, translate, sentiment, rewrite\n- ✅ Serverless edge inference for low latency worldwide\n\n## Key Features\n- Text generation with customizable prompts\n- Summarization of long documents\n- Translation across multiple languages\n- Sentiment analysis with confidence scores\n- Text rewriting with tone control\n\n## Use Cases\n- **Content Creation**: Generate blog posts, product descriptions, social media\n- **Customer Support**: Summarize tickets and detect sentiment\n- **Localization**: Translate content for international markets\n- **SEO**: Rewrite content for freshness and uniqueness\n\n## Quick Start\n```\nPOST /generate\n{\"prompt\": \"Write a product description for...\", \"max_tokens\": 500}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all AI features. No credit card required.\n\n## Alternative To\nA free **AI text API alternative** to OpenAI GPT, Cohere, and AI21 Labs. Powered by Meta Llama 3.1 8B on Cloudflare Workers AI (free tier).\n\n## Need More Requests?\nFree plan (500 generations/month) for experimentation. **Pro ($9.99/mo)** for production AI features with 50,000 requests.",
   "category": "Text",
   "tags": [
     "ai",
     "text-generation",
     "summarization",
-    "translation",
     "free-api",
     "rest-api",
-    "gpt",
+    "developer-tools",
+    "gpt-alternative",
     "chatgpt-alternative",
     "text-rewrite",
     "nlp",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "llama",
+    "sentiment-analysis",
+    "cloudflare-edge"
   ],
   "website": "https://ai-text-api.your-domain.workers.dev",
   "pricing": {

@@ -1,46 +1,46 @@
 {
   "title": "Company Data Enricher Input",
-  "description": "Enrich company information from domains or search by company name",
+  "description": "Enrich B2B company data from domains, company names, or Wikidata IDs. Extract website metadata, social profiles, tech stack, contact info, and domain registration data -- all from free public sources.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "domains": {
       "title": "Company Domains",
       "type": "array",
-      "description": "List of company domains to enrich (e.g. 'stripe.com', 'shopify.com'). Returns metadata, social links, contact info, tech stack, and RDAP domain info.",
+      "description": "List of company domains to enrich (e.g. 'stripe.com', 'shopify.com'). Returns metadata, social links (LinkedIn, Twitter, GitHub), contact info, technology stack (28 technologies), and RDAP domain registration info. No API keys needed.",
       "editor": "stringList",
       "prefill": ["stripe.com", "shopify.com"]
     },
     "queries": {
       "title": "Company Name Search Queries",
       "type": "array",
-      "description": "List of company names to search via Wikidata (e.g. 'Google', 'Apple Inc'). Returns Wikidata entities matching the query.",
+      "description": "Search companies by name via Wikidata (e.g. 'Google', 'Apple Inc'). Returns structured company data: founded date, HQ location, CEO, industry, and employee count.",
       "editor": "stringList",
       "prefill": []
     },
     "wikidataIds": {
       "title": "Wikidata Entity IDs",
       "type": "array",
-      "description": "List of Wikidata entity IDs to look up (e.g. 'Q95' for Google, 'Q312' for Apple). Returns structured company info from Wikidata.",
+      "description": "Direct Wikidata entity lookup (e.g. 'Q95' for Google, 'Q312' for Apple). Returns comprehensive structured company data from the world's largest free knowledge graph.",
       "editor": "stringList",
       "prefill": []
     },
     "mode": {
       "title": "Enrichment Mode",
       "type": "string",
-      "description": "For domain inputs: 'enrich' returns full enrichment (metadata + tech + social + contacts + RDAP). 'domain' returns basic metadata + RDAP without tech detection.",
+      "description": "For domain inputs: 'enrich' returns full enrichment (metadata + tech stack + social profiles + contacts + RDAP). 'domain' returns basic metadata + RDAP only (faster, lower compute cost).",
       "editor": "select",
       "enum": ["enrich", "domain"],
       "enumTitles": [
         "Full Enrichment (metadata + tech stack + social + contacts + RDAP)",
-        "Domain Lookup (metadata + RDAP, no tech detection)"
+        "Domain Lookup Only (metadata + RDAP, faster & cheaper)"
       ],
       "default": "enrich"
     },
     "delayMs": {
       "title": "Delay Between Requests (ms)",
       "type": "integer",
-      "description": "Milliseconds to wait between each domain/query to avoid overloading target sites.",
+      "description": "Milliseconds to wait between each request. Lower = faster but higher risk of rate limiting. Recommended: 500-2000ms.",
       "default": 1000,
       "minimum": 0,
       "maximum": 10000
