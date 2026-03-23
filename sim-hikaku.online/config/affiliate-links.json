@@ -337,6 +337,16 @@
       "commission": 0,
       "status": "pending_approval",
       "note": "A8.netにて申請中"
+    },
+    "japan-global-esim": {
+      "name": "JAPAN&GLOBAL eSIM",
+      "asp": "もしもアフィリエイト",
+      "url": "//af.moshimo.com/af/c/click?a_id=5432462&p_id=6375&pc_id=18009&pl_id=81888",
+      "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5432462&p_id=6375&pc_id=18009&pl_id=81888",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 8,
+      "note": "もしもアフィリエイト提携済（2026-03-23）海外旅行・出張向けeSIM"
     }
   },
   "valuecommerce": {
