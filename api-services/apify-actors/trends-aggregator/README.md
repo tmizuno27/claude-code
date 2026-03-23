@@ -1,6 +1,6 @@
-# Trends Aggregator
+# Trends Aggregator - Multi-Source Trending Topics (Google, Reddit, HN, GitHub, PH)
 
-Aggregate trending topics from multiple sources in a single Apify Actor run. No API keys required.
+Aggregate trending topics from 5 sources in a single Apify Actor run. No API keys required. A free alternative to Exploding Topics, BuzzSumo, and Google Trends API wrappers.
 
 ## Sources
 
@@ -113,6 +113,25 @@ If a source fails, the record will include an `"error"` field instead of items.
   "topics": ["AI", "Productivity"]
 }
 ```
+
+## Why Choose This Actor?
+
+- **5 sources in 1 run** -- Google Trends, Hacker News, Reddit, GitHub, Product Hunt
+- **No API keys** -- all sources are public (RSS, JSON APIs, HTML parsing)
+- **Region support** -- Google Trends supports country-specific trending topics
+- **Configurable limits** -- control how many items per source (1-50)
+- **Structured output** -- clean JSON with timestamps, scores, and source attribution
+
+## FAQ
+
+**Q: How often should I run this?**
+A: For daily trend monitoring, run once per day. For real-time trend tracking, run every 1-4 hours. Hacker News and Reddit update most frequently.
+
+**Q: Can I filter by specific subreddits or GitHub languages?**
+A: Currently, Reddit fetches from r/popular and GitHub fetches all languages. Filtering by specific subreddits or languages is planned for a future update.
+
+**Q: What does the Google Trends "traffic" field mean?**
+A: It's Google's estimated daily search volume for that trending topic (e.g., "500K+" means over 500,000 searches).
 
 ## Notes
 

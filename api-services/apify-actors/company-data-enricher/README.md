@@ -1,6 +1,6 @@
-# Company Data Enricher
+# Company Data Enricher - Free B2B Data from Public Sources
 
-An Apify Actor that enriches company data from domains and company names using only free public sources — no API keys required.
+An Apify Actor that enriches company data from domains and company names using only free public sources -- no API keys required. A free alternative to Clearbit Enrichment, ZoomInfo, and FullContact.
 
 ## Features
 
@@ -95,6 +95,25 @@ Results are pushed to the default dataset. Each record includes a `type` field (
 ## Technology Detection
 
 Detects 28 technologies including: Google Analytics, Google Tag Manager, Facebook Pixel, Shopify, WordPress, React, Next.js, Vue.js, Nuxt.js, Angular, jQuery, Bootstrap, Tailwind CSS, Cloudflare, Stripe, Intercom, HubSpot, Segment, Hotjar, Zendesk, Wix, Squarespace, Webflow, Vercel, Gatsby, Svelte, Drift.
+
+## Why Choose This Actor?
+
+- **Zero API keys** -- uses only RDAP, Wikidata, and public HTML parsing
+- **3 enrichment modes** -- domain enrichment, company search, Wikidata lookup
+- **Tech stack detection** -- identifies 28 technologies from website HTML
+- **Social profiles** -- extracts LinkedIn, Twitter, and other social links
+- **Bulk processing** -- enrich dozens of companies in one Actor run
+
+## FAQ
+
+**Q: How does this compare to Clearbit?**
+A: Clearbit has richer proprietary data but costs $99+/mo. This Actor uses free public sources, making it ideal for startups and small-scale enrichment needs.
+
+**Q: What data sources are used?**
+A: Website HTML (direct fetch), IANA RDAP (domain registration), and Wikidata (company metadata). No paid APIs are called.
+
+**Q: Can I run this on a schedule?**
+A: Yes. Use Apify's scheduler to enrich new leads automatically on a daily or weekly basis.
 
 ## Notes
 

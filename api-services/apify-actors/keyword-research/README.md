@@ -1,9 +1,9 @@
-# Keyword Research — Apify Actor
+# Keyword Research - Google Autocomplete Keyword Expander & Scorer
 
 Fetches Google Suggest autocomplete suggestions for a list of seed keywords,
-expands them with Japanese question-pattern variants, scores every candidate
+expands them with question-pattern variants, scores every candidate
 for longtail/question potential, and outputs the top-N results to the Apify
-dataset.
+dataset. A free alternative to Ahrefs Keywords Explorer, SEMrush Keyword Magic, and Ubersuggest.
 
 Converted from `nambei-oyaji.com/scripts/content/keyword_research.py`.
 
@@ -69,6 +69,25 @@ Each item in the dataset represents one ranked keyword:
 - High-value term present (`稼ぐ`, `副業`, `おすすめ`, etc.): +5
 
 ---
+
+## Why Choose This Actor?
+
+- **Google Suggest data** -- real autocomplete suggestions reflecting actual user search behavior
+- **Automatic expansion** -- generates question-pattern variants for each seed keyword
+- **Smart scoring** -- longtail keywords scored higher for content targeting potential
+- **Multi-language** -- supports any Google Suggest locale (ja, en, es, etc.)
+- **No API keys** -- uses public Google Suggest endpoint
+
+## FAQ
+
+**Q: How does this differ from Ahrefs or SEMrush keyword tools?**
+A: This Actor focuses on Google autocomplete suggestions (real user queries) with automatic scoring. It lacks search volume data but is free and great for discovering long-tail content ideas.
+
+**Q: Can I use this for English keywords?**
+A: Yes. Set `language: "en"` in the input. The question patterns are optimized for Japanese by default but work with any language.
+
+**Q: How many keywords can I research at once?**
+A: No hard limit. Each seed keyword generates 10-50 suggestions. Processing time scales linearly.
 
 ## Local development
 
