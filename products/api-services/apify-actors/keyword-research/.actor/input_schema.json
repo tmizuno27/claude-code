@@ -1,12 +1,12 @@
 {
   "title": "Keyword Research Input",
-  "description": "Input schema for the Keyword Research Actor.",
+  "description": "Discover long-tail keyword opportunities from Google Autocomplete. Input seed keywords, get scored and ranked suggestions for SEO content strategy. Free alternative to Ahrefs Keywords Explorer and SEMrush Keyword Magic Tool.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "keywords": {
       "title": "Seed Keywords",
-      "description": "List of seed keywords to research. Google Suggest will be called for each keyword and its question-pattern variants.",
+      "description": "List of seed keywords to research. Google Autocomplete will return real user search suggestions for each keyword. Add 5-20 seeds for best results. Example: 'best CRM software', 'remote work tools'.",
       "type": "array",
       "items": {
         "type": "string"
@@ -16,15 +16,15 @@
     },
     "language": {
       "title": "Language / Locale",
-      "description": "Language code passed to Google Suggest (hl parameter). Default is Japanese.",
+      "description": "Google Suggest language code. Supports 50+ languages: 'ja' (Japanese), 'en' (English), 'es' (Spanish), 'de' (German), 'fr' (French), 'pt' (Portuguese), etc.",
       "type": "string",
       "editor": "textfield",
       "default": "ja",
       "example": "ja"
     },
     "topN": {
-      "title": "Top N keywords to output",
-      "description": "Number of top-scored keywords to include in the dataset output.",
+      "title": "Top N Keywords to Output",
+      "description": "Number of top-scored keywords to include in results. Set higher (50-200) for comprehensive research, lower (10-20) for quick content ideas.",
       "type": "integer",
       "editor": "number",
       "default": 20,
@@ -32,8 +32,8 @@
       "maximum": 200
     },
     "requestDelaySeconds": {
-      "title": "Delay between requests (seconds)",
-      "description": "Seconds to wait between Google Suggest API calls to avoid rate limiting.",
+      "title": "Delay Between Requests (seconds)",
+      "description": "Seconds to wait between Google Suggest API calls. Recommended: 0.5-2.0 seconds. Lower = faster but higher risk of rate limiting.",
       "type": "number",
       "editor": "number",
       "default": 1.0,
@@ -41,8 +41,8 @@
       "maximum": 10.0
     },
     "maxQuestionPatterns": {
-      "title": "Max question-pattern variants per seed",
-      "description": "Number of Japanese question suffixes to append to each seed keyword (max 12).",
+      "title": "Max Question Variants per Seed",
+      "description": "Number of question-pattern suffixes (who, what, when, where, why, how) to append to each seed keyword. More patterns = more keyword ideas but longer runtime.",
       "type": "integer",
       "editor": "number",
       "default": 4,
