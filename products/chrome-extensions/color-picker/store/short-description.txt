@@ -1,1 +1,1 @@
-Pick colors from any page, convert HEX/RGB/HSL/CMYK, check WCAG contrast, and generate palettes. 100% local, no data collected.
+Color picker and converter: eyedropper, HEX/RGB/HSL/CMYK, WCAG contrast checker, palette generator. 100% offline, no data collected.

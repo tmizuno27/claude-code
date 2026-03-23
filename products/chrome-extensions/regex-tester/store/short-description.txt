@@ -1,1 +1,1 @@
-Test regex patterns with instant match highlighting, capture groups, and saved presets. Fully offline.
+Regex tester: real-time pattern matching with syntax highlighting, capture groups, saved presets. Fully offline, no data sent.

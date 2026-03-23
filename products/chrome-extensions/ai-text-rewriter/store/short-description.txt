@@ -1,1 +1,1 @@
-Select any text and rewrite it with AI. Casual, Professional, Shorter, Longer, or Fix Grammar. Uses your own OpenAI API key.
+AI text rewriter: select any text and rewrite instantly. Casual, Professional, Shorter, Longer, Fix Grammar. Uses your own OpenAI API key (BYOK).
