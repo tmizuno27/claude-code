@@ -379,7 +379,7 @@ def collect_pseo_data() -> dict:
 
     # 静的ページ数をカウント（out/ または public/ ディレクトリ）
     page_count = 0
-    for subdir in ["out", "public", "site"]:
+    for subdir in ["out", "public", "site/out", "site"]:
         target = PSEO_DIR / subdir
         if target.exists():
             try:
