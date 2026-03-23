@@ -4,7 +4,7 @@ Write-Host ""
 
 # Build path with Unicode chars
 $myDrive = $env:USERPROFILE + "\" + [char]0x30DE + [char]0x30A4 + [char]0x30C9 + [char]0x30E9 + [char]0x30A4 + [char]0x30D6
-$apiDir = "$myDrive\GitHub\claude-code\api-services"
+$apiDir = "$myDrive\GitHub\claude-code\products\api-services"
 $debugProfile = "$env:USERPROFILE\chrome-debug-profile"
 
 # Step 1: Kill Chrome

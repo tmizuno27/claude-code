@@ -1,4 +1,4 @@
-Loaded 10 API definitions from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services
+Loaded 10 API definitions from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services
 
 ============================================================
 MANUAL LISTING INSTRUCTIONS FOR RAPIDAPI APIS 11-20
@@ -21,7 +21,7 @@ STEPS:
   5. Enter base URL: https://ai-text-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\11-ai-text-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\11-ai-text-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -53,7 +53,7 @@ STEPS:
   5. Enter base URL: https://social-video-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\12-social-video-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\12-social-video-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -85,7 +85,7 @@ STEPS:
   5. Enter base URL: https://crypto-data-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\13-crypto-data-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\13-crypto-data-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -117,7 +117,7 @@ STEPS:
   5. Enter base URL: https://seo-analyzer-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\14-seo-analyzer-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\14-seo-analyzer-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -149,7 +149,7 @@ STEPS:
   5. Enter base URL: https://weather-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\15-weather-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\15-weather-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -181,7 +181,7 @@ STEPS:
   5. Enter base URL: https://whois-domain-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\16-whois-domain-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\16-whois-domain-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -213,7 +213,7 @@ STEPS:
   5. Enter base URL: https://news-aggregator-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\17-news-aggregator-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\17-news-aggregator-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -245,7 +245,7 @@ STEPS:
   5. Enter base URL: https://ai-translate-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\18-ai-translate-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\18-ai-translate-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -277,7 +277,7 @@ STEPS:
   5. Enter base URL: https://trends-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\19-trends-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\19-trends-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec
@@ -309,7 +309,7 @@ STEPS:
   5. Enter base URL: https://company-data-api.t-mizuno27.workers.dev
   6. Click [Create API]
   7. In the API editor, go to [Definition] tab
-  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services\20-company-data-api\openapi.json
+  8. Upload openapi.json from: C:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services\20-company-data-api\openapi.json
   9. Go to [Pricing] tab and add:
      - BASIC: Free / 100 req/month / 1 req/sec
      - PRO: $9.99/mo / 10,000 req/month / 5 req/sec

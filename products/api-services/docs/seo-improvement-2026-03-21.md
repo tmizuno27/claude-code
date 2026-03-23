@@ -131,7 +131,7 @@ api-services/
 "C:\Program Files\Google\Chrome\Application\chrome.exe" --remote-debugging-port=9222 --user-data-dir=C:\Users\tmizu\chrome-debug-profile https://rapidapi.com/studio/
 
 # RapidAPI Studio にログインした状態で実行
-cd c:\Users\tmizu\マイドライブ\GitHub\claude-code\api-services
+cd c:\Users\tmizu\マイドライブ\GitHub\claude-code\products\api-services
 python scripts/rapidapi_studio_updater.py
 ```
 
