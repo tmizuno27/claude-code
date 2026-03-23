@@ -1,6 +1,6 @@
 {
   "name": "Hash & Encoding API",
-  "description": "Free Hash & Encoding API - SHA256, Bcrypt, Base64, HMAC | 500/mo free",
+  "description": "Free Hash & Encoding API - SHA256, Bcrypt, HMAC, Base64 | 500/mo",
   "category": "Tools",
   "tags": [
     "hash",
@@ -8,8 +8,14 @@
     "bcrypt",
     "free-api",
     "rest-api",
+    "developer-tools",
     "encryption",
-    "base64"
+    "base64",
+    "hmac",
+    "password-hashing",
+    "web-crypto",
+    "encoding-decoding",
+    "cloudflare-edge"
   ],
   "website": "https://hash-encoding-api.t-mizuno27.workers.dev",
   "baseUrl": "https://hash-encoding-api.t-mizuno27.workers.dev",
