@@ -4,6 +4,33 @@
 
 Capture screenshots of any website as PNG or JPEG. Supports custom viewport sizes, full-page capture, JPEG quality control, and render delay for JavaScript-heavy pages. Powered by Cloudflare Workers with 1-hour caching.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api) (free plan available)
+2. Copy your API key
+3. Capture your first screenshot:
+
+```bash
+curl -X GET "https://screenshot-api.p.rapidapi.com/screenshot?url=https://github.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: screenshot-api.p.rapidapi.com" \
+  -o screenshot.png
+```
+
+## How It Compares
+
+| Feature | This API | ScreenshotAPI | URLBox | Screenshotlayer |
+|---------|----------|-------------|--------|----------------|
+| Free tier | 500 req/mo | 100/mo | None | 100/mo |
+| Pro pricing | $9.99/50K | $19/1K | $19/mo | $10/2K |
+| Full-page capture | Yes | Yes | Yes | Yes |
+| Custom viewports | Yes (320-3840px) | Yes | Yes | Limited |
+| PNG + JPEG | Yes | Yes | Yes | Yes |
+| JPEG quality control | Yes (1-100) | Yes | Yes | No |
+| Render delay | Yes (up to 5s) | Yes | Yes | No |
+| 1-hour edge cache | Yes (CF Workers) | No | No | No |
+| Per-screenshot pricing | No (flat plan) | Yes ($0.019/each) | Yes | Yes ($0.005/each) |
+
 ## Why Choose This Screenshot API?
 
 - **Multiple output formats** -- PNG for crisp screenshots, JPEG with quality control (1-100)

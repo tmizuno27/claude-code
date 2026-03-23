@@ -4,6 +4,32 @@
 
 Validate email addresses in real time with format checks, MX record lookups, disposable domain detection (500+ domains), free provider detection, role-based address detection, and typo suggestions. Built on Cloudflare Workers for sub-100ms global latency.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/email-validation-api) (free plan available)
+2. Copy your API key
+3. Validate your first email:
+
+```bash
+curl -X GET "https://email-validation-api.p.rapidapi.com/validate?email=user@example.com" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: email-validation-api.p.rapidapi.com"
+```
+
+## How It Compares
+
+| Feature | This API | ZeroBounce | Hunter.io | NeverBounce |
+|---------|----------|-----------|-----------|-------------|
+| Free tier | 500 req/mo | 100/mo | 25 searches/mo | 1,000 free |
+| Pro pricing | $5.99/50K | $16/2K | $49/500 | $8/1K |
+| MX lookup | Yes | Yes | Yes | Yes |
+| Disposable detection | Yes (500+ domains) | Yes | No | Yes |
+| Typo correction | Yes | No | No | No |
+| Bulk validation | Yes (50/request) | Yes | Yes | Yes |
+| Confidence score | Yes (0-100) | Yes | Yes | Yes |
+| Role-based detection | Yes | Yes | No | No |
+| No per-email pricing | Yes (flat plan) | No ($0.008/email) | No ($0.098/email) | No ($0.008/email) |
+
 ## Why Choose This Email Validation API?
 
 - **No emails sent** -- validates via DNS/MX lookup, format checks, and domain intelligence
@@ -147,6 +173,23 @@ A free alternative to ZeroBounce, Hunter.io, and NeverBounce. Get the same core 
 ## Keywords
 
 `email validation api`, `email verification`, `disposable email detection`, `mx lookup api`, `email hygiene`, `bounce detection`, `email typo fix`, `bulk email validation`, `free email api`, `saas email validation`
+
+## FAQ
+
+**Q: Does this API actually send emails to verify addresses?**
+A: No. Validation is done via DNS MX record lookups, format checks, and domain intelligence. No emails are ever sent, which means no bounce risk.
+
+**Q: How many disposable email domains are detected?**
+A: Over 500 known disposable/temporary email domains including Mailinator, Guerrilla Mail, 10MinuteMail, and more. The list is regularly updated.
+
+**Q: Can I validate emails in bulk?**
+A: Yes. The `/validate/bulk` endpoint accepts up to 50 emails per request. For larger lists, batch your requests.
+
+**Q: What does the confidence score mean?**
+A: A score of 0-100 reflecting email quality. 90-100 = high quality, 50-89 = moderate (free provider or role-based), below 50 = risky (disposable or invalid format).
+
+**Q: Does it catch typos like "gmial.com"?**
+A: Yes. Common domain typos are detected and the correct domain is suggested (e.g., gmial.com -> gmail.com, yaho.com -> yahoo.com).
 
 ## Development
 
