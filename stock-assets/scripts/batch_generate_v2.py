@@ -15,7 +15,7 @@ from PIL import Image
 # Configuration
 API_URL = "http://localhost:7055/v1/images/generations"
 API_KEY = "stockasset2026"
-GS_COOKIE = "session_id=990a262e-eac3-4a0b-8871-3f7eefebb138:e4f283fee18d7fbd247642f215caeb6806a64e313a444e16abb535b20cbed73c"
+GS_COOKIE = "session_id=721a25cc-2232-4a9f-b2e6-4d997c9ab690:2e670da5328d8b01a5f3b6c83db930fd071cc14d7308b687863cbd6d07493772"
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 IMAGE_DIR = os.path.join(BASE_DIR, "output", "images")
