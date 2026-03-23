@@ -68,8 +68,36 @@ def should_post_promo():
     return datetime.now().timetuple().tm_yday % 2 == 0
 
 
+COOLDOWN_MINUTES = 15
+
+
+def get_last_post_time():
+    """Read last successful post timestamp from log file."""
+    if not os.path.exists(LOG_PATH):
+        return None
+    try:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+        for line in reversed(lines):
+            if "OK:" in line:
+                match = re.search(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]", line)
+                if match:
+                    return datetime.strptime(match.group(1), "%Y-%m-%d %H:%M:%S")
+        return None
+    except Exception:
+        return None
+
+
 def main():
     now = datetime.now()
+
+    # Duplicate post prevention
+    last_post = get_last_post_time()
+    if last_post and (now - last_post) < timedelta(minutes=COOLDOWN_MINUTES):
+        elapsed = int((now - last_post).total_seconds() / 60)
+        log(f"SKIP: Last post was {elapsed}min ago (cooldown: {COOLDOWN_MINUTES}min). Aborting.")
+        return
+
     hour = now.hour
 
     # Determine tweet type based on time
