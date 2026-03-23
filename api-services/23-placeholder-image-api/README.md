@@ -4,6 +4,32 @@
 
 Generate custom placeholder images in SVG or PNG format with configurable dimensions, colors, text overlay, gradients, and category presets (nature, tech, food, etc.). Perfect for prototyping and wireframes.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/placeholder-image-api) (free plan available)
+2. Copy your API key
+3. Generate your first placeholder:
+
+```bash
+curl -X GET "https://placeholder-image-api.p.rapidapi.com/image?width=400&height=300&text=Hello" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: placeholder-image-api.p.rapidapi.com" \
+  -o placeholder.png
+```
+
+## How It Compares
+
+| Feature | This API | Placeholder.com | Lorem Picsum | PlaceIMG |
+|---------|----------|----------------|-------------|----------|
+| Free tier | 500 req/mo | Unlimited (no API) | Unlimited (no API key) | Shutdown |
+| API key management | Yes (RapidAPI) | No | No | N/A |
+| Custom text overlay | Yes | Yes | No | No |
+| Gradient backgrounds | Yes | No | No | No |
+| Category presets | Yes (nature, tech, food, etc.) | No | Random photos | Categories |
+| SVG output | Yes | No | No | No |
+| Custom colors | Yes (fg + bg) | Limited | No | No |
+| Rate limiting headers | Yes (documented) | Undocumented | Undocumented | N/A |
+
 ## Why Choose This Placeholder Image API?
 
 - **SVG and PNG** -- vector or raster output
@@ -12,6 +38,14 @@ Generate custom placeholder images in SVG or PNG format with configurable dimens
 - **Category presets** -- nature, tech, food, abstract, business, and more
 - **Any dimension** -- from 1x1 to 4000x4000 pixels
 - **Free tier** -- 500 requests/month at $0
+
+## Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/image` | GET | Generate a placeholder image |
+| `/gradients` | GET | List available gradient presets |
+| `/categories` | GET | List available category presets |
 
 ## Use Cases
 
@@ -43,6 +77,41 @@ with open("placeholder.png", "wb") as f:
     f.write(response.content)
 ```
 
+### Node.js Example
+
+```javascript
+const axios = require("axios");
+const fs = require("fs");
+
+const response = await axios.get(
+  "https://placeholder-image-api.p.rapidapi.com/image",
+  {
+    params: { width: 1200, height: 630, text: "OG Image", gradient: "sunset" },
+    headers: {
+      "X-RapidAPI-Key": "YOUR_KEY",
+      "X-RapidAPI-Host": "placeholder-image-api.p.rapidapi.com",
+    },
+    responseType: "arraybuffer",
+  }
+);
+
+fs.writeFileSync("og-image.png", response.data);
+```
+
+## FAQ
+
+**Q: What image formats are supported?**
+A: PNG (raster) and SVG (vector). Use the `format` parameter to choose. SVG is ideal for responsive designs.
+
+**Q: What is the maximum image size?**
+A: Up to 4000x4000 pixels. Larger sizes may increase response time.
+
+**Q: Can I use gradient backgrounds?**
+A: Yes. Use the `gradient` parameter with preset names (sunset, ocean, forest, etc.) or specify custom colors.
+
+**Q: Are category preset images photos or illustrations?**
+A: They are styled placeholder designs with category-specific color palettes and patterns, not actual photos.
+
 ## Pricing
 
 | Plan | Price | Requests/mo | Rate Limit |
@@ -52,7 +121,7 @@ with open("placeholder.png", "wb") as f:
 
 ## Alternative To
 
-A free alternative to Placeholder.com, Lorem Picsum, and PlaceIMG.
+A free alternative to Placeholder.com, Lorem Picsum, and PlaceIMG. The only placeholder API with gradients, SVG output, and category presets.
 
 ## Keywords
 

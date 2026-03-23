@@ -4,6 +4,35 @@
 
 Generate production-ready PDFs from HTML strings, Markdown content, or live web URLs. Supports custom page sizes, margins, headers, footers, and landscape orientation. Built on Cloudflare Workers.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/pdf-generator-api) (free plan available)
+2. Copy your API key
+3. Generate your first PDF:
+
+```bash
+curl -X POST "https://pdf-generator-api.p.rapidapi.com/generate" \
+  -H "Content-Type: application/json" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: pdf-generator-api.p.rapidapi.com" \
+  -d '{"html": "<h1>Invoice #001</h1><p>Total: $100</p>", "format": "A4"}' \
+  -o invoice.pdf
+```
+
+## How It Compares
+
+| Feature | This API | PDFShift | HTML2PDF | DocRaptor |
+|---------|----------|---------|---------|-----------|
+| Free tier | 500 req/mo | 50 req/mo | 100 req/mo | 5 docs/mo |
+| Pro pricing | $9.99/50K | $9/mo | $14.99/mo | $15/mo |
+| HTML to PDF | Yes | Yes | Yes | Yes |
+| Markdown to PDF | Yes | No | No | No |
+| URL to PDF | Yes | Yes | Yes | Yes |
+| Custom headers/footers | Yes | Yes | No | Yes |
+| Page sizes | A4, Letter, Legal | A4, Letter | A4, Letter | A4, Letter, Custom |
+| Landscape mode | Yes | Yes | Yes | Yes |
+| Edge deployment | Yes (CF Workers) | No | No | No |
+
 ## Why Choose This PDF Generator API?
 
 - **Multiple inputs** -- HTML, Markdown, or URL as source
@@ -11,6 +40,14 @@ Generate production-ready PDFs from HTML strings, Markdown content, or live web 
 - **Headers/footers** -- add custom headers and footers to generated PDFs
 - **Markdown support** -- direct Markdown-to-PDF without HTML conversion step
 - **Free tier** -- 500 requests/month at $0
+
+## Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/generate` | POST | Generate PDF from HTML string |
+| `/from-markdown` | POST | Generate PDF from Markdown |
+| `/from-url` | POST | Generate PDF from a web URL |
 
 ## Use Cases
 
@@ -45,6 +82,41 @@ with open("report.pdf", "wb") as f:
     f.write(response.content)
 ```
 
+### Node.js Example
+
+```javascript
+const axios = require("axios");
+const fs = require("fs");
+
+const response = await axios.post(
+  "https://pdf-generator-api.p.rapidapi.com/from-markdown",
+  { markdown: "# Monthly Report\n\n## Summary\n\nRevenue: $10,000", format: "A4" },
+  {
+    headers: {
+      "X-RapidAPI-Key": "YOUR_KEY",
+      "X-RapidAPI-Host": "pdf-generator-api.p.rapidapi.com",
+    },
+    responseType: "arraybuffer",
+  }
+);
+
+fs.writeFileSync("report.pdf", response.data);
+```
+
+## FAQ
+
+**Q: What page sizes are supported?**
+A: A4, US Letter, and Legal. Custom dimensions can be specified via `width` and `height` parameters.
+
+**Q: Can I add page numbers?**
+A: Yes. Use the `header` and `footer` parameters to add custom HTML content including page numbers.
+
+**Q: Is CSS supported in HTML input?**
+A: Yes. Inline CSS and `<style>` tags are fully supported. External stylesheets can be linked via `<link>` tags.
+
+**Q: What is the maximum HTML size?**
+A: HTML payloads up to 1MB are supported. For very complex pages with many images, use the `/from-url` endpoint instead.
+
 ## Pricing
 
 | Plan | Price | Requests/mo | Rate Limit |
@@ -54,7 +126,7 @@ with open("report.pdf", "wb") as f:
 
 ## Alternative To
 
-A free alternative to PDFShift, HTML2PDF, and DocRaptor.
+A free alternative to PDFShift, HTML2PDF, and DocRaptor. The only PDF API with built-in Markdown support and edge deployment.
 
 ## Keywords
 
