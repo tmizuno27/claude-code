@@ -1,6 +1,6 @@
 {
   "name": "JSON Formatter & Validator API",
-  "description": "Free JSON Formatter API - Validate, Minify, Diff, CSV Convert, Transform | 500/mo free",
+  "description": "Free JSON Formatter API - Validate, Minify, Diff, CSV | JSONLint Alt",
   "category": "Tools",
   "tags": [
     "json",
@@ -8,8 +8,14 @@
     "json-validator",
     "free-api",
     "rest-api",
+    "developer-tools",
     "csv-to-json",
-    "data-conversion"
+    "data-conversion",
+    "jsonlint-alternative",
+    "json-minify",
+    "json-diff",
+    "json-transform",
+    "cloudflare-edge"
   ],
   "base_url": "https://json-formatter-api.t-mizuno27.workers.dev",
   "pricing": [

@@ -1,6 +1,6 @@
 {
   "name": "IP Geolocation API",
-  "description": "Free IP Geolocation API - Country, City, VPN Detection, Bulk Lookup | 500/mo free",
+  "description": "Free IP Geolocation API - VPN Detection, Bulk Lookup | ipinfo Alt",
   "category": "Tools",
   "tags": [
     "ip-geolocation",
@@ -8,8 +8,14 @@
     "ip-lookup",
     "free-api",
     "rest-api",
+    "developer-tools",
     "vpn-detection",
-    "fraud-detection"
+    "fraud-detection",
+    "ipinfo-alternative",
+    "ipstack-alternative",
+    "bulk-ip-lookup",
+    "cloudflare-edge",
+    "ip-address"
   ],
   "base_url": "https://ip-geolocation-api.t-mizuno27.workers.dev",
   "pricing": [

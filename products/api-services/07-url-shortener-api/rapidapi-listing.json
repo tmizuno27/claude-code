@@ -1,6 +1,6 @@
 {
   "name": "URL Shortener API",
-  "description": "Free URL Shortener API - Click Analytics, Custom Aliases | 100/mo free",
+  "description": "Free URL Shortener API - Click Analytics, Custom Aliases | Bitly Alt",
   "category": "Tools",
   "tags": [
     "url-shortener",
@@ -8,8 +8,14 @@
     "click-tracking",
     "free-api",
     "rest-api",
+    "developer-tools",
     "short-url",
-    "bitly-alternative"
+    "bitly-alternative",
+    "rebrandly-alternative",
+    "tinyurl-alternative",
+    "link-analytics",
+    "custom-alias",
+    "cloudflare-edge"
   ],
   "base_url": "https://url-shortener-api.t-mizuno27.workers.dev",
   "pricing": {
