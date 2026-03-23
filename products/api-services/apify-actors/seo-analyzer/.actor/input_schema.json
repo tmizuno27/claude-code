@@ -1,22 +1,28 @@
 {
   "title": "SEO Analyzer Input",
-  "description": "Analyze webpages for SEO factors and scoring",
+  "description": "Audit webpages for 15+ on-page SEO factors and get a weighted score (0-100). Checks title, meta, headings, images, links, Open Graph, Twitter Cards, JSON-LD, and technical SEO. Supports bulk URL processing.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "urls": {
       "title": "URLs to Analyze",
       "type": "array",
-      "description": "List of webpage URLs to analyze for SEO factors.",
+      "description": "List of webpage URLs to audit for SEO. Supports any publicly accessible URL. Add as many as needed -- processing scales linearly. Example: 'https://example.com', 'https://example.com/blog/post-1'.",
       "editor": "stringList",
       "prefill": ["https://example.com"]
     },
     "analysisType": {
       "title": "Analysis Type",
       "type": "string",
-      "description": "Type of analysis to perform.",
+      "description": "'full' = complete 15+ factor audit with SEO score. 'score' = score only (fastest). 'headings' = heading hierarchy analysis. 'links' = internal/external link breakdown.",
       "editor": "select",
       "enum": ["full", "score", "headings", "links"],
+      "enumTitles": [
+        "Full Audit (all 15+ SEO factors + score)",
+        "Score Only (fastest, just the 0-100 score)",
+        "Headings Analysis (H1-H6 hierarchy)",
+        "Links Analysis (internal/external/nofollow breakdown)"
+      ],
       "default": "full"
     }
   },
