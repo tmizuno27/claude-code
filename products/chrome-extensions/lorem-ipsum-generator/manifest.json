@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Lorem Ipsum Generator",
   "version": "1.0.0",
-  "description": "Generate dummy text (Lorem Ipsum) with one click. Supports paragraphs, sentences, words, and lists.",
+  "description": "Lorem Ipsum generator: paragraphs, sentences, words, or lists. One-click copy, adjustable length. Works offline.",
   "permissions": [],
   "action": {
     "default_popup": "popup.html",

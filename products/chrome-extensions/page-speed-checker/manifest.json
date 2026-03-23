@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Page Speed Checker",
   "version": "1.0.0",
-  "description": "One-click PageSpeed Insights scores with Core Web Vitals for any page.",
+  "description": "Page speed checker: Google PageSpeed Insights scores & Core Web Vitals in one click. Performance, Accessibility, SEO.",
   "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",

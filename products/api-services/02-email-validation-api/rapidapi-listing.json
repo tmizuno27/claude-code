@@ -1,7 +1,7 @@
 {
   "name": "Email Validation API",
   "tagline": "Validate email addresses instantly without sending emails",
-  "description": "Free Email Validation API - Disposable Detection, MX Lookup, Typo Fix | 500/mo free",
+  "description": "Free Email Validator API - Disposable Block, MX Check, Typo Fix | ZeroBounce Alt",
   "category": "Data",
   "tags": [
     "email-validation",
@@ -10,7 +10,13 @@
     "free-api",
     "rest-api",
     "email-verification",
-    "bounce-detection"
+    "bounce-detection",
+    "email-deliverability",
+    "mx-lookup",
+    "spam-prevention",
+    "saas-signup",
+    "lead-quality",
+    "zerobounce-alternative"
   ],
   "pricing": [
     {

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Quick Currency Converter",
   "version": "1.0.0",
-  "description": "Instantly convert currencies with real-time exchange rates. 160+ currencies supported.",
+  "description": "Currency converter with real-time exchange rates. 160+ currencies, favorites, right-click conversion. Fast & lightweight.",
   "permissions": ["activeTab", "storage", "contextMenus"],
   "action": {
     "default_popup": "popup.html",

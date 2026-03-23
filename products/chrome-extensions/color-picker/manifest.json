@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Color Picker & Converter",
   "version": "1.0.0",
-  "description": "Pick colors from any page, convert formats (HEX/RGB/HSL/CMYK), check WCAG contrast, and generate palettes.",
+  "description": "Color picker & converter: HEX, RGB, HSL, CMYK. Eyedropper, WCAG contrast checker, palette generator. 100% offline.",
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",

@@ -1,6 +1,6 @@
 {
   "name": "Link Preview - Website Metadata API",
-  "description": "Free Link Preview API - Open Graph, Twitter Card, Favicon, RSS | 100/mo free",
+  "description": "Free Link Preview API - OG/Twitter Card Unfurl, Edge-Cached | Microlink Alt",
   "category": "Tools",
   "tags": [
     "link-preview",
@@ -9,7 +9,13 @@
     "free-api",
     "rest-api",
     "url-metadata",
-    "unfurl"
+    "unfurl",
+    "og-tags",
+    "chat-embed",
+    "social-sharing",
+    "meta-scraper",
+    "favicon-api",
+    "microlink-alternative"
   ],
   "pricing": [
     {

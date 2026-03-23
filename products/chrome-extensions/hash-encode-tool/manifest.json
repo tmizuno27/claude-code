@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Hash & Encode Tool",
   "version": "1.0.0",
-  "description": "Hash, encode, and decode text instantly. MD5, SHA, Base64, URL, HTML entities, JWT.",
+  "description": "Hash & encode tool: MD5, SHA-256, SHA-512, Base64, URL encoding, HTML entities, JWT decode. 100% local processing.",
   "permissions": ["activeTab", "contextMenus"],
   "action": {
     "default_popup": "popup.html",

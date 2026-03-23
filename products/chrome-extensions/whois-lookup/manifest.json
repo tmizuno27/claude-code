@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Domain WHOIS Lookup",
   "version": "1.0.0",
-  "description": "One-click WHOIS, DNS & SSL lookup for any domain",
+  "description": "WHOIS lookup: domain registration, DNS records, SSL certificate info in one click. History & one-click copy.",
   "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html",

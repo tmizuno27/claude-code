@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "JSON Formatter Pro",
   "version": "1.0.0",
-  "description": "Beautiful JSON formatting with syntax highlighting, tree view, dark mode, and JSON path display.",
+  "description": "JSON formatter with syntax highlighting, collapsible tree view, JSON path, dark mode. Auto-detects JSON responses.",
   "permissions": ["activeTab", "storage"],
   "action": {
     "default_popup": "popup.html",

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SEO Inspector - Instant SEO Analysis",
   "version": "1.0.0",
-  "description": "One-click SEO analysis for any webpage. Get instant scores, find issues, and improve your rankings.",
+  "description": "SEO analyzer: one-click 0-100 score, 20-point checklist, meta tags, headings, images, links. Free, no account needed.",
   "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",

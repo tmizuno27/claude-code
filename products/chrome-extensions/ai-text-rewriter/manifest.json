@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "AI Text Rewriter",
   "version": "1.1.0",
-  "description": "Select text and rewrite it with AI. Casual, Professional, Shorter, Longer, or Fix Grammar.",
+  "description": "AI text rewriter: select any text and rewrite instantly. Casual, Professional, Shorter, Longer, Fix Grammar. BYOK OpenAI.",
   "permissions": ["activeTab", "storage", "contextMenus"],
   "action": {
     "default_popup": "popup.html",
