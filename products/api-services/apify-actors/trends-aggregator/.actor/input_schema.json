@@ -1,13 +1,13 @@
 {
   "title": "Trends Aggregator Input",
-  "description": "Fetch trending topics from multiple sources",
+  "description": "Fetch trending topics from Google Trends, Hacker News, Reddit, GitHub, and Product Hunt in one run. Choose sources, set region for Google Trends, and control result limits. No API keys required.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "sources": {
-      "title": "Sources",
+      "title": "Trend Sources",
       "type": "array",
-      "description": "Which trend sources to fetch. Leave empty to fetch all sources.",
+      "description": "Which trend sources to fetch. Select specific sources or leave empty to fetch all 5: Google Trends (daily trending searches), Hacker News (top tech stories), Reddit (r/popular trending), GitHub (fastest-growing new repos), Product Hunt (top product launches).",
       "editor": "select",
       "items": {
         "type": "string",
@@ -18,15 +18,15 @@
     "googleGeo": {
       "title": "Google Trends Region",
       "type": "string",
-      "description": "ISO country code for Google Trends (e.g. US, JP, GB). Only used when 'google' is in sources.",
+      "description": "ISO country code for Google Trends region. Examples: 'US' (United States), 'JP' (Japan), 'GB' (United Kingdom), 'DE' (Germany), 'BR' (Brazil), 'FR' (France). Only used when 'google' is in sources.",
       "editor": "textfield",
       "default": "US",
       "prefill": "US"
     },
     "limit": {
-      "title": "Result Limit per Source",
+      "title": "Results per Source",
       "type": "integer",
-      "description": "Maximum number of items to return per source (1-50). Default is 25.",
+      "description": "Maximum trending items to return per source (1-50). Use 10 for a quick overview, 25 for standard monitoring, 50 for comprehensive trend analysis.",
       "editor": "number",
       "default": 25,
       "minimum": 1,
