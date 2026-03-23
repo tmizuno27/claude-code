@@ -10,19 +10,19 @@ articles = [
         "slug": "matching-app-video-tsuwwa",
         "title": "マッチングアプリのビデオ通話のコツ｜会う前に好印象を与える方法",
         "category": 5,
-        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\outputs\matching-app-video-tsuwwa.html",
+        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\outputs\matching-app-video-tsuwwa.html",
     },
     {
         "slug": "matching-app-nenrei-sasyou",
         "title": "マッチングアプリの年齢詐称はバレる？リスクと見抜き方を解説",
         "category": 6,
-        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\outputs\matching-app-nenrei-sasyou.html",
+        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\outputs\matching-app-nenrei-sasyou.html",
     },
     {
         "slug": "matching-app-saiyasune",
         "title": "マッチングアプリを最安で使う方法｜無料プラン活用＆割引テクニック",
         "category": 2,
-        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\outputs\matching-app-saiyasune.html",
+        "file": r"c:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\outputs\matching-app-saiyasune.html",
     },
 ]
 

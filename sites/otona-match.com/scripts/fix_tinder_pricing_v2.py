@@ -7,7 +7,7 @@ import requests
 import json
 
 # Load credentials
-with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\config\secrets.json", "r", encoding="utf-8") as f:
+with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\config\secrets.json", "r", encoding="utf-8") as f:
     secrets = json.load(f)
 
 WP_USER = secrets["wordpress"]["username"]
@@ -15,7 +15,7 @@ WP_PASS = secrets["wordpress"]["app_password"]
 BASE_URL = "https://otona-match.com/?rest_route=/wp/v2/posts/531"
 
 # Use the ORIGINAL content (before v1 broke it)
-with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\outputs\tinder-531-original.html", "r", encoding="utf-8") as f:
+with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\outputs\tinder-531-original.html", "r", encoding="utf-8") as f:
     content = f.read()
 
 print(f"Original content loaded: {len(content)} chars")
@@ -175,6 +175,6 @@ else:
     print(resp.text[:500])
 
 # Save for reference
-with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\otona-match.com\outputs\tinder-531-updated-v2.html", "w", encoding="utf-8") as f:
+with open(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\otona-match.com\outputs\tinder-531-updated-v2.html", "w", encoding="utf-8") as f:
     f.write(content)
 print("Saved to tinder-531-updated-v2.html")

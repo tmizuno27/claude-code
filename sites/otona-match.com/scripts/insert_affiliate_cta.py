@@ -12,7 +12,7 @@ from requests.auth import HTTPBasicAuth
 
 # 設定
 WP_API = "https://otona-match.com/?rest_route=/wp/v2"
-SECRETS_PATH = "C:/Users/tmizu/マイドライブ/GitHub/claude-code/otona-match.com/config/secrets.json"
+SECRETS_PATH = "C:/Users/tmizu/マイドライブ/GitHub/claude-code/sites/otona-match.com/config/secrets.json"
 
 # dry-runフラグ
 DRY_RUN = "--dry-run" in sys.argv
