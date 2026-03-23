@@ -1,0 +1,720 @@
+{
+  "date": "2026-03-22",
+  "posts_checked": 74,
+  "urls_checked": 900,
+  "broken_count": 89,
+  "broken_links": [
+    {
+      "post_id": 2539,
+      "post_title": "海外在住 副業 確定申告【2025年】パラグアイからでもできる申告手続きの全手順",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f-%e5%89%af%e6%a5%ad-%e7%a2%ba%e5%ae%9a%e7%94%b3%e5%91%8a%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e3%81%a7-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2539,
+      "post_title": "海外在住 副業 確定申告【2025年】パラグアイからでもできる申告手続きの全手順",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f-%e5%89%af%e6%a5%ad-%e7%a2%ba%e5%ae%9a%e7%94%b3%e5%91%8a%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e3%81%a7-2/",
+      "broken_url": "https://nambei-oyaji.com/checklist",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2539,
+      "post_title": "海外在住 副業 確定申告【2025年】パラグアイからでもできる申告手続きの全手順",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f-%e5%89%af%e6%a5%ad-%e7%a2%ba%e5%ae%9a%e7%94%b3%e5%91%8a%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e3%81%a7-2/",
+      "broken_url": "https://nambei-oyaji.com/wise-review",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2538,
+      "post_title": "パラグアイの治安は【2025年】危険エリアと安全な暮らし方を現地在住者が解説",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b2%bb%e5%ae%89%e3%81%af%e3%80%902025%e5%b9%b4%e3%80%91%e5%8d%b1%e9%99%ba%e3%82%a8%e3%83%aa%e3%82%a2%e3%81%a8%e5%ae%89%e5%85%a8%e3%81%aa-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-migration-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2538,
+      "post_title": "パラグアイの治安は【2025年】危険エリアと安全な暮らし方を現地在住者が解説",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b2%bb%e5%ae%89%e3%81%af%e3%80%902025%e5%b9%b4%e3%80%91%e5%8d%b1%e9%99%ba%e3%82%a8%e3%83%aa%e3%82%a2%e3%81%a8%e5%ae%89%e5%85%a8%e3%81%aa-2/",
+      "broken_url": "https://nambei-oyaji.com/migration-checklist",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2538,
+      "post_title": "パラグアイの治安は【2025年】危険エリアと安全な暮らし方を現地在住者が解説",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e6%b2%bb%e5%ae%89%e3%81%af%e3%80%902025%e5%b9%b4%e3%80%91%e5%8d%b1%e9%99%ba%e3%82%a8%e3%83%aa%e3%82%a2%e3%81%a8%e5%ae%89%e5%85%a8%e3%81%aa-2/",
+      "broken_url": "https://nambei-oyaji.com/asuncion-area-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2537,
+      "post_title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb-2/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2537,
+      "post_title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb-2/",
+      "broken_url": "https://nambei-oyaji.com/remittance-comparison-2026/",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2537,
+      "post_title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb-2/",
+      "broken_url": "https://nambei-oyaji.com/overseas-credit-card-2026/",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2537,
+      "post_title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-immigration-pros-cons/",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2536,
+      "post_title": "パラグアイ移住後のリアルな収入事情【在住者が公開】月いくら稼いで生活している？",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e7%a7%bb%e4%bd%8f%e5%be%8c%e3%81%ae%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%aa%e5%8f%8e%e5%85%a5%e4%ba%8b%e6%83%85%e3%80%90%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2533,
+      "post_title": "パラグアイで銀行口座を開設する方法【外国人向け完全ガイド2026年版】",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%a7%e9%8a%80%e8%a1%8c%e5%8f%a3%e5%ba%a7%e3%82%92%e9%96%8b%e8%a8%ad%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%90%e5%a4%96%e5%9b%bd%e4%ba%ba%e5%90%91/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-eijuuken/",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2533,
+      "post_title": "パラグアイで銀行口座を開設する方法【外国人向け完全ガイド2026年版】",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%a7%e9%8a%80%e8%a1%8c%e5%8f%a3%e5%ba%a7%e3%82%92%e9%96%8b%e8%a8%ad%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%90%e5%a4%96%e5%9b%bd%e4%ba%ba%e5%90%91/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-eijuuken/",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2523,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2523,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2523,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2522,
+      "post_title": "パラグアイ移住のメリット・デメリット【2026年】南米おやじが正直に語る",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e7%a7%bb%e4%bd%8f%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%83%bb%e3%83%87%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%80%902026%e5%b9%b4%e3%80%91/",
+      "broken_url": "https://revolut.com/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2522,
+      "post_title": "パラグアイ移住のメリット・デメリット【2026年】南米おやじが正直に語る",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e7%a7%bb%e4%bd%8f%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%83%bb%e3%83%87%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%80%902026%e5%b9%b4%e3%80%91/",
+      "broken_url": "https://x.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2490,
+      "post_title": "海外送金 手数料 比較 個人【2025年】パラグアイ在住者が本音で解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e9%80%81%e9%87%91-%e6%89%8b%e6%95%b0%e6%96%99-%e6%af%94%e8%bc%83-%e5%80%8b%e4%ba%ba%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2490,
+      "post_title": "海外送金 手数料 比較 個人【2025年】パラグアイ在住者が本音で解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e9%80%81%e9%87%91-%e6%89%8b%e6%95%b0%e6%96%99-%e6%af%94%e8%bc%83-%e5%80%8b%e4%ba%ba%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://nambei-oyaji.com/checklist",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2490,
+      "post_title": "海外送金 手数料 比較 個人【2025年】パラグアイ在住者が本音で解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e9%80%81%e9%87%91-%e6%89%8b%e6%95%b0%e6%96%99-%e6%af%94%e8%bc%83-%e5%80%8b%e4%ba%ba%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f-2/",
+      "broken_url": "https://nambei-oyaji.com/living-cost",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2489,
+      "post_title": "データ入力副業を自動化する方法【2026年】作業時間を8割削減した実験記録",
+      "post_url": "https://nambei-oyaji.com/%e3%83%87%e3%83%bc%e3%82%bf%e5%85%a5%e5%8a%9b%e5%89%af%e6%a5%ad%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%902026%e5%b9%b4%e3%80%91%e4%bd%9c%e6%a5%ad%e6%99%82-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2489,
+      "post_title": "データ入力副業を自動化する方法【2026年】作業時間を8割削減した実験記録",
+      "post_url": "https://nambei-oyaji.com/%e3%83%87%e3%83%bc%e3%82%bf%e5%85%a5%e5%8a%9b%e5%89%af%e6%a5%ad%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%902026%e5%b9%b4%e3%80%91%e4%bd%9c%e6%a5%ad%e6%99%82-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2486,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2486,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2486,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2486,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91-2/",
+      "broken_url": "https://nambei-oyaji.com/checklist",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2486,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91-2/",
+      "broken_url": "https://nambei-oyaji.com/living-cost",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2485,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2485,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e-2/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2485,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e-2/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2485,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e-2/",
+      "broken_url": "https://nambei-oyaji.com/checklist",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2485,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e-2/",
+      "broken_url": "https://nambei-oyaji.com/wise-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/crowdworks",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/lancers",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/coconala",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/crowdworks",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 2484,
+      "post_title": "パラグアイから日本の仕事をリモートでやる方法【在住者が解説】2026年版",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%8b%e3%82%89%e6%97%a5%e6%9c%ac%e3%81%ae%e4%bb%95%e4%ba%8b%e3%82%92%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%81%a7%e3%82%84%e3%82%8b%e6%96%b9%e6%b3%95/",
+      "broken_url": "https://YOUR-AFFILIATE-LINK/lancers",
+      "status": null,
+      "error": "Connection Error"
+    },
+    {
+      "post_id": 2463,
+      "post_title": "海外移住 準備 お金【2026年】出発前に知っておきたい費用と節約術",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f-%e6%ba%96%e5%82%99-%e3%81%8a%e9%87%91%e3%80%902026%e5%b9%b4%e3%80%91%e5%87%ba%e7%99%ba%e5%89%8d%e3%81%ab%e7%9f%a5%e3%81%a3%e3%81%a6%e3%81%8a%e3%81%8d%e3%81%9f/",
+      "broken_url": "https://nambei-oyaji.com/living-cost-paraguay",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2460,
+      "post_title": "海外送金 比較 個人【2026年】パラグアイ在住者が本音で選んだおすすめサービス3選",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e9%80%81%e9%87%91-%e6%af%94%e8%bc%83-%e5%80%8b%e4%ba%ba%e3%80%902026%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e6%9c%ac/",
+      "broken_url": "https://nambei-oyaji.com/esim-paraguay",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2458,
+      "post_title": "パラグアイの医療費【2026年】実際にかかった費用と病院の使い方を完全解説",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e5%8c%bb%e7%99%82%e8%b2%bb%e3%80%902026%e5%b9%b4%e3%80%91%e5%ae%9f%e9%9a%9b%e3%81%ab%e3%81%8b%e3%81%8b%e3%81%a3%e3%81%9f%e8%b2%bb%e7%94%a8/",
+      "broken_url": "https://nambei-oyaji.com/paraguay-iju-guide",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2458,
+      "post_title": "パラグアイの医療費【2026年】実際にかかった費用と病院の使い方を完全解説",
+      "post_url": "https://nambei-oyaji.com/%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ae%e5%8c%bb%e7%99%82%e8%b2%bb%e3%80%902026%e5%b9%b4%e3%80%91%e5%ae%9f%e9%9a%9b%e3%81%ab%e3%81%8b%e3%81%8b%e3%81%a3%e3%81%9f%e8%b2%bb%e7%94%a8/",
+      "broken_url": "https://nambei-oyaji.com/seikatsuhi",
+      "status": 404,
+      "error": null
+    },
+    {
+      "post_id": 2397,
+      "post_title": "海外送金の手数料を銀行8社で徹底比較【2026年最新】パラグアイ在住者が最安を検証",
+      "post_url": "https://nambei-oyaji.com/kaigai-soukin-tesuuryou-hikaku/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2287,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2287,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2287,
+      "post_title": "海外リモートワーク×副業【2025年】パラグアイ在住者が実践する稼ぎ方完全ガイド",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%afx%e5%89%af%e6%a5%ad%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e5%9c%a8%e4%bd%8f/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2158,
+      "post_title": "データ入力副業を自動化する方法【2026年】作業時間を8割削減した実験記録",
+      "post_url": "https://nambei-oyaji.com/%e3%83%87%e3%83%bc%e3%82%bf%e5%85%a5%e5%8a%9b%e5%89%af%e6%a5%ad%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%902026%e5%b9%b4%e3%80%91%e4%bd%9c%e6%a5%ad%e6%99%82/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2158,
+      "post_title": "データ入力副業を自動化する方法【2026年】作業時間を8割削減した実験記録",
+      "post_url": "https://nambei-oyaji.com/%e3%83%87%e3%83%bc%e3%82%bf%e5%85%a5%e5%8a%9b%e5%89%af%e6%a5%ad%e3%82%92%e8%87%aa%e5%8b%95%e5%8c%96%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95%e3%80%902026%e5%b9%b4%e3%80%91%e4%bd%9c%e6%a5%ad%e6%99%82/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2155,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2155,
+      "post_title": "副業 在宅 海外在住【2026年】アスンシオンから月収を得るリアルな方法",
+      "post_url": "https://nambei-oyaji.com/%e5%89%af%e6%a5%ad-%e5%9c%a8%e5%ae%85-%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%80%902026%e5%b9%b4%e3%80%91%e3%82%a2%e3%82%b9%e3%83%b3%e3%82%b7%e3%82%aa%e3%83%b3%e3%81%8b%e3%82%89%e6%9c%88%e5%8f%8e/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2251,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2251,
+      "post_title": "海外在住の副業オンライン完全ガイド【2025年】パラグアイから月5万円稼ぐ実践方法",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e5%9c%a8%e4%bd%8f%e3%81%ae%e5%89%af%e6%a5%ad%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902025%e5%b9%b4%e3%80%91%e3%83%91/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2223,
+      "post_title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/kaigai-zaitaku-fukugyo/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2076,
+      "post_title": "海外移住の引越し完全ガイド【2026年】費用相場・荷物の送り方・業者選びを徹底解説",
+      "post_url": "https://nambei-oyaji.com/%e6%b5%b7%e5%a4%96%e7%a7%bb%e4%bd%8f%e3%81%ae%e5%bc%95%e8%b6%8a%e3%81%97%e5%ae%8c%e5%85%a8%e3%82%ac%e3%82%a4%e3%83%89%e3%80%902026%e5%b9%b4%e3%80%91%e8%b2%bb%e7%94%a8%e7%9b%b8%e5%a0%b4%e3%83%bb/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2078,
+      "post_title": "パラグアイ移住で失敗しないための注意点7選｜在住者が語るリアルな落とし穴【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-immigration-failures/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2096,
+      "post_title": "パラグアイの税金が安い理由を在住者が解説｜所得税・法人税・消費税を日本と比較【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-low-taxes/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2097,
+      "post_title": "パラグアイのビザの種類と取得方法を在住者が徹底解説【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-visa-types/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2099,
+      "post_title": "パラグアイの言語事情を在住者が解説｜スペイン語・グアラニー語・英語の通用度【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-languages/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2100,
+      "post_title": "パラグアイの教育事情を在住者が解説｜インターナショナルスクールの学費・選び方【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-education-international-schools/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2098,
+      "post_title": "パラグアイのインターネット・通信事情を在住者が解説｜速度・料金・SIMカード【2026年版】",
+      "post_url": "https://nambei-oyaji.com/paraguay-internet-connectivity/",
+      "broken_url": "https://twitter.com/nambei_oyaji",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2058,
+      "post_title": "AI副業におすすめのサイト7選【2026年最新】海外在住者が実際に使って稼いだプラットフォーム",
+      "post_url": "https://nambei-oyaji.com/ai-sidejob-sites/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2058,
+      "post_title": "AI副業におすすめのサイト7選【2026年最新】海外在住者が実際に使って稼いだプラットフォーム",
+      "post_url": "https://nambei-oyaji.com/ai-sidejob-sites/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2058,
+      "post_title": "AI副業におすすめのサイト7選【2026年最新】海外在住者が実際に使って稼いだプラットフォーム",
+      "post_url": "https://nambei-oyaji.com/ai-sidejob-sites/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2057,
+      "post_title": "AI副業おすすめツール7選【2026年版】海外在住者が実際に使って稼いだ方法",
+      "post_url": "https://nambei-oyaji.com/ai-sidejob-tools/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2056,
+      "post_title": "おすすめAIアプリで副業を始める方法【2026年最新】パラグアイ在住者が実践中の稼ぎ方7選",
+      "post_url": "https://nambei-oyaji.com/ai-app-sidejob/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2056,
+      "post_title": "おすすめAIアプリで副業を始める方法【2026年最新】パラグアイ在住者が実践中の稼ぎ方7選",
+      "post_url": "https://nambei-oyaji.com/ai-app-sidejob/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2055,
+      "post_title": "データ入力の副業を自動化する方法【2026年】時給3倍にした全手順",
+      "post_url": "https://nambei-oyaji.com/data-entry-automation/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 2055,
+      "post_title": "データ入力の副業を自動化する方法【2026年】時給3倍にした全手順",
+      "post_url": "https://nambei-oyaji.com/data-entry-automation/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 2015,
+      "post_title": "海外生活ブログの始め方【2026年版】サーバー選びからWordPress開設まで完全ガイド",
+      "post_url": "https://nambei-oyaji.com/start-a-blog-from-abroad/",
+      "broken_url": "https://px.a8.net/svt/ejp?a8mat=45HYTS+AUKDMA+50+5SKSCY",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 1069,
+      "post_title": "海外移住後の収入源5選｜実際にパラグアイから月収を得ている方法を公開",
+      "post_url": "https://nambei-oyaji.com/working-after-moving-abroad/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 1069,
+      "post_title": "海外移住後の収入源5選｜実際にパラグアイから月収を得ている方法を公開",
+      "post_url": "https://nambei-oyaji.com/working-after-moving-abroad/",
+      "broken_url": "https://www.conoha.jp/wing/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 1069,
+      "post_title": "海外移住後の収入源5選｜実際にパラグアイから月収を得ている方法を公開",
+      "post_url": "https://nambei-oyaji.com/working-after-moving-abroad/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    },
+    {
+      "post_id": 1069,
+      "post_title": "海外移住後の収入源5選｜実際にパラグアイから月収を得ている方法を公開",
+      "post_url": "https://nambei-oyaji.com/working-after-moving-abroad/",
+      "broken_url": "https://nordvpn.com/ja/",
+      "status": 403,
+      "error": null
+    },
+    {
+      "post_id": 1069,
+      "post_title": "海外移住後の収入源5選｜実際にパラグアイから月収を得ている方法を公開",
+      "post_url": "https://nambei-oyaji.com/working-after-moving-abroad/",
+      "broken_url": "https://www.lancers.jp/",
+      "status": 405,
+      "error": null
+    }
+  ]
+}
