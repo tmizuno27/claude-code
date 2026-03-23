@@ -4,6 +4,32 @@
 
 Get real-time and historical currency exchange rates from the European Central Bank (ECB). Convert between 30+ currencies, fetch historical rates back to 1999, and list all supported currency codes. No API key required for the underlying data source.
 
+## Getting Started in 30 Seconds
+
+1. Subscribe on [RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/currency-exchange-api) (free plan available)
+2. Copy your API key
+3. Get your first exchange rate:
+
+```bash
+curl -X GET "https://currency-exchange-api.p.rapidapi.com/rates?base=USD" \
+  -H "X-RapidAPI-Key: YOUR_KEY" \
+  -H "X-RapidAPI-Host: currency-exchange-api.p.rapidapi.com"
+```
+
+## How It Compares
+
+| Feature | This API | Fixer.io | ExchangeRate-API | Open Exchange Rates |
+|---------|----------|---------|-----------------|-------------------|
+| Free tier | 500 req/mo | 100 req/mo | 1,500 req/mo | 1,000 req/mo |
+| Pro pricing | $5.99/50K | $10/mo | $9.99/mo | $12/mo |
+| Data source | ECB (official) | ECB + others | Central banks | Multiple |
+| Currencies | 30+ | 170+ | 160+ | 170+ |
+| Historical rates | Yes (back to 1999) | Yes (paid) | Yes (paid) | Yes (paid) |
+| Direct conversion | Yes | Yes | Yes | Yes |
+| Base currency (free) | Any | EUR only (free) | USD only (free) | USD only (free) |
+| No upstream API key | Yes (free Frankfurter) | No | No | No |
+| 1-hour edge cache | Yes (CF Workers) | No | No | No |
+
 ## Why Choose This Currency Exchange API?
 
 - **Official ECB data** -- exchange rates sourced from the European Central Bank via Frankfurter API
@@ -156,6 +182,20 @@ A free alternative to Fixer.io, ExchangeRate-API, and Open Exchange Rates. Get E
 ## Keywords
 
 `currency exchange api`, `exchange rate api`, `currency converter api`, `fx rates api`, `ecb exchange rates`, `historical exchange rates`, `free currency api`, `currency conversion`, `forex api`, `real-time exchange rates`
+
+## FAQ
+
+**Q: How often are exchange rates updated?**
+A: ECB publishes rates once per business day around 16:00 CET. Rates are cached for 1 hour at Cloudflare edge.
+
+**Q: Can I use any base currency on the free tier?**
+A: Yes. Unlike Fixer.io (EUR only) and Open Exchange Rates (USD only) on their free tiers, this API supports any base currency on all plans.
+
+**Q: How far back do historical rates go?**
+A: Back to January 4, 1999, when the Euro was introduced and ECB started publishing rates.
+
+**Q: Are cryptocurrency rates included?**
+A: No. This API focuses on fiat currencies from the ECB. For crypto data, see our Crypto Market Data API.
 
 ## Development
 

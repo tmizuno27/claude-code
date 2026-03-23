@@ -150,6 +150,20 @@ A free alternative to ScreenshotAPI, URLBox, and Screenshotlayer. Capture websit
 
 `screenshot api`, `website screenshot`, `capture webpage`, `web screenshot api`, `page capture`, `full page screenshot`, `url to image`, `website thumbnail`, `free screenshot api`, `headless browser api`
 
+## FAQ
+
+**Q: Does it work with JavaScript-heavy (SPA) pages?**
+A: Yes. Use the `delay` parameter (up to 5000ms) to wait for JavaScript content to render before capturing.
+
+**Q: What is the maximum viewport size?**
+A: Width and height can be set from 320 to 3840 pixels. This covers mobile (375px) through 4K displays.
+
+**Q: Can I capture a full-page screenshot including below-the-fold content?**
+A: Yes. Set `full_page=true` and the API will scroll and capture the entire page height.
+
+**Q: Are screenshots cached?**
+A: Yes. Identical requests are cached for 1 hour at Cloudflare's edge. To bypass cache, add a unique query parameter.
+
 ## Development
 
 ```bash
