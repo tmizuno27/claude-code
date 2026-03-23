@@ -3,50 +3,56 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyのPayPal支払い設定",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "pseo-vercel-deploy",
-      "title": "pSEOサイトをVercelデプロイ",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-20",
-      "completed_date": "2026-03-20"
-    },
-    {
-      "id": "rapidapi-free-to-paid",
-      "title": "RapidAPI無料Actorの販促",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC認証を完了する",
+      "title": "ApifyPayPal出金設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "sim-gsc-ctr-fix",
-      "title": "SIMサイトのtitleタグ改善",
-      "priority": "P2",
+      "title": "SIMサイトGSCクリック改善",
+      "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
       "id": "otona-gsc-ctr-fix",
-      "title": "マッチングサイトtitle改善",
+      "title": "マッチングGSCクリック改善",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-deploy-content",
+      "title": "pSEOサイト初稿投入",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "rapidapi-review-apis",
+      "title": "RapidAPI売上ゼロ原因調査",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "stripe-kyc-resolve",
+      "title": "StripeKYC問題を解決",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "nambei-top-article-rewrite",
+      "title": "南米サイト上位記事リライト",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "x-first-tweet",
-      "title": "X集客ツイートを3本投稿",
+      "id": "x-first-post",
+      "title": "X投稿開始（0→毎日）",
       "priority": "P2",
       "done": false,
       "done_at": null
