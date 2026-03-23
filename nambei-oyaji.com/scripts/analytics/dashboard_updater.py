@@ -53,6 +53,10 @@ def mark_action(action_id, done=True):
         if action["id"] == action_id:
             action["done"] = done
             action["done_at"] = datetime.now().strftime("%H:%M") if done else None
+            if done:
+                action["completed_date"] = datetime.now().strftime("%Y-%m-%d")
+            else:
+                action.pop("completed_date", None)
             found = True
             status = "✅ 完了" if done else "☐ 未完了に戻し"
             print(f"{status}: {action['title']}")
@@ -221,11 +225,29 @@ def update_dashboard():
     today = datetime.now().strftime("%Y-%m-%d")
     if status.get("date") != today:
         logger.info(f"日付変更検知: {status.get('date')} → {today}")
-        for action in status["actions"]:
+        # completed_date が設定されている(=過去に完了済み)タスクは除外
+        fresh_actions = [
+            a for a in status["actions"]
+            if not a.get("completed_date")
+        ]
+        removed = len(status["actions"]) - len(fresh_actions)
+        if removed > 0:
+            logger.info(f"完了済みタスク {removed}件 を除外")
+        for action in fresh_actions:
             action["done"] = False
             action["done_at"] = None
+        status["actions"] = fresh_actions
         status["date"] = today
         save_action_status(status)
+
+    # 鮮度チェック: 2日以上前に生成されたタスクリストには警告
+    status_date = status.get("date", today)
+    try:
+        days_old = (datetime.strptime(today, "%Y-%m-%d") - datetime.strptime(status_date, "%Y-%m-%d")).days
+        if days_old >= 2:
+            logger.warning(f"優先タスクが{days_old}日間更新されていません。daily_business_report.py の実行を確認してください。")
+    except ValueError:
+        pass
 
     # Apply action status
     html = apply_action_status_to_html(html, status["actions"])

@@ -406,6 +406,10 @@ def collect_pseo_data() -> dict:
                 if deploy_url:
                     break
 
+        # フォールバック: 既知のVercel URL
+        if not deploy_url:
+            deploy_url = "https://ai-tool-compare-nu.vercel.app"
+
         if deploy_url:
             resp = requests.head(deploy_url, timeout=10, allow_redirects=True)
             deployed = resp.status_code < 400
