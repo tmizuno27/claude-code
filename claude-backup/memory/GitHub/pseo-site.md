@@ -7,7 +7,7 @@ type: project
 ## pSEO AIツール比較サイト
 
 - **ステータス**: Vercelデプロイ完了（2026-03-20）、GSC登録済み（sitemap送信済み、インデックス待ち）
-- **プロジェクトパス**: `claude-code/pseo-saas/`
+- **プロジェクトパス**: `claude-code/saas/pseo-saas/`
 - **技術**: Next.js 16 (App Router, SSG, `output: 'export'`)
 - **データ**: `data/tools.json` — 291ツール、12カテゴリ
 - **生成ページ数**: 4,003ページ（ホーム + 12カテゴリ + 291ツール + 3,697比較）

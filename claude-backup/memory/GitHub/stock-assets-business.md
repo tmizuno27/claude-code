@@ -8,7 +8,7 @@ type: project
 
 AI生成パターン・アイコン・背景をAdobe Stock/Freepikで販売する事業。
 
-**プロジェクトパス**: `claude-code/stock-assets/`
+**プロジェクトパス**: `claude-code/products/stock-assets/`
 
 ### 現状（2026-03-23）
 - プロンプトライブラリ: 630個完成（パターン540 + アイコン40 + 背景50）

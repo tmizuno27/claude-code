@@ -1,0 +1,255 @@
+"""
+記事管理表をGoogleスプレッドシートに書き込むスクリプト
+SIM比較オンライン (sim-hikaku.online) 版。
+
+- full: 全データを再構築（記事一覧 + サマリー）
+- add:  CSVに1行追加してシートを更新
+サマリーはCSVデータから毎回自動集計する
+"""
+import gspread
+from google.oauth2.service_account import Credentials
+import csv
+import io
+import os
+import sys
+from collections import Counter
+from datetime import datetime, timezone, timedelta
+
+# Windows UTF-8 出力修正
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
+
+# 設定
+CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'infrastructure', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
+CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'outputs', 'article-management.csv')
+SHEET_ID = os.environ.get('SIM_ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
+
+SCOPES = [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive'
+]
+
+TYPE_COLORS = {
+    '集客記事': {'red': 0.93, 'green': 0.98, 'blue': 0.93},
+    '収益記事': {'red': 0.93, 'green': 0.95, 'blue': 1.0},
+    'キラー記事': {'red': 1.0, 'green': 0.96, 'blue': 0.92},
+    '実験記事': {'red': 0.97, 'green': 0.93, 'blue': 0.98},
+}
+
+TYPE_ROLES = {
+    '集客記事': 'PV獲得・ドメインパワー強化',
+    '収益記事': 'アフィリエイト成約',
+    'キラー記事': '高単価アフィリ集中',
+    '実験記事': 'ファン獲得・信頼構築',
+}
+
+
+def read_csv():
+    with open(CSV_PATH, 'r', encoding='utf-8') as f:
+        return list(csv.reader(f))
+
+
+def build_summary(rows):
+    """CSVデータからサマリーを自動集計"""
+    data = rows[1:]  # ヘッダー除外
+    total = len(data)
+
+    # ステータス集計（列7）
+    statuses = Counter(r[7] if len(r) > 7 else '' for r in data)
+    draft_count = statuses.get('ドラフト', 0)
+    published_count = statuses.get('公開済み', 0)
+
+    # カテゴリ別集計（列2）
+    categories = Counter(r[2] if len(r) > 2 else '' for r in data)
+
+    # 記事タイプ別集計（列3）
+    types = Counter(r[3] if len(r) > 3 else '' for r in data)
+
+    # 週別集計（列1）
+    week_order = ['W1-2', 'W3-4', 'W5-6', 'W7-8', 'W9-10', 'W11-12']
+    weeks = Counter(r[1] if len(r) > 1 else '' for r in data)
+    week_statuses = {}
+    for w in week_order:
+        week_rows = [r for r in data if len(r) > 1 and r[1] == w]
+        if not week_rows:
+            continue
+        ws = Counter(r[7] if len(r) > 7 else '' for r in week_rows)
+        if ws.get('公開済み', 0) == len(week_rows):
+            week_statuses[w] = '全て公開済み'
+        elif ws.get('ドラフト', 0) == len(week_rows):
+            week_statuses[w] = '全てドラフト'
+        else:
+            parts = []
+            if ws.get('公開済み', 0):
+                parts.append(f"公開{ws['公開済み']}")
+            if ws.get('ドラフト', 0):
+                parts.append(f"ドラフト{ws['ドラフト']}")
+            week_statuses[w] = '・'.join(parts)
+
+    summary = [
+        ['SIM比較オンライン 記事管理サマリー'],
+        [''],
+        ['■ 全体'],
+        ['総記事数', total],
+        ['ドラフト', draft_count],
+        ['公開済み', published_count],
+        [''],
+        ['■ カテゴリ別', '記事数'],
+    ]
+    for cat, count in categories.most_common():
+        if cat:
+            summary.append([cat, count])
+    summary.append([''])
+    summary.append(['■ 記事タイプ別', '記事数', '役割'])
+    for t in ['集客記事', '収益記事', 'キラー記事', '実験記事']:
+        summary.append([t, types.get(t, 0), TYPE_ROLES.get(t, '')])
+    summary.append([''])
+    summary.append(['■ 週別進捗', '記事数', 'ステータス'])
+    for w in week_order:
+        if weeks.get(w, 0) > 0:
+            summary.append([w, weeks[w], week_statuses.get(w, '')])
+    summary.append([''])
+    summary.append(['■ 色凡例'])
+    summary.append(['集客記事 = 緑系'])
+    summary.append(['収益記事 = 青系'])
+    summary.append(['キラー記事 = オレンジ系'])
+    summary.append(['実験記事 = 紫系'])
+    summary.append([''])
+    pyt = timezone(timedelta(hours=-3))  # パラグアイ時間 (UTC-3)
+    now = datetime.now(pyt).strftime('%Y-%m-%d %H:%M')
+    summary.append([f'最終更新: {now}'])
+
+    return summary
+
+
+def connect():
+    if not SHEET_ID:
+        raise ValueError("SIM_ARTICLE_SHEET_ID 環境変数が未設定です")
+    creds = Credentials.from_service_account_file(CREDENTIALS_PATH, scopes=SCOPES)
+    gc = gspread.authorize(creds)
+    return gc.open_by_key(SHEET_ID)
+
+
+def write_article_list(sh, rows):
+    """記事一覧シートを再構築"""
+    try:
+        ws = sh.worksheet('記事一覧')
+        sh.del_worksheet(ws)
+    except gspread.exceptions.WorksheetNotFound:
+        pass
+    num_cols = len(rows[0]) if rows else 19
+    last_col = chr(ord('A') + num_cols - 1)
+    ws = sh.add_worksheet(title='記事一覧', rows=max(len(rows) + 5, 30), cols=num_cols)
+
+    print(f"データ書き込み中...（{len(rows)-1}記事）")
+    ws.update(rows, value_input_option='USER_ENTERED')
+
+    # ヘッダーフォーマット
+    ws.format(f'A1:{last_col}1', {
+        'backgroundColor': {'red': 0.2, 'green': 0.4, 'blue': 0.7},
+        'textFormat': {'bold': True, 'foregroundColor': {'red': 1, 'green': 1, 'blue': 1}, 'fontSize': 10},
+        'horizontalAlignment': 'CENTER',
+    })
+
+    # 記事タイプ別の色分け + ステータス列（バッチで一括送信）
+    print("書式設定中...")
+    format_requests = []
+    for i, row in enumerate(rows[1:], start=2):
+        atype = row[3] if len(row) > 3 else ''
+        color = TYPE_COLORS.get(atype, {'red': 1, 'green': 1, 'blue': 1})
+        format_requests.append({
+            'repeatCell': {
+                'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 0, 'endColumnIndex': num_cols},
+                'cell': {'userEnteredFormat': {'backgroundColor': color}},
+                'fields': 'userEnteredFormat.backgroundColor'
+            }
+        })
+        status = row[7] if len(row) > 7 else ''
+        if status == 'ドラフト':
+            format_requests.append({
+                'repeatCell': {
+                    'range': {'sheetId': ws.id, 'startRowIndex': i - 1, 'endRowIndex': i, 'startColumnIndex': 7, 'endColumnIndex': 8},
+                    'cell': {'userEnteredFormat': {'backgroundColor': {'red': 1.0, 'green': 0.95, 'blue': 0.7}, 'textFormat': {'bold': True}}},
+                    'fields': 'userEnteredFormat.backgroundColor,userEnteredFormat.textFormat.bold'
+                }
+            })
+    format_requests.append({
+        'setBasicFilter': {
+            'filter': {'range': {'sheetId': ws.id, 'startRowIndex': 0, 'endRowIndex': len(rows), 'startColumnIndex': 0, 'endColumnIndex': num_cols}}
+        }
+    })
+    if format_requests:
+        sh.batch_update({'requests': format_requests})
+
+    # 列幅・ヘッダー固定（CSV: 公開順,タイトル,ステータス,公開日,柱,記事タイプ,カテゴリ,メインKW,文字数,アフィリ数,内部リンク数,ファイル名,WordPress ID,WordPress URL,備考）
+    col_widths = [40, 350, 85, 110, 90, 90, 120, 200, 80, 80, 80, 200, 80, 280, 250]
+    dimension_requests = []
+    for ci, pw in enumerate(col_widths):
+        if ci >= num_cols:
+            break
+        dimension_requests.append(
+            {'updateDimensionProperties': {'range': {'sheetId': ws.id, 'dimension': 'COLUMNS', 'startIndex': ci, 'endIndex': ci + 1}, 'properties': {'pixelSize': pw}, 'fields': 'pixelSize'}}
+        )
+    dimension_requests.append(
+        {'updateSheetProperties': {'properties': {'sheetId': ws.id, 'gridProperties': {'frozenRowCount': 1}}, 'fields': 'gridProperties.frozenRowCount'}}
+    )
+    sh.batch_update({'requests': dimension_requests})
+
+    # 記事一覧シートを先頭に移動
+    sh.batch_update({'requests': [
+        {'updateSheetProperties': {
+            'properties': {'sheetId': ws.id, 'index': 0},
+            'fields': 'index'
+        }}
+    ]})
+    return ws
+
+
+def write_summary(sh, rows):
+    """サマリーシートをCSVデータから自動集計して書き込み"""
+    summary = build_summary(rows)
+
+    try:
+        ws2 = sh.worksheet('サマリー')
+        ws2.clear()
+    except gspread.exceptions.WorksheetNotFound:
+        ws2 = sh.add_worksheet(title='サマリー', rows=max(len(summary) + 5, 35), cols=5)
+
+    ws2.update(summary, value_input_option='USER_ENTERED')
+
+    # バッチフォーマット
+    formats = [{'range': 'A1', 'format': {'textFormat': {'bold': True, 'fontSize': 14}}}]
+
+    for i, row in enumerate(summary, start=1):
+        if row and isinstance(row[0], str) and row[0].startswith('■'):
+            formats.append({'range': f'A{i}', 'format': {'textFormat': {'bold': True, 'fontSize': 11}}})
+
+    legend_labels = {'集客記事': '集客記事 = 緑系', '収益記事': '収益記事 = 青系',
+                     'キラー記事': 'キラー記事 = オレンジ系', '実験記事': '実験記事 = 紫系'}
+    for i, row in enumerate(summary, start=1):
+        if row and isinstance(row[0], str):
+            for tname, label in legend_labels.items():
+                if row[0] == label:
+                    formats.append({'range': f'A{i}', 'format': {'backgroundColor': TYPE_COLORS[tname]}})
+
+    ws2.batch_format(formats)
+    return ws2
+
+
+def main():
+    """全データを再構築"""
+    print("認証中...")
+    sh = connect()
+    print(f"タイトル: {sh.title}")
+
+    rows = read_csv()
+    write_article_list(sh, rows)
+    write_summary(sh, rows)
+
+    print(f"\n完了!")
+    print(f"URL: {sh.url}")
+    return sh.url
+
+
+if __name__ == '__main__':
+    main()

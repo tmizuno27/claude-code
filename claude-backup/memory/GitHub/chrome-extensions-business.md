@@ -31,5 +31,5 @@ Quick Currency Converterは再提出済み（2026-03-20）、審査待ち。
 ## インフラ
 - デベロッパーアカウント: t.mizuno27（登録料$5）
 - プライバシーポリシー: 各拡張ごとにCloudflare Workersでホスティング
-- プロジェクトパス: `claude-code/chrome-extensions/`
+- プロジェクトパス: `claude-code/products/chrome-extensions/`
 - 全拡張: Apple風ダークUI、Manifest V3

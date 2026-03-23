@@ -33,7 +33,7 @@
 - **優先アクション/優先タスク**: [dashboard-priority-actions.md](dashboard-priority-actions.md) — 毎朝Claude APIが収益最大化ベースで自動生成、ダッシュボードで✅管理
 - **日次優先タスク自動実行**: [feedback_daily_priority_auto_execute.md](feedback_daily_priority_auto_execute.md) — Claude自動実行可能なアクション（CTR改善・記事強化・流入分析・X投稿）は毎日自動実行
 - **日次PDCAルーティン**: [feedback_daily_pdca_routine.md](feedback_daily_pdca_routine.md) — 毎日Check→Act→Plan→Doで全事業をブラッシュアップ。朝の会話開始時に前回施策の効果検証→改善実行
-- **Sheets同期**: `tools/sheets-sync/` — 5分おき
+- **Sheets同期**: `infrastructure/tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
 - **タスク稼働確認ルール**: [feedback_proactive_task_check.md](feedback_proactive_task_check.md) — 変更時は依存スクリプト全確認、会話冒頭でログ健全性チェック
 
@@ -55,7 +55,7 @@
 - 旧名: AI実践ラボ → 2026-03-03方向転換完了。AIは主題にしない
 - 柱: pillar_1_paraguay_life（メイン）+ pillar_2_overseas_work（サブ）
 - 記事数: 全23記事公開、投稿頻度: 週3回、X投稿: 1日3回
-- **プロジェクトパス**: `claude-code/nambei-oyaji.com/`
+- **プロジェクトパス**: `claude-code/sites/nambei-oyaji.com/`
 - ファクトチェック必須、E-E-A-T重視、WebSearch必須
 
 ## Notion連携
@@ -74,26 +74,26 @@
 - **詳細**: [apify-business.md](apify-business.md)
 - 5 Actor公開済み（Social Video Downloader, SEO Analyzer, Company Data Enricher, Trends Aggregator, Keyword Research）
 - ユーザー名: miccho27、Creator plan（$7.26/半年）
-- **プロジェクトパス**: `claude-code/api-services/apify-actors/`
+- **プロジェクトパス**: `claude-code/products/api-services/apify-actors/`
 
 ## RapidAPI API販売事業（全21本出品済み）
 - **詳細**: [rapidapi-business.md](rapidapi-business.md)
 - 全24 API、Cloudflare Workers デプロイ済み・Rapid Studio全出品完了（2026-03-20確認）
 - 運用コスト$0、完全自動（集客・課金・サポート全てRapidAPI側）
 - PayPal payout接続済み、日次ヘルスチェック自動化済み
-- **プロジェクトパス**: `claude-code/api-services/`
+- **プロジェクトパス**: `claude-code/products/api-services/`
 
 ## Chrome拡張ポートフォリオ事業（2/10本公開済み）
 - **詳細**: [chrome-extensions-business.md](chrome-extensions-business.md)
 - 公開済み2本: Regex Tester, AI Text Rewriter（2026-03-17確認）
 - 審査待ち8本: JSON Formatter Pro, Color Picker, Lorem Ipsum, Hash & Encode, Page Speed, WHOIS Lookup, Currency Converter, SEO Inspector
-- **プロジェクトパス**: `claude-code/chrome-extensions/`
+- **プロジェクトパス**: `claude-code/products/chrome-extensions/`
 
 ## WP Linker Micro SaaS（稼働中）
 - **詳細**: [wp-linker-project.md](wp-linker-project.md)
 - WordPress内部リンク最適化SaaS、Next.js 15 + Supabase + Vercel
 - 本番URL: https://wp-linker.vercel.app
-- **プロジェクトパス**: `claude-code/wp-linker/`
+- **プロジェクトパス**: `claude-code/saas/wp-linker/`
 
 ## Product Factory — AIエージェント×デジタル商品自動量産（Phase 1完了）
 - **詳細**: [product-factory-business.md](product-factory-business.md)
@@ -105,7 +105,7 @@
 - **詳細**: [pseo-site.md](pseo-site.md)
 - Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み
 - Vercelデプロイ完了（2026-03-20）: `ai-tool-compare-nu.vercel.app`、GSC登録済み
-- **プロジェクトパス**: `claude-code/pseo-saas/`
+- **プロジェクトパス**: `claude-code/saas/pseo-saas/`
 
 ## 仮想通貨自動売買（Bybit口座開設待ち）
 - **詳細**: [trading-bot.md](trading-bot.md)
@@ -120,31 +120,31 @@
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿（10:00/14:00/19:00 PYT）
 - **Gumroad出品時の注意**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — サムネ必須、Pillow自動生成
 - **Reddit投稿**: [feedback_reddit_posting.md](feedback_reddit_posting.md) — 新アカウントでの宣伝投稿は繰り返し削除される。Reddit集客は現時点で非推奨
-- **プロジェクトパス**: `claude-code/gumroad-notion/`
+- **プロジェクトパス**: `claude-code/products/gumroad-notion/`
 
 ## POD Printful×Etsy事業 AsuInk（アカウント開設待ち）
 - **詳細**: [pod-etsy-business.md](pod-etsy-business.md)
 - 50プロンプト・150リスティング・自動化スクリプト3本完成
 - Geminiデザイン生成は有料プランが必要（無料枠では画像生成不可）
 - 次: Etsy/Printfulアカウント開設 → Gemini有料プランまたは代替画像生成 → デザイン量産
-- **プロジェクトパス**: `claude-code/pod-etsy/`
+- **プロジェクトパス**: `claude-code/products/pod-etsy/`
 
 ## VS Code拡張ポートフォリオ事業（10/10本公開済み）
 - **詳細**: [vscode-extensions-business.md](vscode-extensions-business.md)
 - Publisher: miccho27（全10本公開完了 2026-03-17）
 - miccho27-devにも10本公開済み（重複あり、整理は後日）
-- **プロジェクトパス**: `claude-code/vscode-extensions/`
+- **プロジェクトパス**: `claude-code/products/vscode-extensions/`
 
 ## Stock Assets事業（出品準備中）
 - **詳細**: [stock-assets-business.md](stock-assets-business.md)
 - 630プロンプト完成、87枚生成+アップスケール済み、Adobe Stock/Freepik用メタデータCSV完成
 - 次: Adobe Stockアカウント開設→87枚テスト出品→残り543枚生成
-- **プロジェクトパス**: `claude-code/stock-assets/`
+- **プロジェクトパス**: `claude-code/products/stock-assets/`
 
 ## n8nテンプレート販売事業（一時停止）
 - **詳細**: [n8n-template-business.md](n8n-template-business.md)
 - 9/10本Gumroad出品済みだがStripe KYC認証問題で停止中
-- **プロジェクトパス**: `claude-code/n8n-templates/`
+- **プロジェクトパス**: `claude-code/products/n8n-templates/`
 
 ## ユーザー情報
 - **職務経歴**: [resume.md](resume.md)

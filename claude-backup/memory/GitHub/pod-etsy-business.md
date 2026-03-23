@@ -8,7 +8,7 @@ type: project
 
 **Why:** 在庫ゼロ・発送自動・運用コスト$0の完全自動収入源。
 
-**How to apply:** `claude-code/pod-etsy/` 配下に全ファイル格納。
+**How to apply:** `claude-code/products/pod-etsy/` 配下に全ファイル格納。
 
 ## 商品構成
 - 5ニッチ × 10デザイン = 50デザイン

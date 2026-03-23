@@ -8,32 +8,32 @@ description: 6プラットフォーム（RapidAPI, Gumroad, Chrome, VSCode, Apif
 ## 対象プラットフォーム
 
 ### 1. RapidAPI（21本）
-- `api-services/` 配下の全Worker確認
+- `products/api-services/` 配下の全Worker確認
 - `memory/rapidapi-business.md` と照合
 - 各APIの公開状態・プラン設定を確認
 
 ### 2. Gumroad（Notionテンプレート11本 + n8nテンプレート9本）
-- `gumroad-notion/` の商品一覧確認
+- `products/gumroad-notion/` の商品一覧確認
 - `memory/gumroad-listing-progress.md` と照合
-- `n8n-templates/` の出品状況確認
+- `products/n8n-templates/` の出品状況確認
 - カバー画像・サムネイル・価格設定の有無
 
 ### 3. Chrome拡張（10本）
-- `chrome-extensions/` 配下の全拡張確認
+- `products/chrome-extensions/` 配下の全拡張確認
 - `memory/chrome-extensions-business.md` と照合
 - 公開/審査中/却下のステータス
 
 ### 4. VS Code拡張（10本）
-- `vscode-extensions/` 配下の全拡張確認
+- `products/vscode-extensions/` 配下の全拡張確認
 - `memory/vscode-extensions-business.md` と照合
 - Marketplace公開状態
 
 ### 5. Apify Actors（5本）
-- `api-services/apify-actors/` 確認
+- `products/api-services/apify-actors/` 確認
 - `memory/apify-business.md` と照合
 
 ### 6. POD Etsy（準備中）
-- `pod-etsy/` の準備状況確認
+- `products/pod-etsy/` の準備状況確認
 - `memory/pod-etsy-business.md` と照合
 
 ## 出力フォーマット

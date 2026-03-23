@@ -6,7 +6,7 @@ type: project
 
 ## WP Linker — WordPress Internal Link Optimizer SaaS
 
-**プロジェクトパス**: `claude-code/wp-linker/`
+**プロジェクトパス**: `claude-code/saas/wp-linker/`
 **本番URL**: https://wp-linker.vercel.app
 **Supabase**: https://acagbtiscghcybrkcajh.supabase.co
 

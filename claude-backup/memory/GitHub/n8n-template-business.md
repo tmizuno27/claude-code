@@ -10,7 +10,7 @@ type: project
 - **ブロッカー**: Stripe Connect認証コード（6桁）が受け取れない → Gumroadサポートにメール送信済み（2026-03-15）
 - **残タスク**: 商品10作成、サムネイル10枚アップロード（画像は作成済み）、HaveWorkflow/n8nMarket出品、Reddit投稿（下書き済み）
 - **決定経緯**: 全11回・43並行リサーチを経て、完全自動化×収益性×リスクゼロの観点で最適と判定
-- **プロジェクトパス**: `claude-code/n8n-templates/`
+- **プロジェクトパス**: `claude-code/products/n8n-templates/`
 - **CLAUDE.md**: 事業計画・テンプレートラインナップ記載済み
 
 ### 事業モデル

@@ -24,10 +24,10 @@ Gumroad Notionテンプレート出品作業の進捗（2026-03-17更新）
 - [x] 11. Ultimate Bundle — 全10本セット ($49)
 
 ## サムネイル・Cover画像
-`claude-code/gumroad-notion/images/` に全22枚生成済み（Pillow自動生成）
+`claude-code/products/gumroad-notion/images/` に全22枚生成済み（Pillow自動生成）
 - Thumbnail: 600x600px正方形（XX.png）
 - Cover: 1280x720px横長（XX-cover.png）
-- 生成スクリプト: `claude-code/gumroad-notion/scripts/generate_thumbnails.py`
+- 生成スクリプト: `claude-code/products/gumroad-notion/scripts/generate_thumbnails.py`
 
 ## Gumroadアカウント
 - URL: tatsuya27.gumroad.com

@@ -15,7 +15,7 @@ Apify Store上に5つのActorを公開・収益化設定済み。
 ### アカウント情報
 - ユーザー名: miccho27
 - プラン: Creator plan（$7.26/半年、次回請求: 2026-09）
-- プロジェクトパス: `claude-code/api-services/apify-actors/`
+- プロジェクトパス: `claude-code/products/api-services/apify-actors/`
 
 ### 公開Actor一覧
 

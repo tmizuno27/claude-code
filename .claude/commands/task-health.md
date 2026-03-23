@@ -19,7 +19,7 @@ description: 52個の自動化タスク（Task Scheduler）の稼働状況を一
 - 頻度（1分/5分/日次/週次）に対して遅延がないか確認
 
 ### 3. Healthchecks.io確認
-`tools/healthchecks/` の設定を参照し、ping失敗がないか確認
+`infrastructure/tools/healthchecks/` の設定を参照し、ping失敗がないか確認
 
 ### 4. 結果レポート
 以下の形式で出力:

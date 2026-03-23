@@ -8,7 +8,7 @@ type: project
 
 - **ステータス**: 全21 API デプロイ済み・Rapid Studio登録完了（2026-03-20確認）
 - **決定経緯**: Gumroad Stripe KYC問題でn8nテンプレート事業が停止 → 5並行リサーチで完全自動モデルを再調査 → RapidAPI選定
-- **プロジェクトパス**: `claude-code/api-services/`
+- **プロジェクトパス**: `claude-code/products/api-services/`
 
 ### インフラ
 - **ホスティング**: Cloudflare Workers（無料枠: 100K req/day）
