@@ -1,1 +1,1 @@
-Instantly convert 160+ currencies with real-time rates. Favorites, quick rates dashboard & right-click conversion.
+Currency converter with real-time exchange rates. 160+ currencies, favorites, quick rates dashboard, right-click conversion. Fast and lightweight.

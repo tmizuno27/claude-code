@@ -1,1 +1,1 @@
-Auto-format JSON with syntax highlighting, tree view, dark mode & JSON path display. 100% local — no data leaves your browser.
+JSON formatter: auto-detect and beautify JSON with syntax highlighting, collapsible tree view, JSON path, dark mode. 100% local.

@@ -1,1 +1,1 @@
-Hash, encode, and decode text instantly. MD5, SHA, Base64, URL, HTML entities, JWT. 100% local processing, no data sent.
+Hash and encode tool: MD5, SHA-256, SHA-512, Base64, URL encoding, HTML entities, JWT decode. 100% local, no data sent.
