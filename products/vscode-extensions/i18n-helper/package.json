@@ -1,23 +1,54 @@
 {
   "name": "m27-i18n-helper",
   "displayName": "M27 i18n Helper",
-  "description": "Autocomplete translation keys, detect missing translations, and manage i18n JSON files.",
+  "description": "Autocomplete translation keys, detect missing translations, and manage i18n JSON locale files with IntelliSense and diagnostics.",
   "version": "0.1.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other", "Linters"],
-  "keywords": ["i18n", "internationalization", "translation", "locale"],
-  "activationEvents": ["workspaceContains:**/locales/**"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "i18n",
+    "internationalization",
+    "translation",
+    "localization",
+    "locale"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/locales/**"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "i18nHelper.findMissing", "title": "i18n: Find Missing Translations" },
-      { "command": "i18nHelper.sortKeys", "title": "i18n: Sort Keys Alphabetically" },
-      { "command": "i18nHelper.addKey", "title": "i18n: Add Key to All Locales" },
-      { "command": "i18nHelper.renameKey", "title": "i18n: Rename Key in All Locales" },
-      { "command": "i18nHelper.deleteKey", "title": "i18n: Delete Key from All Locales" },
-      { "command": "i18nHelper.refresh", "title": "i18n: Refresh Locales" }
+      {
+        "command": "i18nHelper.findMissing",
+        "title": "i18n: Find Missing Translations"
+      },
+      {
+        "command": "i18nHelper.sortKeys",
+        "title": "i18n: Sort Keys Alphabetically"
+      },
+      {
+        "command": "i18nHelper.addKey",
+        "title": "i18n: Add Key to All Locales"
+      },
+      {
+        "command": "i18nHelper.renameKey",
+        "title": "i18n: Rename Key in All Locales"
+      },
+      {
+        "command": "i18nHelper.deleteKey",
+        "title": "i18n: Delete Key from All Locales"
+      },
+      {
+        "command": "i18nHelper.refresh",
+        "title": "i18n: Refresh Locales"
+      }
     ],
     "configuration": {
       "title": "i18n Helper",
@@ -34,7 +65,11 @@
         },
         "i18nHelper.functionPatterns": {
           "type": "array",
-          "default": ["t", "$t", "i18n.t"],
+          "default": [
+            "t",
+            "$t",
+            "i18n.t"
+          ],
           "description": "Function patterns to detect translation key usage"
         }
       }

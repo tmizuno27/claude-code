@@ -1,33 +1,94 @@
 {
   "name": "m27-markdown-table-pro",
   "displayName": "M27 Markdown Table Pro",
-  "description": "Format, sort, and convert Markdown tables. CSV import/export, column alignment, and more.",
+  "description": "Format, sort, align, and convert Markdown tables instantly. Import/export CSV, add columns, and auto-format on save.",
   "version": "0.1.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Formatters", "Other"],
-  "keywords": ["markdown", "table", "csv", "format"],
-  "activationEvents": ["onLanguage:markdown"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters",
+    "Other"
+  ],
+  "keywords": [
+    "markdown",
+    "table",
+    "csv",
+    "formatter",
+    "markdown table"
+  ],
+  "activationEvents": [
+    "onLanguage:markdown"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "markdownTablePro.format", "title": "Markdown Table: Format" },
-      { "command": "markdownTablePro.sort", "title": "Markdown Table: Sort by Column" },
-      { "command": "markdownTablePro.csvToTable", "title": "Markdown Table: CSV to Table" },
-      { "command": "markdownTablePro.tableToCsv", "title": "Markdown Table: Table to CSV" },
-      { "command": "markdownTablePro.addColumnLeft", "title": "Markdown Table: Add Column Left" },
-      { "command": "markdownTablePro.addColumnRight", "title": "Markdown Table: Add Column Right" },
-      { "command": "markdownTablePro.removeColumn", "title": "Markdown Table: Remove Column" },
-      { "command": "markdownTablePro.moveColumnLeft", "title": "Markdown Table: Move Column Left" },
-      { "command": "markdownTablePro.moveColumnRight", "title": "Markdown Table: Move Column Right" },
-      { "command": "markdownTablePro.renameHeader", "title": "Markdown Table: Rename Header" },
-      { "command": "markdownTablePro.addRowAbove", "title": "Markdown Table: Add Row Above" },
-      { "command": "markdownTablePro.addRowBelow", "title": "Markdown Table: Add Row Below" },
-      { "command": "markdownTablePro.deleteRow", "title": "Markdown Table: Delete Row" },
-      { "command": "markdownTablePro.moveRowUp", "title": "Markdown Table: Move Row Up" },
-      { "command": "markdownTablePro.moveRowDown", "title": "Markdown Table: Move Row Down" },
-      { "command": "markdownTablePro.importCsvFile", "title": "Markdown Table: Import CSV File" }
+      {
+        "command": "markdownTablePro.format",
+        "title": "Markdown Table: Format"
+      },
+      {
+        "command": "markdownTablePro.sort",
+        "title": "Markdown Table: Sort by Column"
+      },
+      {
+        "command": "markdownTablePro.csvToTable",
+        "title": "Markdown Table: CSV to Table"
+      },
+      {
+        "command": "markdownTablePro.tableToCsv",
+        "title": "Markdown Table: Table to CSV"
+      },
+      {
+        "command": "markdownTablePro.addColumnLeft",
+        "title": "Markdown Table: Add Column Left"
+      },
+      {
+        "command": "markdownTablePro.addColumnRight",
+        "title": "Markdown Table: Add Column Right"
+      },
+      {
+        "command": "markdownTablePro.removeColumn",
+        "title": "Markdown Table: Remove Column"
+      },
+      {
+        "command": "markdownTablePro.moveColumnLeft",
+        "title": "Markdown Table: Move Column Left"
+      },
+      {
+        "command": "markdownTablePro.moveColumnRight",
+        "title": "Markdown Table: Move Column Right"
+      },
+      {
+        "command": "markdownTablePro.renameHeader",
+        "title": "Markdown Table: Rename Header"
+      },
+      {
+        "command": "markdownTablePro.addRowAbove",
+        "title": "Markdown Table: Add Row Above"
+      },
+      {
+        "command": "markdownTablePro.addRowBelow",
+        "title": "Markdown Table: Add Row Below"
+      },
+      {
+        "command": "markdownTablePro.deleteRow",
+        "title": "Markdown Table: Delete Row"
+      },
+      {
+        "command": "markdownTablePro.moveRowUp",
+        "title": "Markdown Table: Move Row Up"
+      },
+      {
+        "command": "markdownTablePro.moveRowDown",
+        "title": "Markdown Table: Move Row Down"
+      },
+      {
+        "command": "markdownTablePro.importCsvFile",
+        "title": "Markdown Table: Import CSV File"
+      }
     ],
     "configuration": {
       "title": "Markdown Table Pro",

@@ -1,28 +1,67 @@
 {
   "name": "m27-doc-snapshot",
   "displayName": "M27 Doc Snapshot",
-  "description": "Take snapshots of any document and compare them later. Local version control without Git.",
+  "description": "Take named snapshots of any file and compare or restore them later. Lightweight local version history without Git.",
   "version": "0.1.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
-  "keywords": ["snapshot", "diff", "version", "backup", "compare"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "SCM Providers"
+  ],
+  "keywords": [
+    "snapshot",
+    "version history",
+    "diff",
+    "backup",
+    "local history"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "docSnapshot.take", "title": "Doc Snapshot: Take Snapshot" },
-      { "command": "docSnapshot.list", "title": "Doc Snapshot: List Snapshots" },
-      { "command": "docSnapshot.compare", "title": "Doc Snapshot: Compare with Snapshot" },
-      { "command": "docSnapshot.compareTwoSnapshots", "title": "Doc Snapshot: Compare Two Snapshots" },
-      { "command": "docSnapshot.restore", "title": "Doc Snapshot: Restore Snapshot" },
-      { "command": "docSnapshot.delete", "title": "Doc Snapshot: Delete Snapshot" },
-      { "command": "docSnapshot.clearFile", "title": "Doc Snapshot: Clear All Snapshots for File" },
-      { "command": "docSnapshot.clearWorkspace", "title": "Doc Snapshot: Clear All Snapshots" }
+      {
+        "command": "docSnapshot.take",
+        "title": "Doc Snapshot: Take Snapshot"
+      },
+      {
+        "command": "docSnapshot.list",
+        "title": "Doc Snapshot: List Snapshots"
+      },
+      {
+        "command": "docSnapshot.compare",
+        "title": "Doc Snapshot: Compare with Snapshot"
+      },
+      {
+        "command": "docSnapshot.compareTwoSnapshots",
+        "title": "Doc Snapshot: Compare Two Snapshots"
+      },
+      {
+        "command": "docSnapshot.restore",
+        "title": "Doc Snapshot: Restore Snapshot"
+      },
+      {
+        "command": "docSnapshot.delete",
+        "title": "Doc Snapshot: Delete Snapshot"
+      },
+      {
+        "command": "docSnapshot.clearFile",
+        "title": "Doc Snapshot: Clear All Snapshots for File"
+      },
+      {
+        "command": "docSnapshot.clearWorkspace",
+        "title": "Doc Snapshot: Clear All Snapshots"
+      }
     ],
     "keybindings": [
-      { "command": "docSnapshot.take", "key": "ctrl+shift+s", "when": "editorTextFocus" }
+      {
+        "command": "docSnapshot.take",
+        "key": "ctrl+shift+s",
+        "when": "editorTextFocus"
+      }
     ],
     "configuration": {
       "title": "Doc Snapshot",

@@ -1,44 +1,124 @@
 {
   "name": "m27-api-response-viewer",
   "displayName": "M27 API Response Viewer",
-  "description": "Visualize JSON/XML API responses in a collapsible tree view with search, filter, and copy path.",
+  "description": "Visualize and explore JSON/XML API responses in an interactive tree view with search, filtering, path copying, and side-by-side comparison.",
   "version": "0.1.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other", "Visualization"],
-  "keywords": ["api", "json", "response", "tree", "viewer", "xml"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "api",
+    "json",
+    "response viewer",
+    "rest",
+    "xml"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "apiResponseViewer.open", "title": "API Viewer: Open Response", "icon": "$(json)" },
-      { "command": "apiResponseViewer.fromClipboard", "title": "API Viewer: View from Clipboard", "icon": "$(clippy)" },
-      { "command": "apiResponseViewer.fromFile", "title": "API Viewer: Open from File", "icon": "$(folder-opened)" },
-      { "command": "apiResponseViewer.search", "title": "API Viewer: Search / Filter", "icon": "$(search)" },
-      { "command": "apiResponseViewer.clearFilter", "title": "API Viewer: Clear Filter", "icon": "$(clear-all)" },
-      { "command": "apiResponseViewer.compare", "title": "API Viewer: Compare Responses", "icon": "$(diff)" },
-      { "command": "apiResponseViewer.copyPath", "title": "Copy JSON Path" },
-      { "command": "apiResponseViewer.copyValue", "title": "Copy Value" }
+      {
+        "command": "apiResponseViewer.open",
+        "title": "API Viewer: Open Response",
+        "icon": "$(json)"
+      },
+      {
+        "command": "apiResponseViewer.fromClipboard",
+        "title": "API Viewer: View from Clipboard",
+        "icon": "$(clippy)"
+      },
+      {
+        "command": "apiResponseViewer.fromFile",
+        "title": "API Viewer: Open from File",
+        "icon": "$(folder-opened)"
+      },
+      {
+        "command": "apiResponseViewer.search",
+        "title": "API Viewer: Search / Filter",
+        "icon": "$(search)"
+      },
+      {
+        "command": "apiResponseViewer.clearFilter",
+        "title": "API Viewer: Clear Filter",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "apiResponseViewer.compare",
+        "title": "API Viewer: Compare Responses",
+        "icon": "$(diff)"
+      },
+      {
+        "command": "apiResponseViewer.copyPath",
+        "title": "Copy JSON Path"
+      },
+      {
+        "command": "apiResponseViewer.copyValue",
+        "title": "Copy Value"
+      }
     ],
     "viewsContainers": {
-      "panel": [{ "id": "apiResponseViewer", "title": "API Response", "icon": "$(json)" }]
+      "panel": [
+        {
+          "id": "apiResponseViewer",
+          "title": "API Response",
+          "icon": "$(json)"
+        }
+      ]
     },
     "views": {
-      "apiResponseViewer": [{ "id": "apiResponseTree", "name": "Response Tree" }]
+      "apiResponseViewer": [
+        {
+          "id": "apiResponseTree",
+          "name": "Response Tree"
+        }
+      ]
     },
     "menus": {
       "view/title": [
-        { "command": "apiResponseViewer.open", "when": "view == apiResponseTree", "group": "navigation" },
-        { "command": "apiResponseViewer.fromClipboard", "when": "view == apiResponseTree", "group": "navigation" },
-        { "command": "apiResponseViewer.search", "when": "view == apiResponseTree", "group": "navigation" },
-        { "command": "apiResponseViewer.fromFile", "when": "view == apiResponseTree" },
-        { "command": "apiResponseViewer.clearFilter", "when": "view == apiResponseTree" },
-        { "command": "apiResponseViewer.compare", "when": "view == apiResponseTree" }
+        {
+          "command": "apiResponseViewer.open",
+          "when": "view == apiResponseTree",
+          "group": "navigation"
+        },
+        {
+          "command": "apiResponseViewer.fromClipboard",
+          "when": "view == apiResponseTree",
+          "group": "navigation"
+        },
+        {
+          "command": "apiResponseViewer.search",
+          "when": "view == apiResponseTree",
+          "group": "navigation"
+        },
+        {
+          "command": "apiResponseViewer.fromFile",
+          "when": "view == apiResponseTree"
+        },
+        {
+          "command": "apiResponseViewer.clearFilter",
+          "when": "view == apiResponseTree"
+        },
+        {
+          "command": "apiResponseViewer.compare",
+          "when": "view == apiResponseTree"
+        }
       ],
       "view/item/context": [
-        { "command": "apiResponseViewer.copyPath", "when": "view == apiResponseTree", "group": "inline" },
-        { "command": "apiResponseViewer.copyValue", "when": "view == apiResponseTree" }
+        {
+          "command": "apiResponseViewer.copyPath",
+          "when": "view == apiResponseTree",
+          "group": "inline"
+        },
+        {
+          "command": "apiResponseViewer.copyValue",
+          "when": "view == apiResponseTree"
+        }
       ]
     }
   },

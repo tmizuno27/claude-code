@@ -1,13 +1,24 @@
 {
   "name": "m27-commit-crafter",
   "displayName": "M27 Commit Crafter",
-  "description": "Generate structured, conventional commit messages with templates and smart analysis of staged changes.",
+  "description": "Generate conventional commit messages automatically. Smart detection of staged changes with gitmoji support and customizable templates.",
   "version": "1.0.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["SCM Providers", "Other"],
-  "keywords": ["git", "commit", "conventional", "template", "gitmoji"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "commit message",
+    "conventional commits",
+    "gitmoji",
+    "scm"
+  ],
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -45,7 +56,9 @@
         },
         "commitCrafter.scopes": {
           "type": "array",
-          "items": { "type": "string" },
+          "items": {
+            "type": "string"
+          },
           "default": [],
           "description": "Predefined scopes for commit messages (e.g., api, ui, core)"
         },

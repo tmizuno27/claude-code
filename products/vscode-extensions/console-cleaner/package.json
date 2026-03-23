@@ -1,7 +1,7 @@
 {
   "name": "m27-console-cleaner-tool",
   "displayName": "M27 Debug Log Cleaner",
-  "description": "Find, remove, or comment out all console.log, console.error, console.warn, debugger, and print() statements across your workspace.",
+  "description": "Remove all console.log, debugger, and print() statements in one click. Supports comment-out, keep markers, and workspace-wide cleanup.",
   "version": "1.0.0",
   "publisher": "miccho27-dev",
   "license": "MIT",
@@ -14,15 +14,15 @@
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Other",
-    "Linters"
+    "Linters",
+    "Other"
   ],
   "keywords": [
-    "console",
-    "clean",
+    "console.log",
     "debug",
-    "remove",
-    "console.log"
+    "clean",
+    "remove logs",
+    "linter"
   ],
   "activationEvents": [
     "onStartupFinished"

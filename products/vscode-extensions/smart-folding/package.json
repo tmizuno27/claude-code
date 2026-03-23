@@ -1,26 +1,67 @@
 {
   "name": "m27-smart-folding",
   "displayName": "M27 Smart Folding",
-  "description": "Custom folding regions with named markers, fold by type (imports, functions, classes, comments), and fold presets.",
+  "description": "Fold code by type -- imports, functions, classes, comments. Named regions, fold presets, and auto-fold on file open.",
   "version": "0.1.0",
   "publisher": "miccho27",
   "license": "MIT",
-  "engines": { "vscode": "^1.85.0" },
-  "categories": ["Other"],
-  "keywords": ["folding", "region", "collapse", "code", "imports", "preset"],
-  "activationEvents": ["onStartupFinished"],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "code folding",
+    "region",
+    "collapse",
+    "fold imports",
+    "organize code"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
-      { "command": "smartFolding.foldImports", "title": "Smart Fold: Fold All Imports" },
-      { "command": "smartFolding.foldFunctions", "title": "Smart Fold: Fold All Functions" },
-      { "command": "smartFolding.foldClasses", "title": "Smart Fold: Fold All Classes" },
-      { "command": "smartFolding.foldComments", "title": "Smart Fold: Fold All Comments" },
-      { "command": "smartFolding.foldRegions", "title": "Smart Fold: Fold All Named Regions" },
-      { "command": "smartFolding.savePreset", "title": "Smart Fold: Save Fold Preset" },
-      { "command": "smartFolding.loadPreset", "title": "Smart Fold: Load Fold Preset" },
-      { "command": "smartFolding.deletePreset", "title": "Smart Fold: Delete Fold Preset" },
-      { "command": "smartFolding.refreshRegions", "title": "Smart Fold: Refresh Regions", "icon": "$(refresh)" }
+      {
+        "command": "smartFolding.foldImports",
+        "title": "Smart Fold: Fold All Imports"
+      },
+      {
+        "command": "smartFolding.foldFunctions",
+        "title": "Smart Fold: Fold All Functions"
+      },
+      {
+        "command": "smartFolding.foldClasses",
+        "title": "Smart Fold: Fold All Classes"
+      },
+      {
+        "command": "smartFolding.foldComments",
+        "title": "Smart Fold: Fold All Comments"
+      },
+      {
+        "command": "smartFolding.foldRegions",
+        "title": "Smart Fold: Fold All Named Regions"
+      },
+      {
+        "command": "smartFolding.savePreset",
+        "title": "Smart Fold: Save Fold Preset"
+      },
+      {
+        "command": "smartFolding.loadPreset",
+        "title": "Smart Fold: Load Fold Preset"
+      },
+      {
+        "command": "smartFolding.deletePreset",
+        "title": "Smart Fold: Delete Fold Preset"
+      },
+      {
+        "command": "smartFolding.refreshRegions",
+        "title": "Smart Fold: Refresh Regions",
+        "icon": "$(refresh)"
+      }
     ],
     "views": {
       "explorer": [
@@ -55,8 +96,13 @@
         },
         "smartFolding.regionMarkers": {
           "type": "array",
-          "items": { "type": "string" },
-          "default": ["#region", "#endregion"],
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "#region",
+            "#endregion"
+          ],
           "description": "Start and end markers for named regions (array of 2 strings)."
         }
       }
