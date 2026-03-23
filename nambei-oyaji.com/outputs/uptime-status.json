@@ -1,5 +1,5 @@
 {
-  "last_check": "2026-03-23T07:14:03.609665",
+  "last_check": "2026-03-23T07:44:04.031176",
   "status": "up",
   "consecutive_failures": 0,
   "last_results": [
@@ -7,16 +7,16 @@
       "endpoint": "/",
       "ok": true,
       "status_code": 200,
-      "response_time_ms": 3068,
+      "response_time_ms": 2568,
       "error": null
     },
     {
       "endpoint": "/wp-json/wp/v2/posts?per_page=1",
       "ok": true,
       "status_code": 200,
-      "response_time_ms": 2312,
+      "response_time_ms": 2506,
       "error": null
     }
   ],
-  "last_up": "2026-03-23T07:14:03.609665"
+  "last_up": "2026-03-23T07:44:04.031176"
 }
