@@ -1,17 +1,23 @@
 {
   "name": "QR Code Generator API",
   "slug": "qr-code-generator-api",
-  "description": "Free QR Code Generator API - PNG, SVG, Base64, Custom Colors | 500/mo free",
+  "description": "Free QR Code API - PNG/SVG/Base64, Sub-50ms Edge, Custom Colors | 500/mo",
   "long_description": "## Why QR Code Generator API?\n- ✅ Zero authentication required — start generating QR codes instantly\n- ✅ 3 output formats (PNG, SVG, Base64) with full color customization\n- ✅ Sub-50ms response via Cloudflare's global edge network (300+ locations)\n\n## Key Features\n- PNG, SVG, and Base64 output formats\n- Custom foreground & background colors (hex)\n- Adjustable error correction levels (L/M/Q/H)\n- Configurable size from 10px to 1000px\n- CORS enabled for browser-side usage\n\n## Use Cases\n- **E-commerce**: QR codes for product pages, payments, and receipts\n- **Marketing**: Flyers, business cards, and poster campaigns\n- **Event Management**: Ticket QR codes and check-in systems\n- **Mobile Apps**: Deep-link QR codes for app downloads\n\n## Quick Start\n```\nGET /generate?text=https://example.com&size=300&format=png&color=FF0000&bgcolor=FFFFFF\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes all formats and colors. No credit card required.\n\n## Alternative To\nLooking for a **QR code API alternative** to goqr.me, QR Server, or QRickit? This API offers faster response times via Cloudflare's edge network with a generous free tier.\n\n## Sample Response\nWith `format=base64`:\n```json\n{\"qr_code\": \"data:image/png;base64,iVBOR...\"}\n```\n\n## Need More Requests?\nThe **free plan** (500 req/mo) is perfect for prototyping. Upgrade to **Pro ($5.99/mo)** for production workloads with 50,000 requests and 10 req/sec rate limit.",
   "category": "Tools",
   "tags": [
     "qr-code",
     "qr-generator",
+    "qr-code-api",
     "image-generation",
     "free-api",
     "rest-api",
     "barcode",
-    "marketing-tools"
+    "marketing-tools",
+    "e-commerce-tools",
+    "payment-qr",
+    "dynamic-qr",
+    "cloudflare-edge",
+    "svg-generator"
   ],
   "website": "https://qr-code-api.your-domain.workers.dev",
   "pricing": {
