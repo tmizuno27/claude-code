@@ -1,0 +1,544 @@
+{
+  "version": 2,
+  "posting_times_pyt": [
+    "10:00",
+    "14:00",
+    "19:00"
+  ],
+  "note": "V2: 5 categories (value/promo/thread/engagement/seasonal). 80 tweets total. ~27 day cycle. Auto-reset when a category is exhausted.",
+  "category_schedule": {
+    "10:00": "value or engagement (weekends)",
+    "14:00": "value or thread (Tue/Thu)",
+    "19:00": "promo (even days) or value (odd days)"
+  },
+  "tweets": [
+    {
+      "id": 1,
+      "category": "value",
+      "text": "The Eisenhower Matrix in 30 seconds:\n\nUrgent + Important = Do it now\nImportant, not urgent = Schedule it\nUrgent, not important = Delegate it\nNeither = Delete it\n\n90% of your stress comes from treating everything as box 1.\n\n#Productivity",
+      "posted": true,
+      "posted_at": "2026-03-22 14:00:04",
+      "tweet_id": "2035763459283997080"
+    },
+    {
+      "id": 2,
+      "category": "value",
+      "text": "Freelancer reality check:\n\nIf you bill 40 hrs/week but spend 15 hrs on admin, your real rate is 62% of what you think.\n\nTrack your non-billable hours. The number will shock you.\n\n#FreelanceTips",
+      "posted": true,
+      "posted_at": "2026-03-22 19:00:06",
+      "tweet_id": "2035838961159921703"
+    },
+    {
+      "id": 3,
+      "category": "value",
+      "text": "The human brain can hold 4-7 items in working memory.\n\nYour to-do list has 47.\n\nWrite. Everything. Down.\n\nNot in your head. Not on sticky notes. In ONE system you trust.\n\n#SecondBrain #Productivity",
+      "posted": true,
+      "posted_at": "2026-03-23 04:49:46",
+      "tweet_id": "2035987315491852628"
+    },
+    {
+      "id": 4,
+      "category": "value",
+      "text": "Sunday habit that changed my life:\n\n1. Clear all inboxes (5 min)\n2. Review last week's wins (3 min)\n3. Pick 3 priorities for next week (5 min)\n4. Move stalled tasks to \"Someday\" (2 min)\n\n15 minutes. Entire week feels different.\n\n#ProductivityTips",
+      "posted": true,
+      "posted_at": "2026-03-23 04:50:18",
+      "tweet_id": "2035987484731916328"
+    },
+    {
+      "id": 5,
+      "category": "value",
+      "text": "Stop creating content day-by-day.\n\nMonday: Write 5 posts\nTuesday: Design all graphics\nWednesday: Schedule the week\nThursday-Sunday: Engage\n\nBatch creation. Daily distribution. Stress drops 80%.\n\n#ContentCreator",
+      "posted": false
+    },
+    {
+      "id": 6,
+      "category": "value",
+      "text": "I tracked my subscriptions last month:\n\n- Todoist: $5\n- Trello: $10\n- Airtable: $20\n- Calendly: $12\n- Notion: $0\n\nGuess which one replaced the other four.\n\n#Notion",
+      "posted": false
+    },
+    {
+      "id": 7,
+      "category": "value",
+      "text": "Hot take: Most side hustles are negative hourly rate.\n\nRevenue sounds great until you subtract:\n- Tools/subscriptions\n- Taxes set aside\n- Hours actually worked\n\nKnow your REAL $/hour before calling it \"passive income.\"\n\n#SideHustle",
+      "posted": false
+    },
+    {
+      "id": 8,
+      "category": "value",
+      "text": "The students getting A's aren't smarter.\n\nThey just track:\n- Every assignment + due date\n- Study hours per subject\n- Grade trends over time\n\nWhen you see the data, you know exactly where to focus.\n\n#StudyTips",
+      "posted": false
+    },
+    {
+      "id": 9,
+      "category": "value",
+      "text": "You don't lose clients because your work is bad.\n\nYou lose clients because you forgot to follow up.\n\nA follow-up system beats talent every single time.\n\n#FreelanceTips #SmallBusiness",
+      "posted": false
+    },
+    {
+      "id": 10,
+      "category": "value",
+      "text": "The problem with New Year goals:\n\n- Written on January 1\n- Forgotten by February\n- No tracking system\n- No weekly check-in\n\nGoals without a system are just wishes.\n\n#Productivity",
+      "posted": false
+    },
+    {
+      "id": 11,
+      "category": "value",
+      "text": "I deleted 9 apps from my phone last month.\n\nReplaced them all with one workspace on my laptop.\n\nLess context switching = more deep work = better output.\n\n#DigitalMinimalism #Productivity",
+      "posted": false
+    },
+    {
+      "id": 12,
+      "category": "value",
+      "text": "I tracked 200+ job applications in a spreadsheet.\n\nKey insight: The jobs I got interviews for had one thing in common — I customized the first sentence of my cover letter.\n\nData reveals patterns your gut never will.\n\n#JobSearch",
+      "posted": false
+    },
+    {
+      "id": 13,
+      "category": "value",
+      "text": "Read 20 books this year and remember nothing?\n\nTry this:\n- 3 key takeaways per chapter\n- 1 action item per book\n- Review notes monthly\n\nRetention goes from 10% to 70%.\n\n#Reading #SecondBrain",
+      "posted": false
+    },
+    {
+      "id": 14,
+      "category": "value",
+      "text": "As a solopreneur, your most dangerous habit is \"busy work.\"\n\nChecking email 30 times isn't working.\nReorganizing your desktop isn't working.\n47 browser tabs isn't working.\n\nRuthlessly protect deep work blocks.\n\n#Solopreneur",
+      "posted": false
+    },
+    {
+      "id": 15,
+      "category": "value",
+      "text": "Social media tip that took me too long to learn:\n\nPlan content in categories, not chronologically.\n\n- 40% educational\n- 30% personal/story\n- 20% promotional\n- 10% engagement\n\nA system beats inspiration every time.\n\n#ContentCreator",
+      "posted": false
+    },
+    {
+      "id": 16,
+      "category": "value",
+      "text": "Want to build a habit? Attach it to one you already have.\n\n\"After I pour my morning coffee, I write 3 priorities for the day.\"\n\nOne sentence. Life-changing compound effect over 365 days.\n\n#HabitStacking #Productivity",
+      "posted": false
+    },
+    {
+      "id": 17,
+      "category": "value",
+      "text": "Freelancer tip: Send your invoice the SAME DAY you finish the work.\n\nEvery day you delay = lower chance of getting paid on time.\n\nSet up a \"days since invoiced\" tracker. Automate the follow-up.\n\n#FreelanceTips",
+      "posted": false
+    },
+    {
+      "id": 18,
+      "category": "value",
+      "text": "The best productivity system is the one you actually use.\n\nNot the prettiest. Not the most complex. Not the one your favorite YouTuber uses.\n\nThe one YOU open every single day.\n\n#Notion #Productivity",
+      "posted": false
+    },
+    {
+      "id": 19,
+      "category": "value",
+      "text": "Decision fatigue is why you eat junk food at 9 PM.\n\nYou made 35,000 decisions today. Your brain is fried.\n\nSolution: Automate the small decisions. Meal prep. Outfit rotation. Pre-planned content calendar.\n\nSave brainpower for what matters.\n\n#Productivity",
+      "posted": false
+    },
+    {
+      "id": 20,
+      "category": "value",
+      "text": "1% better every day = 37x better in a year.\n\nBut only if you track it.\n\nYou can't improve what you don't measure.\n\n#Productivity #CompoundEffect",
+      "posted": false
+    },
+    {
+      "id": 21,
+      "category": "promo",
+      "text": "Running a freelance business with spreadsheets is like driving with your eyes closed.\n\nFreelance Business OS for Notion:\n- Clients + revenue at a glance\n- Project pipeline (Kanban)\n- Invoice tracker with reminders\n- Time tracking per client\n\n$19 once. $0/month forever.\n\nhttps://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": false,
+      "product": "Freelance Business OS"
+    },
+    {
+      "id": 22,
+      "category": "promo",
+      "text": "Unpopular opinion: You don't need more motivation.\n\nYou need a system that works when motivation doesn't.\n\nLife OS — goals, habits, tasks, journal, finances, health.\n\n10 databases. 45+ views. One Notion workspace.\n\nhttps://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false,
+      "product": "Life OS"
+    },
+    {
+      "id": 23,
+      "category": "promo",
+      "text": "Math:\n\n10 Notion templates bought separately = $142\nThe same 10 in a bundle = $49\n\nYou save $93. That's 66% off.\n\n70+ databases. 300+ views. Every part of your life, organized.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 24,
+      "category": "promo",
+      "text": "Creators: Can you answer these in 5 seconds?\n\n- What should you post tomorrow?\n- What performed best last month?\n- How many brand deals are in your pipeline?\n\nIf not, you need Content Creator Dashboard.\n\n$15. One workspace. Zero guesswork.\n\nhttps://tatsuya27.gumroad.com/l/ahymjd",
+      "posted": false,
+      "product": "Content Creator Dashboard"
+    },
+    {
+      "id": 25,
+      "category": "promo",
+      "text": "Salesforce: $25/user/month\nHubSpot: $45/month\nNotion CRM: $17 once\n\nSame features for 90% of small businesses:\n- Contact database\n- Deal pipeline\n- Follow-up reminders\n- Activity log\n\nNo monthly fees. Ever.\n\nhttps://tatsuya27.gumroad.com/l/sbrzyv",
+      "posted": false,
+      "product": "Small Business CRM"
+    },
+    {
+      "id": 26,
+      "category": "promo",
+      "text": "Built this for a friend in college.\n\nShe went from missing 3 deadlines/semester to zero.\n\nGPA up 0.4 points in one term.\n\nStudent Study Hub — $9.\n\nCheaper than one late assignment penalty.\n\nhttps://tatsuya27.gumroad.com/l/qbxihb",
+      "posted": false,
+      "product": "Student Study Hub"
+    },
+    {
+      "id": 27,
+      "category": "promo",
+      "text": "87% of side hustles fail in the first year.\n\nThe #1 reason? Not tracking the numbers.\n\nSide Hustle Tracker:\n- Revenue & expenses per hustle\n- Real $/hour calculation\n- P&L dashboard\n\nKnow your numbers. Keep your hustle alive.\n\n$12 → https://tatsuya27.gumroad.com/l/hyilko",
+      "posted": false,
+      "product": "Side Hustle Tracker"
+    },
+    {
+      "id": 28,
+      "category": "promo",
+      "text": "POV: It's Monday morning and your entire week of social media is already planned.\n\nContent calendar. Hashtag library. Analytics tracker. Campaign manager.\n\nSocial Media Planner for Notion — $14.\n\nNever scramble for content again.\n\nhttps://tatsuya27.gumroad.com/l/piaiby",
+      "posted": false,
+      "product": "Social Media Planner"
+    },
+    {
+      "id": 29,
+      "category": "promo",
+      "text": "Before: Applied to 50 jobs. Lost track of 30. Missed 3 follow-ups.\n\nAfter Job Search Tracker:\n- Every application in a pipeline\n- Interview prep notes per company\n- Automatic follow-up reminders\n\n$9. Land the job faster.\n\nhttps://tatsuya27.gumroad.com/l/xeygaj",
+      "posted": false,
+      "product": "Job Search Tracker"
+    },
+    {
+      "id": 30,
+      "category": "promo",
+      "text": "I used to read 30 books a year and remember nothing.\n\nNow I capture 3 takeaways per chapter in Notion.\n\nBook & Learning Tracker:\n- Reading list with progress\n- Notes & highlights\n- Annual reading challenge\n\nRead more. Forget less. $9.\n\nhttps://tatsuya27.gumroad.com/l/zuesph",
+      "posted": false,
+      "product": "Book & Learning Tracker"
+    },
+    {
+      "id": 31,
+      "category": "promo",
+      "text": "Launching a digital product is 20% creation, 80% everything else.\n\nDigital Products OS:\n- Product catalog\n- Sales tracking\n- Launch checklists\n- Customer feedback\n\nBuilt for Gumroad/Etsy sellers. $19.\n\nhttps://tatsuya27.gumroad.com",
+      "posted": false,
+      "product": "Digital Products OS"
+    },
+    {
+      "id": 32,
+      "category": "promo",
+      "text": "Here's what $49 gets you:\n\n1. Run a freelance business\n2. Manage content creation\n3. Track your studies\n4. Build a second brain\n5. Manage customers (CRM)\n6. Track side hustles\n7. Plan social media\n8. Organize job searches\n9. Log reading & learning\n10. Launch digital products\n\nAll 10. $49.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 33,
+      "category": "promo",
+      "text": "$19 for Freelance Business OS.\n\nBut consider:\n- 1 recovered unpaid invoice = $500+\n- 15 hrs/month saved on admin = $750+\n- 1 new client from better follow-up = $2,000+\n\nROI in week one.\n\nhttps://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": false,
+      "product": "Freelance Business OS"
+    },
+    {
+      "id": 34,
+      "category": "promo",
+      "text": "Your brain is full.\n\nIdeas. Tasks. Goals. Notes. Bookmarks. Plans. Dreams.\n\nStop holding it all in your head.\n\nLife OS — externalize everything into one trusted system.\n\n10 databases. 45+ views. $19.\n\nhttps://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false,
+      "product": "Life OS"
+    },
+    {
+      "id": 35,
+      "category": "promo",
+      "text": "$49 for 10 templates = $4.90 each.\n\nThat's less than a latte for a system you'll use every single day.\n\n70+ databases. 300+ views. 10 complete systems.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 36,
+      "category": "promo",
+      "text": "I lost a $3,000 client because I forgot to follow up.\n\nNever again.\n\nBuilt a CRM in Notion. Now every contact has:\n- Last interaction date\n- Next follow-up reminder\n- Deal stage\n- Revenue history\n\n$17 once → https://tatsuya27.gumroad.com/l/sbrzyv",
+      "posted": false,
+      "product": "Small Business CRM"
+    },
+    {
+      "id": 37,
+      "category": "promo",
+      "text": "Content creators: You don't have a creativity problem.\n\nYou have a systems problem.\n\nWhen you sit down to create, do you know:\n- What to post today?\n- What worked last week?\n- What's in your pipeline?\n\nContent Creator Dashboard. $15.\n\nhttps://tatsuya27.gumroad.com/l/ahymjd",
+      "posted": false,
+      "product": "Content Creator Dashboard"
+    },
+    {
+      "id": 38,
+      "category": "promo",
+      "text": "Content creation hack most people miss:\n\nBatch by TYPE, not by platform.\n\nMonday: Write 5 captions\nTuesday: Create 5 graphics\nWednesday: Schedule everything\n\nSocial Media Planner makes this visual. $14.\n\nhttps://tatsuya27.gumroad.com/l/piaiby",
+      "posted": false,
+      "product": "Social Media Planner"
+    },
+    {
+      "id": 39,
+      "category": "promo",
+      "text": "Side hustle reality check:\n\nRevenue: $2,000/mo (sounds great)\nExpenses: $400/mo\nHours: 80 hrs/mo\n\nActual rate: $20/hr\n\nWorth it? Only the numbers can tell you.\n\nSide Hustle Tracker calculates this automatically. $12.\n\nhttps://tatsuya27.gumroad.com/l/hyilko",
+      "posted": false,
+      "product": "Side Hustle Tracker"
+    },
+    {
+      "id": 40,
+      "category": "promo",
+      "text": "People ask: \"Which template should I start with?\"\n\nMy answer: Get the bundle.\n\nIt's $49 for all 10 ($142 value).\n\nStart with 2-3 that fit your life right now.\nAdd more as you grow.\nThey're yours forever.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 41,
+      "category": "thread",
+      "text": "5 Notion mistakes that are killing your productivity:\n\n1/ Building databases you never look at again\n2/ No weekly review ritual\n3/ Too many separate pages (use linked databases!)\n4/ No templates for recurring workflows\n5/ Making it pretty before making it functional\n\nFix all 5 with a proven system → https://tatsuya27.gumroad.com\n\n#Notion #Productivity",
+      "posted": false
+    },
+    {
+      "id": 42,
+      "category": "thread",
+      "text": "I replaced 6 apps with one Notion workspace. Here's my entire freelance stack:\n\nCLIENT MGMT: One database. Every client, project, dollar linked.\nPROJECT TRACKING: Kanban + Timeline + Table views.\nTIME TRACKING: Quick-log linked to projects.\nINVOICING: \"Days Since Sent\" formula. Auto follow-up.\nEXPENSES: Categorized, tagged for tax deductions.\n\n$19 once. $0/month.\n\nhttps://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": false,
+      "product": "Freelance Business OS"
+    },
+    {
+      "id": 43,
+      "category": "thread",
+      "text": "\"Why pay for a Notion template when Notion is free?\"\n\nBecause you're not paying for databases. You're paying for ARCHITECTURE.\n\nBuilding from scratch: 20-40 hours\nBuying a template + customizing: 30 minutes\n\nIf your time is worth $25/hr, building costs $500+.\nA template costs less than lunch.\n\nhttps://tatsuya27.gumroad.com",
+      "posted": false
+    },
+    {
+      "id": 44,
+      "category": "thread",
+      "text": "How to set up your entire life system in 30 minutes:\n\n1. Rate 8 life areas 1-10 (5 min)\n2. Set 3 goals for lowest areas (5 min)\n3. Break into projects + tasks (5 min)\n4. Pick 3-5 daily habits (5 min)\n5. Start 2-min daily journal (5 min)\n6. Weekly review every Sunday (5 min)\n\nLife OS has all of this pre-built → https://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false,
+      "product": "Life OS"
+    },
+    {
+      "id": 45,
+      "category": "thread",
+      "text": "How to audit your side hustle in 15 minutes:\n\n1. Write down ALL income (last 3 months)\n2. Write down ALL expenses\n3. Estimate total HOURS/month\n4. Calculate: (Revenue - Expenses) / Hours = Real $/hour\n5. Compare to your day job rate\n\nIf it pays less than your 9-5... you have a hobby, not a business.\n\nSide Hustle Tracker automates this → https://tatsuya27.gumroad.com/l/hyilko",
+      "posted": false,
+      "product": "Side Hustle Tracker"
+    },
+    {
+      "id": 46,
+      "category": "thread",
+      "text": "My content calendar system that saves 5+ hours/week:\n\n1. CATEGORIES: Educational 40%, Personal 30%, Promo 20%, Engagement 10%\n2. BATCHING: Mon=write, Tue=design, Wed=schedule\n3. HASHTAG LIBRARY: Pre-researched by niche\n4. ANALYTICS: Sunday review. Double down on winners.\n5. REPURPOSE: Top tweets become LinkedIn posts.\n\nSocial Media Planner → https://tatsuya27.gumroad.com/l/piaiby",
+      "posted": false,
+      "product": "Social Media Planner"
+    },
+    {
+      "id": 47,
+      "category": "thread",
+      "text": "How I manage 50+ business contacts without Salesforce:\n\n1. CONTACT DB: name, company, email, deal stage\n2. DEAL PIPELINE: Kanban — Lead → Contacted → Proposal → Won/Lost\n3. ACTIVITY LOG: Every call/email linked to contact\n4. FOLLOW-UP: \"Days Since Last Contact\" formula\n\n$17 once. $0/month.\n\nhttps://tatsuya27.gumroad.com/l/sbrzyv",
+      "posted": false,
+      "product": "Small Business CRM"
+    },
+    {
+      "id": 48,
+      "category": "thread",
+      "text": "10 Notion templates in 60 seconds:\n\n1. Freelance Business OS ($19)\n2. Content Creator Dashboard ($15)\n3. Student Study Hub ($9)\n4. Life OS / Second Brain ($19)\n5. Small Business CRM ($17)\n6. Side Hustle Tracker ($12)\n7. Social Media Planner ($14)\n8. Job Search Tracker ($9)\n9. Book & Learning Tracker ($9)\n10. Digital Products OS ($19)\n\nAll 10 for $49 (normally $142) → https://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 49,
+      "category": "thread",
+      "text": "I applied to 200+ jobs. Here's the system that got me hired:\n\nPIPELINE: Applied → Phone Screen → Interview → Offer\nCOMPANY RESEARCH: Culture notes, salary data, contacts\nFOLLOW-UP: 5 business days after applying. Every time.\nINTERVIEW PREP: 3 stories + 3 questions per company\n\n$9 → https://tatsuya27.gumroad.com/l/xeygaj",
+      "posted": false,
+      "product": "Job Search Tracker"
+    },
+    {
+      "id": 50,
+      "category": "thread",
+      "text": "My digital product launch checklist:\n\nPRE-LAUNCH: Product page, thumbnail, 3 teaser posts, email list\nLAUNCH DAY: Post on 3 platforms before 9 AM, reply to every comment\nPOST-LAUNCH: Track sales daily, collect feedback, plan v2\n\nDigital Products OS tracks all of this → https://tatsuya27.gumroad.com",
+      "posted": false,
+      "product": "Digital Products OS"
+    },
+    {
+      "id": 51,
+      "category": "thread",
+      "text": "How to actually remember what you read:\n\n1. While reading: highlight 3 things/chapter\n2. After each chapter: 1-sentence summary\n3. After the book: 3 key takeaways\n4. Pick 1 action item for THIS WEEK\n5. Monthly: review all book notes (15 min)\n\nRetention: ~10% → ~70%\n\nBook & Learning Tracker → https://tatsuya27.gumroad.com/l/zuesph",
+      "posted": false,
+      "product": "Book & Learning Tracker"
+    },
+    {
+      "id": 52,
+      "category": "thread",
+      "text": "College students — never miss a deadline again:\n\n1. Enter every syllabus deadline on day 1\n2. Link assignments to courses\n3. Track study hours per subject\n4. Review grade trends weekly\n5. Use \"due this week\" view every Monday\n\n30 min setup. 30+ hours panic saved per semester.\n\n$9 → https://tatsuya27.gumroad.com/l/qbxihb",
+      "posted": false,
+      "product": "Student Study Hub"
+    },
+    {
+      "id": 53,
+      "category": "thread",
+      "text": "My complete productivity stack costs $49 total:\n\nMorning: Life OS dashboard → today's priorities\nWork: Freelance Business OS → client tasks\nContent: Creator Dashboard → what to post\nEvening: Habit tracker → daily check-off\nSunday: Weekly review → plan next week\n\nAll connected. All in Notion.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 54,
+      "category": "thread",
+      "text": "5 freelancer mistakes that cost me $10,000+:\n\n1. Not tracking billable vs non-billable hours\n2. Forgetting to invoice within 48 hours\n3. No follow-up system (lost 5 warm leads)\n4. Mixing personal + business expenses\n5. No client profitability view\n\nAll 5 solved with one template → https://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": false,
+      "product": "Freelance Business OS"
+    },
+    {
+      "id": 55,
+      "category": "thread",
+      "text": "The real cost of building your own Notion system:\n\nWeek 1: Watch 10 YouTube tutorials (5 hrs)\nWeek 2: Build v1 (10 hrs)\nWeek 3: Relations are wrong. Rebuild. (8 hrs)\nWeek 4: Formulas break. Fix. (6 hrs)\nWeek 8: Need 3 more databases. Start over.\n\nTotal: 40+ hours.\n\nOR: Buy a template. Customize in 30 min.\n\n$4.90/template → https://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 56,
+      "category": "engagement",
+      "text": "Quick poll: How many apps do you use to manage your work/life?\n\nA) 1-3 (minimalist king)\nB) 4-6 (average)\nC) 7-10 (it's complicated)\nD) 10+ (send help)",
+      "posted": false
+    },
+    {
+      "id": 57,
+      "category": "engagement",
+      "text": "What's the ONE productivity habit that actually stuck for you?\n\nGenuinely curious. Drop it below.",
+      "posted": false
+    },
+    {
+      "id": 58,
+      "category": "engagement",
+      "text": "This or That:\n\nStart your day with a to-do list\nOR\nStart your day with your calendar\n\n(My answer might surprise you)",
+      "posted": false
+    },
+    {
+      "id": 59,
+      "category": "engagement",
+      "text": "Hot take: Most \"productivity systems\" are just procrastination with extra steps.\n\nThe best system is the one you actually open every day.\n\nAgree or disagree?",
+      "posted": false
+    },
+    {
+      "id": 60,
+      "category": "engagement",
+      "text": "Freelancers: What's your biggest time sink that ISN'T client work?\n\nI'll go first: Chasing invoices.",
+      "posted": false
+    },
+    {
+      "id": 61,
+      "category": "engagement",
+      "text": "Fill in the blank:\n\n\"If I had a system for _____, my life would be 10x easier.\"",
+      "posted": false
+    },
+    {
+      "id": 62,
+      "category": "engagement",
+      "text": "Side hustlers: How many hours/week do you actually spend on your hustle?\n\nBe honest. Include the hours you don't think \"count.\"",
+      "posted": false
+    },
+    {
+      "id": 63,
+      "category": "engagement",
+      "text": "Debate: Is Notion better than...\n\nA) Google Sheets for project management\nB) Trello for Kanban boards\nC) Apple Notes for quick capture\nD) All of the above\n\nMy take: For SYSTEMS — Notion wins.",
+      "posted": false
+    },
+    {
+      "id": 64,
+      "category": "engagement",
+      "text": "Students: What's the biggest challenge with staying organized?\n\n- Too many deadlines at once?\n- Losing track of grades?\n- No study schedule?\n- Something else?",
+      "posted": false
+    },
+    {
+      "id": 65,
+      "category": "engagement",
+      "text": "Confession: I used to spend more time ORGANIZING my to-do list than actually DOING the tasks.\n\nAnyone else? Or just me?",
+      "posted": false
+    },
+    {
+      "id": 66,
+      "category": "engagement",
+      "text": "Be honest: How many of your January goals are still alive?\n\nIf less than half — it's not a motivation problem. It's a tracking problem.",
+      "posted": false
+    },
+    {
+      "id": 67,
+      "category": "engagement",
+      "text": "Would you rather:\n\nA) One perfect productivity system you use forever\nB) Try a new app every month hoping it's \"the one\"\n\n(Most people say A but live like B)",
+      "posted": false
+    },
+    {
+      "id": 68,
+      "category": "engagement",
+      "text": "Content creators: What takes you longer?\n\nA) Coming up with ideas\nB) Actually creating the content\nC) Figuring out when/where to post",
+      "posted": false
+    },
+    {
+      "id": 69,
+      "category": "engagement",
+      "text": "Hot take: Paying $19 for a Notion template saves you more time than a $200 online course.\n\nThe course teaches theory.\nThe template gives you a working system.\n\nFight me.",
+      "posted": false
+    },
+    {
+      "id": 70,
+      "category": "engagement",
+      "text": "If you could wave a magic wand and have ONE system perfectly organized, what would it be?\n\nA) Finances\nB) Health/fitness\nC) Work projects\nD) Knowledge/notes\nE) All of the above (mood)",
+      "posted": false
+    },
+    {
+      "id": 71,
+      "category": "seasonal",
+      "text": "It's Q1. Your goals are fresh.\n\nBut 92% of New Year resolutions fail by February.\n\nThe difference? A tracking system.\n\nLife OS has built-in goal tracking + weekly reviews.\n\nDon't be the 92%.\n\nhttps://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false,
+      "product": "Life OS"
+    },
+    {
+      "id": 72,
+      "category": "seasonal",
+      "text": "Tax season reminder for freelancers:\n\nIf you tracked expenses all year, tax prep takes 30 minutes.\n\nIf you didn't... 30 hours.\n\nFreelance Business OS has expense tracking built in.\n\nStart now. Future-you says thanks.\n\nhttps://tatsuya27.gumroad.com/l/jrjhs",
+      "posted": false,
+      "product": "Freelance Business OS"
+    },
+    {
+      "id": 73,
+      "category": "seasonal",
+      "text": "Spring cleaning your digital life:\n\n1. Delete apps you haven't opened in 30 days\n2. Unsubscribe from 10 newsletters\n3. Consolidate tools into one workspace\n4. Set up a weekly review habit\n\nYour brain will thank you.\n\n#Productivity",
+      "posted": false
+    },
+    {
+      "id": 74,
+      "category": "seasonal",
+      "text": "New grads: The job market is competitive.\n\nThe candidates who stand out aren't just applying — they're TRACKING.\n\nEvery application. Every follow-up. Every interview.\n\nJob Search Tracker → $9.\n\nhttps://tatsuya27.gumroad.com/l/xeygaj",
+      "posted": false,
+      "product": "Job Search Tracker"
+    },
+    {
+      "id": 75,
+      "category": "seasonal",
+      "text": "Back to school season.\n\nThis semester, try something different:\nEnter EVERY deadline from your syllabus in one dashboard.\n\nZero missed deadlines. Better grades. Less stress.\n\nStudent Study Hub → $9\n\nhttps://tatsuya27.gumroad.com/l/qbxihb",
+      "posted": false,
+      "product": "Student Study Hub"
+    },
+    {
+      "id": 76,
+      "category": "seasonal",
+      "text": "Summer = peak side hustle season.\n\nBefore you start: set up tracking from DAY ONE.\n\nRevenue. Expenses. Hours. Real $/hour.\n\nThe hustles that survive track their numbers.\n\nhttps://tatsuya27.gumroad.com/l/hyilko",
+      "posted": false,
+      "product": "Side Hustle Tracker"
+    },
+    {
+      "id": 77,
+      "category": "seasonal",
+      "text": "Black Friday deal:\n\n10 Notion templates.\nNormally $142.\nToday: $49.\n\nThat's 66% off.\n\nNo subscription. No monthly fees. Yours forever.\n\nhttps://tatsuya27.gumroad.com/l/zsabbu",
+      "posted": false,
+      "product": "Bundle"
+    },
+    {
+      "id": 78,
+      "category": "seasonal",
+      "text": "December tradition: The Annual Review.\n\nOpen your dashboard:\n- Goals hit vs. missed\n- Habits maintained\n- Books read\n- Revenue earned\n\nYou can't review what you didn't track.\n\nStart tracking → https://tatsuya27.gumroad.com/l/jyszka",
+      "posted": false,
+      "product": "Life OS"
+    },
+    {
+      "id": 79,
+      "category": "seasonal",
+      "text": "Everyone's talking about AI tools.\n\nBut AI can't organize your life for you.\n\nIt can help you CREATE content faster.\nIt can't help you MANAGE your business.\n\nThat's what systems are for.\n\n#Productivity #AI",
+      "posted": false
+    },
+    {
+      "id": 80,
+      "category": "seasonal",
+      "text": "Remote work tip: Your home office needs a digital command center.\n\nNot just a to-do list. A SYSTEM.\n\nProjects. Tasks. Time tracking. Goals. Habits.\n\nWhen nobody's watching, your system keeps you accountable.\n\n#RemoteWork",
+      "posted": false
+    }
+  ]
+}
