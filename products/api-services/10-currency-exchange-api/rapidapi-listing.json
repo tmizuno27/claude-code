@@ -1,6 +1,6 @@
 {
   "name": "Currency Exchange Rate API",
-  "description": "Free Currency Exchange API - 30+ Currencies, ECB Rates, Historical Data | 500/mo free",
+  "description": "Free Currency Exchange API - 30+ Currencies, ECB Rates | Fixer Alt",
   "category": "Finance",
   "tags": [
     "currency",
@@ -8,8 +8,14 @@
     "forex",
     "free-api",
     "rest-api",
+    "developer-tools",
     "currency-converter",
-    "finance"
+    "finance",
+    "fixer-alternative",
+    "ecb-rates",
+    "historical-rates",
+    "multi-currency",
+    "cloudflare-edge"
   ],
   "website": "https://currency-exchange-api.t-mizuno27.workers.dev",
   "baseUrl": "https://currency-exchange-api.t-mizuno27.workers.dev",
