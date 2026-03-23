@@ -187,7 +187,8 @@
 - **Value Commerce**: プログラム提携（3サイト分）
 
 ## Dev.toアカウント
-- **詳細**: [devto-account.md](devto-account.md) — miccho27、RapidAPI販促記事3本draft投稿済み
+- **詳細**: [devto-account.md](devto-account.md) — miccho27、RapidAPI販促記事3本公開済み（2026-03-23）
+- **効果測定TODO**: [devto-followup-todo.md](devto-followup-todo.md) — 2026-04-06にAnalytics確認→反応あれば追加投稿、なければ切り口変更
 
 ## Fiverr案件（進行中）
 - **Dennis C SSWリサーチ**: [fiverr-dennis-ssw-research.md](fiverr-dennis-ssw-research.md) — 質問リスト待ち、Standard/Premium提案済み
