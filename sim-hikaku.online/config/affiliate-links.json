@@ -137,6 +137,16 @@
       "status": "案件なし",
       "priority": 99,
       "note": "アクセストレード・A8.net共に案件なし"
+    },
+    "dare-demo-sumaho": {
+      "name": "誰でもスマホ",
+      "asp": "アクセストレード",
+      "url": "https://h.accesstrade.net/sp/cc?rk=0100pk3h00ophx",
+      "tracking_img": "https://h.accesstrade.net/sp/rr?rk=0100pk3h00ophx",
+      "commission": 0,
+      "status": "提携済",
+      "priority": 12,
+      "note": "アクセストレード提携済（2026-03-23）審査不要スマホ・ブラックリスト対応"
     }
   },
   "wifi_wimax": {
