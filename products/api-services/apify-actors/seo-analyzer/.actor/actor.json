@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "seo-analyzer",
-  "title": "SEO Analyzer",
-  "description": "Analyze any webpage for SEO factors: title, meta, headings, images, links, Open Graph, structured data, and get an overall SEO score.",
+  "title": "SEO Analyzer - Free Website SEO Audit & Score",
+  "description": "Free Ahrefs Site Audit & Screaming Frog alternative. Analyze any webpage for 15+ SEO factors: title, meta description, headings, images, links, Open Graph, Twitter Cards, JSON-LD structured data, canonical, robots. Get a weighted SEO score (0-100). Bulk URL processing, CI/CD integration, no API keys required.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",

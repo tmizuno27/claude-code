@@ -11,13 +11,13 @@
     "business-info",
     "free-api",
     "rest-api",
-    "company-search",
+    "developer-tools",
+    "clearbit-alternative",
+    "zoominfo-alternative",
     "b2b-data",
     "crm",
     "lead-generation",
-    "cloudflare-workers",
-    "no-api-key",
-    "free-tier"
+    "cloudflare-edge"
   ],
   "website": "https://company-data-api.your-domain.workers.dev",
   "pricing": {
