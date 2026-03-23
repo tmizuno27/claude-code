@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "company-data-enricher",
-  "title": "Company Data Enricher",
-  "description": "Enrich company data by domain: website metadata, OG tags, social links, contact info, technology stack, and domain registration info (RDAP). Also supports company search and Wikidata lookup. No API keys required.",
+  "title": "Company Data Enricher - Free B2B Lead Enrichment",
+  "description": "Free Clearbit & ZoomInfo alternative. Enrich company data by domain: website metadata, social links (LinkedIn, Twitter), tech stack (28 technologies), contact info, and RDAP domain registration. Search companies via Wikidata. No API keys required. Bulk processing supported. Perfect for sales teams, growth hackers, and market researchers.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",
