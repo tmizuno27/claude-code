@@ -1,1 +1,1 @@
-Real-time regex testing with highlighting, capture groups, and presets. 100% local processing, no data collected.
+Test regex patterns with instant match highlighting, capture groups, and saved presets. Fully offline.
