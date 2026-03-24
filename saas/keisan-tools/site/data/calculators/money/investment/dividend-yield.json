@@ -1,0 +1,28 @@
+{
+  "slug": "dividend-yield",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "配当利回り計算",
+  "description": "株価と配当金から配当利回りを計算します。",
+  "metaTitle": "配当利回り計算｜keisan.tools",
+  "metaDescription": "株価と年間配当金から配当利回りを計算。税引後の実質利回りも表示します。",
+  "calculatorFunction": "dividendYield",
+  "inputs": [
+    { "id": "stockPrice", "label": "株価", "type": "number", "unit": "円", "default": 2000, "min": 1, "max": 10000000, "step": 1 },
+    { "id": "annualDividend", "label": "年間配当金（1株）", "type": "number", "unit": "円", "default": 80, "min": 0, "max": 100000, "step": 1 },
+    { "id": "shares", "label": "保有株数", "type": "number", "unit": "株", "default": 100, "min": 1, "max": 100000, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "yieldRate", "label": "配当利回り", "format": "percent", "primary": true },
+    { "id": "annualIncome", "label": "年間配当収入（税引前）", "format": "currency" },
+    { "id": "afterTaxIncome", "label": "年間配当収入（税引後）", "format": "currency" },
+    { "id": "afterTaxYield", "label": "税引後利回り", "format": "percent" }
+  ],
+  "explanation": "<h3>配当利回りの計算</h3><p>配当利回り = 年間配当金 ÷ 株価 × 100 で計算します。配当金には20.315%の税金がかかります（NISA口座は非課税）。</p>",
+  "faq": [
+    { "question": "配当利回りの目安は？", "answer": "日本株の平均配当利回りは約2%です。3%以上なら高配当、5%以上は超高配当とされますが、高すぎる場合は業績悪化による株価下落の可能性もあります。" },
+    { "question": "配当金はいつもらえる？", "answer": "多くの日本企業は年2回（中間・期末）配当を出します。権利確定日に株を保有している必要があり、実際の入金は確定日の約2〜3ヶ月後です。" }
+  ],
+  "related": ["stock-profit", "compound-interest"],
+  "popular": false
+}

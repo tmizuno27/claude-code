@@ -1,0 +1,29 @@
+{
+  "slug": "life-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "生命保険必要額計算",
+  "description": "万が一の場合に必要な保障額を計算します。",
+  "metaTitle": "生命保険必要額計算｜keisan.tools",
+  "metaDescription": "家族構成・年収・貯蓄額から、万が一の際に必要な生命保険の保障額を計算します。",
+  "calculatorFunction": "lifeInsurance",
+  "inputs": [
+    { "id": "annualExpense", "label": "年間生活費", "type": "number", "unit": "万円", "default": 400, "min": 100, "max": 5000, "step": 10 },
+    { "id": "yearsNeeded", "label": "保障が必要な年数", "type": "number", "unit": "年", "default": 20, "min": 1, "max": 50, "step": 1 },
+    { "id": "savings", "label": "現在の貯蓄額", "type": "number", "unit": "万円", "default": 500, "min": 0, "max": 100000, "step": 100 },
+    { "id": "publicPension", "label": "遺族年金（年額概算）", "type": "number", "unit": "万円", "default": 150, "min": 0, "max": 500, "step": 10 },
+    { "id": "educationCost", "label": "教育費用（総額）", "type": "number", "unit": "万円", "default": 1000, "min": 0, "max": 10000, "step": 100 }
+  ],
+  "outputs": [
+    { "id": "totalNeeded", "label": "必要保障総額", "format": "currency" },
+    { "id": "alreadyCovered", "label": "カバー済み額", "format": "currency" },
+    { "id": "insuranceNeeded", "label": "不足額（必要保険金額）", "format": "currency", "primary": true }
+  ],
+  "explanation": "<h3>必要保障額の考え方</h3><p>必要保障額 = 遺族の生活費 + 教育費 − 貯蓄 − 遺族年金の総額で計算します。配偶者の収入や住宅ローンの団信なども考慮すると、より正確な金額が算出できます。</p>",
+  "faq": [
+    { "question": "遺族年金はいくらもらえる？", "answer": "遺族基礎年金は子のある配偶者に約100万円/年。遺族厚生年金は報酬比例部分の3/4で、平均的なサラリーマン家庭では合計年150〜200万円程度です。" },
+    { "question": "保険の見直しタイミングは？", "answer": "結婚・出産・住宅購入・子の独立など、ライフイベント時に見直すのが基本です。子が独立すると必要保障額は大幅に減ります。" }
+  ],
+  "related": ["pension-estimate", "take-home-pay"],
+  "popular": false
+}

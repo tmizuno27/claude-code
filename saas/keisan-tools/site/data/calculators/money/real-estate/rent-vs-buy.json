@@ -1,0 +1,29 @@
+{
+  "slug": "rent-vs-buy",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "賃貸vs持ち家比較",
+  "description": "賃貸と持ち家の総コストを比較します。",
+  "metaTitle": "賃貸vs持ち家比較｜keisan.tools",
+  "metaDescription": "賃貸の家賃と持ち家のローン返済・維持費を比較して、どちらがお得か計算します。",
+  "calculatorFunction": "rentVsBuy",
+  "inputs": [
+    { "id": "monthlyRent", "label": "月額家賃", "type": "number", "unit": "万円", "default": 12, "min": 1, "max": 100, "step": 1 },
+    { "id": "propertyPrice", "label": "物件価格", "type": "number", "unit": "万円", "default": 4000, "min": 500, "max": 50000, "step": 100 },
+    { "id": "downPayment", "label": "頭金", "type": "number", "unit": "万円", "default": 400, "min": 0, "max": 50000, "step": 100 },
+    { "id": "loanRate", "label": "住宅ローン金利", "type": "number", "unit": "%", "default": 1.5, "min": 0.1, "max": 10, "step": 0.1 },
+    { "id": "years", "label": "比較期間", "type": "number", "unit": "年", "default": 35, "min": 5, "max": 50, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "rentTotal", "label": "賃貸の総コスト", "format": "currency" },
+    { "id": "buyTotal", "label": "持ち家の総コスト", "format": "currency" },
+    { "id": "difference", "label": "差額", "format": "currency", "primary": true }
+  ],
+  "explanation": "<h3>賃貸vs持ち家</h3><p>賃貸の総コスト = 家賃 × 12 × 年数 + 更新料。持ち家の総コスト = 頭金 + ローン返済総額 + 固定資産税 + 管理修繕費 で比較します。持ち家は資産価値も考慮する必要があります。</p>",
+  "faq": [
+    { "question": "賃貸と持ち家どちらがお得？", "answer": "一概には言えません。転勤が多い方・ライフスタイルが変わりやすい方は賃貸、長期定住予定・資産形成したい方は持ち家が有利な傾向があります。金利や物件価値の変動にも左右されます。" },
+    { "question": "持ち家の維持費はどのくらい？", "answer": "固定資産税（年10〜20万円）、管理費・修繕積立金（マンション：月2〜4万円）、火災保険料、10〜15年ごとの大規模修繕費用などがかかります。" }
+  ],
+  "related": ["housing-loan", "fixed-asset-tax"],
+  "popular": true
+}
