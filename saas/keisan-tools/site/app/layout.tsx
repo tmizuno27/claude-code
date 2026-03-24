@@ -4,8 +4,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import '@/styles/globals.css';
 
-// TODO: Replace with actual GA4 Measurement ID
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-3R1LVHX9VJ';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
