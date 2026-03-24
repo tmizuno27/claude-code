@@ -1,0 +1,26 @@
+{
+  "slug": "inheritance-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "相続税計算",
+  "description": "遺産総額と法定相続人の数から相続税の概算額を計算します。",
+  "metaTitle": "相続税計算｜keisan.tools",
+  "metaDescription": "遺産総額と法定相続人の数を入力するだけで、相続税の概算額を計算できます。基礎控除も自動計算。",
+  "calculatorFunction": "inheritanceTax",
+  "inputs": [
+    { "id": "totalAssets", "label": "遺産総額", "type": "number", "unit": "万円", "default": 8000, "min": 0, "max": 1000000, "step": 100 },
+    { "id": "heirs", "label": "法定相続人の数", "type": "number", "unit": "人", "default": 3, "min": 1, "max": 10, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "basicDeduction", "label": "基礎控除額", "format": "currency" },
+    { "id": "taxableAmount", "label": "課税遺産総額", "format": "currency" },
+    { "id": "totalTax", "label": "相続税総額（概算）", "format": "currency", "primary": true }
+  ],
+  "explanation": "<h3>相続税の計算方法</h3><p>相続税の基礎控除額は「3,000万円 + 600万円 × 法定相続人の数」です。遺産総額がこの基礎控除額以下なら相続税はかかりません。</p><p>課税遺産総額を法定相続分で按分し、それぞれに税率を適用した後、合算して相続税総額を求めます。</p>",
+  "faq": [
+    { "question": "相続税の基礎控除とは？", "answer": "3,000万円 + 600万円 × 法定相続人の数で計算されます。例えば配偶者と子2人なら4,800万円が基礎控除額となり、遺産がこれ以下なら非課税です。" },
+    { "question": "配偶者の税額軽減とは？", "answer": "配偶者は法定相続分または1億6,000万円のいずれか多い額まで相続税がかかりません。本計算では考慮していませんので、実際にはさらに税額が軽減される可能性があります。" }
+  ],
+  "related": ["gift-tax", "income-tax"],
+  "popular": true
+}

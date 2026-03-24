@@ -1,0 +1,25 @@
+{
+  "slug": "consumption-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "消費税計算",
+  "description": "税抜価格から消費税額と税込価格を計算します。軽減税率にも対応。",
+  "metaTitle": "消費税計算｜keisan.tools",
+  "metaDescription": "税抜価格を入力して消費税額と税込価格を計算。標準税率10%・軽減税率8%に対応。",
+  "calculatorFunction": "consumptionTax",
+  "inputs": [
+    { "id": "price", "label": "税抜価格", "type": "number", "unit": "円", "default": 1000, "min": 0, "max": 100000000, "step": 1 },
+    { "id": "taxRate", "label": "税率", "type": "select", "default": "10", "options": [{ "value": "10", "label": "標準税率（10%）" }, { "value": "8", "label": "軽減税率（8%）" }] }
+  ],
+  "outputs": [
+    { "id": "taxAmount", "label": "消費税額", "format": "currency" },
+    { "id": "totalPrice", "label": "税込価格", "format": "currency", "primary": true }
+  ],
+  "explanation": "<h3>消費税の計算</h3><p>2019年10月から消費税率は標準10%です。飲食料品（外食・酒類除く）と定期購読の新聞は軽減税率8%が適用されます。</p>",
+  "faq": [
+    { "question": "軽減税率の対象は？", "answer": "飲食料品（外食・酒類を除く）と週2回以上発行される定期購読の新聞が軽減税率8%の対象です。テイクアウトは8%、イートインは10%です。" },
+    { "question": "消費税の端数処理は？", "answer": "事業者は税込価格の端数処理について、切り捨て・切り上げ・四捨五入のいずれかを選択できます。この計算では端数を切り捨てています。" }
+  ],
+  "related": ["tax-included", "invoice-tax"],
+  "popular": true
+}

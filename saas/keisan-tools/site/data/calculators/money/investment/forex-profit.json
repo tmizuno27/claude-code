@@ -1,0 +1,29 @@
+{
+  "slug": "forex-profit",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "FX損益計算",
+  "description": "FX取引の損益をpips・ロット数・通貨ペアから計算します。",
+  "metaTitle": "FX損益計算ツール｜keisan.tools",
+  "metaDescription": "FX取引の損益を簡単計算。エントリー価格・決済価格・ロット数を入力するだけで利益・損失額を日本円で算出します。",
+  "calculatorFunction": "calculateForexProfit",
+  "inputs": [
+    { "id": "entryPrice", "label": "エントリー価格", "type": "number", "unit": "", "default": 150.000, "min": 0.001, "max": 99999, "step": 0.001 },
+    { "id": "exitPrice", "label": "決済価格", "type": "number", "unit": "", "default": 151.000, "min": 0.001, "max": 99999, "step": 0.001 },
+    { "id": "lotSize", "label": "ロット数", "type": "number", "unit": "ロット", "default": 1, "min": 0.01, "max": 100, "step": 0.01 },
+    { "id": "direction", "label": "売買方向", "type": "select", "options": [{ "value": "buy", "label": "買い（ロング）" }, { "value": "sell", "label": "売り（ショート）" }], "default": "buy" },
+    { "id": "lotUnit", "label": "1ロットの通貨量", "type": "select", "options": [{ "value": "10000", "label": "1万通貨" }, { "value": "1000", "label": "1,000通貨" }], "default": "10000" }
+  ],
+  "outputs": [
+    { "id": "profitLoss", "label": "損益額", "format": "currency", "primary": true },
+    { "id": "pips", "label": "獲得pips", "format": "number" },
+    { "id": "profitPerPip", "label": "1pipあたりの損益", "format": "currency" }
+  ],
+  "explanation": "<h3>FX損益の計算方法</h3><p>FXの損益は「（決済価格 − エントリー価格）× 取引数量」で計算されます。売り（ショート）の場合は逆になります。1ロット＝1万通貨の場合、USD/JPYで1pips（0.01円）の変動は100円の損益に相当します。</p><h3>注意事項</h3><p>スプレッド（売買手数料）やスワップポイントは含まれていません。実際の損益は取引会社の条件により異なります。</p>",
+  "faq": [
+    { "question": "1pipsとはいくらですか？", "answer": "USD/JPYなど対円通貨ペアの場合、1pips＝0.01円（1銭）です。EUR/USDなど対ドル通貨ペアの場合は1pips＝0.0001ドルです。" },
+    { "question": "FXの税金はどうなりますか？", "answer": "国内FXの利益は申告分離課税で一律20.315%（所得税15.315%＋住民税5%）です。損失は3年間繰り越しできます。" }
+  ],
+  "related": ["crypto-profit", "compound-interest"],
+  "popular": false
+}

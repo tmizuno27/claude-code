@@ -1,0 +1,27 @@
+{
+  "slug": "fixed-asset-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "固定資産税計算",
+  "description": "固定資産税評価額から年間の固定資産税額を計算します。",
+  "metaTitle": "固定資産税計算｜keisan.tools",
+  "metaDescription": "土地・建物の固定資産税評価額から固定資産税と都市計画税の年額を計算します。住宅用地の特例にも対応。",
+  "calculatorFunction": "fixedAssetTax",
+  "inputs": [
+    { "id": "landValue", "label": "土地の評価額", "type": "number", "unit": "万円", "default": 2000, "min": 0, "max": 500000, "step": 100 },
+    { "id": "buildingValue", "label": "建物の評価額", "type": "number", "unit": "万円", "default": 1000, "min": 0, "max": 500000, "step": 100 },
+    { "id": "isResidential", "label": "住宅用地", "type": "select", "default": "yes", "options": [{ "value": "yes", "label": "はい（小規模住宅用地）" }, { "value": "no", "label": "いいえ" }] }
+  ],
+  "outputs": [
+    { "id": "fixedAssetTax", "label": "固定資産税（年額）", "format": "currency", "primary": true },
+    { "id": "cityPlanningTax", "label": "都市計画税（年額）", "format": "currency" },
+    { "id": "totalTax", "label": "合計（年額）", "format": "currency" }
+  ],
+  "explanation": "<h3>固定資産税の計算</h3><p>固定資産税は固定資産税評価額 × 1.4%（標準税率）で計算されます。住宅用地（200㎡以下）は評価額が1/6に軽減されます。都市計画税は評価額 × 0.3%です。</p>",
+  "faq": [
+    { "question": "固定資産税評価額はどうやって調べる？", "answer": "毎年届く納税通知書に記載されています。また、市区町村の固定資産課税台帳を閲覧したり、固定資産評価証明書を取得して確認できます。" },
+    { "question": "住宅用地の特例とは？", "answer": "200㎡以下の小規模住宅用地は評価額が1/6に、200㎡超の一般住宅用地は1/3に軽減されます。都市計画税もそれぞれ1/3、2/3に軽減されます。" }
+  ],
+  "related": ["inheritance-tax", "rent-vs-buy"],
+  "popular": false
+}

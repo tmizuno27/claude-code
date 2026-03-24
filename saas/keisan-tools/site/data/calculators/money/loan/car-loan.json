@@ -1,0 +1,28 @@
+{
+  "slug": "car-loan",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "自動車ローン計算",
+  "description": "自動車ローンの月々の返済額・総返済額・利息総額を計算します。",
+  "metaTitle": "自動車ローン計算｜keisan.tools",
+  "metaDescription": "車の購入価格・頭金・金利・返済期間から、月々の返済額と総支払額をシミュレーションできます。",
+  "calculatorFunction": "carLoan",
+  "inputs": [
+    { "id": "price", "label": "車両価格", "type": "number", "unit": "万円", "default": 300, "min": 10, "max": 5000, "step": 10 },
+    { "id": "downPayment", "label": "頭金", "type": "number", "unit": "万円", "default": 50, "min": 0, "max": 5000, "step": 10 },
+    { "id": "rate", "label": "年利", "type": "number", "unit": "%", "default": 3.5, "min": 0.1, "max": 15, "step": 0.1 },
+    { "id": "years", "label": "返済期間", "type": "number", "unit": "年", "default": 5, "min": 1, "max": 10, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "monthlyPayment", "label": "月々の返済額", "format": "currency", "primary": true },
+    { "id": "totalPayment", "label": "総返済額", "format": "currency" },
+    { "id": "totalInterest", "label": "利息総額", "format": "currency" }
+  ],
+  "explanation": "<h3>自動車ローン計算について</h3><p>自動車ローンは、車両価格から頭金を引いた借入額に対して、金利と返済期間に基づいて毎月の返済額を計算します。元利均等返済方式で計算しています。</p><p>ディーラーローンは金利2〜8%程度、銀行マイカーローンは1〜4%程度が相場です。</p>",
+  "faq": [
+    { "question": "自動車ローンの金利相場はどのくらいですか？", "answer": "ディーラーローンは年利3〜8%程度、銀行マイカーローンは年利1〜4%程度が一般的です。信用金庫やJAバンクも低金利で人気があります。" },
+    { "question": "頭金はいくらくらい用意すべきですか？", "answer": "一般的には車両価格の20〜30%程度の頭金を用意すると、月々の返済負担が軽くなります。頭金なしのフルローンも可能ですが、総支払額が増えます。" }
+  ],
+  "related": ["housing-loan", "education-loan", "mortgage-comparison"],
+  "popular": true
+}

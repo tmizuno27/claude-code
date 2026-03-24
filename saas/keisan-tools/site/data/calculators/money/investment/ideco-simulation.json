@@ -1,0 +1,31 @@
+{
+  "slug": "ideco-simulation",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "iDeCo節税シミュレーション",
+  "description": "iDeCo（個人型確定拠出年金）の掛金・運用益・受取時の節税効果をシミュレーションします。",
+  "metaTitle": "iDeCo節税シミュレーション｜keisan.tools",
+  "metaDescription": "iDeCoの節税効果を計算。毎月の掛金・年収・想定利回りから所得控除による節税額と将来の受取額をシミュレーションします。",
+  "calculatorFunction": "calculateIdecoSimulation",
+  "inputs": [
+    { "id": "monthlyContribution", "label": "毎月の掛金", "type": "number", "unit": "円", "default": 23000, "min": 5000, "max": 68000, "step": 1000 },
+    { "id": "annualIncome", "label": "年収", "type": "number", "unit": "万円", "default": 500, "min": 100, "max": 3000, "step": 10 },
+    { "id": "annualReturn", "label": "想定年利回り", "type": "slider", "unit": "%", "default": 4, "min": 0, "max": 10, "step": 0.5 },
+    { "id": "currentAge", "label": "現在の年齢", "type": "number", "unit": "歳", "default": 35, "min": 20, "max": 64, "step": 1 },
+    { "id": "retirementAge", "label": "受取開始年齢", "type": "number", "unit": "歳", "default": 65, "min": 60, "max": 75, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "totalAssets", "label": "60歳時の資産額", "format": "currency", "primary": true },
+    { "id": "totalContribution", "label": "掛金合計", "format": "currency" },
+    { "id": "totalProfit", "label": "運用益", "format": "currency" },
+    { "id": "annualTaxSaving", "label": "年間節税額", "format": "currency" },
+    { "id": "totalTaxSaving", "label": "累計節税額", "format": "currency" }
+  ],
+  "explanation": "<h3>iDeCoとは</h3><p>iDeCo（個人型確定拠出年金）は、自分で掛金を拠出し運用する私的年金制度です。掛金が全額所得控除となるため、所得税・住民税が軽減されます。運用益も非課税で、受取時にも退職所得控除や公的年金等控除が適用されます。</p><h3>節税効果</h3><p>年収と掛金額から所得税率・住民税率を概算し、掛金の全額所得控除による節税額を計算します。</p>",
+  "faq": [
+    { "question": "iDeCoの掛金上限はいくらですか？", "answer": "職業により異なります。会社員（企業年金なし）は月23,000円、公務員は月12,000円、自営業は月68,000円が上限です。2024年12月から一部上限が変更されています。" },
+    { "question": "iDeCoのデメリットは何ですか？", "answer": "原則60歳まで引き出せないことが最大のデメリットです。また、口座管理手数料が毎月かかり、運用商品が限られています。途中解約もできません。" }
+  ],
+  "related": ["nisa-simulation", "compound-interest", "income-tax"],
+  "popular": true
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "gift-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "贈与税計算",
+  "description": "贈与額から贈与税額を計算します。暦年課税方式で計算。",
+  "metaTitle": "贈与税計算｜keisan.tools",
+  "metaDescription": "贈与額を入力して贈与税額を計算。一般贈与・特例贈与に対応。110万円の基礎控除を自動適用。",
+  "calculatorFunction": "giftTax",
+  "inputs": [
+    { "id": "giftAmount", "label": "贈与額", "type": "number", "unit": "万円", "default": 500, "min": 0, "max": 100000, "step": 10 },
+    { "id": "giftType", "label": "贈与区分", "type": "select", "default": "general", "options": [{ "value": "general", "label": "一般贈与" }, { "value": "special", "label": "特例贈与（直系尊属から20歳以上）" }] }
+  ],
+  "outputs": [
+    { "id": "deduction", "label": "基礎控除", "format": "currency" },
+    { "id": "taxableAmount", "label": "課税価格", "format": "currency" },
+    { "id": "taxAmount", "label": "贈与税額", "format": "currency", "primary": true },
+    { "id": "effectiveRate", "label": "実効税率", "format": "percent" }
+  ],
+  "explanation": "<h3>贈与税の計算方法</h3><p>暦年課税では年間110万円の基礎控除があり、贈与額からこれを引いた金額に税率を適用します。直系尊属から20歳以上の者への贈与は「特例税率」が適用され、一般より低い税率になります。</p>",
+  "faq": [
+    { "question": "110万円以下なら贈与税はかからない？", "answer": "はい、暦年課税では年間110万円までの贈与は基礎控除の範囲内で非課税です。ただし毎年定額を贈与し続けると「定期贈与」とみなされる場合があります。" },
+    { "question": "一般贈与と特例贈与の違いは？", "answer": "特例贈与は、父母・祖父母など直系尊属から18歳以上（2022年4月以降）の者への贈与で、一般贈与より低い税率が適用されます。" }
+  ],
+  "related": ["inheritance-tax", "income-tax"],
+  "popular": false
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "mortgage-comparison",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "ローン比較計算",
+  "description": "2つのローン条件を比較して、どちらがお得か計算します。",
+  "metaTitle": "ローン比較計算｜keisan.tools",
+  "metaDescription": "2つのローン条件（金利・期間）を比較し、月々の返済額や総支払額の差を確認できます。",
+  "calculatorFunction": "mortgageComparison",
+  "inputs": [
+    { "id": "amount", "label": "借入額", "type": "number", "unit": "万円", "default": 3000, "min": 100, "max": 20000, "step": 100 },
+    { "id": "rateA", "label": "ローンA 年利", "type": "number", "unit": "%", "default": 1.5, "min": 0.1, "max": 15, "step": 0.01 },
+    { "id": "yearsA", "label": "ローンA 期間", "type": "number", "unit": "年", "default": 35, "min": 1, "max": 50, "step": 1 },
+    { "id": "rateB", "label": "ローンB 年利", "type": "number", "unit": "%", "default": 0.8, "min": 0.1, "max": 15, "step": 0.01 },
+    { "id": "yearsB", "label": "ローンB 期間", "type": "number", "unit": "年", "default": 35, "min": 1, "max": 50, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "monthlyA", "label": "ローンA 月々返済額", "format": "currency" },
+    { "id": "totalA", "label": "ローンA 総返済額", "format": "currency" },
+    { "id": "monthlyB", "label": "ローンB 月々返済額", "format": "currency" },
+    { "id": "totalB", "label": "ローンB 総返済額", "format": "currency" },
+    { "id": "savingsTotal", "label": "総額の差", "format": "currency", "primary": true }
+  ],
+  "explanation": "<h3>ローン比較について</h3><p>金利や返済期間が異なるローンを比較することで、総支払額の差を確認できます。変動金利と固定金利の比較や、銀行間の比較に活用してください。</p>",
+  "faq": [
+    { "question": "変動金利と固定金利どちらがいい？", "answer": "変動金利は当初の金利が低い反面、将来上昇するリスクがあります。固定金利は金利が変わらないため返済計画を立てやすいメリットがあります。" },
+    { "question": "返済期間を短くするメリットは？", "answer": "返済期間が短いほど利息総額は少なくなりますが、月々の返済額は増えます。家計に無理のない範囲で期間を設定しましょう。" }
+  ],
+  "related": ["housing-loan", "car-loan"],
+  "popular": false
+}

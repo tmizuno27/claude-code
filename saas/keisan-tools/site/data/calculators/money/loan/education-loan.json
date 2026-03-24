@@ -1,0 +1,27 @@
+{
+  "slug": "education-loan",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "教育ローン計算",
+  "description": "教育ローンの返済額・総返済額をシミュレーションします。",
+  "metaTitle": "教育ローン計算｜keisan.tools",
+  "metaDescription": "教育ローンの借入額・金利・返済期間から月々の返済額と総支払額を計算します。",
+  "calculatorFunction": "educationLoan",
+  "inputs": [
+    { "id": "amount", "label": "借入額", "type": "number", "unit": "万円", "default": 300, "min": 10, "max": 3000, "step": 10 },
+    { "id": "rate", "label": "年利", "type": "number", "unit": "%", "default": 2.25, "min": 0.1, "max": 10, "step": 0.01 },
+    { "id": "years", "label": "返済期間", "type": "number", "unit": "年", "default": 15, "min": 1, "max": 18, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "monthlyPayment", "label": "月々の返済額", "format": "currency", "primary": true },
+    { "id": "totalPayment", "label": "総返済額", "format": "currency" },
+    { "id": "totalInterest", "label": "利息総額", "format": "currency" }
+  ],
+  "explanation": "<h3>教育ローンについて</h3><p>国の教育ローン（日本政策金融公庫）は固定金利2.25%（2024年時点）で最大350万円、返済期間最長18年です。民間の教育ローンはさらに高額の借入が可能ですが金利は高めです。</p>",
+  "faq": [
+    { "question": "国の教育ローンと奨学金の違いは？", "answer": "国の教育ローンは保護者が借り入れ、入学前から利用可能です。奨学金は学生本人が借り、入学後に毎月支給されます。併用も可能です。" },
+    { "question": "教育ローンの審査基準は？", "answer": "世帯年収の上限（子1人：790万円等）があり、上限以下であれば申し込みできます。信用情報も確認されます。" }
+  ],
+  "related": ["car-loan", "housing-loan"],
+  "popular": false
+}
