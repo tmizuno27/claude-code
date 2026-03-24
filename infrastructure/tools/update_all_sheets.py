@@ -28,7 +28,7 @@ if sys.platform == "win32":
 
 # ==== パス設定 ====
 TOOLS_DIR = Path(__file__).parent
-REPO_ROOT = TOOLS_DIR.parent
+REPO_ROOT = TOOLS_DIR.parent.parent  # claude-code/
 CRED_PATH = TOOLS_DIR / 'sheets-sync' / 'credentials' / 'service-account.json'
 SHEET_ID = os.environ.get('ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
 
@@ -45,9 +45,9 @@ NUM_DAYS = 90
 SITES = {
     'nambei': {
         'label': '南米おやじ',
-        'csv': REPO_ROOT / 'nambei-oyaji.com' / 'outputs' / 'article-management.csv',
+        'csv': REPO_ROOT / 'sites' / 'nambei-oyaji.com' / 'outputs' / 'article-management.csv',
         'site_url': 'https://nambei-oyaji.com',
-        'gsc_cred': REPO_ROOT / 'nambei-oyaji.com' / 'config' / 'gsc-credentials.json',
+        'gsc_cred': REPO_ROOT / 'sites' / 'nambei-oyaji.com' / 'config' / 'gsc-credentials.json',
         'start_date': datetime(2026, 3, 5),
         'header_color': {'red': 0.2, 'green': 0.4, 'blue': 0.7},
         # CSV列マッピング (0始まり)
@@ -67,9 +67,9 @@ SITES = {
     },
     'otona': {
         'label': 'マッチングナビ',
-        'csv': REPO_ROOT / 'otona-match.com' / 'outputs' / 'article-management.csv',
+        'csv': REPO_ROOT / 'sites' / 'otona-match.com' / 'outputs' / 'article-management.csv',
         'site_url': 'https://otona-match.com',
-        'gsc_cred': REPO_ROOT / 'otona-match.com' / 'config' / 'gsc-credentials.json',
+        'gsc_cred': REPO_ROOT / 'sites' / 'otona-match.com' / 'config' / 'gsc-credentials.json',
         'start_date': datetime(2026, 3, 15),
         'header_color': {'red': 0.6, 'green': 0.2, 'blue': 0.5},
         # CSV: id,slug,title,status,published_date,category,type,word_count,affiliate_count,internal_links,累計PV,wp_url,notes
@@ -90,9 +90,9 @@ SITES = {
     },
     'sim': {
         'label': 'SIM比較',
-        'csv': REPO_ROOT / 'sim-hikaku.online' / 'outputs' / 'article-management.csv',
+        'csv': REPO_ROOT / 'sites' / 'sim-hikaku.online' / 'outputs' / 'article-management.csv',
         'site_url': 'https://sim-hikaku.online',
-        'gsc_cred': REPO_ROOT / 'sim-hikaku.online' / 'config' / 'gsc-credentials.json',
+        'gsc_cred': REPO_ROOT / 'sites' / 'sim-hikaku.online' / 'config' / 'gsc-credentials.json',
         'start_date': datetime(2026, 3, 14),
         'header_color': {'red': 0.1, 'green': 0.5, 'blue': 0.4},
         # CSV: 公開順,タイトル,ステータス,公開日,柱,記事タイプ,カテゴリ,メインKW,文字数,アフィリ数,内部リンク数,累計PV,ファイル名,WordPress ID,WordPress URL,備考

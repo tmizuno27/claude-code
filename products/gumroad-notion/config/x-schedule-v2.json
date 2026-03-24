@@ -48,7 +48,9 @@
       "id": 5,
       "category": "value",
       "text": "Stop creating content day-by-day.\n\nMonday: Write 5 posts\nTuesday: Design all graphics\nWednesday: Schedule the week\nThursday-Sunday: Engage\n\nBatch creation. Daily distribution. Stress drops 80%.\n\n#ContentCreator",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-24 10:00:04",
+      "tweet_id": "2036427833367531734"
     },
     {
       "id": 6,
