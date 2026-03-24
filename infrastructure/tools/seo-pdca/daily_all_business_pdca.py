@@ -581,6 +581,202 @@ def pdca_pseo():
 
 
 # =====================================================================
+# SECTOR 11: Dev.to（技術記事 → API販促）
+# =====================================================================
+def pdca_devto():
+    """Dev.to記事のPDCA"""
+    logger.report("# 11. Dev.to（技術記事）")
+    logger.report("")
+
+    # Dev.to API（APIキーなしでも公開記事は取得可能）
+    username = "miccho27"
+    try:
+        resp = requests.get(
+            f"https://dev.to/api/articles?username={username}&per_page=30",
+            headers={"Accept": "application/json"},
+            timeout=15,
+        )
+        if resp.status_code == 200:
+            articles = resp.json()
+            total_views = sum(a.get("page_views_count", 0) for a in articles)
+            total_reactions = sum(a.get("positive_reactions_count", 0) for a in articles)
+            total_comments = sum(a.get("comments_count", 0) for a in articles)
+
+            logger.report("### CHECK")
+            logger.report(f"- 記事数: {len(articles)}")
+            logger.report(f"- 総閲覧数: {total_views:,}")
+            logger.report(f"- 総リアクション: {total_reactions}")
+            logger.report(f"- 総コメント: {total_comments}")
+            logger.report("")
+
+            if articles:
+                logger.report("| 記事 | 閲覧数 | リアクション |")
+                logger.report("|------|------:|----------:|")
+                for a in sorted(articles, key=lambda x: x.get("page_views_count", 0), reverse=True)[:5]:
+                    title = a.get("title", "?")[:50]
+                    views = a.get("page_views_count", 0)
+                    reacts = a.get("positive_reactions_count", 0)
+                    logger.report(f"| {title} | {views:,} | {reacts} |")
+                logger.report("")
+        else:
+            logger.report(f"### CHECK: Dev.to API HTTP {resp.status_code}")
+            logger.report("")
+    except Exception as e:
+        logger.report(f"### CHECK: Dev.to APIエラー: {e}")
+        logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- 閲覧数が伸びている記事があればRapidAPI導線を強化")
+    logger.report("- 新記事投稿（月2-3本）でRapidAPIへのトラフィック誘導")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 12: n8nテンプレート（Stripe待ち）
+# =====================================================================
+def pdca_n8n():
+    """n8nテンプレート事業のPDCA"""
+    logger.report("# 12. n8nテンプレート（一時停止）")
+    logger.report("")
+
+    n8n_dir = PRODUCTS_DIR / "n8n-templates"
+
+    # テンプレート数カウント
+    workflow_count = 0
+    workflows_dir = n8n_dir / "workflows"
+    if workflows_dir.exists():
+        workflow_count = len(list(workflows_dir.glob("*.json")))
+
+    listing_dir = n8n_dir / "listings"
+    listing_count = 0
+    if listing_dir.exists():
+        listing_count = len([d for d in listing_dir.iterdir() if d.is_dir()])
+
+    logger.report("### CHECK")
+    logger.report(f"- ワークフロー数: {workflow_count}")
+    logger.report(f"- リスティング数: {listing_count}")
+    logger.report("- ステータス: **一時停止**（Stripe KYC認証問題）")
+    logger.report("- プラットフォーム: Gumroad（tatsuya27.gumroad.com）")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- Stripe KYC解決次第、即座に販売再開")
+    logger.report("- 解決までの間、テンプレートの品質改善・新テンプレート作成を進める")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 13: Stock Assets（出品準備中）
+# =====================================================================
+def pdca_stock_assets():
+    """Stock Assets事業のPDCA"""
+    logger.report("# 13. Stock Assets（出品準備中）")
+    logger.report("")
+
+    assets_dir = PRODUCTS_DIR / "stock-assets"
+    output_dir = assets_dir / "output"
+
+    # ファイル数カウント
+    png_count = 0
+    csv_count = 0
+    prompt_count = 0
+    if output_dir.exists():
+        png_count = len(list(output_dir.rglob("*.png")))
+        csv_count = len(list(output_dir.rglob("*.csv")))
+
+    scripts_dir = assets_dir / "scripts"
+    prompts_dir = assets_dir / "docs"
+    if prompts_dir.exists():
+        for f in prompts_dir.rglob("*.md"):
+            try:
+                content = f.read_text(encoding="utf-8", errors="replace")
+                prompt_count += content.count("prompt")
+            except Exception:
+                pass
+
+    logger.report("### CHECK")
+    logger.report(f"- 生成済み画像: {png_count}枚")
+    logger.report(f"- メタデータCSV: {csv_count}ファイル")
+    logger.report(f"- ステータス: 出品準備中（Adobe Stock/Freepik）")
+    logger.report("")
+
+    logger.report("### PLAN")
+    if png_count >= 80:
+        logger.report(f"- ✅ {png_count}枚生成済み → Adobe Stockアカウント開設→テスト出品が次のステップ")
+    else:
+        logger.report(f"- 生成枚数 {png_count}/630目標 → 画像生成を加速")
+    logger.report("- 出品後はダウンロード数・収益をAdobe Stock Contributorダッシュボードで追跡")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 14: POD Etsy (AsuInk)
+# =====================================================================
+def pdca_pod_etsy():
+    """POD Etsy事業のPDCA"""
+    logger.report("# 14. POD Etsy — AsuInk（準備中）")
+    logger.report("")
+
+    pod_dir = PRODUCTS_DIR / "pod-etsy"
+
+    listing_count = 0
+    design_count = 0
+    if (pod_dir / "listings").exists():
+        listing_count = len(list((pod_dir / "listings").iterdir()))
+    if (pod_dir / "designs").exists():
+        design_count = len(list((pod_dir / "designs").iterdir()))
+
+    logger.report("### CHECK")
+    logger.report(f"- リスティング: {listing_count}件")
+    logger.report(f"- デザインフォルダ: {design_count}件")
+    logger.report("- ステータス: 準備中（Etsy/Printfulアカウント開設待ち）")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- Etsy/Printfulアカウント開設 → デザイン生成（Gemini有料プランまたは代替）→ 出品開始")
+    logger.report("- 150リスティング完成済みなのでアカウント開設が唯一のブロッカー")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 15: 仮想通貨自動売買（Bybit）
+# =====================================================================
+def pdca_trading_bot():
+    """仮想通貨自動売買のPDCA"""
+    logger.report("# 15. 仮想通貨自動売買（Bybit）")
+    logger.report("")
+
+    bot_dir = REPO_ROOT / "trading-bot"
+    log_dir = bot_dir / "logs"
+
+    # バックテスト結果確認
+    has_backtest = False
+    backtest_files = list(bot_dir.rglob("*backtest*")) if bot_dir.exists() else []
+    has_backtest = len(backtest_files) > 0
+
+    # 最新ログ確認
+    latest_log = None
+    if log_dir.exists():
+        logs = sorted(log_dir.glob("*.log"), key=lambda p: p.stat().st_mtime, reverse=True)
+        if logs:
+            latest_log = logs[0]
+
+    logger.report("### CHECK")
+    logger.report(f"- バックテスト完了: {'✅' if has_backtest else '❌'}")
+    logger.report(f"- 最優秀戦略: MAクロス+RSI × BTC/USDT (Sharpe 4.91)")
+    logger.report(f"- ステータス: **口座開設待ち**（パラグアイ住所証明の準備中）")
+    if latest_log:
+        mtime = datetime.fromtimestamp(latest_log.stat().st_mtime, tz=PYT)
+        logger.report(f"- 最新ログ: {latest_log.name} ({mtime.strftime('%Y-%m-%d')})")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- Bybit口座開設完了次第、小額（$100-200）でライブテスト開始")
+    logger.report("- パラグアイ住所証明の準備を進める")
+    logger.report("")
+
+
+# =====================================================================
 # SECTOR 10: インフラ・タスク稼働状況
 # =====================================================================
 def pdca_infrastructure():
