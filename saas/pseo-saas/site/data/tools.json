@@ -15129,5 +15129,1473 @@
     },
     "affiliate_url": "https://affiliate.notion.so/aicompare",
     "logo_placeholder": true
+  },
+  {
+    "slug": "hyperwrite",
+    "name": "HyperWrite",
+    "category": "ai-writing",
+    "subcategories": [],
+    "tagline": "HyperWrite is a popular AI writing tool",
+    "website": "https://hyperwrite.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "content creation",
+      "copywriting",
+      "blog posts"
+    ],
+    "features": {
+      "long_form": true,
+      "short_form": false,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": true,
+      "multilingual": false,
+      "api_access": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "HyperWrite is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "writer-com",
+    "name": "Writer",
+    "category": "ai-writing",
+    "subcategories": [],
+    "tagline": "Writer is a popular AI writing tool",
+    "website": "https://writercom.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "content creation",
+      "copywriting",
+      "blog posts"
+    ],
+    "features": {
+      "long_form": false,
+      "short_form": true,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "multilingual": true,
+      "api_access": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Writer is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "tensor-art",
+    "name": "Tensor.Art",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "Tensor.Art is a popular AI image tool",
+    "website": "https://tensorart.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "image generation",
+      "photo editing",
+      "digital art"
+    ],
+    "features": {
+      "text_to_image": true,
+      "image_to_image": true,
+      "inpainting": true,
+      "outpainting": true,
+      "upscaling": false,
+      "style_transfer": true,
+      "batch_generation": true,
+      "api_access": true,
+      "commercial_license": true,
+      "custom_models": false
+    },
+    "pros": [
+      "Tensor.Art is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "krea-ai",
+    "name": "KREA AI",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "KREA AI is a popular AI image tool",
+    "website": "https://kreaai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "image generation",
+      "photo editing",
+      "digital art"
+    ],
+    "features": {
+      "text_to_image": true,
+      "image_to_image": true,
+      "inpainting": true,
+      "outpainting": false,
+      "upscaling": true,
+      "style_transfer": true,
+      "batch_generation": true,
+      "api_access": true,
+      "commercial_license": false,
+      "custom_models": true
+    },
+    "pros": [
+      "KREA AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "getimg-ai",
+    "name": "getimg.ai",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "getimg.ai is a popular AI image tool",
+    "website": "https://getimgai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "image generation",
+      "photo editing",
+      "digital art"
+    ],
+    "features": {
+      "text_to_image": true,
+      "image_to_image": true,
+      "inpainting": true,
+      "outpainting": true,
+      "upscaling": false,
+      "style_transfer": true,
+      "batch_generation": true,
+      "api_access": true,
+      "commercial_license": true,
+      "custom_models": false
+    },
+    "pros": [
+      "getimg.ai is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "le-chat",
+    "name": "Le Chat",
+    "category": "ai-chatbot",
+    "subcategories": [],
+    "tagline": "Le Chat is a popular AI chatbot tool",
+    "website": "https://lechat.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "conversations",
+      "research",
+      "problem solving"
+    ],
+    "features": {
+      "web_search": true,
+      "file_upload": true,
+      "code_execution": true,
+      "image_generation": true,
+      "voice_input": false,
+      "plugins": true,
+      "api_access": true,
+      "memory": true,
+      "multilingual": true,
+      "citations": false,
+      "long_form": true,
+      "short_form": true,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": false,
+      "plagiarism_check": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Le Chat is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "meta-ai",
+    "name": "Meta AI",
+    "category": "ai-chatbot",
+    "subcategories": [],
+    "tagline": "Meta AI is a popular AI chatbot tool",
+    "website": "https://metaai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "conversations",
+      "research",
+      "problem solving"
+    ],
+    "features": {
+      "web_search": false,
+      "file_upload": true,
+      "code_execution": true,
+      "image_generation": true,
+      "voice_input": true,
+      "plugins": false,
+      "api_access": true,
+      "memory": true,
+      "multilingual": true,
+      "citations": true,
+      "long_form": false,
+      "short_form": true,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Meta AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "cody",
+    "name": "Sourcegraph Cody",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Sourcegraph Cody is a popular AI coding tool",
+    "website": "https://cody.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "code generation",
+      "debugging",
+      "code review"
+    ],
+    "features": {
+      "autocomplete": true,
+      "code_generation": true,
+      "code_review": false,
+      "debugging": true,
+      "refactoring": true,
+      "test_generation": true,
+      "multi_language": true,
+      "ide_integration": false,
+      "chat": true,
+      "documentation": true,
+      "long_form": true,
+      "short_form": true,
+      "seo_tools": false,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": true,
+      "multilingual": true,
+      "api_access": false,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Sourcegraph Cody is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "supermaven",
+    "name": "Supermaven",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Supermaven is a popular AI coding tool",
+    "website": "https://supermaven.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "code generation",
+      "debugging",
+      "code review"
+    ],
+    "features": {
+      "autocomplete": false,
+      "code_generation": true,
+      "code_review": true,
+      "debugging": true,
+      "refactoring": true,
+      "test_generation": false,
+      "multi_language": true,
+      "ide_integration": true,
+      "chat": true,
+      "documentation": true,
+      "long_form": false,
+      "short_form": true,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "multilingual": true,
+      "api_access": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Supermaven is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "augment-code",
+    "name": "Augment Code",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Augment Code is a popular AI coding tool",
+    "website": "https://augmentcode.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "code generation",
+      "debugging",
+      "code review"
+    ],
+    "features": {
+      "autocomplete": false,
+      "code_generation": true,
+      "code_review": true,
+      "debugging": true,
+      "refactoring": true,
+      "test_generation": false,
+      "multi_language": true,
+      "ide_integration": true,
+      "chat": true,
+      "documentation": true,
+      "long_form": false,
+      "short_form": true,
+      "seo_tools": true,
+      "templates": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "multilingual": true,
+      "api_access": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Augment Code is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "kling-ai",
+    "name": "Kling AI",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Kling AI is a popular AI video tool",
+    "website": "https://klingai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "video creation",
+      "animation",
+      "editing"
+    ],
+    "features": {
+      "text_to_video": true,
+      "image_to_video": true,
+      "avatar_talking_head": false,
+      "screen_recording": true,
+      "auto_captions": true,
+      "templates": true,
+      "stock_footage": true,
+      "voice_over": false,
+      "api_access": true,
+      "batch_processing": true
+    },
+    "pros": [
+      "Kling AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "minimax-hailuo",
+    "name": "Hailuo AI",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Hailuo AI is a popular AI video tool",
+    "website": "https://minimaxhailuo.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "video creation",
+      "animation",
+      "editing"
+    ],
+    "features": {
+      "text_to_video": true,
+      "image_to_video": false,
+      "avatar_talking_head": true,
+      "screen_recording": true,
+      "auto_captions": true,
+      "templates": true,
+      "stock_footage": false,
+      "voice_over": true,
+      "api_access": true,
+      "batch_processing": true
+    },
+    "pros": [
+      "Hailuo AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "vidu",
+    "name": "Vidu",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Vidu is a popular AI video tool",
+    "website": "https://vidu.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "video creation",
+      "animation",
+      "editing"
+    ],
+    "features": {
+      "text_to_video": true,
+      "image_to_video": false,
+      "avatar_talking_head": true,
+      "screen_recording": true,
+      "auto_captions": true,
+      "templates": true,
+      "stock_footage": false,
+      "voice_over": true,
+      "api_access": true,
+      "batch_processing": true
+    },
+    "pros": [
+      "Vidu is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "haiper",
+    "name": "Haiper",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Haiper is a popular AI video tool",
+    "website": "https://haiper.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "video creation",
+      "animation",
+      "editing"
+    ],
+    "features": {
+      "text_to_video": true,
+      "image_to_video": true,
+      "avatar_talking_head": false,
+      "screen_recording": true,
+      "auto_captions": true,
+      "templates": true,
+      "stock_footage": true,
+      "voice_over": false,
+      "api_access": true,
+      "batch_processing": true
+    },
+    "pros": [
+      "Haiper is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "pixverse",
+    "name": "PixVerse",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "PixVerse is a popular AI video tool",
+    "website": "https://pixverse.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "video creation",
+      "animation",
+      "editing"
+    ],
+    "features": {
+      "text_to_video": true,
+      "image_to_video": false,
+      "avatar_talking_head": true,
+      "screen_recording": true,
+      "auto_captions": true,
+      "templates": true,
+      "stock_footage": false,
+      "voice_over": true,
+      "api_access": true,
+      "batch_processing": true
+    },
+    "pros": [
+      "PixVerse is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "descript",
+    "name": "Descript",
+    "category": "ai-audio",
+    "subcategories": [],
+    "tagline": "Descript is a popular AI audio tool",
+    "website": "https://descript.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "voice synthesis",
+      "music creation",
+      "podcasting"
+    ],
+    "features": {
+      "text_to_speech": true,
+      "voice_cloning": true,
+      "speech_to_text": true,
+      "noise_removal": true,
+      "music_generation": false,
+      "podcast_editing": true,
+      "multilingual": true,
+      "api_access": true,
+      "custom_voices": true,
+      "real_time": false
+    },
+    "pros": [
+      "Descript is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "clay",
+    "name": "Clay",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Clay is a popular AI automation tool",
+    "website": "https://clay.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "workflow automation",
+      "task automation",
+      "integration"
+    ],
+    "features": {
+      "visual_builder": true,
+      "code_support": false,
+      "api_connections": true,
+      "scheduling": true,
+      "conditional_logic": true,
+      "error_handling": true,
+      "team_collaboration": false,
+      "templates": true,
+      "webhook_support": true,
+      "ai_actions": true
+    },
+    "pros": [
+      "Clay is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "relevance-ai",
+    "name": "Relevance AI",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Relevance AI is a popular AI automation tool",
+    "website": "https://relevanceai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "workflow automation",
+      "task automation",
+      "integration"
+    ],
+    "features": {
+      "visual_builder": false,
+      "code_support": true,
+      "api_connections": true,
+      "scheduling": true,
+      "conditional_logic": true,
+      "error_handling": false,
+      "team_collaboration": true,
+      "templates": true,
+      "webhook_support": true,
+      "ai_actions": true
+    },
+    "pros": [
+      "Relevance AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "lindy-ai",
+    "name": "Lindy AI",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Lindy AI is a popular AI automation tool",
+    "website": "https://lindyai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "workflow automation",
+      "task automation",
+      "integration"
+    ],
+    "features": {
+      "visual_builder": true,
+      "code_support": true,
+      "api_connections": true,
+      "scheduling": false,
+      "conditional_logic": true,
+      "error_handling": true,
+      "team_collaboration": true,
+      "templates": true,
+      "webhook_support": false,
+      "ai_actions": true
+    },
+    "pros": [
+      "Lindy AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "spell-ai",
+    "name": "Respell",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Respell is a popular AI automation tool",
+    "website": "https://spellai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "workflow automation",
+      "task automation",
+      "integration"
+    ],
+    "features": {
+      "visual_builder": true,
+      "code_support": true,
+      "api_connections": false,
+      "scheduling": true,
+      "conditional_logic": true,
+      "error_handling": true,
+      "team_collaboration": true,
+      "templates": false,
+      "webhook_support": true,
+      "ai_actions": true
+    },
+    "pros": [
+      "Respell is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "gumloop",
+    "name": "Gumloop",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Gumloop is a popular AI automation tool",
+    "website": "https://gumloop.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "workflow automation",
+      "task automation",
+      "integration"
+    ],
+    "features": {
+      "visual_builder": true,
+      "code_support": true,
+      "api_connections": true,
+      "scheduling": true,
+      "conditional_logic": false,
+      "error_handling": true,
+      "team_collaboration": true,
+      "templates": true,
+      "webhook_support": true,
+      "ai_actions": false
+    },
+    "pros": [
+      "Gumloop is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "matecat",
+    "name": "MateCat",
+    "category": "ai-translation",
+    "subcategories": [],
+    "tagline": "MateCat is a popular AI translation tool",
+    "website": "https://matecat.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "translation",
+      "localization",
+      "multilingual content"
+    ],
+    "features": {
+      "machine_translation": true,
+      "translation_memory": true,
+      "glossary": true,
+      "api_access": false,
+      "file_formats": true,
+      "team_collaboration": true,
+      "quality_assurance": true,
+      "cms_integration": true,
+      "real_time": false,
+      "custom_models": true
+    },
+    "pros": [
+      "MateCat is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "tolgee",
+    "name": "Tolgee",
+    "category": "ai-translation",
+    "subcategories": [],
+    "tagline": "Tolgee is a popular AI translation tool",
+    "website": "https://tolgee.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "translation",
+      "localization",
+      "multilingual content"
+    ],
+    "features": {
+      "machine_translation": true,
+      "translation_memory": true,
+      "glossary": true,
+      "api_access": false,
+      "file_formats": true,
+      "team_collaboration": true,
+      "quality_assurance": true,
+      "cms_integration": true,
+      "real_time": false,
+      "custom_models": true
+    },
+    "pros": [
+      "Tolgee is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "kittl",
+    "name": "Kittl",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Kittl is a popular AI design tool",
+    "website": "https://kittl.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "graphic design",
+      "branding",
+      "visual content"
+    ],
+    "features": {
+      "templates": false,
+      "drag_and_drop": true,
+      "brand_kit": true,
+      "ai_generation": true,
+      "collaboration": true,
+      "export_formats": false,
+      "animations": true,
+      "stock_assets": true,
+      "responsive": true,
+      "api_access": true,
+      "long_form": false,
+      "short_form": true,
+      "seo_tools": true,
+      "tone_control": true,
+      "plagiarism_check": true,
+      "multilingual": false,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Kittl is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "glorify",
+    "name": "Glorify",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Glorify is a popular AI design tool",
+    "website": "https://glorify.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "graphic design",
+      "branding",
+      "visual content"
+    ],
+    "features": {
+      "templates": true,
+      "drag_and_drop": true,
+      "brand_kit": true,
+      "ai_generation": true,
+      "collaboration": false,
+      "export_formats": true,
+      "animations": true,
+      "stock_assets": true,
+      "responsive": true,
+      "api_access": false,
+      "long_form": true,
+      "short_form": true,
+      "seo_tools": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "multilingual": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Glorify is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "piktochart",
+    "name": "Piktochart",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Piktochart is a popular AI design tool",
+    "website": "https://piktochart.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "graphic design",
+      "branding",
+      "visual content"
+    ],
+    "features": {
+      "templates": true,
+      "drag_and_drop": true,
+      "brand_kit": true,
+      "ai_generation": true,
+      "collaboration": false,
+      "export_formats": true,
+      "animations": true,
+      "stock_assets": true,
+      "responsive": true,
+      "api_access": false,
+      "long_form": true,
+      "short_form": true,
+      "seo_tools": true,
+      "tone_control": true,
+      "plagiarism_check": false,
+      "multilingual": true,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Piktochart is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "mem-ai",
+    "name": "Mem",
+    "category": "ai-productivity",
+    "subcategories": [],
+    "tagline": "Mem is a popular AI productivity tool",
+    "website": "https://memai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "task management",
+      "scheduling",
+      "organization"
+    ],
+    "features": {
+      "task_management": true,
+      "ai_assistant": false,
+      "calendar": true,
+      "notes": true,
+      "collaboration": true,
+      "automation": true,
+      "integrations": false,
+      "templates": true,
+      "analytics": true,
+      "mobile_app": true,
+      "long_form": true,
+      "short_form": false,
+      "seo_tools": true,
+      "tone_control": true,
+      "plagiarism_check": true,
+      "multilingual": true,
+      "api_access": false,
+      "team_collaboration": true,
+      "browser_extension": true
+    },
+    "pros": [
+      "Mem is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "motion-app",
+    "name": "Motion",
+    "category": "ai-productivity",
+    "subcategories": [],
+    "tagline": "Motion is a popular AI productivity tool",
+    "website": "https://motionapp.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "task management",
+      "scheduling",
+      "organization"
+    ],
+    "features": {
+      "task_management": true,
+      "ai_assistant": true,
+      "calendar": false,
+      "notes": true,
+      "collaboration": true,
+      "automation": true,
+      "integrations": true,
+      "templates": false,
+      "analytics": true,
+      "mobile_app": true,
+      "long_form": true,
+      "short_form": true,
+      "seo_tools": false,
+      "tone_control": true,
+      "plagiarism_check": true,
+      "multilingual": true,
+      "api_access": true,
+      "team_collaboration": false,
+      "browser_extension": true
+    },
+    "pros": [
+      "Motion is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "ada-cx",
+    "name": "Ada",
+    "category": "ai-customer-service",
+    "subcategories": [],
+    "tagline": "Ada is a popular AI customer service tool",
+    "website": "https://adacx.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "customer support",
+      "chatbots",
+      "helpdesk"
+    ],
+    "features": {
+      "live_chat": true,
+      "ai_chatbot": true,
+      "ticket_management": true,
+      "knowledge_base": true,
+      "analytics": false,
+      "multichannel": true,
+      "automation": true,
+      "integrations": true,
+      "self_service": true,
+      "voice_support": false
+    },
+    "pros": [
+      "Ada is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "hiver",
+    "name": "Hiver",
+    "category": "ai-customer-service",
+    "subcategories": [],
+    "tagline": "Hiver is a popular AI customer service tool",
+    "website": "https://hiver.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "customer support",
+      "chatbots",
+      "helpdesk"
+    ],
+    "features": {
+      "live_chat": true,
+      "ai_chatbot": true,
+      "ticket_management": false,
+      "knowledge_base": true,
+      "analytics": true,
+      "multichannel": true,
+      "automation": true,
+      "integrations": false,
+      "self_service": true,
+      "voice_support": true
+    },
+    "pros": [
+      "Hiver is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
   }
 ]
