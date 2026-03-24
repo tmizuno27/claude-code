@@ -51,6 +51,7 @@ SITES = {
         "domain": "nambei-oyaji.com",
         "site_url": "https://nambei-oyaji.com",
         "gsc_url": "https://nambei-oyaji.com/",
+        "sitemap_url": "https://nambei-oyaji.com/sitemap_index.xml",
         "site_dir": REPO_ROOT / "sites" / "nambei-oyaji.com",
         "wp_cred_file": "wp-credentials.json",
         "wp_cred_in_secrets": False,
@@ -60,6 +61,7 @@ SITES = {
         "domain": "otona-match.com",
         "site_url": "https://otona-match.com",
         "gsc_url": "https://otona-match.com/",
+        "sitemap_url": "https://otona-match.com/wp-sitemap.xml",
         "site_dir": REPO_ROOT / "sites" / "otona-match.com",
         "wp_cred_file": None,
         "wp_cred_in_secrets": True,
@@ -69,6 +71,7 @@ SITES = {
         "domain": "sim-hikaku.online",
         "site_url": "https://sim-hikaku.online",
         "gsc_url": "https://sim-hikaku.online/",
+        "sitemap_url": "https://sim-hikaku.online/wp-sitemap.xml",
         "site_dir": REPO_ROOT / "sites" / "sim-hikaku.online",
         "wp_cred_file": None,
         "wp_cred_in_secrets": True,
@@ -280,7 +283,7 @@ def check_gsc(gsc, site_key, site_cfg):
 # ==================================================================
 def act_sitemap_ping(site_cfg):
     """Googleにサイトマップpingを送信"""
-    sitemap_url = f"{site_cfg['site_url']}/sitemap.xml"
+    sitemap_url = site_cfg.get("sitemap_url", f"{site_cfg['site_url']}/sitemap.xml")
     ping_url = f"https://www.google.com/ping?sitemap={quote(sitemap_url)}"
     try:
         resp = requests.get(ping_url, timeout=15)
