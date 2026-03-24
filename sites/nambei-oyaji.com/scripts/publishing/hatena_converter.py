@@ -255,10 +255,13 @@ def main():
             logger.info(f"  → DRY RUN: スキップ")
             continue
 
-        # Read original article
-        content = read_article_file(filename)
+        # Read original article (local file first, then WP API fallback)
+        content = read_article_file(filename) if filename else None
         if not content:
-            logger.warning(f"  → 記事ファイルが見つかりません: {filename}")
+            logger.info(f"  → ローカルファイル無し、WordPress APIから取得中...")
+            content = fetch_article_from_wp(permalink, secrets)
+        if not content:
+            logger.warning(f"  → 記事本文を取得できません: {filename} / {permalink}")
             continue
 
         # Convert
