@@ -56,7 +56,9 @@
       "id": 6,
       "category": "value",
       "text": "I tracked my subscriptions last month:\n\n- Todoist: $5\n- Trello: $10\n- Airtable: $20\n- Calendly: $12\n- Notion: $0\n\nGuess which one replaced the other four.\n\n#Notion",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-24 19:00:06",
+      "tweet_id": "2036563737637704027"
     },
     {
       "id": 7,
