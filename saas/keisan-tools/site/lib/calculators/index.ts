@@ -472,6 +472,125 @@ export function calculateFurusatoNozei(inputs: Record<string, number | string>):
   return { estimatedLimit: recommended, selfPayment: 2000, effectiveDeduction: recommended - 2000, residentTax: Math.round(residentTax) };
 }
 
+// --- Savings Simulation ---
+export function savingsSimulation(inputs: Record<string, number | string>): Record<string, number> {
+  const monthly = inputs.monthlyAmount as number;
+  const years = inputs.years as number;
+  const annualRate = (inputs.annualRate as number) / 100;
+  const monthlyRate = annualRate / 12;
+  const initial = inputs.initialAmount as number;
+  const totalMonths = years * 12;
+
+  let balance = initial;
+  if (monthlyRate === 0) {
+    balance = initial + monthly * totalMonths;
+  } else {
+    for (let i = 0; i < totalMonths; i++) {
+      balance = balance * (1 + monthlyRate) + monthly;
+    }
+  }
+
+  const totalDeposit = initial + monthly * totalMonths;
+  const totalInterest = balance - totalDeposit;
+  const interestRate = totalDeposit > 0 ? Math.round(totalInterest / totalDeposit * 1000) / 10 : 0;
+
+  return {
+    finalAmount: Math.round(balance),
+    totalDeposit: Math.round(totalDeposit),
+    totalInterest: Math.round(totalInterest),
+    interestRate,
+  };
+}
+
+// --- Calories BMR (Harris-Benedict) ---
+export function caloriesBmr(inputs: Record<string, number | string>): Record<string, number> {
+  const gender = inputs.gender as string;
+  const age = inputs.age as number;
+  const height = inputs.height as number;
+  const weight = inputs.weight as number;
+  const activity = inputs.activity as string;
+
+  let bmrValue: number;
+  if (gender === 'male') {
+    bmrValue = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age;
+  } else {
+    bmrValue = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
+  }
+
+  const activityMultipliers: Record<string, number> = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+    very_active: 1.9,
+  };
+  const multiplier = activityMultipliers[activity] || 1.55;
+  const tdee = bmrValue * multiplier;
+  const loseWeight = tdee - 500;
+
+  return {
+    bmr: Math.round(bmrValue),
+    tdee: Math.round(tdee),
+    maintainWeight: Math.round(tdee),
+    loseWeight: Math.round(loseWeight),
+  };
+}
+
+// --- Age Calculator ---
+export function ageCalculator(inputs: Record<string, number | string>): Record<string, string> {
+  const birthDate = new Date(inputs.birthDate as string);
+  const today = new Date();
+
+  let years = today.getFullYear() - birthDate.getFullYear();
+  let months = today.getMonth() - birthDate.getMonth();
+  let days = today.getDate() - birthDate.getDate();
+
+  if (days < 0) {
+    months--;
+    const prevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+    days += prevMonth.getDate();
+  }
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  const totalDays = Math.floor((today.getTime() - birthDate.getTime()) / (1000 * 60 * 60 * 24));
+
+  let nextBirthday = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+  if (nextBirthday <= today) {
+    nextBirthday = new Date(today.getFullYear() + 1, birthDate.getMonth(), birthDate.getDate());
+  }
+  const daysUntilBirthday = Math.ceil((nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+
+  const zodiacAnimals = ['申', '酉', '戌', '亥', '子', '丑', '寅', '卯', '辰', '巳', '午', '未'];
+  const zodiac = zodiacAnimals[birthDate.getFullYear() % 12];
+
+  return {
+    age: `${years}歳${months}ヶ月${days}日`,
+    totalDays: `${totalDays.toLocaleString()}日`,
+    nextBirthday: `あと${daysUntilBirthday}日`,
+    zodiac: `${zodiac}年`,
+  };
+}
+
+// --- ROI Calculator ---
+export function roiCalculator(inputs: Record<string, number | string>): Record<string, number> {
+  const investment = (inputs.investment as number) * 10000;
+  const revenue = (inputs.revenue as number) * 10000;
+  const profit = revenue - investment;
+  const roi = investment > 0 ? Math.round(profit / investment * 1000) / 10 : 0;
+  const profitRatio = revenue > 0 ? Math.round(profit / revenue * 1000) / 10 : 0;
+  const paybackMultiple = investment > 0 ? Math.round(revenue / investment * 100) / 100 : 0;
+
+  return {
+    roi,
+    profit: Math.round(profit),
+    profitRatio,
+    paybackMultiple,
+  };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   loanRepayment,
@@ -501,6 +620,10 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   calculateForexProfit,
   calculateCryptoProfit,
   calculateFurusatoNozei,
+  savingsSimulation,
+  caloriesBmr,
+  ageCalculator,
+  roiCalculator,
 };
 
 export function getCalculatorFunction(
