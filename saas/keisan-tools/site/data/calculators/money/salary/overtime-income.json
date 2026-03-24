@@ -1,0 +1,89 @@
+{
+  "slug": "overtime-income",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "残業代込み月収計算",
+  "description": "基本給と残業時間から実際の月収を計算します",
+  "metaTitle": "残業代込み月収計算ツール｜keisan.tools",
+  "metaDescription": "基本給と残業時間を入力して残業代込みの月収を自動計算。",
+  "calculatorFunction": "overtimeIncome",
+  "inputs": [
+    {
+      "id": "baseSalary",
+      "label": "基本給",
+      "type": "number",
+      "unit": "万円",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "step": 0.1
+    },
+    {
+      "id": "workDays",
+      "label": "月間所定労働日数",
+      "type": "number",
+      "unit": "日",
+      "default": 20,
+      "min": 15,
+      "max": 25,
+      "step": 1
+    },
+    {
+      "id": "workHours",
+      "label": "1日所定労働時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 8,
+      "min": 4,
+      "max": 12,
+      "step": 0.5
+    },
+    {
+      "id": "overtimeHours",
+      "label": "月間残業時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalMonthly",
+      "label": "月収（残業代込み）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "overtimePay",
+      "label": "残業代",
+      "format": "currency"
+    },
+    {
+      "id": "estimatedAnnual",
+      "label": "年収見込み",
+      "format": "currency"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "基礎時給",
+      "format": "number",
+      "suffix": "円"
+    }
+  ],
+  "explanation": "<h3>残業代込み月収</h3><p>基本給＋残業代（基礎時給×1.25×時間）で計算します。</p>",
+  "faq": [
+    {
+      "question": "基礎時給の計算は？",
+      "answer": "基本給÷（労働日数×労働時間）です。"
+    },
+    {
+      "question": "残業代は全て1.25倍？",
+      "answer": "通常は1.25倍、月60時間超は1.5倍です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

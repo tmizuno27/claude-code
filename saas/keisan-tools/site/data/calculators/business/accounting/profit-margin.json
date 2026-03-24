@@ -1,0 +1,78 @@
+{
+  "slug": "profit-margin",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "利益率計算",
+  "description": "売上と原価から各種利益率を計算します",
+  "metaTitle": "利益率計算ツール｜keisan.tools",
+  "metaDescription": "売上高と原価を入力して粗利率・営業利益率を自動計算。",
+  "calculatorFunction": "profitMargin",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "売上高",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "cogs",
+      "label": "原価",
+      "type": "number",
+      "unit": "万円",
+      "default": 600,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "expenses",
+      "label": "販管費",
+      "type": "number",
+      "unit": "万円",
+      "default": 200,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossProfit",
+      "label": "粗利益",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "grossMargin",
+      "label": "粗利率",
+      "format": "percent"
+    },
+    {
+      "id": "operatingProfit",
+      "label": "営業利益",
+      "format": "currency"
+    },
+    {
+      "id": "operatingMargin",
+      "label": "営業利益率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>利益率の種類</h3><p>粗利率は売上から原価を引いた比率、営業利益率はさらに販管費を引いた比率です。</p>",
+  "faq": [
+    {
+      "question": "粗利率の目安は？",
+      "answer": "小売業30%前後、サービス業50%以上が目安です。"
+    },
+    {
+      "question": "営業利益率が高いと？",
+      "answer": "本業の収益力が高いことを示します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

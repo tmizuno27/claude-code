@@ -1,0 +1,63 @@
+{
+  "slug": "power",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "累乗計算",
+  "description": "べき乗（aのn乗）を計算します",
+  "metaTitle": "累乗計算ツール｜keisan.tools",
+  "metaDescription": "底と指数を入力してべき乗を自動計算。",
+  "calculatorFunction": "power",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "底（a）",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    },
+    {
+      "id": "exponent",
+      "label": "指数（n）",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": -100,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "計算結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "sqrt",
+      "label": "平方根",
+      "format": "number"
+    },
+    {
+      "id": "cbrt",
+      "label": "立方根",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>累乗の計算</h3><p>aのn乗を計算します。</p>",
+  "faq": [
+    {
+      "question": "2の10乗はいくつ？",
+      "answer": "1,024です。"
+    },
+    {
+      "question": "マイナスの指数は？",
+      "answer": "a^(-n)=1/(a^n)です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

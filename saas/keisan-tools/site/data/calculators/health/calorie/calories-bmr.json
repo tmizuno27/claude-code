@@ -1,0 +1,30 @@
+{
+  "slug": "calories-bmr",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "カロリー計算（基礎代謝量）",
+  "description": "Harris-Benedict式で基礎代謝量（BMR）を計算。年齢・性別・身長・体重から1日に必要なカロリーを算出します。",
+  "metaTitle": "カロリー計算ツール｜基礎代謝量BMRを自動算出",
+  "metaDescription": "年齢・性別・身長・体重を入力するだけで基礎代謝量（BMR）と1日の消費カロリー目安を自動計算。Harris-Benedict式対応の無料ツール。",
+  "calculatorFunction": "caloriesBmr",
+  "inputs": [
+    { "id": "gender", "label": "性別", "type": "select", "default": "male", "options": [{ "value": "male", "label": "男性" }, { "value": "female", "label": "女性" }] },
+    { "id": "age", "label": "年齢", "type": "number", "unit": "歳", "default": 30, "min": 1, "max": 120, "step": 1 },
+    { "id": "height", "label": "身長", "type": "number", "unit": "cm", "default": 170, "min": 100, "max": 250, "step": 0.1 },
+    { "id": "weight", "label": "体重", "type": "number", "unit": "kg", "default": 65, "min": 20, "max": 300, "step": 0.1 },
+    { "id": "activity", "label": "活動レベル", "type": "select", "default": "moderate", "options": [{ "value": "sedentary", "label": "ほぼ運動しない" }, { "value": "light", "label": "軽い運動（週1-3回）" }, { "value": "moderate", "label": "中程度の運動（週3-5回）" }, { "value": "active", "label": "激しい運動（週6-7回）" }, { "value": "very_active", "label": "非常に激しい運動（毎日）" }] }
+  ],
+  "outputs": [
+    { "id": "bmr", "label": "基礎代謝量（BMR）", "format": "number", "primary": true },
+    { "id": "tdee", "label": "1日の消費カロリー（TDEE）", "format": "number" },
+    { "id": "maintainWeight", "label": "体重維持カロリー", "format": "number" },
+    { "id": "loseWeight", "label": "減量目安（-0.5kg/週）", "format": "number" }
+  ],
+  "explanation": "<h3>基礎代謝量（BMR）とは</h3><p>基礎代謝量は、安静時に生命維持のために消費されるエネルギー量です。呼吸・心拍・体温維持などに使われます。</p><h3>Harris-Benedict式（改良版）</h3><ul><li>男性: BMR = 88.362 + (13.397 × 体重kg) + (4.799 × 身長cm) - (5.677 × 年齢)</li><li>女性: BMR = 447.593 + (9.247 × 体重kg) + (3.098 × 身長cm) - (4.330 × 年齢)</li></ul><h3>活動レベル係数</h3><ul><li>ほぼ運動しない: ×1.2</li><li>軽い運動: ×1.375</li><li>中程度: ×1.55</li><li>激しい運動: ×1.725</li><li>非常に激しい: ×1.9</li></ul>",
+  "faq": [
+    { "question": "BMRとTDEEの違いは？", "answer": "BMR（基礎代謝量）は何もしなくても消費するカロリー。TDEE（総消費カロリー）はBMRに日常の活動分を加えた実際の消費カロリーです。" },
+    { "question": "ダイエットにはどう活用する？", "answer": "TDEEより摂取カロリーを500kcal程度減らすと、週に約0.5kgの減量が目安です。ただしBMR以下にカロリーを減らすのは健康上おすすめしません。" }
+  ],
+  "related": ["bmi"],
+  "popular": false
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "countdown",
+  "category": "life",
+  "subcategory": "date",
+  "title": "カウントダウン計算",
+  "description": "指定日までの残り日数を計算します",
+  "metaTitle": "カウントダウン計算ツール｜keisan.tools",
+  "metaDescription": "目標日を入力して残り日数・時間を自動計算。",
+  "calculatorFunction": "countdown",
+  "inputs": [
+    {
+      "id": "targetDate",
+      "label": "目標日",
+      "type": "date",
+      "default": "2027-01-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "days",
+      "label": "残り日数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "weeks",
+      "label": "残り週数",
+      "format": "text"
+    },
+    {
+      "id": "months",
+      "label": "残り月数",
+      "format": "text"
+    },
+    {
+      "id": "hours",
+      "label": "残り時間",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>カウントダウン</h3><p>目標日までの残り期間を正確に把握できます。</p>",
+  "faq": [
+    {
+      "question": "過去の日付を入力すると？",
+      "answer": "経過日数が表示されます。"
+    },
+    {
+      "question": "うるう年は考慮される？",
+      "answer": "はい、正確に計算します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,49 @@
+{
+  "slug": "elapsed-days",
+  "category": "life",
+  "subcategory": "date",
+  "title": "生まれてから何日計算",
+  "description": "生年月日から今日までの日数を計算します",
+  "metaTitle": "生まれてから何日？計算ツール｜keisan.tools",
+  "metaDescription": "生年月日を入力して生まれてからの日数を自動計算。",
+  "calculatorFunction": "elapsedDays",
+  "inputs": [
+    {
+      "id": "birthDate",
+      "label": "生年月日",
+      "type": "date",
+      "default": "1990-01-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalDays",
+      "label": "生まれてからの日数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "next1000",
+      "label": "次の1000日記念日",
+      "format": "text"
+    },
+    {
+      "id": "next10000",
+      "label": "10000日目",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>生まれてからの日数</h3><p>生年月日から今日までの正確な日数を計算します。</p>",
+  "faq": [
+    {
+      "question": "10000日目は何歳頃？",
+      "answer": "約27歳4ヶ月頃です。"
+    },
+    {
+      "question": "うるう年は含まれる？",
+      "answer": "はい、正確に計算されます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

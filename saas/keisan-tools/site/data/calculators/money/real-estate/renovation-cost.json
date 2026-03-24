@@ -1,0 +1,146 @@
+{
+  "slug": "renovation-cost",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "リフォーム費用計算",
+  "description": "リフォーム箇所から費用の目安を計算します",
+  "metaTitle": "リフォーム費用計算ツール｜keisan.tools",
+  "metaDescription": "リフォーム箇所を選択して費用の目安を自動計算。",
+  "calculatorFunction": "renovationCost",
+  "inputs": [
+    {
+      "id": "kitchen",
+      "label": "キッチン",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "80",
+          "label": "シンプル（〜80万）"
+        },
+        {
+          "value": "150",
+          "label": "スタンダード（〜150万）"
+        },
+        {
+          "value": "250",
+          "label": "ハイグレード（〜250万）"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "id": "bathroom",
+      "label": "浴室",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "70",
+          "label": "シンプル（〜70万）"
+        },
+        {
+          "value": "120",
+          "label": "スタンダード（〜120万）"
+        },
+        {
+          "value": "200",
+          "label": "ハイグレード（〜200万）"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "id": "toilet",
+      "label": "トイレ",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "20",
+          "label": "シンプル（〜20万）"
+        },
+        {
+          "value": "40",
+          "label": "スタンダード（〜40万）"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "id": "exterior",
+      "label": "外壁塗装",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "100",
+          "label": "30坪程度（〜100万）"
+        },
+        {
+          "value": "150",
+          "label": "40坪程度（〜150万）"
+        }
+      ],
+      "default": "0"
+    },
+    {
+      "id": "flooring",
+      "label": "フローリング",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "30",
+          "label": "1部屋（〜30万）"
+        },
+        {
+          "value": "80",
+          "label": "全室（〜80万）"
+        }
+      ],
+      "default": "0"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "リフォーム費用目安",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxDeduction",
+      "label": "住宅ローン減税対象",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>リフォーム費用の目安</h3><p>水回りが特に費用がかかる箇所です。</p>",
+  "faq": [
+    {
+      "question": "減税制度はある？",
+      "answer": "省エネ・バリアフリーリフォームには税制優遇があります。"
+    },
+    {
+      "question": "リフォームと建替えどちらがお得？",
+      "answer": "総額の半分以上かかるなら建替えを検討しましょう。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

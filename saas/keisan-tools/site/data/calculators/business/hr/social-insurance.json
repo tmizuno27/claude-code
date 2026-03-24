@@ -1,0 +1,97 @@
+{
+  "slug": "social-insurance",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "社会保険料計算",
+  "description": "月給から社会保険料の従業員負担額を計算します",
+  "metaTitle": "社会保険料計算ツール｜keisan.tools",
+  "metaDescription": "月給と年齢を入力して社会保険料を自動計算。",
+  "calculatorFunction": "socialInsuranceCalc",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 0.1
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 18,
+      "max": 70,
+      "step": 1
+    },
+    {
+      "id": "prefecture",
+      "label": "都道府県",
+      "type": "select",
+      "options": [
+        {
+          "value": "10.0",
+          "label": "東京都"
+        },
+        {
+          "value": "10.2",
+          "label": "大阪府"
+        },
+        {
+          "value": "9.8",
+          "label": "愛知県"
+        },
+        {
+          "value": "10.0",
+          "label": "その他"
+        }
+      ],
+      "default": "10.0"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "healthInsurance",
+      "label": "健康保険料",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "pension",
+      "label": "厚生年金保険料",
+      "format": "currency"
+    },
+    {
+      "id": "employment",
+      "label": "雇用保険料",
+      "format": "currency"
+    },
+    {
+      "id": "total",
+      "label": "社会保険料合計",
+      "format": "currency"
+    },
+    {
+      "id": "afterSI",
+      "label": "社保控除後月給",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>社会保険料の仕組み</h3><p>会社と従業員で折半します。40歳以上は介護保険料も加わります。</p>",
+  "faq": [
+    {
+      "question": "社会保険料はいくら引かれる？",
+      "answer": "月給の約15%前後が目安です。"
+    },
+    {
+      "question": "40歳になると何が変わる？",
+      "answer": "介護保険料が追加されます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

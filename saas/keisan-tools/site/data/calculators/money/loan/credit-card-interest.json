@@ -1,0 +1,80 @@
+{
+  "slug": "credit-card-interest",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "クレジットカード利息計算",
+  "description": "リボ払いの利息と返済総額を計算します",
+  "metaTitle": "クレジットカード利息計算ツール｜keisan.tools",
+  "metaDescription": "リボ払いの残高と手数料率を入力して利息・返済総額を自動計算。",
+  "calculatorFunction": "creditCardInterest",
+  "inputs": [
+    {
+      "id": "balance",
+      "label": "リボ残高",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 1,
+      "max": 25,
+      "step": 0.1
+    },
+    {
+      "id": "monthlyPayment",
+      "label": "毎月返済額",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 1000,
+      "max": 1000000,
+      "step": 1000
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalInterest",
+      "label": "利息合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalPayment",
+      "label": "返済総額",
+      "format": "currency"
+    },
+    {
+      "id": "months",
+      "label": "完済までの月数",
+      "format": "number",
+      "suffix": "ヶ月"
+    },
+    {
+      "id": "years",
+      "label": "完済までの年数",
+      "format": "number",
+      "suffix": "年"
+    }
+  ],
+  "explanation": "<h3>リボ払いの利息</h3><p>年利15%前後と高金利。毎月の返済額が少ないと利息ばかり払います。</p>",
+  "faq": [
+    {
+      "question": "リボ払いはなぜ危険？",
+      "answer": "金利が高く元本が減りにくいためです。"
+    },
+    {
+      "question": "早く返すには？",
+      "answer": "繰上返済か低金利ローンへの借り換えが有効です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

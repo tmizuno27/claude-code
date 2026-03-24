@@ -1,0 +1,99 @@
+{
+  "slug": "fire-calculation",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "FIRE達成計算",
+  "description": "経済的自由（FIRE）達成に必要な資産額を計算します",
+  "metaTitle": "FIRE達成計算ツール｜keisan.tools",
+  "metaDescription": "FIRE達成に必要な資産額を自動計算。",
+  "calculatorFunction": "fireCalculation",
+  "inputs": [
+    {
+      "id": "annualExpense",
+      "label": "年間生活費",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "currentAssets",
+      "label": "現在の資産",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "monthlySaving",
+      "label": "月間積立額",
+      "type": "number",
+      "unit": "万円",
+      "default": 10,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "returnRate",
+      "label": "期待利回り",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "withdrawalRate",
+      "label": "取崩し率",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "min": 1,
+      "max": 10,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fireNumber",
+      "label": "FIRE必要資産額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "yearsToFire",
+      "label": "達成までの年数",
+      "format": "number",
+      "suffix": "年"
+    },
+    {
+      "id": "progress",
+      "label": "進捗率",
+      "format": "percent"
+    },
+    {
+      "id": "gap",
+      "label": "不足額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>FIREとは</h3><p>4%ルール（年間生活費の25倍の資産）が目安です。</p>",
+  "faq": [
+    {
+      "question": "4%ルールとは？",
+      "answer": "資産の4%を毎年取り崩しても資産が減らないという研究に基づくルールです。"
+    },
+    {
+      "question": "日本でFIREは可能？",
+      "answer": "可能ですが、国保や年金等の考慮が必要です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

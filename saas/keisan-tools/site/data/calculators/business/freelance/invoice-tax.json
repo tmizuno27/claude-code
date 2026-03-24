@@ -1,0 +1,83 @@
+{
+  "slug": "invoice-tax",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "インボイス消費税計算",
+  "description": "売上と経費からインボイス制度での消費税納付額を計算します",
+  "metaTitle": "インボイス消費税計算ツール｜keisan.tools",
+  "metaDescription": "インボイス制度での消費税納付額を自動計算。",
+  "calculatorFunction": "invoiceTax",
+  "inputs": [
+    {
+      "id": "sales",
+      "label": "年間売上（税抜）",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "expenses",
+      "label": "年間課税仕入（税抜）",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "method",
+      "label": "計算方法",
+      "type": "select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "本則課税"
+        },
+        {
+          "value": "simplified",
+          "label": "簡易課税"
+        },
+        {
+          "value": "special",
+          "label": "2割特例"
+        }
+      ],
+      "default": "special"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxPayment",
+      "label": "消費税納付額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "salesTax",
+      "label": "売上にかかる消費税",
+      "format": "currency"
+    },
+    {
+      "id": "inputTax",
+      "label": "仕入税額控除",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>インボイス制度の消費税</h3><p>2割特例は売上税額の2割が納付額になります。</p>",
+  "faq": [
+    {
+      "question": "2割特例とは？",
+      "answer": "売上消費税の2割を納付額とする特例です。"
+    },
+    {
+      "question": "簡易課税と本則課税の違いは？",
+      "answer": "簡易課税は売上のみで計算、本則課税は実際の仕入税額を控除します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

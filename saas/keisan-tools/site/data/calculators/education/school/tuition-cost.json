@@ -1,0 +1,102 @@
+{
+  "slug": "tuition-cost",
+  "category": "education",
+  "subcategory": "school",
+  "title": "学費計算",
+  "description": "大学4年間の学費総額を計算します",
+  "metaTitle": "学費計算ツール｜keisan.tools",
+  "metaDescription": "大学の種類と期間を入力して学費総額を自動計算。",
+  "calculatorFunction": "tuitionCost",
+  "inputs": [
+    {
+      "id": "schoolType",
+      "label": "学校の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "national",
+          "label": "国立大学"
+        },
+        {
+          "value": "public",
+          "label": "公立大学"
+        },
+        {
+          "value": "privateArts",
+          "label": "私立文系"
+        },
+        {
+          "value": "privateScience",
+          "label": "私立理系"
+        },
+        {
+          "value": "privateMed",
+          "label": "私立医学部"
+        }
+      ],
+      "default": "national"
+    },
+    {
+      "id": "years",
+      "label": "通学年数",
+      "type": "number",
+      "unit": "年",
+      "default": 4,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "id": "living",
+      "label": "生活形態",
+      "type": "select",
+      "options": [
+        {
+          "value": "home",
+          "label": "自宅通学"
+        },
+        {
+          "value": "alone",
+          "label": "一人暮らし"
+        }
+      ],
+      "default": "home"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "総費用",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "tuitionTotal",
+      "label": "学費合計",
+      "format": "currency"
+    },
+    {
+      "id": "livingCost",
+      "label": "生活費合計",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyAvg",
+      "label": "月平均費用",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>大学学費の目安</h3><p>国立大学は年間約54万円、私立文系は約80万円、理系は約110万円です。</p>",
+  "faq": [
+    {
+      "question": "国立大学の学費は？",
+      "answer": "4年で約244万円です。"
+    },
+    {
+      "question": "奨学金はいくら借りられる？",
+      "answer": "第一種は月2〜6.4万円、第二種は月2〜12万円です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

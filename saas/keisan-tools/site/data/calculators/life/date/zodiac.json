@@ -1,0 +1,49 @@
+{
+  "slug": "zodiac",
+  "category": "life",
+  "subcategory": "date",
+  "title": "星座・干支計算",
+  "description": "生年月日から星座と干支を計算します",
+  "metaTitle": "星座・干支計算ツール｜keisan.tools",
+  "metaDescription": "生年月日を入力するだけで星座と干支を自動判定。",
+  "calculatorFunction": "zodiac",
+  "inputs": [
+    {
+      "id": "birthDate",
+      "label": "生年月日",
+      "type": "date",
+      "default": "1990-01-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "zodiacSign",
+      "label": "星座",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "chineseZodiac",
+      "label": "干支",
+      "format": "text"
+    },
+    {
+      "id": "element",
+      "label": "星座のエレメント",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>星座と干支</h3><p>西洋占星術の12星座と東洋の十二支を判定します。</p>",
+  "faq": [
+    {
+      "question": "星座の境目は？",
+      "answer": "一般的な日付区分で判定しています。"
+    },
+    {
+      "question": "干支の計算方法は？",
+      "answer": "生まれ年を12で割った余りで判定します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

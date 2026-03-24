@@ -1,0 +1,107 @@
+{
+  "slug": "car-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "自動車保険料計算",
+  "description": "等級・年齢から自動車保険料の目安を計算します",
+  "metaTitle": "自動車保険料計算ツール｜keisan.tools",
+  "metaDescription": "等級・年齢から自動車保険料の目安を自動計算。",
+  "calculatorFunction": "carInsurance",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 18,
+      "max": 80,
+      "step": 1
+    },
+    {
+      "id": "grade",
+      "label": "等級",
+      "type": "number",
+      "unit": "等級",
+      "default": 12,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "carType",
+      "label": "車種",
+      "type": "select",
+      "options": [
+        {
+          "value": "light",
+          "label": "軽自動車"
+        },
+        {
+          "value": "compact",
+          "label": "コンパクトカー"
+        },
+        {
+          "value": "sedan",
+          "label": "セダン・SUV"
+        },
+        {
+          "value": "premium",
+          "label": "高級車"
+        }
+      ],
+      "default": "compact"
+    },
+    {
+      "id": "coverage",
+      "label": "車両保険",
+      "type": "select",
+      "options": [
+        {
+          "value": "full",
+          "label": "一般型"
+        },
+        {
+          "value": "limited",
+          "label": "限定型"
+        },
+        {
+          "value": "none",
+          "label": "なし"
+        }
+      ],
+      "default": "limited"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPremium",
+      "label": "年間保険料目安",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyPremium",
+      "label": "月額保険料目安",
+      "format": "currency"
+    },
+    {
+      "id": "discountRate",
+      "label": "等級割引率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>自動車保険の保険料</h3><p>等級・年齢・車種・補償内容で決まります。</p>",
+  "faq": [
+    {
+      "question": "等級とは？",
+      "answer": "1〜20等級で、大きいほど割引率が高くなります。"
+    },
+    {
+      "question": "車両保険は必要？",
+      "answer": "新車や高額車には推奨します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

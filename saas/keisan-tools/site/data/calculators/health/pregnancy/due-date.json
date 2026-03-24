@@ -1,0 +1,49 @@
+{
+  "slug": "due-date",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "出産予定日計算",
+  "description": "最終月経日から出産予定日を計算します",
+  "metaTitle": "出産予定日計算ツール｜keisan.tools",
+  "metaDescription": "最終月経開始日を入力するだけで出産予定日を自動計算。",
+  "calculatorFunction": "dueDate",
+  "inputs": [
+    {
+      "id": "lastPeriod",
+      "label": "最終月経開始日",
+      "type": "date",
+      "default": "2026-01-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dueDate",
+      "label": "出産予定日",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "currentWeek",
+      "label": "現在の妊娠週数",
+      "format": "text"
+    },
+    {
+      "id": "trimester",
+      "label": "妊娠期",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>出産予定日の計算方法</h3><p>最終月経開始日に280日（40週）を加えて予定日を算出します。</p>",
+  "faq": [
+    {
+      "question": "計算方法は正確ですか？",
+      "answer": "一般的な計算方法ですが、医師の診断を優先してください。"
+    },
+    {
+      "question": "妊娠週数はどう数える？",
+      "answer": "最終月経開始日を0週0日として数えます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

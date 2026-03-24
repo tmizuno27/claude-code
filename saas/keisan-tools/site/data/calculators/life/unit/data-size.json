@@ -1,0 +1,91 @@
+{
+  "slug": "data-size",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "データ容量変換",
+  "description": "バイト・KB・MB・GB・TBのデータ容量を変換します",
+  "metaTitle": "データ容量変換ツール｜keisan.tools",
+  "metaDescription": "B・KB・MB・GB・TBのデータ容量を相互変換。",
+  "calculatorFunction": "dataSize",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "b",
+          "label": "バイト"
+        },
+        {
+          "value": "kb",
+          "label": "KB"
+        },
+        {
+          "value": "mb",
+          "label": "MB"
+        },
+        {
+          "value": "gb",
+          "label": "GB"
+        },
+        {
+          "value": "tb",
+          "label": "TB"
+        }
+      ],
+      "default": "gb"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "b",
+      "label": "バイト",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "kb",
+      "label": "KB",
+      "format": "number"
+    },
+    {
+      "id": "mb",
+      "label": "MB",
+      "format": "number"
+    },
+    {
+      "id": "gb",
+      "label": "GB",
+      "format": "number"
+    },
+    {
+      "id": "tb",
+      "label": "TB",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>データ容量の変換</h3><p>1KB=1024B、1MB=1024KB、1GB=1024MB、1TB=1024GBです。</p>",
+  "faq": [
+    {
+      "question": "1GBは何MB？",
+      "answer": "1,024MBです。"
+    },
+    {
+      "question": "1KBは1,000Bではない？",
+      "answer": "コンピュータでは1KB=1,024Bが一般的です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

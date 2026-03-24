@@ -1,0 +1,95 @@
+{
+  "slug": "volume",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "体積変換",
+  "description": "リットル・ガロン・立方メートルなど体積の単位を変換します",
+  "metaTitle": "体積変換ツール｜keisan.tools",
+  "metaDescription": "リットル・ガロン・立方メートルなど体積を簡単に変換。",
+  "calculatorFunction": "volumeConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "l",
+          "label": "リットル"
+        },
+        {
+          "value": "ml",
+          "label": "ミリリットル"
+        },
+        {
+          "value": "m3",
+          "label": "立方メートル"
+        },
+        {
+          "value": "gal",
+          "label": "ガロン（米）"
+        },
+        {
+          "value": "cup",
+          "label": "カップ（米）"
+        },
+        {
+          "value": "go",
+          "label": "合"
+        }
+      ],
+      "default": "l"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "l",
+      "label": "リットル",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ml",
+      "label": "ミリリットル",
+      "format": "number"
+    },
+    {
+      "id": "m3",
+      "label": "立方メートル",
+      "format": "number"
+    },
+    {
+      "id": "gal",
+      "label": "ガロン",
+      "format": "number"
+    },
+    {
+      "id": "go",
+      "label": "合",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>体積の変換</h3><p>各種体積の単位を相互変換します。</p>",
+  "faq": [
+    {
+      "question": "1合は何ml？",
+      "answer": "約180.39mlです。"
+    },
+    {
+      "question": "1ガロンは何リットル？",
+      "answer": "米国ガロンは約3.785リットルです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

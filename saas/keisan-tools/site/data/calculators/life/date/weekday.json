@@ -1,0 +1,49 @@
+{
+  "slug": "weekday",
+  "category": "life",
+  "subcategory": "date",
+  "title": "曜日計算",
+  "description": "指定日の曜日を計算します",
+  "metaTitle": "曜日計算ツール｜keisan.tools",
+  "metaDescription": "日付を入力するだけでその日の曜日を自動計算。",
+  "calculatorFunction": "weekday",
+  "inputs": [
+    {
+      "id": "targetDate",
+      "label": "日付",
+      "type": "date",
+      "default": "2026-03-24"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "weekday",
+      "label": "曜日",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "weekdayEn",
+      "label": "曜日（英語）",
+      "format": "text"
+    },
+    {
+      "id": "dayOfYear",
+      "label": "年間の何日目",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>曜日計算</h3><p>指定した日付の曜日を自動判定します。</p>",
+  "faq": [
+    {
+      "question": "何年先まで計算できる？",
+      "answer": "JavaScriptのDate範囲内で計算可能です。"
+    },
+    {
+      "question": "過去の曜日も正確？",
+      "answer": "はい、グレゴリオ暦に基づいて計算します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

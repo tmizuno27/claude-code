@@ -1,0 +1,114 @@
+{
+  "slug": "overtime-pay",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "残業代計算",
+  "description": "基本給と残業時間から残業代を計算します",
+  "metaTitle": "残業代計算ツール｜keisan.tools",
+  "metaDescription": "基本給と残業時間を入力して残業代を自動計算。",
+  "calculatorFunction": "overtimePay",
+  "inputs": [
+    {
+      "id": "baseSalary",
+      "label": "基本給",
+      "type": "number",
+      "unit": "万円",
+      "default": 25,
+      "min": 0,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "workDays",
+      "label": "月間所定労働日数",
+      "type": "number",
+      "unit": "日",
+      "default": 20,
+      "min": 15,
+      "max": 25,
+      "step": 1
+    },
+    {
+      "id": "workHours",
+      "label": "1日所定労働時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 8,
+      "min": 4,
+      "max": 12,
+      "step": 0.5
+    },
+    {
+      "id": "overtimeHours",
+      "label": "時間外労働",
+      "type": "number",
+      "unit": "時間",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 0.5
+    },
+    {
+      "id": "lateNightHours",
+      "label": "深夜労働",
+      "type": "number",
+      "unit": "時間",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 0.5
+    },
+    {
+      "id": "holidayHours",
+      "label": "休日労働",
+      "type": "number",
+      "unit": "時間",
+      "default": 0,
+      "min": 0,
+      "max": 100,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "overtimePay",
+      "label": "残業代合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "hourlyRate",
+      "label": "基礎時給",
+      "format": "number",
+      "suffix": "円"
+    },
+    {
+      "id": "normalOT",
+      "label": "時間外手当",
+      "format": "currency"
+    },
+    {
+      "id": "lateNightPay",
+      "label": "深夜手当",
+      "format": "currency"
+    },
+    {
+      "id": "holidayPay",
+      "label": "休日手当",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>残業代の計算方法</h3><p>基礎時給×割増率×残業時間で計算します。</p>",
+  "faq": [
+    {
+      "question": "割増率はいくら？",
+      "answer": "時間外25%、深夜+25%、休日35%です。"
+    },
+    {
+      "question": "管理職に残業代は出る？",
+      "answer": "管理監督者には原則不要ですが、深夜手当は必要です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

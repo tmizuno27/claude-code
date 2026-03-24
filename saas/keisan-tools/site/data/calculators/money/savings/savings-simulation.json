@@ -1,0 +1,29 @@
+{
+  "slug": "savings-simulation",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "貯金シミュレーター",
+  "description": "毎月の積立額・期間・利率を入力して、将来の貯金総額をシミュレーション。複利効果も確認できます。",
+  "metaTitle": "貯金シミュレーター｜積立額・期間・利率から将来の貯蓄額を計算",
+  "metaDescription": "毎月の積立額と期間、利率を入力するだけで将来の貯金総額を自動計算。複利効果や元本との差額も一目でわかる無料ツール。",
+  "calculatorFunction": "savingsSimulation",
+  "inputs": [
+    { "id": "monthlyAmount", "label": "毎月の積立額", "type": "number", "unit": "円", "default": 30000, "min": 1000, "max": 1000000, "step": 1000 },
+    { "id": "years", "label": "積立期間", "type": "number", "unit": "年", "default": 10, "min": 1, "max": 50, "step": 1 },
+    { "id": "annualRate", "label": "年利率", "type": "number", "unit": "%", "default": 0.1, "min": 0, "max": 10, "step": 0.01 },
+    { "id": "initialAmount", "label": "初期預入額", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 100000000, "step": 10000 }
+  ],
+  "outputs": [
+    { "id": "finalAmount", "label": "最終貯蓄額", "format": "yen", "primary": true },
+    { "id": "totalDeposit", "label": "元本合計（積立総額）", "format": "yen" },
+    { "id": "totalInterest", "label": "利息合計", "format": "yen" },
+    { "id": "interestRate", "label": "利息割合", "format": "percent" }
+  ],
+  "explanation": "<h3>貯金シミュレーションの仕組み</h3><p>毎月一定額を積み立てた場合、複利効果により利息が利息を生み、単純な掛け算よりも多くの金額が貯まります。</p><h3>計算式</h3><p>初期預入額がある場合: 初期額 × (1 + 月利)^月数 + 毎月積立額 × {(1 + 月利)^月数 − 1} ÷ 月利</p><h3>ポイント</h3><ul><li>普通預金の金利は年0.001%〜0.1%程度（2026年現在）</li><li>定期預金で0.1%〜0.5%程度</li><li>ネット銀行の方が金利が高い傾向があります</li><li>長期間の積立ほど複利効果が大きくなります</li></ul>",
+  "faq": [
+    { "question": "複利と単利の違いは？", "answer": "単利は元本にのみ利息がつきますが、複利は利息にも利息がつきます。長期になるほど複利の方が有利です。このシミュレーターは複利で計算しています。" },
+    { "question": "普通預金と定期預金どちらが良い？", "answer": "金利は定期預金の方が高いですが、引き出しの自由度は普通預金が上です。生活防衛資金は普通預金、それ以上は定期預金や投資に振り分けるのが一般的です。" }
+  ],
+  "related": ["compound-interest", "nisa-simulation"],
+  "popular": false
+}

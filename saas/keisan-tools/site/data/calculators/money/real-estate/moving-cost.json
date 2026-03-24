@@ -1,0 +1,113 @@
+{
+  "slug": "moving-cost",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "引越し費用計算",
+  "description": "条件から引越し費用の目安を計算します",
+  "metaTitle": "引越し費用計算ツール｜keisan.tools",
+  "metaDescription": "人数・距離・時期を入力して引越し費用の目安を自動計算。",
+  "calculatorFunction": "movingCost",
+  "inputs": [
+    {
+      "id": "people",
+      "label": "人数",
+      "type": "select",
+      "options": [
+        {
+          "value": "1",
+          "label": "単身"
+        },
+        {
+          "value": "2",
+          "label": "2人"
+        },
+        {
+          "value": "3",
+          "label": "3人家族"
+        },
+        {
+          "value": "4",
+          "label": "4人家族"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "id": "distance",
+      "label": "移動距離",
+      "type": "select",
+      "options": [
+        {
+          "value": "near",
+          "label": "近距離"
+        },
+        {
+          "value": "mid",
+          "label": "中距離"
+        },
+        {
+          "value": "far",
+          "label": "長距離"
+        }
+      ],
+      "default": "near"
+    },
+    {
+      "id": "season",
+      "label": "時期",
+      "type": "select",
+      "options": [
+        {
+          "value": "peak",
+          "label": "繁忙期（3〜4月）"
+        },
+        {
+          "value": "normal",
+          "label": "通常期"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "id": "rent",
+      "label": "新居家賃",
+      "type": "number",
+      "unit": "万円",
+      "default": 8,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "movingFee",
+      "label": "引越し業者費用",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "initialCost",
+      "label": "新居初期費用",
+      "format": "currency"
+    },
+    {
+      "id": "totalCost",
+      "label": "総費用目安",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>引越し費用の目安</h3><p>業者費用＋初期費用（家賃の4〜6ヶ月分）が総費用です。</p>",
+  "faq": [
+    {
+      "question": "繁忙期はいつ？",
+      "answer": "3〜4月で料金は1.3〜2倍になります。"
+    },
+    {
+      "question": "初期費用を抑えるには？",
+      "answer": "敷金礼金ゼロ物件を探しましょう。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

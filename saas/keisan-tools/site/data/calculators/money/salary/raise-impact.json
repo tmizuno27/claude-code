@@ -1,0 +1,93 @@
+{
+  "slug": "raise-impact",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "昇給インパクト計算",
+  "description": "昇給額が手取りに与える影響を計算します",
+  "metaTitle": "昇給インパクト計算ツール｜keisan.tools",
+  "metaDescription": "昇給額を入力して手取りの実質増加額を自動計算。",
+  "calculatorFunction": "raiseImpact",
+  "inputs": [
+    {
+      "id": "currentSalary",
+      "label": "現在の月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 0.1
+    },
+    {
+      "id": "raiseAmount",
+      "label": "昇給額",
+      "type": "number",
+      "unit": "万円",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 18,
+      "max": 70,
+      "step": 1
+    },
+    {
+      "id": "bonusMonths",
+      "label": "賞与月数",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 4,
+      "min": 0,
+      "max": 12,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyIncrease",
+      "label": "月間手取り増",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualIncrease",
+      "label": "年間手取り増",
+      "format": "currency"
+    },
+    {
+      "id": "taxIncrease",
+      "label": "年間税金増",
+      "format": "currency"
+    },
+    {
+      "id": "siIncrease",
+      "label": "年間社保増",
+      "format": "currency"
+    },
+    {
+      "id": "effectiveRate",
+      "label": "実質昇給率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>昇給の手取りへの影響</h3><p>実際の手取り増は昇給額の60〜75%程度です。</p>",
+  "faq": [
+    {
+      "question": "手取りが増えにくいのはなぜ？",
+      "answer": "税率上昇と社保等級変更のためです。"
+    },
+    {
+      "question": "額面1万円アップで手取りは？",
+      "answer": "6,000〜7,500円程度の増加です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

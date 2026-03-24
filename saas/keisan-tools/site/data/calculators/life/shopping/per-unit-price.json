@@ -1,0 +1,90 @@
+{
+  "slug": "per-unit-price",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "単価比較",
+  "description": "容量・個数あたりの単価を比較します",
+  "metaTitle": "単価比較計算ツール｜keisan.tools",
+  "metaDescription": "2つの商品の価格と容量を入力して単価を比較。",
+  "calculatorFunction": "perUnitPrice",
+  "inputs": [
+    {
+      "id": "priceA",
+      "label": "商品Aの価格",
+      "type": "number",
+      "unit": "円",
+      "default": 298,
+      "min": 0,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "amountA",
+      "label": "商品Aの容量",
+      "type": "number",
+      "unit": "",
+      "default": 500,
+      "min": 0.01,
+      "max": 999999,
+      "step": 0.01
+    },
+    {
+      "id": "priceB",
+      "label": "商品Bの価格",
+      "type": "number",
+      "unit": "円",
+      "default": 498,
+      "min": 0,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "amountB",
+      "label": "商品Bの容量",
+      "type": "number",
+      "unit": "",
+      "default": 1000,
+      "min": 0.01,
+      "max": 999999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "unitPriceA",
+      "label": "商品A単価",
+      "format": "number",
+      "primary": true,
+      "suffix": "円"
+    },
+    {
+      "id": "unitPriceB",
+      "label": "商品B単価",
+      "format": "number",
+      "suffix": "円"
+    },
+    {
+      "id": "cheaper",
+      "label": "お得な方",
+      "format": "text"
+    },
+    {
+      "id": "savingsPercent",
+      "label": "価格差",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>単価比較</h3><p>2つの商品の単位あたりの価格を比較します。</p>",
+  "faq": [
+    {
+      "question": "どんな場面で使える？",
+      "answer": "スーパーで大容量パックと通常サイズの比較に便利です。"
+    },
+    {
+      "question": "単位は何でもいい？",
+      "answer": "同じ単位であれば何でも比較できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

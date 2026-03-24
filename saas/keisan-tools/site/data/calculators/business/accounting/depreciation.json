@@ -1,0 +1,84 @@
+{
+  "slug": "depreciation",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "減価償却計算",
+  "description": "定額法・定率法の減価償却費を計算します",
+  "metaTitle": "減価償却計算ツール｜keisan.tools",
+  "metaDescription": "取得価額・耐用年数を入力して減価償却費を自動計算。",
+  "calculatorFunction": "depreciation",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "取得価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "usefulLife",
+      "label": "耐用年数",
+      "type": "number",
+      "unit": "年",
+      "default": 5,
+      "min": 2,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "method",
+      "label": "償却方法",
+      "type": "select",
+      "options": [
+        {
+          "value": "straight",
+          "label": "定額法"
+        },
+        {
+          "value": "declining",
+          "label": "定率法"
+        }
+      ],
+      "default": "straight"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualDepreciation",
+      "label": "年間償却費",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyDepreciation",
+      "label": "月間償却費",
+      "format": "currency"
+    },
+    {
+      "id": "bookValueYear1",
+      "label": "1年後帳簿価額",
+      "format": "currency"
+    },
+    {
+      "id": "salvageValue",
+      "label": "残存価額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>減価償却とは</h3><p>固定資産の購入費用を耐用年数にわたって費用計上する会計処理です。</p>",
+  "faq": [
+    {
+      "question": "定額法と定率法どちらを使うべき？",
+      "answer": "個人事業主は原則定額法、法人は定率法が標準です。"
+    },
+    {
+      "question": "10万円未満の資産は？",
+      "answer": "全額を経費として処理できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

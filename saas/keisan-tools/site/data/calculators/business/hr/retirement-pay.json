@@ -1,0 +1,94 @@
+{
+  "slug": "retirement-pay",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "退職金計算",
+  "description": "勤続年数と基本給から退職金の目安を計算します",
+  "metaTitle": "退職金計算ツール｜keisan.tools",
+  "metaDescription": "勤続年数と基本給を入力して退職金の目安を自動計算。",
+  "calculatorFunction": "retirementPay",
+  "inputs": [
+    {
+      "id": "yearsWorked",
+      "label": "勤続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "baseSalary",
+      "label": "退職時基本給",
+      "type": "number",
+      "unit": "万円",
+      "default": 35,
+      "min": 0,
+      "max": 500,
+      "step": 0.1
+    },
+    {
+      "id": "multiplier",
+      "label": "支給倍率",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 2,
+      "min": 0,
+      "max": 5,
+      "step": 0.1
+    },
+    {
+      "id": "reason",
+      "label": "退職理由",
+      "type": "select",
+      "options": [
+        {
+          "value": "voluntary",
+          "label": "自己都合"
+        },
+        {
+          "value": "company",
+          "label": "会社都合"
+        }
+      ],
+      "default": "voluntary"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossRetirement",
+      "label": "退職金（税引前）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "deduction",
+      "label": "退職所得控除",
+      "format": "currency"
+    },
+    {
+      "id": "tax",
+      "label": "所得税・住民税",
+      "format": "currency"
+    },
+    {
+      "id": "netRetirement",
+      "label": "手取り退職金",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>退職金の計算</h3><p>基本給×支給倍率×勤続年数補正で算出されます。</p>",
+  "faq": [
+    {
+      "question": "退職所得控除とは？",
+      "answer": "退職金にかかる税金計算時に差し引ける控除額です。"
+    },
+    {
+      "question": "自己都合と会社都合の違いは？",
+      "answer": "会社の規程により支給額に差が出る場合があります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "average",
+  "category": "math",
+  "subcategory": "statistics",
+  "title": "平均値計算",
+  "description": "数値の平均・中央値を計算します",
+  "metaTitle": "平均値計算ツール｜keisan.tools",
+  "metaDescription": "数値を入力して平均値・中央値を自動計算。",
+  "calculatorFunction": "average",
+  "inputs": [
+    {
+      "id": "numbers",
+      "label": "数値（カンマ区切り）",
+      "type": "text",
+      "default": "10,20,30,40,50"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "mean",
+      "label": "平均値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "median",
+      "label": "中央値",
+      "format": "number"
+    },
+    {
+      "id": "min",
+      "label": "最小値",
+      "format": "number"
+    },
+    {
+      "id": "max",
+      "label": "最大値",
+      "format": "number"
+    },
+    {
+      "id": "sum",
+      "label": "合計",
+      "format": "number"
+    },
+    {
+      "id": "count",
+      "label": "個数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>平均値の計算</h3><p>全数値の合計÷個数で平均値を算出します。</p>",
+  "faq": [
+    {
+      "question": "平均値と中央値の違いは？",
+      "answer": "平均値は合計÷個数、中央値は真ん中の値です。"
+    },
+    {
+      "question": "入力方法は？",
+      "answer": "カンマ区切りで入力してください。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "sphere",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "球の計算",
+  "description": "半径から球の体積・表面積を計算します",
+  "metaTitle": "球の体積・表面積計算ツール｜keisan.tools",
+  "metaDescription": "半径を入力して球の体積・表面積を自動計算。",
+  "calculatorFunction": "sphere",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "半径",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "volume",
+      "label": "体積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "surfaceArea",
+      "label": "表面積",
+      "format": "number"
+    },
+    {
+      "id": "diameter",
+      "label": "直径",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>球の公式</h3><p>体積=4/3πr³、表面積=4πr²です。</p>",
+  "faq": [
+    {
+      "question": "体積の公式は？",
+      "answer": "4/3×π×半径³です。"
+    },
+    {
+      "question": "球と円の違いは？",
+      "answer": "円は平面、球は立体です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

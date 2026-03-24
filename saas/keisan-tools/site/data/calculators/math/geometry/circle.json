@@ -1,0 +1,53 @@
+{
+  "slug": "circle",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "円の計算",
+  "description": "半径から円の面積・円周を計算します",
+  "metaTitle": "円の面積・円周計算ツール｜keisan.tools",
+  "metaDescription": "半径を入力して円の面積・円周を自動計算。",
+  "calculatorFunction": "circle",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "半径",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "circumference",
+      "label": "円周",
+      "format": "number"
+    },
+    {
+      "id": "diameter",
+      "label": "直径",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>円の公式</h3><p>面積=πr²、円周=2πrです。</p>",
+  "faq": [
+    {
+      "question": "面積の公式は？",
+      "answer": "π×半径²です。"
+    },
+    {
+      "question": "πの値は？",
+      "answer": "約3.14159です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

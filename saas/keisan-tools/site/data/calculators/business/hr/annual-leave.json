@@ -1,0 +1,94 @@
+{
+  "slug": "annual-leave",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "有給休暇日数計算",
+  "description": "勤続年数から有給休暇の付与日数を計算します",
+  "metaTitle": "有給休暇日数計算ツール｜keisan.tools",
+  "metaDescription": "勤続年数を入力して有給休暇の法定付与日数を自動計算。",
+  "calculatorFunction": "annualLeave",
+  "inputs": [
+    {
+      "id": "yearsWorked",
+      "label": "勤続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 3,
+      "min": 0,
+      "max": 50,
+      "step": 0.5
+    },
+    {
+      "id": "weekDays",
+      "label": "週の所定労働日数",
+      "type": "select",
+      "options": [
+        {
+          "value": "5",
+          "label": "5日"
+        },
+        {
+          "value": "4",
+          "label": "4日"
+        },
+        {
+          "value": "3",
+          "label": "3日"
+        },
+        {
+          "value": "2",
+          "label": "2日"
+        },
+        {
+          "value": "1",
+          "label": "1日"
+        }
+      ],
+      "default": "5"
+    },
+    {
+      "id": "usedDays",
+      "label": "今期使用日数",
+      "type": "number",
+      "unit": "日",
+      "default": 5,
+      "min": 0,
+      "max": 40,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grantedDays",
+      "label": "今期付与日数",
+      "format": "number",
+      "primary": true,
+      "suffix": "日"
+    },
+    {
+      "id": "maxDays",
+      "label": "繰越含む上限",
+      "format": "number",
+      "suffix": "日"
+    },
+    {
+      "id": "remainingDays",
+      "label": "残り日数",
+      "format": "number",
+      "suffix": "日"
+    }
+  ],
+  "explanation": "<h3>有給休暇の付与日数</h3><p>入社6ヶ月後に10日、以降1年ごとに増加し最大20日付与されます。</p>",
+  "faq": [
+    {
+      "question": "有給休暇はいつから付与？",
+      "answer": "入社後6ヶ月で初回10日が付与されます。"
+    },
+    {
+      "question": "パートでも有給はある？",
+      "answer": "はい、比例付与されます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

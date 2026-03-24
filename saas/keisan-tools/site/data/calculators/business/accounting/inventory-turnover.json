@@ -1,0 +1,66 @@
+{
+  "slug": "inventory-turnover",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "在庫回転率計算",
+  "description": "売上原価と平均在庫から在庫回転率を計算します",
+  "metaTitle": "在庫回転率計算ツール｜keisan.tools",
+  "metaDescription": "売上原価と平均在庫額を入力して在庫回転率を自動計算。",
+  "calculatorFunction": "inventoryTurnover",
+  "inputs": [
+    {
+      "id": "cogs",
+      "label": "年間売上原価",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "avgInventory",
+      "label": "平均在庫額",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 1,
+      "max": 10000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "turnoverRate",
+      "label": "在庫回転率",
+      "format": "number",
+      "primary": true,
+      "suffix": "回"
+    },
+    {
+      "id": "turnoverDays",
+      "label": "在庫回転日数",
+      "format": "number",
+      "suffix": "日"
+    },
+    {
+      "id": "monthlyTurnover",
+      "label": "月間回転率",
+      "format": "number",
+      "suffix": "回"
+    }
+  ],
+  "explanation": "<h3>在庫回転率とは</h3><p>売上原価÷平均在庫で算出します。高いほど在庫効率が良いです。</p>",
+  "faq": [
+    {
+      "question": "在庫回転率の目安は？",
+      "answer": "小売業12回以上、製造業6回以上が目安です。"
+    },
+    {
+      "question": "回転率が低いとどうなる？",
+      "answer": "在庫が滞留し資金繰りが悪化します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

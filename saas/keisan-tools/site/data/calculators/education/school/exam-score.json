@@ -1,0 +1,74 @@
+{
+  "slug": "exam-score",
+  "category": "education",
+  "subcategory": "school",
+  "title": "偏差値計算",
+  "description": "テストの点数から偏差値を計算します",
+  "metaTitle": "偏差値計算ツール｜keisan.tools",
+  "metaDescription": "テストの点数・平均点・標準偏差を入力して偏差値を自動計算。",
+  "calculatorFunction": "examScore",
+  "inputs": [
+    {
+      "id": "score",
+      "label": "あなたの点数",
+      "type": "number",
+      "unit": "点",
+      "default": 75,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "average",
+      "label": "平均点",
+      "type": "number",
+      "unit": "点",
+      "default": 60,
+      "min": 0,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "stdDev",
+      "label": "標準偏差",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "min": 0.1,
+      "max": 1000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "deviation",
+      "label": "偏差値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "percentile",
+      "label": "上位何%",
+      "format": "percent"
+    },
+    {
+      "id": "diff",
+      "label": "平均との差",
+      "format": "number",
+      "suffix": "点"
+    }
+  ],
+  "explanation": "<h3>偏差値の計算方法</h3><p>50+10×(得点-平均点)÷標準偏差で算出します。</p>",
+  "faq": [
+    {
+      "question": "偏差値50は？",
+      "answer": "ちょうど平均的な成績です。"
+    },
+    {
+      "question": "偏差値70は？",
+      "answer": "上位約2.3%です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

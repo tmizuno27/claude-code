@@ -1,0 +1,75 @@
+{
+  "slug": "fuel-cost",
+  "category": "life",
+  "subcategory": "car",
+  "title": "ガソリン代計算",
+  "description": "距離・燃費・ガソリン単価からガソリン代を計算します",
+  "metaTitle": "ガソリン代計算ツール｜keisan.tools",
+  "metaDescription": "走行距離・燃費・ガソリン単価を入力してガソリン代を自動計算。",
+  "calculatorFunction": "fuelCost",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "燃費",
+      "type": "number",
+      "unit": "km/L",
+      "default": 15,
+      "min": 1,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "fuelPrice",
+      "label": "ガソリン単価",
+      "type": "number",
+      "unit": "円/L",
+      "default": 175,
+      "min": 50,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fuelCost",
+      "label": "ガソリン代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "fuelAmount",
+      "label": "使用燃料",
+      "format": "number",
+      "suffix": "L"
+    },
+    {
+      "id": "costPerKm",
+      "label": "1kmあたりコスト",
+      "format": "number",
+      "suffix": "円"
+    }
+  ],
+  "explanation": "<h3>ガソリン代の計算</h3><p>走行距離÷燃費×ガソリン単価で計算します。</p>",
+  "faq": [
+    {
+      "question": "カタログ燃費と実燃費の違いは？",
+      "answer": "実燃費はカタログ値の7〜8割程度です。"
+    },
+    {
+      "question": "高速と一般道で燃費は変わる？",
+      "answer": "一般的に高速道路の方が燃費が良いです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

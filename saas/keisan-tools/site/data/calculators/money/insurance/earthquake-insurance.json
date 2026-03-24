@@ -1,0 +1,113 @@
+{
+  "slug": "earthquake-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "地震保険料計算",
+  "description": "建物の条件から地震保険料を計算します",
+  "metaTitle": "地震保険料計算ツール｜keisan.tools",
+  "metaDescription": "建物構造・所在地から地震保険料を自動計算。",
+  "calculatorFunction": "earthquakeInsurance",
+  "inputs": [
+    {
+      "id": "structure",
+      "label": "建物構造",
+      "type": "select",
+      "options": [
+        {
+          "value": "fireproof",
+          "label": "耐火構造"
+        },
+        {
+          "value": "nonfireproof",
+          "label": "非耐火構造"
+        }
+      ],
+      "default": "fireproof"
+    },
+    {
+      "id": "area",
+      "label": "所在地",
+      "type": "select",
+      "options": [
+        {
+          "value": "1",
+          "label": "1等地"
+        },
+        {
+          "value": "2",
+          "label": "2等地"
+        },
+        {
+          "value": "3",
+          "label": "3等地"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "id": "insuranceAmount",
+      "label": "保険金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 100,
+      "max": 5000,
+      "step": 100
+    },
+    {
+      "id": "discount",
+      "label": "割引",
+      "type": "select",
+      "options": [
+        {
+          "value": "0",
+          "label": "なし"
+        },
+        {
+          "value": "10",
+          "label": "建築年割引（10%）"
+        },
+        {
+          "value": "30",
+          "label": "耐震等級2（30%）"
+        },
+        {
+          "value": "50",
+          "label": "耐震等級3（50%）"
+        }
+      ],
+      "default": "0"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPremium",
+      "label": "年間保険料",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "fiveYearPremium",
+      "label": "5年一括保険料",
+      "format": "currency"
+    },
+    {
+      "id": "taxDeduction",
+      "label": "地震保険料控除",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>地震保険について</h3><p>火災保険に付帯する形で加入。保険料は所在地と構造で決まります。</p>",
+  "faq": [
+    {
+      "question": "地震保険は必要？",
+      "answer": "住宅ローン返済中は推奨します。"
+    },
+    {
+      "question": "地震保険料控除とは？",
+      "answer": "最大5万円が所得から控除できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,98 @@
+{
+  "slug": "basal-metabolism",
+  "category": "health",
+  "subcategory": "body",
+  "title": "基礎代謝計算",
+  "description": "ハリス・ベネディクト方程式で基礎代謝量を計算します",
+  "metaTitle": "基礎代謝計算ツール｜keisan.tools",
+  "metaDescription": "身長・体重・年齢・性別から基礎代謝量を自動計算。ダイエットや健康管理の基礎データとして活用できます。",
+  "calculatorFunction": "basalMetabolism",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "身長",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "min": 100,
+      "max": 220,
+      "step": 0.1
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 30,
+      "min": 10,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "bmr",
+      "label": "基礎代謝量",
+      "format": "number",
+      "primary": true,
+      "suffix": "kcal"
+    },
+    {
+      "id": "sedentary",
+      "label": "活動量少（×1.2）",
+      "format": "number",
+      "suffix": "kcal"
+    },
+    {
+      "id": "moderate",
+      "label": "適度な運動（×1.55）",
+      "format": "number",
+      "suffix": "kcal"
+    },
+    {
+      "id": "active",
+      "label": "活発な運動（×1.725）",
+      "format": "number",
+      "suffix": "kcal"
+    }
+  ],
+  "explanation": "<h3>基礎代謝とは</h3><p>基礎代謝は何もしなくても消費されるエネルギー量です。ハリス・ベネディクト方程式（改良版）を使用して計算します。</p>",
+  "faq": [
+    {
+      "question": "基礎代謝が高いとどうなる？",
+      "answer": "基礎代謝が高いほど太りにくい体質といえます。筋肉量が多いと基礎代謝は上がります。"
+    },
+    {
+      "question": "計算式は何を使っていますか？",
+      "answer": "改良版ハリス・ベネディクト方程式を使用しています。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

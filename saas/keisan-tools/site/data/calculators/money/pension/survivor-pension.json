@@ -1,0 +1,94 @@
+{
+  "slug": "survivor-pension",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "遺族年金計算",
+  "description": "遺族年金の受給額を概算します",
+  "metaTitle": "遺族年金計算ツール｜keisan.tools",
+  "metaDescription": "遺族年金の受給額を自動概算。",
+  "calculatorFunction": "survivorPension",
+  "inputs": [
+    {
+      "id": "avgSalary",
+      "label": "故人の平均月収",
+      "type": "number",
+      "unit": "万円",
+      "default": 35,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "contributionYears",
+      "label": "加入期間",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "children",
+      "label": "18歳未満の子の数",
+      "type": "number",
+      "unit": "人",
+      "default": 2,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "id": "pensionType",
+      "label": "加入種別",
+      "type": "select",
+      "options": [
+        {
+          "value": "employee",
+          "label": "厚生年金"
+        },
+        {
+          "value": "national",
+          "label": "国民年金のみ"
+        }
+      ],
+      "default": "employee"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPension",
+      "label": "遺族年金（年額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyPension",
+      "label": "遺族年金（月額）",
+      "format": "currency"
+    },
+    {
+      "id": "basicPension",
+      "label": "遺族基礎年金",
+      "format": "currency"
+    },
+    {
+      "id": "welfarePension",
+      "label": "遺族厚生年金",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>遺族年金の仕組み</h3><p>遺族基礎年金は年約82万円＋子の加算。遺族厚生年金は報酬比例部分の3/4です。</p>",
+  "faq": [
+    {
+      "question": "誰が受け取れる？",
+      "answer": "子のある配偶者または子が対象です。"
+    },
+    {
+      "question": "子が18歳になったら？",
+      "answer": "遺族基礎年金は失権、遺族厚生年金は継続です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

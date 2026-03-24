@@ -1,0 +1,63 @@
+{
+  "slug": "cone",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "円錐の計算",
+  "description": "半径と高さから円錐の体積・表面積を計算します",
+  "metaTitle": "円錐の体積・表面積計算ツール｜keisan.tools",
+  "metaDescription": "底面の半径と高さを入力して円錐の体積・表面積を自動計算。",
+  "calculatorFunction": "cone",
+  "inputs": [
+    {
+      "id": "radius",
+      "label": "底面の半径",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    },
+    {
+      "id": "height",
+      "label": "高さ",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "volume",
+      "label": "体積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "surfaceArea",
+      "label": "表面積",
+      "format": "number"
+    },
+    {
+      "id": "slantHeight",
+      "label": "母線の長さ",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>円錐の公式</h3><p>体積=1/3πr²h、母線=√(r²+h²)です。</p>",
+  "faq": [
+    {
+      "question": "体積は円柱の何倍？",
+      "answer": "同じ底面・高さの円柱の1/3です。"
+    },
+    {
+      "question": "母線とは？",
+      "answer": "頂点から底面円周までの距離です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "medical-expense",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "医療費控除計算",
+  "description": "年間医療費から確定申告の医療費控除額を計算します",
+  "metaTitle": "医療費控除計算ツール｜keisan.tools",
+  "metaDescription": "年間の医療費と所得を入力して医療費控除額・還付金額を自動計算。",
+  "calculatorFunction": "medicalExpense",
+  "inputs": [
+    {
+      "id": "totalMedical",
+      "label": "年間医療費合計",
+      "type": "number",
+      "unit": "円",
+      "default": 200000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1000
+    },
+    {
+      "id": "insurance",
+      "label": "保険金等で補填された金額",
+      "type": "number",
+      "unit": "円",
+      "default": 0,
+      "min": 0,
+      "max": 10000000,
+      "step": 1000
+    },
+    {
+      "id": "income",
+      "label": "総所得金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 400,
+      "min": 0,
+      "max": 5000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "deduction",
+      "label": "医療費控除額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxRefund",
+      "label": "所得税還付目安",
+      "format": "currency"
+    },
+    {
+      "id": "residentTaxReduction",
+      "label": "住民税軽減目安",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>医療費控除とは</h3><p>年間の医療費が10万円を超える場合、超えた分を所得から控除できます。最大200万円まで。</p>",
+  "faq": [
+    {
+      "question": "医療費控除の対象は？",
+      "answer": "診察費、薬代、入院費、通院交通費など幅広い医療費が対象です。"
+    },
+    {
+      "question": "10万円以下でも控除できる？",
+      "answer": "総所得200万円未満の場合、所得の5%を超えれば控除できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

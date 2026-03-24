@@ -1,0 +1,112 @@
+{
+  "slug": "freelance-tax",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "フリーランス税金計算",
+  "description": "年間売上と経費からフリーランスの税金を概算します",
+  "metaTitle": "フリーランス税金計算ツール｜keisan.tools",
+  "metaDescription": "フリーランスの所得税・住民税・社会保険料を自動概算。",
+  "calculatorFunction": "freelanceTax",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "年間売上",
+      "type": "number",
+      "unit": "万円",
+      "default": 600,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "expenses",
+      "label": "年間経費",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "blueReturn",
+      "label": "青色申告",
+      "type": "select",
+      "options": [
+        {
+          "value": "65",
+          "label": "65万円控除"
+        },
+        {
+          "value": "55",
+          "label": "55万円控除"
+        },
+        {
+          "value": "10",
+          "label": "10万円控除"
+        },
+        {
+          "value": "0",
+          "label": "白色申告"
+        }
+      ],
+      "default": "65"
+    },
+    {
+      "id": "dependents",
+      "label": "扶養家族数",
+      "type": "number",
+      "unit": "人",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "incomeTax",
+      "label": "所得税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "residentTax",
+      "label": "住民税",
+      "format": "currency"
+    },
+    {
+      "id": "healthInsurance",
+      "label": "国民健康保険料",
+      "format": "currency"
+    },
+    {
+      "id": "pension",
+      "label": "国民年金",
+      "format": "currency"
+    },
+    {
+      "id": "totalTax",
+      "label": "税金・社保合計",
+      "format": "currency"
+    },
+    {
+      "id": "takeHome",
+      "label": "手取り目安",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>フリーランスの税金</h3><p>所得税・住民税・国保・国民年金を自分で納付します。青色申告で最大65万円の節税が可能です。</p>",
+  "faq": [
+    {
+      "question": "青色と白色の違いは？",
+      "answer": "青色は最大65万円控除、白色は控除なしですが記帳が簡単です。"
+    },
+    {
+      "question": "経費に含まれるものは？",
+      "answer": "事業に必要な通信費、交通費、消耗品費等です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

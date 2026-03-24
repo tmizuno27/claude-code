@@ -1,0 +1,95 @@
+{
+  "slug": "area",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "面積変換",
+  "description": "平方メートル・坪・畳など面積の単位を変換します",
+  "metaTitle": "面積変換ツール｜keisan.tools",
+  "metaDescription": "平方メートル・坪・畳・エーカーなど面積の単位を簡単に変換。",
+  "calculatorFunction": "areaConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "sqm",
+          "label": "平方メートル（㎡）"
+        },
+        {
+          "value": "tsubo",
+          "label": "坪"
+        },
+        {
+          "value": "tatami",
+          "label": "畳"
+        },
+        {
+          "value": "ha",
+          "label": "ヘクタール"
+        },
+        {
+          "value": "sqft",
+          "label": "平方フィート"
+        },
+        {
+          "value": "acre",
+          "label": "エーカー"
+        }
+      ],
+      "default": "sqm"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "sqm",
+      "label": "平方メートル",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "tsubo",
+      "label": "坪",
+      "format": "number"
+    },
+    {
+      "id": "tatami",
+      "label": "畳",
+      "format": "number"
+    },
+    {
+      "id": "ha",
+      "label": "ヘクタール",
+      "format": "number"
+    },
+    {
+      "id": "sqft",
+      "label": "平方フィート",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>面積の変換</h3><p>各種面積の単位を相互変換します。</p>",
+  "faq": [
+    {
+      "question": "1坪は何㎡？",
+      "answer": "約3.306㎡です。"
+    },
+    {
+      "question": "1畳は何㎡？",
+      "answer": "江戸間で約1.548㎡です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

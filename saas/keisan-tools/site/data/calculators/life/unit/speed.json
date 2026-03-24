@@ -1,0 +1,82 @@
+{
+  "slug": "speed",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "速度変換",
+  "description": "km/h・m/s・マイル/hなど速度の単位を変換します",
+  "metaTitle": "速度変換ツール｜keisan.tools",
+  "metaDescription": "時速・秒速・マイル毎時・ノットなど速度の単位を簡単に変換。",
+  "calculatorFunction": "speedConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999,
+      "step": 0.1
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "kmh",
+          "label": "km/h"
+        },
+        {
+          "value": "ms",
+          "label": "m/s"
+        },
+        {
+          "value": "mph",
+          "label": "マイル/h"
+        },
+        {
+          "value": "knot",
+          "label": "ノット"
+        }
+      ],
+      "default": "kmh"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "kmh",
+      "label": "km/h",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ms",
+      "label": "m/s",
+      "format": "number"
+    },
+    {
+      "id": "mph",
+      "label": "マイル/h",
+      "format": "number"
+    },
+    {
+      "id": "knot",
+      "label": "ノット",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>速度の変換</h3><p>各種速度の単位を相互変換します。</p>",
+  "faq": [
+    {
+      "question": "1ノットは何km/h？",
+      "answer": "約1.852km/hです。"
+    },
+    {
+      "question": "マッハ1は何km/h？",
+      "answer": "約1,225km/hです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

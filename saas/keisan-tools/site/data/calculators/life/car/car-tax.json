@@ -1,0 +1,121 @@
+{
+  "slug": "car-tax",
+  "category": "life",
+  "subcategory": "car",
+  "title": "自動車税計算",
+  "description": "排気量から自動車税額を計算します",
+  "metaTitle": "自動車税計算ツール｜keisan.tools",
+  "metaDescription": "排気量を選択するだけで自動車税の年額を自動表示。",
+  "calculatorFunction": "carTax",
+  "inputs": [
+    {
+      "id": "displacement",
+      "label": "排気量",
+      "type": "select",
+      "options": [
+        {
+          "value": "660",
+          "label": "軽自動車"
+        },
+        {
+          "value": "1000",
+          "label": "〜1,000cc"
+        },
+        {
+          "value": "1500",
+          "label": "1,001〜1,500cc"
+        },
+        {
+          "value": "2000",
+          "label": "1,501〜2,000cc"
+        },
+        {
+          "value": "2500",
+          "label": "2,001〜2,500cc"
+        },
+        {
+          "value": "3000",
+          "label": "2,501〜3,000cc"
+        },
+        {
+          "value": "3500",
+          "label": "3,001〜3,500cc"
+        },
+        {
+          "value": "4000",
+          "label": "3,501〜4,000cc"
+        },
+        {
+          "value": "4500",
+          "label": "4,001〜4,500cc"
+        },
+        {
+          "value": "6000",
+          "label": "4,501〜6,000cc"
+        },
+        {
+          "value": "6001",
+          "label": "6,000cc超"
+        }
+      ],
+      "default": "1500"
+    },
+    {
+      "id": "isNew",
+      "label": "登録時期",
+      "type": "select",
+      "options": [
+        {
+          "value": "new",
+          "label": "2019年10月以降"
+        },
+        {
+          "value": "old",
+          "label": "2019年9月以前"
+        }
+      ],
+      "default": "new"
+    },
+    {
+      "id": "years",
+      "label": "経過年数",
+      "type": "number",
+      "unit": "年",
+      "default": 3,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualTax",
+      "label": "年間自動車税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "heavyTax",
+      "label": "重課税額（13年超）",
+      "format": "currency"
+    },
+    {
+      "id": "isHeavyTax",
+      "label": "重課対象",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>自動車税について</h3><p>排気量に応じて税額が決まり、13年超で約15%重課されます。</p>",
+  "faq": [
+    {
+      "question": "軽自動車の税額は？",
+      "answer": "一律10,800円です。"
+    },
+    {
+      "question": "13年超の重課とは？",
+      "answer": "ガソリン車は13年超で約15%の重課があります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

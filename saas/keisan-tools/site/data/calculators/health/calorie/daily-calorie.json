@@ -1,0 +1,116 @@
+{
+  "slug": "daily-calorie",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "1日必要カロリー計算",
+  "description": "年齢・性別・活動量から1日に必要なカロリーを計算します",
+  "metaTitle": "1日必要カロリー計算ツール｜keisan.tools",
+  "metaDescription": "年齢・性別・活動レベルから1日に必要な摂取カロリーを自動計算。",
+  "calculatorFunction": "dailyCalorie",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "身長",
+      "type": "number",
+      "unit": "cm",
+      "default": 170,
+      "min": 100,
+      "max": 220,
+      "step": 0.1
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 30,
+      "min": 10,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    },
+    {
+      "id": "activity",
+      "label": "活動レベル",
+      "type": "select",
+      "options": [
+        {
+          "value": "1.2",
+          "label": "ほとんど運動しない"
+        },
+        {
+          "value": "1.375",
+          "label": "軽い運動（週1〜3回）"
+        },
+        {
+          "value": "1.55",
+          "label": "適度な運動（週3〜5回）"
+        },
+        {
+          "value": "1.725",
+          "label": "激しい運動（週6〜7回）"
+        }
+      ],
+      "default": "1.375"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "maintenance",
+      "label": "維持カロリー",
+      "format": "number",
+      "primary": true,
+      "suffix": "kcal"
+    },
+    {
+      "id": "weightLoss",
+      "label": "減量目安（-500kcal）",
+      "format": "number",
+      "suffix": "kcal"
+    },
+    {
+      "id": "weightGain",
+      "label": "増量目安（+500kcal）",
+      "format": "number",
+      "suffix": "kcal"
+    }
+  ],
+  "explanation": "<h3>1日必要カロリーとは</h3><p>基礎代謝に活動レベルの係数を掛けて算出します。</p>",
+  "faq": [
+    {
+      "question": "活動レベルはどう選べばいい？",
+      "answer": "デスクワーク中心なら「ほとんど運動しない」が目安です。"
+    },
+    {
+      "question": "500kcal減で何kg痩せる？",
+      "answer": "理論上、1ヶ月で約2kg程度です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

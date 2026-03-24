@@ -1,0 +1,74 @@
+{
+  "slug": "break-even",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "損益分岐点計算",
+  "description": "固定費・変動費率から損益分岐点売上高を計算します",
+  "metaTitle": "損益分岐点計算ツール｜keisan.tools",
+  "metaDescription": "固定費・変動費率を入力して損益分岐点を自動計算。",
+  "calculatorFunction": "breakEven",
+  "inputs": [
+    {
+      "id": "fixedCost",
+      "label": "固定費",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "variableRate",
+      "label": "変動費率",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "max": 99,
+      "step": 1
+    },
+    {
+      "id": "price",
+      "label": "販売単価",
+      "type": "number",
+      "unit": "円",
+      "default": 5000,
+      "min": 1,
+      "max": 10000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "breakEvenSales",
+      "label": "損益分岐点売上高",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "breakEvenUnits",
+      "label": "損益分岐点販売数",
+      "format": "number",
+      "suffix": "個"
+    },
+    {
+      "id": "marginRate",
+      "label": "限界利益率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>損益分岐点とは</h3><p>売上と費用がちょうど等しくなる点です。固定費÷限界利益率で算出します。</p>",
+  "faq": [
+    {
+      "question": "変動費率とは？",
+      "answer": "売上に対する変動費の割合です。"
+    },
+    {
+      "question": "限界利益率とは？",
+      "answer": "1-変動費率です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

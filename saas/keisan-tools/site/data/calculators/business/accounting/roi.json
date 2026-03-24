@@ -1,0 +1,64 @@
+{
+  "slug": "roi",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "ROI計算",
+  "description": "投資額と利益からROIを計算します",
+  "metaTitle": "ROI計算ツール｜keisan.tools",
+  "metaDescription": "投資額と利益を入力してROIを自動計算。",
+  "calculatorFunction": "roi",
+  "inputs": [
+    {
+      "id": "investment",
+      "label": "投資額",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "gain",
+      "label": "得られた利益",
+      "type": "number",
+      "unit": "万円",
+      "default": 150,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "roi",
+      "label": "ROI",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "netProfit",
+      "label": "純利益",
+      "format": "currency"
+    },
+    {
+      "id": "roiRatio",
+      "label": "投資倍率",
+      "format": "number",
+      "suffix": "倍"
+    }
+  ],
+  "explanation": "<h3>ROIとは</h3><p>(利益-投資額)÷投資額×100で算出します。</p>",
+  "faq": [
+    {
+      "question": "良いROIの目安は？",
+      "answer": "一般的に20%以上が良い投資とされます。"
+    },
+    {
+      "question": "ROIがマイナスの場合は？",
+      "answer": "投資額を回収できていない赤字の状態です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "triangle",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "三角形の面積",
+  "description": "底辺と高さから三角形の面積を計算します",
+  "metaTitle": "三角形の面積計算ツール｜keisan.tools",
+  "metaDescription": "底辺と高さを入力して三角形の面積を自動計算。",
+  "calculatorFunction": "triangle",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "底辺",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    },
+    {
+      "id": "height",
+      "label": "高さ",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>三角形の面積</h3><p>底辺×高さ÷2です。</p>",
+  "faq": [
+    {
+      "question": "面積の公式は？",
+      "answer": "底辺×高さ÷2です。"
+    },
+    {
+      "question": "3辺から面積を求めるには？",
+      "answer": "ヘロンの公式を使います。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

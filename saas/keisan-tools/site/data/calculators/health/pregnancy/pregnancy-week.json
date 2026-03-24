@@ -1,0 +1,54 @@
+{
+  "slug": "pregnancy-week",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "妊娠週数計算",
+  "description": "最終月経日から現在の妊娠週数を計算します",
+  "metaTitle": "妊娠週数計算ツール｜keisan.tools",
+  "metaDescription": "最終月経開始日を入力して現在の妊娠週数・日数を自動計算。",
+  "calculatorFunction": "pregnancyWeek",
+  "inputs": [
+    {
+      "id": "lastPeriod",
+      "label": "最終月経開始日",
+      "type": "date",
+      "default": "2025-12-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "weeks",
+      "label": "妊娠週数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "daysRemaining",
+      "label": "出産予定日まで",
+      "format": "text"
+    },
+    {
+      "id": "dueDate",
+      "label": "出産予定日",
+      "format": "text"
+    },
+    {
+      "id": "trimester",
+      "label": "妊娠期",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>妊娠週数の計算</h3><p>最終月経開始日からの経過日数を7で割って週数を算出します。</p>",
+  "faq": [
+    {
+      "question": "妊娠週数の数え方は？",
+      "answer": "最終月経開始日を0週0日とし、7日ごとに1週と数えます。"
+    },
+    {
+      "question": "出産予定日を過ぎたら？",
+      "answer": "40週を超えると医師の判断で対応が検討されます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

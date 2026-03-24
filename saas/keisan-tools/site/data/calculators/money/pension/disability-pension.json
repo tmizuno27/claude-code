@@ -1,0 +1,114 @@
+{
+  "slug": "disability-pension",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "障害年金計算",
+  "description": "障害年金の受給額を概算します",
+  "metaTitle": "障害年金計算ツール｜keisan.tools",
+  "metaDescription": "障害年金の受給額を自動概算。",
+  "calculatorFunction": "disabilityPension",
+  "inputs": [
+    {
+      "id": "grade",
+      "label": "障害等級",
+      "type": "select",
+      "options": [
+        {
+          "value": "1",
+          "label": "1級"
+        },
+        {
+          "value": "2",
+          "label": "2級"
+        },
+        {
+          "value": "3",
+          "label": "3級"
+        }
+      ],
+      "default": "2"
+    },
+    {
+      "id": "avgSalary",
+      "label": "平均月収",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "contributionYears",
+      "label": "加入期間",
+      "type": "number",
+      "unit": "年",
+      "default": 15,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "children",
+      "label": "18歳未満の子の数",
+      "type": "number",
+      "unit": "人",
+      "default": 0,
+      "min": 0,
+      "max": 5,
+      "step": 1
+    },
+    {
+      "id": "pensionType",
+      "label": "加入種別",
+      "type": "select",
+      "options": [
+        {
+          "value": "employee",
+          "label": "厚生年金"
+        },
+        {
+          "value": "national",
+          "label": "国民年金"
+        }
+      ],
+      "default": "employee"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPension",
+      "label": "障害年金（年額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyPension",
+      "label": "障害年金（月額）",
+      "format": "currency"
+    },
+    {
+      "id": "basicPension",
+      "label": "障害基礎年金",
+      "format": "currency"
+    },
+    {
+      "id": "welfarePension",
+      "label": "障害厚生年金",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>障害年金の仕組み</h3><p>1級は約102万円/年、2級は約82万円/年。厚生年金加入者は上乗せがあります。</p>",
+  "faq": [
+    {
+      "question": "誰がもらえる？",
+      "answer": "初診日に年金加入しており障害認定基準に該当する方です。"
+    },
+    {
+      "question": "働きながら受給できる？",
+      "answer": "はい、所得制限なく受給できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

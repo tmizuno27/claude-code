@@ -1,0 +1,83 @@
+{
+  "slug": "side-job-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "副業税金計算",
+  "description": "副業収入にかかる税金を計算します",
+  "metaTitle": "副業税金計算ツール｜keisan.tools",
+  "metaDescription": "副業収入と経費を入力して追加の税金額を自動計算。",
+  "calculatorFunction": "sideJobTax",
+  "inputs": [
+    {
+      "id": "mainIncome",
+      "label": "本業年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "sideRevenue",
+      "label": "副業収入",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "sideExpenses",
+      "label": "副業経費",
+      "type": "number",
+      "unit": "万円",
+      "default": 20,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "sideIncome",
+      "label": "副業所得",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "additionalIncomeTax",
+      "label": "追加所得税",
+      "format": "currency"
+    },
+    {
+      "id": "additionalResidentTax",
+      "label": "追加住民税",
+      "format": "currency"
+    },
+    {
+      "id": "totalAdditionalTax",
+      "label": "追加税金合計",
+      "format": "currency"
+    },
+    {
+      "id": "needsFiling",
+      "label": "確定申告の要否",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>副業の税金</h3><p>副業所得が20万円超で確定申告が必要です。</p>",
+  "faq": [
+    {
+      "question": "20万円以下なら税金ゼロ？",
+      "answer": "所得税は不要ですが住民税の申告は必要です。"
+    },
+    {
+      "question": "会社にバレない方法は？",
+      "answer": "住民税を普通徴収にすることで対応可能です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

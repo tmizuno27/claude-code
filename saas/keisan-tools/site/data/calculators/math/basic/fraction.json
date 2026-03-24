@@ -1,0 +1,107 @@
+{
+  "slug": "fraction",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "分数計算",
+  "description": "分数の四則演算を行います",
+  "metaTitle": "分数計算ツール｜keisan.tools",
+  "metaDescription": "分数の足し算・引き算・掛け算・割り算を自動計算。",
+  "calculatorFunction": "fraction",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "分子1",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -9999,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "den1",
+      "label": "分母1",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "min": 1,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "operator",
+      "label": "演算子",
+      "type": "select",
+      "options": [
+        {
+          "value": "add",
+          "label": "＋"
+        },
+        {
+          "value": "sub",
+          "label": "－"
+        },
+        {
+          "value": "mul",
+          "label": "×"
+        },
+        {
+          "value": "div",
+          "label": "÷"
+        }
+      ],
+      "default": "add"
+    },
+    {
+      "id": "num2",
+      "label": "分子2",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -9999,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "den2",
+      "label": "分母2",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "min": 1,
+      "max": 9999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "resultFraction",
+      "label": "計算結果（分数）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "decimal",
+      "label": "小数",
+      "format": "number"
+    },
+    {
+      "id": "mixed",
+      "label": "帯分数",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>分数の四則演算</h3><p>2つの分数の演算を計算し約分して表示します。</p>",
+  "faq": [
+    {
+      "question": "通分とは？",
+      "answer": "分母を揃えることです。"
+    },
+    {
+      "question": "約分とは？",
+      "answer": "最大公約数で割ることです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

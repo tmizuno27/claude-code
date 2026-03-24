@@ -1,0 +1,83 @@
+{
+  "slug": "split-bill",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "割り勘計算",
+  "description": "合計金額と人数から1人あたりの金額を計算します",
+  "metaTitle": "割り勘計算ツール｜keisan.tools",
+  "metaDescription": "合計金額と人数を入力して1人あたりの支払額を自動計算。",
+  "calculatorFunction": "splitBill",
+  "inputs": [
+    {
+      "id": "total",
+      "label": "合計金額",
+      "type": "number",
+      "unit": "円",
+      "default": 30000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "people",
+      "label": "人数",
+      "type": "number",
+      "unit": "人",
+      "default": 4,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "rounding",
+      "label": "端数処理",
+      "type": "select",
+      "options": [
+        {
+          "value": "ceil",
+          "label": "切り上げ"
+        },
+        {
+          "value": "floor",
+          "label": "切り捨て"
+        },
+        {
+          "value": "round",
+          "label": "四捨五入"
+        }
+      ],
+      "default": "ceil"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "perPerson",
+      "label": "1人あたり",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "remainder",
+      "label": "端数",
+      "format": "currency"
+    },
+    {
+      "id": "totalCollected",
+      "label": "徴収合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>割り勘計算</h3><p>合計金額を人数で均等に割ります。</p>",
+  "faq": [
+    {
+      "question": "端数はどう処理する？",
+      "answer": "切り上げが一般的です。"
+    },
+    {
+      "question": "傾斜配分はできる？",
+      "answer": "本ツールは均等割りのみです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

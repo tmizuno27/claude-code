@@ -1,0 +1,85 @@
+{
+  "slug": "gpa",
+  "category": "education",
+  "subcategory": "school",
+  "title": "GPA計算",
+  "description": "成績からGPAを計算します",
+  "metaTitle": "GPA計算ツール｜keisan.tools",
+  "metaDescription": "各科目の成績と単位数を入力してGPAを自動計算。",
+  "calculatorFunction": "gpa",
+  "inputs": [
+    {
+      "id": "gradeA",
+      "label": "A（優）の単位数",
+      "type": "number",
+      "unit": "単位",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "gradeB",
+      "label": "B（良）の単位数",
+      "type": "number",
+      "unit": "単位",
+      "default": 30,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "gradeC",
+      "label": "C（可）の単位数",
+      "type": "number",
+      "unit": "単位",
+      "default": 15,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "gradeD",
+      "label": "D（不可）の単位数",
+      "type": "number",
+      "unit": "単位",
+      "default": 2,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "gpa",
+      "label": "GPA",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "totalCredits",
+      "label": "取得単位数",
+      "format": "number",
+      "suffix": "単位"
+    },
+    {
+      "id": "totalAttempted",
+      "label": "履修単位数",
+      "format": "number",
+      "suffix": "単位"
+    }
+  ],
+  "explanation": "<h3>GPAの計算方法</h3><p>A=4, B=3, C=2, D=0で加重平均を計算します。</p>",
+  "faq": [
+    {
+      "question": "GPAの満点は？",
+      "answer": "4.0が最高です。"
+    },
+    {
+      "question": "どれくらいあればいい？",
+      "answer": "2.0以上が卒業要件、3.0以上が優秀です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

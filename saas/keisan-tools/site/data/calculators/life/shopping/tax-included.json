@@ -1,0 +1,80 @@
+{
+  "slug": "tax-included",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "税込税抜計算",
+  "description": "税込価格と税抜価格を相互変換します",
+  "metaTitle": "税込・税抜計算ツール｜keisan.tools",
+  "metaDescription": "税込価格から税抜価格、または税抜から税込を自動計算。",
+  "calculatorFunction": "taxIncluded",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "価格",
+      "type": "number",
+      "unit": "円",
+      "default": 1000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "direction",
+      "label": "計算方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "toIncluded",
+          "label": "税抜→税込"
+        },
+        {
+          "value": "toExcluded",
+          "label": "税込→税抜"
+        }
+      ],
+      "default": "toIncluded"
+    },
+    {
+      "id": "taxRate",
+      "label": "消費税率",
+      "type": "select",
+      "options": [
+        {
+          "value": "10",
+          "label": "10%（標準税率）"
+        },
+        {
+          "value": "8",
+          "label": "8%（軽減税率）"
+        }
+      ],
+      "default": "10"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "計算結果",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxAmount",
+      "label": "消費税額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>税込・税抜計算</h3><p>消費税を含めた価格と含めない価格を相互変換します。</p>",
+  "faq": [
+    {
+      "question": "軽減税率の対象は？",
+      "answer": "飲食料品（酒類・外食除く）と新聞が8%の対象です。"
+    },
+    {
+      "question": "税込表示は義務？",
+      "answer": "2021年4月から消費者向け価格は税込表示が義務です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

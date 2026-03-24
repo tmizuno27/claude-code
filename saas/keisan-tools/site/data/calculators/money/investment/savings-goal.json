@@ -1,0 +1,88 @@
+{
+  "slug": "savings-goal",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "貯蓄目標計算",
+  "description": "目標金額達成に必要な月間貯蓄額を計算します",
+  "metaTitle": "貯蓄目標計算ツール｜keisan.tools",
+  "metaDescription": "目標金額と期間を入力して毎月の必要貯蓄額を自動計算。",
+  "calculatorFunction": "savingsGoal",
+  "inputs": [
+    {
+      "id": "goalAmount",
+      "label": "目標金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "currentSavings",
+      "label": "現在の貯蓄額",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "years",
+      "label": "目標期間",
+      "type": "number",
+      "unit": "年",
+      "default": 10,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "想定利回り",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyNeeded",
+      "label": "必要月額貯蓄",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalDeposit",
+      "label": "元本合計",
+      "format": "currency"
+    },
+    {
+      "id": "totalInterest",
+      "label": "運用益",
+      "format": "currency"
+    },
+    {
+      "id": "finalAmount",
+      "label": "達成時資産額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>貯蓄目標の計算</h3><p>目標金額から現在の貯蓄を引き、利回りを考慮して毎月の必要額を算出します。</p>",
+  "faq": [
+    {
+      "question": "想定利回りはどれくらい？",
+      "answer": "預金0.01〜0.1%、投資信託3〜5%が目安です。"
+    },
+    {
+      "question": "貯蓄を増やすコツは？",
+      "answer": "先取り貯蓄が効果的です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

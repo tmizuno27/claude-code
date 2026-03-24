@@ -1,0 +1,63 @@
+{
+  "slug": "discount",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "割引計算",
+  "description": "元の価格と割引率から割引後価格を計算します",
+  "metaTitle": "割引計算ツール｜keisan.tools",
+  "metaDescription": "元の価格と割引率を入力して割引後の価格を自動計算。",
+  "calculatorFunction": "discount",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "元の価格",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "discountRate",
+      "label": "割引率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "discountedPrice",
+      "label": "割引後価格",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "savings",
+      "label": "割引額",
+      "format": "currency"
+    },
+    {
+      "id": "taxIncluded",
+      "label": "税込価格（10%）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>割引計算</h3><p>元の価格に割引率を適用して割引後の価格を計算します。</p>",
+  "faq": [
+    {
+      "question": "3割引は何%オフ？",
+      "answer": "30%オフです。"
+    },
+    {
+      "question": "半額は何割引？",
+      "answer": "5割引（50%オフ）です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "cash-flow",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "キャッシュフロー計算",
+  "description": "月間の収入と支出からキャッシュフローを計算します",
+  "metaTitle": "キャッシュフロー計算ツール｜keisan.tools",
+  "metaDescription": "月間収入と支出を入力してキャッシュフローを自動計算。",
+  "calculatorFunction": "cashFlow",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "月間売上",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "fixedCost",
+      "label": "固定費",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "variableCost",
+      "label": "変動費",
+      "type": "number",
+      "unit": "万円",
+      "default": 120,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "initialCash",
+      "label": "期首キャッシュ",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyCF",
+      "label": "月間キャッシュフロー",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualCF",
+      "label": "年間キャッシュフロー",
+      "format": "currency"
+    },
+    {
+      "id": "monthsRunway",
+      "label": "ランウェイ",
+      "format": "number",
+      "suffix": "ヶ月"
+    },
+    {
+      "id": "yearEndCash",
+      "label": "年末キャッシュ残高",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>キャッシュフローとは</h3><p>実際の現金の流れを把握する指標です。</p>",
+  "faq": [
+    {
+      "question": "キャッシュフローと利益の違いは？",
+      "answer": "利益は会計上の数字、キャッシュフローは実際の現金の動きです。"
+    },
+    {
+      "question": "ランウェイとは？",
+      "answer": "現在のキャッシュフローで事業を継続できる期間です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

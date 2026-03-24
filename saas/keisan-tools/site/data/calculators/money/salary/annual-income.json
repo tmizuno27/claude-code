@@ -1,0 +1,78 @@
+{
+  "slug": "annual-income",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "年収計算",
+  "description": "月給と賞与から年収を計算します",
+  "metaTitle": "年収計算ツール｜keisan.tools",
+  "metaDescription": "月給と賞与を入力して年収を自動計算。",
+  "calculatorFunction": "annualIncome",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "bonusMonths",
+      "label": "賞与月数",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 4,
+      "min": 0,
+      "max": 12,
+      "step": 0.5
+    },
+    {
+      "id": "allowance",
+      "label": "月額手当",
+      "type": "number",
+      "unit": "万円",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualGross",
+      "label": "年収（額面）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyTotal",
+      "label": "月収合計",
+      "format": "currency"
+    },
+    {
+      "id": "bonusTotal",
+      "label": "賞与合計",
+      "format": "currency"
+    },
+    {
+      "id": "estimatedTakeHome",
+      "label": "手取り目安",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>年収の計算</h3><p>（月給＋手当）×12＋賞与で計算します。</p>",
+  "faq": [
+    {
+      "question": "年収と手取りの違いは？",
+      "answer": "年収は額面、手取りは税金・社保控除後です。"
+    },
+    {
+      "question": "手取りの目安は？",
+      "answer": "年収の75〜85%程度です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

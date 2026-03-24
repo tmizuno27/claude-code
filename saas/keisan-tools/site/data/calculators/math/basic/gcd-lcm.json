@@ -1,0 +1,58 @@
+{
+  "slug": "gcd-lcm",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "最大公約数・最小公倍数",
+  "description": "2つの数の最大公約数と最小公倍数を計算します",
+  "metaTitle": "最大公約数・最小公倍数計算ツール｜keisan.tools",
+  "metaDescription": "2つの数のGCDとLCMを自動計算。",
+  "calculatorFunction": "gcdLcm",
+  "inputs": [
+    {
+      "id": "valueA",
+      "label": "数値A",
+      "type": "number",
+      "unit": "",
+      "default": 12,
+      "min": 1,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "valueB",
+      "label": "数値B",
+      "type": "number",
+      "unit": "",
+      "default": 18,
+      "min": 1,
+      "max": 999999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "gcd",
+      "label": "最大公約数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "lcm",
+      "label": "最小公倍数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>最大公約数と最小公倍数</h3><p>ユークリッドの互除法で計算します。</p>",
+  "faq": [
+    {
+      "question": "何に使う？",
+      "answer": "分数の約分や通分に使います。"
+    },
+    {
+      "question": "最小公倍数の用途は？",
+      "answer": "通分や周期計算に使います。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

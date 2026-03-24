@@ -1,0 +1,94 @@
+{
+  "slug": "property-yield",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "不動産利回り計算",
+  "description": "物件価格と家賃収入から利回りを計算します",
+  "metaTitle": "不動産利回り計算ツール｜keisan.tools",
+  "metaDescription": "物件価格と家賃収入を入力して利回りを自動計算。",
+  "calculatorFunction": "propertyYield",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "物件価格",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "monthlyRent",
+      "label": "月額家賃",
+      "type": "number",
+      "unit": "万円",
+      "default": 15,
+      "min": 0,
+      "max": 10000,
+      "step": 0.1
+    },
+    {
+      "id": "annualCost",
+      "label": "年間経費",
+      "type": "number",
+      "unit": "万円",
+      "default": 50,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "vacancy",
+      "label": "空室率",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossYield",
+      "label": "表面利回り",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "netYield",
+      "label": "実質利回り",
+      "format": "percent"
+    },
+    {
+      "id": "annualIncome",
+      "label": "年間家賃収入",
+      "format": "currency"
+    },
+    {
+      "id": "annualNet",
+      "label": "年間手取り",
+      "format": "currency"
+    },
+    {
+      "id": "paybackYears",
+      "label": "回収期間",
+      "format": "number",
+      "suffix": "年"
+    }
+  ],
+  "explanation": "<h3>不動産利回り</h3><p>表面利回り＝年間家賃÷物件価格、実質利回り＝(家賃-経費)÷物件価格です。</p>",
+  "faq": [
+    {
+      "question": "表面と実質の違いは？",
+      "answer": "実質は経費を考慮した実際の収益率です。"
+    },
+    {
+      "question": "利回りの目安は？",
+      "answer": "都心4〜5%、地方7〜10%が目安です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

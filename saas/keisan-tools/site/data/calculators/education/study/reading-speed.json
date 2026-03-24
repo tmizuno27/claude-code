@@ -1,0 +1,66 @@
+{
+  "slug": "reading-speed",
+  "category": "education",
+  "subcategory": "study",
+  "title": "読書速度計算",
+  "description": "文字数と読書時間から読書速度を計算します",
+  "metaTitle": "読書速度計算ツール｜keisan.tools",
+  "metaDescription": "文字数と読書時間を入力して読書速度を自動計算。",
+  "calculatorFunction": "readingSpeed",
+  "inputs": [
+    {
+      "id": "characters",
+      "label": "文字数",
+      "type": "number",
+      "unit": "文字",
+      "default": 100000,
+      "min": 1,
+      "max": 10000000,
+      "step": 1000
+    },
+    {
+      "id": "minutes",
+      "label": "読書時間",
+      "type": "number",
+      "unit": "分",
+      "default": 180,
+      "min": 1,
+      "max": 10000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "speed",
+      "label": "読書速度",
+      "format": "number",
+      "primary": true,
+      "suffix": "文字/分"
+    },
+    {
+      "id": "pagesPerHour",
+      "label": "1時間あたりページ数",
+      "format": "number",
+      "suffix": "ページ"
+    },
+    {
+      "id": "hoursFor200pages",
+      "label": "200ページの所要時間",
+      "format": "number",
+      "suffix": "時間"
+    }
+  ],
+  "explanation": "<h3>読書速度の計算</h3><p>文字数÷時間で算出します。一般的に400〜600文字/分です。</p>",
+  "faq": [
+    {
+      "question": "一般的な読書速度は？",
+      "answer": "400〜600文字/分が平均的です。"
+    },
+    {
+      "question": "1ページの文字数は？",
+      "answer": "新書で約600〜800文字です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

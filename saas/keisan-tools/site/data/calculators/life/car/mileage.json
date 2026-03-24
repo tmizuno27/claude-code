@@ -1,0 +1,65 @@
+{
+  "slug": "mileage",
+  "category": "life",
+  "subcategory": "car",
+  "title": "燃費計算",
+  "description": "走行距離と給油量から実燃費を計算します",
+  "metaTitle": "燃費計算ツール｜keisan.tools",
+  "metaDescription": "走行距離と給油量を入力して実燃費を自動計算。",
+  "calculatorFunction": "mileage",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 400,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "fuel",
+      "label": "給油量",
+      "type": "number",
+      "unit": "L",
+      "default": 30,
+      "min": 0.1,
+      "max": 200,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "mileage",
+      "label": "燃費",
+      "format": "number",
+      "primary": true,
+      "suffix": "km/L"
+    },
+    {
+      "id": "fuelPer100km",
+      "label": "100kmあたり燃料",
+      "format": "number",
+      "suffix": "L"
+    },
+    {
+      "id": "costPer100km",
+      "label": "100kmあたり費用",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>燃費の計算方法</h3><p>走行距離÷給油量で実燃費を算出します。</p>",
+  "faq": [
+    {
+      "question": "満タン法とは？",
+      "answer": "満タン→走行→満タンの差分で燃費を算出する方法です。"
+    },
+    {
+      "question": "良い燃費の目安は？",
+      "answer": "普通車で15km/L以上が目安です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -67,9 +67,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="footer-inner">
             <div className="footer-links">
               <Link href="/about/">サイトについて</Link>
-              <span>
-                ※計算結果は参考値です。正確な金額は専門家にご相談ください。
-              </span>
+              <Link href="/privacy/">プライバシーポリシー</Link>
+              <Link href="/terms/">利用規約</Link>
+              <Link href="/contact/">お問い合わせ</Link>
+            </div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', marginTop: '0.5rem' }}>
+              ※計算結果は参考値です。正確な金額は専門家にご相談ください。
             </div>
             <div>&copy; {new Date().getFullYear()} keisan.tools</div>
           </div>

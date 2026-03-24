@@ -1,0 +1,78 @@
+{
+  "slug": "resident-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "住民税計算",
+  "description": "所得から住民税額を計算します",
+  "metaTitle": "住民税計算ツール｜keisan.tools",
+  "metaDescription": "年収を入力して住民税額を自動計算。",
+  "calculatorFunction": "residentTax",
+  "inputs": [
+    {
+      "id": "income",
+      "label": "年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "dependents",
+      "label": "扶養家族数",
+      "type": "number",
+      "unit": "人",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "id": "socialInsurance",
+      "label": "社会保険料",
+      "type": "number",
+      "unit": "万円",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalResidentTax",
+      "label": "住民税（年額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyTax",
+      "label": "住民税（月額）",
+      "format": "currency"
+    },
+    {
+      "id": "incomePortion",
+      "label": "所得割",
+      "format": "currency"
+    },
+    {
+      "id": "equalPortion",
+      "label": "均等割",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>住民税の仕組み</h3><p>所得割（課税所得×10%）＋均等割（約5,000円）です。</p>",
+  "faq": [
+    {
+      "question": "住民税はいつ払う？",
+      "answer": "6月〜翌5月で天引きされます。"
+    },
+    {
+      "question": "非課税の年収は？",
+      "answer": "独身で約100万円以下です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

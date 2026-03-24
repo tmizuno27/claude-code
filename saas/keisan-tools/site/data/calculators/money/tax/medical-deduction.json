@@ -1,0 +1,94 @@
+{
+  "slug": "medical-deduction",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "医療費控除額計算",
+  "description": "年間医療費から医療費控除額と節税額を計算します",
+  "metaTitle": "医療費控除額計算ツール｜keisan.tools",
+  "metaDescription": "年間医療費と所得を入力して控除額・節税額を自動計算。",
+  "calculatorFunction": "medicalDeduction",
+  "inputs": [
+    {
+      "id": "medicalExpenses",
+      "label": "年間医療費",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "insuranceRefund",
+      "label": "保険等の補填額",
+      "type": "number",
+      "unit": "万円",
+      "default": 0,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "income",
+      "label": "年間所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "step": 10
+    },
+    {
+      "id": "method",
+      "label": "制度",
+      "type": "select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "通常の医療費控除"
+        },
+        {
+          "value": "selfmed",
+          "label": "セルフメディケーション税制"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "deduction",
+      "label": "控除額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "incomeTaxSaving",
+      "label": "所得税節税額",
+      "format": "currency"
+    },
+    {
+      "id": "residentTaxSaving",
+      "label": "住民税節税額",
+      "format": "currency"
+    },
+    {
+      "id": "totalSaving",
+      "label": "節税額合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>医療費控除の2つの制度</h3><p>通常は10万円超の部分、セルフメディケーションは1.2万円超の部分が控除対象です。</p>",
+  "faq": [
+    {
+      "question": "2つの制度は併用できる？",
+      "answer": "いいえ、どちらか一方を選択します。"
+    },
+    {
+      "question": "セルフメディケーション税制とは？",
+      "answer": "対象OTC医薬品の年間12,000円超が控除できる制度です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

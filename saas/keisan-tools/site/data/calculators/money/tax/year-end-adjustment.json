@@ -1,0 +1,98 @@
+{
+  "slug": "year-end-adjustment",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "年末調整計算",
+  "description": "年末調整での還付金額を計算します",
+  "metaTitle": "年末調整計算ツール｜keisan.tools",
+  "metaDescription": "各種控除を入力して年末調整の還付金額を自動計算。",
+  "calculatorFunction": "yearEndAdjustment",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "lifeInsurance",
+      "label": "生命保険料（年額）",
+      "type": "number",
+      "unit": "万円",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "medicalInsurance",
+      "label": "医療保険料（年額）",
+      "type": "number",
+      "unit": "万円",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "housingLoanBalance",
+      "label": "住宅ローン残高",
+      "type": "number",
+      "unit": "万円",
+      "default": 0,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "dependents",
+      "label": "扶養家族数",
+      "type": "number",
+      "unit": "人",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "refund",
+      "label": "還付金目安",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "lifeInsuranceDeduction",
+      "label": "生命保険料控除",
+      "format": "currency"
+    },
+    {
+      "id": "housingDeduction",
+      "label": "住宅ローン控除",
+      "format": "currency"
+    },
+    {
+      "id": "totalDeduction",
+      "label": "控除合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>年末調整とは</h3><p>1年間の所得税を精算する手続きです。</p>",
+  "faq": [
+    {
+      "question": "還付されるのはなぜ？",
+      "answer": "毎月の源泉徴収が概算のためです。"
+    },
+    {
+      "question": "適用できない控除は？",
+      "answer": "医療費控除等は確定申告が必要です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

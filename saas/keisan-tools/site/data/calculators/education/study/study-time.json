@@ -1,0 +1,91 @@
+{
+  "slug": "study-time",
+  "category": "education",
+  "subcategory": "study",
+  "title": "勉強時間計算",
+  "description": "目標時間と日数から1日の必要勉強時間を計算します",
+  "metaTitle": "勉強時間計算ツール｜keisan.tools",
+  "metaDescription": "目標時間と残り日数を入力して1日の必要勉強時間を自動計算。",
+  "calculatorFunction": "studyTime",
+  "inputs": [
+    {
+      "id": "totalHours",
+      "label": "目標総時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 300,
+      "min": 1,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "completedHours",
+      "label": "完了済み時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "remainingDays",
+      "label": "残り日数",
+      "type": "number",
+      "unit": "日",
+      "default": 90,
+      "min": 1,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "daysPerWeek",
+      "label": "週の勉強日数",
+      "type": "number",
+      "unit": "日",
+      "default": 6,
+      "min": 1,
+      "max": 7,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyHours",
+      "label": "1日の必要時間",
+      "format": "number",
+      "primary": true,
+      "suffix": "時間"
+    },
+    {
+      "id": "remainingHours",
+      "label": "残り時間",
+      "format": "number",
+      "suffix": "時間"
+    },
+    {
+      "id": "progress",
+      "label": "進捗率",
+      "format": "percent"
+    },
+    {
+      "id": "studyDays",
+      "label": "残り勉強日数",
+      "format": "number",
+      "suffix": "日"
+    }
+  ],
+  "explanation": "<h3>勉強時間の計算</h3><p>残りの必要時間÷勉強日数で算出します。</p>",
+  "faq": [
+    {
+      "question": "大学受験の必要時間は？",
+      "answer": "難関大学は2000〜3000時間が目安です。"
+    },
+    {
+      "question": "効率的な勉強法は？",
+      "answer": "ポモドーロ・テクニックが効果的です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

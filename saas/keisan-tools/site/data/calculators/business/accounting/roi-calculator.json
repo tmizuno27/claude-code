@@ -1,0 +1,27 @@
+{
+  "slug": "roi-calculator",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "ROI計算（投資利益率）",
+  "description": "投資額と利益（リターン）からROI（投資利益率）を計算。ビジネスの投資対効果を数値で把握できます。",
+  "metaTitle": "ROI計算ツール｜投資額と利益から投資利益率を自動計算",
+  "metaDescription": "投資額と得られた利益を入力するだけでROI（投資利益率）を自動計算。複数の投資案件の比較にも使える無料ツール。",
+  "calculatorFunction": "roiCalculator",
+  "inputs": [
+    { "id": "investment", "label": "投資額（コスト）", "type": "number", "unit": "万円", "default": 100, "min": 0.1, "max": 1000000, "step": 1 },
+    { "id": "revenue", "label": "得られた収益", "type": "number", "unit": "万円", "default": 150, "min": 0, "max": 1000000, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "roi", "label": "ROI（投資利益率）", "format": "percent", "primary": true },
+    { "id": "profit", "label": "純利益", "format": "yen" },
+    { "id": "profitRatio", "label": "利益率", "format": "percent" },
+    { "id": "paybackMultiple", "label": "投資回収倍率", "format": "number" }
+  ],
+  "explanation": "<h3>ROIとは</h3><p>ROI（Return on Investment）は投資に対してどれだけの利益を得られたかを示す指標です。ビジネスにおける意思決定や投資案件の比較に広く使われます。</p><h3>計算式</h3><p>ROI = (収益 − 投資額) ÷ 投資額 × 100（%）</p><h3>ROIの目安</h3><ul><li>0%以下: 赤字（投資額を回収できていない）</li><li>0%〜50%: 一般的なリターン</li><li>50%〜100%: 良好なリターン</li><li>100%以上: 非常に高いリターン（投資額の2倍以上回収）</li></ul><h3>注意点</h3><p>ROIは期間を考慮しません。1年で50%と5年で50%では意味が大きく異なります。年率換算のROI（年間ROI）も併せて検討することをおすすめします。</p>",
+  "faq": [
+    { "question": "ROIとROASの違いは？", "answer": "ROIは投資全体に対する利益率、ROAS（Return on Ad Spend）は広告費に対する売上の比率です。ROASは広告効果の測定に特化しており、ROAS = 売上 ÷ 広告費 × 100 で計算します。" },
+    { "question": "ROIがマイナスになった場合は？", "answer": "ROIがマイナスの場合、投資額を回収できていない赤字の状態です。事業の見直しや撤退を検討する判断材料になります。" }
+  ],
+  "related": ["compound-interest", "stock-profit"],
+  "popular": false
+}

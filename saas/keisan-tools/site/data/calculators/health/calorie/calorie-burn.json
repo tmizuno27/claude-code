@@ -1,0 +1,96 @@
+{
+  "slug": "calorie-burn",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "消費カロリー計算",
+  "description": "運動の種類と時間から消費カロリーを計算します",
+  "metaTitle": "消費カロリー計算ツール｜keisan.tools",
+  "metaDescription": "運動の種類・時間・体重を入力して消費カロリーを自動計算。ダイエット計画に活用できます。",
+  "calculatorFunction": "calorieBurn",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "exercise",
+      "label": "運動の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "3.5",
+          "label": "ウォーキング"
+        },
+        {
+          "value": "7.0",
+          "label": "ジョギング"
+        },
+        {
+          "value": "10.0",
+          "label": "ランニング"
+        },
+        {
+          "value": "6.0",
+          "label": "サイクリング"
+        },
+        {
+          "value": "8.0",
+          "label": "水泳"
+        },
+        {
+          "value": "5.0",
+          "label": "ヨガ"
+        },
+        {
+          "value": "4.0",
+          "label": "筋トレ"
+        }
+      ],
+      "default": "3.5"
+    },
+    {
+      "id": "minutes",
+      "label": "運動時間",
+      "type": "number",
+      "unit": "分",
+      "default": 30,
+      "min": 1,
+      "max": 600,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "消費カロリー",
+      "format": "number",
+      "primary": true,
+      "suffix": "kcal"
+    },
+    {
+      "id": "fatBurn",
+      "label": "脂肪燃焼量",
+      "format": "number",
+      "suffix": "g"
+    }
+  ],
+  "explanation": "<h3>消費カロリーの計算</h3><p>METs×体重×時間で消費カロリーを算出します。脂肪1gの燃焼に約7.2kcal必要です。</p>",
+  "faq": [
+    {
+      "question": "METsとは？",
+      "answer": "安静時を1として運動強度を表す単位です。"
+    },
+    {
+      "question": "脂肪燃焼量の計算方法は？",
+      "answer": "消費カロリー÷7.2で概算します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,83 @@
+{
+  "slug": "part-time-income",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "パート収入計算",
+  "description": "時給・日数から年収と扶養の壁を計算します",
+  "metaTitle": "パート収入計算ツール｜keisan.tools",
+  "metaDescription": "時給と勤務日数を入力してパート年収・扶養の壁を自動計算。",
+  "calculatorFunction": "partTimeIncome",
+  "inputs": [
+    {
+      "id": "hourlyWage",
+      "label": "時給",
+      "type": "number",
+      "unit": "円",
+      "default": 1200,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "1日の勤務時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 5,
+      "min": 1,
+      "max": 12,
+      "step": 0.5
+    },
+    {
+      "id": "daysPerWeek",
+      "label": "週の勤務日数",
+      "type": "number",
+      "unit": "日",
+      "default": 3,
+      "min": 1,
+      "max": 7,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualIncome",
+      "label": "年収見込み",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyIncome",
+      "label": "月収見込み",
+      "format": "currency"
+    },
+    {
+      "id": "wall103",
+      "label": "103万の壁",
+      "format": "text"
+    },
+    {
+      "id": "wall106",
+      "label": "106万の壁",
+      "format": "text"
+    },
+    {
+      "id": "wall130",
+      "label": "130万の壁",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>パート収入の壁</h3><p>103万円：所得税発生。106万円：社保加入。130万円：扶養から外れます。</p>",
+  "faq": [
+    {
+      "question": "103万の壁とは？",
+      "answer": "年収103万超で所得税が発生する境界です。"
+    },
+    {
+      "question": "130万超えるとどうなる？",
+      "answer": "扶養から外れ社会保険に加入する必要があります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}
