@@ -15129,5 +15129,995 @@
     },
     "affiliate_url": "https://affiliate.notion.so/aicompare",
     "logo_placeholder": true
+  },
+  {
+    "slug": "hyperwrite",
+    "name": "HyperWrite",
+    "category": "ai-writing",
+    "subcategories": [],
+    "tagline": "HyperWrite - AI tool",
+    "website": "https://hyperwrite.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "HyperWrite is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "writer-com",
+    "name": "Writer",
+    "category": "ai-writing",
+    "subcategories": [],
+    "tagline": "Writer - AI tool",
+    "website": "https://writercom.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Writer is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "tensor-art",
+    "name": "Tensor.Art",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "Tensor.Art - AI tool",
+    "website": "https://tensorart.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Tensor.Art is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "krea-ai",
+    "name": "KREA AI",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "KREA AI - AI tool",
+    "website": "https://kreaai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "KREA AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "getimg-ai",
+    "name": "getimg.ai",
+    "category": "ai-image",
+    "subcategories": [],
+    "tagline": "getimg.ai - AI tool",
+    "website": "https://getimgai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "getimg.ai is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "le-chat",
+    "name": "Le Chat",
+    "category": "ai-chatbot",
+    "subcategories": [],
+    "tagline": "Le Chat - AI tool",
+    "website": "https://lechat.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Le Chat is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "meta-ai",
+    "name": "Meta AI",
+    "category": "ai-chatbot",
+    "subcategories": [],
+    "tagline": "Meta AI - AI tool",
+    "website": "https://metaai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Meta AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "cody",
+    "name": "Sourcegraph Cody",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Sourcegraph Cody - AI tool",
+    "website": "https://cody.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Sourcegraph Cody is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "supermaven",
+    "name": "Supermaven",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Supermaven - AI tool",
+    "website": "https://supermaven.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Supermaven is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "augment-code",
+    "name": "Augment Code",
+    "category": "ai-coding",
+    "subcategories": [],
+    "tagline": "Augment Code - AI tool",
+    "website": "https://augmentcode.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Augment Code is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "kling-ai",
+    "name": "Kling AI",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Kling AI - AI tool",
+    "website": "https://klingai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Kling AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "minimax-hailuo",
+    "name": "Hailuo AI",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Hailuo AI - AI tool",
+    "website": "https://minimaxhailuo.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Hailuo AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "vidu",
+    "name": "Vidu",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Vidu - AI tool",
+    "website": "https://vidu.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Vidu is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "haiper",
+    "name": "Haiper",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "Haiper - AI tool",
+    "website": "https://haiper.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Haiper is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "pixverse",
+    "name": "PixVerse",
+    "category": "ai-video",
+    "subcategories": [],
+    "tagline": "PixVerse - AI tool",
+    "website": "https://pixverse.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "PixVerse is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "descript",
+    "name": "Descript",
+    "category": "ai-audio",
+    "subcategories": [],
+    "tagline": "Descript - AI tool",
+    "website": "https://descript.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Descript is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "clay",
+    "name": "Clay",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Clay - AI tool",
+    "website": "https://clay.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Clay is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "relevance-ai",
+    "name": "Relevance AI",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Relevance AI - AI tool",
+    "website": "https://relevanceai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Relevance AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "lindy-ai",
+    "name": "Lindy AI",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Lindy AI - AI tool",
+    "website": "https://lindyai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Lindy AI is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "spell-ai",
+    "name": "Respell",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Respell - AI tool",
+    "website": "https://spellai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Respell is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "gumloop",
+    "name": "Gumloop",
+    "category": "ai-automation",
+    "subcategories": [],
+    "tagline": "Gumloop - AI tool",
+    "website": "https://gumloop.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Gumloop is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "matecat",
+    "name": "MateCat",
+    "category": "ai-translation",
+    "subcategories": [],
+    "tagline": "MateCat - AI tool",
+    "website": "https://matecat.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "MateCat is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "tolgee",
+    "name": "Tolgee",
+    "category": "ai-translation",
+    "subcategories": [],
+    "tagline": "Tolgee - AI tool",
+    "website": "https://tolgee.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Tolgee is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "kittl",
+    "name": "Kittl",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Kittl - AI tool",
+    "website": "https://kittl.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Kittl is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "glorify",
+    "name": "Glorify",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Glorify - AI tool",
+    "website": "https://glorify.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Glorify is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "piktochart",
+    "name": "Piktochart",
+    "category": "ai-design",
+    "subcategories": [],
+    "tagline": "Piktochart - AI tool",
+    "website": "https://piktochart.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Piktochart is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "mem-ai",
+    "name": "Mem",
+    "category": "ai-productivity",
+    "subcategories": [],
+    "tagline": "Mem - AI tool",
+    "website": "https://memai.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Mem is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "motion-app",
+    "name": "Motion",
+    "category": "ai-productivity",
+    "subcategories": [],
+    "tagline": "Motion - AI tool",
+    "website": "https://motionapp.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Motion is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "ada-cx",
+    "name": "Ada",
+    "category": "ai-customer-service",
+    "subcategories": [],
+    "tagline": "Ada - AI tool",
+    "website": "https://adacx.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Ada is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
+  },
+  {
+    "slug": "hiver",
+    "name": "Hiver",
+    "category": "ai-customer-service",
+    "subcategories": [],
+    "tagline": "Hiver - AI tool",
+    "website": "https://hiver.com",
+    "founded": 2022,
+    "pricing_starts": "See website",
+    "free_plan": true,
+    "best_for": [
+      "general"
+    ],
+    "features": {},
+    "pros": [
+      "Hiver is a powerful tool",
+      "Easy to use",
+      "Regular updates"
+    ],
+    "cons": [
+      "Limited free plan",
+      "Newer platform"
+    ],
+    "rating": {
+      "overall": 7,
+      "ease_of_use": 7,
+      "features": 7,
+      "value": 7,
+      "support": 6
+    },
+    "affiliate_url": "",
+    "logo_placeholder": true
   }
 ]
