@@ -49,6 +49,27 @@
       "priority": "P2",
       "done": false,
       "done_at": null
+    },
+    {
+      "id": "keisan-tools-deploy-verify",
+      "title": "【keisan-tools.com】13:30自動デプロイ確認→109ツール版が反映されたか確認",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "keisan-tools-gsc-register",
+      "title": "【keisan-tools.com】Google Search Console登録＋サイトマップ送信",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "keisan-tools-page-expansion",
+      "title": "【keisan-tools.com】残り190ページ分の計算ツール追加（109→300ページ目標）",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
     }
   ]
 }
