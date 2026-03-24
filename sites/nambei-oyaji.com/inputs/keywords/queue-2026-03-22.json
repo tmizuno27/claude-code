@@ -3,7 +3,9 @@
     "keyword": "パラグアイ 物価 日本",
     "type": "longtail",
     "priority": 1,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sites\\nambei-oyaji.com\\outputs\\articles\\2026-03-24\\article-82192.md",
+    "processed_date": "2026-03-24"
   },
   {
     "keyword": "パラグアイ 永住権 費用",
