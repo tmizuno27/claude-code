@@ -26,6 +26,8 @@ DELAY_BETWEEN_REQUESTS = 15
 MAX_RETRIES = 2
 REQUEST_TIMEOUT = 120
 TARGET_SIZE = 4096
+RATE_LIMIT_WAIT = 330  # 5.5 minutes between rate limit checks
+RATE_LIMIT_MAX_WAIT = 5 * 3600 + 600  # max 5h40m total wait
 
 
 def generate_image(prompt_data):
@@ -41,6 +43,7 @@ def generate_image(prompt_data):
         "size": "1024x1024"
     }
 
+    total_waited = 0
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.post(
@@ -50,7 +53,24 @@ def generate_image(prompt_data):
             data = resp.json()
 
             if "error" in data:
-                print(f"  API Error: {data['error'].get('message', str(data['error']))}")
+                err_msg = data['error'].get('message', str(data['error']))
+                print(f"  API Error: {err_msg}")
+
+                # Rate limit or cookie exhaustion -> wait for reset
+                if any(kw in err_msg.lower() for kw in [
+                    "temporarily unavailable", "no valid cookies",
+                    "no valid task", "rate limit"
+                ]):
+                    if total_waited >= RATE_LIMIT_MAX_WAIT:
+                        print(f"  [RATE LIMIT] Max wait time exceeded. Giving up.")
+                        return None
+                    now = datetime.now().strftime("%H:%M:%S")
+                    print(f"  [RATE LIMIT] Detected at {now}. Waiting {RATE_LIMIT_WAIT}s for reset...")
+                    time.sleep(RATE_LIMIT_WAIT)
+                    total_waited += RATE_LIMIT_WAIT
+                    attempt -= 1  # don't count as retry
+                    continue
+
                 if attempt < MAX_RETRIES - 1:
                     time.sleep(DELAY_BETWEEN_REQUESTS)
                     continue
