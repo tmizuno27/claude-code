@@ -377,15 +377,16 @@ def collect_pseo_data() -> dict:
     if not PSEO_DIR.exists():
         return {"status": "ディレクトリなし", "page_count": 0, "deployed": False}
 
-    # 静的ページ数をカウント（out/ または public/ ディレクトリ）
+    # 静的ページ数をカウント（site/out を優先。0件なら次のディレクトリへ）
     page_count = 0
-    for subdir in ["out", "public", "site/out", "site"]:
+    for subdir in ["site/out", "out", "site", "public"]:
         target = PSEO_DIR / subdir
         if target.exists():
             try:
                 html_files = list(target.rglob("*.html"))
-                page_count = len(html_files)
-                break
+                if html_files:
+                    page_count = len(html_files)
+                    break
             except Exception:
                 pass
 
