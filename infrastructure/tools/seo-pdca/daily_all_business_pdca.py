@@ -1095,6 +1095,66 @@ def pdca_ai_automation():
 
 
 # =====================================================================
+# SECTOR 22: ホームページ（ランディングページ）
+# =====================================================================
+def pdca_homepage():
+    """ランディングページのPDCA"""
+    logger.report("# 22. ホームページ（ランディングページ）")
+    logger.report("")
+
+    hp_dir = REPO_ROOT / "infrastructure" / "homepage"
+
+    # CHECK: ファイル存在・稼働確認
+    html_files = list(hp_dir.glob("*.html")) if hp_dir.exists() else []
+
+    logger.report("### CHECK")
+    logger.report(f"- HTMLファイル数: {len(html_files)}")
+    for f in html_files[:10]:
+        logger.report(f"  - `{f.name}`")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- LPの目的・導線を明確化（全事業へのハブとして活用）")
+    logger.report("- デザイン・コンテンツの定期見直し")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 23: 財務管理
+# =====================================================================
+def pdca_finance():
+    """財務管理のPDCA"""
+    logger.report("# 23. 財務管理")
+    logger.report("")
+
+    finance_dir = REPO_ROOT / "infrastructure" / "finance"
+
+    # CHECK: ファイル一覧・最終更新日
+    files = []
+    if finance_dir.exists():
+        for f in finance_dir.iterdir():
+            if f.is_file() and not f.name.startswith("."):
+                mtime = datetime.fromtimestamp(f.stat().st_mtime, tz=PYT)
+                files.append({"name": f.name, "mtime": mtime})
+
+    logger.report("### CHECK")
+    if files:
+        logger.report("| ファイル | 最終更新 |")
+        logger.report("|---------|---------|")
+        for fi in sorted(files, key=lambda x: x["mtime"], reverse=True):
+            logger.report(f"| {fi['name']} | {fi['mtime'].strftime('%Y-%m-%d')} |")
+    else:
+        logger.report("- 財務ファイル未検出")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- 月次で全事業の収支を集計・更新")
+    logger.report("- 入金管理スプレッドシートの定期チェック")
+    logger.report("- 事業別ROIの把握 → 注力先の判断材料に")
+    logger.report("")
+
+
+# =====================================================================
 # メイン
 # =====================================================================
 SECTORS = {
@@ -1119,6 +1179,8 @@ SECTORS = {
     "sedori": pdca_sedori,
     "ebay": pdca_ebay,
     "ai-automation": pdca_ai_automation,
+    "homepage": pdca_homepage,
+    "finance": pdca_finance,
 }
 
 
