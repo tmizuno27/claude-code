@@ -103,6 +103,13 @@
 - Phase 1完了（2026-03-20）: エージェント4体+テスト商品「Startup Launch Checklist」生成済み
 - **プロジェクトパス**: `claude-code/product-factory/`
 
+## keisan-tools.com 計算ツールサイト（稼働中・NEW）
+- **詳細**: [keisan-tools-business.md](keisan-tools-business.md)
+- Next.js 16 SSG、日本語計算・シミュレーターサイト（6ページ公開済み、300ページ目標）
+- Vercelデプロイ完了（2026-03-24）: https://keisan-tools.com、ドメイン: Cloudflare
+- 収益化: AdSense + アフィリエイト（30ページ以上でAdSense申請予定）
+- **プロジェクトパス**: `claude-code/saas/keisan-tools/site/`
+
 ## pSEO AIツール比較サイト（稼働中）
 - **詳細**: [pseo-site.md](pseo-site.md)
 - Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み
