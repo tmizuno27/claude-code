@@ -2,6 +2,6 @@ const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
   trailingSlash: true,
-  turbopack: false,
+  bundler: 'webpack',
 };
 module.exports = nextConfig;
