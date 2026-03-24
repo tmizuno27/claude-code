@@ -3,70 +3,42 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyペイアウトPayPal設定",
+      "title": "Apify PayPal出金設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "nambei-ga4-fix",
-      "title": "南米おやじGA4タイムアウト修正",
+      "id": "pseo-content-generate",
+      "title": "pSEOページ量産開始",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "pseo-deploy-check",
-      "title": "pSEOサイトページ数0の原因調査",
+      "id": "rapidapi-pro-plan-check",
+      "title": "RapidAPI有料移行促進",
       "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "nambei-article-boost",
+      "title": "南米おやじ記事追加",
+      "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC認証解決",
+      "title": "Stripe KYC問題解決",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "rapidapi-ctr-check",
-      "title": "RapidAPI上位API訴求文改善",
-      "priority": "P2",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "sim-match-gsc-analysis",
-      "title": "GSC表示クリック0の原因分析",
-      "priority": "P2",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "x-first-post",
-      "title": "X集客ツイート10本スケジュール投稿",
-      "priority": "P2",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "keisan-tools-deploy-verify",
-      "title": "【keisan-tools.com】13:30自動デプロイ確認→109ツール版が反映されたか確認",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "keisan-tools-gsc-register",
-      "title": "【keisan-tools.com】Google Search Console登録＋サイトマップ送信",
-      "priority": "P1",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "keisan-tools-page-expansion",
-      "title": "【keisan-tools.com】残り190ページ分の計算ツール追加（109→300ページ目標）",
+      "id": "x-first-tweet",
+      "title": "X投稿開始（API/ツール系）",
       "priority": "P2",
       "done": false,
       "done_at": null
