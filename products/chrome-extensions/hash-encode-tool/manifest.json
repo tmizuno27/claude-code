@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Hash & Encode Tool",
   "version": "1.0.0",
-  "description": "A developer tool for hashing and encoding text entirely in your browser. Supports common algorithms and formats with zero network requests.",
+  "description": "Hash and encode text in your browser. Supports common algorithms and formats. Zero network requests.",
   "permissions": ["activeTab", "contextMenus", "storage"],
   "action": {
     "default_popup": "popup.html",
