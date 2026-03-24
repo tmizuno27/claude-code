@@ -1,0 +1,30 @@
+{
+  "slug": "compound-interest",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "複利計算",
+  "description": "元本・毎月の積立額・年利・運用期間から複利での資産推移を計算。つみたてNISAのシミュレーションにも。",
+  "metaTitle": "複利計算シミュレーション｜積立投資の資産推移を自動計算",
+  "metaDescription": "元本と毎月の積立額、年利、運用期間を入力して複利での資産推移をシミュレーション。つみたてNISA対応。",
+  "calculatorFunction": "compoundInterest",
+  "inputs": [
+    { "id": "principal", "label": "初期投資額", "type": "number", "unit": "万円", "default": 100, "min": 0, "max": 100000, "step": 10 },
+    { "id": "monthlyContribution", "label": "毎月の積立額", "type": "number", "unit": "万円", "default": 3, "min": 0, "max": 1000, "step": 0.5 },
+    { "id": "annualRate", "label": "想定年利", "type": "slider", "unit": "%", "default": 5, "min": 0.1, "max": 20, "step": 0.1 },
+    { "id": "years", "label": "運用期間", "type": "slider", "unit": "年", "default": 20, "min": 1, "max": 50, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "finalAmount", "label": "最終資産額", "format": "currency", "primary": true },
+    { "id": "totalContribution", "label": "投資総額", "format": "currency" },
+    { "id": "totalGain", "label": "運用益", "format": "currency" },
+    { "id": "gainRate", "label": "収益率", "format": "percent" }
+  ],
+  "explanation": "<h3>複利とは</h3><p>複利は「利息にも利息がつく」仕組みです。長期間の運用では単利と比べて大きな差が生まれます。</p><h3>72の法則</h3><p>資産が2倍になるまでの年数は「72 ÷ 年利（%）」で概算できます。例えば年利5%なら約14.4年で資産が2倍になります。</p>",
+  "faq": [
+    { "question": "つみたてNISAの想定利回りは？", "answer": "全世界株式インデックスの過去の平均リターンは年5〜7%程度ですが、将来のリターンを保証するものではありません。保守的に3〜5%で計算するのがおすすめです。" },
+    { "question": "複利効果を最大化するには？", "answer": "できるだけ早く始めて長期間運用すること、配当を再投資すること、手数料の低い商品を選ぶことが重要です。" }
+  ],
+  "related": ["housing-loan", "income-tax"],
+  "popular": true,
+  "popularOrder": 5
+}
