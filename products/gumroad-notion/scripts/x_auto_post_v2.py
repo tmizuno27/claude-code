@@ -30,7 +30,7 @@ from copy import deepcopy
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CRED_PATH = os.path.join(BASE_DIR, "config", "x-credentials.json")
 SCHEDULE_PATH = os.path.join(BASE_DIR, "config", "x-schedule-v2.json")
-LOG_DIR = os.path.join(os.path.dirname(BASE_DIR), "logs")
+LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(BASE_DIR)), "logs")
 os.makedirs(LOG_DIR, exist_ok=True)
 LOG_PATH = os.path.join(LOG_DIR, "x-prodhq27-posts.log")
 
@@ -260,7 +260,7 @@ def main():
     if dry_run:
         preview = tweet["text"][:100].replace("\n", " ")
         product = tweet.get("product", "")
-        log(f"DRY RUN: [{tweet['category']}] {product} — {preview}...")
+        log(f"DRY RUN: [{tweet['category']}] {product} - {preview}...")
         return
 
     try:

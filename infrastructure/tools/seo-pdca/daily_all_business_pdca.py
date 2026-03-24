@@ -875,6 +875,19 @@ def main():
     logger.report(f"実行時刻: {NOW.strftime('%Y-%m-%d %H:%M PYT')}")
     logger.report("")
 
+    # 古い記事検出を実行
+    try:
+        from stale_content_detector import main as stale_main
+        logger.log("--- stale-content ---")
+        stale_report = stale_main()
+        if stale_report:
+            logger.report("")
+            for line in stale_report:
+                logger.report(line)
+            logger.report("")
+    except Exception as e:
+        logger.log(f"  [stale-content] エラー: {e}")
+
     for sector_key, func in SECTORS.items():
         if target and sector_key != target:
             continue
