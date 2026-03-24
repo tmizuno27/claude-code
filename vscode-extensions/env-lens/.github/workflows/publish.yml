@@ -1,0 +1,18 @@
+name: Publish Extension
+on:
+  push:
+    tags:
+      - 'env-lens-v*'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: |
+          cd vscode-extensions/env-lens
+          npm install
+          npm run compile
+          npx @vscode/vsce publish -p ${{ secrets.VSCE_PAT }}
