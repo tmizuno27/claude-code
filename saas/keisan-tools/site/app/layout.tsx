@@ -1,7 +1,11 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import Link from 'next/link';
+import Script from 'next/script';
 import '@/styles/globals.css';
+
+// TODO: Replace with actual GA4 Measurement ID
+const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -28,6 +32,20 @@ const NAV_CATEGORIES = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ja" className={notoSansJP.variable}>
+      <head>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body>
         <header className="site-header">
           <div className="header-inner">
