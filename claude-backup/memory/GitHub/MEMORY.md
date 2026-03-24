@@ -33,6 +33,7 @@
 - **優先アクション/優先タスク**: [dashboard-priority-actions.md](dashboard-priority-actions.md) — 毎朝Claude APIが収益最大化ベースで自動生成、ダッシュボードで✅管理
 - **日次優先タスク自動実行**: [feedback_daily_priority_auto_execute.md](feedback_daily_priority_auto_execute.md) — Claude自動実行可能なアクション（CTR改善・記事強化・流入分析・X投稿）は毎日自動実行
 - **日次PDCAルーティン**: [feedback_daily_pdca_routine.md](feedback_daily_pdca_routine.md) — 毎日Check→Act→Plan→Doで全事業をブラッシュアップ。朝の会話開始時に前回施策の効果検証→改善実行
+- **SEO PDCA自動実行**: [feedback_seo_pdca_autonomous.md](feedback_seo_pdca_autonomous.md) — 毎日06:00 PYT、3サイトGSC分析+Indexing API送信+メタ改善+noindex修正。無許可で自律実行OK
 - **Sheets同期**: `infrastructure/tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
 - **タスク稼働確認ルール**: [feedback_proactive_task_check.md](feedback_proactive_task_check.md) — 変更時は依存スクリプト全確認、会話冒頭でログ健全性チェック
