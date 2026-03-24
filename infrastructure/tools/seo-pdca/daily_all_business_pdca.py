@@ -884,7 +884,7 @@ def pdca_keisan_tools():
     logger.report(f"- 公開ページ数: {page_count}")
 
     # --- GA4: PV/ユーザー/セッション ---
-    keisan_ga4_property = 0  # TODO: GA4数字IDが判明したら差し替え（measurement ID: G-3R1LVHX9VJ）
+    keisan_ga4_property = 529807198  # measurement ID: G-3R1LVHX9VJ
     keisan_ga4_cred_path = REPO_ROOT / "saas" / "keisan-tools" / "site" / "config" / "ga4-credentials.json"
     if keisan_ga4_property != 0 and keisan_ga4_cred_path.exists():
         try:

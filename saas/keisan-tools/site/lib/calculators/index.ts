@@ -650,20 +650,6 @@ export function calorieBurn(inputs: Record<string, number | string>): Record<str
   return { calories: Math.round(calories), fatBurn: Math.round(fatBurn * 10) / 10, hourlyCalories: Math.round(calories / minutes * 60) };
 }
 
-export function caloriesBmr(inputs: Record<string, number | string>): Record<string, number> {
-  const weight = inputs.weight as number;
-  const height = inputs.height as number;
-  const age = inputs.age as number;
-  const gender = inputs.gender as string;
-  let bmr: number;
-  if (gender === 'male') {
-    bmr = 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age;
-  } else {
-    bmr = 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
-  }
-  return { bmr: Math.round(bmr), sedentary: Math.round(bmr * 1.2), light: Math.round(bmr * 1.375), moderate: Math.round(bmr * 1.55), active: Math.round(bmr * 1.725) };
-}
-
 export function dailyCalorie(inputs: Record<string, number | string>): Record<string, number> {
   const weight = inputs.weight as number;
   const height = inputs.height as number;
@@ -736,19 +722,6 @@ export function waterIntake(inputs: Record<string, number | string>): Record<str
 }
 
 // === LIFE / DATE ===
-
-export function ageCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
-  const birth = new Date(inputs.birthDate as string);
-  const now = new Date();
-  let age = now.getFullYear() - birth.getFullYear();
-  if (now.getMonth() < birth.getMonth() || (now.getMonth() === birth.getMonth() && now.getDate() < birth.getDate())) age--;
-  const totalDays = Math.floor((now.getTime() - birth.getTime()) / (24 * 60 * 60 * 1000));
-  const totalMonths = age * 12 + (now.getMonth() - birth.getMonth() + (now.getDate() < birth.getDate() ? -1 : 0));
-  const nextBirthday = new Date(now.getFullYear(), birth.getMonth(), birth.getDate());
-  if (nextBirthday <= now) nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
-  const daysToNext = Math.ceil((nextBirthday.getTime() - now.getTime()) / (24 * 60 * 60 * 1000));
-  return { age, totalDays, totalMonths, daysToNextBirthday: daysToNext };
-}
 
 export function countdown(inputs: Record<string, number | string>): Record<string, number> {
   const target = new Date(inputs.targetDate as string);
@@ -983,10 +956,6 @@ export function roi(inputs: Record<string, number | string>): Record<string, num
   const profit = returnVal - investment;
   const roiPercent = investment > 0 ? profit / investment * 100 : 0;
   return { profit: Math.round(profit), roi: Math.round(roiPercent * 10) / 10, returnValue: Math.round(returnVal) };
-}
-
-export function roiCalculator(inputs: Record<string, number | string>): Record<string, number> {
-  return roi(inputs);
 }
 
 export function cashFlow(inputs: Record<string, number | string>): Record<string, number> {
@@ -1367,10 +1336,6 @@ export function savingsGoal(inputs: Record<string, number | string>): Record<str
   return { monthlySavings: Math.round(monthlySavings), remaining: Math.round(remaining), weeklySavings: Math.round(monthlySavings * 12 / 52) };
 }
 
-export function savingsSimulation(inputs: Record<string, number | string>): Record<string, number> {
-  return savingsGoal(inputs);
-}
-
 export function fireCalculation(inputs: Record<string, number | string>): Record<string, number> {
   const annualExpense = (inputs.annualExpense as number) * 10000;
   const withdrawalRate = (inputs.withdrawalRate as number) / 100;
@@ -1564,7 +1529,6 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   bodyFat,
   basalMetabolism,
   calorieBurn,
-  caloriesBmr,
   dailyCalorie,
   dueDate,
   pregnancyWeek,
