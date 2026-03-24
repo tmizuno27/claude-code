@@ -1,0 +1,262 @@
+#!/usr/bin/env python3
+"""
+WordPress記事 → はてなブログ用ダイジェスト変換スクリプト
+
+本家WordPress記事を読み込み、切り口を変えたダイジェスト版を生成する。
+重複コンテンツを回避しつつ、本家への誘導リンクを付与。
+
+使い方:
+  python hatena_converter.py                    # 未変換の全記事を変換
+  python hatena_converter.py --limit 3          # 3記事だけ変換
+  python hatena_converter.py --article 5        # 記事#5のみ変換
+  python hatena_converter.py --dry-run          # 変換せずプレビュー
+"""
+
+import argparse
+import csv
+import json
+import logging
+import sys
+from datetime import datetime
+from pathlib import Path
+
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
+
+# Log settings
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
+# Paths
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+SECRETS_PATH = PROJECT_ROOT / "config" / "secrets.json"
+ARTICLES_DIR = PROJECT_ROOT / "outputs" / "articles"
+HATENA_OUTPUT_DIR = PROJECT_ROOT / "outputs" / "hatena"
+CSV_PATH = PROJECT_ROOT / "outputs" / "article-management.csv"
+HATENA_LOG_PATH = PROJECT_ROOT / "published" / "hatena-log.json"
+
+# Conversion prompt template
+CONVERSION_PROMPT = """あなたは「南米おやじ」というブロガーです。
+以下のWordPress記事を、はてなブログ用の「体験メモ」に変換してください。
+
+## 変換ルール（厳守）
+1. 文字数は元記事の1/3以下（目安400-800字）
+2. SEO構成（H2/H3の羅列）→ 日記・体験談調に完全に書き換える
+3. 見出しは最大2つまで（元記事の見出し構成をそのまま使わない）
+4. 「パラグアイに住んでいる私が実際に感じたこと」という一人称の語り口
+5. 元記事の文章をそのままコピーしない（表現・語順を完全に変える）
+6. カジュアルで親しみやすいトーン（「〜なんですよね」「〜だったりします」OK）
+7. 具体的な数字は1-2個だけ残す（全部は載せない→詳細は本家で）
+8. 末尾に本家記事への誘導を自然に入れる
+
+## 禁止事項
+- 元記事の文章のコピペ（一文でも不可）
+- 「いかがでしたでしょうか」等のAI的表現
+- 「まとめると〜」で始まる結論
+- アフィリエイトリンクの記載
+- 本名（水野達也）の記載。ペンネーム「南米おやじ」のみ使用
+- 居住地を「ランバレ」と書くこと。「アスンシオン」と表記
+
+## 出力フォーマット
+Markdown形式で出力してください。タイトルは含めず本文のみ。
+
+---
+
+### 元記事タイトル
+{title}
+
+### 元記事本文
+{content}
+
+### 本家記事URL
+{url}
+"""
+
+
+def load_secrets():
+    """Load secrets from config."""
+    with open(SECRETS_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def load_article_csv():
+    """Load article management CSV and return published articles."""
+    articles = []
+    with open(CSV_PATH, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            if row.get("ステータス") == "公開済":
+                articles.append(row)
+    return articles
+
+
+def load_hatena_log():
+    """Load hatena publication log."""
+    if HATENA_LOG_PATH.exists():
+        with open(HATENA_LOG_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"converted": [], "published": []}
+
+
+def save_hatena_log(log_data):
+    """Save hatena publication log."""
+    HATENA_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with open(HATENA_LOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(log_data, f, ensure_ascii=False, indent=2)
+
+
+def get_unconverted_articles(articles, hatena_log):
+    """Filter articles that haven't been converted yet."""
+    converted_ids = {str(entry["article_id"]) for entry in hatena_log.get("converted", [])}
+    return [a for a in articles if a["#"] not in converted_ids]
+
+
+def read_article_file(filename):
+    """Read article markdown file."""
+    filepath = ARTICLES_DIR / filename
+    if not filepath.exists():
+        logger.warning(f"Article file not found: {filepath}")
+        return None
+    with open(filepath, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def convert_article(client, title, content, url):
+    """Convert WordPress article to Hatena digest using Claude API."""
+    prompt = CONVERSION_PROMPT.format(
+        title=title,
+        content=content[:8000],  # Truncate to avoid token limits
+        url=url
+    )
+
+    response = client.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=2000,
+        messages=[{"role": "user", "content": prompt}]
+    )
+
+    return response.content[0].text
+
+
+def generate_hatena_title(original_title):
+    """Generate a different title for Hatena blog."""
+    # Remove SEO elements like 【2026年版】, pipes, etc.
+    import re
+    title = re.sub(r'【.*?】', '', original_title)
+    title = title.split('｜')[0].strip()
+    title = title.split('|')[0].strip()
+    # Add casual prefix
+    prefixes = [
+        "パラグアイ暮らしメモ：",
+        "南米生活の雑記：",
+        "移住者の本音：",
+        "アスンシオンから：",
+    ]
+    import random
+    prefix = random.choice(prefixes)
+    return f"{prefix}{title}"
+
+
+def main():
+    parser = argparse.ArgumentParser(description="WordPress → はてなブログ変換")
+    parser.add_argument("--limit", type=int, default=0, help="変換する記事数の上限")
+    parser.add_argument("--article", type=int, default=0, help="特定記事番号のみ変換")
+    parser.add_argument("--dry-run", action="store_true", help="変換せずにプレビュー")
+    args = parser.parse_args()
+
+    if anthropic is None:
+        logger.error("anthropic パッケージが必要です: pip install anthropic")
+        sys.exit(1)
+
+    secrets = load_secrets()
+    api_key = secrets.get("claude_api", {}).get("api_key")
+    if not api_key:
+        logger.error("Claude API key not found in secrets.json")
+        sys.exit(1)
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Load data
+    articles = load_article_csv()
+    hatena_log = load_hatena_log()
+
+    # Filter articles
+    if args.article:
+        targets = [a for a in articles if a["#"] == str(args.article)]
+    else:
+        targets = get_unconverted_articles(articles, hatena_log)
+
+    if args.limit > 0:
+        targets = targets[:args.limit]
+
+    if not targets:
+        logger.info("変換対象の記事がありません")
+        return
+
+    logger.info(f"変換対象: {len(targets)}記事")
+
+    # Create output directory
+    HATENA_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for article in targets:
+        article_id = article["#"]
+        original_title = article["記事タイトル"]
+        filename = article.get("ファイル名", "")
+        permalink = article.get("パーマリンク", "")
+        url = f"https://nambei-oyaji.com/{permalink}/"
+
+        logger.info(f"[#{article_id}] {original_title}")
+
+        if args.dry_run:
+            logger.info(f"  → DRY RUN: スキップ")
+            continue
+
+        # Read original article
+        content = read_article_file(filename)
+        if not content:
+            logger.warning(f"  → 記事ファイルが見つかりません: {filename}")
+            continue
+
+        # Convert
+        try:
+            hatena_body = convert_article(client, original_title, content, url)
+            hatena_title = generate_hatena_title(original_title)
+        except Exception as e:
+            logger.error(f"  → 変換エラー: {e}")
+            continue
+
+        # Save converted article
+        output_filename = f"hatena-{article_id:03d}.md"
+        output_path = HATENA_OUTPUT_DIR / output_filename
+        with open(output_path, "w", encoding="utf-8") as f:
+            f.write(f"---\n")
+            f.write(f"title: {hatena_title}\n")
+            f.write(f"original_id: {article_id}\n")
+            f.write(f"original_title: {original_title}\n")
+            f.write(f"original_url: {url}\n")
+            f.write(f"converted_at: {datetime.now().isoformat()}\n")
+            f.write(f"---\n\n")
+            f.write(hatena_body)
+
+        # Update log
+        hatena_log["converted"].append({
+            "article_id": article_id,
+            "original_title": original_title,
+            "hatena_title": hatena_title,
+            "hatena_file": output_filename,
+            "converted_at": datetime.now().isoformat()
+        })
+        save_hatena_log(hatena_log)
+
+        logger.info(f"  → 変換完了: {output_filename}")
+
+    logger.info(f"全変換完了: {len(targets)}記事")
+
+
+if __name__ == "__main__":
+    main()
