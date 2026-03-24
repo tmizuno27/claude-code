@@ -44,7 +44,8 @@ def generate_image(prompt_data):
     }
 
     total_waited = 0
-    for attempt in range(MAX_RETRIES):
+    attempt = 0
+    while attempt < MAX_RETRIES:
         try:
             resp = requests.post(
                 API_URL, headers=headers, json=payload,
@@ -68,10 +69,11 @@ def generate_image(prompt_data):
                     print(f"  [RATE LIMIT] Detected at {now}. Waiting {RATE_LIMIT_WAIT}s for reset...")
                     time.sleep(RATE_LIMIT_WAIT)
                     total_waited += RATE_LIMIT_WAIT
-                    attempt -= 1  # don't count as retry
+                    # Don't increment attempt — retry after wait
                     continue
 
-                if attempt < MAX_RETRIES - 1:
+                attempt += 1
+                if attempt < MAX_RETRIES:
                     time.sleep(DELAY_BETWEEN_REQUESTS)
                     continue
                 return None
@@ -80,8 +82,9 @@ def generate_image(prompt_data):
                 return data["data"][0].get("url")
 
         except requests.exceptions.Timeout:
-            print(f"  Timeout (attempt {attempt + 1})")
-            if attempt < MAX_RETRIES - 1:
+            attempt += 1
+            print(f"  Timeout (attempt {attempt})")
+            if attempt < MAX_RETRIES:
                 time.sleep(DELAY_BETWEEN_REQUESTS)
                 continue
         except Exception as e:
