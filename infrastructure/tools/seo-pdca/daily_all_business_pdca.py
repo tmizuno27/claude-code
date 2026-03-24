@@ -882,6 +882,44 @@ def pdca_keisan_tools():
     logger.report(f"- 稼働状況: {site_status}")
     logger.report(f"- サイトマップ: {sitemap_status}")
     logger.report(f"- 公開ページ数: {page_count}")
+
+    # --- GA4: PV/ユーザー/セッション ---
+    keisan_ga4_property = 0  # TODO: GA4数字IDが判明したら差し替え（measurement ID: G-3R1LVHX9VJ）
+    keisan_ga4_cred_path = REPO_ROOT / "saas" / "keisan-tools" / "site" / "config" / "ga4-credentials.json"
+    if keisan_ga4_property != 0 and keisan_ga4_cred_path.exists():
+        try:
+            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(keisan_ga4_cred_path)
+            from google.analytics.data_v1beta import BetaAnalyticsDataClient
+            from google.analytics.data_v1beta.types import (
+                DateRange, Metric, RunReportRequest,
+            )
+            end_date_ga4 = (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d")
+            start_date_ga4 = (datetime.now() - timedelta(days=10)).strftime("%Y-%m-%d")
+            client = BetaAnalyticsDataClient()
+            req = RunReportRequest(
+                property=f"properties/{keisan_ga4_property}",
+                date_ranges=[DateRange(start_date=start_date_ga4, end_date=end_date_ga4)],
+                metrics=[
+                    Metric(name="screenPageViews"),
+                    Metric(name="activeUsers"),
+                    Metric(name="sessions"),
+                ],
+            )
+            resp_ga4 = client.run_report(req)
+            if resp_ga4.rows:
+                row = resp_ga4.rows[0]
+                pv = int(row.metric_values[0].value)
+                users = int(row.metric_values[1].value)
+                sessions = int(row.metric_values[2].value)
+                logger.report(f"- GA4（7日間）: PV={pv:,} / ユーザー={users:,} / セッション={sessions:,}")
+            else:
+                logger.report("- GA4（7日間）: データなし")
+        except Exception as e:
+            logger.report(f"- GA4エラー: {e}")
+    elif keisan_ga4_property == 0:
+        logger.report("- GA4: プロパティID未設定（0）→ スキップ")
+    elif not keisan_ga4_cred_path.exists():
+        logger.report(f"- GA4: 認証ファイル未配置 → {keisan_ga4_cred_path}")
     logger.report("")
 
     logger.report("### ACT")
