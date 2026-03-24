@@ -655,6 +655,11 @@ SECTORS = {
     "apify": pdca_apify,
     "wp-linker": pdca_wp_linker,
     "pseo": pdca_pseo,
+    "devto": pdca_devto,
+    "n8n": pdca_n8n,
+    "stock-assets": pdca_stock_assets,
+    "pod-etsy": pdca_pod_etsy,
+    "trading-bot": pdca_trading_bot,
     "infra": pdca_infrastructure,
 }
 
