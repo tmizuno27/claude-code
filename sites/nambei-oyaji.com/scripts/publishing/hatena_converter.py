@@ -176,6 +176,7 @@ def convert_article(client, title, content, url):
     response = client.messages.create(
         model="claude-sonnet-4-6",
         max_tokens=2000,
+        timeout=120.0,
         messages=[{"role": "user", "content": prompt}]
     )
 
