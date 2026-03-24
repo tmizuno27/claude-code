@@ -158,10 +158,15 @@ async function processInput() {
 input.addEventListener("input", processInput);
 
 // Load selected text from context menu
-chrome.storage?.local?.get("selectedText", (data) => {
-  if (data?.selectedText) {
-    input.value = data.selectedText;
-    chrome.storage.local.remove("selectedText");
-    processInput();
+document.addEventListener("DOMContentLoaded", () => {
+  if (chrome.storage && chrome.storage.local) {
+    chrome.storage.local.get("selectedText", (data) => {
+      if (chrome.runtime.lastError) return;
+      if (data && data.selectedText) {
+        input.value = data.selectedText;
+        chrome.storage.local.remove("selectedText");
+        processInput();
+      }
+    });
   }
 });
