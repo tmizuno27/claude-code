@@ -1,0 +1,73 @@
+[
+  {
+    "slug": "money",
+    "name": "お金・金融",
+    "description": "住宅ローン、税金、年収、年金、投資、保険など、お金に関する計算ツール",
+    "icon": "💰",
+    "subcategories": [
+      { "slug": "loan", "name": "ローン計算" },
+      { "slug": "tax", "name": "税金計算" },
+      { "slug": "salary", "name": "給与計算" },
+      { "slug": "pension", "name": "年金計算" },
+      { "slug": "investment", "name": "投資・資産運用" },
+      { "slug": "insurance", "name": "保険" },
+      { "slug": "real-estate", "name": "不動産" }
+    ]
+  },
+  {
+    "slug": "health",
+    "name": "健康",
+    "description": "BMI、カロリー、妊娠、医療費など、健康に関する計算ツール",
+    "icon": "🏥",
+    "subcategories": [
+      { "slug": "body", "name": "身体・体型" },
+      { "slug": "calorie", "name": "カロリー・栄養" },
+      { "slug": "pregnancy", "name": "妊娠・出産" },
+      { "slug": "medical", "name": "医療費" }
+    ]
+  },
+  {
+    "slug": "life",
+    "name": "生活・日常",
+    "description": "日付計算、単位変換、買い物、車の維持費など、日常生活の計算ツール",
+    "icon": "🏠",
+    "subcategories": [
+      { "slug": "date", "name": "日付・時間" },
+      { "slug": "unit", "name": "単位変換" },
+      { "slug": "shopping", "name": "買い物・割引" },
+      { "slug": "car", "name": "車・交通" }
+    ]
+  },
+  {
+    "slug": "business",
+    "name": "ビジネス",
+    "description": "会計、人事・労務、フリーランス向けなど、ビジネスに関する計算ツール",
+    "icon": "💼",
+    "subcategories": [
+      { "slug": "accounting", "name": "会計・経理" },
+      { "slug": "hr", "name": "人事・労務" },
+      { "slug": "freelance", "name": "フリーランス" }
+    ]
+  },
+  {
+    "slug": "math",
+    "name": "数学",
+    "description": "基本計算、図形、統計など、数学に関する計算ツール",
+    "icon": "📐",
+    "subcategories": [
+      { "slug": "basic", "name": "基本計算" },
+      { "slug": "geometry", "name": "図形・面積" },
+      { "slug": "statistics", "name": "統計" }
+    ]
+  },
+  {
+    "slug": "education",
+    "name": "教育",
+    "description": "学校、受験、学習に関する計算ツール",
+    "icon": "🎓",
+    "subcategories": [
+      { "slug": "school", "name": "学校・受験" },
+      { "slug": "study", "name": "学習・成績" }
+    ]
+  }
+]

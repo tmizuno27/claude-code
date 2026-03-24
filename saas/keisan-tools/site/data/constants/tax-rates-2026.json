@@ -1,0 +1,85 @@
+{
+  "year": 2026,
+  "incomeTax": {
+    "brackets": [
+      { "min": 0, "max": 1950000, "rate": 0.05, "deduction": 0 },
+      { "min": 1950001, "max": 3300000, "rate": 0.10, "deduction": 97500 },
+      { "min": 3300001, "max": 6950000, "rate": 0.20, "deduction": 427500 },
+      { "min": 6950001, "max": 9000000, "rate": 0.23, "deduction": 636000 },
+      { "min": 9000001, "max": 18000000, "rate": 0.33, "deduction": 1536000 },
+      { "min": 18000001, "max": 40000000, "rate": 0.40, "deduction": 2796000 },
+      { "min": 40000001, "max": null, "rate": 0.45, "deduction": 4796000 }
+    ],
+    "reconstructionSurtaxRate": 0.021,
+    "reconstructionSurtaxEndYear": 2037
+  },
+  "residenceTax": {
+    "totalRate": 0.10,
+    "municipalRate": 0.06,
+    "prefecturalRate": 0.04,
+    "perCapitaMunicipal": 3500,
+    "perCapitaPrefectural": 1500,
+    "perCapitaTotal": 5000
+  },
+  "socialInsurance": {
+    "employeesPension": {
+      "totalRate": 0.183,
+      "employeeRate": 0.0915,
+      "employerRate": 0.0915,
+      "standardMonthlyMax": 650000,
+      "standardMonthlyMin": 88000
+    },
+    "healthInsurance": {
+      "averageRate": 0.10,
+      "employeeRate": 0.05,
+      "employerRate": 0.05,
+      "note": "料率は協会けんぽ全国平均。都道府県により異なる"
+    },
+    "nursingCareInsurance": {
+      "rate": 0.016,
+      "employeeRate": 0.008,
+      "employerRate": 0.008,
+      "applicableAge": { "min": 40, "max": 64 }
+    },
+    "employmentInsurance": {
+      "employeeRate": 0.006,
+      "employerRate": 0.0095,
+      "note": "一般事業の場合（2026年度見込み）"
+    }
+  },
+  "deductions": {
+    "basicDeduction": {
+      "amount": 480000,
+      "incomeLimit": 24000000,
+      "phaseOut": [
+        { "maxIncome": 24000000, "amount": 480000 },
+        { "maxIncome": 24500000, "amount": 320000 },
+        { "maxIncome": 25000000, "amount": 160000 },
+        { "maxIncome": null, "amount": 0 }
+      ]
+    },
+    "employmentIncomeDeduction": [
+      { "maxIncome": 1625000, "deduction": 550000, "formula": null },
+      { "maxIncome": 1800000, "deduction": null, "formula": "income * 0.4 - 100000" },
+      { "maxIncome": 3600000, "deduction": null, "formula": "income * 0.3 + 80000" },
+      { "maxIncome": 6600000, "deduction": null, "formula": "income * 0.2 + 440000" },
+      { "maxIncome": 8500000, "deduction": null, "formula": "income * 0.1 + 1100000" },
+      { "maxIncome": null, "deduction": 1950000, "formula": null }
+    ],
+    "dependentDeduction": {
+      "general": 380000,
+      "specific": 630000,
+      "elderly": 480000,
+      "elderlyCohabiting": 580000
+    },
+    "spouseDeduction": {
+      "general": 380000,
+      "elderly": 480000,
+      "incomeLimit": 10000000
+    }
+  },
+  "consumption_tax": {
+    "standardRate": 0.10,
+    "reducedRate": 0.08
+  }
+}
