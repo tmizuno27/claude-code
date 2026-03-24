@@ -1,0 +1,30 @@
+{
+  "slug": "crypto-profit",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "仮想通貨損益計算",
+  "description": "仮想通貨の売買による損益と税金を計算します。",
+  "metaTitle": "仮想通貨損益計算ツール｜keisan.tools",
+  "metaDescription": "仮想通貨（ビットコイン・イーサリアムなど）の売買損益と確定申告に必要な税金額を計算します。",
+  "calculatorFunction": "calculateCryptoProfit",
+  "inputs": [
+    { "id": "buyPrice", "label": "購入価格（1枚あたり）", "type": "number", "unit": "円", "default": 5000000, "min": 1, "max": 100000000, "step": 1000 },
+    { "id": "sellPrice", "label": "売却価格（1枚あたり）", "type": "number", "unit": "円", "default": 6000000, "min": 1, "max": 100000000, "step": 1000 },
+    { "id": "quantity", "label": "数量", "type": "number", "unit": "枚", "default": 0.1, "min": 0.00001, "max": 10000, "step": 0.00001 },
+    { "id": "fee", "label": "取引手数料（往復）", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 1000000, "step": 100 },
+    { "id": "otherIncome", "label": "他の雑所得", "type": "number", "unit": "万円", "default": 0, "min": 0, "max": 5000, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "profitLoss", "label": "売買損益", "format": "currency", "primary": true },
+    { "id": "taxableIncome", "label": "課税対象額", "format": "currency" },
+    { "id": "estimatedTax", "label": "概算税額", "format": "currency" },
+    { "id": "afterTaxProfit", "label": "税引後利益", "format": "currency" }
+  ],
+  "explanation": "<h3>仮想通貨の税金</h3><p>仮想通貨の利益は「雑所得」として総合課税の対象です。給与所得などと合算して累進課税（所得税5〜45%＋住民税10%）が適用されます。年間の雑所得が20万円以下の会社員は確定申告不要ですが、住民税の申告は必要です。</p><h3>計算方法</h3><p>損益＝（売却価格 − 購入価格）× 数量 − 手数料で計算します。同じ通貨を複数回購入した場合は「総平均法」または「移動平均法」で取得単価を算出します。</p>",
+  "faq": [
+    { "question": "仮想通貨の利益にかかる税率は？", "answer": "雑所得として総合課税されるため、他の所得と合算した金額に応じて所得税5〜45%＋住民税10%がかかります。最大で約55%の税率になる場合があります。" },
+    { "question": "損失は繰り越せますか？", "answer": "仮想通貨の損失は翌年以降に繰り越すことができません。また、他の所得（給与所得など）との損益通算もできません。同年内の仮想通貨同士の損益通算のみ可能です。" }
+  ],
+  "related": ["forex-profit", "side-job-tax"],
+  "popular": false
+}

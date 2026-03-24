@@ -1,0 +1,28 @@
+{
+  "slug": "pension-estimate",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "年金受給額計算",
+  "description": "加入期間と平均収入から、将来受け取れる年金額の目安を計算します。",
+  "metaTitle": "年金受給額計算｜keisan.tools",
+  "metaDescription": "国民年金・厚生年金の加入期間と平均収入から、老齢年金の受給額を概算します。",
+  "calculatorFunction": "pensionEstimate",
+  "inputs": [
+    { "id": "nationalPensionYears", "label": "国民年金加入期間", "type": "number", "unit": "年", "default": 40, "min": 0, "max": 45, "step": 1 },
+    { "id": "employeePensionYears", "label": "厚生年金加入期間", "type": "number", "unit": "年", "default": 38, "min": 0, "max": 45, "step": 1 },
+    { "id": "averageSalary", "label": "平均標準報酬月額", "type": "number", "unit": "万円", "default": 35, "min": 10, "max": 150, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "nationalPension", "label": "老齢基礎年金（年額）", "format": "currency" },
+    { "id": "employeePension", "label": "老齢厚生年金（年額）", "format": "currency" },
+    { "id": "totalAnnual", "label": "年金合計（年額）", "format": "currency", "primary": true },
+    { "id": "monthlyAmount", "label": "月額（概算）", "format": "currency" }
+  ],
+  "explanation": "<h3>年金受給額の計算</h3><p>老齢基礎年金は満額で約795,000円/年（2024年度）。加入期間に応じて按分されます。老齢厚生年金は平均標準報酬月額 × 5.481/1000 × 加入月数で計算されます。</p>",
+  "faq": [
+    { "question": "年金は何歳からもらえる？", "answer": "原則65歳からですが、60歳からの繰上げ受給（減額）や75歳までの繰下げ受給（増額）も選択できます。1か月繰下げるごとに0.7%増額されます。" },
+    { "question": "年金だけで生活できる？", "answer": "夫婦二人の標準的な年金受給額は月約23万円ですが、ゆとりある老後には月36万円程度必要とされています。不足分は貯蓄やiDeCo等で補うことが推奨されます。" }
+  ],
+  "related": ["pension-contribution", "compound-interest"],
+  "popular": true
+}

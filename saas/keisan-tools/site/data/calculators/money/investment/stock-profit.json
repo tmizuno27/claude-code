@@ -1,0 +1,30 @@
+{
+  "slug": "stock-profit",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "株式利益計算",
+  "description": "株式売買の利益・損失と税金を計算します。",
+  "metaTitle": "株式利益計算｜keisan.tools",
+  "metaDescription": "株式の購入価格と売却価格から利益額・税額・手取り額を計算します。NISA口座にも対応。",
+  "calculatorFunction": "stockProfit",
+  "inputs": [
+    { "id": "buyPrice", "label": "購入価格（1株）", "type": "number", "unit": "円", "default": 1000, "min": 1, "max": 10000000, "step": 1 },
+    { "id": "sellPrice", "label": "売却価格（1株）", "type": "number", "unit": "円", "default": 1500, "min": 1, "max": 10000000, "step": 1 },
+    { "id": "shares", "label": "株数", "type": "number", "unit": "株", "default": 100, "min": 1, "max": 100000, "step": 1 },
+    { "id": "commission", "label": "売買手数料（片道）", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 100000, "step": 1 },
+    { "id": "isNisa", "label": "NISA口座", "type": "select", "default": "no", "options": [{ "value": "no", "label": "特定口座（課税）" }, { "value": "yes", "label": "NISA口座（非課税）" }] }
+  ],
+  "outputs": [
+    { "id": "grossProfit", "label": "売買損益", "format": "currency" },
+    { "id": "tax", "label": "税金（20.315%）", "format": "currency" },
+    { "id": "netProfit", "label": "手取り利益", "format": "currency", "primary": true },
+    { "id": "returnRate", "label": "利益率", "format": "percent" }
+  ],
+  "explanation": "<h3>株式利益の計算</h3><p>株式の譲渡益には20.315%（所得税15.315% + 住民税5%）の税金がかかります。NISA口座での売買は非課税です。</p>",
+  "faq": [
+    { "question": "新NISAの非課税枠は？", "answer": "つみたて投資枠120万円/年、成長投資枠240万円/年の合計360万円/年です。生涯投資枠は1,800万円で、非課税期間は無期限です。" },
+    { "question": "損失が出たらどうなる？", "answer": "特定口座では損益通算ができ、他の株式利益と相殺できます。相殺しきれない損失は3年間繰り越せます。NISA口座の損失は損益通算できません。" }
+  ],
+  "related": ["dividend-yield", "compound-interest"],
+  "popular": true
+}

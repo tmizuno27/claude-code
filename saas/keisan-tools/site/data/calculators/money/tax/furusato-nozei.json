@@ -1,0 +1,27 @@
+{
+  "slug": "furusato-nozei",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "ふるさと納税上限額計算",
+  "description": "年収・家族構成からふるさと納税の控除上限額を計算します。",
+  "metaTitle": "ふるさと納税上限額計算｜keisan.tools",
+  "metaDescription": "ふるさと納税の控除上限額を簡単計算。年収・家族構成を入力するだけで自己負担2,000円で寄付できる上限額がわかります。",
+  "calculatorFunction": "calculateFurusatoNozei",
+  "inputs": [
+    { "id": "annualIncome", "label": "年収（額面）", "type": "number", "unit": "万円", "default": 500, "min": 100, "max": 5000, "step": 10 },
+    { "id": "familyType", "label": "家族構成", "type": "select", "options": [{ "value": "single", "label": "独身・共働き" }, { "value": "married", "label": "配偶者控除あり" }, { "value": "married_child_high", "label": "配偶者控除＋高校生の子1人" }, { "value": "married_child_univ", "label": "配偶者控除＋大学生の子1人" }], "default": "single" },
+    { "id": "otherDeductions", "label": "その他の所得控除", "type": "number", "unit": "万円", "default": 0, "min": 0, "max": 500, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "maxDonation", "label": "ふるさと納税上限額（目安）", "format": "currency", "primary": true },
+    { "id": "selfBurden", "label": "自己負担額", "format": "currency" },
+    { "id": "taxDeduction", "label": "税控除額", "format": "currency" }
+  ],
+  "explanation": "<h3>ふるさと納税とは</h3><p>ふるさと納税は、好きな自治体に寄付することで、寄付額のうち2,000円を超える部分が所得税・住民税から控除される制度です。控除上限額は年収・家族構成・その他控除により異なります。</p><h3>上限額の目安</h3><p>上限額は住民税所得割額の約20%が目安です。上限を超えた分は自己負担となるため、正確な額は源泉徴収票を基に計算することをおすすめします。</p>",
+  "faq": [
+    { "question": "ふるさと納税の上限額を超えるとどうなりますか？", "answer": "上限額を超えた分は控除されず、全額自己負担となります。上限ギリギリまで寄付するよりも、少し余裕を持った額にすることをおすすめします。" },
+    { "question": "ワンストップ特例制度とは何ですか？", "answer": "確定申告なしで控除を受けられる制度です。寄付先が5自治体以内の会社員が対象です。寄付ごとに申請書を自治体に送付する必要があります。" }
+  ],
+  "related": ["income-tax", "medical-deduction", "take-home-pay"],
+  "popular": true
+}

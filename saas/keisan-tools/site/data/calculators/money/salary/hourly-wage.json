@@ -1,0 +1,27 @@
+{
+  "slug": "hourly-wage",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "時給計算",
+  "description": "月給・年収から実質的な時給を計算します。",
+  "metaTitle": "時給計算｜keisan.tools",
+  "metaDescription": "月給や年収から1時間あたりの実質時給を計算。労働時間・稼働日数から正確に算出します。",
+  "calculatorFunction": "hourlyWage",
+  "inputs": [
+    { "id": "monthlySalary", "label": "月給（額面）", "type": "number", "unit": "万円", "default": 30, "min": 1, "max": 500, "step": 1 },
+    { "id": "workDays", "label": "月の出勤日数", "type": "number", "unit": "日", "default": 22, "min": 1, "max": 31, "step": 1 },
+    { "id": "workHours", "label": "1日の労働時間", "type": "number", "unit": "時間", "default": 8, "min": 1, "max": 24, "step": 0.5 }
+  ],
+  "outputs": [
+    { "id": "hourlyRate", "label": "時給", "format": "currency", "primary": true },
+    { "id": "dailyRate", "label": "日給", "format": "currency" },
+    { "id": "annualSalary", "label": "年収換算", "format": "currency" }
+  ],
+  "explanation": "<h3>時給の計算方法</h3><p>月給 ÷（月の出勤日数 × 1日の労働時間）で時給を算出します。残業代を含まない基本給ベースで計算しています。</p>",
+  "faq": [
+    { "question": "時給換算するメリットは？", "answer": "異なる雇用形態（正社員・派遣・アルバイト）の報酬を公平に比較できます。また、残業の価値や副業との比較にも役立ちます。" },
+    { "question": "最低賃金を下回っていたら？", "answer": "2024年度の全国加重平均最低賃金は1,055円です。正社員でも時給換算で最低賃金を下回る場合は違法の可能性があります。" }
+  ],
+  "related": ["take-home-pay", "overtime-pay", "bonus-tax"],
+  "popular": false
+}

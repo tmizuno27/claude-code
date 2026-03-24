@@ -1,0 +1,28 @@
+{
+  "slug": "bonus-tax",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "ボーナス手取り計算",
+  "description": "ボーナス額面から手取り額を計算します。社会保険料・所得税を自動計算。",
+  "metaTitle": "ボーナス手取り計算｜keisan.tools",
+  "metaDescription": "ボーナスの額面金額から社会保険料・所得税を引いた手取り額をシミュレーションできます。",
+  "calculatorFunction": "bonusTax",
+  "inputs": [
+    { "id": "bonusAmount", "label": "ボーナス額面", "type": "number", "unit": "万円", "default": 50, "min": 1, "max": 1000, "step": 1 },
+    { "id": "monthlySalary", "label": "月給（額面）", "type": "number", "unit": "万円", "default": 30, "min": 10, "max": 500, "step": 1 },
+    { "id": "age", "label": "年齢", "type": "number", "unit": "歳", "default": 35, "min": 18, "max": 70, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "takeHome", "label": "手取り額", "format": "currency", "primary": true },
+    { "id": "socialInsurance", "label": "社会保険料", "format": "currency" },
+    { "id": "incomeTax", "label": "所得税", "format": "currency" },
+    { "id": "deductionRate", "label": "控除率", "format": "percent" }
+  ],
+  "explanation": "<h3>ボーナスの手取り計算</h3><p>ボーナスからは健康保険料・厚生年金保険料・雇用保険料・所得税が差し引かれます。住民税はボーナスからは引かれません。社会保険料率は約15%、所得税率は前月の給与額に基づいて決まります。</p>",
+  "faq": [
+    { "question": "ボーナスから住民税は引かれる？", "answer": "いいえ、住民税はボーナスからは差し引かれません。毎月の給与から特別徴収されます。" },
+    { "question": "ボーナスの所得税率はどう決まる？", "answer": "前月の給与から社会保険料を引いた金額と扶養親族の数に基づいて、賞与に対する源泉徴収税額の算出率が決まります。" }
+  ],
+  "related": ["take-home-pay", "hourly-wage"],
+  "popular": true
+}
