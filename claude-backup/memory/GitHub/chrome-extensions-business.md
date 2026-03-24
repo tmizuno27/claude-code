@@ -7,7 +7,7 @@ type: project
 Chrome拡張ポートフォリオ事業を2026-03-16に開始。10個の拡張を開発しChrome Web Storeに審査申請。
 2026-03-24時点: 4本公開済み（AI Text Rewriter 1user, Color Picker 0, Domain WHOIS 1user, SEO Inspector 0）、4本審査待ち（Quick Currency, JSON Formatter, Lorem Ipsum, Page Speed）。
 Regex Testerは「スパムとストア掲載順位」ポリシー違反で却下→取り下げ済み。
-Hash & Encode Toolは「不正確な説明 - 機能しない」で却下（2026-03-24）。右クリックコンテキストメニュー機能が審査で動作確認できず。→ 機能修正して再提出が必要。
+Hash & Encode Toolは「不正確な説明 - 機能しない」で却下（2026-03-24）。右クリックコンテキストメニュー機能が審査で動作確認できず。→ storageパーミッション追加+background.js修正+再提出済み（2026-03-24）、審査待ち。
 Quick Currency Converterは再提出済み（2026-03-20）、審査待ち。
 
 **Why:** RapidAPI 20本と同じ「マーケットプレイスに出して放置」モデルの横展開。開発コスト$0、運用コスト$0。
