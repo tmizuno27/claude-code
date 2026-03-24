@@ -1,92 +1,33 @@
 {
-  "id": "housing-loan",
+  "slug": "housing-loan",
   "category": "money",
   "subcategory": "loan",
-  "title": "住宅ローン返済額シミュレーション",
-  "description": "借入額・金利・返済期間から毎月の返済額、総返済額、利息総額を計算します。元利均等・元金均等の両方式に対応。",
+  "title": "住宅ローン計算",
+  "description": "借入額・金利・返済期間から毎月の返済額と総返済額をシミュレーション。元利均等・元金均等の両方に対応。",
+  "metaTitle": "住宅ローン計算シミュレーション｜月々の返済額を簡単計算",
+  "metaDescription": "住宅ローンの毎月の返済額・総返済額・利息総額を無料でシミュレーション。元利均等返済・元金均等返済に対応。",
+  "calculatorFunction": "loanRepayment",
   "inputs": [
-    {
-      "id": "amount",
-      "label": "借入額",
-      "type": "number",
-      "unit": "万円",
-      "default": 3000,
-      "min": 100,
-      "max": 20000,
-      "step": 100
-    },
-    {
-      "id": "rate",
-      "label": "年利（金利）",
-      "type": "number",
-      "unit": "%",
-      "default": 1.5,
-      "min": 0.1,
-      "max": 15,
-      "step": 0.01
-    },
-    {
-      "id": "years",
-      "label": "返済期間",
-      "type": "slider",
-      "unit": "年",
-      "default": 35,
-      "min": 1,
-      "max": 50,
-      "step": 1
-    },
-    {
-      "id": "method",
-      "label": "返済方式",
-      "type": "select",
-      "unit": null,
-      "default": "equal_payment",
-      "options": [
-        { "value": "equal_payment", "label": "元利均等返済" },
-        { "value": "equal_principal", "label": "元金均等返済" }
-      ]
-    }
+    { "id": "amount", "label": "借入額", "type": "number", "unit": "万円", "default": 3500, "min": 100, "max": 20000, "step": 100 },
+    { "id": "rate", "label": "年利", "type": "slider", "unit": "%", "default": 0.5, "min": 0.1, "max": 5.0, "step": 0.05 },
+    { "id": "years", "label": "返済期間", "type": "slider", "unit": "年", "default": 35, "min": 1, "max": 50, "step": 1 },
+    { "id": "method", "label": "返済方式", "type": "select", "default": "equal_payment", "options": [
+      { "value": "equal_payment", "label": "元利均等返済" },
+      { "value": "equal_principal", "label": "元金均等返済" }
+    ]}
   ],
-  "calculator": "calcHousingLoan",
   "outputs": [
-    { "id": "monthlyPayment", "label": "毎月の返済額", "format": "currency" },
+    { "id": "monthlyPayment", "label": "毎月の返済額", "format": "currency", "primary": true },
     { "id": "totalPayment", "label": "総返済額", "format": "currency" },
-    { "id": "totalInterest", "label": "利息総額", "format": "currency" },
-    { "id": "interestRatio", "label": "利息割合", "format": "percent" }
+    { "id": "totalInterest", "label": "利息総額", "format": "currency" }
   ],
-  "chart": {
-    "type": "bar",
-    "dataKey": "yearlyBreakdown"
-  },
+  "explanation": "<h3>住宅ローンの計算方法</h3><p>住宅ローンの返済方式には「元利均等返済」と「元金均等返済」の2種類があります。</p><h3>元利均等返済</h3><p>毎月の返済額（元金＋利息）が一定になる方式です。返済計画が立てやすいメリットがありますが、総返済額は元金均等より多くなります。</p><h3>元金均等返済</h3><p>毎月の元金返済額が一定で、利息が徐々に減る方式です。初期の返済額は大きいですが、総返済額は少なくなります。</p>",
   "faq": [
-    {
-      "q": "元利均等返済と元金均等返済の違いは？",
-      "a": "元利均等返済は毎月の返済額が一定で家計管理がしやすい方式です。元金均等返済は毎月の元金返済額が一定で、返済が進むにつれ返済額が減少します。総利息は元金均等返済の方が少なくなります。"
-    },
-    {
-      "q": "変動金利と固定金利のどちらを選ぶべきですか？",
-      "a": "変動金利は現在の金利が低く月々の負担が少ないですが、将来金利が上昇するリスクがあります。固定金利は金利が一定で返済計画を立てやすいですが、変動金利より金利が高めです。2026年現在、金利上昇局面のため固定金利を検討する方が増えています。"
-    },
-    {
-      "q": "住宅ローンの借入可能額の目安は？",
-      "a": "一般的に年収の5〜7倍が借入額の目安とされています。ただし返済負担率（年間返済額÷年収）が25%以下に収まることが望ましいです。金融機関の審査では返済負担率30〜35%が上限となることが多いです。"
-    },
-    {
-      "q": "繰上返済はした方がいいですか？",
-      "a": "繰上返済には「期間短縮型」と「返済額軽減型」があります。利息軽減効果は期間短縮型の方が大きいです。ただし住宅ローン控除の適用期間中は、控除額と利息軽減額を比較して判断しましょう。手元資金とのバランスも重要です。"
-    },
-    {
-      "q": "住宅ローン控除（減税）はどのくらい受けられますか？",
-      "a": "2026年現在、新築住宅の場合は年末ローン残高の0.7%が最大13年間控除されます。控除限度額は住宅の性能により2,000万〜5,000万円です。中古住宅の場合は最大10年間、限度額2,000万〜3,000万円です。"
-    }
+    { "question": "元利均等と元金均等、どちらがお得？", "answer": "総返済額で比較すると元金均等返済の方が少なくなります。ただし初期の返済負担が大きいため、家計とのバランスで選択しましょう。" },
+    { "question": "繰上返済はした方がいい？", "answer": "住宅ローン控除の適用期間中は、控除額と利息を比較して判断しましょう。控除期間終了後は繰上返済が有利になるケースが多いです。" },
+    { "question": "変動金利と固定金利の違いは？", "answer": "変動金利は半年ごとに金利が見直され、固定金利は借入時の金利が一定期間または全期間固定されます。金利上昇リスクを避けたい場合は固定金利が安心です。" }
   ],
-  "related": ["income-tax", "take-home-pay", "compound-interest"],
-  "affiliate": {
-    "text": "住宅ローンの借り換えで返済額を削減しませんか？",
-    "category": "housing-loan"
-  },
-  "seo": {
-    "h1": "住宅ローン返済額シミュレーション【2026年版】",
-    "metaDescription": "住宅ローンの毎月返済額・総返済額・利息総額を簡単計算。元利均等・元金均等に対応。借入額・金利・期間を入力するだけ。"
-  }
+  "related": ["income-tax", "compound-interest"],
+  "popular": true,
+  "popularOrder": 1
 }

@@ -1,117 +1,29 @@
 {
-  "id": "income-tax",
+  "slug": "income-tax",
   "category": "money",
   "subcategory": "tax",
-  "title": "所得税・住民税計算シミュレーション",
-  "description": "年収から所得税・住民税・手取り額を計算します。扶養控除・社会保険料・医療費控除に対応。",
+  "title": "所得税計算",
+  "description": "年収から所得税額を計算。給与所得控除・基礎控除・扶養控除・社会保険料控除に対応。2026年最新税率。",
+  "metaTitle": "所得税計算シミュレーション｜年収から所得税を自動計算【2026年版】",
+  "metaDescription": "年収を入力するだけで所得税額を自動計算。給与所得控除・各種控除に対応した2026年最新の所得税計算ツール。",
+  "calculatorFunction": "incomeTax",
   "inputs": [
-    {
-      "id": "annualIncome",
-      "label": "年収（額面）",
-      "type": "number",
-      "unit": "万円",
-      "default": 500,
-      "min": 0,
-      "max": 50000,
-      "step": 10
-    },
-    {
-      "id": "dependents",
-      "label": "扶養人数（16歳以上）",
-      "type": "number",
-      "unit": "人",
-      "default": 0,
-      "min": 0,
-      "max": 10,
-      "step": 1
-    },
-    {
-      "id": "specificDependents",
-      "label": "特定扶養親族（19〜22歳）",
-      "type": "number",
-      "unit": "人",
-      "default": 0,
-      "min": 0,
-      "max": 10,
-      "step": 1
-    },
-    {
-      "id": "socialInsurance",
-      "label": "社会保険料（年額）",
-      "type": "number",
-      "unit": "万円",
-      "default": 0,
-      "min": 0,
-      "max": 2000,
-      "step": 1
-    },
-    {
-      "id": "autoCalcSocialInsurance",
-      "label": "社会保険料を自動計算",
-      "type": "select",
-      "unit": null,
-      "default": "auto",
-      "options": [
-        { "value": "auto", "label": "自動計算する" },
-        { "value": "manual", "label": "手動入力" }
-      ]
-    },
-    {
-      "id": "medicalExpenses",
-      "label": "医療費（年額）",
-      "type": "number",
-      "unit": "万円",
-      "default": 0,
-      "min": 0,
-      "max": 1000,
-      "step": 1
-    }
+    { "id": "income", "label": "年収（額面）", "type": "number", "unit": "万円", "default": 500, "min": 0, "max": 50000, "step": 10 },
+    { "id": "dependents", "label": "扶養人数", "type": "number", "unit": "人", "default": 0, "min": 0, "max": 10, "step": 1 },
+    { "id": "socialInsurance", "label": "社会保険料（年額）", "type": "number", "unit": "万円", "default": 0, "min": 0, "max": 5000, "step": 1, "hint": "0の場合は概算で自動計算" }
   ],
-  "calculator": "calcIncomeTax",
   "outputs": [
-    { "id": "employmentIncomeDeduction", "label": "給与所得控除", "format": "currency" },
-    { "id": "totalDeductions", "label": "所得控除合計", "format": "currency" },
-    { "id": "taxableIncome", "label": "課税所得", "format": "currency" },
-    { "id": "incomeTax", "label": "所得税（復興特別税含む）", "format": "currency" },
-    { "id": "residenceTax", "label": "住民税", "format": "currency" },
-    { "id": "socialInsuranceTotal", "label": "社会保険料", "format": "currency" },
-    { "id": "totalDeducted", "label": "控除合計（税+社保）", "format": "currency" },
-    { "id": "takeHome", "label": "手取り年収", "format": "currency" },
-    { "id": "effectiveTaxRate", "label": "実効税率", "format": "percent" }
+    { "id": "incomeTax", "label": "所得税額", "format": "currency", "primary": true },
+    { "id": "effectiveRate", "label": "実効税率", "format": "percent" },
+    { "id": "employmentDeduction", "label": "給与所得控除", "format": "currency" },
+    { "id": "taxableIncome", "label": "課税所得", "format": "currency" }
   ],
-  "chart": {
-    "type": "pie",
-    "dataKey": "breakdown"
-  },
+  "explanation": "<h3>所得税の計算手順</h3><p>所得税は以下の手順で計算します。</p><ol><li>年収から給与所得控除を差し引き「給与所得」を算出</li><li>給与所得から各種控除を差し引き「課税所得」を算出</li><li>課税所得に税率を適用して所得税額を算出</li></ol><h3>2026年の所得税率</h3><p>課税所得195万円以下: 5%、330万円以下: 10%、695万円以下: 20%、900万円以下: 23%、1,800万円以下: 33%、4,000万円以下: 40%、4,000万円超: 45%</p>",
   "faq": [
-    {
-      "q": "所得税の計算方法を教えてください",
-      "a": "所得税は次の手順で計算します。①年収から給与所得控除を差し引いて給与所得を算出 ②給与所得から基礎控除・扶養控除・社会保険料控除などの所得控除を差し引いて課税所得を算出 ③課税所得に税率（5〜45%の超過累進税率）を適用して所得税額を算出 ④所得税額に復興特別所得税（2.1%）を加算します。"
-    },
-    {
-      "q": "住民税はいつ・どのように課税されますか？",
-      "a": "住民税は前年の所得に対して翌年6月から課税されます（前年課税方式）。税率は一律10%（市区町村民税6%＋都道府県民税4%）に均等割5,000円が加算されます。新社会人は1年目は住民税がかかりません。"
-    },
-    {
-      "q": "年収500万円の手取りはいくらですか？",
-      "a": "年収500万円（独身・扶養なし）の場合、手取りは約390〜400万円が目安です。内訳は社会保険料が約72万円、所得税が約14万円、住民税が約24万円程度です。扶養家族がいる場合は控除により手取りが増えます。"
-    },
-    {
-      "q": "確定申告が必要なケースは？",
-      "a": "会社員でも確定申告が必要なケースがあります。主な例：①年収2,000万円超 ②副業の所得が20万円超 ③2か所以上から給与を受けている ④医療費控除やふるさと納税（6自治体超）を受けたい場合。逆に年末調整だけで済むケースも多いです。"
-    },
-    {
-      "q": "ふるさと納税の控除上限額はどう計算しますか？",
-      "a": "ふるさと納税の控除上限額の目安は、住民税所得割額×20%÷（100%−10%−所得税率×1.021）＋2,000円で計算できます。年収500万円・独身の場合、約6万円が目安です。正確な金額は所得控除の内容により変わります。"
-    }
+    { "question": "所得税と住民税の違いは？", "answer": "所得税は国に納める税金で累進税率、住民税は地方自治体に納める税金で一律約10%です。" },
+    { "question": "給与所得控除とは？", "answer": "給与所得者に認められる経費的な控除です。収入金額に応じて自動的に計算されます。" }
   ],
-  "related": ["take-home-pay", "housing-loan", "compound-interest"],
-  "affiliate": {
-    "text": "ふるさと納税で賢く節税しませんか？",
-    "category": "furusato-nozei"
-  },
-  "seo": {
-    "h1": "所得税・住民税計算シミュレーション【2026年版】",
-    "metaDescription": "年収から所得税・住民税・手取り額を自動計算。扶養控除・社会保険料・医療費控除に対応した2026年最新版シミュレーター。"
-  }
+  "related": ["take-home-pay", "housing-loan"],
+  "popular": true,
+  "popularOrder": 4
 }

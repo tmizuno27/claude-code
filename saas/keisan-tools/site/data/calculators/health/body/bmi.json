@@ -1,87 +1,28 @@
 {
-  "id": "bmi",
+  "slug": "bmi",
   "category": "health",
   "subcategory": "body",
-  "title": "BMI計算・適正体重チェック",
-  "description": "身長と体重からBMI値を計算し、肥満度の判定と適正体重を表示します。日本肥満学会の基準に対応。",
+  "title": "BMI計算",
+  "description": "身長と体重からBMI（体格指数）を計算。肥満度の判定と適正体重も表示します。",
+  "metaTitle": "BMI計算ツール｜身長・体重から肥満度を自動判定",
+  "metaDescription": "身長と体重を入力するだけでBMI値と肥満度を自動判定。適正体重・理想体重も表示する無料ツール。",
+  "calculatorFunction": "bmi",
   "inputs": [
-    {
-      "id": "height",
-      "label": "身長",
-      "type": "number",
-      "unit": "cm",
-      "default": 170,
-      "min": 100,
-      "max": 250,
-      "step": 0.1
-    },
-    {
-      "id": "weight",
-      "label": "体重",
-      "type": "number",
-      "unit": "kg",
-      "default": 65,
-      "min": 20,
-      "max": 300,
-      "step": 0.1
-    },
-    {
-      "id": "age",
-      "label": "年齢",
-      "type": "number",
-      "unit": "歳",
-      "default": 30,
-      "min": 1,
-      "max": 120,
-      "step": 1
-    },
-    {
-      "id": "gender",
-      "label": "性別",
-      "type": "select",
-      "unit": null,
-      "default": "male",
-      "options": [
-        { "value": "male", "label": "男性" },
-        { "value": "female", "label": "女性" }
-      ]
-    }
+    { "id": "height", "label": "身長", "type": "number", "unit": "cm", "default": 170, "min": 100, "max": 250, "step": 0.1 },
+    { "id": "weight", "label": "体重", "type": "number", "unit": "kg", "default": 65, "min": 20, "max": 300, "step": 0.1 }
   ],
-  "calculator": "calcBMI",
   "outputs": [
-    { "id": "bmi", "label": "BMI値", "format": "number" },
+    { "id": "bmi", "label": "BMI", "format": "number", "primary": true },
     { "id": "category", "label": "判定", "format": "text" },
-    { "id": "idealWeight", "label": "適正体重（BMI 22）", "format": "number" },
-    { "id": "idealWeightRange", "label": "普通体重の範囲", "format": "text" },
-    { "id": "weightDiff", "label": "適正体重との差", "format": "number" }
+    { "id": "idealWeight", "label": "適正体重（BMI 22）", "format": "weight" },
+    { "id": "weightDiff", "label": "適正体重との差", "format": "weight" }
   ],
-  "chart": null,
+  "explanation": "<h3>BMIとは</h3><p>BMI（Body Mass Index）は体重と身長から算出する肥満度の指標です。BMI = 体重(kg) ÷ 身長(m)の2乗 で計算します。</p><h3>日本肥満学会の基準</h3><ul><li>18.5未満: 低体重（やせ）</li><li>18.5〜25未満: 普通体重</li><li>25〜30未満: 肥満（1度）</li><li>30〜35未満: 肥満（2度）</li><li>35〜40未満: 肥満（3度）</li><li>40以上: 肥満（4度）</li></ul>",
   "faq": [
-    {
-      "q": "BMIとは何ですか？",
-      "a": "BMI（Body Mass Index）は体重と身長から算出される肥満度の指標です。計算式は「体重(kg) ÷ 身長(m)²」です。日本肥満学会ではBMI 22を標準体重とし、25以上を肥満と判定します。WHO基準では30以上が肥満です。"
-    },
-    {
-      "q": "日本人のBMI判定基準は？",
-      "a": "日本肥満学会の基準：18.5未満＝低体重（やせ）、18.5〜24.9＝普通体重、25.0〜29.9＝肥満（1度）、30.0〜34.9＝肥満（2度）、35.0〜39.9＝肥満（3度）、40.0以上＝肥満（4度）。BMI 22が最も病気になりにくいとされています。"
-    },
-    {
-      "q": "BMIの限界は何ですか？",
-      "a": "BMIは筋肉量と脂肪量を区別できません。筋肉質な人はBMIが高くても体脂肪率は低い場合があります。また内臓脂肪の量もわかりません。正確な肥満度判定には体脂肪率やウエスト周囲径も併用することが推奨されます。"
-    },
-    {
-      "q": "適正体重はどのように計算しますか？",
-      "a": "適正体重は「身長(m)² × 22」で計算します。例えば身長170cmの場合、1.70² × 22 ＝ 63.6kgが適正体重です。BMI 22は統計的に最も病気にかかりにくい数値とされていますが、個人差があるため目安として利用してください。"
-    },
-    {
-      "q": "子供のBMIの見方は違いますか？",
-      "a": "はい。子供（18歳未満）は成長途中のため成人と同じBMI基準は使えません。文部科学省の「ローレル指数」（体重÷身長³×10⁷）や、年齢・性別ごとのBMIパーセンタイル曲線を使って判定します。このツールは成人向けの基準で判定しています。"
-    }
+    { "question": "BMI 22が理想とされる理由は？", "answer": "統計的にBMI 22の人が最も病気にかかりにくいとされています。日本肥満学会がBMI 22を標準体重として推奨しています。" },
+    { "question": "BMIだけで肥満を判断できる？", "answer": "BMIは簡易的な指標であり、筋肉量や体脂肪率は考慮されません。正確な判定には体脂肪率の測定も併用することをおすすめします。" }
   ],
   "related": [],
-  "affiliate": null,
-  "seo": {
-    "h1": "BMI計算・適正体重チェック【2026年版】",
-    "metaDescription": "身長と体重を入力するだけでBMI値・肥満度判定・適正体重を自動計算。日本肥満学会の基準に対応した無料ツール。"
-  }
+  "popular": true,
+  "popularOrder": 3
 }

@@ -1,97 +1,32 @@
 {
-  "id": "take-home-pay",
+  "slug": "take-home-pay",
   "category": "money",
   "subcategory": "salary",
-  "title": "手取り計算シミュレーション",
-  "description": "月給・ボーナスから健康保険・厚生年金・雇用保険・所得税・住民税を差し引いた手取り額を計算します。",
+  "title": "手取り計算",
+  "description": "月収・ボーナスから手取り額を計算。社会保険料・所得税・住民税を差し引いた実際の受取額がわかります。",
+  "metaTitle": "手取り計算シミュレーション｜月収・年収から手取り額を自動計算",
+  "metaDescription": "月収や年収から手取り額を自動計算。社会保険料・所得税・住民税の内訳も表示。2026年最新版。",
+  "calculatorFunction": "takeHomePay",
   "inputs": [
-    {
-      "id": "monthlySalary",
-      "label": "月給（額面）",
-      "type": "number",
-      "unit": "万円",
-      "default": 30,
-      "min": 1,
-      "max": 500,
-      "step": 1
-    },
-    {
-      "id": "bonusMonths",
-      "label": "ボーナス（月数）",
-      "type": "number",
-      "unit": "ヶ月分",
-      "default": 4,
-      "min": 0,
-      "max": 12,
-      "step": 0.5
-    },
-    {
-      "id": "age",
-      "label": "年齢",
-      "type": "number",
-      "unit": "歳",
-      "default": 35,
-      "min": 18,
-      "max": 75,
-      "step": 1
-    },
-    {
-      "id": "dependents",
-      "label": "扶養人数（16歳以上）",
-      "type": "number",
-      "unit": "人",
-      "default": 0,
-      "min": 0,
-      "max": 10,
-      "step": 1
-    }
+    { "id": "monthlySalary", "label": "月給（額面）", "type": "number", "unit": "万円", "default": 30, "min": 10, "max": 500, "step": 1 },
+    { "id": "bonusMonths", "label": "ボーナス", "type": "slider", "unit": "ヶ月分", "default": 4, "min": 0, "max": 12, "step": 0.5 },
+    { "id": "age", "label": "年齢", "type": "number", "unit": "歳", "default": 30, "min": 20, "max": 70, "step": 1 },
+    { "id": "dependents", "label": "扶養人数", "type": "number", "unit": "人", "default": 0, "min": 0, "max": 10, "step": 1 }
   ],
-  "calculator": "calcTakeHomePay",
   "outputs": [
-    { "id": "annualIncome", "label": "年収（額面）", "format": "currency" },
-    { "id": "healthInsurance", "label": "健康保険料（年額）", "format": "currency" },
-    { "id": "nursingCareInsurance", "label": "介護保険料（年額）", "format": "currency" },
-    { "id": "pension", "label": "厚生年金保険料（年額）", "format": "currency" },
-    { "id": "employmentInsurance", "label": "雇用保険料（年額）", "format": "currency" },
-    { "id": "socialInsuranceTotal", "label": "社会保険料合計（年額）", "format": "currency" },
-    { "id": "incomeTax", "label": "所得税（年額）", "format": "currency" },
-    { "id": "residenceTax", "label": "住民税（年額）", "format": "currency" },
-    { "id": "monthlyTakeHome", "label": "毎月の手取り", "format": "currency" },
-    { "id": "annualTakeHome", "label": "年間手取り", "format": "currency" }
+    { "id": "monthlyTakeHome", "label": "月の手取り額", "format": "currency", "primary": true },
+    { "id": "annualTakeHome", "label": "年間手取り額", "format": "currency" },
+    { "id": "annualGross", "label": "年収（額面）", "format": "currency" },
+    { "id": "socialInsurance", "label": "社会保険料（月額）", "format": "currency" },
+    { "id": "incomeTax", "label": "所得税（月額）", "format": "currency" },
+    { "id": "residentTax", "label": "住民税（月額）", "format": "currency" }
   ],
-  "chart": {
-    "type": "pie",
-    "dataKey": "breakdown"
-  },
+  "explanation": "<h3>手取り額の計算方法</h3><p>手取り額 = 額面給与 - 社会保険料 - 所得税 - 住民税 で計算します。</p><h3>社会保険料の内訳</h3><p>健康保険料（約5%）、厚生年金保険料（約9.15%）、雇用保険料（約0.6%）を合計した約14.75%が給与から天引きされます。40歳以上は介護保険料（約0.9%）が加算されます。</p>",
   "faq": [
-    {
-      "q": "月給30万円の手取りはいくらですか？",
-      "a": "月給30万円（ボーナス4ヶ月、独身）の場合、年収480万円に対して手取りは約375〜385万円（月約23〜24万円）が目安です。社会保険料が約69万円、所得税が約12万円、住民税が約22万円程度差し引かれます。"
-    },
-    {
-      "q": "手取りが減る年齢はありますか？",
-      "a": "40歳から介護保険料の負担が始まるため、手取りが減ります。介護保険料率は約1.6%（本人負担0.8%）で、月給30万円の場合は月約2,400円の負担増です。65歳以降は厚生年金の負担がなくなります。"
-    },
-    {
-      "q": "ボーナスにかかる税金はいくらですか？",
-      "a": "ボーナスには月給と同じ社会保険料率（健康保険・厚生年金・雇用保険）が適用されます。所得税は「賞与に対する源泉徴収税額の算出率の表」に基づき計算され、前月の給与額と扶養人数で税率が決まります。住民税はボーナスからは天引きされません。"
-    },
-    {
-      "q": "額面と手取りの差はどのくらいですか？",
-      "a": "一般的に手取りは額面の75〜85%程度です。年収が上がるほど税率が高くなるため手取り率は下がります。年収300万円で約80〜82%、年収500万円で約78〜80%、年収1,000万円で約72〜75%が目安です。"
-    },
-    {
-      "q": "社会保険料を安くする方法はありますか？",
-      "a": "社会保険料は4・5・6月の給与（残業代含む）の平均で決まる「標準報酬月額」に基づきます。この3ヶ月の残業を減らすと標準報酬月額が下がり、1年間の社会保険料が安くなる可能性があります。ただし将来の年金額にも影響するため慎重に判断しましょう。"
-    }
+    { "question": "手取りは額面の何割？", "answer": "一般的に額面の75〜85%程度が手取りになります。年収が高いほど税率が上がるため、手取り率は下がります。" },
+    { "question": "ボーナスの手取りは？", "answer": "ボーナスからも社会保険料と所得税が差し引かれます。住民税はボーナスからは引かれません。" }
   ],
-  "related": ["income-tax", "housing-loan", "compound-interest"],
-  "affiliate": {
-    "text": "転職で年収アップを目指しませんか？",
-    "category": "job-change"
-  },
-  "seo": {
-    "h1": "手取り計算シミュレーション【2026年版】",
-    "metaDescription": "月給・ボーナスから手取り額を自動計算。健康保険・厚生年金・雇用保険・所得税・住民税の内訳がわかる2026年最新版。"
-  }
+  "related": ["income-tax", "housing-loan"],
+  "popular": true,
+  "popularOrder": 2
 }
