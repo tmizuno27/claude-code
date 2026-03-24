@@ -15,4 +15,4 @@
 - `sub-kaisen-kakuyasu-sim-osusume` pos=9.9 CTR=0% imp=18
 
 ---
-*自動生成: 2026-03-24 14:36 PYT*
+*自動生成: 2026-03-24 19:08 PYT*
