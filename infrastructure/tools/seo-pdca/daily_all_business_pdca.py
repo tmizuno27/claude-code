@@ -839,6 +839,68 @@ def pdca_infrastructure():
 
 
 # =====================================================================
+# SECTOR 16: keisan-tools.com（計算ツールサイト）
+# =====================================================================
+def pdca_keisan_tools():
+    """keisan-tools.com 計算ツールサイトのPDCA"""
+    logger.report("# 16. keisan-tools.com（計算ツールサイト）")
+    logger.report("")
+
+    url = "https://keisan-tools.com"
+    sitemap_urls = [f"{url}/sitemap.xml", f"{url}/sitemap_index.xml"]
+
+    # CHECK: サイト稼働確認
+    try:
+        resp = requests.get(url, timeout=15)
+        site_status = f"HTTP {resp.status_code}"
+    except Exception as e:
+        site_status = f"ERROR: {e}"
+
+    # CHECK: サイトマップからページ数取得
+    page_count = 0
+    sitemap_status = "未検出"
+    for smap_url in sitemap_urls:
+        try:
+            smap_resp = requests.get(smap_url, timeout=15)
+            if smap_resp.status_code == 200:
+                import xml.etree.ElementTree as ET
+                root = ET.fromstring(smap_resp.text)
+                ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+                locs = root.findall(".//sm:loc", ns)
+                if locs:
+                    page_count = len(locs)
+                    sitemap_status = f"✅ {smap_url.split('/')[-1]} ({page_count}ページ)"
+                    break
+        except Exception:
+            continue
+
+    if page_count == 0:
+        sitemap_status = "⚠️ サイトマップ未検出または解析失敗"
+
+    logger.report("### CHECK")
+    logger.report(f"- URL: {url}")
+    logger.report(f"- 稼働状況: {site_status}")
+    logger.report(f"- サイトマップ: {sitemap_status}")
+    logger.report(f"- 公開ページ数: {page_count}")
+    logger.report("")
+
+    logger.report("### ACT")
+    if "ERROR" in site_status:
+        logger.report("- ❌ サイトダウン検出 → Vercelデプロイ状況確認")
+    elif page_count < 30:
+        logger.report(f"- ⚠️ {page_count}ページ → AdSense申請には30ページ以上必要。ページ追加を優先")
+    else:
+        logger.report(f"- ✅ {page_count}ページ公開中 → AdSense申請可能ライン")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- 300ページ目標に向けてページ量産継続")
+    logger.report("- 30ページ達成後にAdSense申請")
+    logger.report("- GSCでインデックス状況を定期確認")
+    logger.report("")
+
+
+# =====================================================================
 # メイン
 # =====================================================================
 SECTORS = {
@@ -857,6 +919,7 @@ SECTORS = {
     "pod-etsy": pdca_pod_etsy,
     "trading-bot": pdca_trading_bot,
     "infra": pdca_infrastructure,
+    "keisan-tools": pdca_keisan_tools,
 }
 
 

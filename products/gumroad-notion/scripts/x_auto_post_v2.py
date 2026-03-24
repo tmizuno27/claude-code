@@ -136,7 +136,7 @@ def post_thread(client, tweet):
         tweet_ids.append(str(tid))
         reply_to = tid
         if i < len(parts) - 1:
-            time.sleep(2)  # Brief pause between thread tweets
+            time.sleep(5)  # Longer pause to avoid rate limits on Free plan
 
     return tweet_ids
 
@@ -268,6 +268,15 @@ def main():
 
         is_thread = tweet.get("is_thread", False)
 
+        # On Free plan, threads consume multiple tweets from daily quota.
+        # If a thread has >3 parts, post just the first part as a standalone tweet.
+        if is_thread:
+            parts = tweet["text"].split("\n---\n")
+            if len(parts) > 3:
+                log(f"THREAD TRUNCATED: {len(parts)} parts → posting first part only (Free plan safety)")
+                is_thread = False
+                tweet["text"] = parts[0].strip()
+
         if is_thread:
             tweet_ids = post_thread(client, tweet)
             tweet["posted"] = True
@@ -291,6 +300,11 @@ def main():
 
         ping_healthcheck(success=True)
 
+    except tweepy.errors.Forbidden as e:
+        log(f"ERROR: 403 Forbidden\n{e}")
+        log("HINT: X API Free plan rate limit likely hit. Will retry next scheduled slot.")
+        ping_healthcheck(success=False)
+        # Don't exit(1) — let Task Scheduler report success so it retries next slot
     except Exception as e:
         log(f"ERROR: {e}")
         ping_healthcheck(success=False)
