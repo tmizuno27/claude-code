@@ -1,1 +1,1 @@
-Hash and encode tool: MD5, SHA-256, SHA-512, Base64, URL encoding, HTML entities, JWT decode. 100% local, no data sent.
+A developer tool for hashing and encoding text entirely in your browser. Supports common algorithms with zero network requests.

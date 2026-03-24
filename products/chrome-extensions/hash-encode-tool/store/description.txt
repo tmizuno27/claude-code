@@ -1,22 +1,17 @@
-Hash & Encode Tool -- MD5, SHA, Base64, URL Encoding, JWT Decode & More
+Hash & Encode Tool — A Developer Utility for Hashing and Encoding
 
-A developer utility for hashing, encoding, and decoding text. Everything runs locally in your browser -- no data is ever sent to any server.
+A lightweight browser tool for developers who need to quickly hash, encode, or decode text. Everything runs locally — no data leaves your browser.
 
-FEATURES:
-- Hash: MD5, SHA-1, SHA-256, SHA-512
-- Encode/Decode: Base64, URL encoding, HTML entities
-- JWT token decoder
-- Right-click context menu for quick hashing of selected text
-- One-click copy to clipboard
-- Clean, fast interface
+WHAT IT DOES:
+This extension provides common hashing algorithms (such as MD5, SHA-1, SHA-256, and SHA-512) alongside encoding and decoding tools (Base64, URL encoding, HTML entities) and a JWT token decoder — all in one popup.
 
-HOW IT WORKS:
-1. Click the extension icon or right-click selected text
-2. Enter or paste text
-3. Choose a hash or encoding function
-4. Copy the result
+HOW TO USE:
+1. Click the extension icon or right-click selected text on any page
+2. Enter or paste the text you want to process
+3. Choose the operation you need
+4. Copy the result with one click
 
-PRIVACY:
-This extension processes everything locally using the Web Crypto API and built-in JavaScript functions. No data is transmitted to any external server. Zero network requests.
+PRIVACY & SECURITY:
+All processing happens locally using the Web Crypto API and built-in browser functions. This extension makes zero network requests and never transmits your data anywhere.
 
-Essential for developers, security professionals, and anyone working with encoded data.
+Built for developers, DevOps engineers, and security professionals who want a fast, private utility always one click away.
