@@ -50,7 +50,8 @@ def run_script(script_name, extra_args=None):
         cmd,
         capture_output=True,
         text=True,
-        encoding="utf-8"
+        encoding="cp932",
+        errors="replace"
     )
 
     if result.stdout:

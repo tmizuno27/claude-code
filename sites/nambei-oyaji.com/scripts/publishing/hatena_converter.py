@@ -87,7 +87,7 @@ def load_secrets():
 def load_article_csv():
     """Load article management CSV and return published articles."""
     articles = []
-    with open(CSV_PATH, "r", encoding="utf-8") as f:
+    with open(CSV_PATH, "r", encoding="utf-8-sig") as f:
         reader = csv.DictReader(f)
         for row in reader:
             if row.get("ステータス") == "公開済":
