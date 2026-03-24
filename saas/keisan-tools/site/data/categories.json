@@ -11,7 +11,8 @@
       { "slug": "pension", "name": "年金計算" },
       { "slug": "investment", "name": "投資・資産運用" },
       { "slug": "insurance", "name": "保険" },
-      { "slug": "real-estate", "name": "不動産" }
+      { "slug": "real-estate", "name": "不動産" },
+      { "slug": "savings", "name": "貯金・積立" }
     ]
   },
   {
