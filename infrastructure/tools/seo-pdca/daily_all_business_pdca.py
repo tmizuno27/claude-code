@@ -286,16 +286,13 @@ def pdca_rapidapi():
         logger.report("")
         return
 
-    total_subs = 0
-    total_requests = 0
+    api_count = stats.get("total_apis", 0)
+    total_subs = stats.get("total_subscribers", 0)
+    total_requests = stats.get("total_requests", 0)
     total_revenue = 0
-    api_count = len(stats) if isinstance(stats, list) else 0
-
-    if isinstance(stats, list):
-        for api in stats:
-            total_subs += api.get("subscribers", 0)
-            total_requests += api.get("requests", 0)
-            total_revenue += api.get("revenue", 0)
+    apis = stats.get("apis", [])
+    for api in apis:
+        total_revenue += api.get("revenue_30d", 0)
 
     logger.report("### CHECK")
     logger.report(f"- API数: {api_count}")
