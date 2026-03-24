@@ -20,6 +20,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import requests
+
 try:
     import anthropic
 except ImportError:
@@ -117,13 +119,50 @@ def get_unconverted_articles(articles, hatena_log):
 
 
 def read_article_file(filename):
-    """Read article markdown file."""
+    """Read article markdown file. Searches in subdirectories too."""
+    # Direct path
     filepath = ARTICLES_DIR / filename
-    if not filepath.exists():
-        logger.warning(f"Article file not found: {filepath}")
-        return None
-    with open(filepath, "r", encoding="utf-8") as f:
-        return f.read()
+    if filepath.exists():
+        with open(filepath, "r", encoding="utf-8") as f:
+            return f.read()
+
+    # Search in date subdirectories
+    for subdir in sorted(ARTICLES_DIR.iterdir(), reverse=True):
+        if subdir.is_dir() and subdir.name != "archived":
+            candidate = subdir / filename
+            if candidate.exists():
+                with open(candidate, "r", encoding="utf-8") as f:
+                    return f.read()
+
+    return None
+
+
+def fetch_article_from_wp(permalink, secrets):
+    """Fetch article content from WordPress REST API by slug."""
+    wp_config = secrets.get("wordpress", {})
+    username = wp_config.get("username", "")
+    app_password = wp_config.get("app_password", "")
+
+    url = f"https://nambei-oyaji.com/wp-json/wp/v2/posts?slug={permalink}"
+    auth = (username, app_password)
+
+    try:
+        response = requests.get(url, auth=auth, timeout=30)
+        if response.status_code == 200:
+            posts = response.json()
+            if posts:
+                # Return rendered content (HTML), strip tags for conversion
+                import re
+                html_content = posts[0].get("content", {}).get("rendered", "")
+                # Basic HTML to text conversion
+                text = re.sub(r'<[^>]+>', '', html_content)
+                text = text.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>')
+                text = text.replace('&nbsp;', ' ').replace('&#8211;', '-')
+                return text.strip()
+    except Exception as e:
+        logger.error(f"WordPress API error: {e}")
+
+    return None
 
 
 def convert_article(client, title, content, url):
