@@ -412,9 +412,9 @@ def pdca_vscode_extensions():
     try:
         api_url = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
         payload = {
-            "filters": [{"criteria": [{"filterType": 4, "value": publisher}]}],
+            "filters": [{"criteria": [{"filterType": 4, "value": publisher}], "pageSize": 50, "pageNumber": 1}],
             "assetTypes": [],
-            "flags": 914,
+            "flags": 0x200 | 0x80 | 0x2,  # IncludeStatistics | ExcludeNonValidated | IncludeVersions
         }
         resp = requests.post(
             api_url,
