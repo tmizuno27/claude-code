@@ -1,5 +1,5 @@
 # SEO PDCA 日次レポート (2026-03-24)
-実行時刻: 2026-03-24 10:14 PYT
+実行時刻: 2026-03-24 10:15 PYT
 
 ## 南米おやじ (nambei-oyaji.com)
 
@@ -23,7 +23,7 @@
   - 「パラグアイ移住 仕事」 imp=1 click=0 pos=25.0
 
 ### ACT & DO (実行済みアクション)
-- サイトマップping: HTTP 404
+- サイトマップping: Google GSC: <HttpError 403 when requesting https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fnambei-oyaji.com%2F/sitemaps/https%3A%2F%2Fnambei-oyaji.com%2Fsitemap_index.xml? returned "User does not have sufficient permission for site 'https://nambei-oyaji.com/'. See also: https://support.google.com/webmasters/answer/2451999.". Details: "[{'message': "User does not have sufficient permission for site 'https://nambei-oyaji.com/'. See also: https://support.google.com/webmasters/answer/2451999.", 'domain': 'global', 'reason': 'forbidden'}]"> / Bing: HTTP 410
 - メタディスクリプション自動生成: %E3%83%87%E3%83%BC%E3%82%BF%E5%85%A5%E5%8A%9B%E5%89%AF%E6%A5%AD%E3%82%92%E8%87%AA%E5%8B%95%E5%8C%96%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95%E3%80%902026%E5%B9%B4%E3%80%91%E4%BD%9C%E6%A5%AD%E6%99%82
 - メタディスクリプション自動生成: ai-sidejob-tools
 - メタディスクリプション自動生成: paraguay-immigration-failures
@@ -68,7 +68,7 @@
   - 「omiai 口コミ」 imp=1 click=0 pos=90.0
 
 ### ACT & DO (実行済みアクション)
-- サイトマップping: HTTP 404
+- サイトマップping: Google GSC: <HttpError 403 when requesting https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fotona-match.com%2F/sitemaps/https%3A%2F%2Fotona-match.com%2Fwp-sitemap.xml? returned "User does not have sufficient permission for site 'https://otona-match.com/'. See also: https://support.google.com/webmasters/answer/2451999.". Details: "[{'message': "User does not have sufficient permission for site 'https://otona-match.com/'. See also: https://support.google.com/webmasters/answer/2451999.", 'domain': 'global', 'reason': 'forbidden'}]"> / Bing: HTTP 410
 - メタディスクリプション自動生成: matching-app-ranking-2026
 
 ### PLAN (次回優先アクション)
@@ -97,7 +97,7 @@
   - 「副回線 おすすめ」 imp=1 click=0 pos=19.0
 
 ### ACT & DO (実行済みアクション)
-- サイトマップping: HTTP 404
+- サイトマップping: Google GSC: <HttpError 403 when requesting https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fsim-hikaku.online%2F/sitemaps/https%3A%2F%2Fsim-hikaku.online%2Fwp-sitemap.xml? returned "User does not have sufficient permission for site 'https://sim-hikaku.online/'. See also: https://support.google.com/webmasters/answer/2451999.". Details: "[{'message': "User does not have sufficient permission for site 'https://sim-hikaku.online/'. See also: https://support.google.com/webmasters/answer/2451999.", 'domain': 'global', 'reason': 'forbidden'}]"> / Bing: HTTP 410
 - メタディスクリプション自動生成: sub-kaisen-kakuyasu-sim-osusume
 
 ### PLAN (次回優先アクション)
@@ -105,4 +105,4 @@
 - 🎯 sub-kaisen-kakuyasu-sim-osusume (CTR=0.0%) → タイトル・メタディスクリプション改善
 
 ---
-*自動生成: 2026-03-24 10:14 PYT*
+*自動生成: 2026-03-24 10:15 PYT*

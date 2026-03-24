@@ -282,37 +282,21 @@ def check_gsc(gsc, site_key, site_cfg):
 # STEP 2: ACT — 改善アクション実行
 # ==================================================================
 def act_sitemap_ping(site_cfg):
-    """サイトマップをGoogle(GSC API)とBingに送信"""
+    """サイトマップの存在確認（Google/Bingのpingは廃止済み）"""
     sitemap_url = site_cfg.get("sitemap_url", f"{site_cfg['site_url']}/sitemap.xml")
-    results = []
-
-    # Google: GSC API経由でサイトマップ送信
     try:
-        creds = service_account.Credentials.from_service_account_file(
-            str(CRED_PATH),
-            scopes=["https://www.googleapis.com/auth/webmasters"],
-        )
-        wm = build("webmasters", "v3", credentials=creds)
-        wm.sitemaps().submit(
-            siteUrl=site_cfg["gsc_url"], feedpath=sitemap_url
-        ).execute()
-        results.append("Google GSC: OK")
-        logger.log(f"  [{site_cfg['label']}] Google GSCサイトマップ送信: OK")
+        resp = requests.get(sitemap_url, timeout=15)
+        if resp.status_code == 200:
+            # サイトマップ内のURL数をカウント
+            url_count = resp.text.count("<loc>")
+            status = f"OK ({url_count} URLs)"
+        else:
+            status = f"HTTP {resp.status_code}"
+        logger.log(f"  [{site_cfg['label']}] サイトマップ確認: {status}")
+        return status
     except Exception as e:
-        results.append(f"Google GSC: {e}")
-        logger.log(f"  [{site_cfg['label']}] Google GSCサイトマップ送信エラー: {e}")
-
-    # Bing: IndexNow ping
-    bing_url = f"https://www.bing.com/ping?sitemap={quote(sitemap_url)}"
-    try:
-        resp = requests.get(bing_url, timeout=15)
-        status = "OK" if resp.status_code == 200 else f"HTTP {resp.status_code}"
-        results.append(f"Bing: {status}")
-        logger.log(f"  [{site_cfg['label']}] Bingサイトマップping: {status}")
-    except Exception as e:
-        results.append(f"Bing: {e}")
-
-    return " / ".join(results)
+        logger.log(f"  [{site_cfg['label']}] サイトマップ確認エラー: {e}")
+        return f"ERROR: {e}"
 
 
 def act_update_seo_meta(site_cfg, check_result):
