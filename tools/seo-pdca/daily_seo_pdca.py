@@ -362,6 +362,70 @@ def act_update_seo_meta(site_cfg, check_result):
     return actions_taken
 
 
+def act_indexing_api(site_cfg):
+    """Indexing APIで未インデックスURLを送信（1日最大200件/プロジェクト）"""
+    label = site_cfg["label"]
+    submitted = []
+    errors = []
+
+    try:
+        idx_creds = service_account.Credentials.from_service_account_file(
+            str(CRED_PATH), scopes=["https://www.googleapis.com/auth/indexing"]
+        )
+        idx_service = build("indexing", "v3", credentials=idx_creds)
+    except Exception as e:
+        logger.log(f"  [{label}] Indexing API認証エラー: {e}")
+        return submitted, errors
+
+    # WP REST APIから全公開記事のURLを取得
+    try:
+        session, api_base = get_wp_session(site_cfg)
+    except Exception as e:
+        logger.log(f"  [{label}] WP接続エラー: {e}")
+        return submitted, errors
+
+    urls = [site_cfg["site_url"] + "/"]
+    for endpoint in ["posts", "pages"]:
+        page = 1
+        while True:
+            resp = session.get(
+                f"{api_base}/{endpoint}",
+                params={"per_page": 100, "page": page, "status": "publish"},
+            )
+            if resp.status_code != 200:
+                break
+            items = resp.json()
+            if not items:
+                break
+            for item in items:
+                link = item.get("link", "")
+                if link:
+                    urls.append(link)
+            page += 1
+            if len(items) < 100:
+                break
+
+    logger.log(f"  [{label}] Indexing API: {len(urls)} URLs送信開始")
+
+    for url in urls:
+        try:
+            idx_service.urlNotifications().publish(
+                body={"url": url, "type": "URL_UPDATED"}
+            ).execute()
+            submitted.append(url)
+            time.sleep(0.5)
+        except Exception as e:
+            if "429" in str(e) or "quota" in str(e).lower():
+                logger.log(f"  [{label}] Indexing APIレート制限到達 ({len(submitted)}/{len(urls)})")
+                break
+            errors.append(url)
+            if len(errors) <= 2:
+                logger.log(f"  [{label}] Indexing APIエラー: {url} -> {str(e)[:80]}")
+
+    logger.log(f"  [{label}] Indexing API結果: 送信{len(submitted)}件 / エラー{len(errors)}件")
+    return submitted, errors
+
+
 def act_check_noindex(site_cfg):
     """noindexになっている記事を検出"""
     noindex_posts = []
@@ -521,6 +585,13 @@ def run_site(gsc, site_key, site_cfg):
     # 2. ACT — サイトマップping
     ping_status = act_sitemap_ping(site_cfg)
     actions_log.append(f"サイトマップping: {ping_status}")
+
+    # 2. ACT — Indexing API送信
+    idx_submitted, idx_errors = act_indexing_api(site_cfg)
+    if idx_submitted:
+        actions_log.append(f"Indexing API送信: {len(idx_submitted)}件成功")
+    if idx_errors:
+        actions_log.append(f"Indexing APIエラー: {len(idx_errors)}件")
 
     # 2. ACT — noindexチェック & 修正
     noindex_posts = act_check_noindex(site_cfg)
