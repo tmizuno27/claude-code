@@ -939,6 +939,162 @@ def pdca_keisan_tools():
 
 
 # =====================================================================
+# SECTOR 17: Product Factory（AIエージェント×デジタル商品自動量産）
+# =====================================================================
+def pdca_product_factory():
+    """Product Factory事業のPDCA"""
+    logger.report("# 17. Product Factory（AIエージェント×デジタル商品自動量産）")
+    logger.report("")
+
+    pf_dir = REPO_ROOT / "product-factory"
+
+    # CHECK: エージェント数・生成済み商品数
+    agent_count = 0
+    product_count = 0
+    if pf_dir.exists():
+        agents_dir = pf_dir / "agents"
+        if agents_dir.exists():
+            agent_count = len([f for f in agents_dir.iterdir() if f.is_file() and f.suffix in (".md", ".py", ".json")])
+        # 生成済み商品をカウント（output/products等）
+        for subdir_name in ("output", "products", "generated"):
+            subdir = pf_dir / subdir_name
+            if subdir.exists():
+                product_count += len([f for f in subdir.rglob("*") if f.is_file() and not f.name.startswith(".")])
+
+    logger.report("### CHECK")
+    logger.report(f"- エージェント数: {agent_count}")
+    logger.report(f"- 生成済み商品ファイル: {product_count}")
+    logger.report(f"- Phase 1完了済み（エージェント4体+テスト商品生成）")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- Phase 2（自動量産パイプライン）の進捗確認・実装推進")
+    logger.report("- 市場リサーチ→商品生成→出品の自動フロー構築")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 18: フリーランス（Fiverr/Upwork）
+# =====================================================================
+def pdca_freelance():
+    """フリーランス事業のPDCA"""
+    logger.report("# 18. フリーランス（Fiverr/Upwork）")
+    logger.report("")
+
+    freelance_dir = REPO_ROOT / "research" / "freelance"
+
+    gig_count = 0
+    md_files = []
+    if freelance_dir.exists():
+        for f in freelance_dir.rglob("*"):
+            if f.is_file() and not f.name.startswith("."):
+                if f.suffix == ".md":
+                    md_files.append(f)
+                gig_count += 1
+
+    logger.report("### CHECK")
+    logger.report(f"- Gig定義ファイル数: {gig_count}")
+    if md_files:
+        for mf in md_files[:5]:
+            logger.report(f"  - `{mf.name}`")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- Fiverrアカウント開設・Gig公開の進捗確認")
+    logger.report("- 定義済みGig 3件の公開準備を進める")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 19: せどり（Amazon FBA×電脳せどり）
+# =====================================================================
+def pdca_sedori():
+    """せどり事業のPDCA"""
+    logger.report("# 19. せどり（Amazon FBA×電脳せどり）")
+    logger.report("")
+
+    sedori_dir = REPO_ROOT / "research" / "sedori"
+
+    file_count = 0
+    has_plan = False
+    if sedori_dir.exists():
+        for f in sedori_dir.rglob("*"):
+            if f.is_file() and not f.name.startswith("."):
+                file_count += 1
+                if "plan" in f.name.lower() or "計画" in f.name:
+                    has_plan = True
+
+    logger.report("### CHECK")
+    logger.report(f"- リサーチファイル数: {file_count}")
+    logger.report(f"- 計画書: {'✅ あり' if has_plan else '❌ なし'}")
+    logger.report("- ステータス: 計画段階")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- 事業開始に向けた次のステップ: リサーチ完了→Amazon出品アカウント開設→テスト仕入れ")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 20: eBay輸出
+# =====================================================================
+def pdca_ebay():
+    """eBay輸出事業のPDCA"""
+    logger.report("# 20. eBay輸出")
+    logger.report("")
+
+    ebay_dir = REPO_ROOT / "research" / "ebay"
+
+    file_count = 0
+    if ebay_dir.exists():
+        for f in ebay_dir.rglob("*"):
+            if f.is_file() and not f.name.startswith("."):
+                file_count += 1
+
+    logger.report("### CHECK")
+    logger.report(f"- リサーチファイル数: {file_count}")
+    logger.report("- ステータス: リサーチ段階")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- eBayアカウント開設・出品準備")
+    logger.report("- 日本→パラグアイの輸出商品リサーチ継続")
+    logger.report("")
+
+
+# =====================================================================
+# SECTOR 21: AI自動化ビジネス
+# =====================================================================
+def pdca_ai_automation():
+    """AI自動化ビジネスのPDCA"""
+    logger.report("# 21. AI自動化ビジネス")
+    logger.report("")
+
+    planning_dir = REPO_ROOT / "research" / "planning"
+
+    file_count = 0
+    file_list = []
+    if planning_dir.exists():
+        for f in planning_dir.rglob("*"):
+            if f.is_file() and not f.name.startswith("."):
+                file_count += 1
+                file_list.append(f.name)
+
+    logger.report("### CHECK")
+    logger.report(f"- 企画書・リサーチファイル数: {file_count}")
+    if file_list:
+        for fn in file_list[:5]:
+            logger.report(f"  - `{fn}`")
+    logger.report("- ステータス: 検討中")
+    logger.report("")
+
+    logger.report("### PLAN")
+    logger.report("- 事業化判断: 市場ニーズ・競合・収益性を評価")
+    logger.report("- 次のアクション: MVP定義または他事業への注力判断")
+    logger.report("")
+
+
+# =====================================================================
 # メイン
 # =====================================================================
 SECTORS = {
@@ -958,6 +1114,11 @@ SECTORS = {
     "trading-bot": pdca_trading_bot,
     "infra": pdca_infrastructure,
     "keisan-tools": pdca_keisan_tools,
+    "product-factory": pdca_product_factory,
+    "freelance": pdca_freelance,
+    "sedori": pdca_sedori,
+    "ebay": pdca_ebay,
+    "ai-automation": pdca_ai_automation,
 }
 
 
