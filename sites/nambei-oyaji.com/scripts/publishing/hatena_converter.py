@@ -80,19 +80,33 @@ Markdown形式で出力してください。タイトルは含めず本文のみ
 
 def load_secrets():
     """Load secrets from config."""
-    with open(SECRETS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+    try:
+        with open(SECRETS_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        logger.error(f"secrets.json が見つかりません: {SECRETS_PATH}")
+        sys.exit(1)
+    except json.JSONDecodeError as e:
+        logger.error(f"secrets.json のJSON解析エラー: {e}")
+        sys.exit(1)
 
 
 def load_article_csv():
     """Load article management CSV and return published articles."""
-    articles = []
-    with open(CSV_PATH, "r", encoding="utf-8-sig") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            if row.get("ステータス") == "公開済":
-                articles.append(row)
-    return articles
+    try:
+        articles = []
+        with open(CSV_PATH, "r", encoding="utf-8-sig") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                if row.get("ステータス") == "公開済":
+                    articles.append(row)
+        return articles
+    except FileNotFoundError:
+        logger.error(f"記事管理CSVが見つかりません: {CSV_PATH}")
+        sys.exit(1)
+    except csv.Error as e:
+        logger.error(f"記事管理CSVの読み込みエラー: {e}")
+        sys.exit(1)
 
 
 def load_hatena_log():
@@ -142,6 +156,9 @@ def get_unconverted_articles(articles, hatena_log):
 
 def read_article_file(filename):
     """Read article markdown file. Searches in subdirectories too."""
+    if not ARTICLES_DIR.exists():
+        logger.warning(f"記事ディレクトリが存在しません: {ARTICLES_DIR}")
+        return None
     # Direct path
     filepath = ARTICLES_DIR / filename
     if filepath.exists():
@@ -161,6 +178,8 @@ def read_article_file(filename):
 
 def fetch_article_from_wp(permalink, secrets):
     """Fetch article content from WordPress REST API by slug."""
+    if not permalink:
+        return None
     wp_config = secrets.get("wordpress", {})
     username = wp_config.get("username", "")
     app_password = wp_config.get("app_password", "")
@@ -245,7 +264,10 @@ def generate_hatena_title(original_title, article_id):
         "移住者の本音：",
         "アスンシオンから：",
     ]
-    prefix = prefixes[int(article_id) % len(prefixes)]
+    try:
+        prefix = prefixes[int(article_id) % len(prefixes)]
+    except (ValueError, TypeError):
+        prefix = prefixes[0]
     full_title = f"{prefix}{title}"
     # Truncate if over 25 characters
     if len(full_title) > 25:
@@ -258,7 +280,7 @@ def ensure_utm_link(body, original_url):
     utm_url = f"{original_url}?utm_source=hatena&utm_medium=blog&utm_campaign=digest"
     if utm_url not in body:
         if original_url in body:
-            body = body.replace(original_url, utm_url)
+            body = body.replace(original_url, utm_url, 1)
         else:
             body += f"\n\n---\n\n詳しくは本家記事をどうぞ → [{original_url}]({utm_url})"
     return body
@@ -334,13 +356,13 @@ def main():
         output_filename = f"hatena-{int(article_id):03d}.md"
         output_path = HATENA_OUTPUT_DIR / output_filename
         with open(output_path, "w", encoding="utf-8") as f:
-            f.write(f"---\n")
+            f.write("---\n")
             f.write(f"title: {hatena_title}\n")
             f.write(f"original_id: {article_id}\n")
             f.write(f"original_title: {original_title}\n")
             f.write(f"original_url: {url}\n")
             f.write(f"converted_at: {datetime.now().isoformat()}\n")
-            f.write(f"---\n\n")
+            f.write("---\n\n")
             f.write(hatena_body)
 
         # Update log

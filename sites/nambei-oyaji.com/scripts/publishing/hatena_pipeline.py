@@ -86,9 +86,6 @@ def main():
     logger.info(f"設定: limit={args.limit}, draft={args.draft}, dry_run={args.dry_run}")
     logger.info("=" * 60)
 
-    # Ensure log directory exists
-    LOG_DIR.mkdir(parents=True, exist_ok=True)
-
     # Step 1: Convert
     if not args.publish_only:
         logger.info("[Step 1/2] WordPress記事 → はてなダイジェスト変換")

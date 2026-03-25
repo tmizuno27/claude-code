@@ -6,6 +6,9 @@
 **/service-account.json
 gumroad-secrets.json
 **/dev-to-config.json
+**/ga4-credentials.json
+**/gsc-credentials.json
+**/.credentials.json
 .env
 .env.*
 
