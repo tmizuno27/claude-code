@@ -23,6 +23,7 @@ import argparse
 import json
 import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -213,11 +214,16 @@ def main():
             sys.exit(0)
 
         print(f"{len(posts)} 件の投稿が見つかりました")
-        for post in posts:
+        for i, post in enumerate(posts):
             print(f"\n--- [{post['category']}] {post['hour']}時台 ---")
             tweet_id = post_tweet(api, post["text"], dry_run=args.dry_run)
             if tweet_id and not args.dry_run:
                 log_post(post["text"], tweet_id, category=post["category"])
+            # スパム防止: 複数投稿時は30分間隔で分散
+            if i < len(posts) - 1 and not args.dry_run:
+                wait_minutes = 30
+                print(f"スパム防止: 次の投稿まで{wait_minutes}分待機...")
+                time.sleep(wait_minutes * 60)
 
 
 if __name__ == "__main__":
