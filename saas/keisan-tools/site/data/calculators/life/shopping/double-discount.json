@@ -1,0 +1,76 @@
+{
+  "slug": "double-discount",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "二重割引計算",
+  "description": "2つの割引が重なった場合の最終価格を計算",
+  "metaTitle": "二重割引計算ツール｜割引の重ねがけ後の価格を計算",
+  "metaDescription": "セール割引＋クーポン割引など、2つの割引が重なった場合の最終価格を自動計算。実質何%OFFかもわかる無料ツール。",
+  "calculatorFunction": "doubleDiscount",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "元の価格",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "discount1",
+      "label": "1つ目の割引率",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "discount2",
+      "label": "2つ目の割引率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "finalPrice",
+      "label": "最終価格",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalDiscount",
+      "label": "合計割引額",
+      "format": "currency"
+    },
+    {
+      "id": "effectiveRate",
+      "label": "実質割引率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>二重割引の計算方法</h3><p>2つの割引は掛け算で計算します。30%OFF＋20%OFFは50%OFFではなく、元値×0.7×0.8=元値×0.56で44%OFFになります。</p>",
+  "faq": [
+    {
+      "question": "割引の順番で結果は変わる？",
+      "answer": "いいえ。掛け算なので順番に関係なく最終価格は同じです。"
+    },
+    {
+      "question": "30%OFF+20%OFFは50%OFFにならないの？",
+      "answer": "なりません。30%OFFの後の価格にさらに20%OFFするので、実質44%OFFです。"
+    }
+  ],
+  "related": [
+    "discount",
+    "tax-included"
+  ],
+  "popular": false
+}

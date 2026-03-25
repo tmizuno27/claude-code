@@ -1,0 +1,76 @@
+{
+  "slug": "medical-expense-deduction",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "医療費控除計算",
+  "description": "年間医療費から控除額と還付金を計算",
+  "metaTitle": "医療費控除計算ツール｜還付金額を自動計算",
+  "metaDescription": "年間の医療費と年収から医療費控除の額と確定申告での還付金を計算。セルフメディケーション税制にも対応。",
+  "calculatorFunction": "medicalExpenseDeduction",
+  "inputs": [
+    {
+      "id": "medicalExpenses",
+      "label": "年間医療費",
+      "type": "number",
+      "unit": "万円",
+      "default": 20,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "insurance",
+      "label": "保険金等で補填された額",
+      "type": "number",
+      "unit": "万円",
+      "default": 0,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "annualIncome",
+      "label": "年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "deductionAmount",
+      "label": "医療費控除額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "taxRefund",
+      "label": "還付金の目安",
+      "format": "text"
+    },
+    {
+      "id": "eligible",
+      "label": "控除対象",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>医療費控除の計算</h3><p>医療費控除額 = 支払った医療費 - 保険金等 - 10万円（所得200万円未満は所得の5%）です。上限は200万円。控除額 × 所得税率 が還付金の目安です。</p>",
+  "faq": [
+    {
+      "question": "10万円以下でも控除できる？",
+      "answer": "所得が200万円未満なら、所得の5%を超えた分が控除できます。"
+    },
+    {
+      "question": "市販薬は対象？",
+      "answer": "セルフメディケーション税制なら、スイッチOTC医薬品の年間購入額が12,000円を超えた部分が控除対象です（通常の医療費控除との選択制）。"
+    }
+  ],
+  "related": [
+    "income-tax",
+    "high-cost-medical"
+  ],
+  "popular": false
+}

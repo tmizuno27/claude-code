@@ -1,0 +1,72 @@
+{
+  "slug": "salary-raise",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "昇給シミュレーション",
+  "description": "昇給率から将来の年収を計算",
+  "metaTitle": "昇給シミュレーションツール｜将来の年収を予測計算",
+  "metaDescription": "現在の年収と昇給率から5年後・10年後の年収を自動計算。生涯年収も予測できる無料ツール。",
+  "calculatorFunction": "salaryRaise",
+  "inputs": [
+    {
+      "id": "currentSalary",
+      "label": "現在の年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 400,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "raiseRate",
+      "label": "年間昇給率",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "計算年数",
+      "type": "number",
+      "unit": "年",
+      "default": 10,
+      "min": 1,
+      "max": 40,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "futureSalary",
+      "label": "将来の年収",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "totalEarnings",
+      "label": "累計年収",
+      "format": "text"
+    },
+    {
+      "id": "increasePercent",
+      "label": "年収増加率",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>昇給の計算</h3><p>複利で計算します。年収400万円で年2%昇給の場合、10年後は400 × 1.02^10 = 約487万円です。日本企業の平均昇給率は約2%前後です。</p>",
+  "faq": [
+    {
+      "question": "日本の平均昇給率は？",
+      "answer": "2023年は大企業で約3.6%、中小企業で約2.0%です。ベースアップと定期昇給を含みます。"
+    }
+  ],
+  "related": [
+    "annual-income",
+    "hourly-wage"
+  ],
+  "popular": false
+}

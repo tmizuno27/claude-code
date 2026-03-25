@@ -1,0 +1,58 @@
+{
+  "slug": "date-add",
+  "category": "life",
+  "subcategory": "date",
+  "title": "日付加算計算",
+  "description": "指定した日付から○日後・○日前の日付を計算します",
+  "metaTitle": "日付加算計算ツール｜○日後・○日前の日付を自動計算",
+  "metaDescription": "指定した日付に日数を足したり引いたりして、○日後・○日前の日付を瞬時に計算。納期計算や予定日の確認に便利な無料ツール。",
+  "calculatorFunction": "dateAdd",
+  "inputs": [
+    {
+      "id": "startDate",
+      "label": "基準日",
+      "type": "date",
+      "default": "2026-01-01"
+    },
+    {
+      "id": "days",
+      "label": "加算日数",
+      "type": "number",
+      "unit": "日",
+      "default": 30,
+      "min": -99999,
+      "max": 99999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "resultDate",
+      "label": "計算結果の日付",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "dayOfWeek",
+      "label": "曜日",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>日付加算の使い方</h3><p>基準日に日数を足す（正の数）か引く（負の数）かで、未来・過去の日付を求められます。納期管理、産休・育休の期間計算、契約満了日の確認など幅広く利用できます。</p>",
+  "faq": [
+    {
+      "question": "マイナスを入力するとどうなる？",
+      "answer": "基準日から指定日数分だけ過去の日付が計算されます。例えば-30なら30日前の日付です。"
+    },
+    {
+      "question": "うるう年は考慮される？",
+      "answer": "はい。うるう年の2月29日も正しく計算されます。"
+    }
+  ],
+  "related": [
+    "days-between",
+    "countdown",
+    "work-days"
+  ],
+  "popular": false
+}

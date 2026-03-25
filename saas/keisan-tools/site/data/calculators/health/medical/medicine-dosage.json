@@ -1,0 +1,49 @@
+{
+  "slug": "medicine-dosage",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "子供の薬用量計算",
+  "description": "体重から子供の薬用量の目安を計算",
+  "metaTitle": "子供の薬用量計算ツール｜体重からお薬の量を目安計算",
+  "metaDescription": "子供の体重から市販薬の服用量目安を計算。あくまで参考値のため、実際の服用は医師・薬剤師にご相談ください。",
+  "calculatorFunction": "medicineDosage",
+  "inputs": [
+    {
+      "id": "adultDose",
+      "label": "大人の用量",
+      "type": "number",
+      "unit": "mg",
+      "default": 200,
+      "min": 1,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "childWeight",
+      "label": "子供の体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "min": 3,
+      "max": 60,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "childDose",
+      "label": "子供の用量（目安）",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>小児薬用量の計算</h3><p>Clarkの式：子供の用量 = 大人の用量 × (子供の体重kg ÷ 70) で計算します。これはあくまで目安であり、実際の投薬は必ず医師・薬剤師にご相談ください。</p>",
+  "faq": [
+    {
+      "question": "この計算は正確ですか？",
+      "answer": "あくまで目安です。薬によって小児用量は異なるため、必ず添付文書を確認し、医師・薬剤師に相談してください。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

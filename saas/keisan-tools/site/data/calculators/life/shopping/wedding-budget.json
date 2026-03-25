@@ -1,0 +1,76 @@
+{
+  "slug": "wedding-budget",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "結婚式費用計算",
+  "description": "ゲスト人数から結婚式の費用と自己負担額を計算",
+  "metaTitle": "結婚式費用計算ツール｜ゲスト人数から費用を概算",
+  "metaDescription": "ゲスト人数からご祝儀収入を差し引いた結婚式の自己負担額を計算。予算計画に便利な無料ツール。",
+  "calculatorFunction": "weddingBudget",
+  "inputs": [
+    {
+      "id": "guests",
+      "label": "ゲスト人数",
+      "type": "number",
+      "unit": "人",
+      "default": 60,
+      "min": 10,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "id": "venueGrade",
+      "label": "会場グレード",
+      "type": "select",
+      "options": [
+        {
+          "value": "standard",
+          "label": "スタンダード"
+        },
+        {
+          "value": "premium",
+          "label": "プレミアム"
+        },
+        {
+          "value": "luxury",
+          "label": "ラグジュアリー"
+        }
+      ],
+      "default": "standard"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "総費用（概算）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "giftMoney",
+      "label": "ご祝儀予想合計",
+      "format": "text"
+    },
+    {
+      "id": "selfPayment",
+      "label": "自己負担額",
+      "format": "text"
+    },
+    {
+      "id": "perGuest",
+      "label": "1人あたり費用",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>結婚式の費用相場</h3><p>ゲスト1人あたり3〜6万円が相場です。60名のスタンダードな結婚式で約300万円、ご祝儀が約200万円で自己負担約100万円が目安です。</p>",
+  "faq": [
+    {
+      "question": "ご祝儀の相場は？",
+      "answer": "友人3万円、親族5〜10万円、上司3〜5万円が一般的です。平均すると1人約3.3万円です。"
+    }
+  ],
+  "related": [
+    "split-bill"
+  ],
+  "popular": false
+}

@@ -1,0 +1,67 @@
+{
+  "slug": "pension-simulation",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "年金受給額シミュレーション",
+  "description": "加入年数と年収から将来の年金受給額を概算",
+  "metaTitle": "年金受給額シミュレーションツール｜将来の年金額を計算",
+  "metaDescription": "厚生年金の加入年数と平均年収から将来受け取る年金額を概算計算。繰り上げ・繰り下げ受給の比較も。",
+  "calculatorFunction": "pensionSimulation",
+  "inputs": [
+    {
+      "id": "avgSalary",
+      "label": "平均年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "enrollYears",
+      "label": "厚生年金加入年数",
+      "type": "number",
+      "unit": "年",
+      "default": 38,
+      "min": 1,
+      "max": 45,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPension",
+      "label": "年間年金額（65歳）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "monthlyPension",
+      "label": "月額年金",
+      "format": "text"
+    },
+    {
+      "id": "earlyPension",
+      "label": "60歳繰り上げ（月額）",
+      "format": "text"
+    },
+    {
+      "id": "latePension",
+      "label": "70歳繰り下げ（月額）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>公的年金の計算</h3><p>年金額 = 基礎年金（満額約78万円/年）+ 報酬比例部分（平均標準報酬 × 5.481/1000 × 加入月数）です。繰り上げは1ヶ月あたり0.4%減額、繰り下げは1ヶ月あたり0.7%増額されます。</p>",
+  "faq": [
+    {
+      "question": "何歳から受け取るのがお得？",
+      "answer": "損益分岐点は繰り上げが約80歳、繰り下げが約82歳です。長生きに自信があれば繰り下げが有利です。"
+    }
+  ],
+  "related": [
+    "corporate-pension",
+    "fire-calculation"
+  ],
+  "popular": false
+}

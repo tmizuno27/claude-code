@@ -1,0 +1,67 @@
+{
+  "slug": "employee-cost",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "従業員コスト計算",
+  "description": "給与以外の社会保険料含む総人件費を計算",
+  "metaTitle": "従業員コスト計算ツール｜1人あたりの総人件費を計算",
+  "metaDescription": "月給・賞与に加え社会保険料の事業主負担を含めた1人あたりの年間総人件費を計算。",
+  "calculatorFunction": "employeeCost",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 10,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "bonusMonths",
+      "label": "賞与（月数）",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 4,
+      "min": 0,
+      "max": 12,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualSalary",
+      "label": "年間給与",
+      "format": "text"
+    },
+    {
+      "id": "socialInsurance",
+      "label": "社会保険料（事業主負担）",
+      "format": "text"
+    },
+    {
+      "id": "totalCost",
+      "label": "年間総人件費",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "monthlyCost",
+      "label": "月あたり人件費",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>従業員の総コスト</h3><p>給与の他に、健康保険（約5%）、厚生年金（約9.15%）、雇用保険（約0.6%）、労災保険（約0.3%）の事業主負担があります。合計で給与の約15%が追加コストとなり、年間総人件費は額面給与の約1.15倍になります。</p>",
+  "faq": [
+    {
+      "question": "給与30万円の人の本当のコストは？",
+      "answer": "社会保険料等を含めると約34.5万円/月、年間で約550万円（賞与4ヶ月の場合）が目安です。"
+    }
+  ],
+  "related": [
+    "hiring-cost",
+    "hourly-wage"
+  ],
+  "popular": false
+}

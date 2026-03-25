@@ -1,0 +1,62 @@
+{
+  "slug": "price-per-gram",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "グラム単価計算",
+  "description": "商品の価格と重量からグラム単価を比較します",
+  "metaTitle": "グラム単価計算ツール｜お得な商品を比較",
+  "metaDescription": "商品の価格と重量を入力してグラム単価を計算。大容量と小容量のどちらがお得かを簡単に比較できる無料ツール。",
+  "calculatorFunction": "pricePerGram",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "価格",
+      "type": "number",
+      "unit": "円",
+      "default": 500,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "weight",
+      "label": "重量",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "min": 0.1,
+      "max": 999999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "pricePerGram",
+      "label": "1gあたり単価",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "pricePer100g",
+      "label": "100gあたり単価",
+      "format": "currency"
+    },
+    {
+      "id": "pricePerKg",
+      "label": "1kgあたり単価",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>グラム単価の計算</h3><p>価格÷重量(g)でグラム単価を求めます。スーパーでの食品比較や、化粧品・サプリメントのコスパ比較に便利です。</p>",
+  "faq": [
+    {
+      "question": "大容量は必ずお得？",
+      "answer": "多くの場合グラム単価は安くなりますが、使い切れず無駄になることもあるため、消費量とのバランスが大事です。"
+    }
+  ],
+  "related": [
+    "per-unit-price",
+    "discount"
+  ],
+  "popular": false
+}

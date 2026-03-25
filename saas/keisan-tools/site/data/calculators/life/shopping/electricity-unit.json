@@ -1,0 +1,57 @@
+{
+  "slug": "electricity-unit",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "電気料金単価計算",
+  "description": "電気使用量と請求額から1kWhあたりの単価を計算",
+  "metaTitle": "電気料金単価計算ツール｜1kWhあたりの電気代を計算",
+  "metaDescription": "電気の請求額と使用量から1kWhあたりの単価を計算。電力会社の比較・乗り換え検討に便利。",
+  "calculatorFunction": "electricityUnit",
+  "inputs": [
+    {
+      "id": "bill",
+      "label": "電気料金",
+      "type": "number",
+      "unit": "円",
+      "default": 8000,
+      "min": 0,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "usage",
+      "label": "使用量",
+      "type": "number",
+      "unit": "kWh",
+      "default": 250,
+      "min": 1,
+      "max": 99999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "unitPrice",
+      "label": "1kWhあたり単価",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "dailyCost",
+      "label": "1日あたり電気代",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>電気料金の単価</h3><p>電気料金 ÷ 使用量(kWh)で1kWhあたりの単価を求めます。2024年の全国平均は約28〜35円/kWhです。</p>",
+  "faq": [
+    {
+      "question": "電気代が高い基準は？",
+      "answer": "1kWhあたり35円以上は高めです。電力会社の乗り換えや料金プランの見直しを検討しましょう。"
+    }
+  ],
+  "related": [
+    "electricity-bill",
+    "electricity-cost"
+  ],
+  "popular": false
+}

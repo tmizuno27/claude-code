@@ -1,0 +1,68 @@
+{
+  "slug": "inflation-impact",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "インフレ影響計算",
+  "description": "インフレ率から将来のお金の実質価値を計算",
+  "metaTitle": "インフレ影響計算ツール｜お金の実質価値の目減りを計算",
+  "metaDescription": "インフレ率と年数から現在のお金が将来どのくらい目減りするか計算。資産防衛の参考に。",
+  "calculatorFunction": "inflationImpact",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "現在の金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 1,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "inflationRate",
+      "label": "年間インフレ率",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0.1,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "年数",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "realValue",
+      "label": "実質的な価値",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "purchasingPowerLoss",
+      "label": "購買力の低下",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>インフレの影響</h3><p>年2%のインフレが20年続くと、1,000万円の実質価値は約672万円に目減りします。銀行預金の金利がインフレ率を下回ると、実質的にお金は減っていることになります。</p>",
+  "faq": [
+    {
+      "question": "インフレ対策は？",
+      "answer": "株式・不動産・金などインフレに強い資産への投資が基本です。現金のみの保有はインフレで目減りします。"
+    }
+  ],
+  "related": [
+    "inflation-calculator",
+    "compound-interest",
+    "rule-72"
+  ],
+  "popular": false
+}

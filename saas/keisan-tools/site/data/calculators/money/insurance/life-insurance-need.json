@@ -1,0 +1,86 @@
+{
+  "slug": "life-insurance-need",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "必要保障額計算",
+  "description": "家族構成から生命保険の必要保障額を計算",
+  "metaTitle": "必要保障額計算ツール｜生命保険はいくら必要か計算",
+  "metaDescription": "家族構成・年収・貯蓄額から万一の場合に必要な生命保険の保障額を自動計算。",
+  "calculatorFunction": "lifeInsuranceNeed",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "世帯年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "savings",
+      "label": "現在の貯蓄",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "step": 10
+    },
+    {
+      "id": "children",
+      "label": "子供の人数",
+      "type": "number",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "id": "youngestAge",
+      "label": "末子の年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 5,
+      "min": 0,
+      "max": 22,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalNeed",
+      "label": "必要保障額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "livingExpense",
+      "label": "遺族生活費",
+      "format": "text"
+    },
+    {
+      "id": "educationCost",
+      "label": "教育費",
+      "format": "text"
+    },
+    {
+      "id": "publicPension",
+      "label": "遺族年金（概算）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>必要保障額の考え方</h3><p>必要保障額 = 遺族の生活費 + 教育費 + 住居費 - 貯蓄 - 遺族年金 - 死亡退職金です。子供が小さいほど保障額は大きく、成長とともに減少します。</p>",
+  "faq": [
+    {
+      "question": "子供1人の教育費は？",
+      "answer": "全て公立で約1,000万円、全て私立で約2,500万円が目安です。大学の学費が最も大きな割合を占めます。"
+    }
+  ],
+  "related": [
+    "car-insurance",
+    "fire-insurance"
+  ],
+  "popular": false
+}

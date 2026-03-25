@@ -1,0 +1,56 @@
+{
+  "slug": "bra-size-calc",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "ブラサイズ計算",
+  "description": "トップとアンダーバストからブラのサイズを計算",
+  "metaTitle": "ブラサイズ計算ツール｜トップ・アンダーバストからサイズ判定",
+  "metaDescription": "トップバストとアンダーバストを入力してブラジャーのカップサイズを自動計算。正しいサイズ選びに。",
+  "calculatorFunction": "braSizeCalc",
+  "inputs": [
+    {
+      "id": "topBust",
+      "label": "トップバスト",
+      "type": "number",
+      "unit": "cm",
+      "default": 83,
+      "min": 60,
+      "max": 130,
+      "step": 0.5
+    },
+    {
+      "id": "underBust",
+      "label": "アンダーバスト",
+      "type": "number",
+      "unit": "cm",
+      "default": 70,
+      "min": 55,
+      "max": 110,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "cupSize",
+      "label": "カップサイズ",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "braSize",
+      "label": "ブラサイズ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ブラサイズの計算方法</h3><p>カップサイズ = トップバスト - アンダーバストの差で決まります。差が10cmでA、12.5cmでB、15cmでC、17.5cmでD…と2.5cm刻みです。アンダーは5cm刻み（65, 70, 75, 80...）で四捨五入します。</p>",
+  "faq": [
+    {
+      "question": "正しい測り方は？",
+      "answer": "ブラをつけずに、トップバストは乳首の位置で水平に、アンダーバストは胸の下の一番細い部分を水平に測ります。"
+    }
+  ],
+  "related": [
+    "clothing-size"
+  ],
+  "popular": false
+}

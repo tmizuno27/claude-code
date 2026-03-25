@@ -1,0 +1,72 @@
+{
+  "slug": "protein-food-compare",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "タンパク質コスパ比較",
+  "description": "食品のタンパク質あたりの価格を比較",
+  "metaTitle": "タンパク質コスパ比較ツール｜食品のプロテインコスパを計算",
+  "metaDescription": "食品の価格・重量・タンパク質含有量からタンパク質1gあたりのコストを計算。最もコスパの良いタンパク源を見つける。",
+  "calculatorFunction": "proteinFoodCompare",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "価格",
+      "type": "number",
+      "unit": "円",
+      "default": 500,
+      "min": 1,
+      "max": 99999,
+      "step": 1
+    },
+    {
+      "id": "weight",
+      "label": "内容量",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "min": 1,
+      "max": 99999,
+      "step": 1
+    },
+    {
+      "id": "proteinPer100g",
+      "label": "タンパク質（100gあたり）",
+      "type": "number",
+      "unit": "g",
+      "default": 22,
+      "min": 0.1,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "costPerProteinG",
+      "label": "タンパク質1gあたりの価格",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "totalProtein",
+      "label": "総タンパク質量",
+      "format": "text"
+    },
+    {
+      "id": "costPer20g",
+      "label": "タンパク質20gの価格",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>タンパク質のコスパ比較</h3><p>筋トレやダイエットでタンパク質を多く摂る場合、コスパは重要です。鶏胸肉（100gあたり約23g、約70円→約3円/gタンパク質）は最もコスパの良い食品の一つです。</p>",
+  "faq": [
+    {
+      "question": "プロテインパウダーのコスパは？",
+      "answer": "一般的なホエイプロテインは1gあたり3〜5円。鶏胸肉とほぼ同等で手軽さがメリットです。"
+    }
+  ],
+  "related": [
+    "protein-intake",
+    "meal-calorie"
+  ],
+  "popular": false
+}

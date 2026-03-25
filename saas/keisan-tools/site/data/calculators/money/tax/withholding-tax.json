@@ -1,0 +1,47 @@
+{
+  "slug": "withholding-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "源泉徴収税額計算",
+  "description": "報酬額から源泉徴収税額を計算",
+  "metaTitle": "源泉徴収税額計算ツール｜報酬の源泉徴収額を自動計算",
+  "metaDescription": "フリーランス・個人事業主への報酬の源泉徴収税額を計算。100万円以下・100万超で税率が変わる計算に対応。",
+  "calculatorFunction": "withholdingTax",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "報酬額（税抜）",
+      "type": "number",
+      "unit": "円",
+      "default": 500000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "withholdingAmount",
+      "label": "源泉徴収税額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "netAmount",
+      "label": "手取り額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>源泉徴収税額の計算</h3><p>100万円以下の部分は10.21%、100万円を超える部分は20.42%が源泉徴収されます。復興特別所得税(2.1%)を含んだ税率です。</p>",
+  "faq": [
+    {
+      "question": "消費税を含めた額に課税される？",
+      "answer": "請求書で税抜金額と消費税額を明確に区分していれば、税抜金額に対して源泉徴収されます。"
+    }
+  ],
+  "related": [
+    "income-tax",
+    "freelance-tax"
+  ],
+  "popular": false
+}

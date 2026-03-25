@@ -1,0 +1,62 @@
+{
+  "slug": "atm-fee-calc",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "ATM手数料計算",
+  "description": "ATM手数料の年間コストを計算",
+  "metaTitle": "ATM手数料計算ツール｜年間でいくら損しているか計算",
+  "metaDescription": "ATM利用回数と手数料から年間のATM手数料総額を計算。ネット銀行との比較に。",
+  "calculatorFunction": "atmFeeCalc",
+  "inputs": [
+    {
+      "id": "feePerUse",
+      "label": "1回あたり手数料",
+      "type": "number",
+      "unit": "円",
+      "default": 220,
+      "min": 0,
+      "max": 1000,
+      "step": 10
+    },
+    {
+      "id": "monthlyUses",
+      "label": "月の利用回数",
+      "type": "number",
+      "unit": "回",
+      "default": 4,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyFee",
+      "label": "月間手数料",
+      "format": "currency"
+    },
+    {
+      "id": "annualFee",
+      "label": "年間手数料",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "tenYearFee",
+      "label": "10年間の手数料",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>ATM手数料の影響</h3><p>1回220円のATM手数料を週1回使うと年間約11,440円です。ネット銀行なら月数回無料のところが多く、手数料を大幅に節約できます。</p>",
+  "faq": [
+    {
+      "question": "手数料を避けるには？",
+      "answer": "ネット銀行の利用、コンビニATM無料回数の多い口座への切り替え、まとめて引き出すなどが有効です。"
+    }
+  ],
+  "related": [
+    "goal-savings",
+    "emergency-fund"
+  ],
+  "popular": false
+}

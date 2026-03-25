@@ -1,0 +1,67 @@
+{
+  "slug": "protein-intake",
+  "category": "health",
+  "subcategory": "body",
+  "title": "タンパク質必要量計算",
+  "description": "体重と目的に応じた1日のタンパク質推奨摂取量を計算",
+  "metaTitle": "タンパク質必要量計算ツール｜1日のプロテイン摂取量を計算",
+  "metaDescription": "体重と運動目的から1日に必要なタンパク質量を計算。筋トレ・ダイエット・健康維持それぞれの推奨量を表示。",
+  "calculatorFunction": "proteinIntake",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "goal",
+      "label": "目的",
+      "type": "select",
+      "options": [
+        {
+          "value": "maintain",
+          "label": "健康維持"
+        },
+        {
+          "value": "muscle",
+          "label": "筋肉増量"
+        },
+        {
+          "value": "diet",
+          "label": "ダイエット"
+        }
+      ],
+      "default": "maintain"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyProtein",
+      "label": "1日の推奨タンパク質量",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "perMeal",
+      "label": "1食あたり（3食の場合）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>タンパク質の必要量</h3><p>健康維持には体重1kgあたり0.8〜1.0g、筋肉増量には1.6〜2.2g、ダイエット中は1.2〜1.6gが推奨されています。</p>",
+  "faq": [
+    {
+      "question": "プロテインはいつ飲むべき？",
+      "answer": "筋トレ後30分以内と、朝食時が効果的とされています。"
+    }
+  ],
+  "related": [
+    "basal-metabolism",
+    "daily-calorie"
+  ],
+  "popular": false
+}

@@ -1,0 +1,55 @@
+{
+  "slug": "toeic-score-convert",
+  "category": "education",
+  "subcategory": "study",
+  "title": "TOEIC換算計算",
+  "description": "TOEICスコアから英検・CEFRレベルを推定",
+  "metaTitle": "TOEIC換算ツール｜英検・CEFR・TOEFLレベル変換",
+  "metaDescription": "TOEICスコアから英検の級、CEFRレベル、TOEFLスコアの目安を表示。英語力の指標比較に。",
+  "calculatorFunction": "toeicScoreConvert",
+  "inputs": [
+    {
+      "id": "toeicScore",
+      "label": "TOEICスコア",
+      "type": "number",
+      "default": 700,
+      "min": 10,
+      "max": 990,
+      "step": 5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "eiken",
+      "label": "英検（目安）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "cefr",
+      "label": "CEFRレベル",
+      "format": "text"
+    },
+    {
+      "id": "toefl",
+      "label": "TOEFL iBT（目安）",
+      "format": "text"
+    },
+    {
+      "id": "description",
+      "label": "レベル説明",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>英語試験スコアの換算</h3><p>あくまで目安の換算です。各試験は測定する能力が異なるため、完全な互換性はありません。TOEIC 600≒英検2級≒CEFR B1、TOEIC 800≒英検準1級≒CEFR B2が大まかな目安です。</p>",
+  "faq": [
+    {
+      "question": "TOEIC何点あれば就活で有利？",
+      "answer": "一般的に600点以上でアピール可能、730点以上で英語力を評価されやすくなります。"
+    }
+  ],
+  "related": [
+    "english-score"
+  ],
+  "popular": false
+}

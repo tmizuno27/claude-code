@@ -1,0 +1,63 @@
+{
+  "slug": "muscle-mass",
+  "category": "health",
+  "subcategory": "body",
+  "title": "筋肉量推定計算",
+  "description": "体重と体脂肪率から除脂肪体重・筋肉量を推定",
+  "metaTitle": "筋肉量推定計算ツール｜体重と体脂肪率から筋肉量を計算",
+  "metaDescription": "体重と体脂肪率を入力して除脂肪体重(LBM)と推定筋肉量を計算。筋トレの目標設定に。",
+  "calculatorFunction": "muscleMass",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "bodyFat",
+      "label": "体脂肪率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 3,
+      "max": 60,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "leanMass",
+      "label": "除脂肪体重",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "fatMass",
+      "label": "体脂肪量",
+      "format": "text"
+    },
+    {
+      "id": "estimatedMuscle",
+      "label": "推定筋肉量",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>除脂肪体重と筋肉量</h3><p>除脂肪体重(LBM) = 体重 × (1 - 体脂肪率)です。LBMには筋肉のほか骨・内臓・水分が含まれます。筋肉量はLBMの約50%が目安です。</p>",
+  "faq": [
+    {
+      "question": "筋肉量の理想値は？",
+      "answer": "男性は体重の40%前後、女性は35%前後が標準的です。"
+    }
+  ],
+  "related": [
+    "body-fat",
+    "ideal-weight",
+    "bmi"
+  ],
+  "popular": false
+}

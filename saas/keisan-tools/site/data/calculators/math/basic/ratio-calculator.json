@@ -1,0 +1,69 @@
+{
+  "slug": "ratio-calculator",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "比率計算",
+  "description": "比率（A:B）から実際の数値を計算",
+  "metaTitle": "比率計算ツール｜比率から数値を自動計算",
+  "metaDescription": "比率（A:B）と合計値から各部分の実際の数値を計算。配分・按分・割合計算に便利な無料ツール。",
+  "calculatorFunction": "ratioCalculator",
+  "inputs": [
+    {
+      "id": "ratioA",
+      "label": "比率A",
+      "type": "number",
+      "default": 3,
+      "min": 0.01,
+      "max": 99999,
+      "step": 0.01
+    },
+    {
+      "id": "ratioB",
+      "label": "比率B",
+      "type": "number",
+      "default": 7,
+      "min": 0.01,
+      "max": 99999,
+      "step": 0.01
+    },
+    {
+      "id": "total",
+      "label": "合計値",
+      "type": "number",
+      "default": 1000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "valueA",
+      "label": "Aの値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "valueB",
+      "label": "Bの値",
+      "format": "number"
+    },
+    {
+      "id": "percentA",
+      "label": "Aの割合",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>比率計算の方法</h3><p>A:B = 3:7で合計1000の場合、Aの値 = 1000 × 3/(3+7) = 300、Bの値 = 1000 × 7/(3+7) = 700です。</p>",
+  "faq": [
+    {
+      "question": "3:7の比率は何対何？",
+      "answer": "合計を10としたとき、3と7の配分です。Aが30%、Bが70%になります。"
+    }
+  ],
+  "related": [
+    "percentage",
+    "fraction"
+  ],
+  "popular": false
+}

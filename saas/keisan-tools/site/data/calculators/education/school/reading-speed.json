@@ -1,0 +1,56 @@
+{
+  "slug": "reading-speed",
+  "category": "education",
+  "subcategory": "school",
+  "title": "読書速度計算",
+  "description": "読書速度から本を読み終わるまでの時間を計算",
+  "metaTitle": "読書速度計算ツール｜本を読み終わるまでの時間を計算",
+  "metaDescription": "1分あたりの読書速度と本の文字数から、読了にかかる時間を計算。読書計画に便利な無料ツール。",
+  "calculatorFunction": "readingSpeed",
+  "inputs": [
+    {
+      "id": "totalChars",
+      "label": "文字数",
+      "type": "number",
+      "unit": "文字",
+      "default": 100000,
+      "min": 100,
+      "max": 10000000,
+      "step": 100
+    },
+    {
+      "id": "wpm",
+      "label": "読書速度",
+      "type": "number",
+      "unit": "文字/分",
+      "default": 500,
+      "min": 50,
+      "max": 5000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalMinutes",
+      "label": "所要時間",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "pages",
+      "label": "推定ページ数（400字/頁）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>日本人の平均読書速度</h3><p>日本人の平均読書速度は400〜600文字/分です。速読を習得すると1000文字/分以上も可能です。一般的な文庫本は1冊約10〜12万文字です。</p>",
+  "faq": [
+    {
+      "question": "日本人の平均読書速度は？",
+      "answer": "約400〜600文字/分です。ビジネス書は500文字/分、小説は600文字/分程度が目安です。"
+    }
+  ],
+  "related": [
+    "exam-score"
+  ],
+  "popular": false
+}

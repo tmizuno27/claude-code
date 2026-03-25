@@ -1,0 +1,48 @@
+{
+  "slug": "visual-acuity",
+  "category": "health",
+  "subcategory": "body",
+  "title": "視力換算",
+  "description": "小数視力・ジオプトリー・logMARを相互変換",
+  "metaTitle": "視力換算ツール｜小数視力・度数（ジオプトリー）変換",
+  "metaDescription": "日本の小数視力とコンタクトレンズのジオプトリー（度数）を相互変換。logMARにも対応。",
+  "calculatorFunction": "visualAcuity",
+  "inputs": [
+    {
+      "id": "acuity",
+      "label": "小数視力",
+      "type": "number",
+      "default": 0.5,
+      "min": 0.01,
+      "max": 2,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "diopter",
+      "label": "ジオプトリー（目安）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "logMAR",
+      "label": "logMAR",
+      "format": "text"
+    },
+    {
+      "id": "category",
+      "label": "視力区分",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>視力の換算</h3><p>小数視力とジオプトリー(D)は直接的な換算式はありませんが、目安として-1/小数視力 + 1に近い値になります。実際のメガネ・コンタクトの度数は眼科で処方を受けてください。</p>",
+  "faq": [
+    {
+      "question": "視力0.1はどのくらい？",
+      "answer": "裸眼で30cm先の文字がぼやけるレベルです。メガネやコンタクトでの矯正が必要です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

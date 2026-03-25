@@ -1,0 +1,75 @@
+{
+  "slug": "screen-size-compare",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "画面サイズ比較",
+  "description": "インチ数から画面の実際の寸法を計算",
+  "metaTitle": "画面サイズ比較ツール｜インチから実寸を計算",
+  "metaDescription": "画面のインチ数とアスペクト比から実際の幅・高さ・面積を計算。テレビ・モニターの比較に。",
+  "calculatorFunction": "screenSizeCompare",
+  "inputs": [
+    {
+      "id": "diagonal",
+      "label": "画面サイズ",
+      "type": "number",
+      "unit": "インチ",
+      "default": 55,
+      "min": 1,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "aspectRatio",
+      "label": "アスペクト比",
+      "type": "select",
+      "options": [
+        {
+          "value": "16:9",
+          "label": "16:9（TV・一般モニター）"
+        },
+        {
+          "value": "21:9",
+          "label": "21:9（ウルトラワイド）"
+        },
+        {
+          "value": "4:3",
+          "label": "4:3（旧型）"
+        },
+        {
+          "value": "16:10",
+          "label": "16:10（MacBook等）"
+        }
+      ],
+      "default": "16:9"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "widthCm",
+      "label": "幅",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "heightCm",
+      "label": "高さ",
+      "format": "text"
+    },
+    {
+      "id": "areaCm2",
+      "label": "面積",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>画面サイズの計算</h3><p>インチは対角線の長さです。16:9の55インチTVは幅約121.7cm×高さ約68.5cmです。面積を比較すると、55インチは40インチの約1.9倍の表示面積があります。</p>",
+  "faq": [
+    {
+      "question": "テレビの適切なサイズは？",
+      "answer": "視聴距離の1/3がインチ数の目安です。2mの距離なら55インチ、3mなら65インチがおすすめです。"
+    }
+  ],
+  "related": [
+    "cm-to-inch"
+  ],
+  "popular": false
+}

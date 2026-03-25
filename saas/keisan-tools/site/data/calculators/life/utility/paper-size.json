@@ -1,0 +1,68 @@
+{
+  "slug": "paper-size",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "用紙サイズ計算",
+  "description": "A判・B判の用紙サイズ（mm）を表示",
+  "metaTitle": "用紙サイズ一覧・計算ツール｜A判B判のサイズを確認",
+  "metaDescription": "A0〜A10、B0〜B10の用紙サイズをmm単位で一覧表示。面積や用途も確認できる便利ツール。",
+  "calculatorFunction": "paperSize",
+  "inputs": [
+    {
+      "id": "series",
+      "label": "規格",
+      "type": "select",
+      "options": [
+        {
+          "value": "A",
+          "label": "A判（ISO 216）"
+        },
+        {
+          "value": "B",
+          "label": "B判（JIS）"
+        }
+      ],
+      "default": "A"
+    },
+    {
+      "id": "size",
+      "label": "サイズ番号",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "width",
+      "label": "幅",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "height",
+      "label": "高さ",
+      "format": "text"
+    },
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>用紙サイズの規格</h3><p>A判はISO 216国際規格で、A0（841×1189mm）を基準に半分に切るとA1、さらに半分がA2…と続きます。B判は日本独自のJIS規格で、A判より一回り大きいサイズです。</p>",
+  "faq": [
+    {
+      "question": "A4のサイズは？",
+      "answer": "210mm × 297mmです。"
+    },
+    {
+      "question": "B5のサイズは？",
+      "answer": "182mm × 257mmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

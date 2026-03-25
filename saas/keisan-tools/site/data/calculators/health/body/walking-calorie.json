@@ -1,0 +1,83 @@
+{
+  "slug": "walking-calorie",
+  "category": "health",
+  "subcategory": "body",
+  "title": "ウォーキングカロリー計算",
+  "description": "歩行時間・速度から消費カロリーを計算",
+  "metaTitle": "ウォーキングカロリー計算ツール｜歩行の消費カロリー計算",
+  "metaDescription": "体重と歩行時間からウォーキングの消費カロリーを計算。速度別のMETs値で正確に算出。",
+  "calculatorFunction": "walkingCalorie",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "minutes",
+      "label": "歩行時間",
+      "type": "number",
+      "unit": "分",
+      "default": 30,
+      "min": 1,
+      "max": 600,
+      "step": 1
+    },
+    {
+      "id": "speed",
+      "label": "速度",
+      "type": "select",
+      "options": [
+        {
+          "value": "slow",
+          "label": "ゆっくり（3.2km/h）"
+        },
+        {
+          "value": "normal",
+          "label": "普通（4.8km/h）"
+        },
+        {
+          "value": "fast",
+          "label": "速歩き（6.4km/h）"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "消費カロリー",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "distance",
+      "label": "歩行距離",
+      "format": "text"
+    },
+    {
+      "id": "steps",
+      "label": "推定歩数",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ウォーキングの消費カロリー</h3><p>消費カロリー = METs × 体重(kg) × 時間(h) × 1.05で計算します。ゆっくり歩行で2.8METs、通常歩行で3.5METs、速歩きで5.0METsです。</p>",
+  "faq": [
+    {
+      "question": "1日何歩歩けばいい？",
+      "answer": "厚生労働省は成人で1日8,000〜10,000歩を推奨しています。"
+    }
+  ],
+  "related": [
+    "calorie-burn",
+    "running-pace",
+    "steps-to-distance"
+  ],
+  "popular": false
+}

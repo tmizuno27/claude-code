@@ -1,0 +1,76 @@
+{
+  "slug": "timezone-compare",
+  "category": "life",
+  "subcategory": "date",
+  "title": "時差計算",
+  "description": "2つの都市間の時差と現在時刻を表示",
+  "metaTitle": "時差計算ツール｜世界の都市の時差を計算",
+  "metaDescription": "2つの都市の時差と相手都市の現在時刻を計算。海外旅行・ビジネスの連絡に便利な無料ツール。",
+  "calculatorFunction": "timezoneCompare",
+  "inputs": [
+    {
+      "id": "timezone1",
+      "label": "都市1のUTCオフセット",
+      "type": "number",
+      "unit": "時間",
+      "default": 9,
+      "min": -12,
+      "max": 14,
+      "step": 0.5
+    },
+    {
+      "id": "timezone2",
+      "label": "都市2のUTCオフセット",
+      "type": "number",
+      "unit": "時間",
+      "default": -5,
+      "min": -12,
+      "max": 14,
+      "step": 0.5
+    },
+    {
+      "id": "hour",
+      "label": "都市1の時刻（時）",
+      "type": "number",
+      "default": 12,
+      "min": 0,
+      "max": 23,
+      "step": 1
+    },
+    {
+      "id": "minute",
+      "label": "分",
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 59,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "timeDiff",
+      "label": "時差",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "city2Time",
+      "label": "都市2の時刻",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>主な都市のUTCオフセット</h3><p>東京+9、ニューヨーク-5（EST）/-4（EDT）、ロンドン0/+1（BST）、パリ+1/+2（CEST）、シドニー+10/+11（AEDT）、アスンシオン-3/-4。</p>",
+  "faq": [
+    {
+      "question": "サマータイムは考慮される？",
+      "answer": "オフセットを手動入力するため、サマータイム適用時は該当する値を入力してください。"
+    }
+  ],
+  "related": [
+    "time-zone",
+    "timezone",
+    "countdown"
+  ],
+  "popular": false
+}

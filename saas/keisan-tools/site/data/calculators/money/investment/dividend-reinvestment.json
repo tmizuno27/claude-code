@@ -1,0 +1,88 @@
+{
+  "slug": "dividend-reinvestment",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "配当再投資シミュレーション",
+  "description": "配当金を再投資した場合の資産成長を計算",
+  "metaTitle": "配当再投資シミュレーションツール｜複利効果を計算",
+  "metaDescription": "初期投資額・配当利回り・再投資期間から配当再投資による資産成長を計算。複利効果を可視化。",
+  "calculatorFunction": "dividendReinvestment",
+  "inputs": [
+    {
+      "id": "initialInvestment",
+      "label": "初期投資額",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "dividendYield",
+      "label": "年間配当利回り",
+      "type": "number",
+      "unit": "%",
+      "default": 4,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "投資期間",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "monthlyAdd",
+      "label": "毎月の追加投資",
+      "type": "number",
+      "unit": "万円",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalValue",
+      "label": "最終資産額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "totalInvested",
+      "label": "投資元本合計",
+      "format": "text"
+    },
+    {
+      "id": "totalDividends",
+      "label": "配当金累計",
+      "format": "text"
+    },
+    {
+      "id": "annualDividend",
+      "label": "最終年の年間配当",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>配当再投資の効果</h3><p>配当金を受け取らず再投資することで、翌年の配当基盤が増え、複利効果で資産が加速度的に成長します。長期投資では配当再投資の有無で大きな差が生まれます。</p>",
+  "faq": [
+    {
+      "question": "高配当株のリスクは？",
+      "answer": "配当利回りが異常に高い銘柄は減配や株価下落のリスクがあります。安定した配当実績のある銘柄を選びましょう。"
+    }
+  ],
+  "related": [
+    "dividend-yield",
+    "compound-interest",
+    "dollar-cost-averaging"
+  ],
+  "popular": false
+}

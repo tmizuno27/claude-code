@@ -1,0 +1,72 @@
+{
+  "slug": "matrix-determinant",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "行列式計算",
+  "description": "2×2行列の行列式を計算",
+  "metaTitle": "行列式計算ツール｜2×2行列のdetを自動計算",
+  "metaDescription": "2×2行列の要素を入力して行列式（determinant）を計算。逆行列の存在判定にも。",
+  "calculatorFunction": "matrixDeterminant",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "a (左上)",
+      "type": "number",
+      "default": 1,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    },
+    {
+      "id": "b",
+      "label": "b (右上)",
+      "type": "number",
+      "default": 2,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    },
+    {
+      "id": "c",
+      "label": "c (左下)",
+      "type": "number",
+      "default": 3,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    },
+    {
+      "id": "d",
+      "label": "d (右下)",
+      "type": "number",
+      "default": 4,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "determinant",
+      "label": "行列式 (ad-bc)",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "hasInverse",
+      "label": "逆行列の存在",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>2×2行列の行列式</h3><p>行列[[a,b],[c,d]]の行列式 = ad - bc です。行列式が0でなければ逆行列が存在します。</p>",
+  "faq": [
+    {
+      "question": "行列式が0だとどうなる？",
+      "answer": "逆行列が存在しない（特異行列）ことを意味します。連立方程式が唯一の解を持たないことに対応します。"
+    }
+  ],
+  "related": [
+    "power-calculator"
+  ],
+  "popular": false
+}

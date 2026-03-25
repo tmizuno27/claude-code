@@ -1,0 +1,67 @@
+{
+  "slug": "inheritance-tax-sim",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "相続税概算計算",
+  "description": "相続財産と相続人数から相続税を概算",
+  "metaTitle": "相続税計算ツール｜遺産総額から相続税を概算計算",
+  "metaDescription": "遺産総額と法定相続人の数から相続税の概算額を自動計算。基礎控除と税率を適用した無料ツール。",
+  "calculatorFunction": "inheritanceTaxSim",
+  "inputs": [
+    {
+      "id": "totalAssets",
+      "label": "遺産総額",
+      "type": "number",
+      "unit": "万円",
+      "default": 8000,
+      "min": 0,
+      "max": 9999999,
+      "step": 100
+    },
+    {
+      "id": "heirs",
+      "label": "法定相続人の数",
+      "type": "number",
+      "unit": "人",
+      "default": 3,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "basicDeduction",
+      "label": "基礎控除額",
+      "format": "text"
+    },
+    {
+      "id": "taxableAmount",
+      "label": "課税遺産総額",
+      "format": "text"
+    },
+    {
+      "id": "totalTax",
+      "label": "相続税総額（概算）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "taxPerHeir",
+      "label": "1人あたり税額（均等分割の場合）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>相続税の計算</h3><p>基礎控除 = 3,000万円 + 600万円 × 法定相続人数。課税遺産総額が基礎控除以下なら相続税はかかりません。税率は1,000万円以下10%〜6億円超55%の超過累進税率です。</p>",
+  "faq": [
+    {
+      "question": "相続税がかからないケースは？",
+      "answer": "遺産総額が基礎控除以下（例：相続人3人なら4,800万円以下）の場合は非課税です。実際には約9割の人が非課税です。"
+    }
+  ],
+  "related": [
+    "gift-tax",
+    "income-tax"
+  ],
+  "popular": false
+}

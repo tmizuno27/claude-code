@@ -1,0 +1,51 @@
+{
+  "slug": "battery-life",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "バッテリー持続時間計算",
+  "description": "バッテリー容量と消費電力から持続時間を計算",
+  "metaTitle": "バッテリー持続時間計算ツール｜mAhから稼働時間を計算",
+  "metaDescription": "バッテリー容量(mAh)と消費電力から持続時間を計算。スマホ・ノートPC・モバイルバッテリーの目安に。",
+  "calculatorFunction": "batteryLife",
+  "inputs": [
+    {
+      "id": "capacity",
+      "label": "バッテリー容量",
+      "type": "number",
+      "unit": "mAh",
+      "default": 5000,
+      "min": 1,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "consumption",
+      "label": "消費電流",
+      "type": "number",
+      "unit": "mA",
+      "default": 500,
+      "min": 1,
+      "max": 99999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hours",
+      "label": "持続時間",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>バッテリー持続時間の計算</h3><p>バッテリー容量(mAh) ÷ 消費電流(mA) = 持続時間(h)です。実際は充放電効率（約80〜90%）があるため、計算値より短くなります。</p>",
+  "faq": [
+    {
+      "question": "mAhとWhの違いは？",
+      "answer": "mAhは電流容量、Whはエネルギー容量です。Wh = mAh × 電圧(V) ÷ 1000で変換できます。"
+    }
+  ],
+  "related": [
+    "electricity-cost"
+  ],
+  "popular": false
+}

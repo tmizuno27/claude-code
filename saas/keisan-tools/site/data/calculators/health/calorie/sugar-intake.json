@@ -1,0 +1,52 @@
+{
+  "slug": "sugar-intake",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "砂糖摂取量チェック",
+  "description": "飲料・食品の砂糖含有量と1日の推奨量を比較",
+  "metaTitle": "砂糖摂取量チェックツール｜1日の砂糖摂取量を確認",
+  "metaDescription": "飲料や食品に含まれる砂糖の量と、WHOが推奨する1日の上限を比較。健康管理に役立つ無料ツール。",
+  "calculatorFunction": "sugarIntake",
+  "inputs": [
+    {
+      "id": "sugarG",
+      "label": "摂取した砂糖量",
+      "type": "number",
+      "unit": "g",
+      "default": 25,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "砂糖由来のカロリー",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "teaspoons",
+      "label": "小さじ換算",
+      "format": "text"
+    },
+    {
+      "id": "percentOfLimit",
+      "label": "WHO推奨上限に対する割合",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>砂糖の摂取目安</h3><p>WHOは遊離糖類を1日のエネルギー摂取量の5%未満（成人で約25g）に抑えることを推奨しています。砂糖1gは約4kcalです。</p>",
+  "faq": [
+    {
+      "question": "コーラ1本の砂糖は？",
+      "answer": "500mlペットボトルで約55g（小さじ約11杯）含まれています。"
+    }
+  ],
+  "related": [
+    "daily-calorie",
+    "meal-calorie"
+  ],
+  "popular": false
+}

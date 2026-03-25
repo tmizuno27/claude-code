@@ -1,0 +1,50 @@
+{
+  "slug": "parallelogram",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "平行四辺形の面積",
+  "description": "底辺と高さから平行四辺形の面積を計算",
+  "metaTitle": "平行四辺形の面積計算ツール｜底辺と高さから面積を計算",
+  "metaDescription": "底辺と高さを入力して平行四辺形の面積を計算。対角線からの計算にも対応した無料ツール。",
+  "calculatorFunction": "parallelogram",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "底辺",
+      "type": "number",
+      "default": 10,
+      "min": 0.01,
+      "max": 99999,
+      "step": 0.01
+    },
+    {
+      "id": "height",
+      "label": "高さ",
+      "type": "number",
+      "default": 5,
+      "min": 0.01,
+      "max": 99999,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>平行四辺形の面積</h3><p>面積 = 底辺 × 高さです。高さは底辺に対して垂直な距離です。</p>",
+  "faq": [
+    {
+      "question": "ひし形も平行四辺形？",
+      "answer": "はい。ひし形は4辺が等しい特殊な平行四辺形です。"
+    }
+  ],
+  "related": [
+    "triangle",
+    "rectangle"
+  ],
+  "popular": false
+}

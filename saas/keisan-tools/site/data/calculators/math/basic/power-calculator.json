@@ -1,0 +1,50 @@
+{
+  "slug": "power-calculator",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "累乗計算",
+  "description": "底と指数を入力して累乗（べき乗）を計算",
+  "metaTitle": "累乗計算ツール｜べき乗を自動計算",
+  "metaDescription": "底と指数を入力して累乗（aのn乗）を計算。小数・負の指数にも対応した無料ツール。",
+  "calculatorFunction": "powerCalculator",
+  "inputs": [
+    {
+      "id": "base",
+      "label": "底(a)",
+      "type": "number",
+      "default": 2,
+      "min": -9999,
+      "max": 9999,
+      "step": 0.01
+    },
+    {
+      "id": "exponent",
+      "label": "指数(n)",
+      "type": "number",
+      "default": 10,
+      "min": -100,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "結果（aのn乗）",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>累乗の計算</h3><p>a^n = a × a × ... × a（n回掛ける）です。指数が0のとき結果は1、負の指数は1/a^|n|になります。</p>",
+  "faq": [
+    {
+      "question": "2の10乗は？",
+      "answer": "1024です。コンピュータの1KB = 1024バイトはここから来ています。"
+    }
+  ],
+  "related": [
+    "logarithm",
+    "square-root"
+  ],
+  "popular": false
+}

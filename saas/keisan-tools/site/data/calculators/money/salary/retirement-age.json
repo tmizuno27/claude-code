@@ -1,0 +1,77 @@
+{
+  "slug": "retirement-age",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "定年退職金計算",
+  "description": "勤続年数と月給から退職金の目安を計算",
+  "metaTitle": "退職金計算ツール｜勤続年数から退職金を予測",
+  "metaDescription": "勤続年数・月給・退職金制度から退職金の目安を計算。退職所得税も自動計算する無料ツール。",
+  "calculatorFunction": "retirementAge",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "退職時月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 40,
+      "min": 10,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "yearsOfService",
+      "label": "勤続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 30,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "multiplier",
+      "label": "支給月数",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossRetirement",
+      "label": "退職金（税引前）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "deduction",
+      "label": "退職所得控除",
+      "format": "text"
+    },
+    {
+      "id": "tax",
+      "label": "退職所得税（概算）",
+      "format": "text"
+    },
+    {
+      "id": "netRetirement",
+      "label": "手取り額（概算）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>退職金の計算</h3><p>退職金 = 退職時月給 × 支給月数が基本です。退職所得控除は勤続20年以下で40万円×年数、20年超で800万円+70万円×(年数-20)です。退職金は税制上有利で、控除後の1/2に課税されます。</p>",
+  "faq": [
+    {
+      "question": "退職金の相場は？",
+      "answer": "大企業の大卒35年勤続で約2,000〜2,500万円、中小企業で約1,000〜1,500万円が目安です。"
+    }
+  ],
+  "related": [
+    "annual-income",
+    "salary-raise"
+  ],
+  "popular": false
+}

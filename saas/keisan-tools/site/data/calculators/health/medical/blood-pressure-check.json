@@ -1,0 +1,56 @@
+{
+  "slug": "blood-pressure-check",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "血圧チェック",
+  "description": "血圧の数値から分類と判定を表示",
+  "metaTitle": "血圧チェックツール｜血圧の数値から正常・高血圧を判定",
+  "metaDescription": "最高血圧と最低血圧を入力するだけで血圧の分類（正常・正常高値・高血圧）を判定。日本高血圧学会の基準に準拠。",
+  "calculatorFunction": "bloodPressureCheck",
+  "inputs": [
+    {
+      "id": "systolic",
+      "label": "最高血圧（収縮期）",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 120,
+      "min": 60,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "id": "diastolic",
+      "label": "最低血圧（拡張期）",
+      "type": "number",
+      "unit": "mmHg",
+      "default": 80,
+      "min": 30,
+      "max": 200,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "category",
+      "label": "血圧分類",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "advice",
+      "label": "アドバイス",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>血圧の分類基準</h3><p>日本高血圧学会(JSH2019)の基準：正常血圧は120/80未満、正常高値血圧は120-129/80未満、高値血圧は130-139/80-89、I度高血圧は140-159/90-99、II度高血圧は160-179/100-109、III度高血圧は180以上/110以上です。</p>",
+  "faq": [
+    {
+      "question": "いつ測るのがベスト？",
+      "answer": "朝起きてトイレ後、食事前の安静時に測るのが推奨されています。毎日同じ条件で測りましょう。"
+    }
+  ],
+  "related": [
+    "hearing-level"
+  ],
+  "popular": false
+}

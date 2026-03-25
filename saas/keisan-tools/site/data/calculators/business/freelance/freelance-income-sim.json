@@ -1,0 +1,93 @@
+{
+  "slug": "freelance-income-sim",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "フリーランス手取り計算",
+  "description": "売上から税金・社会保険を引いた手取りを計算",
+  "metaTitle": "フリーランス手取り計算ツール｜年収から手取りを自動計算",
+  "metaDescription": "フリーランスの売上から所得税・住民税・国保・年金を差し引いた手取り額を計算。経費率も設定可能。",
+  "calculatorFunction": "freelanceIncomeSim",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "年間売上",
+      "type": "number",
+      "unit": "万円",
+      "default": 800,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "expenseRate",
+      "label": "経費率",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 80,
+      "step": 1
+    },
+    {
+      "id": "blueReturn",
+      "label": "青色申告",
+      "type": "select",
+      "options": [
+        {
+          "value": "65",
+          "label": "青色申告（65万円控除）"
+        },
+        {
+          "value": "10",
+          "label": "青色申告（10万円控除）"
+        },
+        {
+          "value": "0",
+          "label": "白色申告"
+        }
+      ],
+      "default": "65"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "income",
+      "label": "所得（売上-経費）",
+      "format": "text"
+    },
+    {
+      "id": "incomeTax",
+      "label": "所得税（概算）",
+      "format": "text"
+    },
+    {
+      "id": "residentTax",
+      "label": "住民税（概算）",
+      "format": "text"
+    },
+    {
+      "id": "socialInsurance",
+      "label": "国保+年金（概算）",
+      "format": "text"
+    },
+    {
+      "id": "takeHome",
+      "label": "手取り額",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>フリーランスの手取り計算</h3><p>手取り = 売上 - 経費 - 所得税 - 住民税 - 国保 - 国民年金です。青色申告65万円控除を使うと大幅に節税できます。国保は自治体により異なりますが、所得の10〜14%が目安です。</p>",
+  "faq": [
+    {
+      "question": "会社員と比べてどのくらい手取りが減る？",
+      "answer": "同じ額面なら、フリーランスは社会保険料の事業主負担がない分、手取りが15〜20%少なくなる傾向です。"
+    }
+  ],
+  "related": [
+    "freelance-tax",
+    "freelance-rate",
+    "blue-return"
+  ],
+  "popular": false
+}

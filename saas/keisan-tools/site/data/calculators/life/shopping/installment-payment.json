@@ -1,0 +1,98 @@
+{
+  "slug": "installment-payment",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "分割払い計算",
+  "description": "分割払い時の月々の支払額と手数料を計算",
+  "metaTitle": "分割払い計算ツール｜月々の支払額と手数料を自動計算",
+  "metaDescription": "クレジットカードの分割払いの月々の支払額と手数料総額を自動計算。3回〜36回払いに対応。",
+  "calculatorFunction": "installmentPayment",
+  "inputs": [
+    {
+      "id": "totalAmount",
+      "label": "購入金額",
+      "type": "number",
+      "unit": "円",
+      "default": 100000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "installments",
+      "label": "分割回数",
+      "type": "select",
+      "options": [
+        {
+          "value": "3",
+          "label": "3回"
+        },
+        {
+          "value": "6",
+          "label": "6回"
+        },
+        {
+          "value": "10",
+          "label": "10回"
+        },
+        {
+          "value": "12",
+          "label": "12回"
+        },
+        {
+          "value": "24",
+          "label": "24回"
+        },
+        {
+          "value": "36",
+          "label": "36回"
+        }
+      ],
+      "default": "12"
+    },
+    {
+      "id": "annualRate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 30,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyPayment",
+      "label": "月々の支払額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalFee",
+      "label": "手数料総額",
+      "format": "currency"
+    },
+    {
+      "id": "totalPayment",
+      "label": "支払い総額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>分割払いの手数料</h3><p>クレジットカードの分割払いは年利12〜15%が一般的です。回数が多いほど月々の負担は減りますが、手数料総額は増えます。2回払いは手数料無料のカードが多いです。</p>",
+  "faq": [
+    {
+      "question": "2回払いは手数料がかかる？",
+      "answer": "ほとんどのクレジットカードで2回払いは手数料無料です。3回以上から手数料が発生します。"
+    },
+    {
+      "question": "リボ払いとの違いは？",
+      "answer": "分割払いは回数を指定し完済時期が明確です。リボ払いは月々の支払額を固定するため完済時期が不明確で手数料が膨らみやすいです。"
+    }
+  ],
+  "related": [
+    "credit-card-interest",
+    "discount"
+  ],
+  "popular": false
+}

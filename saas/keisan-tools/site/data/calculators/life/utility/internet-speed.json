@@ -1,0 +1,62 @@
+{
+  "slug": "internet-speed",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "通信速度換算",
+  "description": "Mbps・MB/sの変換とダウンロード時間を計算",
+  "metaTitle": "通信速度換算ツール｜Mbps・MB/s変換＆ダウンロード時間計算",
+  "metaDescription": "Mbps・Gbps・MB/sを相互変換。ファイルサイズからダウンロード時間も計算できる無料ツール。",
+  "calculatorFunction": "internetSpeed",
+  "inputs": [
+    {
+      "id": "speed",
+      "label": "通信速度",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 100,
+      "min": 0.1,
+      "max": 100000,
+      "step": 0.1
+    },
+    {
+      "id": "fileSize",
+      "label": "ファイルサイズ",
+      "type": "number",
+      "unit": "MB",
+      "default": 1000,
+      "min": 0.1,
+      "max": 999999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "mbPerSec",
+      "label": "MB/s",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "gbps",
+      "label": "Gbps",
+      "format": "text"
+    },
+    {
+      "id": "downloadTime",
+      "label": "ダウンロード時間",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>通信速度の単位</h3><p>1 Mbps = 0.125 MB/s（1バイト=8ビット）。100Mbpsの回線では理論上12.5MB/sですが、実効速度は60〜80%程度です。1GBのファイルは100Mbpsで約1分20秒かかります。</p>",
+  "faq": [
+    {
+      "question": "動画視聴に必要な速度は？",
+      "answer": "HD動画は5Mbps、4K動画は25Mbps以上が推奨されます。"
+    }
+  ],
+  "related": [
+    "download-time",
+    "data-size"
+  ],
+  "popular": false
+}

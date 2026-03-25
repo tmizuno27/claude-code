@@ -1,0 +1,50 @@
+{
+  "slug": "prime-check",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "素数判定",
+  "description": "入力した数が素数かどうかを判定",
+  "metaTitle": "素数判定ツール｜素数かどうかを瞬時に判定",
+  "metaDescription": "数値を入力するだけで素数かどうかを判定。約数一覧と素因数分解の結果も表示する無料ツール。",
+  "calculatorFunction": "primeCheck",
+  "inputs": [
+    {
+      "id": "number",
+      "label": "数値",
+      "type": "number",
+      "default": 97,
+      "min": 2,
+      "max": 999999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "isPrime",
+      "label": "素数判定",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "factors",
+      "label": "約数一覧",
+      "format": "text"
+    },
+    {
+      "id": "primeFactors",
+      "label": "素因数分解",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>素数とは</h3><p>1と自分自身以外に約数を持たない、2以上の自然数です。最初の素数は2, 3, 5, 7, 11, 13, 17, 19, 23, 29...と続きます。</p>",
+  "faq": [
+    {
+      "question": "1は素数？",
+      "answer": "1は素数ではありません。素数の定義は「2以上の自然数で、1と自分自身以外に約数を持たない数」です。"
+    }
+  ],
+  "related": [
+    "gcd-lcm"
+  ],
+  "popular": false
+}

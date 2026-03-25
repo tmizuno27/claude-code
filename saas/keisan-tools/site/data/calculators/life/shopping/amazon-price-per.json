@@ -1,0 +1,78 @@
+{
+  "slug": "amazon-price-per",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "まとめ買い比較計算",
+  "description": "単品vsまとめ買いのどちらがお得か比較",
+  "metaTitle": "まとめ買い比較計算ツール｜単品とセット買いを比較",
+  "metaDescription": "単品価格とまとめ買い価格を入力して1個あたりの単価を比較。お得なのはどちらかを瞬時に判定。",
+  "calculatorFunction": "bulkBuyCompare",
+  "inputs": [
+    {
+      "id": "singlePrice",
+      "label": "単品価格",
+      "type": "number",
+      "unit": "円",
+      "default": 150,
+      "min": 1,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "bulkPrice",
+      "label": "まとめ買い価格",
+      "type": "number",
+      "unit": "円",
+      "default": 1200,
+      "min": 1,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "bulkQuantity",
+      "label": "まとめ買い個数",
+      "type": "number",
+      "unit": "個",
+      "default": 10,
+      "min": 2,
+      "max": 9999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "singleUnit",
+      "label": "単品の1個あたり",
+      "format": "currency"
+    },
+    {
+      "id": "bulkUnit",
+      "label": "まとめ買いの1個あたり",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "savings",
+      "label": "1個あたりの差額",
+      "format": "currency"
+    },
+    {
+      "id": "savingsPercent",
+      "label": "お得率",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>まとめ買いの損得</h3><p>単品価格とまとめ買いの1個あたり単価を比較します。まとめ買いが安くても、使い切れなければ無駄になるため、消費期限や使用頻度も考慮しましょう。</p>",
+  "faq": [
+    {
+      "question": "まとめ買いは必ずお得？",
+      "answer": "1個あたりの単価は安くなることが多いですが、使い切れない場合はかえって損になります。"
+    }
+  ],
+  "related": [
+    "per-unit-price",
+    "price-per-gram",
+    "discount"
+  ],
+  "popular": false
+}

@@ -1,0 +1,54 @@
+{
+  "slug": "number-to-kanji",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "数字の漢数字変換",
+  "description": "アラビア数字を漢数字に変換",
+  "metaTitle": "漢数字変換ツール｜数字を漢数字に自動変換",
+  "metaDescription": "アラビア数字を漢数字（一二三…）に変換。大字（壱弐参…）にも対応。ご祝儀袋・領収書に。",
+  "calculatorFunction": "numberToKanji",
+  "inputs": [
+    {
+      "id": "number",
+      "label": "数字",
+      "type": "number",
+      "default": 30000,
+      "min": 0,
+      "max": 999999999999,
+      "step": 1
+    },
+    {
+      "id": "format",
+      "label": "形式",
+      "type": "select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "通常（一二三）"
+        },
+        {
+          "value": "formal",
+          "label": "大字（壱弐参）"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "kanji",
+      "label": "漢数字",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>漢数字の使い分け</h3><p>通常の漢数字（一、二、三…）は一般的な文書に使います。大字（壱、弐、参…）は改ざん防止のため、ご祝儀袋、領収書、法的文書で使われます。</p>",
+  "faq": [
+    {
+      "question": "30,000円のご祝儀袋の書き方は？",
+      "answer": "大字で「金参萬圓」と書きます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

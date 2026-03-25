@@ -1,0 +1,72 @@
+{
+  "slug": "hourly-vs-project",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "時給vs案件単価比較",
+  "description": "時給契約と案件単価のどちらが得か比較",
+  "metaTitle": "時給vs案件単価比較ツール｜フリーランスの報酬比較",
+  "metaDescription": "時給契約と案件単価（固定報酬）の実質時給を比較。フリーランスの契約判断に便利な無料ツール。",
+  "calculatorFunction": "hourlyVsProject",
+  "inputs": [
+    {
+      "id": "hourlyRate",
+      "label": "時給",
+      "type": "number",
+      "unit": "円",
+      "default": 3000,
+      "min": 500,
+      "max": 50000,
+      "step": 100
+    },
+    {
+      "id": "projectFee",
+      "label": "案件報酬",
+      "type": "number",
+      "unit": "万円",
+      "default": 50,
+      "min": 1,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "estimatedHours",
+      "label": "案件の予想作業時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 120,
+      "min": 1,
+      "max": 2000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "projectHourlyRate",
+      "label": "案件の実質時給",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "hourlyTotal",
+      "label": "時給契約の同時間稼働額",
+      "format": "text"
+    },
+    {
+      "id": "recommendation",
+      "label": "判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>報酬形態の比較</h3><p>案件の実質時給 = 案件報酬 ÷ 予想作業時間で比較します。案件単価は作業効率を上げるほど実質時給が上がるメリットがある反面、想定外の工数が発生するリスクもあります。</p>",
+  "faq": [
+    {
+      "question": "どちらを選ぶべき？",
+      "answer": "作業量が明確なら案件単価、不確実要素が多いなら時給契約が安全です。経験を積んで効率が上がったら案件単価が有利になります。"
+    }
+  ],
+  "related": [
+    "freelance-rate",
+    "freelance-income-sim"
+  ],
+  "popular": false
+}

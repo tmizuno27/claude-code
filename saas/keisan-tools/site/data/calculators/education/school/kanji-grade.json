@@ -1,0 +1,73 @@
+{
+  "slug": "kanji-grade",
+  "category": "education",
+  "subcategory": "school",
+  "title": "学年別漢字数チェック",
+  "description": "各学年で習う漢字数と累計を表示",
+  "metaTitle": "学年別漢字数チェックツール｜何年生で何字習うか確認",
+  "metaDescription": "小学校の各学年で習う漢字の数と累計を表示。常用漢字の学年配当を確認できる無料ツール。",
+  "calculatorFunction": "kanjiGrade",
+  "inputs": [
+    {
+      "id": "grade",
+      "label": "学年",
+      "type": "select",
+      "options": [
+        {
+          "value": "1",
+          "label": "小学1年"
+        },
+        {
+          "value": "2",
+          "label": "小学2年"
+        },
+        {
+          "value": "3",
+          "label": "小学3年"
+        },
+        {
+          "value": "4",
+          "label": "小学4年"
+        },
+        {
+          "value": "5",
+          "label": "小学5年"
+        },
+        {
+          "value": "6",
+          "label": "小学6年"
+        }
+      ],
+      "default": "1"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "gradeCount",
+      "label": "その学年で習う漢字数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "cumulativeCount",
+      "label": "累計漢字数",
+      "format": "text"
+    },
+    {
+      "id": "totalKanji",
+      "label": "小学校で習う漢字の総数",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>学年別配当漢字</h3><p>小学校で習う漢字は全1,026字です。1年生80字、2年生160字、3年生200字、4年生202字、5年生193字、6年生191字です。中学校では常用漢字の残り約1,100字を学びます。</p>",
+  "faq": [
+    {
+      "question": "常用漢字は全部で何字？",
+      "answer": "2,136字です。小学校1,026字＋中学校で約1,110字を学びます。"
+    }
+  ],
+  "related": [
+    "reading-speed"
+  ],
+  "popular": false
+}

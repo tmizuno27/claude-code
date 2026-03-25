@@ -1,0 +1,52 @@
+{
+  "slug": "emergency-months",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "緊急資金計算",
+  "description": "月の支出から必要な緊急予備資金を計算",
+  "metaTitle": "緊急資金計算ツール｜いくら貯めれば安心か計算",
+  "metaDescription": "月の固定支出から緊急時に必要な予備資金の目安を計算。失業・病気など万一に備える無料ツール。",
+  "calculatorFunction": "emergencyMonths",
+  "inputs": [
+    {
+      "id": "monthlyExpense",
+      "label": "月の生活費",
+      "type": "number",
+      "unit": "万円",
+      "default": 25,
+      "min": 5,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "months",
+      "label": "確保したい月数",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 6,
+      "min": 1,
+      "max": 24,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "targetAmount",
+      "label": "必要な緊急資金",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>緊急予備資金の目安</h3><p>一般的に生活費の3〜6ヶ月分が推奨されます。フリーランスや自営業なら6〜12ヶ月分が安心です。</p>",
+  "faq": [
+    {
+      "question": "どこに預ける？",
+      "answer": "すぐに引き出せる普通預金が基本です。一部をネット銀行の定期預金にするのもアリです。"
+    }
+  ],
+  "related": [
+    "goal-savings",
+    "emergency-fund"
+  ],
+  "popular": false
+}

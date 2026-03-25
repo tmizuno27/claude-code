@@ -1,0 +1,62 @@
+{
+  "slug": "fever-check",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "発熱判定",
+  "description": "体温から発熱レベルを判定",
+  "metaTitle": "発熱判定ツール｜体温から発熱レベルをチェック",
+  "metaDescription": "体温を入力して発熱レベル（平熱・微熱・中等度・高熱）を判定。子供と大人の基準に対応。",
+  "calculatorFunction": "feverCheck",
+  "inputs": [
+    {
+      "id": "temperature",
+      "label": "体温",
+      "type": "number",
+      "unit": "℃",
+      "default": 37.5,
+      "min": 34,
+      "max": 43,
+      "step": 0.1
+    },
+    {
+      "id": "ageGroup",
+      "label": "年齢区分",
+      "type": "select",
+      "options": [
+        {
+          "value": "adult",
+          "label": "大人"
+        },
+        {
+          "value": "child",
+          "label": "子供（0〜14歳）"
+        }
+      ],
+      "default": "adult"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "level",
+      "label": "発熱レベル",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "advice",
+      "label": "対処の目安",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>発熱の基準</h3><p>一般的に37.5℃以上を発熱、38.0℃以上を高熱とします。平熱には個人差があり36.0〜37.0℃が一般的です。子供は大人より平熱が高い傾向があります。</p>",
+  "faq": [
+    {
+      "question": "37.5℃は微熱？",
+      "answer": "一般的には37.5〜38.0℃を微熱とします。ただし平熱が低い人は37℃台前半でも辛く感じることがあります。"
+    }
+  ],
+  "related": [
+    "blood-pressure-check"
+  ],
+  "popular": false
+}

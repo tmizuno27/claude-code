@@ -1,0 +1,79 @@
+{
+  "slug": "childbirth-cost",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "出産費用計算",
+  "description": "出産にかかる費用と公的補助を計算",
+  "metaTitle": "出産費用計算ツール｜自己負担額を自動計算",
+  "metaDescription": "出産にかかる費用と出産育児一時金を差し引いた自己負担額を計算。帝王切開の場合も対応。",
+  "calculatorFunction": "childbirthCost",
+  "inputs": [
+    {
+      "id": "deliveryType",
+      "label": "出産方法",
+      "type": "select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "自然分娩"
+        },
+        {
+          "value": "caesarean",
+          "label": "帝王切開"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "id": "facility",
+      "label": "施設タイプ",
+      "type": "select",
+      "options": [
+        {
+          "value": "clinic",
+          "label": "診療所"
+        },
+        {
+          "value": "hospital",
+          "label": "総合病院"
+        },
+        {
+          "value": "university",
+          "label": "大学病院"
+        }
+      ],
+      "default": "clinic"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "estimatedCost",
+      "label": "出産費用（概算）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "subsidy",
+      "label": "出産育児一時金",
+      "format": "text"
+    },
+    {
+      "id": "selfPayment",
+      "label": "自己負担額（概算）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>出産にかかる費用</h3><p>自然分娩で約40〜60万円、帝王切開で約50〜70万円が相場です。出産育児一時金50万円が支給されるため、自己負担は0〜20万円程度です。帝王切開は医療保険の対象で高額療養費制度も使えます。</p>",
+  "faq": [
+    {
+      "question": "無痛分娩の追加費用は？",
+      "answer": "施設により異なりますが、約10〜20万円の追加費用がかかります。保険適用外です。"
+    }
+  ],
+  "related": [
+    "due-date",
+    "pregnancy-week",
+    "weight-gain-pregnancy"
+  ],
+  "popular": false
+}

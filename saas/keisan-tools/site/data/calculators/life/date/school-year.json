@@ -1,0 +1,47 @@
+{
+  "slug": "school-year",
+  "category": "life",
+  "subcategory": "date",
+  "title": "学年計算",
+  "description": "生年月日から現在の学年を計算",
+  "metaTitle": "学年計算ツール｜生年月日から学年を自動判定",
+  "metaDescription": "生年月日を入力するだけで現在の学年（小1〜高3・大学）を自動計算。早生まれにも対応。",
+  "calculatorFunction": "schoolYear",
+  "inputs": [
+    {
+      "id": "birthDate",
+      "label": "生年月日",
+      "type": "date",
+      "default": "2015-05-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "schoolYear",
+      "label": "現在の学年",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "graduationDate",
+      "label": "卒業予定",
+      "format": "text"
+    },
+    {
+      "id": "isEarlyBorn",
+      "label": "早生まれ判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>学年の決め方</h3><p>日本の学校は4月2日〜翌年4月1日生まれが同学年です。4月1日生まれは前の学年に入ります（法律上、誕生日の前日に加齢するため）。</p>",
+  "faq": [
+    {
+      "question": "4月1日生まれはなぜ早生まれ？",
+      "answer": "法律上「年齢は誕生日の前日に加齢する」ため、4月1日生まれは3月31日に加齢し、前年度の学年に含まれます。"
+    }
+  ],
+  "related": [
+    "age-calculator"
+  ],
+  "popular": false
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "cooking-measure",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "料理の計量換算",
+  "description": "大さじ・小さじ・カップをml・gに換算",
+  "metaTitle": "料理の計量換算ツール｜大さじ・小さじをml・gに変換",
+  "metaDescription": "大さじ・小さじ・カップの分量をml・g単位に換算。調味料別の重量にも対応した無料ツール。",
+  "calculatorFunction": "cookingMeasure",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "量",
+      "type": "number",
+      "default": 1,
+      "min": 0.1,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "unit",
+      "label": "単位",
+      "type": "select",
+      "options": [
+        {
+          "value": "tablespoon",
+          "label": "大さじ"
+        },
+        {
+          "value": "teaspoon",
+          "label": "小さじ"
+        },
+        {
+          "value": "cup",
+          "label": "カップ"
+        }
+      ],
+      "default": "tablespoon"
+    },
+    {
+      "id": "ingredient",
+      "label": "調味料",
+      "type": "select",
+      "options": [
+        {
+          "value": "water",
+          "label": "水・酢・酒"
+        },
+        {
+          "value": "soy",
+          "label": "醤油・みりん"
+        },
+        {
+          "value": "sugar",
+          "label": "砂糖"
+        },
+        {
+          "value": "salt",
+          "label": "塩"
+        },
+        {
+          "value": "flour",
+          "label": "小麦粉"
+        },
+        {
+          "value": "oil",
+          "label": "油"
+        }
+      ],
+      "default": "water"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "ml",
+      "label": "体積(ml)",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "grams",
+      "label": "重量(g)",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>料理の計量単位</h3><p>大さじ1=15ml、小さじ1=5ml、1カップ=200mlです。ただし重量は調味料によって異なります。例えば大さじ1の砂糖は9g、塩は18g、小麦粉は9gです。</p>",
+  "faq": [
+    {
+      "question": "大さじ1は何cc？",
+      "answer": "15cc（15ml）です。ccとmlは同じ量です。"
+    }
+  ],
+  "related": [
+    "tbsp-to-ml",
+    "tsp-to-ml",
+    "recipe-scale"
+  ],
+  "popular": false
+}

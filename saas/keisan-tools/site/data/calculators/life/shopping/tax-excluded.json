@@ -1,0 +1,67 @@
+{
+  "slug": "tax-excluded",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "税抜価格計算",
+  "description": "税込価格から税抜価格と消費税額を計算します",
+  "metaTitle": "税抜価格計算ツール｜税込価格から税抜き価格を自動計算",
+  "metaDescription": "税込価格を入力するだけで税抜価格と消費税額を自動計算。標準税率10%・軽減税率8%に対応した無料ツール。",
+  "calculatorFunction": "taxExcluded",
+  "inputs": [
+    {
+      "id": "priceIncluded",
+      "label": "税込価格",
+      "type": "number",
+      "unit": "円",
+      "default": 1100,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "taxRate",
+      "label": "消費税率",
+      "type": "select",
+      "options": [
+        {
+          "value": "10",
+          "label": "10%（標準税率）"
+        },
+        {
+          "value": "8",
+          "label": "8%（軽減税率）"
+        }
+      ],
+      "default": "10"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "priceExcluded",
+      "label": "税抜価格",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxAmount",
+      "label": "消費税額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>税抜計算の方法</h3><p>税込価格 ÷ (1 + 税率) = 税抜価格で計算します。10%の場合は税込価格 ÷ 1.1、8%の場合は税込価格 ÷ 1.08です。</p>",
+  "faq": [
+    {
+      "question": "1円未満はどう処理される？",
+      "answer": "切り捨てで計算しています。実際の店舗では四捨五入の場合もあります。"
+    },
+    {
+      "question": "軽減税率8%の対象は？",
+      "answer": "飲食料品（酒類・外食を除く）と週2回以上発行の新聞（定期購読）が対象です。"
+    }
+  ],
+  "related": [
+    "tax-included",
+    "discount"
+  ],
+  "popular": false
+}

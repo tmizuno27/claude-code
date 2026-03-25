@@ -1,0 +1,73 @@
+{
+  "slug": "gas-mileage",
+  "category": "life",
+  "subcategory": "car",
+  "title": "実燃費計算",
+  "description": "走行距離と給油量から実燃費を計算",
+  "metaTitle": "実燃費計算ツール｜給油量と走行距離から燃費を計算",
+  "metaDescription": "走行距離と給油量を入力して実際の燃費(km/L)を計算。カタログ燃費との比較にも。",
+  "calculatorFunction": "gasMileage",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 1,
+      "max": 99999,
+      "step": 1
+    },
+    {
+      "id": "fuel",
+      "label": "給油量",
+      "type": "number",
+      "unit": "L",
+      "default": 35,
+      "min": 0.1,
+      "max": 999,
+      "step": 0.1
+    },
+    {
+      "id": "fuelPrice",
+      "label": "ガソリン単価",
+      "type": "number",
+      "unit": "円/L",
+      "default": 170,
+      "min": 100,
+      "max": 300,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fuelEfficiency",
+      "label": "実燃費",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "costPerKm",
+      "label": "1kmあたりのガソリン代",
+      "format": "text"
+    },
+    {
+      "id": "totalCost",
+      "label": "ガソリン代合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>燃費の計算</h3><p>燃費(km/L) = 走行距離 ÷ 給油量です。満タン法で計算する場合は、満タンにした後走行し、次の給油で満タンにした量で計算します。カタログ燃費の60〜80%が実燃費の目安です。</p>",
+  "faq": [
+    {
+      "question": "燃費を良くするコツは？",
+      "answer": "急発進・急加速を避ける、タイヤの空気圧を適正に保つ、エアコン使用を控えめにする、不要な荷物を降ろす。"
+    }
+  ],
+  "related": [
+    "fuel-cost",
+    "car-cost-total",
+    "ev-charging-cost"
+  ],
+  "popular": false
+}

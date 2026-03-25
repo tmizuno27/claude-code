@@ -1,0 +1,67 @@
+{
+  "slug": "daily-water-intake",
+  "category": "health",
+  "subcategory": "body",
+  "title": "1日の水分摂取量計算",
+  "description": "体重から推奨される1日の水分摂取量を計算",
+  "metaTitle": "1日の水分摂取量計算ツール｜体重から適切な水分量を計算",
+  "metaDescription": "体重を入力するだけで1日に必要な水分摂取量を計算。運動量別の目安も表示する無料ツール。",
+  "calculatorFunction": "dailyWaterIntake",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "min": 20,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "activity",
+      "label": "運動レベル",
+      "type": "select",
+      "options": [
+        {
+          "value": "low",
+          "label": "ほとんど運動しない"
+        },
+        {
+          "value": "moderate",
+          "label": "週2〜3回運動"
+        },
+        {
+          "value": "high",
+          "label": "毎日運動"
+        }
+      ],
+      "default": "low"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyMl",
+      "label": "1日の推奨水分量",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "glasses",
+      "label": "コップ数（200ml換算）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>水分摂取量の目安</h3><p>一般的に体重1kgあたり30〜40mlの水分が必要とされています。運動をする人や暑い環境ではさらに多くの水分が必要です。食事からも約1Lの水分を摂取しているため、飲み物からの摂取量は計算値より少なくて構いません。</p>",
+  "faq": [
+    {
+      "question": "お茶やコーヒーもカウントしていい？",
+      "answer": "はい。カフェイン入り飲料にも水分はあります。ただし大量のカフェインは利尿作用があるため、水やお茶をメインにするのが理想的です。"
+    }
+  ],
+  "related": [
+    "water-intake",
+    "basal-metabolism"
+  ],
+  "popular": false
+}

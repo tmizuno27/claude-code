@@ -1,0 +1,72 @@
+{
+  "slug": "coupon-value",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "クーポン割引計算",
+  "description": "クーポン利用時のお支払い金額を計算",
+  "metaTitle": "クーポン割引計算ツール｜クーポン使用後の支払額を計算",
+  "metaDescription": "割引クーポン適用後の支払い金額を自動計算。割引率クーポンと定額クーポンの両方に対応。",
+  "calculatorFunction": "couponValue",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "商品価格",
+      "type": "number",
+      "unit": "円",
+      "default": 5000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "couponType",
+      "label": "クーポン種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "percent",
+          "label": "割引率（%OFF）"
+        },
+        {
+          "value": "fixed",
+          "label": "定額値引き（円OFF）"
+        }
+      ],
+      "default": "percent"
+    },
+    {
+      "id": "couponValue",
+      "label": "クーポン値",
+      "type": "number",
+      "default": 10,
+      "min": 0,
+      "max": 999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "finalPrice",
+      "label": "支払い金額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "savings",
+      "label": "割引額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>クーポン計算</h3><p>割引率クーポンは商品価格×割引率で割引額を計算。定額クーポンはそのまま価格から差し引きます。</p>",
+  "faq": [
+    {
+      "question": "最低購入金額がある場合は？",
+      "answer": "クーポンの利用条件は各店舗で異なります。このツールでは単純な割引計算を行います。"
+    }
+  ],
+  "related": [
+    "discount",
+    "double-discount"
+  ],
+  "popular": false
+}

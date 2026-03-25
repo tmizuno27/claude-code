@@ -1,0 +1,101 @@
+{
+  "slug": "moving-cost-estimate",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "引越し費用概算",
+  "description": "距離と荷物量から引越し費用を概算",
+  "metaTitle": "引越し費用概算ツール｜引越し料金の相場を計算",
+  "metaDescription": "距離・荷物量・時期から引越し費用の相場を概算。単身・家族別の料金目安を表示。",
+  "calculatorFunction": "movingCostEstimate",
+  "inputs": [
+    {
+      "id": "type",
+      "label": "引越しタイプ",
+      "type": "select",
+      "options": [
+        {
+          "value": "single",
+          "label": "単身（荷物少なめ）"
+        },
+        {
+          "value": "singleLarge",
+          "label": "単身（荷物多め）"
+        },
+        {
+          "value": "family2",
+          "label": "2人家族"
+        },
+        {
+          "value": "family3",
+          "label": "3人以上家族"
+        }
+      ],
+      "default": "single"
+    },
+    {
+      "id": "distance",
+      "label": "距離",
+      "type": "select",
+      "options": [
+        {
+          "value": "local",
+          "label": "同市内（〜20km）"
+        },
+        {
+          "value": "prefecture",
+          "label": "同県内（〜50km）"
+        },
+        {
+          "value": "regional",
+          "label": "近距離（〜200km）"
+        },
+        {
+          "value": "long",
+          "label": "長距離（200km〜）"
+        }
+      ],
+      "default": "local"
+    },
+    {
+      "id": "season",
+      "label": "時期",
+      "type": "select",
+      "options": [
+        {
+          "value": "peak",
+          "label": "繁忙期（3-4月）"
+        },
+        {
+          "value": "normal",
+          "label": "通常期"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "estimatedCost",
+      "label": "概算費用",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "range",
+      "label": "料金レンジ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>引越し費用の相場</h3><p>単身同市内で3〜5万円、家族の長距離で15〜30万円が目安です。3〜4月の繁忙期は通常期の1.3〜2倍になります。平日やフリー便を選ぶと安くなります。</p>",
+  "faq": [
+    {
+      "question": "引越しを安くするコツは？",
+      "answer": "複数社の見積もり比較、平日・午後便の選択、荷物の事前処分、繁忙期を避けるなどが効果的です。"
+    }
+  ],
+  "related": [
+    "moving-estimate",
+    "packing-list"
+  ],
+  "popular": false
+}

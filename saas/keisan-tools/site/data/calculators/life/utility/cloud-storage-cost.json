@@ -1,0 +1,57 @@
+{
+  "slug": "cloud-storage-cost",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "クラウドストレージ料金比較",
+  "description": "必要容量から各サービスの月額料金を比較",
+  "metaTitle": "クラウドストレージ料金比較ツール｜容量別コスト計算",
+  "metaDescription": "Google Drive・iCloud・OneDrive・Dropboxの容量別料金を比較。最もコスパの良いサービスを見つける。",
+  "calculatorFunction": "cloudStorageCost",
+  "inputs": [
+    {
+      "id": "storageGB",
+      "label": "必要容量",
+      "type": "number",
+      "unit": "GB",
+      "default": 200,
+      "min": 1,
+      "max": 30000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "googleDrive",
+      "label": "Google One",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "icloud",
+      "label": "iCloud+",
+      "format": "text"
+    },
+    {
+      "id": "onedrive",
+      "label": "OneDrive",
+      "format": "text"
+    },
+    {
+      "id": "dropbox",
+      "label": "Dropbox",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>クラウドストレージの料金</h3><p>各サービスの無料容量：Google Drive 15GB、iCloud 5GB、OneDrive 5GB、Dropbox 2GB。有料プランは100GB〜2TB程度で月額200〜1,500円が相場です。</p>",
+  "faq": [
+    {
+      "question": "どのサービスがおすすめ？",
+      "answer": "AndroidユーザーはGoogle One、iPhoneユーザーはiCloud+、Office利用者はOneDrive(Microsoft 365)がコスパ良好です。"
+    }
+  ],
+  "related": [
+    "data-size",
+    "subscription-cost"
+  ],
+  "popular": false
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "hiring-cost",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "採用コスト計算",
+  "description": "1人あたりの採用コストを計算",
+  "metaTitle": "採用コスト計算ツール｜1人あたりの採用単価を計算",
+  "metaDescription": "求人広告費・人材紹介手数料・面接の人件費から1人あたりの採用コストを計算。採用ROIの改善に。",
+  "calculatorFunction": "hiringCost",
+  "inputs": [
+    {
+      "id": "adCost",
+      "label": "求人広告費",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "agencyFee",
+      "label": "人材紹介手数料",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "internalCost",
+      "label": "社内人件費（面接等）",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "hires",
+      "label": "採用人数",
+      "type": "number",
+      "unit": "人",
+      "default": 3,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "採用コスト合計",
+      "format": "text"
+    },
+    {
+      "id": "costPerHire",
+      "label": "1人あたり採用コスト",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>採用コストの計算</h3><p>採用コスト = (広告費 + 紹介手数料 + 社内人件費) ÷ 採用人数です。日本企業の平均採用コストは新卒1人あたり約93万円、中途1人あたり約104万円です。</p>",
+  "faq": [
+    {
+      "question": "人材紹介手数料の相場は？",
+      "answer": "年収の30〜35%が一般的です。年収500万円なら150〜175万円が目安です。"
+    }
+  ],
+  "related": [
+    "freelance-rate"
+  ],
+  "popular": false
+}

@@ -1,0 +1,88 @@
+{
+  "slug": "baby-name-strokes",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "画数計算",
+  "description": "名前の画数から姓名判断の総画数を計算",
+  "metaTitle": "画数計算ツール｜名前の画数を自動カウント",
+  "metaDescription": "名前の漢字の画数を自動計算。姓名判断に使われる天格・人格・地格・外格・総格を表示。",
+  "calculatorFunction": "babyNameStrokes",
+  "inputs": [
+    {
+      "id": "lastName1",
+      "label": "姓（1文字目）画数",
+      "type": "number",
+      "default": 8,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "id": "lastName2",
+      "label": "姓（2文字目）画数",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "id": "firstName1",
+      "label": "名（1文字目）画数",
+      "type": "number",
+      "default": 7,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "id": "firstName2",
+      "label": "名（2文字目）画数",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 30,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tenKaku",
+      "label": "天格（姓の合計）",
+      "format": "text"
+    },
+    {
+      "id": "jinKaku",
+      "label": "人格（姓末+名頭）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "chiKaku",
+      "label": "地格（名の合計）",
+      "format": "text"
+    },
+    {
+      "id": "gaiKaku",
+      "label": "外格",
+      "format": "text"
+    },
+    {
+      "id": "souKaku",
+      "label": "総格",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>姓名判断の五格</h3><p>天格＝姓の画数合計、人格＝姓の末字+名の頭字、地格＝名の画数合計、外格＝天格+地格-人格、総格＝全画数合計です。人格と総格が特に重要とされています。</p>",
+  "faq": [
+    {
+      "question": "1文字の姓・名はどうする？",
+      "answer": "2文字目の画数を0にしてください。"
+    }
+  ],
+  "related": [
+    "due-date",
+    "pregnancy-week"
+  ],
+  "popular": false
+}

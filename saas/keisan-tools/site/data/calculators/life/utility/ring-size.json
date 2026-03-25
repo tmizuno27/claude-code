@@ -1,0 +1,51 @@
+{
+  "slug": "ring-size",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "指輪サイズ計算",
+  "description": "指の周囲長から指輪サイズ（号数）を計算",
+  "metaTitle": "指輪サイズ計算ツール｜指の太さから号数を自動判定",
+  "metaDescription": "指の周囲長（mm）を入力するだけで指輪の号数を自動計算。日本・US・EUサイズ対応。",
+  "calculatorFunction": "ringSize",
+  "inputs": [
+    {
+      "id": "circumference",
+      "label": "指の周囲長",
+      "type": "number",
+      "unit": "mm",
+      "default": 54,
+      "min": 38,
+      "max": 76,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "jpSize",
+      "label": "日本サイズ（号）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "usSize",
+      "label": "USサイズ",
+      "format": "text"
+    },
+    {
+      "id": "euSize",
+      "label": "EUサイズ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>指輪サイズの測り方</h3><p>糸や紙テープを指の一番太い部分に巻いて周囲長を測ります。日本の号数は内径と周囲長で決まり、1号=内径13mm(周囲40.8mm)を基準に0.33mmずつ大きくなります。</p>",
+  "faq": [
+    {
+      "question": "指輪のサイズはいつ測るのがベスト？",
+      "answer": "体温が安定している午後がおすすめです。朝はむくみやすく、入浴後は指が細くなりやすいです。"
+    }
+  ],
+  "related": [
+    "shoe-size-convert"
+  ],
+  "popular": false
+}

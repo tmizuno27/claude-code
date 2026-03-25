@@ -1,0 +1,67 @@
+{
+  "slug": "shoe-size-convert",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "靴サイズ換算",
+  "description": "日本・US・UK・EUの靴サイズを相互変換",
+  "metaTitle": "靴サイズ換算ツール｜日本・US・UK・EUサイズ変換",
+  "metaDescription": "日本のcmサイズからUS・UK・EUの靴サイズへ簡単変換。メンズ・レディース対応の無料ツール。",
+  "calculatorFunction": "shoeSizeConvert",
+  "inputs": [
+    {
+      "id": "jpSize",
+      "label": "日本サイズ",
+      "type": "number",
+      "unit": "cm",
+      "default": 26,
+      "min": 15,
+      "max": 35,
+      "step": 0.5
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "men",
+          "label": "メンズ"
+        },
+        {
+          "value": "women",
+          "label": "レディース"
+        }
+      ],
+      "default": "men"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "us",
+      "label": "USサイズ",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "uk",
+      "label": "UKサイズ",
+      "format": "text"
+    },
+    {
+      "id": "eu",
+      "label": "EUサイズ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>靴サイズの国際比較</h3><p>日本はcm表記ですが、海外ではUS・UK・EU各国で異なる番号体系を使います。メーカーによって多少の差があるため、目安としてご利用ください。</p>",
+  "faq": [
+    {
+      "question": "26cmはUSサイズでいくつ？",
+      "answer": "メンズでUS8、レディースでUS9.5が目安です。"
+    }
+  ],
+  "related": [
+    "clothing-size"
+  ],
+  "popular": false
+}

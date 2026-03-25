@@ -1,0 +1,45 @@
+{
+  "slug": "fibonacci",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "フィボナッチ数列",
+  "description": "フィボナッチ数列のn番目の値を計算",
+  "metaTitle": "フィボナッチ数列計算ツール｜n番目の値を自動計算",
+  "metaDescription": "フィボナッチ数列のn番目の数を計算。数列一覧の表示にも対応した無料ツール。",
+  "calculatorFunction": "fibonacci",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n番目",
+      "type": "number",
+      "default": 10,
+      "min": 1,
+      "max": 75,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "value",
+      "label": "フィボナッチ数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "sequence",
+      "label": "数列（最初からn番目まで）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>フィボナッチ数列とは</h3><p>前の2つの数の和が次の数になる数列です：1, 1, 2, 3, 5, 8, 13, 21, 34, 55...。自然界の花びらの数やひまわりの種の並びにも現れる美しい数列です。隣接する2項の比は黄金比（約1.618）に近づきます。</p>",
+  "faq": [
+    {
+      "question": "黄金比との関係は？",
+      "answer": "フィボナッチ数列のn+1番目÷n番目はnが大きくなるほど黄金比φ≒1.618に近づきます。"
+    }
+  ],
+  "related": [
+    "prime-check"
+  ],
+  "popular": false
+}

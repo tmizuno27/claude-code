@@ -1,0 +1,71 @@
+{
+  "slug": "smartphone-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "スマホ料金計算",
+  "description": "月額料金と端末代の総コストを計算",
+  "metaTitle": "スマホ料金計算ツール｜2年間の総コストを計算",
+  "metaDescription": "月額基本料・データ量・端末代の分割払いを含めたスマホの2年間総コストを自動計算。",
+  "calculatorFunction": "smartphoneCost",
+  "inputs": [
+    {
+      "id": "monthlyPlan",
+      "label": "月額料金",
+      "type": "number",
+      "unit": "円",
+      "default": 3000,
+      "min": 0,
+      "max": 50000,
+      "step": 100
+    },
+    {
+      "id": "devicePrice",
+      "label": "端末価格",
+      "type": "number",
+      "unit": "円",
+      "default": 100000,
+      "min": 0,
+      "max": 500000,
+      "step": 1000
+    },
+    {
+      "id": "months",
+      "label": "利用期間",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 24,
+      "min": 1,
+      "max": 60,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyTotal",
+      "label": "月々の支払い合計",
+      "format": "currency"
+    },
+    {
+      "id": "totalCost",
+      "label": "総コスト",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "dailyCost",
+      "label": "1日あたりコスト",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>スマホの総コスト</h3><p>月額料金 × 月数 + 端末価格 = 総コストです。格安SIMに乗り換えると月額1,000〜3,000円程度に抑えられ、大手キャリアの半額以下になることも。</p>",
+  "faq": [
+    {
+      "question": "格安SIMは本当に安い？",
+      "answer": "データ3GBプランなら月額1,000円前後で使えます。大手キャリアの3〜7,000円と比べて大幅に節約可能です。"
+    }
+  ],
+  "related": [
+    "subscription-cost"
+  ],
+  "popular": false
+}

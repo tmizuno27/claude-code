@@ -1,0 +1,88 @@
+{
+  "slug": "ev-charging-cost",
+  "category": "life",
+  "subcategory": "car",
+  "title": "EV充電コスト計算",
+  "description": "電気自動車の充電にかかる電気代を計算",
+  "metaTitle": "EV充電コスト計算ツール｜電気自動車の電気代を計算",
+  "metaDescription": "電気自動車のバッテリー容量・電気料金・走行距離から充電コストを計算。ガソリン車との比較も。",
+  "calculatorFunction": "evChargingCost",
+  "inputs": [
+    {
+      "id": "batteryCapacity",
+      "label": "バッテリー容量",
+      "type": "number",
+      "unit": "kWh",
+      "default": 60,
+      "min": 10,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "electricityRate",
+      "label": "電気料金",
+      "type": "number",
+      "unit": "円/kWh",
+      "default": 30,
+      "min": 10,
+      "max": 80,
+      "step": 1
+    },
+    {
+      "id": "efficiency",
+      "label": "電費",
+      "type": "number",
+      "unit": "km/kWh",
+      "default": 6,
+      "min": 2,
+      "max": 12,
+      "step": 0.1
+    },
+    {
+      "id": "monthlyKm",
+      "label": "月間走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 1000,
+      "min": 0,
+      "max": 10000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fullChargeCost",
+      "label": "フル充電コスト",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyCost",
+      "label": "月間電気代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "costPerKm",
+      "label": "1kmあたりコスト",
+      "format": "text"
+    },
+    {
+      "id": "gasolineEquivalent",
+      "label": "ガソリン車比（参考）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>EVの充電コスト</h3><p>充電コスト = バッテリー容量 × 電気料金で計算します。EV車の電費は一般的に5〜8km/kWhで、1kmあたり約4〜6円です。ガソリン車（燃費15km/L、ガソリン170円/L）は1kmあたり約11円なので、EVは約半分のランニングコストです。</p>",
+  "faq": [
+    {
+      "question": "自宅充電と急速充電、どちらが安い？",
+      "answer": "自宅充電（深夜電力利用）が最も安く、約15〜25円/kWhです。急速充電は30〜50円/kWh程度です。"
+    }
+  ],
+  "related": [
+    "ev-cost-comparison",
+    "fuel-cost",
+    "car-cost-total"
+  ],
+  "popular": false
+}

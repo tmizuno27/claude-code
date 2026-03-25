@@ -1,0 +1,67 @@
+{
+  "slug": "nengajo-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "年賀状費用計算",
+  "description": "年賀状の枚数から費用を計算",
+  "metaTitle": "年賀状費用計算ツール｜枚数から印刷・郵送コストを計算",
+  "metaDescription": "年賀状の枚数から郵便代・印刷代の総費用を計算。自宅印刷とネット注文の比較も。",
+  "calculatorFunction": "nengajoCost",
+  "inputs": [
+    {
+      "id": "sheets",
+      "label": "枚数",
+      "type": "number",
+      "unit": "枚",
+      "default": 50,
+      "min": 1,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "printType",
+      "label": "印刷方法",
+      "type": "select",
+      "options": [
+        {
+          "value": "home",
+          "label": "自宅プリンター"
+        },
+        {
+          "value": "order",
+          "label": "ネット注文"
+        }
+      ],
+      "default": "home"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "postageCost",
+      "label": "はがき代",
+      "format": "currency"
+    },
+    {
+      "id": "printCost",
+      "label": "印刷代（概算）",
+      "format": "currency"
+    },
+    {
+      "id": "totalCost",
+      "label": "合計費用",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>年賀状の費用</h3><p>2024年は年賀はがき1枚63円→85円に値上げ予定です。自宅印刷はインク代＋用紙代で1枚約20〜30円、ネット注文は1枚約30〜60円（枚数により変動）が目安です。</p>",
+  "faq": [
+    {
+      "question": "年賀状の発行枚数は？",
+      "answer": "2024年度は約14.4億枚で、ピーク時（2003年度 約44億枚）から大幅に減少しています。"
+    }
+  ],
+  "related": [
+    "postal-rate"
+  ],
+  "popular": false
+}

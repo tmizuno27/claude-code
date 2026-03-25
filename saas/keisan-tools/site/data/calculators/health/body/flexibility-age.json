@@ -1,0 +1,93 @@
+{
+  "slug": "flexibility-age",
+  "category": "health",
+  "subcategory": "body",
+  "title": "体力年齢チェック",
+  "description": "簡易テスト結果から体力年齢を推定",
+  "metaTitle": "体力年齢チェックツール｜あなたの体力年齢を推定",
+  "metaDescription": "握力・腹筋・柔軟性などの簡易テスト結果から体力年齢を推定。実年齢との差をチェック。",
+  "calculatorFunction": "flexibilityAge",
+  "inputs": [
+    {
+      "id": "actualAge",
+      "label": "実年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 40,
+      "min": 20,
+      "max": 80,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    },
+    {
+      "id": "gripStrength",
+      "label": "握力",
+      "type": "number",
+      "unit": "kg",
+      "default": 35,
+      "min": 5,
+      "max": 80,
+      "step": 0.5
+    },
+    {
+      "id": "situps",
+      "label": "腹筋（30秒）",
+      "type": "number",
+      "unit": "回",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "flexibility",
+      "label": "前屈",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "min": -30,
+      "max": 30,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fitnessAge",
+      "label": "推定体力年齢",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "ageDifference",
+      "label": "実年齢との差",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>体力年齢の推定</h3><p>文部科学省の新体力テストの基準を参考に、握力・腹筋・柔軟性のスコアから体力年齢を簡易推定します。あくまで目安であり、正確な評価は専門家の指導のもとで行ってください。</p>",
+  "faq": [
+    {
+      "question": "体力年齢を若くするには？",
+      "answer": "週3回以上の有酸素運動と筋力トレーニングの組み合わせが効果的です。特にスクワットと腹筋運動がおすすめです。"
+    }
+  ],
+  "related": [
+    "bmi",
+    "basal-metabolism"
+  ],
+  "popular": false
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "sp500-simulation",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "S&P500積立シミュレーション",
+  "description": "S&P500に毎月積立投資した場合の成長を計算",
+  "metaTitle": "S&P500積立シミュレーションツール｜インデックス投資の成長を計算",
+  "metaDescription": "毎月の積立額と期間からS&P500インデックス投資の資産成長を計算。過去の平均リターンに基づくシミュレーション。",
+  "calculatorFunction": "sp500Simulation",
+  "inputs": [
+    {
+      "id": "monthlyInvestment",
+      "label": "毎月の積立額",
+      "type": "number",
+      "unit": "万円",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "積立期間",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "annualReturn",
+      "label": "想定年利回り",
+      "type": "number",
+      "unit": "%",
+      "default": 7,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalInvested",
+      "label": "投資元本合計",
+      "format": "text"
+    },
+    {
+      "id": "finalValue",
+      "label": "最終資産額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "totalReturn",
+      "label": "運用益",
+      "format": "text"
+    },
+    {
+      "id": "returnRate",
+      "label": "トータルリターン",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>S&P500の過去実績</h3><p>S&P500の過去30年の年平均リターンは約10%（配当込み、インフレ調整前）です。為替変動やインフレを考慮すると日本円ベースでは7〜8%程度が現実的な想定です。過去の実績は将来を保証しません。</p>",
+  "faq": [
+    {
+      "question": "毎月5万円を20年積立するといくら？",
+      "answer": "年利7%の場合、元本1,200万円が約2,604万円になります（税引前）。"
+    }
+  ],
+  "related": [
+    "dollar-cost-averaging",
+    "compound-interest",
+    "calculate-nisa-simulation"
+  ],
+  "popular": false
+}

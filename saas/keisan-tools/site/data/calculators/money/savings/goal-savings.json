@@ -1,0 +1,67 @@
+{
+  "slug": "goal-savings",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "目標貯金計算",
+  "description": "目標額と期間から毎月の必要貯金額を計算",
+  "metaTitle": "目標貯金計算ツール｜毎月いくら貯めればいいか計算",
+  "metaDescription": "貯金目標額と達成期間から毎月の必要貯金額を計算。ボーナス加算にも対応した無料ツール。",
+  "calculatorFunction": "goalSavings",
+  "inputs": [
+    {
+      "id": "targetAmount",
+      "label": "目標額",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 1,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "currentSavings",
+      "label": "現在の貯金",
+      "type": "number",
+      "unit": "万円",
+      "default": 50,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "months",
+      "label": "達成期間",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 36,
+      "min": 1,
+      "max": 600,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlySaving",
+      "label": "毎月の貯金額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "remaining",
+      "label": "あと必要な額",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>貯金計画の立て方</h3><p>（目標額 - 現在の貯金）÷ 月数 = 毎月の必要貯金額です。給料日に自動振替で先取り貯金するのが確実な方法です。</p>",
+  "faq": [
+    {
+      "question": "理想的な貯蓄率は？",
+      "answer": "手取りの20〜25%が理想とされています。最低でも10%は貯蓄に回すことが推奨されます。"
+    }
+  ],
+  "related": [
+    "compound-interest",
+    "fire-calculation"
+  ],
+  "popular": false
+}

@@ -1,0 +1,63 @@
+{
+  "slug": "invoice-tax",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "インボイス消費税計算",
+  "description": "インボイス制度での消費税額を計算",
+  "metaTitle": "インボイス消費税計算ツール｜適格請求書の税額計算",
+  "metaDescription": "インボイス制度に対応した消費税額の計算。積み上げ計算・割戻し計算の両方に対応した無料ツール。",
+  "calculatorFunction": "invoiceTax",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "税抜金額",
+      "type": "number",
+      "unit": "円",
+      "default": 100000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1
+    },
+    {
+      "id": "taxRate",
+      "label": "税率",
+      "type": "select",
+      "options": [
+        {
+          "value": "10",
+          "label": "10%（標準）"
+        },
+        {
+          "value": "8",
+          "label": "8%（軽減）"
+        }
+      ],
+      "default": "10"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxAmount",
+      "label": "消費税額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalAmount",
+      "label": "税込金額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>インボイス制度の消費税計算</h3><p>2023年10月から開始されたインボイス制度では、適格請求書に正確な消費税額を記載する必要があります。税額は「税率ごとに合計した税抜金額 × 税率」で計算し、1円未満は切り捨てが原則です。</p>",
+  "faq": [
+    {
+      "question": "免税事業者はどうなる？",
+      "answer": "2029年9月まで経過措置があり、免税事業者からの仕入れでも一定割合の仕入税額控除が認められます。"
+    }
+  ],
+  "related": [
+    "consumption-tax",
+    "consumption-tax-calc"
+  ],
+  "popular": false
+}

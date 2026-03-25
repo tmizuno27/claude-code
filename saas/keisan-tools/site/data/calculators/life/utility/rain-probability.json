@@ -1,0 +1,64 @@
+{
+  "slug": "rain-probability",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "降水確率と傘の判断",
+  "description": "降水確率から傘を持つべきかを判定",
+  "metaTitle": "降水確率と傘の判断ツール｜傘を持つべきか計算",
+  "metaDescription": "降水確率から傘を持って行くべきか判定。期待値計算で合理的な判断をサポート。",
+  "calculatorFunction": "rainProbability",
+  "inputs": [
+    {
+      "id": "probability",
+      "label": "降水確率",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 10
+    },
+    {
+      "id": "outing",
+      "label": "外出時間",
+      "type": "select",
+      "options": [
+        {
+          "value": "short",
+          "label": "短時間（1時間以内）"
+        },
+        {
+          "value": "medium",
+          "label": "半日程度"
+        },
+        {
+          "value": "long",
+          "label": "終日"
+        }
+      ],
+      "default": "medium"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "recommendation",
+      "label": "判定",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "reason",
+      "label": "理由",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>降水確率の意味</h3><p>降水確率40%は「同じ条件の日を10回経験すると4回は1mm以上の雨が降る」という意味です。傘を持つかどうかの分岐点は一般的に30〜40%とされています。</p>",
+  "faq": [
+    {
+      "question": "降水確率30%は傘いる？",
+      "answer": "短時間の外出なら不要ですが、終日外出なら折りたたみ傘を推奨します。30%でも3回に1回は降ります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

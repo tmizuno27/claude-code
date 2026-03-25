@@ -1,0 +1,78 @@
+{
+  "slug": "wareki-seireki",
+  "category": "life",
+  "subcategory": "date",
+  "title": "和暦西暦変換",
+  "description": "和暦（令和・平成・昭和）と西暦を相互変換",
+  "metaTitle": "和暦西暦変換ツール｜令和・平成・昭和を西暦に変換",
+  "metaDescription": "和暦（令和・平成・昭和・大正・明治）と西暦を簡単に相互変換。書類作成に便利な無料ツール。",
+  "calculatorFunction": "warekiSeireki",
+  "inputs": [
+    {
+      "id": "era",
+      "label": "元号",
+      "type": "select",
+      "options": [
+        {
+          "value": "reiwa",
+          "label": "令和"
+        },
+        {
+          "value": "heisei",
+          "label": "平成"
+        },
+        {
+          "value": "showa",
+          "label": "昭和"
+        },
+        {
+          "value": "taisho",
+          "label": "大正"
+        },
+        {
+          "value": "meiji",
+          "label": "明治"
+        }
+      ],
+      "default": "reiwa"
+    },
+    {
+      "id": "year",
+      "label": "年",
+      "type": "number",
+      "default": 8,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "seireki",
+      "label": "西暦",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "allEras",
+      "label": "他の元号表記",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>元号と西暦の対応</h3><p>令和=2018+年、平成=1988+年、昭和=1925+年、大正=1911+年、明治=1867+年です。</p>",
+  "faq": [
+    {
+      "question": "令和8年は西暦何年？",
+      "answer": "2026年です。"
+    },
+    {
+      "question": "平成は何年まで？",
+      "answer": "平成は31年（2019年4月30日）までです。翌日5月1日から令和元年です。"
+    }
+  ],
+  "related": [
+    "japanese-era",
+    "age-calculator"
+  ],
+  "popular": false
+}

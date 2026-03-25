@@ -1,0 +1,87 @@
+{
+  "slug": "car-loan-detail",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "マイカーローン計算",
+  "description": "車のローン返済額と総支払額を計算",
+  "metaTitle": "マイカーローン計算ツール｜月々の返済額を自動計算",
+  "metaDescription": "車の購入価格・頭金・金利・返済期間から月々の返済額と総支払額を計算。ディーラーローンと銀行ローンの比較にも。",
+  "calculatorFunction": "carLoanDetail",
+  "inputs": [
+    {
+      "id": "carPrice",
+      "label": "車両価格",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 10,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "downPayment",
+      "label": "頭金",
+      "type": "number",
+      "unit": "万円",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "返済期間",
+      "type": "number",
+      "unit": "年",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyPayment",
+      "label": "月々の返済額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalPayment",
+      "label": "返済総額",
+      "format": "currency"
+    },
+    {
+      "id": "totalInterest",
+      "label": "利息合計",
+      "format": "currency"
+    },
+    {
+      "id": "loanAmount",
+      "label": "借入額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>マイカーローンの選び方</h3><p>ディーラーローン（年利3〜8%）は手続きが簡単、銀行ローン（年利1〜3%）は金利が低い傾向です。残価設定ローンは月々の支払いは安いですが総支払額は多くなることがあります。</p>",
+  "faq": [
+    {
+      "question": "頭金はいくら入れるべき？",
+      "answer": "車両価格の20〜30%が理想です。頭金が多いほど月々の返済額と利息が減ります。"
+    }
+  ],
+  "related": [
+    "car-loan",
+    "loan-repayment"
+  ],
+  "popular": false
+}

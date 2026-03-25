@@ -1,0 +1,85 @@
+{
+  "slug": "alcohol-calorie-drink",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "お酒のカロリー計算",
+  "description": "飲酒量からカロリーとアルコール量を計算",
+  "metaTitle": "お酒のカロリー計算ツール｜飲酒量のカロリーを自動計算",
+  "metaDescription": "ビール・ワイン・日本酒・焼酎など、お酒の種類と量からカロリーとアルコール摂取量を計算。",
+  "calculatorFunction": "alcoholCalorieDrink",
+  "inputs": [
+    {
+      "id": "drinkType",
+      "label": "お酒の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "beer",
+          "label": "ビール（5%）"
+        },
+        {
+          "value": "wine",
+          "label": "ワイン（12%）"
+        },
+        {
+          "value": "sake",
+          "label": "日本酒（15%）"
+        },
+        {
+          "value": "shochu",
+          "label": "焼酎（25%）"
+        },
+        {
+          "value": "whiskey",
+          "label": "ウイスキー（40%）"
+        },
+        {
+          "value": "chuhai",
+          "label": "チューハイ（5%）"
+        }
+      ],
+      "default": "beer"
+    },
+    {
+      "id": "amount",
+      "label": "量",
+      "type": "number",
+      "unit": "ml",
+      "default": 500,
+      "min": 10,
+      "max": 10000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "カロリー",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "pureAlcohol",
+      "label": "純アルコール量",
+      "format": "text"
+    },
+    {
+      "id": "units",
+      "label": "ドリンク数（1ドリンク=10g）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>お酒のカロリー</h3><p>アルコール1gは約7kcalです。純アルコール量 = 飲酒量(ml) × アルコール度数 × 0.8(比重)。ビール500mlで約200kcal、日本酒1合(180ml)で約190kcalです。</p>",
+  "faq": [
+    {
+      "question": "適量の飲酒量は？",
+      "answer": "厚生労働省は1日の純アルコール摂取量20g以下を推奨しています。ビールなら500ml、日本酒なら1合が目安です。"
+    }
+  ],
+  "related": [
+    "alcohol-calorie",
+    "alcohol-breakdown",
+    "blood-alcohol"
+  ],
+  "popular": false
+}

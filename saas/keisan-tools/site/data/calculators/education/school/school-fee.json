@@ -1,0 +1,146 @@
+{
+  "slug": "school-fee",
+  "category": "education",
+  "subcategory": "school",
+  "title": "学費シミュレーション",
+  "description": "幼稚園から大学までの学費総額を計算",
+  "metaTitle": "学費シミュレーションツール｜教育費の総額を計算",
+  "metaDescription": "幼稚園・小学校・中学校・高校・大学の公立/私立を選んで教育費の総額を計算。",
+  "calculatorFunction": "schoolFee",
+  "inputs": [
+    {
+      "id": "kindergarten",
+      "label": "幼稚園",
+      "type": "select",
+      "options": [
+        {
+          "value": "public",
+          "label": "公立"
+        },
+        {
+          "value": "private",
+          "label": "私立"
+        }
+      ],
+      "default": "public"
+    },
+    {
+      "id": "elementary",
+      "label": "小学校",
+      "type": "select",
+      "options": [
+        {
+          "value": "public",
+          "label": "公立"
+        },
+        {
+          "value": "private",
+          "label": "私立"
+        }
+      ],
+      "default": "public"
+    },
+    {
+      "id": "juniorHigh",
+      "label": "中学校",
+      "type": "select",
+      "options": [
+        {
+          "value": "public",
+          "label": "公立"
+        },
+        {
+          "value": "private",
+          "label": "私立"
+        }
+      ],
+      "default": "public"
+    },
+    {
+      "id": "highSchool",
+      "label": "高校",
+      "type": "select",
+      "options": [
+        {
+          "value": "public",
+          "label": "公立"
+        },
+        {
+          "value": "private",
+          "label": "私立"
+        }
+      ],
+      "default": "public"
+    },
+    {
+      "id": "university",
+      "label": "大学",
+      "type": "select",
+      "options": [
+        {
+          "value": "national",
+          "label": "国立"
+        },
+        {
+          "value": "publicUni",
+          "label": "公立"
+        },
+        {
+          "value": "privateSci",
+          "label": "私立理系"
+        },
+        {
+          "value": "privateArt",
+          "label": "私立文系"
+        }
+      ],
+      "default": "national"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "教育費総額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "kindergartenCost",
+      "label": "幼稚園",
+      "format": "text"
+    },
+    {
+      "id": "elementaryCost",
+      "label": "小学校",
+      "format": "text"
+    },
+    {
+      "id": "juniorHighCost",
+      "label": "中学校",
+      "format": "text"
+    },
+    {
+      "id": "highSchoolCost",
+      "label": "高校",
+      "format": "text"
+    },
+    {
+      "id": "universityCost",
+      "label": "大学",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>教育費の目安</h3><p>文部科学省の調査に基づく目安です。オール公立で約1,000万円、オール私立で約2,500万円が相場です。大学は4年間で国立約250万円、私立文系約400万円、私立理系約550万円です。</p>",
+  "faq": [
+    {
+      "question": "塾代は含まれる？",
+      "answer": "学校外活動費（塾・習い事）を一部含んでいますが、実際の塾代は別途大きくかかることがあります。"
+    }
+  ],
+  "related": [
+    "education-cost-sim",
+    "education-loan",
+    "child-cost"
+  ],
+  "popular": false
+}

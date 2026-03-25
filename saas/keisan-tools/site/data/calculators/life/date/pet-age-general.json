@@ -1,0 +1,72 @@
+{
+  "slug": "pet-age-general",
+  "category": "life",
+  "subcategory": "date",
+  "title": "ペット年齢計算",
+  "description": "犬・猫の年齢を人間の年齢に換算",
+  "metaTitle": "ペット年齢計算ツール｜犬・猫の年齢を人間換算",
+  "metaDescription": "犬・猫の年齢を人間の年齢に換算。犬は体格別（小型・中型・大型）の計算に対応。",
+  "calculatorFunction": "petAgeGeneral",
+  "inputs": [
+    {
+      "id": "petType",
+      "label": "種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "dogSmall",
+          "label": "犬（小型）"
+        },
+        {
+          "value": "dogMedium",
+          "label": "犬（中型）"
+        },
+        {
+          "value": "dogLarge",
+          "label": "犬（大型）"
+        },
+        {
+          "value": "cat",
+          "label": "猫"
+        }
+      ],
+      "default": "cat"
+    },
+    {
+      "id": "age",
+      "label": "ペットの年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 5,
+      "min": 0.1,
+      "max": 25,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "humanAge",
+      "label": "人間換算年齢",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "lifeStage",
+      "label": "ライフステージ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ペットの年齢換算</h3><p>犬・猫とも最初の1年で人間の15〜18歳相当に成長し、2年目でさらに6〜9歳分加算。3年目以降は1年につき4〜7歳ずつ加算します。大型犬は小型犬より老化が早い傾向があります。</p>",
+  "faq": [
+    {
+      "question": "犬の7歳は人間の何歳？",
+      "answer": "小型犬で約44歳、大型犬で約54歳が目安です。"
+    }
+  ],
+  "related": [
+    "cat-age",
+    "dog-age",
+    "pet-age"
+  ],
+  "popular": false
+}
