@@ -3511,6 +3511,8 @@ export function yieldComparison(inputs: Record<string, number | string>): Record
   return { yieldA, yieldB, difference: Math.round((yieldA - yieldB) * 100) / 100 };
 }
 
+
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   loanRepayment,
