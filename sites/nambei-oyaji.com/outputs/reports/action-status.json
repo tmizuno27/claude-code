@@ -69,10 +69,9 @@
       "id": "rapidapi-studio-update",
       "title": "RapidAPI Studioで24本リスティング手動更新",
       "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "改善案作成済み。Studioで反映が必要",
-      "effort": "手動30分"
+      "done": true,
+      "done_at": "2026-03-25 19:45 PYT",
+      "reason": "全24本Short Description更新完了。20本Public化（上限20）、4本Private（Placeholder/Markdown/JSON/Hash）"
     },
     {
       "id": "apify-paypal-setup",
