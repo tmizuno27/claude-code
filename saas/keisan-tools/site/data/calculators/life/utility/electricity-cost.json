@@ -1,0 +1,32 @@
+{
+  "slug": "electricity-cost",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "電気代計算",
+  "description": "使用量(kWh)から電気料金を計算。基本料金・燃料費調整・再エネ賦課金を含む詳細な電気代シミュレーション。",
+  "metaTitle": "電気代計算ツール｜月間使用量から電気料金をシミュレーション",
+  "metaDescription": "電気の使用量(kWh)を入力するだけで月額電気料金を自動計算。基本料金・燃料費調整額・再エネ賦課金込みの正確な料金シミュレーション。",
+  "calculatorFunction": "electricityCost",
+  "inputs": [
+    { "id": "kwh", "label": "月間使用量", "type": "number", "unit": "kWh", "default": 300, "min": 0, "max": 5000, "step": 1 },
+    { "id": "unitPrice", "label": "電力量料金単価", "type": "number", "unit": "円/kWh", "default": 30, "min": 10, "max": 80, "step": 0.01 },
+    { "id": "basicCharge", "label": "基本料金", "type": "number", "unit": "円", "default": 1180, "min": 0, "max": 10000, "step": 10 },
+    { "id": "fuelAdjustment", "label": "燃料費調整単価", "type": "number", "unit": "円/kWh", "default": -3.5, "min": -20, "max": 20, "step": 0.01 },
+    { "id": "renewableLevy", "label": "再エネ賦課金単価", "type": "number", "unit": "円/kWh", "default": 3.49, "min": 0, "max": 10, "step": 0.01 }
+  ],
+  "outputs": [
+    { "id": "total", "label": "月額電気料金（税込）", "format": "yen", "primary": true },
+    { "id": "usageCharge", "label": "電力量料金", "format": "yen" },
+    { "id": "fuelAdj", "label": "燃料費調整額", "format": "yen" },
+    { "id": "renewable", "label": "再エネ賦課金", "format": "yen" },
+    { "id": "tax", "label": "消費税", "format": "yen" }
+  ],
+  "explanation": "<h3>電気料金の計算方法</h3><p>電気料金は「基本料金 + 電力量料金 + 燃料費調整額 + 再エネ賦課金 + 消費税」で計算されます。</p><h3>電力量料金の仕組み</h3><p>使用量(kWh) × 単価で計算。多くの電力会社は使用量に応じて3段階の単価を設定しています。</p>",
+  "faq": [
+    { "question": "平均的な家庭の電気使用量は？", "answer": "一般家庭の月間電気使用量は約260〜400kWhです。世帯人数や季節により変動します。" },
+    { "question": "電気代を安くする方法は？", "answer": "電力会社の切り替え、省エネ家電の導入、ピークシフト（夜間利用）、LED照明への変更などが効果的です。" }
+  ],
+  "related": ["gas-cost", "water-cost", "internet-cost"],
+  "popular": true,
+  "popularOrder": 15
+}

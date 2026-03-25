@@ -1,0 +1,27 @@
+{
+  "slug": "internet-cost",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "通信費計算（インターネット）",
+  "description": "インターネット回線の月額料金・初期費用から、契約期間全体の実質月額を計算。",
+  "metaTitle": "インターネット通信費計算ツール｜実質月額料金シミュレーション",
+  "metaDescription": "インターネット回線の月額料金・初期費用・割引を入力して実質月額を計算。光回線・モバイルWiFiの料金比較に最適。",
+  "calculatorFunction": "internetCost",
+  "inputs": [
+    { "id": "monthlyFee", "label": "月額料金", "type": "number", "unit": "円", "default": 4500, "min": 0, "max": 20000, "step": 100 },
+    { "id": "initialCost", "label": "初期費用（工事費等）", "type": "number", "unit": "円", "default": 30000, "min": 0, "max": 100000, "step": 1000 },
+    { "id": "contractMonths", "label": "契約期間", "type": "number", "unit": "ヶ月", "default": 24, "min": 1, "max": 60, "step": 1 },
+    { "id": "discount", "label": "月額割引額", "type": "number", "unit": "円", "default": 500, "min": 0, "max": 5000, "step": 100 }
+  ],
+  "outputs": [
+    { "id": "effectiveMonthly", "label": "実質月額料金", "format": "yen", "primary": true },
+    { "id": "totalCost", "label": "契約期間トータルコスト", "format": "yen" },
+    { "id": "annualCost", "label": "年間コスト", "format": "yen" }
+  ],
+  "explanation": "<h3>実質月額の計算方法</h3><p>実質月額 =（月額料金 − 割引）× 契約月数 + 初期費用）÷ 契約月数 で算出します。</p>",
+  "faq": [
+    { "question": "光回線とモバイルWiFiどちらが安い？", "answer": "月額は光回線が4,000〜5,500円、モバイルWiFiが3,000〜4,500円が相場。初期費用や速度も含めた実質コストで比較しましょう。" }
+  ],
+  "related": ["electricity-cost", "gas-cost"],
+  "popular": false
+}

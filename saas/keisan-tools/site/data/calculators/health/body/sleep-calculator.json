@@ -1,0 +1,29 @@
+{
+  "slug": "sleep-calculator",
+  "category": "health",
+  "subcategory": "body",
+  "title": "睡眠時間計算（逆算）",
+  "description": "起床時刻から逆算して最適な就寝時刻を計算。レム睡眠サイクル（90分周期）に基づく理想の寝る時間。",
+  "metaTitle": "睡眠時間計算ツール｜起床時刻から理想の就寝時刻を逆算",
+  "metaDescription": "起床時刻を入力するだけで最適な就寝時刻を自動計算。90分の睡眠サイクルに基づき、すっきり起きられる時間を提案。",
+  "calculatorFunction": "sleepCalculator",
+  "inputs": [
+    { "id": "wakeHour", "label": "起床時刻（時）", "type": "number", "unit": "時", "default": 7, "min": 0, "max": 23, "step": 1 },
+    { "id": "wakeMin", "label": "起床時刻（分）", "type": "number", "unit": "分", "default": 0, "min": 0, "max": 59, "step": 5 }
+  ],
+  "outputs": [
+    { "id": "bed6", "label": "就寝時刻（6サイクル・9時間）", "format": "text", "primary": true },
+    { "id": "bed5", "label": "就寝時刻（5サイクル・7.5時間）", "format": "text" },
+    { "id": "bed4", "label": "就寝時刻（4サイクル・6時間）", "format": "text" },
+    { "id": "duration6", "label": "睡眠時間（6サイクル）", "format": "text" },
+    { "id": "duration5", "label": "睡眠時間（5サイクル）", "format": "text" },
+    { "id": "duration4", "label": "睡眠時間（4サイクル）", "format": "text" }
+  ],
+  "explanation": "<h3>睡眠サイクルとは</h3><p>人間の睡眠は約90分（1.5時間）を1サイクルとして、レム睡眠とノンレム睡眠を繰り返します。サイクルの切れ目で起きるとスッキリ起きられます。</p><h3>推奨睡眠時間</h3><ul><li>成人: 7〜9時間（5〜6サイクル）</li><li>高齢者: 6〜7.5時間（4〜5サイクル）</li></ul>",
+  "faq": [
+    { "question": "入眠にかかる時間は計算に含まれている？", "answer": "はい、平均的な入眠時間（約15分）を加算して就寝時刻を算出しています。" }
+  ],
+  "related": ["bmi", "basal-metabolism"],
+  "popular": true,
+  "popularOrder": 18
+}

@@ -1,0 +1,29 @@
+{
+  "slug": "water-cost",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "水道代計算",
+  "description": "水道使用量(m³)から水道料金を計算。上水道・下水道料金を合わせた月額・年額を算出。",
+  "metaTitle": "水道代計算ツール｜使用量から水道料金をシミュレーション",
+  "metaDescription": "水道使用量(m³)を入力するだけで水道料金を自動計算。上下水道料金・月額・年額を一括シミュレーション。",
+  "calculatorFunction": "waterCost",
+  "inputs": [
+    { "id": "cubicMeters", "label": "2ヶ月間使用量", "type": "number", "unit": "m³", "default": 40, "min": 0, "max": 500, "step": 1 },
+    { "id": "basicCharge", "label": "基本料金（2ヶ月）", "type": "number", "unit": "円", "default": 1170, "min": 0, "max": 10000, "step": 10 },
+    { "id": "unitPrice", "label": "従量料金単価", "type": "number", "unit": "円/m³", "default": 130, "min": 50, "max": 500, "step": 1 },
+    { "id": "sewageRate", "label": "下水道料金の割合", "type": "number", "unit": "%", "default": 70, "min": 0, "max": 150, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "total", "label": "2ヶ月分合計", "format": "yen", "primary": true },
+    { "id": "monthly", "label": "月額換算", "format": "yen" },
+    { "id": "waterCharge", "label": "上水道料金", "format": "yen" },
+    { "id": "sewageCharge", "label": "下水道料金", "format": "yen" },
+    { "id": "annual", "label": "年間水道料金", "format": "yen" }
+  ],
+  "explanation": "<h3>水道料金の仕組み</h3><p>水道料金は「基本料金 + 従量料金（使用量 × 単価）+ 下水道料金」で計算されます。多くの自治体では2ヶ月ごとの請求です。</p>",
+  "faq": [
+    { "question": "一般家庭の平均水道使用量は？", "answer": "2人世帯で月約15〜20m³、4人世帯で月約25〜30m³が目安です。" }
+  ],
+  "related": ["electricity-cost", "gas-cost"],
+  "popular": false
+}
