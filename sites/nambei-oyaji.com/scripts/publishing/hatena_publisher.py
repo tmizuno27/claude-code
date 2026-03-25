@@ -16,6 +16,7 @@ import json
 import logging
 import sys
 import re
+import time
 from base64 import b64encode
 from datetime import datetime
 from pathlib import Path
@@ -97,16 +98,18 @@ def build_atom_entry(title, body, categories, is_draft=False):
     """Build AtomPub XML entry."""
     draft_value = "yes" if is_draft else "no"
 
+    escaped_title = escape_xml(title)
+
     category_xml = ""
     for cat in categories:
-        category_xml += f'  <category term="{cat}" />\n'
+        category_xml += f'  <category term="{escape_xml(cat)}" />\n'
 
     entry_xml = f"""<?xml version="1.0" encoding="utf-8"?>
 <entry xmlns="http://www.w3.org/2005/Atom"
        xmlns:app="http://www.w3.org/2007/app">
-  <title>{title}</title>
+  <title>{escaped_title}</title>
   <author><name>miccho27</name></author>
-  <content type="text/x-markdown">{body}</content>
+  <content type="text/x-markdown"><![CDATA[{body}]]></content>
 {category_xml}  <app:control>
     <app:draft>{draft_value}</app:draft>
   </app:control>

@@ -17,6 +17,7 @@ Task Schedulerから週次で自動実行される想定。
 import argparse
 import logging
 import subprocess
+from logging.handlers import RotatingFileHandler
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -30,7 +31,9 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.StreamHandler(),
-        logging.FileHandler(LOG_FILE, encoding="utf-8")
+        RotatingFileHandler(
+            LOG_FILE, maxBytes=1_000_000, backupCount=3, encoding="utf-8"
+        )
     ]
 )
 logger = logging.getLogger(__name__)
@@ -50,7 +53,7 @@ def run_script(script_name, extra_args=None):
         cmd,
         capture_output=True,
         text=True,
-        encoding="cp932",
+        encoding="utf-8",
         errors="replace"
     )
 
