@@ -1,0 +1,64 @@
+{
+  "slug": "mm-inch",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "mm↔インチ変換",
+  "description": "ミリメートルとインチを相互変換します",
+  "metaTitle": "mm インチ 変換｜ミリメートル↔インチ換算｜keisan.tools",
+  "metaDescription": "ミリメートル（mm）とインチの変換ツール。1インチ＝25.4mmで即計算。ネジ・配管・工具サイズの換算に。",
+  "calculatorFunction": "mmToInch",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ミリメートル → インチ"
+        },
+        {
+          "value": "b_to_a",
+          "label": "インチ → ミリメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ミリメートルとインチの変換</h3><p><strong>1インチ = 25.4mm</strong>です。工業製品のネジ径、配管サイズ、工具規格などで頻繁に使われます。</p><p>例えば、1/4インチ = 6.35mm、3/8インチ = 9.525mm、1/2インチ = 12.7mmです。</p>",
+  "faq": [
+    {
+      "question": "1インチは何mm？",
+      "answer": "1インチ = 25.4mmです。"
+    },
+    {
+      "question": "1/2インチは何mm？",
+      "answer": "1/2インチ = 12.7mmです。配管やボルトで一般的なサイズです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

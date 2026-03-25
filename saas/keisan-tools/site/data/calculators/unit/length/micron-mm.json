@@ -1,0 +1,64 @@
+{
+  "slug": "micron-mm",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "ミクロン↔ミリメートル変換",
+  "description": "ミクロン（マイクロメートル）とミリメートルを相互変換します",
+  "metaTitle": "ミクロン mm 変換｜μm↔mm換算ツール｜keisan.tools",
+  "metaDescription": "ミクロン（μm）とミリメートル（mm）の変換ツール。1mm＝1000μmで即計算。",
+  "calculatorFunction": "micronToMm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ミクロン → ミリメートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "ミリメートル → ミクロン"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ミクロンとミリメートルの変換</h3><p><strong>1mm = 1,000μm</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1ミクロンは何mm？",
+      "answer": "1μm = 0.001mmです。"
+    },
+    {
+      "question": "髪の毛の太さは？",
+      "answer": "約50〜100μm（0.05〜0.1mm）です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

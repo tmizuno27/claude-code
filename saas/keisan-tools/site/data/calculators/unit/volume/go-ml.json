@@ -1,0 +1,64 @@
+{
+  "slug": "go-ml",
+  "category": "unit",
+  "subcategory": "volume",
+  "title": "合↔ミリリットル変換",
+  "description": "合とミリリットルを相互変換します",
+  "metaTitle": "合 ml 変換｜合↔ミリリットル換算ツール｜keisan.tools",
+  "metaDescription": "合（ごう）とミリリットル（ml）の変換ツール。1合＝約180mlで即計算。お米・日本酒の計量換算に。",
+  "calculatorFunction": "goToMl",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "合 → ミリリットル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "ミリリットル → 合"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>合とミリリットルの変換</h3><p><strong>1合 = 約180ml</strong>です。お米の計量や日本酒の容量で使われます。</p>",
+  "faq": [
+    {
+      "question": "お米1合は何ml？何g？",
+      "answer": "1合 = 約180ml = 約150gです。"
+    },
+    {
+      "question": "一升瓶は何ml？",
+      "answer": "1升 = 10合 = 約1,800mlです。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

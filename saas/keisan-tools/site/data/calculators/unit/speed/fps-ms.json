@@ -1,0 +1,64 @@
+{
+  "slug": "fps-ms",
+  "category": "unit",
+  "subcategory": "speed",
+  "title": "フィート毎秒↔m/s変換",
+  "description": "ft/sとm/sを相互変換します",
+  "metaTitle": "ft/s m/s 変換｜フィート毎秒↔メートル毎秒換算｜keisan.tools",
+  "metaDescription": "ft/sとm/sの変換ツール。1ft/s＝0.3048m/sで即計算。",
+  "calculatorFunction": "fpsToMs",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ft/s → m/s"
+        },
+        {
+          "value": "b_to_a",
+          "label": "m/s → ft/s"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ft/sとm/sの変換</h3><p><strong>1ft/s = 0.3048m/s</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1ft/sは何m/s？",
+      "answer": "1ft/s = 0.3048m/sです。"
+    },
+    {
+      "question": "音速は何ft/s？",
+      "answer": "約1,125ft/s ≈ 343m/sです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "liter-m3",
+  "category": "unit",
+  "subcategory": "volume",
+  "title": "リットル↔立方メートル変換",
+  "description": "リットルと立方メートルを相互変換します",
+  "metaTitle": "リットル 立方メートル 変換｜L↔m³換算｜keisan.tools",
+  "metaDescription": "リットル（L）と立方メートル（m³）の変換ツール。1m³＝1000Lで即計算。",
+  "calculatorFunction": "literToM3",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 200,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "リットル → 立方メートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "立方メートル → リットル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>リットルと立方メートルの変換</h3><p><strong>1m³ = 1,000リットル</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1立方メートルは何リットル？",
+      "answer": "1m³ = 1,000リットルです。"
+    },
+    {
+      "question": "浴槽の水は何m³？",
+      "answer": "約200L = 0.2m³です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

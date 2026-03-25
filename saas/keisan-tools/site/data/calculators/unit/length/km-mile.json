@@ -1,0 +1,64 @@
+{
+  "slug": "km-mile",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "km↔マイル変換",
+  "description": "キロメートルとマイルを相互変換します",
+  "metaTitle": "km マイル 変換｜キロメートル↔マイル換算｜keisan.tools",
+  "metaDescription": "キロメートル（km）とマイル（mile）の変換ツール。1マイル＝1.60934kmで即計算。マラソン・ドライブの距離換算に。",
+  "calculatorFunction": "kmToMile",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "キロメートル → マイル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "マイル → キロメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>キロメートルとマイルの変換</h3><p><strong>1マイル = 1.60934km</strong>です。アメリカやイギリスの道路標識、マラソンの距離表記などで使われます。</p><p>フルマラソン42.195kmは約26.2マイルです。時速100kmは約62.1mphになります。</p>",
+  "faq": [
+    {
+      "question": "1マイルは何km？",
+      "answer": "1マイル = 約1.609kmです。"
+    },
+    {
+      "question": "フルマラソンは何マイル？",
+      "answer": "フルマラソン（42.195km）は約26.2マイルです。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

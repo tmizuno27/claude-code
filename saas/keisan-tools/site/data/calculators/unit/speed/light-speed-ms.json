@@ -1,0 +1,64 @@
+{
+  "slug": "light-speed-ms",
+  "category": "unit",
+  "subcategory": "speed",
+  "title": "光速↔m/s変換",
+  "description": "光速とm/sを相互変換します",
+  "metaTitle": "光速 変換｜光の速さ換算ツール｜keisan.tools",
+  "metaDescription": "光速（c）とm/s・km/sの変換ツール。光速＝299,792,458m/sで即計算。",
+  "calculatorFunction": "lightSpeedToMs",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "光速（c） → m/s"
+        },
+        {
+          "value": "b_to_a",
+          "label": "m/s → 光速（c）"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>光速とm/sの変換</h3><p><strong>光速 = 299,792,458m/s</strong>です。</p>",
+  "faq": [
+    {
+      "question": "光速は何km/s？",
+      "answer": "約299,792km/s ≈ 約30万km/sです。"
+    },
+    {
+      "question": "1光年は何km？",
+      "answer": "約9.461兆kmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

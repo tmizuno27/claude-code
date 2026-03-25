@@ -1,0 +1,64 @@
+{
+  "slug": "shaku-cm",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "尺↔センチメートル変換",
+  "description": "尺とセンチメートルを相互変換します",
+  "metaTitle": "尺 cm 変換｜尺↔センチメートル換算｜keisan.tools",
+  "metaDescription": "尺（しゃく）とセンチメートル（cm）の変換ツール。1尺＝約30.303cmで即計算。和室・着物・建築の寸法換算に。",
+  "calculatorFunction": "shakuToCm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "尺 → センチメートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "センチメートル → 尺"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>尺とセンチメートルの変換</h3><p><strong>1尺 = 約30.303cm</strong>です。日本の伝統的な長さの単位です。</p><p>1寸 = 約3.03cm、1間 = 6尺 = 約181.8cmです。</p>",
+  "faq": [
+    {
+      "question": "1尺は何cm？",
+      "answer": "1尺 = 約30.303cm（曲尺）です。"
+    },
+    {
+      "question": "1間は何尺？",
+      "answer": "1間 = 6尺 = 約181.8cmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

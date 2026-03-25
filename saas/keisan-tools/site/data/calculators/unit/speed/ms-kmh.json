@@ -1,0 +1,64 @@
+{
+  "slug": "ms-kmh",
+  "category": "unit",
+  "subcategory": "speed",
+  "title": "m/s↔km/h変換",
+  "description": "m/sとkm/hを相互変換します",
+  "metaTitle": "m/s km/h 変換｜秒速↔時速換算ツール｜keisan.tools",
+  "metaDescription": "m/s（メートル毎秒）とkm/h（時速キロメートル）の変換ツール。1m/s＝3.6km/hで即計算。風速・球速の換算に。",
+  "calculatorFunction": "msToKmh",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "m/s → km/h"
+        },
+        {
+          "value": "b_to_a",
+          "label": "km/h → m/s"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>m/sとkm/hの変換</h3><p><strong>1m/s = 3.6km/h</strong>です。</p><p>台風の風速25m/s = 90km/h、球速160km/h ≈ 44.4m/sです。</p>",
+  "faq": [
+    {
+      "question": "風速10m/sはどのくらい？",
+      "answer": "10m/s = 36km/h。傘がさしにくい強風です。"
+    },
+    {
+      "question": "球速150km/hは秒速何m？",
+      "answer": "150km/h ÷ 3.6 ≈ 41.7m/sです。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

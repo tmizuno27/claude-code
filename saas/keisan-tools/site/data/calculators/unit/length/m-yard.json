@@ -1,0 +1,64 @@
+{
+  "slug": "m-yard",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "メートル↔ヤード変換",
+  "description": "メートルとヤードを相互変換します",
+  "metaTitle": "メートル ヤード 変換｜m↔yard換算ツール｜keisan.tools",
+  "metaDescription": "メートル（m）とヤード（yard）の変換ツール。1ヤード＝0.9144mで即計算。ゴルフ・アメフトの距離換算に。",
+  "calculatorFunction": "mToYard",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "メートル → ヤード"
+        },
+        {
+          "value": "b_to_a",
+          "label": "ヤード → メートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>メートルとヤードの変換</h3><p><strong>1ヤード = 0.9144メートル</strong>です。ゴルフの距離表示やアメフトのフィールドで使われます。</p><p>ゴルフで「残り150ヤード」は約137.16mです。</p>",
+  "faq": [
+    {
+      "question": "1ヤードは何メートル？",
+      "answer": "1ヤード = 0.9144メートルです。"
+    },
+    {
+      "question": "100ヤードは何メートル？",
+      "answer": "100ヤード = 91.44メートルです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

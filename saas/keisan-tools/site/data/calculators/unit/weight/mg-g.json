@@ -1,0 +1,64 @@
+{
+  "slug": "mg-g",
+  "category": "unit",
+  "subcategory": "weight",
+  "title": "ミリグラム↔グラム変換",
+  "description": "ミリグラムとグラムを相互変換します",
+  "metaTitle": "ミリグラム グラム 変換｜mg↔g換算ツール｜keisan.tools",
+  "metaDescription": "ミリグラム（mg）とグラム（g）の変換ツール。1g＝1000mgで即計算。薬の用量・栄養成分の換算に。",
+  "calculatorFunction": "mgToG",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 500,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ミリグラム → グラム"
+        },
+        {
+          "value": "b_to_a",
+          "label": "グラム → ミリグラム"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ミリグラムとグラムの変換</h3><p><strong>1g = 1,000mg</strong>です。薬の用量や栄養成分表示で使われます。</p>",
+  "faq": [
+    {
+      "question": "1グラムは何ミリグラム？",
+      "answer": "1g = 1,000mgです。"
+    },
+    {
+      "question": "500mgは何グラム？",
+      "answer": "500mg = 0.5gです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

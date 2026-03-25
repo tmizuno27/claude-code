@@ -1,0 +1,64 @@
+{
+  "slug": "mach-kmh",
+  "category": "unit",
+  "subcategory": "speed",
+  "title": "マッハ↔km/h変換",
+  "description": "マッハ数とkm/hを相互変換します",
+  "metaTitle": "マッハ km/h 変換｜マッハ↔時速換算ツール｜keisan.tools",
+  "metaDescription": "マッハ数とkm/hの変換ツール。マッハ1＝約1225km/hで即計算。音速・戦闘機の速度換算に。",
+  "calculatorFunction": "machToKmh",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "マッハ → km/h"
+        },
+        {
+          "value": "b_to_a",
+          "label": "km/h → マッハ"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>マッハとkm/hの変換</h3><p><strong>マッハ1 = 約1,225km/h</strong>です。</p>",
+  "faq": [
+    {
+      "question": "マッハ1は何km/h？",
+      "answer": "約1,225km/h（15℃、海面）です。"
+    },
+    {
+      "question": "旅客機はマッハいくつ？",
+      "answer": "マッハ0.7〜0.85で巡航します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

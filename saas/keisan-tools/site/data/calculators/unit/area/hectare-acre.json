@@ -1,0 +1,64 @@
+{
+  "slug": "hectare-acre",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "ヘクタール↔エーカー変換",
+  "description": "ヘクタールとエーカーを相互変換します",
+  "metaTitle": "ヘクタール エーカー 変換｜ha↔acre換算｜keisan.tools",
+  "metaDescription": "ヘクタール（ha）とエーカー（acre）の変換ツール。1ヘクタール＝約2.471エーカーで即計算。",
+  "calculatorFunction": "hectareToAcre",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ヘクタール → エーカー"
+        },
+        {
+          "value": "b_to_a",
+          "label": "エーカー → ヘクタール"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ヘクタールとエーカーの変換</h3><p><strong>1ヘクタール = 約2.471エーカー</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1エーカーは何ヘクタール？",
+      "answer": "1エーカー = 約0.4047haです。"
+    },
+    {
+      "question": "東京ドーム何個分の目安は？",
+      "answer": "東京ドーム1個分 ≈ 4.7ha ≈ 11.6エーカーです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

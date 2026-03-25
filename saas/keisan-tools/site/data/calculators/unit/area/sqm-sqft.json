@@ -1,0 +1,64 @@
+{
+  "slug": "sqm-sqft",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "平方メートル↔平方フィート変換",
+  "description": "平方メートルと平方フィートを相互変換します",
+  "metaTitle": "平方メートル 平方フィート 変換｜㎡↔sqft換算｜keisan.tools",
+  "metaDescription": "平方メートル（㎡）と平方フィート（sqft）の変換ツール。1㎡＝約10.764sqftで即計算。",
+  "calculatorFunction": "sqmToSqft",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "平方メートル → 平方フィート"
+        },
+        {
+          "value": "b_to_a",
+          "label": "平方フィート → 平方メートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>平方メートルと平方フィートの変換</h3><p><strong>1㎡ = 約10.764平方フィート</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1平方フィートは何㎡？",
+      "answer": "1sqft = 約0.0929㎡です。"
+    },
+    {
+      "question": "1000sqftは何㎡？",
+      "answer": "1000sqft = 約92.9㎡です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

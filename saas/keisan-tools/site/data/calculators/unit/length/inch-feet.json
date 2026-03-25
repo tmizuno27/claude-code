@@ -1,0 +1,64 @@
+{
+  "slug": "inch-feet",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "インチ↔フィート変換",
+  "description": "インチとフィートを相互変換します",
+  "metaTitle": "インチ フィート 変換｜inch↔feet換算ツール｜keisan.tools",
+  "metaDescription": "インチ（inch）とフィート（ft）の変換ツール。1フィート＝12インチで即計算。",
+  "calculatorFunction": "inchToFeet",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 72,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "インチ → フィート"
+        },
+        {
+          "value": "b_to_a",
+          "label": "フィート → インチ"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>インチとフィートの変換</h3><p><strong>1フィート = 12インチ</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1フィートは何インチ？",
+      "answer": "1フィート = 12インチです。"
+    },
+    {
+      "question": "5フィート6インチは何インチ？",
+      "answer": "5 × 12 + 6 = 66インチです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

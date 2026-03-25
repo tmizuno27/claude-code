@@ -1,0 +1,64 @@
+{
+  "slug": "celsius-fahrenheit",
+  "category": "unit",
+  "subcategory": "temperature",
+  "title": "摂氏↔華氏変換",
+  "description": "摂氏（℃）と華氏（℉）を相互変換します",
+  "metaTitle": "摂氏 華氏 変換｜℃↔℉換算ツール｜keisan.tools",
+  "metaDescription": "摂氏（℃）と華氏（℉）の変換ツール。℉=℃×9/5+32で即計算。海外の天気予報・料理の温度換算に。",
+  "calculatorFunction": "celsiusToFahrenheit",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 25,
+      "min": -273.15,
+      "max": 999999999,
+      "step": 0.1
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "摂氏（℃） → 華氏（℉）"
+        },
+        {
+          "value": "b_to_a",
+          "label": "華氏（℉） → 摂氏（℃）"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>摂氏と華氏の変換</h3><p><strong>℉ = ℃ × 9/5 + 32</strong>です。</p><p>体温36.5℃ = 97.7℉、沸点100℃ = 212℉、氷点0℃ = 32℉です。</p>",
+  "faq": [
+    {
+      "question": "摂氏と華氏が同じになる温度は？",
+      "answer": "-40度です。-40℃ = -40℉です。"
+    },
+    {
+      "question": "体温37℃は華氏で？",
+      "answer": "37℃ = 98.6℉です。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

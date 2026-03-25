@@ -1,0 +1,64 @@
+{
+  "slug": "kan-kg",
+  "category": "unit",
+  "subcategory": "weight",
+  "title": "貫↔キログラム変換",
+  "description": "貫とキログラムを相互変換します",
+  "metaTitle": "貫 kg 変換｜貫↔キログラム換算｜keisan.tools",
+  "metaDescription": "貫（かん）とキログラム（kg）の変換ツール。1貫＝3.75kgで即計算。",
+  "calculatorFunction": "kanToKg",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "貫 → キログラム"
+        },
+        {
+          "value": "b_to_a",
+          "label": "キログラム → 貫"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>貫とキログラムの変換</h3><p><strong>1貫 = 3.75kg</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1貫は何kg？",
+      "answer": "1貫 = 3.75kgです。"
+    },
+    {
+      "question": "寿司の一貫とは？",
+      "answer": "元々は握り寿司1個の重さの意味でした。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

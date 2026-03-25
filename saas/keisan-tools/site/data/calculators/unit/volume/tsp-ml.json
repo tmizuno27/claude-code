@@ -1,0 +1,64 @@
+{
+  "slug": "tsp-ml",
+  "category": "unit",
+  "subcategory": "volume",
+  "title": "小さじ↔ミリリットル変換",
+  "description": "小さじとミリリットルを相互変換します",
+  "metaTitle": "小さじ ml 変換｜小さじ↔ミリリットル換算｜keisan.tools",
+  "metaDescription": "小さじ（こさじ）とミリリットル（ml）の変換ツール。小さじ1＝5mlで即計算。",
+  "calculatorFunction": "tspToMl",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "小さじ → ミリリットル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "ミリリットル → 小さじ"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>小さじとミリリットルの変換</h3><p><strong>小さじ1 = 5ml</strong>です。</p>",
+  "faq": [
+    {
+      "question": "小さじ1は何ml？",
+      "answer": "小さじ1 = 5mlです。"
+    },
+    {
+      "question": "小さじ1/2は何ml？",
+      "answer": "小さじ1/2 = 2.5mlです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

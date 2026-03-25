@@ -1,0 +1,64 @@
+{
+  "slug": "sqkm-sqmi",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "平方キロメートル↔平方マイル変換",
+  "description": "平方キロメートルと平方マイルを相互変換します",
+  "metaTitle": "平方キロメートル 平方マイル 変換｜km²↔mi²換算｜keisan.tools",
+  "metaDescription": "平方キロメートル（km²）と平方マイル（mi²）の変換ツール。",
+  "calculatorFunction": "sqkmToSqmi",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "平方キロメートル → 平方マイル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "平方マイル → 平方キロメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>平方キロメートルと平方マイルの変換</h3><p><strong>1平方マイル = 約2.59km²</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1平方マイルは何km²？",
+      "answer": "1平方マイル = 約2.59km²です。"
+    },
+    {
+      "question": "日本の面積は？",
+      "answer": "約377,975km² ≈ 約145,937平方マイルです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "m-feet",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "メートル↔フィート変換",
+  "description": "メートルとフィートを相互変換します",
+  "metaTitle": "メートル フィート 変換｜m↔ft換算ツール｜keisan.tools",
+  "metaDescription": "メートル（m）とフィート（ft）の変換ツール。1フィート＝0.3048mで即計算。身長・高度の換算に便利。",
+  "calculatorFunction": "mToFeet",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "メートル → フィート"
+        },
+        {
+          "value": "b_to_a",
+          "label": "フィート → メートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>メートルとフィートの変換</h3><p><strong>1フィート = 0.3048メートル（30.48cm）</strong>です。航空業界の高度表示や、アメリカでの身長表記に使われます。</p><p>例えば、身長180cm = 5フィート10.87インチです。飛行機の巡航高度35,000フィートは約10,668mです。</p>",
+  "faq": [
+    {
+      "question": "1フィートは何メートル？",
+      "answer": "1フィート = 0.3048メートル（30.48cm）です。"
+    },
+    {
+      "question": "6フィートは何cm？",
+      "answer": "6フィート = 182.88cmです。アメリカでは身長の目安としてよく使われます。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

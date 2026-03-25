@@ -1,0 +1,64 @@
+{
+  "slug": "tsubo-jo",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "坤↔畳変換",
+  "description": "坤と畳を相互変換します",
+  "metaTitle": "坤 畳 変換｜坤↔畳換算ツール｜keisan.tools",
+  "metaDescription": "坤（つぼ）と畳（じょう）の変換ツール。1坤＝約2畳で即計算。不動産・部屋の広さの換算に。",
+  "calculatorFunction": "tsuboToJo",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "坤 → 畳"
+        },
+        {
+          "value": "b_to_a",
+          "label": "畳 → 坤"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>坤と畳の変換</h3><p><strong>1坤 ≈ 2畳</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1坤は何畳？",
+      "answer": "1坤 ≈ 2畳です。"
+    },
+    {
+      "question": "20畳のLDKは何坤？",
+      "answer": "20畳 ÷ 2 = 約10坤です。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

@@ -1,0 +1,64 @@
+{
+  "slug": "jo-sqm",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "畳↔平方メートル変換",
+  "description": "畳と平方メートルを相互変換します",
+  "metaTitle": "畳 平方メートル 変換｜畳↔㎡換算ツール｜keisan.tools",
+  "metaDescription": "畳（じょう）と平方メートル（㎡）の変換ツール。1畳＝約1.62㎡で即計算。部屋の広さの換算に。",
+  "calculatorFunction": "joToSqm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "畳 → 平方メートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "平方メートル → 畳"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>畳と平方メートルの変換</h3><p><strong>1畳 = 約1.62㎡</strong>（不動産公正取引協議会基準）です。</p><p>6畳 ≈ 9.72㎡、8畳 ≈ 12.96㎡、10畳 ≈ 16.2㎡です。</p>",
+  "faq": [
+    {
+      "question": "6畳は何㎡？",
+      "answer": "6畳 ≈ 9.72㎡です。"
+    },
+    {
+      "question": "畳のサイズは地域で違う？",
+      "answer": "はい。京間（1.82㎡）＞ 江戸間（1.55㎡）＞ 団地間（1.45㎡）と異なります。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

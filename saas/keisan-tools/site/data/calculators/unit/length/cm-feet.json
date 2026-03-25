@@ -1,0 +1,64 @@
+{
+  "slug": "cm-feet",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "cm↔フィート変換",
+  "description": "センチメートルとフィートを相互変換します",
+  "metaTitle": "cm フィート 変換｜センチ↔feet換算ツール｜keisan.tools",
+  "metaDescription": "センチメートル（cm）とフィート（ft）の変換ツール。身長をフィート・インチに変換。海外旅行・留学に便利。",
+  "calculatorFunction": "cmToFeet",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 170,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "センチメートル → フィート"
+        },
+        {
+          "value": "b_to_a",
+          "label": "フィート → センチメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>センチメートルとフィートの変換</h3><p><strong>1フィート = 30.48cm</strong>です。海外で身長を聞かれたときに便利な変換です。</p><p>身長165cm = 約5.41フィート、175cm = 約5.74フィートです。</p>",
+  "faq": [
+    {
+      "question": "170cmは何フィート？",
+      "answer": "170cm ÷ 30.48 = 約5.58フィート（5フィート7インチ）です。"
+    },
+    {
+      "question": "5フィート10インチは何cm？",
+      "answer": "5フィート10インチ = 177.8cmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

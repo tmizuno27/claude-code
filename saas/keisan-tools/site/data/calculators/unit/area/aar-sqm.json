@@ -1,0 +1,64 @@
+{
+  "slug": "aar-sqm",
+  "category": "unit",
+  "subcategory": "area",
+  "title": "アール↔平方メートル変換",
+  "description": "アールと平方メートルを相互変換します",
+  "metaTitle": "アール 平方メートル 変換｜a↔㎡換算｜keisan.tools",
+  "metaDescription": "アール（a）と平方メートル（㎡）の変換ツール。1アール＝100㎡で即計算。",
+  "calculatorFunction": "aarToSqm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "アール → 平方メートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "平方メートル → アール"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>アールと平方メートルの変換</h3><p><strong>1アール = 100㎡</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1アールは何㎡？",
+      "answer": "1アール = 100㎡です。"
+    },
+    {
+      "question": "1ヘクタールは何アール？",
+      "answer": "1ヘクタール = 100アールです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

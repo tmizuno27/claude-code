@@ -1,0 +1,64 @@
+{
+  "slug": "liter-cup",
+  "category": "unit",
+  "subcategory": "volume",
+  "title": "リットル↔カップ変換",
+  "description": "リットルとカップを相互変換します",
+  "metaTitle": "リットル カップ 変換｜L↔cup換算ツール｜keisan.tools",
+  "metaDescription": "リットル（L）とカップ（cup）の変換ツール。1カップ＝200ml（日本）で即計算。",
+  "calculatorFunction": "literToCup",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "リットル → カップ（日本）"
+        },
+        {
+          "value": "b_to_a",
+          "label": "カップ（日本） → リットル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>リットルとカップの変換</h3><p>日本の<strong>1カップ = 200ml</strong>です。</p>",
+  "faq": [
+    {
+      "question": "1カップは何ml？",
+      "answer": "日本の1カップ = 200mlです。"
+    },
+    {
+      "question": "大さじ・小さじとの関係は？",
+      "answer": "1カップ = 大さじ約13.3杯 = 小さじ約40杯です。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}

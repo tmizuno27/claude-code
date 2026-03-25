@@ -1,0 +1,64 @@
+{
+  "slug": "cm-inch",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "cm↔インチ変換",
+  "description": "cm（センチ）とインチを相互変換します",
+  "metaTitle": "cm インチ 変換ツール｜1cm＝何インチ？｜keisan.tools",
+  "metaDescription": "cm（センチメートル）とインチの変換ツール。1インチ＝2.54cmで即計算。身長・画面サイズの換算に。",
+  "calculatorFunction": "cmToInch",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "センチメートル → インチ"
+        },
+        {
+          "value": "b_to_a",
+          "label": "インチ → センチメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>cmとインチの変換</h3><p><strong>1インチ = 2.54cm</strong>です。テレビやモニターの画面サイズ、身長の表記などで頻繁に使われる変換です。</p><p>例えば、27インチモニターは対角線が約68.58cmです。身長170cmは約66.9インチ（5フィート6.9インチ）になります。</p>",
+  "faq": [
+    {
+      "question": "1インチは何cm？",
+      "answer": "1インチ = 2.54cmです。これは国際的に正確に定義された値です。"
+    },
+    {
+      "question": "テレビの32インチは何cm？",
+      "answer": "32インチは対角線が約81.28cmです（32 × 2.54 = 81.28）。"
+    }
+  ],
+  "related": [],
+  "popular": true
+}
