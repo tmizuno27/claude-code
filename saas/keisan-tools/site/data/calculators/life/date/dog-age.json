@@ -1,0 +1,27 @@
+{
+  "slug": "dog-age",
+  "category": "life",
+  "subcategory": "date",
+  "title": "犬の年齢計算（人間換算）",
+  "description": "犬の年齢を人間の年齢に換算。小型犬・中型犬・大型犬のサイズ別に正確に計算。",
+  "metaTitle": "犬の年齢計算ツール｜犬の年齢を人間年齢に換算",
+  "metaDescription": "犬の年齢を入力するだけで人間の年齢に換算。小型犬・中型犬・大型犬のサイズ別に正確に計算する無料ツール。",
+  "calculatorFunction": "dogAge",
+  "inputs": [
+    { "id": "dogYears", "label": "犬の年齢", "type": "number", "unit": "歳", "default": 5, "min": 0, "max": 25, "step": 0.5 },
+    { "id": "size", "label": "犬のサイズ", "type": "select", "default": "small", "options": [
+      { "value": "small", "label": "小型犬（〜10kg）" },
+      { "value": "medium", "label": "中型犬（10〜25kg）" },
+      { "value": "large", "label": "大型犬（25kg〜）" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "humanAge", "label": "人間換算年齢", "format": "number", "primary": true }
+  ],
+  "explanation": "<h3>犬の年齢換算方法</h3><p>犬の最初の2年は急速に成長し、人間の約12.5歳分に相当します。その後は小型犬・中型犬で年4歳、大型犬で年5歳のペースで加齢します。</p>",
+  "faq": [
+    { "question": "犬の1年は人間の何年？", "answer": "一律7倍ではなく、最初の2年で約25歳分、その後は年4〜5歳ずつ加算します。" }
+  ],
+  "related": ["cat-age", "age-calculator"],
+  "popular": false
+}

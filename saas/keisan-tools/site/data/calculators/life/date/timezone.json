@@ -1,0 +1,47 @@
+{
+  "slug": "timezone",
+  "category": "life",
+  "subcategory": "date",
+  "title": "時差計算",
+  "description": "2つの都市・タイムゾーン間の時差を計算。海外とのミーティングや連絡に便利。",
+  "metaTitle": "時差計算ツール｜世界の都市間の現在時刻を変換",
+  "metaDescription": "時刻とタイムゾーンを入力するだけで時差計算。日本と海外の時差変換、会議時間の調整に便利な無料ツール。",
+  "calculatorFunction": "timezoneCalc",
+  "inputs": [
+    { "id": "hour", "label": "時", "type": "number", "unit": "時", "default": 12, "min": 0, "max": 23, "step": 1 },
+    { "id": "minute", "label": "分", "type": "number", "unit": "分", "default": 0, "min": 0, "max": 59, "step": 1 },
+    { "id": "fromOffset", "label": "変換元（UTC差）", "type": "select", "default": "9", "options": [
+      { "value": "-12", "label": "UTC-12" },
+      { "value": "-8", "label": "UTC-8（ロサンゼルス）" },
+      { "value": "-5", "label": "UTC-5（ニューヨーク）" },
+      { "value": "-3", "label": "UTC-3（ブエノスアイレス）" },
+      { "value": "0", "label": "UTC+0（ロンドン）" },
+      { "value": "1", "label": "UTC+1（パリ）" },
+      { "value": "8", "label": "UTC+8（北京・シンガポール）" },
+      { "value": "9", "label": "UTC+9（東京）" },
+      { "value": "10", "label": "UTC+10（シドニー）" }
+    ]},
+    { "id": "toOffset", "label": "変換先（UTC差）", "type": "select", "default": "-5", "options": [
+      { "value": "-12", "label": "UTC-12" },
+      { "value": "-8", "label": "UTC-8（ロサンゼルス）" },
+      { "value": "-5", "label": "UTC-5（ニューヨーク）" },
+      { "value": "-3", "label": "UTC-3（ブエノスアイレス）" },
+      { "value": "0", "label": "UTC+0（ロンドン）" },
+      { "value": "1", "label": "UTC+1（パリ）" },
+      { "value": "8", "label": "UTC+8（北京・シンガポール）" },
+      { "value": "9", "label": "UTC+9（東京）" },
+      { "value": "10", "label": "UTC+10（シドニー）" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "convertedTime", "label": "変換先の時刻", "format": "text", "primary": true },
+    { "id": "timeDiff", "label": "時差", "format": "text" }
+  ],
+  "explanation": "<h3>時差の計算方法</h3><p>変換先のUTCオフセット − 変換元のUTCオフセット = 時差 です。日本（UTC+9）とニューヨーク（UTC-5）の時差は-14時間です。</p>",
+  "faq": [
+    { "question": "日本とアメリカの時差は？", "answer": "ニューヨーク（東部）とは-14時間、ロサンゼルス（太平洋）とは-17時間です。サマータイム中は1時間縮まります。" }
+  ],
+  "related": ["days-between", "countdown"],
+  "popular": true,
+  "popularOrder": 20
+}

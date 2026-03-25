@@ -1,0 +1,25 @@
+{
+  "slug": "birthday-countdown",
+  "category": "life",
+  "subcategory": "date",
+  "title": "誕生日カウントダウン",
+  "description": "次の誕生日まであと何日かを計算。曜日や週数も表示。",
+  "metaTitle": "誕生日カウントダウンツール｜次の誕生日まであと何日？",
+  "metaDescription": "誕生日の月・日を入力するだけで次の誕生日まであと何日か自動計算。曜日や残り週数も表示する無料ツール。",
+  "calculatorFunction": "birthdayCountdown",
+  "inputs": [
+    { "id": "month", "label": "誕生月", "type": "number", "unit": "月", "default": 1, "min": 1, "max": 12, "step": 1 },
+    { "id": "day", "label": "誕生日", "type": "number", "unit": "日", "default": 1, "min": 1, "max": 31, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "daysLeft", "label": "あと何日", "format": "number", "primary": true },
+    { "id": "weeksLeft", "label": "あと何週間", "format": "number" },
+    { "id": "nextBirthdayDate", "label": "次の誕生日", "format": "text" }
+  ],
+  "explanation": "<h3>使い方</h3><p>誕生日の月と日を入力すると、今日から次の誕生日まであと何日かを計算します。</p>",
+  "faq": [
+    { "question": "うるう年の2月29日生まれの場合は？", "answer": "うるう年でない年は3月1日が次の誕生日として計算されます。" }
+  ],
+  "related": ["age-calculator", "countdown", "days-between"],
+  "popular": false
+}

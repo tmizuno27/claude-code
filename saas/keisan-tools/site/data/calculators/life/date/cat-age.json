@@ -1,0 +1,22 @@
+{
+  "slug": "cat-age",
+  "category": "life",
+  "subcategory": "date",
+  "title": "猫の年齢計算（人間換算）",
+  "description": "猫の年齢を人間の年齢に換算。子猫からシニア猫まで正確に計算。",
+  "metaTitle": "猫の年齢計算ツール｜猫の年齢を人間年齢に換算",
+  "metaDescription": "猫の年齢を入力するだけで人間の年齢に換算。子猫からシニア猫まで正確に計算する無料ツール。",
+  "calculatorFunction": "catAge",
+  "inputs": [
+    { "id": "catYears", "label": "猫の年齢", "type": "number", "unit": "歳", "default": 5, "min": 0, "max": 30, "step": 0.5 }
+  ],
+  "outputs": [
+    { "id": "humanAge", "label": "人間換算年齢", "format": "number", "primary": true }
+  ],
+  "explanation": "<h3>猫の年齢換算方法</h3><p>猫の1歳は人間の約18歳、2歳で約25歳に相当します。その後は1年につき約4歳ずつ加齢していきます。</p>",
+  "faq": [
+    { "question": "猫のシニアは何歳から？", "answer": "一般的に7歳（人間の約45歳）からシニア期に入ると言われています。11歳以上は高齢期です。" }
+  ],
+  "related": ["dog-age", "age-calculator"],
+  "popular": false
+}
