@@ -51,6 +51,13 @@ export default function RootLayout({ children }) {
         <main>{children}</main>
         <footer className="site-footer">
           <div className="container">
+            <nav className="footer-nav">
+              <Link href="/about/">About</Link>
+              <Link href="/contact/">Contact</Link>
+              <Link href="/privacy/">Privacy Policy</Link>
+              <Link href="/terms/">Terms of Service</Link>
+              <Link href="/disclaimer/">Affiliate Disclaimer</Link>
+            </nav>
             <p>&copy; {new Date().getFullYear()} AI Tool Compare. All rights reserved.</p>
             <p className="footer-sub">Helping you find the right AI tool since 2026.</p>
           </div>

@@ -272,18 +272,35 @@ export function inheritanceTax(inputs: Record<string, number | string>): Record<
 }
 
 // --- Gift Tax ---
+// 一般贈与税率（一般税率）
+function calcGeneralGiftTax(taxable: number): number {
+  if (taxable <= 2_000_000) return taxable * 0.10;
+  if (taxable <= 3_000_000) return taxable * 0.15 - 100_000;
+  if (taxable <= 4_000_000) return taxable * 0.20 - 250_000;
+  if (taxable <= 6_000_000) return taxable * 0.30 - 650_000;
+  if (taxable <= 10_000_000) return taxable * 0.40 - 1_250_000;
+  if (taxable <= 15_000_000) return taxable * 0.45 - 1_750_000;
+  if (taxable <= 30_000_000) return taxable * 0.50 - 2_500_000;
+  return taxable * 0.55 - 4_000_000;
+}
+
+// 特例贈与税率（直系尊属→18歳以上の直系卑属）
+function calcSpecialGiftTax(taxable: number): number {
+  if (taxable <= 2_000_000) return taxable * 0.10;
+  if (taxable <= 4_000_000) return taxable * 0.15 - 100_000;
+  if (taxable <= 6_000_000) return taxable * 0.20 - 300_000;
+  if (taxable <= 10_000_000) return taxable * 0.30 - 900_000;
+  if (taxable <= 15_000_000) return taxable * 0.40 - 1_900_000;
+  if (taxable <= 30_000_000) return taxable * 0.45 - 2_650_000;
+  if (taxable <= 45_000_000) return taxable * 0.50 - 4_150_000;
+  return taxable * 0.55 - 6_400_000;
+}
+
 export function giftTax(inputs: Record<string, number | string>): Record<string, number> {
   const amount = (inputs.amount as number) * 10000;
   const taxable = Math.max(0, amount - 1_100_000);
-  let tax: number;
-  if (taxable <= 2_000_000) tax = taxable * 0.10;
-  else if (taxable <= 3_000_000) tax = taxable * 0.15 - 100_000;
-  else if (taxable <= 4_000_000) tax = taxable * 0.20 - 250_000;
-  else if (taxable <= 6_000_000) tax = taxable * 0.30 - 650_000;
-  else if (taxable <= 10_000_000) tax = taxable * 0.40 - 1_250_000;
-  else if (taxable <= 15_000_000) tax = taxable * 0.45 - 1_750_000;
-  else if (taxable <= 30_000_000) tax = taxable * 0.50 - 2_500_000;
-  else tax = taxable * 0.55 - 4_000_000;
+  const isSpecial = (inputs.type as string) === 'special';
+  const tax = isSpecial ? calcSpecialGiftTax(taxable) : calcGeneralGiftTax(taxable);
   return { taxableAmount: Math.round(taxable), giftTax: Math.round(tax), effectiveRate: amount > 0 ? Math.round(tax / amount * 1000) / 10 : 0 };
 }
 
@@ -339,10 +356,15 @@ export function hourlyWage(inputs: Record<string, number | string>): Record<stri
 export function pensionEstimate(inputs: Record<string, number | string>): Record<string, number> {
   const years = inputs.contributionYears as number;
   const avgSalary = (inputs.averageSalary as number) * 10000;
-  const basicPensionFull = 816_000; // 2026 base
-  const basicPension = Math.round(basicPensionFull * Math.min(years, 40) / 40);
-  const welfareMultiplier = 0.005481;
-  const welfarePension = Math.round(avgSalary * welfareMultiplier * years);
+  // 老齢基礎年金: 満額816,000円/年（2026年度）× 加入月数/480
+  const basicPensionFull = 816_000;
+  const months = Math.min(years * 12, 480);
+  const basicPension = Math.round(basicPensionFull * months / 480);
+  // 老齢厚生年金: 平均標準報酬額 × 5.481/1000 × 加入月数
+  const welfareMultiplier = 5.481 / 1000;
+  const welfareMonths = years * 12;
+  const welfarePension = Math.round(avgSalary * welfareMultiplier * welfareMonths);
+  // 経過的加算（概算: 少額のため省略）
   const totalAnnual = basicPension + welfarePension;
   return { basicPension, welfarePension, totalAnnual, totalMonthly: Math.round(totalAnnual / 12) };
 }
@@ -1026,8 +1048,10 @@ export function retirementPay(inputs: Record<string, number | string>): Record<s
     const points = years * 10 + Math.max(0, years - 20) * 5;
     amount = points * 10000;
   }
-  // Tax on retirement pay
-  const deduction = years <= 20 ? 400000 * years : 8000000 + 700000 * (years - 20);
+  // 退職所得控除（最低80万円）
+  const deduction = Math.max(800_000, years <= 20 ? 400_000 * years : 8_000_000 + 700_000 * (years - 20));
+  // 退職所得 = (退職金 - 退職所得控除) × 1/2
+  // ※勤続5年以下の役員等は1/2適用なし（ここでは一般従業員として1/2適用）
   const taxable = Math.max(0, (amount - deduction) / 2);
   const tax = Math.round(calcIncomeTaxAmount(taxable) * 1.021);
   return { retirementPay: Math.round(amount), deduction: Math.round(deduction), tax, afterTax: Math.round(amount - tax) };

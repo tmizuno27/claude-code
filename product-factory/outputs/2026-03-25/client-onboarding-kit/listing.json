@@ -1,0 +1,18 @@
+{
+  "id": "gumroad-019",
+  "slug": "client-onboarding-kit",
+  "platform": "gumroad",
+  "title": "Client Onboarding Kit — Notion Template + 40 AI Prompts for Freelancers",
+  "subtitle": "Professional onboarding system: welcome packets, SOWs, kickoff agendas & more.",
+  "price_usd": 22,
+  "description": "First impressions close deals. Sloppy onboarding loses clients.\n\nNotion-based onboarding system + 40 AI prompts for freelancers, consultants, and small agencies.\n\nNotion Dashboard includes:\n• Client Database (CRM)\n• Onboarding Pipeline (Kanban)\n• Document Hub (6 templates)\n• Task Checklist (auto-populated)\n• Meeting Notes Log\n\nDocument Templates:\n• Welcome Packet\n• Scope of Work (SOW)\n• Project Timeline\n• Communication Guidelines\n• Feedback & Revision Process\n• Invoice Schedule & Payment Terms\n\n40 AI Prompts:\n• 8 Pre-Sale prompts (proposals, pricing, contracts)\n• 12 Onboarding prompts (welcome emails, questionnaires, briefs)\n• 12 During-Project prompts (updates, scope creep, feedback)\n• 8 Offboarding prompts (handoff, testimonials, upsells)\n\nFormat: Notion template + PDF prompt guide\nUpdates: Free lifetime updates",
+  "tags": ["notion-template", "freelancer", "client-management", "onboarding", "agency", "ai-prompts", "consultant", "crm"],
+  "category": "notion-template",
+  "thumbnail": {
+    "title": "Client\nOnboarding Kit",
+    "subtitle": "Notion + 40 Prompts",
+    "color_primary": "#0984E3",
+    "color_secondary": "#74B9FF",
+    "icon": "handshake"
+  }
+}

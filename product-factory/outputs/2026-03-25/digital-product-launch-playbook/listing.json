@@ -1,0 +1,18 @@
+{
+  "id": "gumroad-020",
+  "slug": "digital-product-launch-playbook",
+  "platform": "gumroad",
+  "title": "Digital Product Launch Playbook — 30-Day System + 50 AI Prompts",
+  "subtitle": "The step-by-step system to launch and sell digital products. Notion planner included.",
+  "price_usd": 27,
+  "description": "Most digital products fail because creators skip the launch. They build, upload, and pray.\n\nThis playbook gives you a proven 30-day launch system with a Notion planner and 50 AI prompts.\n\nNotion Launch Planner:\n• 30-Day Launch Timeline (daily tasks)\n• Pre-Launch Phase (audience warming, waitlist)\n• Launch Phase (email blitz, social push)\n• Post-Launch Phase (optimization, evergreen funnel)\n• Revenue Tracker\n• Audience Builder\n\n50 AI Prompts:\n• 8 Market Validation prompts\n• 12 Content & Buzz Building prompts\n• 10 Sales Page & Copy prompts\n• 10 Launch Week prompts\n• 10 Post-Launch Optimization prompts\n\nIncludes the 30-Day Launch Framework:\nValidate → Build Buzz → Pre-Launch → Launch → Optimize\n\nFormat: Notion template + PDF playbook + prompt guide\nUpdates: Free lifetime updates",
+  "tags": ["digital-products", "launch", "notion-template", "ai-prompts", "sales-page", "marketing", "passive-income", "creator-economy"],
+  "category": "notion-template",
+  "thumbnail": {
+    "title": "Digital Product\nLaunch Playbook",
+    "subtitle": "30-Day System + 50 Prompts",
+    "color_primary": "#FDCB6E",
+    "color_secondary": "#FFEAA7",
+    "icon": "launch"
+  }
+}

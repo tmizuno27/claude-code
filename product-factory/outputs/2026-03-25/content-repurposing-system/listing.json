@@ -1,0 +1,18 @@
+{
+  "id": "gumroad-018",
+  "slug": "content-repurposing-system",
+  "platform": "gumroad",
+  "title": "Content Repurposing System — Notion Dashboard + 60 AI Prompts",
+  "subtitle": "Turn 1 piece of content into 20+ assets across every platform.",
+  "price_usd": 24,
+  "description": "You don't need more content. You need more mileage from what you already have.\n\nNotion dashboard + 60 AI prompts that transform one blog post, video, or podcast into 20+ pieces of content.\n\nNotion Dashboard includes:\n• Content Input Tracker\n• Repurposing Pipeline (Kanban)\n• Platform Matrix\n• 30-Day Content Calendar\n• Analytics Tracker\n\n60 AI Prompts cover:\n• Blog → Social Media (12 prompts)\n• Blog → Video/Audio (10 prompts)\n• Blog → Email (8 prompts)\n• Blog → Other Formats (10 prompts)\n• Video/Podcast → Written (10 prompts)\n• Reformatting & Updating (10 prompts)\n\nFormat: Notion template + PDF prompt guide\nUpdates: Free lifetime updates",
+  "tags": ["notion-template", "content-repurposing", "ai-prompts", "social-media", "content-marketing", "productivity", "creator"],
+  "category": "notion-template",
+  "thumbnail": {
+    "title": "Content\nRepurposing System",
+    "subtitle": "Notion + 60 Prompts",
+    "color_primary": "#00B894",
+    "color_secondary": "#55EFC4",
+    "icon": "recycle"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "prompt-006",
+  "slug": "solopreneur-ai-business-toolkit",
+  "platform": "gumroad",
+  "title": "Solopreneur AI Business Toolkit — 150+ Prompts for ChatGPT & Claude",
+  "subtitle": "Replace your entire team with AI. Marketing, sales, ops, finance & support — all covered.",
+  "price_usd": 29,
+  "description": "Stop hiring. Start prompting.\n\n150+ expertly crafted AI prompts that run your entire solo business — marketing, sales, operations, finance, and customer support.\n\nWorks with ChatGPT (GPT-4/4o), Claude (Sonnet/Opus), and Gemini Pro.\n\nWhat's inside:\n• 40 Marketing & Content prompts (blog outlines, ad copy, SEO, newsletters)\n• 30 Sales & Revenue prompts (outreach sequences, pricing strategy, proposals)\n• 25 Operations prompts (SOPs, meeting agendas, project planning)\n• 25 Finance & Strategy prompts (forecasting, SWOT, OKRs)\n• 20 Customer Support prompts (FAQs, onboarding, retention)\n• 10 Hiring & Delegation prompts (job descriptions, freelancer briefs)\n• BONUS: AI Workflow Cheat Sheet (printable one-pager)\n\nFormat: PDF + Notion page\nUpdates: Free lifetime updates",
+  "tags": ["ai-prompts", "chatgpt", "claude", "solopreneur", "business", "productivity", "marketing", "sales", "automation"],
+  "category": "ai-prompt-pack",
+  "thumbnail": {
+    "title": "Solopreneur AI\nBusiness Toolkit",
+    "subtitle": "150+ Prompts",
+    "color_primary": "#6C5CE7",
+    "color_secondary": "#A29BFE",
+    "icon": "rocket"
+  }
+}
