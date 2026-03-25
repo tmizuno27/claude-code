@@ -27,7 +27,9 @@
     "keyword": "パラグアイ 日本人 死亡",
     "type": "longtail",
     "priority": 4,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sites\\nambei-oyaji.com\\outputs\\articles\\2026-03-25\\article-42570.md",
+    "processed_date": "2026-03-25"
   },
   {
     "keyword": "パラグアイ 日本人 移住",
