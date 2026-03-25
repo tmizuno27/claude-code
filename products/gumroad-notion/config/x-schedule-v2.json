@@ -72,7 +72,9 @@
       "id": 8,
       "category": "value",
       "text": "The students getting A's aren't smarter.\n\nThey just track:\n- Every assignment + due date\n- Study hours per subject\n- Grade trends over time\n\nWhen you see the data, you know exactly where to focus.\n\n#StudyTips",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-25 10:00:04",
+      "tweet_id": "2036790221426037212"
     },
     {
       "id": 9,
