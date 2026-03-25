@@ -5222,6 +5222,216 @@ export function screenSizeCompare(inputs: Record<string, number | string>): Reco
   };
 }
 
+// === BATCH 2 NEW CALCULATORS ===
+
+export function bloodTypeChild(inputs: Record<string, number | string>): Record<string, number | string> {
+  const p1 = inputs.parent1 as string;
+  const p2 = inputs.parent2 as string;
+  const genotypes: Record<string, string[][]> = {
+    A: [['A', 'A'], ['A', 'O']],
+    B: [['B', 'B'], ['B', 'O']],
+    O: [['O', 'O']],
+    AB: [['A', 'B']],
+  };
+  const counts: Record<string, number> = { A: 0, B: 0, O: 0, AB: 0 };
+  let total = 0;
+  for (const g1 of genotypes[p1]) {
+    for (const g2 of genotypes[p2]) {
+      for (const a1 of g1) {
+        for (const a2 of g2) {
+          const pair = [a1, a2].sort().join('');
+          let bt = 'O';
+          if (pair === 'AA' || pair === 'AO') bt = 'A';
+          else if (pair === 'BB' || pair === 'BO') bt = 'B';
+          else if (pair === 'AB') bt = 'AB';
+          counts[bt]++;
+          total++;
+        }
+      }
+    }
+  }
+  const parts: string[] = [];
+  for (const [t, c] of Object.entries(counts)) {
+    if (c > 0) parts.push(`${t}型: ${Math.round(c / total * 100)}%`);
+  }
+  return { result: parts.join('、') as unknown as number };
+}
+
+export function percentageChange(inputs: Record<string, number | string>): Record<string, number | string> {
+  const oldVal = inputs.oldValue as number;
+  const newVal = inputs.newValue as number;
+  const diff = newVal - oldVal;
+  const pct = oldVal !== 0 ? Math.round(diff / Math.abs(oldVal) * 1000) / 10 : 0;
+  return {
+    change: `${pct >= 0 ? '+' : ''}${pct}%` as unknown as number,
+    difference: diff,
+  };
+}
+
+export function mortgageAffordability(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = (inputs.annualIncome as number) * 10000;
+  const ratio = (inputs.repaymentRatio as number) / 100;
+  const monthlyRate = (inputs.rate as number) / 100 / 12;
+  const months = (inputs.years as number) * 12;
+  const maxMonthly = Math.floor(income * ratio / 12);
+  let maxLoan: number;
+  if (monthlyRate === 0) { maxLoan = maxMonthly * months; }
+  else { maxLoan = Math.floor(maxMonthly * (Math.pow(1 + monthlyRate, months) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, months))); }
+  return {
+    maxLoan: `約${Math.round(maxLoan / 10000)}万円` as unknown as number,
+    monthlyPayment: `${maxMonthly.toLocaleString()}円` as unknown as number,
+  };
+}
+
+export function commuteCostCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const trainMonthly = inputs.trainMonthly as number;
+  const distance = inputs.carDistance as number;
+  const fe = inputs.fuelEfficiency as number;
+  const parking = inputs.parkingMonthly as number;
+  const gasPrice = 170;
+  const workDays = 20;
+  const carGas = Math.round(distance * 2 * workDays / fe * gasPrice);
+  const carMaintenance = 20000;
+  const carMonthly = carGas + parking + carMaintenance;
+  const trainAnnual = trainMonthly * 12;
+  const carAnnual = carMonthly * 12;
+  const diff = carAnnual - trainAnnual;
+  return {
+    trainAnnual,
+    carAnnual,
+    difference: (diff > 0 ? `車通勤が年間${diff.toLocaleString()}円高い` : `電車通勤が年間${(-diff).toLocaleString()}円高い`) as unknown as number,
+  };
+}
+
+export function sleepDebt(inputs: Record<string, number | string>): Record<string, number | string> {
+  const actual = inputs.actualHours as number;
+  const ideal = inputs.idealHours as number;
+  const daily = Math.max(0, ideal - actual);
+  return {
+    dailyDebt: `${daily}時間` as unknown as number,
+    weeklyDebt: `${Math.round(daily * 7 * 10) / 10}時間` as unknown as number,
+    monthlyDebt: `${Math.round(daily * 30 * 10) / 10}時間` as unknown as number,
+  };
+}
+
+export function carbonOffset(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const transport = inputs.transport as string;
+  const gPerKm: Record<string, number> = { car: 130, train: 17, bus: 57, plane: 246 };
+  const co2g = distance * (gPerKm[transport] || 130);
+  const co2kg = Math.round(co2g / 100) / 10;
+  const trees = Math.ceil(co2kg / 14);
+  return {
+    co2kg: `${co2kg}kg` as unknown as number,
+    treesNeeded: `${trees}本（年間吸収量で換算）` as unknown as number,
+  };
+}
+
+export function giftAmount(inputs: Record<string, number | string>): Record<string, number | string> {
+  const relation = inputs.relation as string;
+  const age = inputs.age as string;
+  const amounts: Record<string, Record<string, number>> = {
+    friend: { '20s': 20000, '30s': 30000, '40s': 30000 },
+    colleague: { '20s': 20000, '30s': 30000, '40s': 30000 },
+    boss: { '20s': 30000, '30s': 30000, '40s': 50000 },
+    relative: { '20s': 30000, '30s': 50000, '40s': 50000 },
+    sibling: { '20s': 50000, '30s': 50000, '40s': 100000 },
+  };
+  const amount = (amounts[relation] || amounts.friend)[age] || 30000;
+  return {
+    amount: `${(amount / 10000).toFixed(0)}万円` as unknown as number,
+    note: '偶数（特に4・9）は避けましょう。新札を用意してください。' as unknown as number,
+  };
+}
+
+export function calorieDeficit(inputs: Record<string, number | string>): Record<string, number | string> {
+  const current = inputs.currentWeight as number;
+  const target = inputs.targetWeight as number;
+  const weeks = inputs.weeks as number;
+  const gender = inputs.gender as string;
+  const totalKgToLose = current - target;
+  const weeklyLoss = weeks > 0 ? Math.round(totalKgToLose / weeks * 10) / 10 : 0;
+  const dailyDeficit = Math.round(weeklyLoss * 7200 / 7);
+  const bmr = gender === 'male'
+    ? Math.round(13.397 * current + 4.799 * 170 - 5.677 * 35 + 88.362)
+    : Math.round(9.247 * current + 3.098 * 158 - 4.330 * 30 + 447.593);
+  const tdee = Math.round(bmr * 1.5);
+  const dailyCalorie = Math.max(bmr, tdee - dailyDeficit);
+  return {
+    dailyCalorie: `${dailyCalorie}kcal` as unknown as number,
+    dailyDeficit: `${dailyDeficit}kcal` as unknown as number,
+    weeklyLoss: `${weeklyLoss}kg/週` as unknown as number,
+  };
+}
+
+export function hourlyToAnnual(inputs: Record<string, number | string>): Record<string, number | string> {
+  const rate = inputs.hourlyRate as number;
+  const hpw = inputs.hoursPerWeek as number;
+  const monthly = Math.round(rate * hpw * 52 / 12);
+  const annual = Math.round(rate * hpw * 52);
+  return {
+    monthlyIncome: monthly,
+    annualIncome: annual,
+    wall103: (annual <= 1030000 ? '範囲内（所得税かからず）' : `超過（${Math.round((annual - 1030000) / 10000)}万円超）`) as unknown as number,
+    wall130: (annual <= 1300000 ? '範囲内（扶養内）' : `超過（社保加入必要）`) as unknown as number,
+  };
+}
+
+export function laundryCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const waterCost = inputs.waterCost as number;
+  const waterUsage = inputs.waterUsage as number;
+  const elecCost = inputs.electricityCost as number;
+  const elecUsage = (inputs.electricityUsage as number) / 1000;
+  const water = Math.round(waterCost * waterUsage * 10) / 10;
+  const elec = Math.round(elecCost * elecUsage * 10) / 10;
+  const total = Math.round((water + elec) * 10) / 10;
+  return {
+    waterFee: `${water}円` as unknown as number,
+    electricFee: `${elec}円` as unknown as number,
+    totalCost: `約${total}円（洗剤代別）` as unknown as number,
+    monthlyCost: `約${Math.round(total * 30)}円` as unknown as number,
+  };
+}
+
+export function screenTime(inputs: Record<string, number | string>): Record<string, number | string> {
+  const daily = inputs.dailyHours as number;
+  const weekly = Math.round(daily * 7 * 10) / 10;
+  const monthly = Math.round(daily * 30);
+  const annual = Math.round(daily * 365);
+  const annualDays = Math.round(annual / 24 * 10) / 10;
+  return {
+    weeklyHours: `${weekly}時間` as unknown as number,
+    monthlyHours: `${monthly}時間` as unknown as number,
+    annualHours: `${annual}時間` as unknown as number,
+    annualDays: `約${annualDays}日分` as unknown as number,
+  };
+}
+
+export function roomAirVolume(inputs: Record<string, number | string>): Record<string, number | string> {
+  const jou = inputs.area as number;
+  const height = inputs.height as number;
+  const sqm = Math.round(jou * 1.62 * 10) / 10;
+  const volume = Math.round(sqm * height * 10) / 10;
+  const ventilation = Math.round(volume * 0.5);
+  return {
+    volumeM3: `${volume}m³` as unknown as number,
+    sqm: `${sqm}m²` as unknown as number,
+    ventilationPerHour: `${ventilation}m³/時（0.5回/時）` as unknown as number,
+  };
+}
+
+export function dataTransferTime(inputs: Record<string, number | string>): Record<string, number | string> {
+  const fileSizeGB = inputs.fileSize as number;
+  const speedMBs = Number(inputs.speed);
+  const fileSizeMB = fileSizeGB * 1024;
+  const seconds = speedMBs > 0 ? fileSizeMB / speedMBs : 0;
+  let timeStr: string;
+  if (seconds < 60) timeStr = `${Math.round(seconds)}秒`;
+  else if (seconds < 3600) timeStr = `${Math.floor(seconds / 60)}分${Math.round(seconds % 60)}秒`;
+  else timeStr = `${Math.floor(seconds / 3600)}時間${Math.floor((seconds % 3600) / 60)}分`;
+  return { transferTime: timeStr as unknown as number };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   adRoas,
@@ -5655,6 +5865,20 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   inflationImpact,
   rainProbability,
   screenSizeCompare,
+  // Batch 2
+  bloodTypeChild,
+  percentageChange,
+  mortgageAffordability,
+  commuteCostCompare,
+  sleepDebt,
+  carbonOffset,
+  giftAmount,
+  calorieDeficit,
+  hourlyToAnnual,
+  laundryCost,
+  screenTime,
+  roomAirVolume,
+  dataTransferTime,
 };
 
 export function getCalculatorFunction(
