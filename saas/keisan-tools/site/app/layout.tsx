@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: '計算ツール｜keisan.tools',
   description:
     '無料で使えるオンライン計算ツール。住宅ローン、税金、BMI、日数計算など3,000種類以上。',
+  other: {
+    'google-adsense-account': ADSENSE_CLIENT_ID,
+  },
 };
 
 const NAV_CATEGORIES = [
