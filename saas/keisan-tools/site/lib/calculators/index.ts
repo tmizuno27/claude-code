@@ -1492,6 +1492,356 @@ export function creditCardInterest(inputs: Record<string, number | string>): Rec
   return { totalInterest: Math.round(totalInterest), months, totalPayment: Math.round(totalPaid) };
 }
 
+// === 追加計算ツール 24個 ===
+
+export function electricityCost(inputs: Record<string, number | string>): Record<string, number> {
+  const kwh = inputs.kwh as number;
+  const unitPrice = inputs.unitPrice as number;
+  const basicCharge = inputs.basicCharge as number;
+  const fuelAdjustment = inputs.fuelAdjustment as number;
+  const renewableLevy = inputs.renewableLevy as number;
+  const usageCharge = kwh * unitPrice;
+  const fuelAdj = kwh * fuelAdjustment;
+  const renewable = kwh * renewableLevy;
+  const subtotal = basicCharge + usageCharge + fuelAdj + renewable;
+  const tax = Math.round(subtotal * 0.1);
+  const total = subtotal + tax;
+  return { usageCharge: Math.round(usageCharge), fuelAdj: Math.round(fuelAdj), renewable: Math.round(renewable), subtotal: Math.round(subtotal), tax, total: Math.round(total) };
+}
+
+export function gasCost(inputs: Record<string, number | string>): Record<string, number> {
+  const cubicMeters = inputs.cubicMeters as number;
+  const unitPrice = inputs.unitPrice as number;
+  const basicCharge = inputs.basicCharge as number;
+  const usageCharge = cubicMeters * unitPrice;
+  const subtotal = basicCharge + usageCharge;
+  const tax = Math.round(subtotal * 0.1);
+  const total = subtotal + tax;
+  const annual = total * 12;
+  return { usageCharge: Math.round(usageCharge), subtotal: Math.round(subtotal), tax, total: Math.round(total), annual: Math.round(annual) };
+}
+
+export function waterCost(inputs: Record<string, number | string>): Record<string, number> {
+  const cubicMeters = inputs.cubicMeters as number;
+  const basicCharge = inputs.basicCharge as number;
+  const unitPrice = inputs.unitPrice as number;
+  const sewageRate = (inputs.sewageRate as number) / 100;
+  const waterCharge = basicCharge + cubicMeters * unitPrice;
+  const sewageCharge = Math.round(waterCharge * sewageRate);
+  const total = waterCharge + sewageCharge;
+  const biMonthly = total;
+  const monthly = Math.round(total / 2);
+  const annual = total * 6;
+  return { waterCharge: Math.round(waterCharge), sewageCharge, total: Math.round(biMonthly), monthly, annual: Math.round(annual) };
+}
+
+export function internetCost(inputs: Record<string, number | string>): Record<string, number> {
+  const monthlyFee = inputs.monthlyFee as number;
+  const initialCost = inputs.initialCost as number;
+  const contractMonths = inputs.contractMonths as number;
+  const discount = inputs.discount as number;
+  const totalMonthly = (monthlyFee - discount) * contractMonths;
+  const totalCost = totalMonthly + initialCost;
+  const effectiveMonthly = Math.round(totalCost / contractMonths);
+  const annualCost = effectiveMonthly * 12;
+  return { effectiveMonthly, totalCost: Math.round(totalCost), annualCost, totalMonthly: Math.round(totalMonthly) };
+}
+
+export function stepsToDistance(inputs: Record<string, number | string>): Record<string, number> {
+  const steps = inputs.steps as number;
+  const strideLength = inputs.strideLength as number;
+  const distanceM = steps * strideLength / 100;
+  const distanceKm = distanceM / 1000;
+  const caloriesBurned = Math.round(steps * 0.04);
+  const timeMin = Math.round(steps / 100);
+  return { distanceM: Math.round(distanceM), distanceKm: Math.round(distanceKm * 100) / 100, caloriesBurned, timeMin };
+}
+
+export function sleepCalculator(inputs: Record<string, number | string>): Record<string, string> {
+  const wakeHour = inputs.wakeHour as number;
+  const wakeMin = inputs.wakeMin as number;
+  const cycles = [4, 5, 6];
+  const results: Record<string, string> = {};
+  for (const c of cycles) {
+    const sleepMinutes = c * 90 + 15;
+    let bedHour = wakeHour - Math.floor(sleepMinutes / 60);
+    let bedMin = wakeMin - (sleepMinutes % 60);
+    if (bedMin < 0) { bedMin += 60; bedHour -= 1; }
+    if (bedHour < 0) bedHour += 24;
+    const hours = Math.floor((c * 90) / 60);
+    const mins = (c * 90) % 60;
+    results[`bed${c}`] = `${String(bedHour).padStart(2, '0')}:${String(bedMin).padStart(2, '0')}`;
+    results[`duration${c}`] = `${hours}時間${mins > 0 ? mins + '分' : ''}`;
+  }
+  return results;
+}
+
+export function alcoholBreakdown(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const drinkType = inputs.drinkType as string;
+  const amount = inputs.amount as number;
+  const alcoholPercentMap: Record<string, number> = { beer: 5, wine: 12, sake: 15, shochu: 25, whisky: 40, chuhai: 7 };
+  const percent = alcoholPercentMap[drinkType] || 5;
+  const pureAlcohol = amount * (percent / 100) * 0.8;
+  const breakdownRate = weight * 0.1;
+  const hours = pureAlcohol / breakdownRate;
+  const fullHours = Math.floor(hours);
+  const minutes = Math.round((hours - fullHours) * 60);
+  return { pureAlcohol: Math.round(pureAlcohol * 10) / 10, hours: fullHours, minutes, totalMinutes: Math.round(hours * 60), driveOk: `${fullHours + Math.ceil(minutes / 60) + 1}時間後以降` };
+}
+
+export function dogAge(inputs: Record<string, number | string>): Record<string, number> {
+  const dogYears = inputs.dogYears as number;
+  const size = inputs.size as string;
+  let humanAge: number;
+  if (size === 'small' || size === 'medium') {
+    humanAge = dogYears <= 2 ? dogYears * 12.5 : 25 + (dogYears - 2) * 4;
+  } else {
+    humanAge = dogYears <= 2 ? dogYears * 12.5 : 25 + (dogYears - 2) * 5;
+  }
+  return { humanAge: Math.round(humanAge), dogYears };
+}
+
+export function catAge(inputs: Record<string, number | string>): Record<string, number> {
+  const catYears = inputs.catYears as number;
+  let humanAge: number;
+  if (catYears <= 1) humanAge = catYears * 18;
+  else if (catYears <= 2) humanAge = 18 + (catYears - 1) * 7;
+  else humanAge = 25 + (catYears - 2) * 4;
+  return { humanAge: Math.round(humanAge), catYears };
+}
+
+export function timezoneCalc(inputs: Record<string, number | string>): Record<string, string> {
+  const hour = inputs.hour as number;
+  const minute = inputs.minute as number;
+  const fromOffset = inputs.fromOffset as number;
+  const toOffset = inputs.toOffset as number;
+  const diff = toOffset - fromOffset;
+  let newHour = hour + diff;
+  let newMin = minute;
+  let dayShift = 0;
+  if (newHour >= 24) { newHour -= 24; dayShift = 1; }
+  if (newHour < 0) { newHour += 24; dayShift = -1; }
+  const dayText = dayShift === 1 ? '（翌日）' : dayShift === -1 ? '（前日）' : '';
+  return {
+    convertedTime: `${String(newHour).padStart(2, '0')}:${String(newMin).padStart(2, '0')}${dayText}`,
+    timeDiff: `${diff >= 0 ? '+' : ''}${diff}時間`,
+  };
+}
+
+export function birthdayCountdown(inputs: Record<string, number | string>): Record<string, number | string> {
+  const month = inputs.month as number;
+  const day = inputs.day as number;
+  const now = new Date();
+  const thisYear = now.getFullYear();
+  let nextBirthday = new Date(thisYear, month - 1, day);
+  if (nextBirthday.getTime() <= now.getTime()) {
+    nextBirthday = new Date(thisYear + 1, month - 1, day);
+  }
+  const diffMs = nextBirthday.getTime() - now.getTime();
+  const daysLeft = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+  const weeksLeft = Math.floor(daysLeft / 7);
+  const dayOfWeek = ['日', '月', '火', '水', '木', '金', '土'][nextBirthday.getDay()];
+  return { daysLeft, weeksLeft, nextBirthdayDate: `${nextBirthday.getFullYear()}年${month}月${day}日（${dayOfWeek}）` };
+}
+
+export function ovulationCalc(inputs: Record<string, number | string>): Record<string, string> {
+  const lastPeriod = inputs.lastPeriod as string;
+  const cycleLength = inputs.cycleLength as number;
+  const d = new Date(lastPeriod);
+  const ovulationDate = new Date(d.getTime() + (cycleLength - 14) * 86400000);
+  const fertileStart = new Date(ovulationDate.getTime() - 5 * 86400000);
+  const fertileEnd = new Date(ovulationDate.getTime() + 1 * 86400000);
+  const nextPeriod = new Date(d.getTime() + cycleLength * 86400000);
+  const fmt = (dt: Date) => `${dt.getFullYear()}年${dt.getMonth() + 1}月${dt.getDate()}日`;
+  return { ovulationDate: fmt(ovulationDate), fertileStart: fmt(fertileStart), fertileEnd: fmt(fertileEnd), nextPeriod: fmt(nextPeriod) };
+}
+
+export function maternityLeave(inputs: Record<string, number | string>): Record<string, string> {
+  const dueDate = inputs.dueDate as string;
+  const d = new Date(dueDate);
+  const prenatalStart = new Date(d.getTime() - 42 * 86400000);
+  const postnatalEnd = new Date(d.getTime() + 56 * 86400000);
+  const childcareEnd1 = new Date(d.getFullYear() + 1, d.getMonth(), d.getDate());
+  const childcareEnd2 = new Date(d.getFullYear() + 2, d.getMonth(), d.getDate());
+  const fmt = (dt: Date) => `${dt.getFullYear()}年${dt.getMonth() + 1}月${dt.getDate()}日`;
+  return { prenatalStart: fmt(prenatalStart), postnatalEnd: fmt(postnatalEnd), childcareEnd1: fmt(childcareEnd1), childcareEnd2: fmt(childcareEnd2) };
+}
+
+export function unemploymentInsurance(inputs: Record<string, number | string>): Record<string, number> {
+  const dailyWage = inputs.dailyWage as number;
+  const age = inputs.age as number;
+  const yearsWorked = inputs.yearsWorked as number;
+  let rate: number;
+  if (dailyWage < 5110) rate = 0.8;
+  else if (dailyWage < 12580) rate = 0.65;
+  else rate = 0.5;
+  const dailyAllowance = Math.min(Math.round(dailyWage * rate), age < 30 ? 7065 : age < 45 ? 7845 : age < 60 ? 8635 : 7150);
+  let totalDays: number;
+  if (yearsWorked < 1) totalDays = 90;
+  else if (yearsWorked < 5) totalDays = 90;
+  else if (yearsWorked < 10) totalDays = 120;
+  else if (yearsWorked < 20) totalDays = 150;
+  else totalDays = 150;
+  const totalAmount = dailyAllowance * totalDays;
+  const monthlyEstimate = Math.round(dailyAllowance * 28);
+  return { dailyAllowance, totalDays, totalAmount, monthlyEstimate };
+}
+
+export function movingEstimate(inputs: Record<string, number | string>): Record<string, number> {
+  const people = inputs.people as number;
+  const distance = inputs.distance as number;
+  const season = inputs.season as string;
+  let baseCost: number;
+  if (people === 1) baseCost = 35000;
+  else if (people === 2) baseCost = 60000;
+  else if (people === 3) baseCost = 80000;
+  else baseCost = 100000 + (people - 4) * 20000;
+  const distanceFee = distance < 50 ? 0 : distance < 200 ? 20000 : distance < 500 ? 50000 : 80000;
+  const seasonMultiplier = season === 'peak' ? 1.5 : season === 'off' ? 0.8 : 1.0;
+  const estimate = Math.round((baseCost + distanceFee) * seasonMultiplier);
+  const low = Math.round(estimate * 0.8);
+  const high = Math.round(estimate * 1.3);
+  return { estimate, low, high };
+}
+
+export function rentBudget(inputs: Record<string, number | string>): Record<string, number> {
+  const monthlyIncome = inputs.monthlyIncome as number;
+  const ratio = (inputs.ratio as number) / 100;
+  const budget = Math.round(monthlyIncome * ratio);
+  const annualRent = budget * 12;
+  const initialCost = budget * 5;
+  return { budget, annualRent, initialCost, monthlyIncome };
+}
+
+export function condoMonthly(inputs: Record<string, number | string>): Record<string, number> {
+  const loanPayment = inputs.loanPayment as number;
+  const managementFee = inputs.managementFee as number;
+  const repairReserve = inputs.repairReserve as number;
+  const parkingFee = inputs.parkingFee as number;
+  const otherFee = inputs.otherFee as number;
+  const total = loanPayment + managementFee + repairReserve + parkingFee + otherFee;
+  const annual = total * 12;
+  return { total, annual, nonLoan: managementFee + repairReserve + parkingFee + otherFee };
+}
+
+export function furusatoDetail(inputs: Record<string, number | string>): Record<string, number> {
+  const annualIncome = (inputs.annualIncome as number) * 10000;
+  const familyType = inputs.familyType as string;
+  let deduction: number;
+  if (familyType === 'single') deduction = 0;
+  else if (familyType === 'couple') deduction = 380000;
+  else deduction = 760000;
+  const taxableIncome = Math.max(annualIncome - annualIncome * 0.2 - deduction - 480000, 0);
+  let taxRate: number;
+  if (taxableIncome <= 1950000) taxRate = 0.05;
+  else if (taxableIncome <= 3300000) taxRate = 0.1;
+  else if (taxableIncome <= 6950000) taxRate = 0.2;
+  else if (taxableIncome <= 9000000) taxRate = 0.23;
+  else taxRate = 0.33;
+  const residentTaxRate = 0.1;
+  const limit = Math.round(taxableIncome * residentTaxRate * 0.2 / (1 - taxRate - residentTaxRate) + 2000);
+  return { limit: Math.max(limit, 2000), taxableIncome: Math.round(taxableIncome), taxRate: Math.round(taxRate * 100) };
+}
+
+export function spouseDeduction(inputs: Record<string, number | string>): Record<string, number> {
+  const taxpayerIncome = (inputs.taxpayerIncome as number) * 10000;
+  const spouseIncome = (inputs.spouseIncome as number) * 10000;
+  let deduction = 0;
+  if (taxpayerIncome <= 9000000) {
+    if (spouseIncome <= 480000) deduction = 380000;
+    else if (spouseIncome <= 950000) deduction = 380000;
+    else if (spouseIncome <= 1000000) deduction = 360000;
+    else if (spouseIncome <= 1050000) deduction = 310000;
+    else if (spouseIncome <= 1100000) deduction = 260000;
+    else if (spouseIncome <= 1150000) deduction = 210000;
+    else if (spouseIncome <= 1200000) deduction = 160000;
+    else if (spouseIncome <= 1250000) deduction = 110000;
+    else if (spouseIncome <= 1300000) deduction = 60000;
+    else if (spouseIncome <= 1330000) deduction = 30000;
+  } else if (taxpayerIncome <= 9500000) {
+    if (spouseIncome <= 950000) deduction = 260000;
+    else if (spouseIncome <= 1330000) deduction = Math.max(260000 - Math.floor((spouseIncome - 950000) / 50000) * 40000, 0);
+  } else if (taxpayerIncome <= 10000000) {
+    if (spouseIncome <= 950000) deduction = 130000;
+    else if (spouseIncome <= 1330000) deduction = Math.max(130000 - Math.floor((spouseIncome - 950000) / 50000) * 20000, 0);
+  }
+  const taxSaving = Math.round(deduction * 0.2);
+  return { deduction, taxSaving, spouseIncome: Math.round(spouseIncome) };
+}
+
+export function dependentDeduction(inputs: Record<string, number | string>): Record<string, number> {
+  const dependentAge = inputs.dependentAge as number;
+  const livingTogether = inputs.livingTogether as number;
+  let deduction: number;
+  if (dependentAge < 16) deduction = 0;
+  else if (dependentAge < 19) deduction = 380000;
+  else if (dependentAge < 23) deduction = 630000;
+  else if (dependentAge < 70) deduction = 380000;
+  else deduction = livingTogether === 1 ? 580000 : 480000;
+  const taxSaving = Math.round(deduction * 0.2);
+  const residentTaxSaving = Math.round(deduction * 0.1);
+  return { deduction, taxSaving, residentTaxSaving, totalSaving: taxSaving + residentTaxSaving };
+}
+
+export function educationCostSim(inputs: Record<string, number | string>): Record<string, number> {
+  const childAge = inputs.childAge as number;
+  const plan = inputs.plan as string;
+  const costs: Record<string, number[]> = {
+    all_public: [230000, 230000, 230000, 300000, 300000, 300000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 500000, 550000, 550000, 550000],
+    all_private: [500000, 500000, 500000, 1000000, 1000000, 1000000, 1400000, 1400000, 1400000, 1000000, 1000000, 1000000, 1000000, 1000000, 1000000, 1500000, 1500000, 1500000, 1500000],
+  };
+  const costArray = costs[plan] || costs.all_public;
+  const startIdx = Math.max(childAge - 3, 0);
+  let totalRemaining = 0;
+  for (let i = startIdx; i < costArray.length; i++) {
+    totalRemaining += costArray[i];
+  }
+  const yearsLeft = costArray.length - startIdx;
+  const monthlyNeeded = yearsLeft > 0 ? Math.round(totalRemaining / (yearsLeft * 12)) : 0;
+  return { totalRemaining, yearsLeft, monthlyNeeded };
+}
+
+export function scholarshipRepayment(inputs: Record<string, number | string>): Record<string, number> {
+  const totalBorrowed = (inputs.totalBorrowed as number) * 10000;
+  const annualRate = (inputs.annualRate as number) / 100;
+  const repaymentYears = inputs.repaymentYears as number;
+  const monthlyRate = annualRate / 12;
+  const totalMonths = repaymentYears * 12;
+  let monthlyPayment: number;
+  if (monthlyRate === 0) {
+    monthlyPayment = totalBorrowed / totalMonths;
+  } else {
+    monthlyPayment = totalBorrowed * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+  }
+  const totalPayment = monthlyPayment * totalMonths;
+  const totalInterest = totalPayment - totalBorrowed;
+  return { monthlyPayment: Math.round(monthlyPayment), totalPayment: Math.round(totalPayment), totalInterest: Math.round(totalInterest) };
+}
+
+export function wifiSpeed(inputs: Record<string, number | string>): Record<string, number> {
+  const speedMbps = inputs.speedMbps as number;
+  const speedMBs = speedMbps / 8;
+  const speedGbps = speedMbps / 1000;
+  const downloadTime1GB = Math.round(1024 / speedMBs);
+  const downloadTime100MB = Math.round(100 / speedMBs);
+  return { speedMBs: Math.round(speedMBs * 100) / 100, speedGbps: Math.round(speedGbps * 1000) / 1000, downloadTime1GB, downloadTime100MB };
+}
+
+export function tsuboSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const value = inputs.value as number;
+  const direction = inputs.direction as string;
+  if (direction === 'tsubo_to_sqm') {
+    const sqm = value * 3.30579;
+    const jo = value * 2;
+    return { sqm: Math.round(sqm * 100) / 100, jo: Math.round(jo * 100) / 100, tsubo: value };
+  } else {
+    const tsubo = value / 3.30579;
+    const jo = tsubo * 2;
+    return { sqm: value, tsubo: Math.round(tsubo * 100) / 100, jo: Math.round(jo * 100) / 100 };
+  }
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   loanRepayment,

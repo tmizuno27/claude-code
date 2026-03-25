@@ -5,6 +5,7 @@ Task Schedulerで毎日1回実行する想定。
 """
 
 import json
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -35,17 +36,43 @@ def load_api_key() -> str:
     return api_key
 
 
+def _fix_frontmatter_published(body: str) -> str:
+    """フロントマター内の published: false を published: true に書き換える"""
+    return re.sub(
+        r"(?m)^published:\s*false\s*$",
+        "published: true",
+        body,
+        count=1,
+    )
+
+
 def publish_article(api_key: str, article_id: int) -> bool:
-    """Dev.to API で記事を公開する"""
-    url = f"https://dev.to/api/articles/{article_id}"
+    """Dev.to API で記事を公開する
+
+    フロントマター内の published: false が API の published フラグより
+    優先されるため、body_markdown のフロントマターも書き換える。
+    """
+    base_url = f"https://dev.to/api/articles/{article_id}"
     headers = {
         "api-key": api_key,
         "Content-Type": "application/json",
     }
-    payload = {"article": {"published": True}}
 
     try:
-        resp = requests.put(url, headers=headers, json=payload, timeout=30)
+        # 1. 現在の body_markdown を取得
+        get_resp = requests.get(base_url, headers=headers, timeout=30)
+        if get_resp.status_code != 200:
+            print(f"[エラー] 記事ID {article_id} の取得に失敗 (HTTP {get_resp.status_code})")
+            return False
+
+        article_data = get_resp.json()
+        body = article_data.get("body_markdown", "") or ""
+
+        # 2. フロントマターを修正して公開
+        new_body = _fix_frontmatter_published(body)
+        payload = {"article": {"body_markdown": new_body}}
+
+        resp = requests.put(base_url, headers=headers, json=payload, timeout=30)
         if resp.status_code == 200:
             data = resp.json()
             print(f"[成功] 記事ID {article_id} を公開しました: {data.get('url', '')}")
