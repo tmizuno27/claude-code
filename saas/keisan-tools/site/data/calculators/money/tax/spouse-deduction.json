@@ -1,0 +1,25 @@
+{
+  "slug": "spouse-deduction",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "配偶者控除・配偶者特別控除計算",
+  "description": "納税者と配偶者の所得から配偶者控除額・節税効果を計算。103万円・150万円の壁もわかる。",
+  "metaTitle": "配偶者控除計算ツール｜配偶者の所得から控除額と節税効果を自動計算",
+  "metaDescription": "納税者と配偶者の年収を入力して配偶者控除・配偶者特別控除の金額と節税効果を自動計算。103万・150万の壁を確認。",
+  "calculatorFunction": "spouseDeduction",
+  "inputs": [
+    { "id": "taxpayerIncome", "label": "納税者の年収", "type": "number", "unit": "万円", "default": 600, "min": 100, "max": 3000, "step": 10 },
+    { "id": "spouseIncome", "label": "配偶者の年収", "type": "number", "unit": "万円", "default": 100, "min": 0, "max": 300, "step": 5 }
+  ],
+  "outputs": [
+    { "id": "deduction", "label": "控除額", "format": "yen", "primary": true },
+    { "id": "taxSaving", "label": "所得税の節税額（税率20%の場合）", "format": "yen" }
+  ],
+  "explanation": "<h3>配偶者控除の仕組み</h3><p>配偶者の年収が103万円以下なら配偶者控除（最大38万円）、103万〜201万円なら配偶者特別控除（段階的に減額）が適用されます。</p><h3>年収の壁</h3><ul><li>103万円の壁: 配偶者控除の上限</li><li>150万円の壁: 配偶者特別控除が減り始める</li><li>201万円の壁: 配偶者特別控除がゼロに</li></ul>",
+  "faq": [
+    { "question": "パート収入103万を超えたらどうなる？", "answer": "配偶者控除から配偶者特別控除に切り替わりますが、150万円までは控除額が同じ38万円なので、すぐに大きな影響はありません。" }
+  ],
+  "related": ["income-tax", "dependent-deduction", "part-time-income"],
+  "popular": true,
+  "popularOrder": 25
+}

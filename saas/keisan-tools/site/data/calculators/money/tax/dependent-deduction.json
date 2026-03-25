@@ -1,0 +1,29 @@
+{
+  "slug": "dependent-deduction",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "扶養控除計算",
+  "description": "扶養親族の年齢・同居状況から扶養控除額と節税効果を計算。特定扶養親族の控除額もわかる。",
+  "metaTitle": "扶養控除計算ツール｜扶養親族の年齢から控除額・節税額を自動計算",
+  "metaDescription": "扶養親族の年齢と同居状況を入力して扶養控除額と節税効果を自動計算。特定扶養親族・老人扶養親族の控除額がわかる無料ツール。",
+  "calculatorFunction": "dependentDeduction",
+  "inputs": [
+    { "id": "dependentAge", "label": "扶養親族の年齢", "type": "number", "unit": "歳", "default": 20, "min": 0, "max": 100, "step": 1 },
+    { "id": "livingTogether", "label": "同居の有無（70歳以上の場合）", "type": "select", "default": "1", "options": [
+      { "value": "1", "label": "同居" },
+      { "value": "0", "label": "別居" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "deduction", "label": "扶養控除額", "format": "yen", "primary": true },
+    { "id": "taxSaving", "label": "所得税の節税額（税率20%）", "format": "yen" },
+    { "id": "residentTaxSaving", "label": "住民税の節税額", "format": "yen" },
+    { "id": "totalSaving", "label": "合計節税額", "format": "yen" }
+  ],
+  "explanation": "<h3>扶養控除額一覧</h3><ul><li>16歳未満: 控除なし（児童手当の対象）</li><li>16〜18歳: 38万円</li><li>19〜22歳: 63万円（特定扶養親族）</li><li>23〜69歳: 38万円</li><li>70歳以上（同居）: 58万円</li><li>70歳以上（別居）: 48万円</li></ul>",
+  "faq": [
+    { "question": "大学生の子供の扶養控除はいくら？", "answer": "19〜22歳は「特定扶養親族」として63万円の控除が受けられます。通常の38万円より25万円多く、約5万円の節税になります。" }
+  ],
+  "related": ["spouse-deduction", "income-tax", "resident-tax"],
+  "popular": false
+}

@@ -1,0 +1,30 @@
+{
+  "slug": "furusato-detail",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "ふるさと納税限度額計算（詳細版）",
+  "description": "年収・家族構成から、ふるさと納税の控除上限額を詳細に計算。自己負担2,000円で済む限度額がわかる。",
+  "metaTitle": "ふるさと納税限度額計算ツール（詳細版）｜年収別の控除上限額シミュレーション",
+  "metaDescription": "年収と家族構成を入力してふるさと納税の控除上限額を詳細計算。自己負担2,000円で済む限度額がわかる無料ツール。",
+  "calculatorFunction": "furusatoDetail",
+  "inputs": [
+    { "id": "annualIncome", "label": "年収", "type": "number", "unit": "万円", "default": 500, "min": 100, "max": 5000, "step": 10 },
+    { "id": "familyType", "label": "家族構成", "type": "select", "default": "single", "options": [
+      { "value": "single", "label": "独身・共働き" },
+      { "value": "couple", "label": "夫婦（配偶者控除あり）" },
+      { "value": "family", "label": "夫婦+子2人（大学生+高校生）" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "limit", "label": "ふるさと納税上限額（目安）", "format": "yen", "primary": true },
+    { "id": "taxableIncome", "label": "課税所得（概算）", "format": "yen" },
+    { "id": "taxRate", "label": "適用税率", "format": "number" }
+  ],
+  "explanation": "<h3>ふるさと納税の控除上限額</h3><p>ふるさと納税は、控除上限額内であれば自己負担2,000円で返礼品を受け取れます。上限額は年収・家族構成・各種控除によって異なります。</p>",
+  "faq": [
+    { "question": "年収500万の上限額は？", "answer": "独身の場合で約6〜7万円が目安です。家族構成や他の控除によって変わります。" }
+  ],
+  "related": ["furusato-nozei", "income-tax", "resident-tax"],
+  "popular": true,
+  "popularOrder": 24
+}
