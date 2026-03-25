@@ -1,0 +1,77 @@
+{
+  "slug": "blood-type-child",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "子供の血液型予測",
+  "description": "両親の血液型から子供の血液型の確率を予測",
+  "metaTitle": "子供の血液型予測ツール｜両親の血液型から確率を計算",
+  "metaDescription": "両親の血液型を入力して子供の血液型の確率を計算。ABO式血液型の遺伝パターンを表示。",
+  "calculatorFunction": "bloodTypeChild",
+  "inputs": [
+    {
+      "id": "parent1",
+      "label": "親1の血液型",
+      "type": "select",
+      "options": [
+        {
+          "value": "A",
+          "label": "A型"
+        },
+        {
+          "value": "B",
+          "label": "B型"
+        },
+        {
+          "value": "O",
+          "label": "O型"
+        },
+        {
+          "value": "AB",
+          "label": "AB型"
+        }
+      ],
+      "default": "A"
+    },
+    {
+      "id": "parent2",
+      "label": "親2の血液型",
+      "type": "select",
+      "options": [
+        {
+          "value": "A",
+          "label": "A型"
+        },
+        {
+          "value": "B",
+          "label": "B型"
+        },
+        {
+          "value": "O",
+          "label": "O型"
+        },
+        {
+          "value": "AB",
+          "label": "AB型"
+        }
+      ],
+      "default": "B"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "子供の血液型確率",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>血液型の遺伝</h3><p>ABO式血液型は、A・B・Oの3つの遺伝子の組み合わせで決まります。A型はAA/AO、B型はBB/BO、O型はOO、AB型はABの遺伝子型を持ちます。</p>",
+  "faq": [
+    {
+      "question": "A型×B型の子供は？",
+      "answer": "A型25%、B型25%、O型25%、AB型25%の確率です（両親がAOとBOの場合）。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

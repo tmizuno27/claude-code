@@ -1,0 +1,82 @@
+{
+  "slug": "commute-cost-compare",
+  "category": "life",
+  "subcategory": "car",
+  "title": "通勤費用比較",
+  "description": "車通勤と電車通勤のコストを比較",
+  "metaTitle": "通勤費用比較ツール｜車vs電車の通勤コストを比較",
+  "metaDescription": "車通勤と電車通勤の月額・年額コストを比較。駐車場代・ガソリン代・定期代を含む総コスト計算。",
+  "calculatorFunction": "commuteCostCompare",
+  "inputs": [
+    {
+      "id": "trainMonthly",
+      "label": "電車定期（月額）",
+      "type": "number",
+      "unit": "円",
+      "default": 15000,
+      "min": 0,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "id": "carDistance",
+      "label": "車通勤片道距離",
+      "type": "number",
+      "unit": "km",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "燃費",
+      "type": "number",
+      "unit": "km/L",
+      "default": 15,
+      "min": 3,
+      "max": 40,
+      "step": 1
+    },
+    {
+      "id": "parkingMonthly",
+      "label": "駐車場代（月額）",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 0,
+      "max": 100000,
+      "step": 1000
+    }
+  ],
+  "outputs": [
+    {
+      "id": "trainAnnual",
+      "label": "電車通勤（年額）",
+      "format": "currency"
+    },
+    {
+      "id": "carAnnual",
+      "label": "車通勤（年額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "difference",
+      "label": "年間差額",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>通勤費用の比較</h3><p>車通勤のコスト = ガソリン代 + 駐車場代 + 車の維持費（保険・税金・車検等を月2万円と仮定）。電車通勤のコスト = 定期代です。</p>",
+  "faq": [
+    {
+      "question": "車通勤の隠れコストは？",
+      "answer": "保険料・自動車税・車検・メンテナンス・減価償却で月2〜4万円が別途かかります。"
+    }
+  ],
+  "related": [
+    "commute-cost",
+    "fuel-cost"
+  ],
+  "popular": false
+}

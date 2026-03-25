@@ -1,0 +1,71 @@
+{
+  "slug": "carbon-offset",
+  "category": "life",
+  "subcategory": "car",
+  "title": "CO2排出量計算",
+  "description": "移動手段別のCO2排出量を計算",
+  "metaTitle": "CO2排出量計算ツール｜移動手段別のCO2排出量を比較",
+  "metaDescription": "車・電車・バス・飛行機の移動距離からCO2排出量を計算。環境負荷の比較に。",
+  "calculatorFunction": "carbonOffset",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "移動距離",
+      "type": "number",
+      "unit": "km",
+      "default": 100,
+      "min": 1,
+      "max": 50000,
+      "step": 1
+    },
+    {
+      "id": "transport",
+      "label": "移動手段",
+      "type": "select",
+      "options": [
+        {
+          "value": "car",
+          "label": "自家用車"
+        },
+        {
+          "value": "train",
+          "label": "電車"
+        },
+        {
+          "value": "bus",
+          "label": "バス"
+        },
+        {
+          "value": "plane",
+          "label": "飛行機"
+        }
+      ],
+      "default": "car"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "co2kg",
+      "label": "CO2排出量",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "treesNeeded",
+      "label": "吸収に必要な木の本数",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>交通手段別CO2排出量</h3><p>1人1kmあたりのCO2排出量（目安）：自家用車130g、バス57g、電車17g、飛行機246g。電車が最もエコな移動手段です。</p>",
+  "faq": [
+    {
+      "question": "木1本で吸収できるCO2量は？",
+      "answer": "スギの成木1本で年間約14kgのCO2を吸収するとされています。"
+    }
+  ],
+  "related": [
+    "carbon-footprint",
+    "ev-charging-cost"
+  ],
+  "popular": false
+}

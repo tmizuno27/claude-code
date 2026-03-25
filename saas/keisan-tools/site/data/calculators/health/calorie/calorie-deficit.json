@@ -1,0 +1,89 @@
+{
+  "slug": "calorie-deficit",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "ダイエットカロリー計算",
+  "description": "目標体重から1日の摂取カロリー目標を計算",
+  "metaTitle": "ダイエットカロリー計算ツール｜1日何kcalで痩せるか計算",
+  "metaDescription": "現在の体重・目標体重・期間から1日の目標摂取カロリーを計算。健康的なダイエット計画に。",
+  "calculatorFunction": "calorieDeficit",
+  "inputs": [
+    {
+      "id": "currentWeight",
+      "label": "現在の体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 70,
+      "min": 30,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "targetWeight",
+      "label": "目標体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 60,
+      "min": 30,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "weeks",
+      "label": "達成期間",
+      "type": "number",
+      "unit": "週間",
+      "default": 12,
+      "min": 1,
+      "max": 104,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyCalorie",
+      "label": "1日の目標摂取カロリー",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "dailyDeficit",
+      "label": "1日のカロリー不足量",
+      "format": "text"
+    },
+    {
+      "id": "weeklyLoss",
+      "label": "週あたりの減量",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ダイエットのカロリー計算</h3><p>体脂肪1kgは約7,200kcalです。1週間に0.5kg減量するには1日あたり約500kcalの赤字が必要です。極端な制限（基礎代謝以下）は健康に悪影響があるため避けましょう。</p>",
+  "faq": [
+    {
+      "question": "1ヶ月に何kg減量が安全？",
+      "answer": "体重の4%以内（70kgの人なら約2.8kg/月）が健康的なペースです。"
+    }
+  ],
+  "related": [
+    "daily-calorie",
+    "basal-metabolism",
+    "calories-bmr"
+  ],
+  "popular": false
+}

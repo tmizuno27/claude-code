@@ -1,0 +1,77 @@
+{
+  "slug": "mortgage-affordability",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "住宅ローン借入可能額計算",
+  "description": "年収から住宅ローンの借入可能額を計算",
+  "metaTitle": "住宅ローン借入可能額計算ツール｜年収からいくら借りられるか計算",
+  "metaDescription": "年収・返済比率・金利から住宅ローンの借入可能額を自動計算。マイホーム購入の予算目安に。",
+  "calculatorFunction": "mortgageAffordability",
+  "inputs": [
+    {
+      "id": "annualIncome",
+      "label": "年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 100,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "repaymentRatio",
+      "label": "返済比率",
+      "type": "number",
+      "unit": "%",
+      "default": 25,
+      "min": 10,
+      "max": 40,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "金利",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0.1,
+      "max": 10,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "返済期間",
+      "type": "number",
+      "unit": "年",
+      "default": 35,
+      "min": 5,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "maxLoan",
+      "label": "借入可能額（概算）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "monthlyPayment",
+      "label": "月々の返済額上限",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>借入可能額の計算</h3><p>年間返済額 = 年収 × 返済比率で月々の返済額上限を求め、そこから逆算して借入可能額を算出します。一般的に返済比率は25〜30%が安全圏とされています。</p>",
+  "faq": [
+    {
+      "question": "年収の何倍まで借りられる？",
+      "answer": "一般的に年収の7〜8倍が上限目安です。ただし返済に無理がない額は年収の5〜6倍です。"
+    }
+  ],
+  "related": [
+    "loan-repayment",
+    "rent-vs-buy"
+  ],
+  "popular": false
+}

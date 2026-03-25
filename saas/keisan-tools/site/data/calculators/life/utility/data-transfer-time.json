@@ -1,0 +1,71 @@
+{
+  "slug": "data-transfer-time",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "データ転送時間計算",
+  "description": "USBやSDカードのデータ転送時間を計算",
+  "metaTitle": "データ転送時間計算ツール｜USB・SDの転送速度から時間を計算",
+  "metaDescription": "ファイルサイズとUSB/SDカードの転送速度からデータコピーにかかる時間を計算。",
+  "calculatorFunction": "dataTransferTime",
+  "inputs": [
+    {
+      "id": "fileSize",
+      "label": "ファイルサイズ",
+      "type": "number",
+      "unit": "GB",
+      "default": 64,
+      "min": 0.01,
+      "max": 100000,
+      "step": 0.01
+    },
+    {
+      "id": "speed",
+      "label": "転送速度",
+      "type": "select",
+      "options": [
+        {
+          "value": "5",
+          "label": "USB 2.0（5MB/s目安）"
+        },
+        {
+          "value": "100",
+          "label": "USB 3.0（100MB/s目安）"
+        },
+        {
+          "value": "300",
+          "label": "USB 3.1（300MB/s目安）"
+        },
+        {
+          "value": "30",
+          "label": "SDカード（30MB/s）"
+        },
+        {
+          "value": "90",
+          "label": "SDカードUHS-I（90MB/s）"
+        }
+      ],
+      "default": "100"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "transferTime",
+      "label": "転送時間",
+      "format": "text",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>データ転送速度の目安</h3><p>USB 2.0は理論上480Mbps（実効5〜30MB/s）、USB 3.0は5Gbps（実効60〜100MB/s）、USB 3.1は10Gbps（実効200〜400MB/s）です。実際の速度はデバイスやファイルサイズにより大きく変動します。</p>",
+  "faq": [
+    {
+      "question": "USB 3.0と2.0の見分け方は？",
+      "answer": "USB 3.0のコネクタ内部は青色、2.0は黒色です。また3.0のロゴにはSSの表記があります。"
+    }
+  ],
+  "related": [
+    "download-time",
+    "internet-speed",
+    "data-size"
+  ],
+  "popular": false
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "laundry-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "洗濯コスト計算",
+  "description": "洗濯機の1回あたりの水道代・電気代を計算",
+  "metaTitle": "洗濯コスト計算ツール｜1回の洗濯代はいくら？",
+  "metaDescription": "洗濯機の容量・水道代・電気代から1回の洗濯にかかるコストを計算。コインランドリーとの比較も。",
+  "calculatorFunction": "laundryCost",
+  "inputs": [
+    {
+      "id": "waterCost",
+      "label": "水道単価",
+      "type": "number",
+      "unit": "円/L",
+      "default": 0.24,
+      "min": 0.1,
+      "max": 1,
+      "step": 0.01
+    },
+    {
+      "id": "waterUsage",
+      "label": "1回の使用水量",
+      "type": "number",
+      "unit": "L",
+      "default": 90,
+      "min": 30,
+      "max": 200,
+      "step": 10
+    },
+    {
+      "id": "electricityCost",
+      "label": "電気代単価",
+      "type": "number",
+      "unit": "円/kWh",
+      "default": 30,
+      "min": 15,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "electricityUsage",
+      "label": "1回の消費電力",
+      "type": "number",
+      "unit": "Wh",
+      "default": 70,
+      "min": 20,
+      "max": 500,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "waterFee",
+      "label": "水道代",
+      "format": "text"
+    },
+    {
+      "id": "electricFee",
+      "label": "電気代",
+      "format": "text"
+    },
+    {
+      "id": "totalCost",
+      "label": "1回の洗濯コスト",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "monthlyCost",
+      "label": "月30回の場合",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>洗濯1回のコスト</h3><p>一般的な縦型洗濯機の1回のコストは約25〜35円（水道代22円+電気代2〜3円+洗剤5〜10円）です。ドラム式は水道代が約半分で節水できます。</p>",
+  "faq": [
+    {
+      "question": "コインランドリーと比較すると？",
+      "answer": "コインランドリーは1回300〜500円。年間200回洗う場合、自宅洗濯で年間約5〜7千円、コインランドリーで約6〜10万円です。"
+    }
+  ],
+  "related": [
+    "electricity-cost",
+    "water-cost"
+  ],
+  "popular": false
+}

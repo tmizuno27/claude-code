@@ -1,0 +1,67 @@
+{
+  "slug": "hourly-to-annual",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "時給から年収計算",
+  "description": "時給・勤務時間から月収・年収を計算",
+  "metaTitle": "時給から年収計算ツール｜アルバイトの年収を自動計算",
+  "metaDescription": "時給と週の勤務時間から月収・年収・手取りの目安を計算。扶養内で働く際の上限チェックにも。",
+  "calculatorFunction": "hourlyToAnnual",
+  "inputs": [
+    {
+      "id": "hourlyRate",
+      "label": "時給",
+      "type": "number",
+      "unit": "円",
+      "default": 1200,
+      "min": 500,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "hoursPerWeek",
+      "label": "週の勤務時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 30,
+      "min": 1,
+      "max": 60,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "月収",
+      "format": "currency"
+    },
+    {
+      "id": "annualIncome",
+      "label": "年収",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "wall103",
+      "label": "103万円の壁",
+      "format": "text"
+    },
+    {
+      "id": "wall130",
+      "label": "130万円の壁",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>時給から年収の計算</h3><p>月収 = 時給 × 週時間 × 52/12。年収 = 月収 × 12。103万円を超えると所得税、130万円を超えると社会保険の扶養から外れます。</p>",
+  "faq": [
+    {
+      "question": "103万円と130万円の壁とは？",
+      "answer": "103万円超で所得税が発生、130万円超で社会保険の扶養から外れ、自分で社保加入が必要になります。"
+    }
+  ],
+  "related": [
+    "hourly-wage",
+    "annual-income"
+  ],
+  "popular": false
+}

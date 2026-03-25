@@ -1,0 +1,62 @@
+{
+  "slug": "sleep-debt",
+  "category": "health",
+  "subcategory": "body",
+  "title": "睡眠負債計算",
+  "description": "睡眠時間から睡眠負債（不足時間）を計算",
+  "metaTitle": "睡眠負債計算ツール｜あなたの睡眠不足を数値化",
+  "metaDescription": "実際の睡眠時間と理想の睡眠時間から、1週間の睡眠負債（不足時間）を計算。",
+  "calculatorFunction": "sleepDebt",
+  "inputs": [
+    {
+      "id": "actualHours",
+      "label": "実際の平均睡眠時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 6,
+      "min": 1,
+      "max": 14,
+      "step": 0.5
+    },
+    {
+      "id": "idealHours",
+      "label": "理想の睡眠時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 7.5,
+      "min": 5,
+      "max": 12,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyDebt",
+      "label": "1日の睡眠負債",
+      "format": "text"
+    },
+    {
+      "id": "weeklyDebt",
+      "label": "1週間の睡眠負債",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "monthlyDebt",
+      "label": "1ヶ月の睡眠負債",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>睡眠負債とは</h3><p>必要な睡眠時間と実際の睡眠時間の差が「睡眠負債」です。成人の理想睡眠時間は7〜9時間。40時間以上の累積負債は注意力・判断力の著しい低下を招きます。</p>",
+  "faq": [
+    {
+      "question": "睡眠負債は週末に返せる？",
+      "answer": "研究では完全な返済は難しいとされています。普段から適切な睡眠時間を確保することが重要です。"
+    }
+  ],
+  "related": [
+    "sleep-calculator",
+    "sleep-cycle"
+  ],
+  "popular": false
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "room-air-volume",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "部屋の体積・換気計算",
+  "description": "部屋の寸法から体積と必要換気量を計算",
+  "metaTitle": "部屋の体積・換気計算ツール｜空気の量と換気回数を計算",
+  "metaDescription": "部屋の広さと天井高から空気の体積を計算し、適切な換気回数を表示。エアコン選びの参考にも。",
+  "calculatorFunction": "roomAirVolume",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "部屋の広さ",
+      "type": "number",
+      "unit": "畳",
+      "default": 6,
+      "min": 1,
+      "max": 100,
+      "step": 0.5
+    },
+    {
+      "id": "height",
+      "label": "天井高",
+      "type": "number",
+      "unit": "m",
+      "default": 2.4,
+      "min": 1.5,
+      "max": 5,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "volumeM3",
+      "label": "空気の体積",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "sqm",
+      "label": "平米換算",
+      "format": "text"
+    },
+    {
+      "id": "ventilationPerHour",
+      "label": "推奨換気量",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>部屋の体積計算</h3><p>1畳 = 約1.62m²（中京間）。体積 = 面積 × 天井高です。建築基準法では住宅の換気は0.5回/時以上が義務付けられています。</p>",
+  "faq": [
+    {
+      "question": "エアコンの畳数と部屋の関係は？",
+      "answer": "エアコンの適用畳数は木造と鉄筋で異なります。6畳用なら鉄筋で8〜9畳まで対応することもあります。"
+    }
+  ],
+  "related": [
+    "air-conditioner-cost"
+  ],
+  "popular": false
+}

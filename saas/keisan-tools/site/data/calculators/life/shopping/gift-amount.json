@@ -1,0 +1,85 @@
+{
+  "slug": "gift-amount",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "ご祝儀金額計算",
+  "description": "関係性から適切なご祝儀金額を判定",
+  "metaTitle": "ご祝儀金額計算ツール｜結婚式のご祝儀相場を判定",
+  "metaDescription": "新郎新婦との関係性と自分の年代からご祝儀の相場金額を判定。結婚式のご祝儀マナーもチェック。",
+  "calculatorFunction": "giftAmount",
+  "inputs": [
+    {
+      "id": "relation",
+      "label": "関係性",
+      "type": "select",
+      "options": [
+        {
+          "value": "friend",
+          "label": "友人"
+        },
+        {
+          "value": "colleague",
+          "label": "同僚"
+        },
+        {
+          "value": "boss",
+          "label": "上司/先輩"
+        },
+        {
+          "value": "relative",
+          "label": "親族"
+        },
+        {
+          "value": "sibling",
+          "label": "兄弟姉妹"
+        }
+      ],
+      "default": "friend"
+    },
+    {
+      "id": "age",
+      "label": "自分の年代",
+      "type": "select",
+      "options": [
+        {
+          "value": "20s",
+          "label": "20代"
+        },
+        {
+          "value": "30s",
+          "label": "30代"
+        },
+        {
+          "value": "40s",
+          "label": "40代以上"
+        }
+      ],
+      "default": "30s"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "amount",
+      "label": "推奨ご祝儀額",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "note",
+      "label": "注意事項",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ご祝儀の相場</h3><p>ご祝儀は「割り切れない」奇数が縁起が良いとされ、3万円・5万円が一般的です。2万円は「ペア」で許容、4万円・9万円は避けましょう。</p>",
+  "faq": [
+    {
+      "question": "夫婦で出席する場合は？",
+      "answer": "2人で5〜7万円が相場です。個別に3万円ずつよりまとめて奇数にするのがマナーです。"
+    }
+  ],
+  "related": [
+    "wedding-budget",
+    "split-bill"
+  ],
+  "popular": false
+}

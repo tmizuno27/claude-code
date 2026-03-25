@@ -1,0 +1,54 @@
+{
+  "slug": "screen-time",
+  "category": "life",
+  "subcategory": "utility",
+  "title": "スクリーンタイム計算",
+  "description": "1日のスクリーンタイムの年間合計を計算",
+  "metaTitle": "スクリーンタイム計算ツール｜年間の画面時間を計算",
+  "metaDescription": "1日のスマホ・PC利用時間から年間の累計時間を計算。時間の使い方を見直すきっかけに。",
+  "calculatorFunction": "screenTime",
+  "inputs": [
+    {
+      "id": "dailyHours",
+      "label": "1日のスクリーンタイム",
+      "type": "number",
+      "unit": "時間",
+      "default": 6,
+      "min": 0.5,
+      "max": 20,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "weeklyHours",
+      "label": "週間合計",
+      "format": "text"
+    },
+    {
+      "id": "monthlyHours",
+      "label": "月間合計",
+      "format": "text"
+    },
+    {
+      "id": "annualHours",
+      "label": "年間合計",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "annualDays",
+      "label": "年間日数換算",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>スクリーンタイムの影響</h3><p>日本人の平均スクリーンタイムは1日約4〜7時間です。過度な画面使用はブルーライトによる眼精疲労、睡眠の質低下、姿勢悪化のリスクがあります。</p>",
+  "faq": [
+    {
+      "question": "適切なスクリーンタイムは？",
+      "answer": "仕事以外で1日2時間以内が推奨されています。20-20-20ルール（20分ごとに20フィート先を20秒見る）で眼精疲労を軽減できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}
