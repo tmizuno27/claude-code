@@ -1,0 +1,44 @@
+{
+  "title": "Amazon Product Scraper Input",
+  "description": "Configure scraping mode, URLs or keywords, and marketplace.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "Scraping mode: 'product' for direct URLs, 'search' for keyword search.",
+      "default": "product",
+      "enum": ["product", "search"],
+      "editor": "select"
+    },
+    "urls": {
+      "title": "Product URLs",
+      "type": "array",
+      "description": "List of Amazon product URLs to scrape (product mode only).",
+      "editor": "stringList",
+      "items": { "type": "string" }
+    },
+    "keywords": {
+      "title": "Search Keywords",
+      "type": "string",
+      "description": "Search query (search mode only).",
+      "editor": "textfield"
+    },
+    "marketplace": {
+      "title": "Marketplace",
+      "type": "string",
+      "description": "Amazon marketplace domain suffix (e.g., 'com', 'co.uk', 'de', 'co.jp').",
+      "default": "com",
+      "editor": "textfield"
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of search results to return.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 100
+    }
+  }
+}

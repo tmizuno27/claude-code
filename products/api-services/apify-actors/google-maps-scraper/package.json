@@ -1,0 +1,14 @@
+{
+  "name": "google-maps-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Scrape Google Maps business listings with reviews, ratings, and contact info",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}
