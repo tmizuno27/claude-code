@@ -258,6 +258,10 @@ def pdca_blogs():
         # --- PLAN ---
         logger.report("### PLAN")
         actions = []
+        # GSCエラー時のフォールバック
+        now_imp = locals().get("now_imp", 0)
+        imp_delta = locals().get("imp_delta", 0)
+        now_click = locals().get("now_click", 0)
         if now_imp < 50:
             actions.append("⚠️ インプレッション極少 → ロングテールKW記事追加が急務")
         if imp_delta < 0:
