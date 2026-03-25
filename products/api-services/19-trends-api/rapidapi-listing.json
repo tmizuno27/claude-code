@@ -1,25 +1,26 @@
 {
   "name": "Trends Aggregator API",
   "slug": "trends-aggregator-api",
-  "description": "Free Trends API - Google, Reddit, HN, GitHub, PH | SerpAPI Alt",
-  "long_description": "## Why Trends Aggregator API?\n- ✅ 5 platforms in 1: Google Trends, Hacker News, Reddit, GitHub, Product Hunt\n- ✅ Real-time trending topics across tech, business, and culture\n- ✅ Structured JSON with rankings, scores, and URLs\n\n## Key Features\n- Google Trends daily/real-time trending searches\n- Hacker News top stories and trending posts\n- Reddit trending subreddits and posts\n- GitHub trending repositories\n- Product Hunt daily top products\n\n## Use Cases\n- **Content Strategy**: Find trending topics for blog posts and social media\n- **Market Research**: Track emerging technologies and products\n- **News Dashboards**: Multi-platform trend monitoring\n- **SEO**: Capitalize on trending search queries\n\n## Quick Start\n```\nGET /trends?source=google&geo=US\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all sources. No credit card required.\n\n## Alternative To\nA free **trends API alternative** to Google Trends API (unofficial), SerpAPI Trends, and social listening tools. 5 platforms in one API.\n\n## Need More Requests?\nFree plan (500 queries/month) for trend monitoring. **Pro ($5.99/mo)** for content marketing and social listening dashboards.",
-  "category": "Social",
+  "description": "The ONLY API with 5 trend sources: Google Trends + Reddit + HN + GitHub + Product Hunt. One subscription. Free 500/mo.",
+  "long_description": "## The Only Multi-Source Trends API\n5 trending platforms in 1 RapidAPI subscription. No other API aggregates Google Trends, Hacker News, Reddit, GitHub, and Product Hunt together.\n\n## Why Multi-Source Matters\nGoogle Trends shows search demand. Reddit shows social buzz. Hacker News shows tech sentiment. GitHub shows developer interest. Product Hunt shows new products. Combining all 5 gives you the full picture of what's trending — not just one angle.\n\n## 5 Endpoints, 5 Sources\n| Endpoint | Source | Updates |\n|----------|--------|---------|\n| `/google/daily` | Google Trends | Daily |\n| `/hackernews/trending` | Hacker News | 15 min |\n| `/reddit/trending` | Reddit r/popular | 15 min |\n| `/github/trending` | GitHub repos | Few hours |\n| `/producthunt/today` | Product Hunt | Daily |\n\n## Cost Comparison\n| | This API | SerpAPI | BuzzSumo | Exploding Topics |\n|---|---|---|---|---|\n| Sources | **5 platforms** | Google only | Social only | Google + social |\n| Free tier | **500 req/mo** | None | None | 10/mo |\n| Pro price | **$5.99/50K** | $50/5K | $99/mo | $39/mo |\n\n## Use Cases\n- **Content marketing**: Find trending topics across 5 platforms for timely content\n- **AI newsletters**: Auto-generate daily trend roundups from all sources\n- **Social media tools**: Surface trending topics for post scheduling\n- **Market research**: Track competitor products on PH, tech trends on HN/GitHub\n- **SEO strategy**: Find rising search queries + validate via social discussion volume\n- **Developer dashboards**: Morning briefing of what's hot in tech\n\n## Quick Start\n```\nGET /google/daily?geo=US → trending Google searches\nGET /hackernews/trending → top HN stories\nGET /reddit/trending → top Reddit posts\nGET /github/trending → fastest-growing repos\nGET /producthunt/today → today's top products\n```\nCall all 5 in parallel for instant multi-source aggregation.\n\nFree tier: 500 requests/month. No credit card required.",
+  "category": "Data",
   "tags": [
     "trends",
     "google-trends",
-    "reddit",
+    "reddit-trending",
     "hackernews",
-    "free-api",
-    "rest-api",
-    "developer-tools",
-    "serpapi-alternative",
-    "product-hunt",
     "github-trending",
+    "product-hunt",
     "social-listening",
     "trending-topics",
-    "cloudflare-edge"
+    "content-marketing",
+    "market-research",
+    "serpapi-alternative",
+    "multi-source-trends",
+    "free-api",
+    "news-aggregator"
   ],
-  "website": "https://trends-api.your-domain.workers.dev",
+  "website": "https://trends-api.t-mizuno27.workers.dev",
   "pricing": {
     "plans": [
       {
@@ -30,9 +31,9 @@
           "requests_per_second": 1
         },
         "features": [
-          "Google Trends",
-          "Hacker News trending",
-          "Reddit trending"
+          "All 5 platform endpoints",
+          "Google Trends geo filtering",
+          "Structured JSON responses"
         ]
       },
       {
@@ -43,9 +44,9 @@
           "requests_per_second": 10
         },
         "features": [
-          "All 5 platforms",
-          "GitHub trending",
-          "Product Hunt",
+          "All Basic features",
+          "50,000 requests/month",
+          "10 req/sec throughput",
           "Priority support"
         ]
       },
@@ -58,7 +59,8 @@
         },
         "features": [
           "All Pro features",
-          "Highest rate limits",
+          "500,000 requests/month",
+          "50 req/sec throughput",
           "Dedicated support"
         ]
       },
@@ -70,7 +72,8 @@
           "requests_per_second": 100
         },
         "features": [
-          "Unlimited platforms",
+          "All Ultra features",
+          "2,000,000 requests/month",
           "Maximum throughput",
           "SLA guarantee"
         ]
@@ -82,14 +85,14 @@
       "name": "Google Trends Daily",
       "method": "GET",
       "path": "/google/daily",
-      "description": "Get daily trending search topics from Google Trends",
+      "description": "Daily trending search topics from Google Trends with traffic estimates",
       "parameters": [
         {
           "name": "geo",
           "type": "string",
           "required": false,
           "default": "US",
-          "description": "Country code for geo-filtered trends (e.g., US, JP, GB)"
+          "description": "Country code: US, JP, GB, DE, FR, BR, etc."
         }
       ]
     },
@@ -97,25 +100,25 @@
       "name": "Hacker News Trending",
       "method": "GET",
       "path": "/hackernews/trending",
-      "description": "Get top 25 trending Hacker News stories"
+      "description": "Top 25 trending Hacker News stories with scores and comment counts"
     },
     {
       "name": "Reddit Trending",
       "method": "GET",
       "path": "/reddit/trending",
-      "description": "Get top 25 popular Reddit posts"
+      "description": "Top 25 trending posts from r/popular with upvotes and subreddit info"
     },
     {
       "name": "GitHub Trending",
       "method": "GET",
       "path": "/github/trending",
-      "description": "Get top 25 trending GitHub repositories from the past week"
+      "description": "Top 25 fastest-growing GitHub repositories with stars and language"
     },
     {
       "name": "Product Hunt Today",
       "method": "GET",
       "path": "/producthunt/today",
-      "description": "Get today's top Product Hunt products"
+      "description": "Today's top Product Hunt products with descriptions and votes"
     },
     {
       "name": "API Info",
