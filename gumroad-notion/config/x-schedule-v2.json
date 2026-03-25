@@ -5,7 +5,7 @@
     "14:00",
     "19:00"
   ],
-  "note": "V2: 5 categories (value/promo/thread/engagement/seasonal). 80 tweets total. ~27 day cycle. Auto-reset when a category is exhausted.",
+  "note": "V2: 5 categories. 100 tweets total (80 original + 20 added 2026-03-25). Auto-reset when a category is exhausted.",
   "category_schedule": {
     "10:00": "value or engagement (weekends)",
     "14:00": "value or thread (Tue/Thu)",
@@ -64,19 +64,25 @@
       "id": 7,
       "category": "value",
       "text": "Hot take: Most side hustles are negative hourly rate.\n\nRevenue sounds great until you subtract:\n- Tools/subscriptions\n- Taxes set aside\n- Hours actually worked\n\nKnow your REAL $/hour before calling it \"passive income.\"\n\n#SideHustle",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-25 07:55:50",
+      "tweet_id": "2036758956563992825"
     },
     {
       "id": 8,
       "category": "value",
       "text": "The students getting A's aren't smarter.\n\nThey just track:\n- Every assignment + due date\n- Study hours per subject\n- Grade trends over time\n\nWhen you see the data, you know exactly where to focus.\n\n#StudyTips",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-25 10:00:04",
+      "tweet_id": "2036790221426037212"
     },
     {
       "id": 9,
       "category": "value",
       "text": "You don't lose clients because your work is bad.\n\nYou lose clients because you forgot to follow up.\n\nA follow-up system beats talent every single time.\n\n#FreelanceTips #SmallBusiness",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-25 14:00:04",
+      "tweet_id": "2036850620397728236"
     },
     {
       "id": 10,
@@ -543,6 +549,106 @@
       "category": "seasonal",
       "text": "Remote work tip: Your home office needs a digital command center.\n\nNot just a to-do list. A SYSTEM.\n\nProjects. Tasks. Time tracking. Goals. Habits.\n\nWhen nobody's watching, your system keeps you accountable.\n\n#RemoteWork",
       "posted": false
+    },
+    {
+      "id": 81,
+      "category": "value",
+      "text": "Your API costs $0 until someone uses it.\n\nDeploy on Cloudflare Workers:\n- Free tier: 100K requests/day\n- Global edge network\n- Zero cold starts\n\nStop paying for idle servers.\n\n#CloudflareWorkers #API"
+    },
+    {
+      "id": 82,
+      "category": "value",
+      "text": "VS Code shortcuts that save me 2 hours/week:\n\nCtrl+D → Select next occurrence\nCtrl+Shift+L → Select ALL occurrences\nAlt+↑↓ → Move line up/down\nCtrl+Shift+K → Delete entire line\n\nSmall habits. Big time savings.\n\n#VSCode #DevTips"
+    },
+    {
+      "id": 83,
+      "category": "value",
+      "text": "Regex cheat sheet you'll actually use:\n\n^  → Start of string\n$  → End of string\n\\d → Any digit\n\\w → Any word char\n.* → Match anything\n(?=) → Lookahead\n\nBookmark this. You'll need it tomorrow.\n\n#Regex #Programming"
+    },
+    {
+      "id": 84,
+      "category": "value",
+      "text": "The #1 mistake new API builders make:\n\nReturning raw database errors to users.\n\nAlways wrap responses:\n✓ Consistent format\n✓ Meaningful error codes\n✓ User-friendly messages\n✓ Zero internal leak\n\n#APIDevelopment"
+    },
+    {
+      "id": 85,
+      "category": "value",
+      "text": "Browser extensions I use daily:\n\n1. JSON Formatter — readable API responses\n2. Color Picker — grab any color instantly\n3. Regex Tester — test patterns in-browser\n\nAll free. All save 30+ min/day.\n\n#ChromeExtensions #DevTools"
+    },
+    {
+      "id": 86,
+      "category": "value",
+      "text": "Git commands every developer should know:\n\ngit stash → Save work without committing\ngit bisect → Find the bug-introducing commit\ngit reflog → Undo almost anything\ngit cherry-pick → Grab specific commits\n\n#Git #DevTips"
+    },
+    {
+      "id": 87,
+      "category": "value",
+      "text": "Your Notion workspace is probably too complex.\n\nBest systems have:\n- 1 main dashboard\n- 3-5 linked databases\n- Consistent naming\n- Weekly review habit\n\nSimplicity scales. Complexity collapses.\n\n#Notion #Productivity"
+    },
+    {
+      "id": 88,
+      "category": "promo",
+      "text": "Built a Screenshot API on Cloudflare Workers.\n\nPass any URL → get a clean PNG.\nPerfect for:\n- Social media previews\n- Automated testing\n- Portfolio thumbnails\n\nFree tier: 50 requests/day.\n\n→ Link in bio\n\n#API #RapidAPI"
+    },
+    {
+      "id": 89,
+      "category": "promo",
+      "text": "Tired of writing the same commit messages?\n\nCommit Crafter for VS Code:\n- Analyzes your staged changes\n- Suggests meaningful messages\n- Follows conventional commits\n\nFree on VS Code Marketplace.\n\n#VSCode #GitCommit"
+    },
+    {
+      "id": 90,
+      "category": "promo",
+      "text": "Our SEO Analyzer API returns in <2 seconds:\n\n- Title & meta analysis\n- Heading structure\n- Image alt text audit\n- Internal/external link count\n- Mobile-friendliness check\n\nOne endpoint. Full SEO report.\n\n→ RapidAPI link in bio\n\n#SEO #API"
+    },
+    {
+      "id": 91,
+      "category": "promo",
+      "text": "Markdown tables are painful to write by hand.\n\nMarkdown Table Pro for VS Code:\n- Visual table editor\n- CSV import/paste\n- Auto-alignment\n- Sort columns\n\n1,000+ installs. Free forever.\n\n#VSCode #Markdown"
+    },
+    {
+      "id": 92,
+      "category": "promo",
+      "text": "Need crypto data for your app?\n\nOur Crypto Data API:\n- Real-time prices\n- Historical data\n- 500+ coins\n- <100ms response\n\nBuilt on Cloudflare Workers. $0 infrastructure cost.\n\n→ RapidAPI link in bio\n\n#CryptoAPI #WebDev"
+    },
+    {
+      "id": 93,
+      "category": "promo",
+      "text": "Color Picker Chrome extension:\n\n- Pick any color from any webpage\n- Copy HEX, RGB, HSL instantly\n- Color history saved\n- Works offline\n\nDesigners and devs love it.\n\nFree on Chrome Web Store.\n\n#ChromeExtension #WebDesign"
+    },
+    {
+      "id": 94,
+      "category": "promo",
+      "text": "10 Notion templates. One bundle. $49.\n\nFreelance OS, Content Dashboard, CRM, Study Hub, Life OS, Side Hustle Tracker, Social Planner, Job Search, Book Tracker, Digital Products OS.\n\n66% off vs buying separately.\n\n→ Gumroad link in bio\n\n#Notion"
+    },
+    {
+      "id": 95,
+      "category": "engagement",
+      "text": "Hot take: Most developers don't need Kubernetes.\n\nCloudflare Workers, Vercel, or Railway handle 95% of use cases at 1/10 the complexity.\n\nAgree or disagree?\n\n#DevOps #WebDev"
+    },
+    {
+      "id": 96,
+      "category": "engagement",
+      "text": "What's one VS Code extension you can't live without?\n\nMine: GitLens. Changed how I understand code history.\n\nDrop yours below 👇\n\n#VSCode #Developer"
+    },
+    {
+      "id": 97,
+      "category": "engagement",
+      "text": "Unpopular opinion:\n\nNotion replaced my entire tech stack.\n\n- Trello → Notion boards\n- Google Docs → Notion pages\n- Airtable → Notion databases\n- Evernote → Notion notes\n\nOne tool. $0/month.\n\nWhat's YOUR all-in-one tool?\n\n#Notion #Productivity"
+    },
+    {
+      "id": 98,
+      "category": "thread",
+      "text": "I built 21 APIs on Cloudflare Workers with $0 hosting cost.\n\nHere's the exact stack:\n\n1/ Cloudflare Workers (free tier: 100K req/day)\n2/ RapidAPI for distribution & billing\n3/ Wrangler CLI for deployment\n\nTotal monthly cost: $0. Revenue potential: unlimited.\n\n#API #Indie"
+    },
+    {
+      "id": 99,
+      "category": "thread",
+      "text": "How to launch a VS Code extension in one weekend:\n\n1/ Friday night: Scaffold with Yeoman generator\n2/ Saturday: Build core feature (keep it simple)\n3/ Sunday AM: Write README + record GIF demo\n4/ Sunday PM: Publish to Marketplace\n\nI did this 10 times. Here's what I learned 🧵\n\n#VSCode"
+    },
+    {
+      "id": 100,
+      "category": "thread",
+      "text": "The digital product stack that costs $0/month:\n\n- Notion (templates) → free\n- Gumroad (selling) → free until sale\n- Cloudflare Workers (APIs) → free tier\n- VS Code Marketplace (extensions) → free\n- Chrome Web Store (extensions) → $5 one-time\n\nTotal: $5 to launch 5 product lines.\n\n#IndieHacker"
     }
   ]
 }
