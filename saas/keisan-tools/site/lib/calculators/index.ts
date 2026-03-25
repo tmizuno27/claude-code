@@ -4097,6 +4097,1191 @@ export function lightSpeedToMs(inputs: Record<string, number | string>): Record<
   return { result: result, formula: result };
 }
 
+// === NEW CALCULATORS BATCH ===
+
+export function dateAdd(inputs: Record<string, number | string>): Record<string, number | string> {
+  const startDate = new Date(inputs.startDate as string);
+  const days = inputs.days as number;
+  const result = new Date(startDate);
+  result.setDate(result.getDate() + days);
+  const dayNames = ['日', '月', '火', '水', '木', '金', '土'];
+  return {
+    resultDate: `${result.getFullYear()}年${result.getMonth() + 1}月${result.getDate()}日`,
+    dayOfWeek: `${dayNames[result.getDay()]}曜日`,
+  };
+}
+
+export function taxExcluded(inputs: Record<string, number | string>): Record<string, number | string> {
+  const priceIncluded = inputs.priceIncluded as number;
+  const taxRate = Number(inputs.taxRate) / 100;
+  const priceExcluded = Math.floor(priceIncluded / (1 + taxRate));
+  const taxAmount = priceIncluded - priceExcluded;
+  return { priceExcluded, taxAmount };
+}
+
+export function doubleDiscount(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const d1 = (inputs.discount1 as number) / 100;
+  const d2 = (inputs.discount2 as number) / 100;
+  const finalPrice = Math.round(price * (1 - d1) * (1 - d2));
+  const totalDiscount = price - finalPrice;
+  const effectiveRate = price > 0 ? Math.round((totalDiscount / price) * 1000) / 10 : 0;
+  return { finalPrice, totalDiscount, effectiveRate };
+}
+
+export function pricePerGram(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const weight = inputs.weight as number;
+  const ppg = weight > 0 ? Math.round((price / weight) * 100) / 100 : 0;
+  return {
+    pricePerGram: ppg,
+    pricePer100g: Math.round(ppg * 100),
+    pricePerKg: Math.round(ppg * 1000),
+  };
+}
+
+export function couponValue(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const couponType = inputs.couponType as string;
+  const val = inputs.couponValue as number;
+  let savings: number;
+  if (couponType === 'percent') {
+    savings = Math.round(price * val / 100);
+  } else {
+    savings = Math.min(val, price);
+  }
+  return { finalPrice: price - savings, savings };
+}
+
+export function costPerUse(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const uses = inputs.uses as number;
+  return { costPerUse: uses > 0 ? Math.round(price / uses) : 0 };
+}
+
+export function installmentPayment(inputs: Record<string, number | string>): Record<string, number | string> {
+  const total = inputs.totalAmount as number;
+  const n = Number(inputs.installments);
+  const annualRate = (inputs.annualRate as number) / 100;
+  const monthlyRate = annualRate / 12;
+  let monthlyPayment: number;
+  if (monthlyRate === 0) {
+    monthlyPayment = total / n;
+  } else {
+    monthlyPayment = total * monthlyRate * Math.pow(1 + monthlyRate, n) / (Math.pow(1 + monthlyRate, n) - 1);
+  }
+  const totalPayment = Math.round(monthlyPayment * n);
+  return {
+    monthlyPayment: Math.round(monthlyPayment),
+    totalFee: totalPayment - total,
+    totalPayment,
+  };
+}
+
+export function paperSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const series = inputs.series as string;
+  const size = inputs.size as number;
+  let w: number, h: number;
+  if (series === 'A') {
+    w = Math.round(1000 / Math.pow(2, (2 * size + 1) / 4));
+    h = Math.round(1000 / Math.pow(2, (2 * size - 1) / 4));
+  } else {
+    w = Math.round(1000 * Math.sqrt(1.5) / Math.pow(2, (2 * size + 1) / 4));
+    h = Math.round(1000 * Math.sqrt(1.5) / Math.pow(2, (2 * size - 1) / 4));
+  }
+  // Use known standard values for common sizes
+  const aWidths: Record<number, number> = { 0: 841, 1: 594, 2: 420, 3: 297, 4: 210, 5: 148, 6: 105, 7: 74, 8: 52, 9: 37, 10: 26 };
+  const aHeights: Record<number, number> = { 0: 1189, 1: 841, 2: 594, 3: 420, 4: 297, 5: 210, 6: 148, 7: 105, 8: 74, 9: 52, 10: 37 };
+  const bWidths: Record<number, number> = { 0: 1030, 1: 728, 2: 515, 3: 364, 4: 257, 5: 182, 6: 128, 7: 91, 8: 64, 9: 45, 10: 32 };
+  const bHeights: Record<number, number> = { 0: 1456, 1: 1030, 2: 728, 3: 515, 4: 364, 5: 257, 6: 182, 7: 128, 8: 91, 9: 64, 10: 45 };
+  if (series === 'A' && size in aWidths) { w = aWidths[size]; h = aHeights[size]; }
+  if (series === 'B' && size in bWidths) { w = bWidths[size]; h = bHeights[size]; }
+  return {
+    width: `${w}mm` as unknown as number,
+    height: `${h}mm` as unknown as number,
+    area: `${Math.round(w * h / 100)}cm²` as unknown as number,
+  };
+}
+
+export function shoeSizeConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const jp = inputs.jpSize as number;
+  const gender = inputs.gender as string;
+  let us: number, uk: number, eu: number;
+  if (gender === 'men') {
+    us = jp - 18;
+    uk = jp - 18.5;
+    eu = jp + 18;
+  } else {
+    us = jp - 16.5;
+    uk = jp - 17;
+    eu = jp + 17.5;
+  }
+  return {
+    us: us as unknown as number,
+    uk: uk as unknown as number,
+    eu: eu as unknown as number,
+  };
+}
+
+export function ringSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const circ = inputs.circumference as number;
+  const jpSize = Math.round((circ - 40.8) / 1.03) + 1;
+  const usSize = Math.round(((circ / 25.4 / Math.PI) - 0.4525) * 2) / 2;
+  const euSize = Math.round(circ - 40);
+  return {
+    jpSize: `${Math.max(1, jpSize)}号` as unknown as number,
+    usSize: `${Math.max(0, usSize)}` as unknown as number,
+    euSize: `${Math.max(0, euSize)}` as unknown as number,
+  };
+}
+
+export function batteryLife(inputs: Record<string, number | string>): Record<string, number | string> {
+  const capacity = inputs.capacity as number;
+  const consumption = inputs.consumption as number;
+  const hours = consumption > 0 ? capacity / consumption : 0;
+  const h = Math.floor(hours);
+  const m = Math.round((hours - h) * 60);
+  return { hours: `${h}時間${m}分` as unknown as number };
+}
+
+export function dailyWaterIntake(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const activity = inputs.activity as string;
+  const multiplier = activity === 'high' ? 40 : activity === 'moderate' ? 35 : 30;
+  const dailyMl = Math.round(weight * multiplier);
+  return {
+    dailyMl: `${dailyMl}ml（約${(dailyMl / 1000).toFixed(1)}L）` as unknown as number,
+    glasses: `${Math.round(dailyMl / 200)}杯` as unknown as number,
+  };
+}
+
+export function walkingCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const minutes = inputs.minutes as number;
+  const speed = inputs.speed as string;
+  const mets = speed === 'fast' ? 5.0 : speed === 'normal' ? 3.5 : 2.8;
+  const speedKmh = speed === 'fast' ? 6.4 : speed === 'normal' ? 4.8 : 3.2;
+  const calories = Math.round(mets * weight * (minutes / 60) * 1.05);
+  const distance = Math.round(speedKmh * (minutes / 60) * 10) / 10;
+  const steps = Math.round(distance * 1300);
+  return {
+    calories: `${calories}kcal` as unknown as number,
+    distance: `${distance}km` as unknown as number,
+    steps: `約${steps.toLocaleString()}歩` as unknown as number,
+  };
+}
+
+export function muscleMass(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const bodyFatPct = (inputs.bodyFat as number) / 100;
+  const fatMass = Math.round(weight * bodyFatPct * 10) / 10;
+  const leanMass = Math.round(weight * (1 - bodyFatPct) * 10) / 10;
+  const estimatedMuscle = Math.round(leanMass * 0.5 * 10) / 10;
+  return {
+    leanMass: `${leanMass}kg` as unknown as number,
+    fatMass: `${fatMass}kg` as unknown as number,
+    estimatedMuscle: `約${estimatedMuscle}kg` as unknown as number,
+  };
+}
+
+export function proteinIntake(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const goal = inputs.goal as string;
+  const multiplier = goal === 'muscle' ? 1.8 : goal === 'diet' ? 1.4 : 0.9;
+  const daily = Math.round(weight * multiplier);
+  return {
+    dailyProtein: `${daily}g` as unknown as number,
+    perMeal: `約${Math.round(daily / 3)}g` as unknown as number,
+  };
+}
+
+export function visualAcuity(inputs: Record<string, number | string>): Record<string, number | string> {
+  const acuity = inputs.acuity as number;
+  const logMAR = -Math.log10(acuity);
+  const diopter = acuity >= 1.0 ? 0 : Math.round(-(1 / acuity - 1) * 4) / 4;
+  let category: string;
+  if (acuity >= 1.0) category = 'A（正常）';
+  else if (acuity >= 0.7) category = 'B（やや低下）';
+  else if (acuity >= 0.3) category = 'C（要矯正）';
+  else category = 'D（強い矯正が必要）';
+  return {
+    diopter: `約${diopter}D` as unknown as number,
+    logMAR: `${Math.round(logMAR * 100) / 100}` as unknown as number,
+    category: category as unknown as number,
+  };
+}
+
+export function sugarIntake(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sugarG = inputs.sugarG as number;
+  const calories = Math.round(sugarG * 4);
+  const teaspoons = Math.round(sugarG / 4 * 10) / 10;
+  const percentOfLimit = Math.round(sugarG / 25 * 100);
+  return {
+    calories: `${calories}kcal` as unknown as number,
+    teaspoons: `${teaspoons}杯分` as unknown as number,
+    percentOfLimit: `${percentOfLimit}%` as unknown as number,
+  };
+}
+
+export function bloodPressureCheck(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sys = inputs.systolic as number;
+  const dia = inputs.diastolic as number;
+  let category: string, advice: string;
+  if (sys < 120 && dia < 80) { category = '正常血圧'; advice = '理想的です。現在の生活習慣を維持しましょう。'; }
+  else if (sys < 130 && dia < 80) { category = '正常高値血圧'; advice = '正常範囲ですが、生活習慣の見直しを。'; }
+  else if (sys < 140 && dia < 90) { category = '高値血圧'; advice = '生活習慣の改善が必要です。'; }
+  else if (sys < 160 && dia < 100) { category = 'I度高血圧'; advice = '医師への相談をおすすめします。'; }
+  else if (sys < 180 && dia < 110) { category = 'II度高血圧'; advice = '医療機関を受診してください。'; }
+  else { category = 'III度高血圧'; advice = '早急に医療機関を受診してください。'; }
+  return { category: category as unknown as number, advice: advice as unknown as number };
+}
+
+export function medicineDosage(inputs: Record<string, number | string>): Record<string, number | string> {
+  const adultDose = inputs.adultDose as number;
+  const childWeight = inputs.childWeight as number;
+  const childDose = Math.round(adultDose * childWeight / 70 * 10) / 10;
+  return { childDose: `${childDose}mg（目安）` as unknown as number };
+}
+
+export function babyNameStrokes(inputs: Record<string, number | string>): Record<string, number | string> {
+  const l1 = inputs.lastName1 as number;
+  const l2 = inputs.lastName2 as number || 0;
+  const f1 = inputs.firstName1 as number;
+  const f2 = inputs.firstName2 as number || 0;
+  const tenKaku = l1 + l2;
+  const jinKaku = l2 > 0 ? l2 + f1 : l1 + f1;
+  const chiKaku = f1 + f2;
+  const souKaku = l1 + l2 + f1 + f2;
+  const gaiKaku = souKaku - jinKaku;
+  return {
+    tenKaku: `${tenKaku}画` as unknown as number,
+    jinKaku: `${jinKaku}画` as unknown as number,
+    chiKaku: `${chiKaku}画` as unknown as number,
+    gaiKaku: `${gaiKaku}画` as unknown as number,
+    souKaku: `${souKaku}画` as unknown as number,
+  };
+}
+
+export function weightGainPregnancy(inputs: Record<string, number | string>): Record<string, number | string> {
+  const height = (inputs.height as number) / 100;
+  const preWeight = inputs.preWeight as number;
+  const bmi = preWeight / (height * height);
+  let gain: string;
+  if (bmi < 18.5) gain = '12〜15kg';
+  else if (bmi < 25) gain = '10〜13kg';
+  else if (bmi < 30) gain = '7〜10kg';
+  else gain = '個別対応（上限5kg目安）';
+  const midGain = bmi < 18.5 ? 13.5 : bmi < 25 ? 11.5 : bmi < 30 ? 8.5 : 5;
+  return {
+    preBmi: `${Math.round(bmi * 10) / 10}` as unknown as number,
+    recommendedGain: gain as unknown as number,
+    targetWeight: `${Math.round((preWeight + midGain) * 10) / 10}kg` as unknown as number,
+  };
+}
+
+export function readingSpeed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalChars = inputs.totalChars as number;
+  const wpm = inputs.wpm as number;
+  const totalMinutes = wpm > 0 ? Math.round(totalChars / wpm) : 0;
+  const h = Math.floor(totalMinutes / 60);
+  const m = totalMinutes % 60;
+  return {
+    totalMinutes: h > 0 ? `${h}時間${m}分` as unknown as number : `${m}分` as unknown as number,
+    pages: `約${Math.round(totalChars / 400)}ページ` as unknown as number,
+  };
+}
+
+export function ratioCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const a = inputs.ratioA as number;
+  const b = inputs.ratioB as number;
+  const total = inputs.total as number;
+  const sum = a + b;
+  const valueA = sum > 0 ? Math.round(total * a / sum * 100) / 100 : 0;
+  const valueB = sum > 0 ? Math.round(total * b / sum * 100) / 100 : 0;
+  const percentA = sum > 0 ? Math.round(a / sum * 1000) / 10 : 0;
+  return { valueA, valueB, percentA };
+}
+
+export function powerCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const base = inputs.base as number;
+  const exponent = inputs.exponent as number;
+  const result = Math.pow(base, exponent);
+  return { result: isFinite(result) ? `${result}` as unknown as number : 'Infinity' as unknown as number };
+}
+
+export function primeCheck(inputs: Record<string, number | string>): Record<string, number | string> {
+  const n = Math.floor(inputs.number as number);
+  if (n < 2) return { isPrime: '素数ではありません' as unknown as number, factors: '-' as unknown as number, primeFactors: '-' as unknown as number };
+  let isPrime = true;
+  const factors: number[] = [];
+  for (let i = 1; i <= Math.min(n, 10000); i++) {
+    if (n % i === 0) factors.push(i);
+  }
+  if (factors.length > 2) isPrime = false;
+  // Prime factorization
+  let temp = n;
+  const primeFactors: string[] = [];
+  for (let p = 2; p * p <= temp; p++) {
+    let count = 0;
+    while (temp % p === 0) { temp /= p; count++; }
+    if (count > 0) primeFactors.push(count > 1 ? `${p}^${count}` : `${p}`);
+  }
+  if (temp > 1) primeFactors.push(`${temp}`);
+  return {
+    isPrime: (isPrime ? `${n}は素数です` : `${n}は素数ではありません`) as unknown as number,
+    factors: factors.slice(0, 20).join(', ') + (factors.length > 20 ? '...' : '') as unknown as number,
+    primeFactors: primeFactors.join(' × ') as unknown as number,
+  };
+}
+
+export function parallelogram(inputs: Record<string, number | string>): Record<string, number | string> {
+  return { area: Math.round((inputs.base as number) * (inputs.height as number) * 100) / 100 };
+}
+
+export function salaryRaise(inputs: Record<string, number | string>): Record<string, number | string> {
+  const current = inputs.currentSalary as number;
+  const rate = 1 + (inputs.raiseRate as number) / 100;
+  const years = inputs.years as number;
+  const future = Math.round(current * Math.pow(rate, years));
+  let total = 0;
+  for (let i = 0; i < years; i++) total += current * Math.pow(rate, i);
+  total = Math.round(total);
+  const increasePercent = Math.round((future / current - 1) * 1000) / 10;
+  return {
+    futureSalary: `${future}万円` as unknown as number,
+    totalEarnings: `${total}万円` as unknown as number,
+    increasePercent: `+${increasePercent}%` as unknown as number,
+  };
+}
+
+export function medicalExpenseDeduction(inputs: Record<string, number | string>): Record<string, number | string> {
+  const expenses = (inputs.medicalExpenses as number) * 10000;
+  const insurance = (inputs.insurance as number) * 10000;
+  const annualIncome = (inputs.annualIncome as number) * 10000;
+  const threshold = annualIncome < 2000000 ? annualIncome * 0.05 : 100000;
+  const deduction = Math.max(0, Math.min(expenses - insurance - threshold, 2000000));
+  // Estimate tax rate
+  let taxRate = 0.05;
+  if (annualIncome > 9000000) taxRate = 0.33;
+  else if (annualIncome > 6950000) taxRate = 0.23;
+  else if (annualIncome > 3300000) taxRate = 0.20;
+  else if (annualIncome > 1950000) taxRate = 0.10;
+  const refund = Math.round(deduction * taxRate);
+  return {
+    deductionAmount: `${Math.round(deduction).toLocaleString()}円` as unknown as number,
+    taxRefund: `約${Math.round(refund).toLocaleString()}円` as unknown as number,
+    eligible: (deduction > 0 ? '控除対象です' : '控除対象外です') as unknown as number,
+  };
+}
+
+export function goalSavings(inputs: Record<string, number | string>): Record<string, number | string> {
+  const target = inputs.targetAmount as number;
+  const current = inputs.currentSavings as number;
+  const months = inputs.months as number;
+  const remaining = target - current;
+  const monthly = months > 0 ? Math.ceil(remaining / months * 10) / 10 : 0;
+  return {
+    monthlySaving: `${monthly}万円/月` as unknown as number,
+    remaining: `${remaining}万円` as unknown as number,
+  };
+}
+
+export function carLoanDetail(inputs: Record<string, number | string>): Record<string, number | string> {
+  const loanAmount = ((inputs.carPrice as number) - (inputs.downPayment as number)) * 10000;
+  const monthlyRate = (inputs.rate as number) / 100 / 12;
+  const totalMonths = (inputs.years as number) * 12;
+  let monthlyPayment: number;
+  if (monthlyRate === 0) { monthlyPayment = loanAmount / totalMonths; }
+  else { monthlyPayment = loanAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1); }
+  const totalPayment = Math.round(monthlyPayment * totalMonths);
+  return {
+    monthlyPayment: Math.round(monthlyPayment),
+    totalPayment,
+    totalInterest: totalPayment - loanAmount,
+    loanAmount,
+  };
+}
+
+export function lifeInsuranceNeed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = (inputs.annualIncome as number) * 10000;
+  const savings = (inputs.savings as number) * 10000;
+  const children = inputs.children as number;
+  const youngestAge = inputs.youngestAge as number;
+  const yearsToIndependent = Math.max(0, 22 - youngestAge);
+  const livingExpense = Math.round(income * 0.5 * yearsToIndependent);
+  const educationCost = children * 10000000;
+  const publicPension = Math.round(income * 0.3 * yearsToIndependent);
+  const totalNeed = Math.max(0, livingExpense + educationCost - savings - publicPension);
+  return {
+    totalNeed: `${Math.round(totalNeed / 10000)}万円` as unknown as number,
+    livingExpense: `${Math.round(livingExpense / 10000)}万円` as unknown as number,
+    educationCost: `${Math.round(educationCost / 10000)}万円` as unknown as number,
+    publicPension: `${Math.round(publicPension / 10000)}万円` as unknown as number,
+  };
+}
+
+export function dividendReinvestment(inputs: Record<string, number | string>): Record<string, number | string> {
+  const initial = (inputs.initialInvestment as number) * 10000;
+  const yieldRate = (inputs.dividendYield as number) / 100;
+  const years = inputs.years as number;
+  const monthlyAdd = (inputs.monthlyAdd as number) * 10000;
+  let value = initial;
+  let totalDividends = 0;
+  let totalInvested = initial;
+  for (let y = 0; y < years; y++) {
+    value += monthlyAdd * 12;
+    totalInvested += monthlyAdd * 12;
+    const dividend = value * yieldRate;
+    totalDividends += dividend;
+    value += dividend;
+  }
+  const annualDividend = value * yieldRate;
+  return {
+    totalValue: `${Math.round(value / 10000)}万円` as unknown as number,
+    totalInvested: `${Math.round(totalInvested / 10000)}万円` as unknown as number,
+    totalDividends: `${Math.round(totalDividends / 10000)}万円` as unknown as number,
+    annualDividend: `${Math.round(annualDividend / 10000)}万円/年` as unknown as number,
+  };
+}
+
+export function pensionSimulation(inputs: Record<string, number | string>): Record<string, number | string> {
+  const avgSalary = (inputs.avgSalary as number) * 10000;
+  const enrollYears = inputs.enrollYears as number;
+  const basicPension = Math.min(enrollYears, 40) / 40 * 780000;
+  const proportional = avgSalary / 12 * 5.481 / 1000 * enrollYears * 12;
+  const annualPension = Math.round(basicPension + proportional);
+  const monthlyPension = Math.round(annualPension / 12);
+  const earlyPension = Math.round(monthlyPension * (1 - 0.004 * 60));
+  const latePension = Math.round(monthlyPension * (1 + 0.007 * 60));
+  return {
+    annualPension: `${Math.round(annualPension / 10000)}万円` as unknown as number,
+    monthlyPension: `${monthlyPension.toLocaleString()}円` as unknown as number,
+    earlyPension: `${earlyPension.toLocaleString()}円` as unknown as number,
+    latePension: `${latePension.toLocaleString()}円` as unknown as number,
+  };
+}
+
+export function invoiceTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const taxRate = Number(inputs.taxRate) / 100;
+  const taxAmount = Math.floor(amount * taxRate);
+  return { taxAmount, totalAmount: amount + taxAmount };
+}
+
+export function freelanceIncomeSim(inputs: Record<string, number | string>): Record<string, number | string> {
+  const revenue = (inputs.revenue as number) * 10000;
+  const expenseRate = (inputs.expenseRate as number) / 100;
+  const blueDeduction = Number(inputs.blueReturn) * 10000;
+  const expenses = revenue * expenseRate;
+  const income = revenue - expenses;
+  const taxableIncome = Math.max(0, income - blueDeduction - 480000);
+  let incomeTax = 0;
+  if (taxableIncome <= 1950000) incomeTax = taxableIncome * 0.05;
+  else if (taxableIncome <= 3300000) incomeTax = taxableIncome * 0.10 - 97500;
+  else if (taxableIncome <= 6950000) incomeTax = taxableIncome * 0.20 - 427500;
+  else incomeTax = taxableIncome * 0.23 - 636000;
+  incomeTax = Math.round(incomeTax * 1.021);
+  const residentTax = Math.round(taxableIncome * 0.10);
+  const nationalHealth = Math.round(income * 0.11);
+  const pension = 16980 * 12;
+  const socialInsurance = nationalHealth + pension;
+  const takeHome = Math.round(revenue - expenses - incomeTax - residentTax - socialInsurance);
+  return {
+    income: `${Math.round(income / 10000)}万円` as unknown as number,
+    incomeTax: `${Math.round(incomeTax / 10000)}万円` as unknown as number,
+    residentTax: `${Math.round(residentTax / 10000)}万円` as unknown as number,
+    socialInsurance: `${Math.round(socialInsurance / 10000)}万円` as unknown as number,
+    takeHome: `${Math.round(takeHome / 10000)}万円` as unknown as number,
+  };
+}
+
+export function hiringCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const total = ((inputs.adCost as number) + (inputs.agencyFee as number) + (inputs.internalCost as number)) * 10000;
+  const hires = inputs.hires as number;
+  return {
+    totalCost: `${Math.round(total / 10000)}万円` as unknown as number,
+    costPerHire: `${Math.round(total / hires / 10000)}万円` as unknown as number,
+  };
+}
+
+export function evChargingCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const capacity = inputs.batteryCapacity as number;
+  const rate = inputs.electricityRate as number;
+  const efficiency = inputs.efficiency as number;
+  const monthlyKm = inputs.monthlyKm as number;
+  const fullChargeCost = Math.round(capacity * rate);
+  const monthlyKwh = efficiency > 0 ? monthlyKm / efficiency : 0;
+  const monthlyCost = Math.round(monthlyKwh * rate);
+  const costPerKm = efficiency > 0 ? Math.round(rate / efficiency * 10) / 10 : 0;
+  const gasolinePerKm = Math.round(170 / 15 * 10) / 10;
+  return {
+    fullChargeCost,
+    monthlyCost,
+    costPerKm: `${costPerKm}円/km` as unknown as number,
+    gasolineEquivalent: `ガソリン車: 約${gasolinePerKm}円/km` as unknown as number,
+  };
+}
+
+export function cookingMeasure(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const unit = inputs.unit as string;
+  const ingredient = inputs.ingredient as string;
+  const mlPerUnit: Record<string, number> = { tablespoon: 15, teaspoon: 5, cup: 200 };
+  const ml = amount * (mlPerUnit[unit] || 15);
+  const densities: Record<string, number> = { water: 1, soy: 1.2, sugar: 0.6, salt: 1.2, flour: 0.6, oil: 0.9 };
+  const grams = Math.round(ml * (densities[ingredient] || 1) * 10) / 10;
+  return {
+    ml: `${Math.round(ml * 10) / 10}ml` as unknown as number,
+    grams: `${grams}g` as unknown as number,
+  };
+}
+
+export function emergencyMonths(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthly = inputs.monthlyExpense as number;
+  const months = inputs.months as number;
+  return { targetAmount: `${monthly * months}万円` as unknown as number };
+}
+
+export function withholdingTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  let tax: number;
+  if (amount <= 1000000) {
+    tax = Math.floor(amount * 0.1021);
+  } else {
+    tax = Math.floor(1000000 * 0.1021 + (amount - 1000000) * 0.2042);
+  }
+  return { withholdingAmount: tax, netAmount: amount - tax };
+}
+
+export function schoolFee(inputs: Record<string, number | string>): Record<string, number | string> {
+  const costs: Record<string, Record<string, number>> = {
+    kindergarten: { public: 47, private: 92 },
+    elementary: { public: 193, private: 959 },
+    juniorHigh: { public: 146, private: 422 },
+    highSchool: { public: 137, private: 290 },
+    university: { national: 243, publicUni: 255, privateSci: 541, privateArt: 398 },
+  };
+  const kg = costs.kindergarten[inputs.kindergarten as string] || 47;
+  const el = costs.elementary[inputs.elementary as string] || 193;
+  const jh = costs.juniorHigh[inputs.juniorHigh as string] || 146;
+  const hs = costs.highSchool[inputs.highSchool as string] || 137;
+  const uni = costs.university[inputs.university as string] || 243;
+  const total = kg + el + jh + hs + uni;
+  return {
+    totalCost: `約${total}万円` as unknown as number,
+    kindergartenCost: `${kg}万円` as unknown as number,
+    elementaryCost: `${el}万円` as unknown as number,
+    juniorHighCost: `${jh}万円` as unknown as number,
+    highSchoolCost: `${hs}万円` as unknown as number,
+    universityCost: `${uni}万円` as unknown as number,
+  };
+}
+
+export function proteinFoodCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const weight = inputs.weight as number;
+  const proteinPer100g = inputs.proteinPer100g as number;
+  const totalProtein = Math.round(weight * proteinPer100g / 100 * 10) / 10;
+  const costPerG = totalProtein > 0 ? Math.round(price / totalProtein * 10) / 10 : 0;
+  return {
+    costPerProteinG: `${costPerG}円/g` as unknown as number,
+    totalProtein: `${totalProtein}g` as unknown as number,
+    costPer20g: `${Math.round(costPerG * 20)}円` as unknown as number,
+  };
+}
+
+export function numberToKanji(inputs: Record<string, number | string>): Record<string, number | string> {
+  const num = Math.floor(inputs.number as number);
+  const format = inputs.format as string;
+  const normalDigits = ['〇', '一', '二', '三', '四', '五', '六', '七', '八', '九'];
+  const formalDigits = ['〇', '壱', '弐', '参', '四', '伍', '六', '七', '八', '九'];
+  const units = ['', '十', '百', '千'];
+  const formalUnits = ['', '拾', '百', '千'];
+  const bigUnits = ['', '万', '億', '兆'];
+  const formalBigUnits = ['', '萬', '億', '兆'];
+  const digits = format === 'formal' ? formalDigits : normalDigits;
+  const u = format === 'formal' ? formalUnits : units;
+  const bu = format === 'formal' ? formalBigUnits : bigUnits;
+  if (num === 0) return { kanji: digits[0] as unknown as number };
+
+  function groupToKanji(n: number): string {
+    if (n === 0) return '';
+    let result = '';
+    const d = [Math.floor(n / 1000) % 10, Math.floor(n / 100) % 10, Math.floor(n / 10) % 10, n % 10];
+    for (let i = 0; i < 4; i++) {
+      if (d[i] === 0) continue;
+      if (d[i] === 1 && i < 3) result += u[3 - i];
+      else result += digits[d[i]] + u[3 - i];
+    }
+    return result;
+  }
+
+  let remaining = num;
+  let result = '';
+  for (let i = 3; i >= 0; i--) {
+    const divisor = Math.pow(10000, i);
+    const group = Math.floor(remaining / divisor);
+    remaining %= divisor;
+    if (group > 0) result += groupToKanji(group) + bu[i];
+  }
+  return { kanji: result as unknown as number };
+}
+
+export function fibonacci(inputs: Record<string, number | string>): Record<string, number | string> {
+  const n = Math.min(Math.floor(inputs.n as number), 75);
+  const seq: number[] = [1, 1];
+  for (let i = 2; i < n; i++) seq.push(seq[i - 1] + seq[i - 2]);
+  return {
+    value: `${seq[n - 1]}` as unknown as number,
+    sequence: seq.slice(0, Math.min(n, 20)).join(', ') + (n > 20 ? '...' : '') as unknown as number,
+  };
+}
+
+export function employeeCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthly = (inputs.monthlySalary as number) * 10000;
+  const bonusMonths = inputs.bonusMonths as number;
+  const annualSalary = monthly * (12 + bonusMonths);
+  const socialInsurance = Math.round(annualSalary * 0.15);
+  const totalCost = annualSalary + socialInsurance;
+  return {
+    annualSalary: `${Math.round(annualSalary / 10000)}万円` as unknown as number,
+    socialInsurance: `${Math.round(socialInsurance / 10000)}万円` as unknown as number,
+    totalCost: `${Math.round(totalCost / 10000)}万円` as unknown as number,
+    monthlyCost: `${Math.round(totalCost / 12 / 10000 * 10) / 10}万円` as unknown as number,
+  };
+}
+
+export function schoolYear(inputs: Record<string, number | string>): Record<string, number | string> {
+  const birthDate = new Date(inputs.birthDate as string);
+  const now = new Date();
+  const birthYear = birthDate.getFullYear();
+  const birthMonth = birthDate.getMonth() + 1;
+  const birthDay = birthDate.getDate();
+  // School year starts April 2
+  const isEarlyBorn = birthMonth < 4 || (birthMonth === 4 && birthDay <= 1);
+  const schoolStartYear = isEarlyBorn ? birthYear + 6 : birthYear + 7;
+  const currentFiscalYear = now.getMonth() >= 3 ? now.getFullYear() : now.getFullYear() - 1;
+  const yearsInSchool = currentFiscalYear - schoolStartYear + 1;
+  let schoolYearStr: string;
+  if (yearsInSchool < 1) schoolYearStr = '未就学';
+  else if (yearsInSchool <= 6) schoolYearStr = `小学${yearsInSchool}年生`;
+  else if (yearsInSchool <= 9) schoolYearStr = `中学${yearsInSchool - 6}年生`;
+  else if (yearsInSchool <= 12) schoolYearStr = `高校${yearsInSchool - 9}年生`;
+  else if (yearsInSchool <= 16) schoolYearStr = `大学${yearsInSchool - 12}年生`;
+  else schoolYearStr = '卒業済み';
+  return {
+    schoolYear: schoolYearStr as unknown as number,
+    graduationDate: `${schoolStartYear + 12}年3月` as unknown as number,
+    isEarlyBorn: (isEarlyBorn ? '早生まれ' : '早生まれではない') as unknown as number,
+  };
+}
+
+export function warekiSeireki(inputs: Record<string, number | string>): Record<string, number | string> {
+  const era = inputs.era as string;
+  const year = inputs.year as number;
+  const offsets: Record<string, number> = { reiwa: 2018, heisei: 1988, showa: 1925, taisho: 1911, meiji: 1867 };
+  const seireki = (offsets[era] || 2018) + year;
+  const eraNames: Record<string, string> = { reiwa: '令和', heisei: '平成', showa: '昭和', taisho: '大正', meiji: '明治' };
+  const allEras: string[] = [];
+  for (const [key, offset] of Object.entries(offsets)) {
+    const y = seireki - offset;
+    if (y >= 1) allEras.push(`${eraNames[key]}${y}年`);
+  }
+  return {
+    seireki: `${seireki}年` as unknown as number,
+    allEras: allEras.join('、') as unknown as number,
+  };
+}
+
+export function feverCheck(inputs: Record<string, number | string>): Record<string, number | string> {
+  const temp = inputs.temperature as number;
+  const ageGroup = inputs.ageGroup as string;
+  let level: string, advice: string;
+  if (temp < 37.0) { level = '平熱'; advice = '異常ありません。'; }
+  else if (temp < 37.5) { level = 'やや高め'; advice = '安静にして様子を見ましょう。'; }
+  else if (temp < 38.0) { level = '微熱'; advice = '水分を摂り安静に。改善しなければ受診を。'; }
+  else if (temp < 39.0) { level = '中等度の発熱'; advice = '医療機関の受診をおすすめします。'; }
+  else { level = '高熱'; advice = '速やかに医療機関を受診してください。'; }
+  if (ageGroup === 'child' && temp >= 38.0) advice = '小児科を受診してください。' + (temp >= 39.0 ? '解熱剤の使用も検討を。' : '');
+  return { level: level as unknown as number, advice: advice as unknown as number };
+}
+
+export function bulkBuyCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const singlePrice = inputs.singlePrice as number;
+  const bulkPrice = inputs.bulkPrice as number;
+  const bulkQuantity = inputs.bulkQuantity as number;
+  const bulkUnit = Math.round(bulkPrice / bulkQuantity * 100) / 100;
+  const savings = Math.round((singlePrice - bulkUnit) * 100) / 100;
+  const savingsPercent = singlePrice > 0 ? Math.round(savings / singlePrice * 1000) / 10 : 0;
+  return {
+    singleUnit: singlePrice,
+    bulkUnit: Math.round(bulkUnit),
+    savings: Math.round(savings),
+    savingsPercent: `${savingsPercent}%お得` as unknown as number,
+  };
+}
+
+export function sp500Simulation(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthly = (inputs.monthlyInvestment as number) * 10000;
+  const years = inputs.years as number;
+  const annualReturn = (inputs.annualReturn as number) / 100;
+  const monthlyReturn = Math.pow(1 + annualReturn, 1 / 12) - 1;
+  const totalMonths = years * 12;
+  let value = 0;
+  for (let i = 0; i < totalMonths; i++) {
+    value = (value + monthly) * (1 + monthlyReturn);
+  }
+  const totalInvested = monthly * totalMonths;
+  const totalReturn = value - totalInvested;
+  const returnRate = totalInvested > 0 ? Math.round(totalReturn / totalInvested * 1000) / 10 : 0;
+  return {
+    totalInvested: `${Math.round(totalInvested / 10000)}万円` as unknown as number,
+    finalValue: `${Math.round(value / 10000)}万円` as unknown as number,
+    totalReturn: `${Math.round(totalReturn / 10000)}万円` as unknown as number,
+    returnRate: `+${returnRate}%` as unknown as number,
+  };
+}
+
+export function toeicScoreConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const score = inputs.toeicScore as number;
+  let eiken: string, cefr: string, toefl: string, desc: string;
+  if (score >= 945) { eiken = '1級'; cefr = 'C1'; toefl = '95-120'; desc = 'ネイティブに近い'; }
+  else if (score >= 785) { eiken = '準1級'; cefr = 'B2'; toefl = '72-94'; desc = 'ビジネスレベル'; }
+  else if (score >= 600) { eiken = '2級'; cefr = 'B1'; toefl = '42-71'; desc = '日常会話は問題なし'; }
+  else if (score >= 450) { eiken = '準2級'; cefr = 'A2'; toefl = '—'; desc = '基礎的なコミュニケーション'; }
+  else { eiken = '3級以下'; cefr = 'A1'; toefl = '—'; desc = '基礎学習段階'; }
+  return {
+    eiken: eiken as unknown as number,
+    cefr: cefr as unknown as number,
+    toefl: `${toefl}点` as unknown as number,
+    description: desc as unknown as number,
+  };
+}
+
+export function inheritanceTaxSim(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalAssets = (inputs.totalAssets as number) * 10000;
+  const heirs = inputs.heirs as number;
+  const basicDeduction = 30000000 + 6000000 * heirs;
+  const taxableAmount = Math.max(0, totalAssets - basicDeduction);
+  if (taxableAmount === 0) {
+    return {
+      basicDeduction: `${Math.round(basicDeduction / 10000)}万円` as unknown as number,
+      taxableAmount: '0円' as unknown as number,
+      totalTax: '非課税' as unknown as number,
+      taxPerHeir: '0円' as unknown as number,
+    };
+  }
+  const perHeir = taxableAmount / heirs;
+  function calcTax(amount: number): number {
+    if (amount <= 10000000) return amount * 0.10;
+    if (amount <= 30000000) return amount * 0.15 - 500000;
+    if (amount <= 50000000) return amount * 0.20 - 2000000;
+    if (amount <= 100000000) return amount * 0.30 - 7000000;
+    if (amount <= 200000000) return amount * 0.40 - 17000000;
+    if (amount <= 300000000) return amount * 0.45 - 27000000;
+    if (amount <= 600000000) return amount * 0.50 - 42000000;
+    return amount * 0.55 - 72000000;
+  }
+  const taxPerHeirCalc = calcTax(perHeir);
+  const totalTax = Math.round(taxPerHeirCalc * heirs);
+  return {
+    basicDeduction: `${Math.round(basicDeduction / 10000)}万円` as unknown as number,
+    taxableAmount: `${Math.round(taxableAmount / 10000)}万円` as unknown as number,
+    totalTax: `${Math.round(totalTax / 10000)}万円` as unknown as number,
+    taxPerHeir: `${Math.round(taxPerHeirCalc / 10000)}万円` as unknown as number,
+  };
+}
+
+export function flexibilityAge(inputs: Record<string, number | string>): Record<string, number | string> {
+  const actualAge = inputs.actualAge as number;
+  const gender = inputs.gender as string;
+  const grip = inputs.gripStrength as number;
+  const situps = inputs.situps as number;
+  const flexibility = inputs.flexibility as number;
+  // Simplified scoring based on averages
+  const avgGrip = gender === 'male' ? 43 : 27;
+  const avgSitups = 20;
+  const avgFlex = 5;
+  const gripScore = (grip - avgGrip) / avgGrip;
+  const situpScore = (situps - avgSitups) / avgSitups;
+  const flexScore = (flexibility - avgFlex) / 10;
+  const adjustment = Math.round((gripScore + situpScore + flexScore) * -10);
+  const fitnessAge = Math.max(20, Math.min(80, actualAge + adjustment));
+  const diff = actualAge - fitnessAge;
+  return {
+    fitnessAge: `${fitnessAge}歳` as unknown as number,
+    ageDifference: (diff > 0 ? `実年齢より${diff}歳若い` : diff < 0 ? `実年齢より${-diff}歳老けている` : '実年齢相当') as unknown as number,
+  };
+}
+
+export function hourlyVsProject(inputs: Record<string, number | string>): Record<string, number | string> {
+  const hourlyRate = inputs.hourlyRate as number;
+  const projectFee = (inputs.projectFee as number) * 10000;
+  const estimatedHours = inputs.estimatedHours as number;
+  const projectHourlyRate = estimatedHours > 0 ? Math.round(projectFee / estimatedHours) : 0;
+  const hourlyTotal = hourlyRate * estimatedHours;
+  const recommendation = projectHourlyRate > hourlyRate ? '案件単価がお得' : projectHourlyRate < hourlyRate ? '時給契約がお得' : '同等';
+  return {
+    projectHourlyRate: `${projectHourlyRate.toLocaleString()}円/時間` as unknown as number,
+    hourlyTotal: `${Math.round(hourlyTotal / 10000)}万円` as unknown as number,
+    recommendation: recommendation as unknown as number,
+  };
+}
+
+export function braSizeCalc(inputs: Record<string, number | string>): Record<string, number | string> {
+  const top = inputs.topBust as number;
+  const under = inputs.underBust as number;
+  const diff = top - under;
+  const cups = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
+  const cupIndex = Math.max(0, Math.min(cups.length - 1, Math.round((diff - 7.5) / 2.5)));
+  const cupSize = cups[cupIndex];
+  const underSize = Math.round(under / 5) * 5;
+  return {
+    cupSize: `${cupSize}カップ` as unknown as number,
+    braSize: `${underSize}${cupSize}` as unknown as number,
+  };
+}
+
+export function internetSpeed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const mbps = inputs.speed as number;
+  const fileSizeMB = inputs.fileSize as number;
+  const mbPerSec = Math.round(mbps / 8 * 100) / 100;
+  const gbps = Math.round(mbps / 1000 * 1000) / 1000;
+  const seconds = mbPerSec > 0 ? fileSizeMB / mbPerSec : 0;
+  let timeStr: string;
+  if (seconds < 60) timeStr = `${Math.round(seconds)}秒`;
+  else if (seconds < 3600) timeStr = `${Math.floor(seconds / 60)}分${Math.round(seconds % 60)}秒`;
+  else timeStr = `${Math.floor(seconds / 3600)}時間${Math.floor((seconds % 3600) / 60)}分`;
+  return {
+    mbPerSec: `${mbPerSec} MB/s` as unknown as number,
+    gbps: `${gbps} Gbps` as unknown as number,
+    downloadTime: timeStr as unknown as number,
+  };
+}
+
+export function timezoneCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const tz1 = inputs.timezone1 as number;
+  const tz2 = inputs.timezone2 as number;
+  const hour = inputs.hour as number;
+  const minute = inputs.minute as number;
+  const diff = tz2 - tz1;
+  let city2Hour = hour + diff;
+  let dayOffset = '';
+  if (city2Hour >= 24) { city2Hour -= 24; dayOffset = '（翌日）'; }
+  else if (city2Hour < 0) { city2Hour += 24; dayOffset = '（前日）'; }
+  return {
+    timeDiff: `${diff >= 0 ? '+' : ''}${diff}時間` as unknown as number,
+    city2Time: `${Math.floor(city2Hour)}:${String(minute).padStart(2, '0')}${dayOffset}` as unknown as number,
+  };
+}
+
+export function passwordStrength(inputs: Record<string, number | string>): Record<string, number | string> {
+  const length = inputs.length as number;
+  let charsetSize = 26; // lowercase
+  if (inputs.hasUppercase === 'yes') charsetSize += 26;
+  if (inputs.hasNumbers === 'yes') charsetSize += 10;
+  if (inputs.hasSymbols === 'yes') charsetSize += 32;
+  const combinations = Math.pow(charsetSize, length);
+  const guessesPerSecond = 1e10;
+  const seconds = combinations / guessesPerSecond;
+  let crackTime: string;
+  if (seconds < 1) crackTime = '1秒未満';
+  else if (seconds < 60) crackTime = `${Math.round(seconds)}秒`;
+  else if (seconds < 3600) crackTime = `${Math.round(seconds / 60)}分`;
+  else if (seconds < 86400 * 365) crackTime = `${Math.round(seconds / 86400)}日`;
+  else if (seconds < 86400 * 365 * 1000) crackTime = `${Math.round(seconds / 86400 / 365)}年`;
+  else crackTime = `${Math.round(seconds / 86400 / 365 / 1e6)}百万年以上`;
+  let strength: string;
+  if (length >= 12 && charsetSize >= 60) strength = '非常に強い';
+  else if (length >= 10 && charsetSize >= 36) strength = '強い';
+  else if (length >= 8 && charsetSize >= 26) strength = '普通';
+  else strength = '弱い';
+  return {
+    strength: strength as unknown as number,
+    combinations: `約${combinations.toExponential(1)}通り` as unknown as number,
+    crackTime: crackTime as unknown as number,
+  };
+}
+
+export function electricityUnit(inputs: Record<string, number | string>): Record<string, number | string> {
+  const bill = inputs.bill as number;
+  const usage = inputs.usage as number;
+  const unitPrice = usage > 0 ? Math.round(bill / usage * 10) / 10 : 0;
+  return {
+    unitPrice: `${unitPrice}円/kWh` as unknown as number,
+    dailyCost: `約${Math.round(bill / 30)}円/日` as unknown as number,
+  };
+}
+
+export function concreteVolume(inputs: Record<string, number | string>): Record<string, number | string> {
+  const length = inputs.length as number;
+  const width = inputs.width as number;
+  const depth = (inputs.depth as number) / 100;
+  const volume = Math.round(length * width * depth * 1000) / 1000;
+  const weight = Math.round(volume * 2300);
+  const bags = Math.ceil(volume / 0.012);
+  return {
+    volume: `${volume}m³` as unknown as number,
+    weight: `約${weight}kg（${Math.round(weight / 1000 * 10) / 10}t）` as unknown as number,
+    bags: `約${bags}袋` as unknown as number,
+  };
+}
+
+export function gasMileage(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const fuel = inputs.fuel as number;
+  const fuelPrice = inputs.fuelPrice as number;
+  const efficiency = fuel > 0 ? Math.round(distance / fuel * 10) / 10 : 0;
+  const costPerKm = efficiency > 0 ? Math.round(fuelPrice / efficiency * 10) / 10 : 0;
+  const totalCost = Math.round(fuel * fuelPrice);
+  return {
+    fuelEfficiency: `${efficiency}km/L` as unknown as number,
+    costPerKm: `${costPerKm}円/km` as unknown as number,
+    totalCost,
+  };
+}
+
+export function matrixDeterminant(inputs: Record<string, number | string>): Record<string, number | string> {
+  const a = inputs.a as number;
+  const b = inputs.b as number;
+  const c = inputs.c as number;
+  const d = inputs.d as number;
+  const det = a * d - b * c;
+  return {
+    determinant: Math.round(det * 10000) / 10000,
+    hasInverse: (det !== 0 ? '逆行列あり' : '逆行列なし（特異行列）') as unknown as number,
+  };
+}
+
+export function atmFeeCalc(inputs: Record<string, number | string>): Record<string, number | string> {
+  const fee = inputs.feePerUse as number;
+  const monthly = inputs.monthlyUses as number;
+  return {
+    monthlyFee: fee * monthly,
+    annualFee: fee * monthly * 12,
+    tenYearFee: fee * monthly * 12 * 10,
+  };
+}
+
+export function kanjiGrade(inputs: Record<string, number | string>): Record<string, number | string> {
+  const grade = Number(inputs.grade);
+  const counts: Record<number, number> = { 1: 80, 2: 160, 3: 200, 4: 202, 5: 193, 6: 191 };
+  const gradeCount = counts[grade] || 0;
+  let cumulative = 0;
+  for (let g = 1; g <= grade; g++) cumulative += counts[g] || 0;
+  return {
+    gradeCount: `${gradeCount}字` as unknown as number,
+    cumulativeCount: `${cumulative}字` as unknown as number,
+    totalKanji: '1,026字' as unknown as number,
+  };
+}
+
+export function alcoholCalorieDrink(inputs: Record<string, number | string>): Record<string, number | string> {
+  const drinkType = inputs.drinkType as string;
+  const amount = inputs.amount as number;
+  const alcoholPercent: Record<string, number> = { beer: 5, wine: 12, sake: 15, shochu: 25, whiskey: 40, chuhai: 5 };
+  const pct = (alcoholPercent[drinkType] || 5) / 100;
+  const pureAlcohol = Math.round(amount * pct * 0.8 * 10) / 10;
+  const alcoholCalories = Math.round(pureAlcohol * 7);
+  const extraCalories: Record<string, number> = { beer: 0.4, wine: 0.7, sake: 1, shochu: 0, whiskey: 0, chuhai: 0.45 };
+  const total = Math.round(alcoholCalories + amount * (extraCalories[drinkType] || 0) * 0.1);
+  return {
+    calories: `約${total}kcal` as unknown as number,
+    pureAlcohol: `${pureAlcohol}g` as unknown as number,
+    units: `${Math.round(pureAlcohol / 10 * 10) / 10}ドリンク` as unknown as number,
+  };
+}
+
+export function movingCostEstimate(inputs: Record<string, number | string>): Record<string, number | string> {
+  const type = inputs.type as string;
+  const distance = inputs.distance as string;
+  const season = inputs.season as string;
+  const baseCosts: Record<string, Record<string, number>> = {
+    single: { local: 30000, prefecture: 40000, regional: 55000, long: 70000 },
+    singleLarge: { local: 45000, prefecture: 55000, regional: 75000, long: 100000 },
+    family2: { local: 70000, prefecture: 90000, regional: 120000, long: 170000 },
+    family3: { local: 90000, prefecture: 120000, regional: 160000, long: 230000 },
+  };
+  const base = (baseCosts[type] || baseCosts.single)[distance] || 30000;
+  const multiplier = season === 'peak' ? 1.5 : 1;
+  const estimated = Math.round(base * multiplier);
+  const low = Math.round(estimated * 0.8);
+  const high = Math.round(estimated * 1.3);
+  return {
+    estimatedCost: `約${estimated.toLocaleString()}円` as unknown as number,
+    range: `${low.toLocaleString()}〜${high.toLocaleString()}円` as unknown as number,
+  };
+}
+
+export function nengajoCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sheets = inputs.sheets as number;
+  const printType = inputs.printType as string;
+  const postage = sheets * 85;
+  const printCostPerSheet = printType === 'order' ? 40 : 25;
+  const printCost = sheets * printCostPerSheet;
+  return {
+    postageCost: postage,
+    printCost,
+    totalCost: postage + printCost,
+  };
+}
+
+export function weddingBudget(inputs: Record<string, number | string>): Record<string, number | string> {
+  const guests = inputs.guests as number;
+  const grade = inputs.venueGrade as string;
+  const perGuest = grade === 'luxury' ? 60000 : grade === 'premium' ? 45000 : 35000;
+  const totalCost = guests * perGuest;
+  const avgGift = 33000;
+  const giftMoney = guests * avgGift;
+  const selfPayment = totalCost - giftMoney;
+  return {
+    totalCost: `約${Math.round(totalCost / 10000)}万円` as unknown as number,
+    giftMoney: `約${Math.round(giftMoney / 10000)}万円` as unknown as number,
+    selfPayment: `約${Math.round(selfPayment / 10000)}万円` as unknown as number,
+    perGuest: `${(perGuest / 10000).toFixed(1)}万円/人` as unknown as number,
+  };
+}
+
+export function childbirthCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const deliveryType = inputs.deliveryType as string;
+  const facility = inputs.facility as string;
+  const baseCosts: Record<string, Record<string, number>> = {
+    normal: { clinic: 500000, hospital: 450000, university: 480000 },
+    caesarean: { clinic: 600000, hospital: 550000, university: 570000 },
+  };
+  const cost = (baseCosts[deliveryType] || baseCosts.normal)[facility] || 500000;
+  const subsidy = 500000;
+  return {
+    estimatedCost: `約${Math.round(cost / 10000)}万円` as unknown as number,
+    subsidy: `${subsidy / 10000}万円` as unknown as number,
+    selfPayment: `約${Math.max(0, Math.round((cost - subsidy) / 10000))}万円` as unknown as number,
+  };
+}
+
+export function smartphoneCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const plan = inputs.monthlyPlan as number;
+  const device = inputs.devicePrice as number;
+  const months = inputs.months as number;
+  const monthlyDevice = months > 0 ? Math.round(device / months) : 0;
+  const monthlyTotal = plan + monthlyDevice;
+  const totalCost = plan * months + device;
+  return {
+    monthlyTotal,
+    totalCost,
+    dailyCost: `約${Math.round(totalCost / (months * 30))}円/日` as unknown as number,
+  };
+}
+
+export function petAgeGeneral(inputs: Record<string, number | string>): Record<string, number | string> {
+  const petType = inputs.petType as string;
+  const age = inputs.age as number;
+  let humanAge: number;
+  if (petType === 'cat' || petType === 'dogSmall') {
+    if (age <= 1) humanAge = age * 18;
+    else if (age <= 2) humanAge = 18 + (age - 1) * 7;
+    else humanAge = 25 + (age - 2) * 4;
+  } else if (petType === 'dogMedium') {
+    if (age <= 1) humanAge = age * 16;
+    else if (age <= 2) humanAge = 16 + (age - 1) * 9;
+    else humanAge = 25 + (age - 2) * 5;
+  } else {
+    if (age <= 1) humanAge = age * 12;
+    else if (age <= 2) humanAge = 12 + (age - 1) * 9;
+    else humanAge = 21 + (age - 2) * 7;
+  }
+  humanAge = Math.round(humanAge);
+  let lifeStage: string;
+  if (humanAge < 18) lifeStage = '成長期';
+  else if (humanAge < 40) lifeStage = '成年期';
+  else if (humanAge < 60) lifeStage = '中年期';
+  else lifeStage = 'シニア期';
+  return {
+    humanAge: `人間換算 約${humanAge}歳` as unknown as number,
+    lifeStage: lifeStage as unknown as number,
+  };
+}
+
+export function cloudStorageCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const gb = inputs.storageGB as number;
+  function plan(free: number, tiers: [number, number][]): string {
+    if (gb <= free) return '無料';
+    for (const [maxGb, price] of tiers) {
+      if (gb <= maxGb) return `月額${price}円（${maxGb}GBプラン）`;
+    }
+    return tiers.length > 0 ? `月額${tiers[tiers.length - 1][1]}円（${tiers[tiers.length - 1][0]}GBプラン）` : '要問合せ';
+  }
+  return {
+    googleDrive: plan(15, [[100, 250], [200, 380], [2000, 1300], [5000, 3250], [10000, 6500], [20000, 13000], [30000, 19500]]) as unknown as number,
+    icloud: plan(5, [[50, 150], [200, 450], [2000, 1500], [6000, 4500], [12000, 9000]]) as unknown as number,
+    onedrive: plan(5, [[100, 260], [1000, 1490]]) as unknown as number,
+    dropbox: plan(2, [[2000, 1500], [3000, 2400]]) as unknown as number,
+  };
+}
+
+export function taxiFare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const isNight = inputs.isNight === 'yes';
+  const initialFare = 500;
+  const initialDistance = 1.096;
+  let fare: number;
+  if (distance <= initialDistance) {
+    fare = initialFare;
+  } else {
+    const additionalDistance = distance - initialDistance;
+    const additionalFare = Math.ceil(additionalDistance / 0.255) * 100;
+    fare = initialFare + additionalFare;
+  }
+  const nightSurcharge = isNight ? Math.round(fare * 0.2) : 0;
+  fare += nightSurcharge;
+  return {
+    estimatedFare: fare,
+    nightSurcharge: isNight ? `+${nightSurcharge}円` as unknown as number : 'なし' as unknown as number,
+  };
+}
+
+export function inflationImpact(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const rate = (inputs.inflationRate as number) / 100;
+  const years = inputs.years as number;
+  const realValue = Math.round(amount / Math.pow(1 + rate, years));
+  const loss = amount - realValue;
+  return {
+    realValue: `${realValue}万円` as unknown as number,
+    purchasingPowerLoss: `${loss}万円（${Math.round(loss / amount * 100)}%減）` as unknown as number,
+  };
+}
+
+export function rainProbability(inputs: Record<string, number | string>): Record<string, number | string> {
+  const prob = inputs.probability as number;
+  const outing = inputs.outing as string;
+  const threshold = outing === 'long' ? 30 : outing === 'medium' ? 40 : 50;
+  const recommendation = prob >= threshold ? '傘を持って行きましょう' : '傘は不要でしょう';
+  const reason = prob >= 60 ? '降水確率が高いです。'
+    : prob >= 40 ? '降る可能性があります。折りたたみ傘があると安心。'
+    : prob >= 20 ? '降る可能性は低めですが、長時間外出なら念のため。'
+    : 'ほぼ降らないでしょう。';
+  return {
+    recommendation: recommendation as unknown as number,
+    reason: reason as unknown as number,
+  };
+}
+
+export function screenSizeCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const diagonal = inputs.diagonal as number;
+  const ratio = inputs.aspectRatio as string;
+  const [rw, rh] = ratio.split(':').map(Number);
+  const diagCm = diagonal * 2.54;
+  const angle = Math.atan(rh / rw);
+  const widthCm = Math.round(diagCm * Math.cos(angle) * 10) / 10;
+  const heightCm = Math.round(diagCm * Math.sin(angle) * 10) / 10;
+  const area = Math.round(widthCm * heightCm * 10) / 10;
+  return {
+    widthCm: `${widthCm}cm` as unknown as number,
+    heightCm: `${heightCm}cm` as unknown as number,
+    areaCm2: `${area}cm²` as unknown as number,
+  };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   adRoas,
