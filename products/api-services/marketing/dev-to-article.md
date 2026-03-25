@@ -23,20 +23,20 @@ Every API below is available on RapidAPI. Let me walk you through the highlights
 Generate QR codes in PNG, SVG, or Base64 with custom colors and error correction levels.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/generate?text=https://example.com&size=300&format=png&color=000000&bgcolor=FFFFFF"
+curl "https://qr-code-generator-api.p.rapidapi.com/generate?text=https://example.com&size=300&format=png&color=000000&bgcolor=FFFFFF"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/generate",
+    "https://qr-code-generator-api.p.rapidapi.com/generate",
     params={"text": "https://example.com", "size": 300, "format": "svg"}
 )
 print(response.text)
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/qr-code-generator-api)
 
 ---
 
@@ -45,21 +45,21 @@ print(response.text)
 Check if an email is valid, detect disposable providers, verify MX records, and suggest typo corrections.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/validate?email=user@gmial.com"
+curl "https://email-validation-api.p.rapidapi.com/validate?email=user@gmial.com"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/validate",
+    "https://email-validation-api.p.rapidapi.com/validate",
     params={"email": "user@gmial.com"}
 )
 data = response.json()
 print(data["suggestion"])  # "user@gmail.com"
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/email-validation-api)
 
 ---
 
@@ -68,21 +68,21 @@ print(data["suggestion"])  # "user@gmail.com"
 Extract Open Graph tags, Twitter Cards, favicons, and RSS feeds from any URL. Perfect for building link preview cards like Slack or Discord.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/preview?url=https://github.com"
+curl "https://link-preview-api.p.rapidapi.com/preview?url=https://github.com"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/preview",
+    "https://link-preview-api.p.rapidapi.com/preview",
     params={"url": "https://github.com"}
 )
 meta = response.json()
 print(meta["title"], meta["image"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/link-preview-api)
 
 ---
 
@@ -91,21 +91,21 @@ print(meta["title"], meta["image"])
 Capture full-page screenshots in PNG or JPEG with custom viewport sizes.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/screenshot?url=https://example.com&width=1280&height=720&format=png"
+curl "https://screenshot-api.p.rapidapi.com/screenshot?url=https://example.com&width=1280&height=720&format=png"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/screenshot",
+    "https://screenshot-api.p.rapidapi.com/screenshot",
     params={"url": "https://example.com", "width": 1280, "format": "png"}
 )
 with open("screenshot.png", "wb") as f:
     f.write(response.content)
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api)
 
 ---
 
@@ -114,7 +114,7 @@ with open("screenshot.png", "wb") as f:
 Sentiment analysis, keyword extraction, readability scoring, and language detection — all in one endpoint.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/sentiment" \
+curl -X POST "https://text-analysis-api.p.rapidapi.com/sentiment" \
   -H "Content-Type: application/json" \
   -d '{"text": "This API is incredibly fast and easy to use!"}'
 ```
@@ -123,14 +123,14 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/sentiment" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/sentiment",
+    "https://text-analysis-api.p.rapidapi.com/sentiment",
     json={"text": "This API is incredibly fast and easy to use!"}
 )
 result = response.json()
 print(result["sentiment"], result["score"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/text-analysis-api)
 
 ---
 
@@ -139,18 +139,18 @@ print(result["sentiment"], result["score"])
 Get country, city, timezone, ISP, and VPN detection for any IP. Call `/me` to geolocate the requester.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/me"
+curl "https://ip-geolocation-api.p.rapidapi.com/me"
 ```
 
 ```python
 import requests
 
-response = requests.get("https://YOUR_RAPIDAPI_HOST/me")
+response = requests.get("https://ip-geolocation-api.p.rapidapi.com/me")
 geo = response.json()
 print(f"{geo['city']}, {geo['country']} (VPN: {geo['is_vpn']})")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/ip-geolocation-api)
 
 ---
 
@@ -159,7 +159,7 @@ print(f"{geo['city']}, {geo['country']} (VPN: {geo['is_vpn']})")
 Shorten URLs with optional custom aliases and get click analytics.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/shorten" \
+curl -X POST "https://url-shortener-api.p.rapidapi.com/shorten" \
   -H "Content-Type: application/json" \
   -d '{"url": "https://dev.to/some-very-long-article-url", "alias": "my-link"}'
 ```
@@ -168,13 +168,13 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/shorten" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/shorten",
+    "https://url-shortener-api.p.rapidapi.com/shorten",
     json={"url": "https://dev.to/some-very-long-article-url"}
 )
 print(response.json()["short_url"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/url-shortener-api)
 
 ---
 
@@ -183,7 +183,7 @@ print(response.json()["short_url"])
 Validate, format, minify, diff two JSON objects, or convert JSON to CSV.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/format" \
+curl -X POST "https://json-formatter-api.p.rapidapi.com/format" \
   -H "Content-Type: application/json" \
   -d '{"json": "{\"name\":\"dev\",\"lang\":\"python\"}", "indent": 2}'
 ```
@@ -192,13 +192,13 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/format" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/format",
+    "https://json-formatter-api.p.rapidapi.com/format",
     json={"json": '{"name":"dev","lang":"python"}', "indent": 2}
 )
 print(response.json()["formatted"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/json-formatter-api)
 
 ---
 
@@ -207,7 +207,7 @@ print(response.json()["formatted"])
 SHA256, bcrypt, Base64, HMAC, and more. Useful for building auth systems or verifying data integrity.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/hash" \
+curl -X POST "https://hash-encoding-api.p.rapidapi.com/hash" \
   -H "Content-Type: application/json" \
   -d '{"text": "hello world", "algorithm": "sha256"}'
 ```
@@ -216,13 +216,13 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/hash" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/hash",
+    "https://hash-encoding-api.p.rapidapi.com/hash",
     json={"text": "hello world", "algorithm": "sha256"}
 )
 print(response.json()["hash"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/hash-encoding-api)
 
 ---
 
@@ -231,21 +231,21 @@ print(response.json()["hash"])
 Real-time exchange rates for 30+ currencies sourced from the ECB, with historical data support.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/rates?base=USD&symbols=EUR,JPY,GBP"
+curl "https://currency-exchange-api.p.rapidapi.com/rates?base=USD&symbols=EUR,JPY,GBP"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/rates",
+    "https://currency-exchange-api.p.rapidapi.com/rates",
     params={"base": "USD", "symbols": "EUR,JPY,GBP"}
 )
 rates = response.json()["rates"]
 print(f"1 USD = {rates['EUR']} EUR")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/currency-exchange-api)
 
 ---
 
@@ -254,7 +254,7 @@ print(f"1 USD = {rates['EUR']} EUR")
 Generate text, summarize articles, rewrite content, or translate — powered by Llama 3.1.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/generate" \
+curl -X POST "https://ai-text-api.p.rapidapi.com/generate" \
   -H "Content-Type: application/json" \
   -d '{"prompt": "Explain WebSockets in 3 sentences", "max_tokens": 200}'
 ```
@@ -263,13 +263,13 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/generate" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/generate",
+    "https://ai-text-api.p.rapidapi.com/generate",
     json={"prompt": "Explain WebSockets in 3 sentences", "max_tokens": 200}
 )
 print(response.json()["text"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/ai-text-api)
 
 ---
 
@@ -278,20 +278,20 @@ print(response.json()["text"])
 Extract direct download URLs from TikTok, YouTube, Instagram, and Twitter/X.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/download?url=https://www.tiktok.com/@user/video/123456"
+curl "https://social-video-api.p.rapidapi.com/download?url=https://www.tiktok.com/@user/video/123456"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/download",
+    "https://social-video-api.p.rapidapi.com/download",
     params={"url": "https://www.tiktok.com/@user/video/123456"}
 )
 print(response.json()["download_url"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/social-video-api)
 
 ---
 
@@ -300,21 +300,21 @@ print(response.json()["download_url"])
 Real-time prices and market data for Bitcoin, Ethereum, and other major cryptocurrencies.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/price?coin=bitcoin"
+curl "https://crypto-data-api.p.rapidapi.com/price?coin=bitcoin"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/price",
+    "https://crypto-data-api.p.rapidapi.com/price",
     params={"coin": "bitcoin"}
 )
 data = response.json()
 print(f"BTC: ${data['price_usd']:,.2f}")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/crypto-data-api)
 
 ---
 
@@ -323,21 +323,21 @@ print(f"BTC: ${data['price_usd']:,.2f}")
 Audit any website's SEO: meta tags, heading structure, structured data, and an overall score.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/analyze?url=https://dev.to"
+curl "https://seo-analyzer-api.p.rapidapi.com/analyze?url=https://dev.to"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/analyze",
+    "https://seo-analyzer-api.p.rapidapi.com/analyze",
     params={"url": "https://dev.to"}
 )
 report = response.json()
 print(f"SEO Score: {report['score']}/100")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api)
 
 ---
 
@@ -346,21 +346,21 @@ print(f"SEO Score: {report['score']}/100")
 Current conditions, hourly and daily forecasts, historical data, and geocoding.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/current?city=Tokyo"
+curl "https://weather-api.p.rapidapi.com/current?city=Tokyo"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/current",
+    "https://weather-api.p.rapidapi.com/current",
     params={"city": "Tokyo"}
 )
 weather = response.json()
 print(f"{weather['city']}: {weather['temp_c']}C, {weather['description']}")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/weather-api)
 
 ---
 
@@ -369,21 +369,21 @@ print(f"{weather['city']}: {weather['temp_c']}C, {weather['description']}")
 RDAP/WHOIS lookup, DNS records, and domain availability checks.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/lookup?domain=example.com"
+curl "https://whois-domain-api.p.rapidapi.com/lookup?domain=example.com"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/lookup",
+    "https://whois-domain-api.p.rapidapi.com/lookup",
     params={"domain": "example.com"}
 )
 whois = response.json()
 print(f"Registrar: {whois['registrar']}, Expires: {whois['expiry_date']}")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/whois-domain-api)
 
 ---
 
@@ -392,21 +392,21 @@ print(f"Registrar: {whois['registrar']}, Expires: {whois['expiry_date']}")
 Aggregated headlines from BBC, Reuters, Hacker News, Dev.to, and more.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/top?source=hackernews&limit=5"
+curl "https://news-aggregator-api.p.rapidapi.com/top?source=hackernews&limit=5"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/top",
+    "https://news-aggregator-api.p.rapidapi.com/top",
     params={"source": "hackernews", "limit": 5}
 )
 for article in response.json()["articles"]:
     print(f"- {article['title']}")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/news-aggregator-api)
 
 ---
 
@@ -415,7 +415,7 @@ for article in response.json()["articles"]:
 Translate text across 40+ languages with automatic language detection. Powered by Meta's M2M100 model.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/translate" \
+curl -X POST "https://ai-translate-api.p.rapidapi.com/translate" \
   -H "Content-Type: application/json" \
   -d '{"text": "Hello, how are you?", "target": "ja"}'
 ```
@@ -424,13 +424,13 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/translate" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/translate",
+    "https://ai-translate-api.p.rapidapi.com/translate",
     json={"text": "Hello, how are you?", "target": "ja"}
 )
 print(response.json()["translated_text"])  # こんにちは、お元気ですか？
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/ai-translate-api)
 
 ---
 
@@ -439,21 +439,21 @@ print(response.json()["translated_text"])  # こんにちは、お元気です�
 What's trending right now across Google, Reddit, Hacker News, GitHub, and Product Hunt — in a single call.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/google/daily?geo=US"
+curl "https://trends-api.p.rapidapi.com/google/daily?geo=US"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/google/daily",
+    "https://trends-api.p.rapidapi.com/google/daily",
     params={"geo": "US"}
 )
 for trend in response.json()["trends"][:5]:
     print(f"- {trend['title']} ({trend['traffic']})")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/trends-api)
 
 ---
 
@@ -462,21 +462,21 @@ for trend in response.json()["trends"][:5]:
 Search for businesses by name or enrich a domain with company info and tech stack detection.
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/search?query=stripe&limit=3"
+curl "https://company-data-api.p.rapidapi.com/search?query=stripe&limit=3"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/search",
+    "https://company-data-api.p.rapidapi.com/search",
     params={"query": "stripe", "limit": 3}
 )
 for company in response.json()["results"]:
     print(f"{company['name']} - {company['domain']}")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/company-data-api)
 
 ---
 
@@ -485,7 +485,7 @@ for company in response.json()["results"]:
 Convert HTML, Markdown, or a URL into a downloadable PDF with custom headers and footers.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/generate" \
+curl -X POST "https://pdf-generator-api.p.rapidapi.com/generate" \
   -H "Content-Type: application/json" \
   -d '{"html": "<h1>Invoice #42</h1><p>Total: $99.00</p>", "format": "A4"}'
 ```
@@ -494,14 +494,14 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/generate" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/generate",
+    "https://pdf-generator-api.p.rapidapi.com/generate",
     json={"html": "<h1>Invoice #42</h1><p>Total: $99.00</p>", "format": "A4"}
 )
 with open("invoice.pdf", "wb") as f:
     f.write(response.content)
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/pdf-generator-api)
 
 ---
 
@@ -510,20 +510,20 @@ with open("invoice.pdf", "wb") as f:
 Generate SVG or PNG placeholder images with gradients, custom text, and category presets (avatar, banner, thumbnail, etc.).
 
 ```bash
-curl "https://YOUR_RAPIDAPI_HOST/400x300?text=Hello+Dev.to&bg=blue&format=svg"
+curl "https://placeholder-image-api.p.rapidapi.com/400x300?text=Hello+Dev.to&bg=blue&format=svg"
 ```
 
 ```python
 import requests
 
 response = requests.get(
-    "https://YOUR_RAPIDAPI_HOST/400x300",
+    "https://placeholder-image-api.p.rapidapi.com/400x300",
     params={"text": "Hello Dev.to", "bg": "ocean", "format": "svg"}
 )
 print(response.text)  # SVG markup
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/placeholder-image-api)
 
 ---
 
@@ -532,7 +532,7 @@ print(response.text)  # SVG markup
 Convert Markdown to HTML (or HTML to Markdown) with GFM support, table of contents generation, and syntax highlighting classes.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/convert" \
+curl -X POST "https://markdown-converter-api.p.rapidapi.com/convert" \
   -H "Content-Type: application/json" \
   -d '{"markdown": "# Hello\n\nThis is **bold** and `code`.", "toc": true}'
 ```
@@ -541,14 +541,14 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/convert" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/convert",
+    "https://markdown-converter-api.p.rapidapi.com/convert",
     json={"markdown": "# Hello\n\nThis is **bold** and `code`.", "toc": True}
 )
 result = response.json()
 print(result["html"])
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/markdown-converter-api)
 
 ---
 
@@ -557,7 +557,7 @@ print(result["html"])
 Analyze your WordPress content and get smart internal link suggestions with anchor text and relevance scoring.
 
 ```bash
-curl -X POST "https://YOUR_RAPIDAPI_HOST/analyze" \
+curl -X POST "https://wp-internal-link-api.p.rapidapi.com/analyze" \
   -H "Content-Type: application/json" \
   -d '{"site_url": "https://yourblog.com", "post_id": 42}'
 ```
@@ -566,14 +566,14 @@ curl -X POST "https://YOUR_RAPIDAPI_HOST/analyze" \
 import requests
 
 response = requests.post(
-    "https://YOUR_RAPIDAPI_HOST/analyze",
+    "https://wp-internal-link-api.p.rapidapi.com/analyze",
     json={"site_url": "https://yourblog.com", "post_id": 42}
 )
 for link in response.json()["suggestions"]:
     print(f"Link to: {link['target_title']} (score: {link['relevance']})")
 ```
 
-[Try it on RapidAPI](YOUR_RAPIDAPI_URL)
+[Try it on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/wp-internal-link-api)
 
 ---
 
