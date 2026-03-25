@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://keisan-tools.com/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/404/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/_not-found/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/about/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/business/ad-roas/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/annual-leave/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/blue-return/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/break-even/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/cash-flow/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/business/churn-rate/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/depreciation/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/business/email-marketing/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/freelance-rate/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/freelance-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/gross-margin/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/inventory-turnover/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/invoice-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/labor-cost/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/business/ltv/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/maternity-leave/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/meeting-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/minimum-wage/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/overtime-pay/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/business/payback-period/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/pricing-markup/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/profit-margin/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/business/retirement-pay/</loc><lastmod>2026-03-25</lastmod></url>
@@ -28,18 +35,24 @@
   <url><loc>https://keisan-tools.com/business/working-capital/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/contact/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/certification-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/education-cost-sim/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/english-score/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/exam-score/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/gpa/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/gpa-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/grade-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/hensachi/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/reading-speed/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/scholarship/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/scholarship-repayment/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/school-commute/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/school-supplies/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/study-plan/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/study-time/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/tuition-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/education/typing-speed/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/education/vocab-size/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/alcohol-breakdown/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/alcohol-calorie/</loc><lastmod>2026-03-25</lastmod></url>
@@ -48,28 +61,43 @@
   <url><loc>https://keisan-tools.com/health/blood-alcohol/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/bmi/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/bmi-child/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/bmi-detailed/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/bmi-pet/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/body-fat/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/body-fat-percentage/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/caffeine/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/calorie-burn/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/calories-bmr/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/cycling-calorie/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/daily-calorie/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/due-date/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/exercise-calorie/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/hearing-level/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/high-cost-medical/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/ideal-weight/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/jogging-pace/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/meal-calorie/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/medical-expense/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/medicine-dose/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/menstrual-cycle/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/ovulation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/ovulation-day/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/pregnancy-week/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/protein-need/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/running-pace/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/sleep-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/sleep-cycle/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/steps-to-distance/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/stretch-timer/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/swimming-calorie/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/target-heart-rate/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/vision-test/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/waist-hip-ratio/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/health/walking-calorie/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/health/water-intake/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/age-calculator/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/air-conditioner-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/anniversary/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/area/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/birthday-countdown/</loc><lastmod>2026-03-25</lastmod></url>
@@ -77,17 +105,21 @@
   <url><loc>https://keisan-tools.com/life/car-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/car-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/carbon-footprint/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/carpet-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/cat-age/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/chinese-zodiac/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/clothing-size/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/concrete-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/countdown/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/currency-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/data-size/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/data-size-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/days-between/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/discount/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/dog-age/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/download-time/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/elapsed-days/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/electricity-bill/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/electricity-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/energy-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/ev-cost/</loc><lastmod>2026-03-25</lastmod></url>
@@ -99,26 +131,40 @@
   <url><loc>https://keisan-tools.com/life/japanese-era/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/length/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/mileage/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/mortgage-comparison/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/moving-estimate/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/packing-list/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/paint-area/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/paint-calculator/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/paper-size/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/party-food/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/per-unit-price/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/pet-age/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/photo-print/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/point-value/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/postal-rate/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/power-consumption/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/pressure-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/recipe-scale/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/room-brightness/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/screen-size/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/shoe-size/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/speed/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/speed-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/split-bill/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/subscription-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/tax-included/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/temperature/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/tile-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/time-convert/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/time-zone/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/timezone/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/tip-calculator/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/tsubo-m2/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/tsubo-sqm/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/unit-price/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/volume/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/life/wallpaper-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/water-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/weekday/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/life/weight-convert/</loc><lastmod>2026-03-25</lastmod></url>
@@ -134,15 +180,21 @@
   <url><loc>https://keisan-tools.com/math/cylinder/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/ellipse/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/fraction/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/fraction-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/gcd-lcm/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/hexagon/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/logarithm/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/matrix/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/median-mode/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/normal-distribution/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/percentage/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/percentage-calculator/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/polygon-area/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/power/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/prime-factorization/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/probability/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/pythagorean/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/quadratic/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/random-number/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/ratio/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/rectangle/</loc><lastmod>2026-03-25</lastmod></url>
@@ -151,31 +203,45 @@
   <url><loc>https://keisan-tools.com/math/standard-deviation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/trapezoid/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/math/triangle/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/math/trigonometry/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/72-rule/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/advance-payment/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/alcohol-tobacco-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/annual-income/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/asset-allocation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/auto-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/bond-yield/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/bonus-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/capital-gains-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/car-insurance/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/car-lease/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/car-loan/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/child-cost/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/childcare-benefit/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/city-planning-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/commute-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/compound-interest/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/compound-interest-detail/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/condo-monthly/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/consumption-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/consumption-tax-calc/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/corporate-pension/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/corporate-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/credit-card-interest/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/crypto-profit/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/crypto-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/debt-repayment/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/dependent-deduction/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/disability-insurance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/disability-pension/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/dividend-yield/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/dollar-cost-averaging/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/dollar-cost-avg/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/earthquake-insurance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/education-loan/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/emergency-fund/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/etf-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/fire-calculation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/fire-insurance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/fixed-asset-tax/</loc><lastmod>2026-03-25</lastmod></url>
@@ -183,38 +249,50 @@
   <url><loc>https://keisan-tools.com/money/furusato-detail/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/furusato-nozei/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/gift-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/gold-investment/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/hourly-wage/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/housing-deduction/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/housing-loan/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/ideco-simulation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/income-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/individual-enterprise-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/inflation-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/inheritance-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/inheritance-tax-simulation/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/initial-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/investment-return/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/land-price/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/life-insurance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/mansion-cost/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/margin-trading/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/maternity-benefit/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/medical-deduction/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/medical-insurance-premium/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/mortgage-comparison/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/moving-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/nisa-simulation/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/overtime-income/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/overtime-pay/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/part-time-income/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/pension-contribution/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/pension-estimate/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/per-pbr/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/personal-loan/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/pet-insurance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/property-yield/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/raise-impact/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/real-estate-acquisition-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/rebalance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/refinance/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/registration-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/reit-yield/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/renovation-cost/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/rent-budget/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/rent-calculator/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/rent-vs-buy/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/repayment-plan/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/resident-tax/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/salary-after-tax/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/salary-comparison/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/savings-goal/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/savings-simulation/</loc><lastmod>2026-03-25</lastmod></url>
@@ -225,8 +303,12 @@
   <url><loc>https://keisan-tools.com/money/stock-profit/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/survivor-pension/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/take-home-pay/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/travel-insurance/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/unemployment-benefit/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/wedding-cost/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/workers-comp/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/money/year-end-adjustment/</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://keisan-tools.com/money/yield-comparison/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/privacy/</loc><lastmod>2026-03-25</lastmod></url>
   <url><loc>https://keisan-tools.com/terms/</loc><lastmod>2026-03-25</lastmod></url>
 </urlset>

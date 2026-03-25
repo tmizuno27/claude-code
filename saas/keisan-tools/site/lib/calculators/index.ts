@@ -1351,14 +1351,22 @@ export function residentTax(inputs: Record<string, number | string>): Record<str
   const income = (inputs.annualIncome as number) * 10000;
   const deductionEmp = calcEmploymentDeduction(income);
   const empIncome = Math.max(0, income - deductionEmp);
-  const si = income * 0.15;
-  const basicDeduction = 430000;
-  const dependents = (inputs.dependents as number || 0) * 330000;
+  // 社会保険料（概算: 健康保険5%+厚生年金9.15%+雇用保険0.6% ≒ 14.75%）
+  const si = Math.round(income * 0.1475);
+  // 住民税の基礎控除: 43万円
+  const basicDeduction = 430_000;
+  // 住民税の扶養控除: 33万円/人
+  const dependents = (inputs.dependents as number || 0) * 330_000;
   const taxableIncome = Math.max(0, empIncome - si - basicDeduction - dependents);
+  // 所得割: 都道府県民税4% + 市区町村民税6% = 10%
   const prefectureTax = Math.round(taxableIncome * 0.04);
   const cityTax = Math.round(taxableIncome * 0.06);
-  const equalRate = 5000;
-  const total = prefectureTax + cityTax + equalRate;
+  // 調整控除（基礎控除分）: 最低2,500円
+  const adjustmentDeduction = 2_500;
+  // 均等割: 都道府県1,500円 + 市区町村3,500円 = 5,000円（2026年度）
+  const equalRate = 5_000;
+  const incomePortion = Math.max(0, prefectureTax + cityTax - adjustmentDeduction);
+  const total = incomePortion + equalRate;
   return { totalResidentTax: total, monthlyTax: Math.round(total / 12), prefectureTax, cityTax };
 }
 
@@ -1728,20 +1736,38 @@ export function condoMonthly(inputs: Record<string, number | string>): Record<st
 export function furusatoDetail(inputs: Record<string, number | string>): Record<string, number> {
   const annualIncome = (inputs.annualIncome as number) * 10000;
   const familyType = inputs.familyType as string;
-  let deduction: number;
-  if (familyType === 'single') deduction = 0;
-  else if (familyType === 'couple') deduction = 380000;
-  else deduction = 760000;
-  const taxableIncome = Math.max(annualIncome - annualIncome * 0.2 - deduction - 480000, 0);
-  let taxRate: number;
-  if (taxableIncome <= 1950000) taxRate = 0.05;
-  else if (taxableIncome <= 3300000) taxRate = 0.1;
-  else if (taxableIncome <= 6950000) taxRate = 0.2;
-  else if (taxableIncome <= 9000000) taxRate = 0.23;
-  else taxRate = 0.33;
-  const residentTaxRate = 0.1;
-  const limit = Math.round(taxableIncome * residentTaxRate * 0.2 / (1 - taxRate - residentTaxRate) + 2000);
-  return { limit: Math.max(limit, 2000), taxableIncome: Math.round(taxableIncome), taxRate: Math.round(taxRate * 100) };
+  // 1. 給与所得控除を適用
+  const employmentDeduction = calcEmploymentDeduction(annualIncome);
+  const employmentIncome = Math.max(0, annualIncome - employmentDeduction);
+  // 2. 社会保険料（概算15%）
+  const socialInsurance = annualIncome * 0.15;
+  // 3. 扶養控除（住民税基準）
+  let dependentDeduction: number;
+  if (familyType === 'single') dependentDeduction = 0;
+  else if (familyType === 'couple') dependentDeduction = 330_000; // 配偶者控除（住民税）
+  else dependentDeduction = 330_000 + 330_000; // 配偶者+扶養1人
+  // 4. 基礎控除（住民税）
+  const basicDeduction = 430_000;
+  // 5. 課税所得（住民税ベース）
+  const taxableIncome = Math.max(0, employmentIncome - socialInsurance - basicDeduction - dependentDeduction);
+  // 6. 所得税の課税所得（基礎控除480,000）
+  const taxableIncomeIT = Math.max(0, employmentIncome - socialInsurance - 480_000 - (familyType === 'single' ? 0 : familyType === 'couple' ? 380_000 : 760_000));
+  // 7. 所得税率の特定
+  let incomeTaxRate: number;
+  if (taxableIncomeIT <= 1_950_000) incomeTaxRate = 0.05;
+  else if (taxableIncomeIT <= 3_300_000) incomeTaxRate = 0.10;
+  else if (taxableIncomeIT <= 6_950_000) incomeTaxRate = 0.20;
+  else if (taxableIncomeIT <= 9_000_000) incomeTaxRate = 0.23;
+  else if (taxableIncomeIT <= 18_000_000) incomeTaxRate = 0.33;
+  else if (taxableIncomeIT <= 40_000_000) incomeTaxRate = 0.40;
+  else incomeTaxRate = 0.45;
+  // 8. ふるさと納税上限額 = 住民税所得割額×20% ÷ (100%-所得税率×1.021-10%) + 2,000円
+  const residentTaxIncomePortion = Math.round(taxableIncome * 0.10);
+  const denominator = 1 - incomeTaxRate * 1.021 - 0.10;
+  const limit = denominator > 0
+    ? Math.round(residentTaxIncomePortion * 0.20 / denominator + 2000)
+    : 2000;
+  return { limit: Math.max(limit, 2000), taxableIncome: Math.round(taxableIncome), taxRate: Math.round(incomeTaxRate * 100) };
 }
 
 export function spouseDeduction(inputs: Record<string, number | string>): Record<string, number> {
@@ -3437,12 +3463,22 @@ export function swimmingCalorie(inputs: Record<string, number | string>): Record
 
 export function targetHeartRate(inputs: Record<string, number | string>): Record<string, number | string> {
   const age = Number(inputs.age ?? 0);
-  const restingHR = Number(inputs.restingHR ?? 0);
+  const restingHR = Number(inputs.restingHR ?? 60);
+  // Karvonen method: Target HR = ((MaxHR - RestingHR) × intensity%) + RestingHR
+  const maxHR = 220 - age;
+  const hrReserve = maxHR - restingHR;
+  // Fat burn zone: 50-70%, Cardio zone: 70-80%, High intensity: 80-90%
+  const fatBurnLow = Math.round(hrReserve * 0.50 + restingHR);
+  const fatBurnHigh = Math.round(hrReserve * 0.70 + restingHR);
+  const cardioLow = Math.round(hrReserve * 0.70 + restingHR);
+  const cardioHigh = Math.round(hrReserve * 0.80 + restingHR);
+  const highIntensityLow = Math.round(hrReserve * 0.80 + restingHR);
+  const highIntensityHigh = Math.round(hrReserve * 0.90 + restingHR);
   return {
-    maxHR: Math.round(age * restingHR),
-    fatBurnZone: Math.round(age),
-    cardioZone: Math.round(age),
-    highIntensity: Math.round(age)
+    maxHR,
+    fatBurnZone: `${fatBurnLow}〜${fatBurnHigh}`,
+    cardioZone: `${cardioLow}〜${cardioHigh}`,
+    highIntensity: `${highIntensityLow}〜${highIntensityHigh}`
   };
 }
 
