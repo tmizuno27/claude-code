@@ -1,23 +1,24 @@
 {
   "name": "WP Internal Link Optimization API",
   "slug": "wp-internal-link-api",
-  "description": "Free WordPress SEO API - Internal Links, Anchor Text | LinkWhisper Alt",
-  "long_description": "## Why WP Internal Link API?\n- ✅ AI-powered internal link suggestions for WordPress articles\n- ✅ Analyzes content relevance and anchor text optimization\n- ✅ Sitemap parsing for comprehensive link opportunity discovery\n\n## Key Features\n- Internal link opportunity detection\n- Anchor text suggestions based on content relevance\n- WordPress sitemap analysis\n- Link density and distribution scoring\n- Orphan page detection\n- SEO impact estimation\n\n## Use Cases\n- **WordPress Bloggers**: Optimize internal linking structure\n- **SEO Agencies**: Automated internal link audits for clients\n- **Content Teams**: Discover linking opportunities between articles\n- **Site Migration**: Map internal links during redesigns\n\n## Quick Start\n```\nPOST /analyze\n{\"content\": \"<article HTML>\", \"sitemap_url\": \"https://example.com/sitemap.xml\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full analysis. No credit card required.\n\n## Alternative To\nA free **WordPress internal linking API alternative** to Link Whisper, Yoast, and RankMath link suggestions. Automated keyword-to-URL matching.\n\n## Need More Requests?\nFree plan (100 analyses/month) for single-site use. **Pro ($9.99/mo)** for SEO agencies managing multiple WordPress sites.",
+  "description": "The only REST API for WordPress internal linking. Keyword matching + relevance scoring. Link Whisper alternative. Free 100/mo.",
+  "long_description": "## The Only REST API for Internal Link Optimization\nEvery WordPress internal linking tool is a plugin. This is the only REST API. Use it from Python, Node.js, PHP, CI/CD pipelines, headless CMS setups, or custom automation scripts.\n\n## Why This Matters for WordPress Developers\nLink Whisper ($77/yr), Yoast Premium ($99/yr), and Internal Link Juicer are all locked inside wp-admin. If you're building custom tools, managing multiple sites, or using headless WordPress — you need an API.\n\n## How It Works\n1. Send your article HTML + sitemap URL (or page list)\n2. API analyzes content for keyword matches against your other pages\n3. Returns ranked link suggestions with anchor text, target URL, and relevance score (0-100)\n\n## Plugin vs API Comparison\n| | This API | Link Whisper | Yoast | ILJ |\n|---|---|---|---|---|\n| REST API | **Yes** | No | No | No |\n| Headless CMS | **Yes** | No | No | No |\n| CI/CD | **Yes** | No | No | No |\n| Multi-site script | **Yes** | No | No | No |\n| Free tier | **100/mo** | None ($77/yr) | Premium only | Limited |\n\n## Use Cases for WordPress Developers\n- **Auto-link on publish**: Script that inserts internal links when new posts are published\n- **Gutenberg sidebar panel**: Show link suggestions in real-time as authors write\n- **Headless WordPress**: Internal linking for Next.js/Gatsby/Astro frontends\n- **Agency bulk audit**: Analyze internal links across 10+ client sites in one script\n- **Content migration**: Build internal links from scratch after CMS migration\n- **WP-CLI automation**: Monthly cron job to optimize internal links across all posts\n\n## Quick Start\n```\nPOST /analyze\n{\"article_html\": \"<p>Your content...</p>\", \"sitemap_url\": \"https://site.com/sitemap.xml\"}\n→ [{\"anchor\": \"caching\", \"url\": \"/caching-guide\", \"score\": 92}]\n```\n\n## Endpoints\n- `POST /analyze` — Full link analysis with ranked suggestions\n- `POST /suggest` — Quick keyword-to-URL matching\n\nFree tier: 100 analyses/month. No credit card required.",
   "category": "Tools",
   "tags": [
     "wordpress",
     "internal-links",
+    "wordpress-seo",
     "seo",
     "content-optimization",
-    "free-api",
-    "rest-api",
-    "developer-tools",
-    "linkwhisper-alternative",
-    "yoast-alternative",
     "anchor-text",
     "link-building",
-    "wordpress-seo",
-    "cloudflare-edge"
+    "linkwhisper-alternative",
+    "yoast-alternative",
+    "headless-wordpress",
+    "wordpress-developer",
+    "wordpress-api",
+    "free-api",
+    "rest-api"
   ],
   "website": "https://wp-internal-link-api.t-mizuno27.workers.dev",
   "pricing": {
@@ -33,7 +34,7 @@
           "POST /analyze endpoint",
           "POST /suggest endpoint",
           "Sitemap parsing",
-          "Up to 100 requests/month"
+          "Relevance scoring 0-100"
         ]
       },
       {
@@ -44,10 +45,10 @@
           "requests_per_second": 5
         },
         "features": [
-          "All endpoints",
-          "1,000 requests/month",
-          "Priority support",
-          "Higher rate limits"
+          "All Basic features",
+          "1,000 analyses/month",
+          "5 req/sec throughput",
+          "Priority support"
         ]
       },
       {
@@ -59,8 +60,8 @@
         },
         "features": [
           "All Pro features",
-          "10,000 requests/month",
-          "Highest rate limits",
+          "10,000 analyses/month",
+          "20 req/sec throughput",
           "Dedicated support"
         ]
       }
@@ -71,7 +72,7 @@
       "name": "Analyze Internal Links",
       "method": "POST",
       "path": "/analyze",
-      "description": "Analyze article HTML against sitemap or page list and return ranked link suggestions",
+      "description": "Analyze article HTML against sitemap or page list, return ranked link suggestions with relevance scores",
       "parameters": [
         {
           "name": "article_html",
@@ -83,13 +84,13 @@
           "name": "article_title",
           "type": "string",
           "required": false,
-          "description": "Title of the article"
+          "description": "Title of the article (improves matching accuracy)"
         },
         {
           "name": "sitemap_url",
           "type": "string",
           "required": false,
-          "description": "URL of XML sitemap (alternative to pages)"
+          "description": "URL of XML sitemap (alternative to pages array)"
         },
         {
           "name": "pages",
@@ -103,7 +104,7 @@
       "name": "Suggest Keyword Links",
       "method": "POST",
       "path": "/suggest",
-      "description": "Match article keywords to existing page URLs",
+      "description": "Quick keyword-to-URL matching for plain text content",
       "parameters": [
         {
           "name": "article_text",
@@ -115,7 +116,7 @@
           "name": "pages",
           "type": "array",
           "required": true,
-          "description": "Array of {url, title} objects"
+          "description": "Array of {url, title} objects to match against"
         }
       ]
     },
