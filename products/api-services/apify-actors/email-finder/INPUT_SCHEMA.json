@@ -1,0 +1,36 @@
+{
+  "title": "Email Finder Input",
+  "description": "Find email addresses, phone numbers, and social links from websites.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Website URLs",
+      "type": "array",
+      "description": "List of website URLs to scan for contact information.",
+      "editor": "stringList",
+      "items": { "type": "string" }
+    },
+    "scanDepth": {
+      "title": "Scan Depth",
+      "type": "string",
+      "description": "'homepage' scans only the main page. 'deep' also scans /contact, /about, /team pages.",
+      "default": "homepage",
+      "enum": ["homepage", "deep"],
+      "editor": "select"
+    },
+    "includePhones": {
+      "title": "Include Phone Numbers",
+      "type": "boolean",
+      "description": "Extract phone numbers from pages.",
+      "default": true
+    },
+    "includeSocial": {
+      "title": "Include Social Links",
+      "type": "boolean",
+      "description": "Extract social media profile URLs.",
+      "default": true
+    }
+  },
+  "required": ["urls"]
+}

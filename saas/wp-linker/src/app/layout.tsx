@@ -8,9 +8,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "WP Linker — WordPress Internal Link Optimizer",
+  title: "WP Linker — WordPress Internal Link Optimizer | Boost SEO Without Plugins",
   description:
-    "AI-powered internal linking, orphan post detection, and link coverage analysis for WordPress. No plugin install required — works via REST API.",
+    "Find orphan posts, get AI-powered internal link suggestions, and apply them with one click. Works via WordPress REST API — no plugin required. Free trial.",
   keywords: [
     "WordPress internal links",
     "SEO tool",
@@ -18,20 +18,35 @@ export const metadata: Metadata = {
     "internal link optimizer",
     "WordPress REST API",
     "link coverage",
+    "WordPress SEO",
+    "internal linking strategy",
   ],
+  alternates: {
+    canonical: "https://wp-linker.vercel.app",
+  },
   openGraph: {
-    title: "WP Linker — Fix Your Internal Links, Boost Your SEO",
+    title: "WP Linker — Fix Orphan Posts & Boost Internal Links",
     description:
-      "Analyze your WordPress posts, find orphan content, and apply smart internal link suggestions with one click. No plugin required.",
+      "Most WordPress sites have orphan posts killing their SEO. WP Linker finds and fixes them in minutes. No plugin required.",
+    url: "https://wp-linker.vercel.app",
     type: "website",
     locale: "en_US",
     siteName: "WP Linker",
+    images: [
+      {
+        url: "https://wp-linker.vercel.app/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WP Linker — WordPress Internal Link Optimizer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WP Linker — WordPress Internal Link Optimizer",
     description:
-      "AI-powered internal linking for WordPress. No plugin install required.",
+      "Find orphan posts & boost internal links for WordPress. No plugin required.",
+    images: ["https://wp-linker.vercel.app/og-image.png"],
   },
   robots: {
     index: true,
@@ -48,6 +63,63 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              name: "WP Linker",
+              applicationCategory: "SEO Tool",
+              operatingSystem: "Web",
+              description:
+                "AI-powered WordPress internal link optimizer. Find orphan posts and boost SEO without installing any plugin.",
+              url: "https://wp-linker.vercel.app",
+              offers: {
+                "@type": "AggregateOffer",
+                lowPrice: "9",
+                highPrice: "79",
+                priceCurrency: "USD",
+                offerCount: "3",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: [
+                {
+                  "@type": "Question",
+                  name: "Do I need to install a WordPress plugin?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "No. WP Linker works entirely via the WordPress REST API. You just need to create an application password in your WordPress dashboard.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "Is my WordPress data safe?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Yes. WP Linker only reads your published posts to analyze links. We never modify your content without your explicit approval.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "How long does the analysis take?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "Most sites with under 500 posts are analyzed in under 2 minutes.",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} antialiased`}>{children}</body>
     </html>
