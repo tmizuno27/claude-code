@@ -18,4 +18,4 @@
 - `kakuyasu-sim-ryokin-hikaku-ichiran` pos=10.0 CTR=0% imp=109
 
 ---
-*自動生成: 2026-03-25 17:57 PYT*
+*自動生成: 2026-03-25 18:47 PYT*
