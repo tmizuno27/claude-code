@@ -114,8 +114,8 @@
 
 ## pSEO AIツール比較サイト（稼働中）
 - **詳細**: [pseo-site.md](pseo-site.md)
-- Next.js 16 SSG、291ツール×12カテゴリ、4,003静的ページ生成済み
-- Vercelデプロイ完了（2026-03-20）: `ai-tool-compare-nu.vercel.app`、GSC登録済み
+- Next.js 16 SSG、5,052ページ生成済み、GA4設置完了（G-HT51NK0YHE）
+- Vercelデプロイ完了: `ai-tool-compare-nu.vercel.app`、GSC登録済み、sitemap 5,048 URL
 - **プロジェクトパス**: `claude-code/saas/pseo-saas/`
 
 ## 仮想通貨自動売買（Bybit口座開設待ち）
@@ -198,7 +198,7 @@
 - **Value Commerce**: プログラム提携（3サイト分）
 
 ## Dev.toアカウント
-- **詳細**: [devto-account.md](devto-account.md) — miccho27、RapidAPI販促記事3本公開済み（2026-03-23）
+- **詳細**: [devto-account.md](devto-account.md) — miccho27、記事6本（4本公開+2本下書き自動公開予定）、APIキー保存済み、Task Scheduler「DevTo-PublishDrafts」登録済み
 - **効果測定TODO**: [devto-followup-todo.md](devto-followup-todo.md) — 2026-04-06にAnalytics確認→反応あれば追加投稿、なければ切り口変更
 
 ## Fiverr案件（進行中）

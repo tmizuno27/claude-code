@@ -45,6 +45,9 @@ type: project
 ### プライシング
 - API 1-21: BASIC: $0/100req, PRO: $9.99/10K, ULTRA: $24.99/50K, MEGA: $49.99/500K
 - API 22-24: BASIC: $0/100-500req, PRO: $5.99, ULTRA: $14.99, MEGA: $49.99
+- **pricing設定完了（2026-03-24）**: 02 Email Validation, 03 Link Preview, 06 IP Geolocation, 08 JSON Formatterの4本
+- **12-Social Video API**: 非公開化（2026-03-24）— 著作権リスク回避
+- **収益目標**: $30-50/mo（現実的修正、2026-03-24）
 
 **Why:** KYC不要、PayPal受取、マーケットプレイスが集客・課金・サポート全処理、運用コスト$0
 **How to apply:** n8nテンプレート事業と並行。売上モニタリングのみ必要

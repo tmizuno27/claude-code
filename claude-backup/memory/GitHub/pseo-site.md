@@ -10,7 +10,10 @@ type: project
 - **プロジェクトパス**: `claude-code/saas/pseo-saas/`
 - **技術**: Next.js 16 (App Router, SSG, `output: 'export'`)
 - **データ**: `data/tools.json` — 291ツール、12カテゴリ
-- **生成ページ数**: 4,003ページ（ホーム + 12カテゴリ + 291ツール + 3,697比較）
+- **生成ページ数**: 5,052ページ（2026-03-24更新）
+- **GA4**: G-HT51NK0YHE 設置完了（2026-03-24）
+- **ドメイン**: ai-tool-compare-nu.vercel.app に統一
+- **sitemap**: 5,048 URL
 
 ### カテゴリ（12）
 ai-writing(40), ai-image(35), ai-chatbot(20), ai-coding(25), ai-video(25), ai-audio(20), ai-automation(30), ai-seo(22), ai-design(20), ai-productivity(24), ai-translation(15), ai-customer-service(15)
@@ -24,7 +27,7 @@ ai-writing(40), ai-image(35), ai-chatbot(20), ai-coding(25), ai-video(25), ai-au
 
 ### 完了タスク（2026-03-20）
 - Vercelデプロイ: `ai-tool-compare-nu.vercel.app`
-- sitemap.xml生成: `generate-sitemap.js` → 4,200 URL
+- sitemap.xml生成: `generate-sitemap.js` → 5,048 URL（2026-03-24更新）
 - GSC登録: `ai-tool-compare-nu.vercel.app` プロパティ追加済み
 - Google検証: HTMLタグ + HTMLファイル両方配置
 
