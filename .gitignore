@@ -5,6 +5,7 @@
 **/credentials/
 **/service-account.json
 gumroad-secrets.json
+**/dev-to-config.json
 .env
 .env.*
 

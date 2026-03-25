@@ -223,17 +223,11 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="変換せずにプレビュー")
     args = parser.parse_args()
 
-    if anthropic is None:
-        logger.error("anthropic パッケージが必要です: pip install anthropic")
-        sys.exit(1)
-
     secrets = load_secrets()
     api_key = secrets.get("claude_api", {}).get("api_key")
     if not api_key:
         logger.error("Claude API key not found in secrets.json")
         sys.exit(1)
-
-    client = anthropic.Anthropic(api_key=api_key)
 
     # Load data
     articles = load_article_csv()
@@ -281,14 +275,14 @@ def main():
 
         # Convert
         try:
-            hatena_body = convert_article(client, original_title, content, url)
+            hatena_body = convert_article(api_key, original_title, content, url)
             hatena_title = generate_hatena_title(original_title)
         except Exception as e:
             logger.error(f"  → 変換エラー: {e}")
             continue
 
         # Save converted article
-        output_filename = f"hatena-{article_id:03d}.md"
+        output_filename = f"hatena-{int(article_id):03d}.md"
         output_path = HATENA_OUTPUT_DIR / output_filename
         with open(output_path, "w", encoding="utf-8") as f:
             f.write(f"---\n")
