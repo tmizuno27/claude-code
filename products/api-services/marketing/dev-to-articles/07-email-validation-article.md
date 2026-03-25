@@ -1,165 +1,130 @@
 ---
-title: "How to Validate Emails in Your App — Detect Disposable Emails, Typos, and Invalid Domains"
+title: "Build an Email Validation System with a Free API — Disposable Detection, MX Checks, Typo Suggestions"
 published: false
-tags: api, webdev, saas, javascript
+tags: api, webdev, python, email
 ---
 
-Bad emails kill your SaaS metrics. Disposable signups inflate your user count, typos cause failed onboarding, and invalid addresses tank your email deliverability score.
+Bad email addresses cost money. Every bounced email hurts your sender reputation, and disposable emails pollute your user database. Most email validation services charge $0.005–$0.01 per check — that's $50 for 10,000 validations.
 
-Here's how to catch all three problems with a single API call — no regex hacks, no maintaining your own blocklist of 500+ disposable domains.
+I built a **free Email Validation API** that handles the heavy lifting: syntax validation, MX record verification, disposable domain detection (500+ domains), and even typo suggestions (catches `gmial.com` → `gmail.com`).
 
-## The Problem with Regex-Only Validation
+## What It Checks
 
-Most developers start with regex:
+1. **Syntax validation** — RFC-compliant format check
+2. **MX record lookup** — Does the domain actually accept email?
+3. **Disposable detection** — 500+ throwaway email providers flagged
+4. **Typo correction** — Suggests fixes for common domain typos
+5. **Role-based detection** — Flags `info@`, `admin@`, `support@` addresses
 
-```javascript
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-```
-
-This catches the obvious errors, but misses:
-- `user@gmial.com` (typo — should be gmail.com)
-- `user@tempmail.ninja` (disposable email)
-- `user@nonexistent-domain.xyz` (no MX records)
-- `user@example.com` (role-based, unlikely to be a real person)
-
-## Email Validation API
-
-One endpoint that checks all of the above, plus DNS verification and typo suggestions.
-
-### Quick Start
+## Quick Start
 
 ```bash
-curl "https://email-validation-api.p.rapidapi.com/validate?email=user@gmial.com" \
-  -H "X-RapidAPI-Key: YOUR_KEY"
+curl "https://email-validation-api.p.rapidapi.com/validate?email=user@gmial.com"
 ```
 
 Response:
-
 ```json
 {
   "email": "user@gmial.com",
-  "valid": false,
-  "reason": "possible_typo",
+  "valid_syntax": true,
+  "mx_records": false,
+  "is_disposable": false,
+  "is_role_based": false,
   "suggestion": "user@gmail.com",
-  "disposable": false,
-  "mx_records": true,
-  "domain": "gmial.com"
+  "score": 30,
+  "verdict": "risky"
 }
 ```
 
-### JavaScript: Signup Form Validation
+Notice it caught the `gmial.com` typo and suggested `gmail.com`.
+
+## JavaScript — Form Validation
 
 ```javascript
 async function validateEmail(email) {
   const response = await fetch(
-    `https://email-validation-api.p.rapidapi.com/validate?email=${encodeURIComponent(email)}`,
-    { headers: { 'X-RapidAPI-Key': process.env.RAPIDAPI_KEY } }
+    `https://email-validation-api.p.rapidapi.com/validate?email=${encodeURIComponent(email)}`
   );
-  return response.json();
-}
+  const result = await response.json();
 
-// Express middleware
-async function emailValidationMiddleware(req, res, next) {
-  const { email } = req.body;
-
-  if (!email) {
-    return res.status(400).json({ error: 'Email is required' });
-  }
-
-  const result = await validateEmail(email);
-
-  if (result.disposable) {
-    return res.status(400).json({
-      error: 'Disposable emails are not allowed',
-      suggestion: 'Please use a permanent email address'
-    });
+  if (result.is_disposable) {
+    return { valid: false, reason: 'Disposable emails are not allowed' };
   }
 
   if (result.suggestion) {
-    return res.status(400).json({
-      error: `Did you mean ${result.suggestion}?`,
-      suggestion: result.suggestion
-    });
+    return { valid: false, reason: `Did you mean ${result.suggestion}?` };
   }
 
-  if (!result.valid) {
-    return res.status(400).json({ error: 'Invalid email address' });
+  if (result.score < 50) {
+    return { valid: false, reason: 'This email address appears invalid' };
   }
 
-  next();
+  return { valid: true };
+}
+
+// Usage in a signup form
+const { valid, reason } = await validateEmail('user@gmial.com');
+if (!valid) {
+  showError(reason); // "Did you mean user@gmail.com?"
 }
 ```
 
-### Python: Bulk Email Cleaning
+## Python — Bulk Validation
 
 ```python
 import requests
 import csv
-from time import sleep
 
-def validate_email(email):
+def validate_email(email: str) -> dict:
     response = requests.get(
         "https://email-validation-api.p.rapidapi.com/validate",
         params={"email": email},
-        headers={"X-RapidAPI-Key": "YOUR_KEY"}
+        timeout=10
     )
     return response.json()
 
-def clean_email_list(input_csv, output_csv):
-    """Remove disposable and invalid emails from a mailing list."""
-    results = {"valid": 0, "invalid": 0, "disposable": 0, "typo": 0}
-
-    with open(input_csv) as fin, open(output_csv, "w", newline="") as fout:
-        reader = csv.DictReader(fin)
-        writer = csv.DictWriter(fout, fieldnames=["email", "status", "suggestion"])
-        writer.writeheader()
-
-        for row in reader:
-            result = validate_email(row["email"])
-            sleep(0.5)  # respect rate limits
-
-            if result.get("disposable"):
-                status = "disposable"
-                results["disposable"] += 1
-            elif result.get("suggestion"):
-                status = "typo"
-                results["typo"] += 1
-            elif result.get("valid"):
-                status = "valid"
-                results["valid"] += 1
-            else:
-                status = "invalid"
-                results["invalid"] += 1
-
-            writer.writerow({
-                "email": row["email"],
-                "status": status,
-                "suggestion": result.get("suggestion", "")
-            })
-
-    print(f"Results: {results}")
-
-clean_email_list("subscribers.csv", "cleaned_subscribers.csv")
+# Validate a CSV of emails
+with open("emails.csv") as f:
+    reader = csv.DictReader(f)
+    for row in reader:
+        result = validate_email(row["email"])
+        if result["is_disposable"]:
+            print(f"DISPOSABLE: {row['email']}")
+        elif result["score"] < 50:
+            print(f"INVALID: {row['email']} (score: {result['score']})")
+        elif result.get("suggestion"):
+            print(f"TYPO: {row['email']} → {result['suggestion']}")
+        else:
+            print(f"OK: {row['email']}")
 ```
 
-### What Gets Checked
+## When to Use This
 
-| Check | Description |
-|-------|-------------|
-| **Syntax** | RFC 5322 compliance |
-| **MX Records** | DNS lookup to verify the domain accepts email |
-| **Disposable** | 500+ known temporary email providers |
-| **Typo Detection** | Levenshtein distance against popular providers |
-| **Role-Based** | Detects info@, admin@, support@ addresses |
+| Scenario | Without validation | With validation |
+|----------|-------------------|-----------------|
+| Signup form | 15% fake emails → bounce | Catch typos + disposables at entry |
+| Newsletter | High bounce rate → domain blacklisted | Only valid addresses get through |
+| Lead gen | Sales wastes time on bad leads | Only real emails in CRM |
+| Waitlist | Inflated numbers, useless data | Accurate user count |
 
-## Pricing
+## API Response Fields
 
-- **Free**: 500 requests/month
-- **Basic**: $5/month for 10,000 requests
-- **Pro**: $15/month for 50,000 requests
+| Field | Type | Description |
+|-------|------|-------------|
+| `valid_syntax` | boolean | RFC email format check |
+| `mx_records` | boolean | Domain has MX records |
+| `is_disposable` | boolean | Known throwaway provider |
+| `is_role_based` | boolean | Generic address (info@, admin@) |
+| `suggestion` | string | Typo correction (null if none) |
+| `score` | number | 0–100 deliverability score |
+| `verdict` | string | `valid`, `risky`, or `invalid` |
 
-[Try Email Validation API on RapidAPI](https://rapidapi.com/miccho27-5OJaGGbBiO/api/email-validation-api)
+## Free Tier
+
+500 requests/month — no API key required. That's enough for a small SaaS signup flow or cleaning a contact list.
+
+[**Try it free on RapidAPI →**](https://rapidapi.com/miccho27-5OJaGGbBiO/api/email-validation-api)
 
 ---
 
-*Built by [@miccho27](https://rapidapi.com/miccho27-5OJaGGbBiO). Powered by Cloudflare Workers with zero cold starts.*
+*Part of a [collection of 24 free developer APIs](https://rapidapi.com/user/miccho27-5OJaGGbBiO) running on Cloudflare Workers.*
