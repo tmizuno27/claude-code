@@ -1,5 +1,5 @@
 ---
-title: "Free QR Code Generator API — No Auth, Custom Colors, SVG & PNG Support"
+title: "Generate Custom QR Codes via API — Free, No Auth, SVG & PNG, Branded Colors"
 published: false
 tags: api, webdev, javascript, tutorial
 ---
