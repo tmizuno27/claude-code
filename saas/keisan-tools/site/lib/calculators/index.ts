@@ -4178,31 +4178,6 @@ export function installmentPayment(inputs: Record<string, number | string>): Rec
   };
 }
 
-export function paperSize(inputs: Record<string, number | string>): Record<string, number | string> {
-  const series = inputs.series as string;
-  const size = inputs.size as number;
-  let w: number, h: number;
-  if (series === 'A') {
-    w = Math.round(1000 / Math.pow(2, (2 * size + 1) / 4));
-    h = Math.round(1000 / Math.pow(2, (2 * size - 1) / 4));
-  } else {
-    w = Math.round(1000 * Math.sqrt(1.5) / Math.pow(2, (2 * size + 1) / 4));
-    h = Math.round(1000 * Math.sqrt(1.5) / Math.pow(2, (2 * size - 1) / 4));
-  }
-  // Use known standard values for common sizes
-  const aWidths: Record<number, number> = { 0: 841, 1: 594, 2: 420, 3: 297, 4: 210, 5: 148, 6: 105, 7: 74, 8: 52, 9: 37, 10: 26 };
-  const aHeights: Record<number, number> = { 0: 1189, 1: 841, 2: 594, 3: 420, 4: 297, 5: 210, 6: 148, 7: 105, 8: 74, 9: 52, 10: 37 };
-  const bWidths: Record<number, number> = { 0: 1030, 1: 728, 2: 515, 3: 364, 4: 257, 5: 182, 6: 128, 7: 91, 8: 64, 9: 45, 10: 32 };
-  const bHeights: Record<number, number> = { 0: 1456, 1: 1030, 2: 728, 3: 515, 4: 364, 5: 257, 6: 182, 7: 128, 8: 91, 9: 64, 10: 45 };
-  if (series === 'A' && size in aWidths) { w = aWidths[size]; h = aHeights[size]; }
-  if (series === 'B' && size in bWidths) { w = bWidths[size]; h = bHeights[size]; }
-  return {
-    width: `${w}mm` as unknown as number,
-    height: `${h}mm` as unknown as number,
-    area: `${Math.round(w * h / 100)}cm²` as unknown as number,
-  };
-}
-
 export function shoeSizeConvert(inputs: Record<string, number | string>): Record<string, number | string> {
   const jp = inputs.jpSize as number;
   const gender = inputs.gender as string;
