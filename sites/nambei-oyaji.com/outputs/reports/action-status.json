@@ -3,13 +3,11 @@
   "actions": [
     {
       "id": "gsc-key-renewal",
-      "title": "Google Cloud サービスアカウントキー再発行（3サイトGSC/GA4復旧）",
+      "title": "Google Cloud サービスアカウントキー再発行",
       "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "全3サイト+keisan-toolsでGSC/GA4認証エラー（invalid_grant）。Google Cloud Consoleで新キー生成が必要",
-      "effort": "手動10分",
-      "revenue_potential": "SEOデータなしでは改善判断不可。全サイト共通ブロッカー"
+      "done": true,
+      "done_at": "2026-03-25 17:55 PYT",
+      "reason": "3サイト+keisan-toolsのGSC/GA4復旧完了"
     },
     {
       "id": "pseo-content-generate",
@@ -17,52 +15,7 @@
       "priority": "P1",
       "done": true,
       "done_at": "2026-03-25 17:40 PYT",
-      "reason": "既に5,052ページ生成済み・455ページSSGデプロイ済み"
-    },
-    {
-      "id": "keisan-adsense-apply",
-      "title": "keisan-tools.com AdSense申請",
-      "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "369ページ公開中。申請基準30ページを大幅超過。申請可能",
-      "effort": "手動15分",
-      "revenue_potential": "計算ツールサイトはAdSense相性◎"
-    },
-    {
-      "id": "apify-paypal-setup",
-      "title": "Apify PayPal出金設定",
-      "priority": "P2",
-      "done": false,
-      "done_at": null,
-      "reason": "売上発生時に出金できるよう事前設定",
-      "effort": "手動5分"
-    },
-    {
-      "id": "rapidapi-seo-improve",
-      "title": "RapidAPI リスティングSEO改善（タイトル・説明・タグ）",
-      "priority": "P2",
-      "done": false,
-      "done_at": null,
-      "reason": "24API全て利用ゼロ。ディスカバラビリティ改善が急務",
-      "effort": "自動化可能"
-    },
-    {
-      "id": "x-nambei-error-fix",
-      "title": "@nambei_oyaji X投稿エラー1件の修正",
-      "priority": "P3",
-      "done": false,
-      "done_at": null,
-      "reason": "過去7日で1件エラー。投稿自体は8件成功中"
-    },
-    {
-      "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題解決",
-      "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "WP Linker決済、n8nテンプレート等複数事業がブロック中",
-      "effort": "手動（書類準備）"
+      "reason": "5,052ページ生成済み・455ページSSGデプロイ済み"
     },
     {
       "id": "pdca-script-bugs-fixed",
@@ -70,7 +23,74 @@
       "priority": "P1",
       "done": true,
       "done_at": "2026-03-25 17:45 PYT",
-      "reason": "now_imp未定義エラー、X投稿数0表示、keisan-tools 0ページ表示を修正"
+      "reason": "now_imp未定義・X投稿0表示・keisan-tools 0ページ表示を修正"
+    },
+    {
+      "id": "ctr-improve-5articles",
+      "title": "CTR改善（5記事タイトル・メタ修正）",
+      "priority": "P1",
+      "done": true,
+      "done_at": "2026-03-25 18:10 PYT",
+      "reason": "3サイト計5記事（順位10位内CTR0%）のタイトル短縮・メタ追加完了"
+    },
+    {
+      "id": "internal-link-fix",
+      "title": "内部リンク不足2記事の修正（南米おやじ）",
+      "priority": "P2",
+      "done": true,
+      "done_at": "2026-03-25 18:05 PYT",
+      "reason": "2記事に計6本の内部リンクを自然挿入"
+    },
+    {
+      "id": "rapidapi-seo-improve",
+      "title": "RapidAPI 24本リスティングSEO改善案作成",
+      "priority": "P1",
+      "done": true,
+      "done_at": "2026-03-25 18:08 PYT",
+      "reason": "全24APIの改善タイトル・説明・タグをMDにまとめ済み。手動更新が必要"
+    },
+    {
+      "id": "indexing-api-resend",
+      "title": "Indexing API再送信（GSC復旧後）",
+      "priority": "P2",
+      "done": true,
+      "done_at": "2026-03-25 18:00 PYT",
+      "reason": "認証正常確認。レート制限で本日分は送信不可、明日06:00自動送信"
+    },
+    {
+      "id": "keisan-adsense-apply",
+      "title": "keisan-tools.com AdSense申請",
+      "priority": "P1",
+      "done": false,
+      "done_at": null,
+      "reason": "369ページ公開中、申請基準クリア済み",
+      "effort": "手動15分"
+    },
+    {
+      "id": "rapidapi-studio-update",
+      "title": "RapidAPI Studioで24本リスティング手動更新",
+      "priority": "P1",
+      "done": false,
+      "done_at": null,
+      "reason": "改善案作成済み。Studioで反映が必要",
+      "effort": "手動30分"
+    },
+    {
+      "id": "apify-paypal-setup",
+      "title": "Apify PayPal出金設定",
+      "priority": "P2",
+      "done": false,
+      "done_at": null,
+      "effort": "手動5分"
+    },
+    {
+      "id": "stripe-kyc-resolve",
+      "title": "Stripe KYC問題解決",
+      "priority": "P1",
+      "done": false,
+      "done_at": null,
+      "reason": "WP Linker・n8n等複数事業がブロック中",
+      "effort": "手動（書類準備）"
     }
   ]
 }
