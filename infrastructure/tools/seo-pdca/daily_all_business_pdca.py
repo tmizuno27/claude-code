@@ -4,6 +4,7 @@
 
 対象事業:
   1. 3ブログサイト（GA4 + GSC + WP REST API）
+  1b. はてなブログ（本家送客チャネル、投稿状況・送客効果）
   2. RapidAPI（24 API統計）
   3. Gumroad（売上データ）
   4. Chrome拡張（ストア公開状況）
@@ -1155,10 +1156,80 @@ def pdca_finance():
 
 
 # =====================================================================
+# はてなブログ（本家送客チャネル）
+# =====================================================================
+def pdca_hatena_blog():
+    logger.report("# はてなブログ（nambei-oyaji.hatenablog.com）")
+    logger.report("")
+
+    hatena_dir = SITES_DIR / "nambei-oyaji.com" / "outputs" / "hatena"
+    hatena_log = SITES_DIR / "nambei-oyaji.com" / "published" / "hatena-log.json"
+    pipeline_log = REPO_ROOT / "logs" / "hatena-pipeline.log"
+
+    # CHECK
+    logger.report("### CHECK")
+
+    # 投稿ログから統計
+    total_posts = 0
+    recent_posts = []
+    if hatena_log.exists():
+        try:
+            with open(hatena_log, "r", encoding="utf-8") as f:
+                log_data = json.load(f)
+            if isinstance(log_data, list):
+                total_posts = len(log_data)
+                # 過去7日の投稿
+                week_ago = (NOW - timedelta(days=7)).strftime("%Y-%m-%d")
+                for entry in log_data:
+                    pub_date = entry.get("published_at", entry.get("date", ""))[:10]
+                    if pub_date >= week_ago:
+                        recent_posts.append(entry)
+        except Exception as e:
+            logger.log(f"  [hatena] ログ読み込みエラー: {e}")
+
+    logger.report(f"- 総投稿数: **{total_posts}**")
+    logger.report(f"- 過去7日の投稿: **{len(recent_posts)}件**")
+
+    # 変換済みダイジェスト記事数
+    digest_count = 0
+    if hatena_dir.exists():
+        digest_count = len(list(hatena_dir.glob("*.md")))
+    logger.report(f"- 変換済みダイジェスト: {digest_count}件")
+
+    # パイプラインログの最終実行
+    if pipeline_log.exists():
+        mtime = datetime.fromtimestamp(pipeline_log.stat().st_mtime, PYT)
+        logger.report(f"- パイプライン最終実行: {mtime.strftime('%Y-%m-%d %H:%M PYT')}")
+    else:
+        logger.report("- パイプラインログ: 未検出")
+
+    logger.report("")
+
+    # ACT
+    logger.report("### ACT")
+    logger.report("- Task Scheduler: `HatenaPipeline`（月水金 07:00 PYT、2記事/回）")
+    if len(recent_posts) == 0:
+        logger.report("- ⚠️ 過去7日間の投稿がゼロ → パイプライン稼働確認が必要")
+    else:
+        logger.report(f"- ✅ 直近7日で{len(recent_posts)}件投稿済み")
+    logger.report("")
+
+    # PLAN
+    logger.report("### PLAN")
+    logger.report("- 本家（nambei-oyaji.com）への送客効果をGA4 UTMパラメータで計測")
+    logger.report("- はてなコミュニティ（グループ・読者登録）からの流入を分析")
+    if total_posts < 20:
+        logger.report(f"- 📈 投稿数{total_posts} → まずは20記事到達を目指す（週6記事ペース）")
+    logger.report("- 被リンク効果のGSC確認（参照元ドメインにhatenablog.comがあるか）")
+    logger.report("")
+
+
+# =====================================================================
 # メイン
 # =====================================================================
 SECTORS = {
     "blogs": pdca_blogs,
+    "hatena": pdca_hatena_blog,
     "rapidapi": pdca_rapidapi,
     "gumroad": pdca_gumroad,
     "chrome": pdca_chrome_extensions,
