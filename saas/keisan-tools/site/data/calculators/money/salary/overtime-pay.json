@@ -1,0 +1,92 @@
+{
+  "slug": "overtime-pay",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "残業代計算",
+  "description": "残業時間から残業代を計算します",
+  "metaTitle": "残業代計算ツール｜keisan.tools",
+  "metaDescription": "月給と残業時間を入力して残業代を自動計算。深夜・休日割増にも対応。",
+  "calculatorFunction": "overtimePay",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給",
+      "type": "number",
+      "default": 25,
+      "min": 0,
+      "max": 1000,
+      "step": 1,
+      "unit": "万円"
+    },
+    {
+      "id": "monthlyHours",
+      "label": "月所定労働時間",
+      "type": "number",
+      "default": 160,
+      "min": 100,
+      "max": 200,
+      "step": 1,
+      "unit": "時間"
+    },
+    {
+      "id": "overtimeHours",
+      "label": "残業時間",
+      "type": "number",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 1,
+      "unit": "時間"
+    },
+    {
+      "id": "type",
+      "label": "残業の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "normal",
+          "label": "通常残業（25%増）"
+        },
+        {
+          "value": "night",
+          "label": "深夜残業（50%増）"
+        },
+        {
+          "value": "holiday",
+          "label": "休日残業（35%増）"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "overtimePay",
+      "label": "残業代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "baseHourly",
+      "label": "基礎時給",
+      "format": "currency"
+    },
+    {
+      "id": "totalSalary",
+      "label": "残業込み月給",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>残業代の計算</h3><p>基礎時給に割増率を掛けて残業代を算出します。</p>",
+  "faq": [
+    {
+      "question": "残業の割増率は？",
+      "answer": "通常残業25%、深夜残業50%、休日残業35%、休日深夜60%です。"
+    },
+    {
+      "question": "基礎時給の計算方法は？",
+      "answer": "月給÷月所定労働時間で算出します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

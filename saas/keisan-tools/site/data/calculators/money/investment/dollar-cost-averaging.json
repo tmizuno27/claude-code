@@ -1,0 +1,78 @@
+{
+  "slug": "dollar-cost-averaging",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "ドルコスト平均法シミュレーション",
+  "description": "定額積立投資の効果をシミュレーション",
+  "metaTitle": "ドルコスト平均法シミュレーター｜keisan.tools",
+  "metaDescription": "毎月の積立額と期間からドルコスト平均法の効果を計算。",
+  "calculatorFunction": "dollarCostAveraging",
+  "inputs": [
+    {
+      "id": "monthlyAmount",
+      "label": "毎月積立額",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "万円"
+    },
+    {
+      "id": "years",
+      "label": "積立期間",
+      "type": "number",
+      "default": 20,
+      "min": 1,
+      "max": 40,
+      "step": 1,
+      "unit": "年"
+    },
+    {
+      "id": "expectedReturn",
+      "label": "想定年利回り",
+      "type": "number",
+      "default": 5,
+      "min": 0,
+      "max": 30,
+      "step": 0.5,
+      "unit": "%"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalInvested",
+      "label": "積立総額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "futureValue",
+      "label": "将来の評価額",
+      "format": "currency"
+    },
+    {
+      "id": "profit",
+      "label": "運用益",
+      "format": "currency"
+    },
+    {
+      "id": "profitRate",
+      "label": "収益率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>ドルコスト平均法</h3><p>毎月一定額を投資することで、購入価格を平準化する手法です。</p>",
+  "faq": [
+    {
+      "question": "一括投資とどちらが有利？",
+      "answer": "相場が右肩上がりなら一括投資、変動が大きい場合はドルコスト平均法が有利な傾向です。"
+    },
+    {
+      "question": "新NISAとの相性は？",
+      "answer": "新NISAのつみたて投資枠はドルコスト平均法と相性が良いです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

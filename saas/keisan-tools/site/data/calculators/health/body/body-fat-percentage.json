@@ -1,0 +1,88 @@
+{
+  "slug": "body-fat-percentage",
+  "category": "health",
+  "subcategory": "body",
+  "title": "体脂肪率計算",
+  "description": "身長・体重・年齢から体脂肪率を推定",
+  "metaTitle": "体脂肪率計算ツール｜keisan.tools",
+  "metaDescription": "身長・体重・年齢から体脂肪率を推定計算。BMIベースの推定式。",
+  "calculatorFunction": "bodyFatPercentage",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "身長",
+      "type": "number",
+      "default": 170,
+      "min": 100,
+      "max": 250,
+      "step": 0.1,
+      "unit": "cm"
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "default": 65,
+      "min": 20,
+      "max": 300,
+      "step": 0.1,
+      "unit": "kg"
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "default": 30,
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "歳"
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "bodyFat",
+      "label": "推定体脂肪率",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "format": "number"
+    },
+    {
+      "id": "category",
+      "label": "判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>体脂肪率の推定</h3><p>BMIと年齢・性別から体脂肪率を推定します。正確な値は体組成計で測定してください。</p>",
+  "faq": [
+    {
+      "question": "理想的な体脂肪率は？",
+      "answer": "男性10-20%、女性20-30%が標準的な範囲です。"
+    },
+    {
+      "question": "BMIと体脂肪率の関係は？",
+      "answer": "BMIが高くても筋肉量が多ければ体脂肪率は低い場合があります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

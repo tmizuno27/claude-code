@@ -1,0 +1,88 @@
+{
+  "slug": "unit-price",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "単価比較計算",
+  "description": "異なるサイズ・容量の商品を単価で比較",
+  "metaTitle": "単価比較ツール｜お買い得はどっち？",
+  "metaDescription": "2つの商品の価格と容量を入力して単価を比較。お買い得判定。",
+  "calculatorFunction": "unitPrice",
+  "inputs": [
+    {
+      "id": "price1",
+      "label": "商品Aの価格",
+      "type": "number",
+      "default": 298,
+      "min": 0,
+      "max": 999999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "amount1",
+      "label": "商品Aの量",
+      "type": "number",
+      "default": 500,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "g/ml"
+    },
+    {
+      "id": "price2",
+      "label": "商品Bの価格",
+      "type": "number",
+      "default": 498,
+      "min": 0,
+      "max": 999999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "amount2",
+      "label": "商品Bの量",
+      "type": "number",
+      "default": 1000,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "g/ml"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "unitPriceA",
+      "label": "商品A単価（100gあたり）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "unitPriceB",
+      "label": "商品B単価（100gあたり）",
+      "format": "currency"
+    },
+    {
+      "id": "savings",
+      "label": "差額（100gあたり）",
+      "format": "currency"
+    },
+    {
+      "id": "verdict",
+      "label": "判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>単価比較</h3><p>100gまたは100mlあたりの単価を計算して比較します。</p>",
+  "faq": [
+    {
+      "question": "大容量の方がお得？",
+      "answer": "一般的にはそうですが、賞味期限や保管スペースも考慮しましょう。"
+    },
+    {
+      "question": "セールの割引と比較できる？",
+      "answer": "割引後の価格を入力すれば比較できます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

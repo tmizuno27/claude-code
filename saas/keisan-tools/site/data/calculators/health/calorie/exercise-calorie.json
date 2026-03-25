@@ -1,0 +1,89 @@
+{
+  "slug": "exercise-calorie",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "運動消費カロリー計算",
+  "description": "各種運動の消費カロリーを計算",
+  "metaTitle": "運動消費カロリー計算ツール｜keisan.tools",
+  "metaDescription": "運動の種類と時間を入力して消費カロリーを自動計算。",
+  "calculatorFunction": "exerciseCalorie",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1,
+      "unit": "kg"
+    },
+    {
+      "id": "minutes",
+      "label": "運動時間",
+      "type": "number",
+      "default": 30,
+      "min": 1,
+      "max": 600,
+      "step": 1,
+      "unit": "分"
+    },
+    {
+      "id": "exercise",
+      "label": "運動の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "jogging",
+          "label": "ジョギング（7METs）"
+        },
+        {
+          "value": "cycling",
+          "label": "サイクリング（6METs）"
+        },
+        {
+          "value": "swimming",
+          "label": "水泳（8METs）"
+        },
+        {
+          "value": "yoga",
+          "label": "ヨガ（3METs）"
+        },
+        {
+          "value": "tennis",
+          "label": "テニス（7METs）"
+        },
+        {
+          "value": "dancing",
+          "label": "ダンス（5METs）"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "消費カロリー",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "fatBurn",
+      "label": "脂肪燃焼量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>運動の消費カロリー</h3><p>METs（運動強度）×体重×時間で消費カロリーを算出します。</p>",
+  "faq": [
+    {
+      "question": "METsとは？",
+      "answer": "安静時を1とした運動強度の指標です。ジョギングは約7METsです。"
+    },
+    {
+      "question": "1kg痩せるには？",
+      "answer": "体脂肪1kgは約7,200kcalに相当します。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

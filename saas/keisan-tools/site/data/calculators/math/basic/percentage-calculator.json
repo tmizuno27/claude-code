@@ -1,0 +1,75 @@
+{
+  "slug": "percentage-calculator",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "パーセント計算",
+  "description": "各種パーセント計算を実行",
+  "metaTitle": "パーセント計算ツール｜keisan.tools",
+  "metaDescription": "AはBの何%？BのA%はいくら？など各種パーセント計算。",
+  "calculatorFunction": "percentageCalculator",
+  "inputs": [
+    {
+      "id": "valueA",
+      "label": "値A",
+      "type": "number",
+      "default": 50,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.1
+    },
+    {
+      "id": "valueB",
+      "label": "値B",
+      "type": "number",
+      "default": 200,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.1
+    },
+    {
+      "id": "calcType",
+      "label": "計算タイプ",
+      "type": "select",
+      "options": [
+        {
+          "value": "of",
+          "label": "BのA%はいくら？"
+        },
+        {
+          "value": "is",
+          "label": "AはBの何%？"
+        },
+        {
+          "value": "change",
+          "label": "AからBへの変化率"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "計算結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "explanation",
+      "label": "計算式",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>パーセント計算</h3><p>3種類のパーセント計算に対応しています。</p>",
+  "faq": [
+    {
+      "question": "パーセントポイントとは？",
+      "answer": "割合の差を表す単位です。10%から15%への変化は「5パーセントポイント増」です。"
+    },
+    {
+      "question": "増加率と増加ポイントの違いは？",
+      "answer": "10%→15%は「50%増加」ですが「5ポイント増加」です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

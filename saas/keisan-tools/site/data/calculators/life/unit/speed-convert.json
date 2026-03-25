@@ -1,0 +1,80 @@
+{
+  "slug": "speed-convert",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "速度変換",
+  "description": "km/h・m/s・マイル/h・ノットを相互変換",
+  "metaTitle": "速度変換ツール｜keisan.tools",
+  "metaDescription": "各種速度単位（km/h、m/s、マイル/h、ノット）を相互変換。",
+  "calculatorFunction": "speedConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "default": 100,
+      "min": 0,
+      "max": 999999,
+      "step": 0.1
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "kmh",
+          "label": "km/h"
+        },
+        {
+          "value": "ms",
+          "label": "m/s"
+        },
+        {
+          "value": "mph",
+          "label": "マイル/h"
+        },
+        {
+          "value": "knot",
+          "label": "ノット"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "kmh",
+      "label": "km/h",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ms",
+      "label": "m/s",
+      "format": "number"
+    },
+    {
+      "id": "mph",
+      "label": "マイル/h",
+      "format": "number"
+    },
+    {
+      "id": "knot",
+      "label": "ノット",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>速度の変換</h3><p>1 km/h = 0.2778 m/s = 0.6214 マイル/h = 0.5400 ノット</p>",
+  "faq": [
+    {
+      "question": "マッハとは？",
+      "answer": "音速（約1,225 km/h）を基準とした速度の単位です。"
+    },
+    {
+      "question": "ノットはどこで使う？",
+      "answer": "航空・海上で使われる速度単位で、1ノット=1.852 km/hです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

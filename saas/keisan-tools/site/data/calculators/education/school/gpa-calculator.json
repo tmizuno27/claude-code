@@ -1,0 +1,143 @@
+{
+  "slug": "gpa-calculator",
+  "category": "education",
+  "subcategory": "school",
+  "title": "GPA計算",
+  "description": "科目の成績からGPAを計算",
+  "metaTitle": "GPA計算ツール｜keisan.tools",
+  "metaDescription": "科目数と各成績を入力してGPAを自動計算。4段階・5段階対応。",
+  "calculatorFunction": "gpaCalculator",
+  "inputs": [
+    {
+      "id": "subjects",
+      "label": "科目数",
+      "type": "number",
+      "default": 5,
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "unit": "科目"
+    },
+    {
+      "id": "s1",
+      "label": "科目1の評点",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "s2",
+      "label": "科目2の評点",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "s3",
+      "label": "科目3の評点",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "s4",
+      "label": "科目4の評点",
+      "type": "number",
+      "default": 2,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "s5",
+      "label": "科目5の評点",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "c1",
+      "label": "科目1の単位数",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "id": "c2",
+      "label": "科目2の単位数",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "id": "c3",
+      "label": "科目3の単位数",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "id": "c4",
+      "label": "科目4の単位数",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    },
+    {
+      "id": "c5",
+      "label": "科目5の単位数",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "gpa",
+      "label": "GPA",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "totalCredits",
+      "label": "合計単位数",
+      "format": "number"
+    },
+    {
+      "id": "totalPoints",
+      "label": "合計ポイント",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>GPAの計算</h3><p>GPA＝Σ（評点×単位数）÷Σ単位数で計算します。</p>",
+  "faq": [
+    {
+      "question": "GPAの満点は？",
+      "answer": "4段階評価の場合、最高は4.0です。"
+    },
+    {
+      "question": "就活で必要なGPAは？",
+      "answer": "一般的に3.0以上が望ましいとされます。外資系は3.5以上を求めることもあります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

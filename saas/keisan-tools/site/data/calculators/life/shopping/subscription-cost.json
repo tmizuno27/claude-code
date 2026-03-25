@@ -1,0 +1,93 @@
+{
+  "slug": "subscription-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "サブスク月額合計計算",
+  "description": "各種サブスクリプションの月額合計を計算",
+  "metaTitle": "サブスク月額合計計算ツール｜keisan.tools",
+  "metaDescription": "各サブスクの月額を入力して合計・年額を自動計算。",
+  "calculatorFunction": "subscriptionCost",
+  "inputs": [
+    {
+      "id": "sub1",
+      "label": "サブスク1",
+      "type": "number",
+      "default": 1000,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "sub2",
+      "label": "サブスク2",
+      "type": "number",
+      "default": 500,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "sub3",
+      "label": "サブスク3",
+      "type": "number",
+      "default": 2000,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "sub4",
+      "label": "サブスク4",
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "sub5",
+      "label": "サブスク5",
+      "type": "number",
+      "default": 0,
+      "min": 0,
+      "max": 99999,
+      "step": 1,
+      "unit": "円"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyTotal",
+      "label": "月額合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualTotal",
+      "label": "年額合計",
+      "format": "currency"
+    },
+    {
+      "id": "dailyCost",
+      "label": "1日あたりコスト",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>サブスク費用の管理</h3><p>毎月の固定費を見える化して家計を管理しましょう。</p>",
+  "faq": [
+    {
+      "question": "サブスクの見直しポイントは？",
+      "answer": "使用頻度が低いもの、重複しているものを優先的に見直しましょう。"
+    },
+    {
+      "question": "年間でいくら節約できる？",
+      "answer": "月500円のサブスクを解約するだけで年間6,000円の節約になります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

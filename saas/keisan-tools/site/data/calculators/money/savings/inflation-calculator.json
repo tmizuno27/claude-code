@@ -1,0 +1,73 @@
+{
+  "slug": "inflation-calculator",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "インフレ計算",
+  "description": "インフレ率を考慮した将来の実質価値を計算",
+  "metaTitle": "インフレ計算ツール｜将来の実質価値を自動計算",
+  "metaDescription": "現在の金額とインフレ率から将来の実質価値を計算。老後資金計画に。",
+  "calculatorFunction": "inflationCalculator",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "現在の金額",
+      "type": "number",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "step": 10,
+      "unit": "万円"
+    },
+    {
+      "id": "inflationRate",
+      "label": "年間インフレ率",
+      "type": "number",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "step": 0.1,
+      "unit": "%"
+    },
+    {
+      "id": "years",
+      "label": "年数",
+      "type": "number",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "年"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "futureNominal",
+      "label": "将来の名目価値",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "realValue",
+      "label": "実質価値（購買力）",
+      "format": "currency"
+    },
+    {
+      "id": "purchasingPowerLoss",
+      "label": "購買力の低下率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>インフレの影響</h3><p>インフレにより同じ金額でも将来の購買力は低下します。</p>",
+  "faq": [
+    {
+      "question": "日本のインフレ率は？",
+      "answer": "2024-2025年は約2-3%で推移しています。"
+    },
+    {
+      "question": "老後資金にどう影響？",
+      "answer": "年2%のインフレで20年後の100万円の購買力は約67万円になります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

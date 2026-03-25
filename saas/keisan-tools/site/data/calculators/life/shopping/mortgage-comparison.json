@@ -1,0 +1,103 @@
+{
+  "slug": "mortgage-comparison",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "住宅ローン比較",
+  "description": "2つの住宅ローン条件を比較",
+  "metaTitle": "住宅ローン比較ツール｜keisan.tools",
+  "metaDescription": "2つの住宅ローン条件を入力して月々の返済額・総返済額を比較。",
+  "calculatorFunction": "mortgageComparison",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "借入額",
+      "type": "number",
+      "default": 3000,
+      "min": 0,
+      "max": 100000,
+      "step": 10,
+      "unit": "万円"
+    },
+    {
+      "id": "rate1",
+      "label": "金利A",
+      "type": "number",
+      "default": 0.5,
+      "min": 0,
+      "max": 15,
+      "step": 0.01,
+      "unit": "%"
+    },
+    {
+      "id": "years1",
+      "label": "期間A",
+      "type": "number",
+      "default": 35,
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "年"
+    },
+    {
+      "id": "rate2",
+      "label": "金利B",
+      "type": "number",
+      "default": 1.5,
+      "min": 0,
+      "max": 15,
+      "step": 0.01,
+      "unit": "%"
+    },
+    {
+      "id": "years2",
+      "label": "期間B",
+      "type": "number",
+      "default": 25,
+      "min": 1,
+      "max": 50,
+      "step": 1,
+      "unit": "年"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyA",
+      "label": "月々返済A",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalA",
+      "label": "総返済額A",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyB",
+      "label": "月々返済B",
+      "format": "currency"
+    },
+    {
+      "id": "totalB",
+      "label": "総返済額B",
+      "format": "currency"
+    },
+    {
+      "id": "difference",
+      "label": "総返済額の差",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>住宅ローン比較</h3><p>異なる金利・期間の住宅ローンを比較します。</p>",
+  "faq": [
+    {
+      "question": "変動金利と固定金利どちらがいい？",
+      "answer": "金利上昇リスクを避けたいなら固定、低金利を活かしたいなら変動です。"
+    },
+    {
+      "question": "返済期間は長い方がいい？",
+      "answer": "月々の負担は減りますが、総返済額は増えます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

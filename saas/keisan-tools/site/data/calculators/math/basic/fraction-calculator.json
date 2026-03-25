@@ -1,0 +1,102 @@
+{
+  "slug": "fraction-calculator",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "分数計算",
+  "description": "分数の四則演算を計算",
+  "metaTitle": "分数計算ツール｜keisan.tools",
+  "metaDescription": "分数の足し算・引き算・掛け算・割り算を自動計算。約分・通分対応。",
+  "calculatorFunction": "fractionCalculator",
+  "inputs": [
+    {
+      "id": "num1",
+      "label": "分子1",
+      "type": "number",
+      "default": 1,
+      "min": 0,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "den1",
+      "label": "分母1",
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "operator",
+      "label": "演算子",
+      "type": "select",
+      "options": [
+        {
+          "value": "add",
+          "label": "＋"
+        },
+        {
+          "value": "sub",
+          "label": "−"
+        },
+        {
+          "value": "mul",
+          "label": "×"
+        },
+        {
+          "value": "div",
+          "label": "÷"
+        }
+      ]
+    },
+    {
+      "id": "num2",
+      "label": "分子2",
+      "type": "number",
+      "default": 1,
+      "min": 0,
+      "max": 9999,
+      "step": 1
+    },
+    {
+      "id": "den2",
+      "label": "分母2",
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 9999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "resultNum",
+      "label": "結果の分子",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "resultDen",
+      "label": "結果の分母",
+      "format": "number"
+    },
+    {
+      "id": "decimal",
+      "label": "小数値",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>分数の計算</h3><p>2つの分数の四則演算を行い、結果を既約分数で表示します。</p>",
+  "faq": [
+    {
+      "question": "通分とは？",
+      "answer": "分母を揃えることです。足し算・引き算の際に必要です。"
+    },
+    {
+      "question": "約分とは？",
+      "answer": "分子と分母を最大公約数で割って簡単にすることです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

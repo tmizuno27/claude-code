@@ -1,0 +1,78 @@
+{
+  "slug": "consumption-tax-calc",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "消費税計算",
+  "description": "税抜価格と税込価格を相互変換します",
+  "metaTitle": "消費税計算ツール｜税込・税抜変換",
+  "metaDescription": "税抜価格または税込価格を入力して消費税額を自動計算。軽減税率8%にも対応。",
+  "calculatorFunction": "consumptionTaxCalc",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "金額",
+      "type": "number",
+      "default": 1000,
+      "min": 0,
+      "max": 999999999,
+      "step": 1,
+      "unit": "円"
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "excl_to_incl",
+          "label": "税抜→税込"
+        },
+        {
+          "value": "incl_to_excl",
+          "label": "税込→税抜"
+        }
+      ]
+    },
+    {
+      "id": "rate",
+      "label": "税率",
+      "type": "select",
+      "options": [
+        {
+          "value": "10",
+          "label": "10%（標準）"
+        },
+        {
+          "value": "8",
+          "label": "8%（軽減税率）"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換後金額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxAmount",
+      "label": "消費税額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>消費税の計算</h3><p>標準税率10%と軽減税率8%（食料品等）に対応しています。</p>",
+  "faq": [
+    {
+      "question": "軽減税率の対象は？",
+      "answer": "飲食料品（酒類・外食除く）と新聞（定期購読）が対象です。"
+    },
+    {
+      "question": "消費税の内税計算は？",
+      "answer": "税込価格÷1.1（10%の場合）で税抜価格が求められます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}
