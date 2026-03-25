@@ -61,10 +61,9 @@
       "id": "keisan-adsense-apply",
       "title": "keisan-tools.com AdSense申請",
       "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "369ページ公開中、申請基準クリア済み",
-      "effort": "手動15分"
+      "done": true,
+      "done_at": "2026-03-25 19:00 PYT",
+      "reason": "AdSense申請完了（準備中ステータス）"
     },
     {
       "id": "rapidapi-studio-update",
@@ -79,9 +78,9 @@
       "id": "apify-paypal-setup",
       "title": "Apify PayPal出金設定",
       "priority": "P2",
-      "done": false,
-      "done_at": null,
-      "effort": "手動5分"
+      "done": true,
+      "done_at": "2026-03-25 19:10 PYT",
+      "reason": "既に設定済み（Identity verified, PayPal: t.mizuno27@gmail.com）"
     },
     {
       "id": "stripe-kyc-resolve",
