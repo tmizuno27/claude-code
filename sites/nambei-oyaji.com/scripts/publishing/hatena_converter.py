@@ -115,9 +115,33 @@ def save_hatena_log(log_data):
 
 
 def get_unconverted_articles(articles, hatena_log):
-    """Filter articles that haven't been converted yet."""
+    """Filter and prioritize articles by revenue potential."""
     converted_ids = {str(entry["article_id"]) for entry in hatena_log.get("converted", [])}
-    return [a for a in articles if a["#"] not in converted_ids]
+    unconverted = [a for a in articles if a["#"] not in converted_ids]
+
+    # Priority scoring: revenue-first
+    def priority_score(article):
+        score = 0
+        article_type = article.get("記事タイプ", "")
+        category = article.get("カテゴリ", "")
+        affiliate_count = int(article.get("アフィリ数", "0") or "0")
+        pv = int(article.get("累計PV", "0") or "0")
+
+        # Revenue articles (affiliate) get highest priority
+        if "収益" in article_type or "キラー" in article_type:
+            score += 100
+        # Articles with affiliates are revenue drivers
+        score += affiliate_count * 20
+        # High PV articles drive more traffic to main site
+        score += min(pv, 50)  # Cap at 50 to avoid PV-only bias
+        # Work/income articles convert better than lifestyle
+        if "稼ぐ" in category or "副業" in category or "お金" in category:
+            score += 30
+
+        return score
+
+    unconverted.sort(key=priority_score, reverse=True)
+    return unconverted
 
 
 def read_article_file(filename):

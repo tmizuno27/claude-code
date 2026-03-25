@@ -26,7 +26,7 @@ type: project
   - `hatena_converter.py` — WP記事→ダイジェスト変換（Claude API使用）
   - `hatena_publisher.py` — AtomPub APIで自動投稿
   - `hatena_pipeline.py` — 統合パイプライン（変換+投稿一括）
-- **Task Scheduler**: `HatenaPipeline` — 毎週日曜10:00 PYT、3記事ずつ自動変換+投稿
+- **Task Scheduler**: `HatenaPipeline` — 月・水・金 7:00 PYT（日本時間19:00）、1記事ずつ投稿。収益記事を優先
 - **ログ**: `logs/hatena-pipeline.log`
 - **投稿記録**: `published/hatena-log.json`
 - **変換済み記事**: `outputs/hatena/`
