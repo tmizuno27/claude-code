@@ -102,6 +102,9 @@ export default function LandingPage() {
             <a href="#pricing" className="text-sm text-gray-600 hover:text-gray-900">
               Pricing
             </a>
+            <a href="#faq" className="text-sm text-gray-600 hover:text-gray-900">
+              FAQ
+            </a>
             <a
               href="/auth"
               className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition"
@@ -124,17 +127,20 @@ export default function LandingPage() {
             <br />
             <span className="text-blue-600">Boost your SEO.</span>
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
             WP Linker analyzes your WordPress posts, finds orphan content, and
             suggests the most relevant internal links — all via REST API, no
             plugin needed.
+          </p>
+          <p className="text-sm text-gray-400 mb-8">
+            No credit card required. Read-only access — we never modify your site without approval.
           </p>
           <div className="flex items-center justify-center gap-4">
             <a
               href="/auth"
               className="py-3 px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition flex items-center gap-2 text-lg"
             >
-              Try Free
+              Scan My Site Free
               <ArrowRight className="w-5 h-5" />
             </a>
             <a
@@ -289,6 +295,54 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section id="faq" className="py-20 px-6 bg-gray-50">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {[
+              {
+                q: "Do I need to install a WordPress plugin?",
+                a: "No. WP Linker works entirely via the WordPress REST API. You just need to create an application password in your WordPress dashboard — it takes about 30 seconds.",
+              },
+              {
+                q: "Is my WordPress data safe?",
+                a: "Yes. WP Linker only reads your published posts to analyze links. We never modify your content without your explicit approval. All data is encrypted in transit.",
+              },
+              {
+                q: "How long does the analysis take?",
+                a: "Most sites with under 500 posts are analyzed in under 2 minutes. Larger sites may take a few minutes more.",
+              },
+              {
+                q: "What WordPress versions are supported?",
+                a: "WP Linker works with WordPress 5.0 and above. Any site with the REST API enabled (which is the default) is compatible.",
+              },
+              {
+                q: "Can I cancel anytime?",
+                a: "Yes. There are no long-term contracts. You can cancel your subscription at any time, and you'll retain access until the end of your billing period.",
+              },
+            ].map((faq) => (
+              <details
+                key={faq.q}
+                className="group bg-white rounded-xl border border-gray-200 px-6 py-4"
+              >
+                <summary className="font-semibold text-gray-900 cursor-pointer list-none flex items-center justify-between">
+                  {faq.q}
+                  <span className="text-gray-400 group-open:rotate-45 transition-transform text-xl">
+                    +
+                  </span>
+                </summary>
+                <p className="text-gray-600 text-sm mt-3 leading-relaxed">
+                  {faq.a}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 px-6 bg-blue-600">
         <div className="max-w-3xl mx-auto text-center">
@@ -302,7 +356,7 @@ export default function LandingPage() {
             href="/auth"
             className="inline-flex items-center gap-2 py-3 px-8 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-xl transition text-lg"
           >
-            Get Started Free
+            Find My Orphan Posts
             <ArrowRight className="w-5 h-5" />
           </a>
         </div>
