@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "nextjs-vs-gatsby",
+    "title": "Next.js vs Gatsby — Which Framework Should You Choose in 2026?",
+    "category": "frameworks",
+    "description": "Next.js and Gatsby are both React-based frameworks for building static and dynamic websites, but they take different approaches. Next.js offers hybrid rendering (SSG, SSR, ISR) with a focus on flexibility, while Gatsby is optimized for static sites with a rich plugin ecosystem. Next.js has surged ahead in adoption since 2023, with its App Router providing a more modern developer experience. Gatsby remains a solid choice for content-heavy sites that don't need server-side rendering.",
+    "metaDescription": "Compare Next.js vs Gatsby in 2026. See differences in performance, features, ecosystem, learning curve, and which framework fits your project best.",
+    "attributes": {
+      "rendering": "SSG + SSR + ISR vs SSG only",
+      "performance": "Both excellent for static",
+      "learning_curve": "Moderate vs Moderate",
+      "ecosystem": "Very large vs Large",
+      "best_for": "Full-stack apps vs Content sites",
+      "pricing": "Free / open source"
+    },
+    "relatedSlugs": ["react-vs-vue", "nextjs-vs-remix", "astro-vs-nextjs"],
+    "createdAt": "2026-01-15",
+    "updatedAt": "2026-03-20"
+  },
+  {
+    "slug": "react-vs-vue",
+    "title": "React vs Vue.js — A Practical Comparison for 2026",
+    "category": "frameworks",
+    "description": "React and Vue.js are the two most popular frontend JavaScript frameworks. React, backed by Meta, uses JSX and a component-based architecture with a massive ecosystem. Vue, created by Evan You, offers a gentler learning curve with its template syntax and excellent documentation. React dominates in job market demand, while Vue is popular in Asia and among developers who prefer convention over configuration.",
+    "metaDescription": "React vs Vue.js compared for 2026. Performance benchmarks, learning curve, job market, ecosystem size, and which to pick for your next project.",
+    "attributes": {
+      "rendering": "Virtual DOM",
+      "performance": "Both excellent",
+      "learning_curve": "Steep vs Gentle",
+      "ecosystem": "Massive vs Large",
+      "best_for": "Large teams vs Small-medium projects",
+      "pricing": "Free / open source"
+    },
+    "relatedSlugs": ["nextjs-vs-gatsby", "react-vs-angular", "svelte-vs-vue"],
+    "createdAt": "2026-01-15",
+    "updatedAt": "2026-03-20"
+  },
+  {
+    "slug": "nextjs-vs-remix",
+    "title": "Next.js vs Remix — Full-Stack React Framework Showdown",
+    "category": "frameworks",
+    "description": "Next.js and Remix are both full-stack React frameworks competing for the same developer audience. Next.js has a larger ecosystem and broader adoption, while Remix focuses on web fundamentals like progressive enhancement and nested routing. Since Remix joined Shopify in 2022, it has gained enterprise backing but Next.js continues to dominate the market with Vercel's aggressive development pace.",
+    "metaDescription": "Next.js vs Remix compared in 2026. Routing, data loading, deployment, performance, and which full-stack React framework to choose.",
+    "attributes": {
+      "rendering": "SSG + SSR + ISR vs SSR + streaming",
+      "performance": "Excellent vs Excellent",
+      "learning_curve": "Moderate vs Moderate",
+      "ecosystem": "Very large vs Growing",
+      "best_for": "Versatile apps vs Web-standard apps",
+      "pricing": "Free / open source"
+    },
+    "relatedSlugs": ["nextjs-vs-gatsby", "react-vs-vue"],
+    "createdAt": "2026-02-01",
+    "updatedAt": "2026-03-20"
+  },
+  {
+    "slug": "astro-vs-nextjs",
+    "title": "Astro vs Next.js — Content Sites vs Full Applications",
+    "category": "frameworks",
+    "description": "Astro is a newer framework designed specifically for content-rich websites. Its island architecture ships zero JavaScript by default, resulting in extremely fast page loads. Next.js is a general-purpose framework that can do everything Astro does plus server-side rendering, API routes, and complex application logic. Choose Astro for blogs, documentation, and marketing sites. Choose Next.js when you need a full application framework.",
+    "metaDescription": "Astro vs Next.js in 2026. Compare island architecture vs App Router, performance, bundle size, and which framework suits your content site.",
+    "attributes": {
+      "rendering": "Static-first islands vs Hybrid",
+      "performance": "Outstanding (zero JS) vs Excellent",
+      "learning_curve": "Easy vs Moderate",
+      "ecosystem": "Growing vs Very large",
+      "best_for": "Content sites vs Full applications",
+      "pricing": "Free / open source"
+    },
+    "relatedSlugs": ["nextjs-vs-gatsby", "nextjs-vs-remix"],
+    "createdAt": "2026-02-10",
+    "updatedAt": "2026-03-20"
+  },
+  {
+    "slug": "tailwind-vs-bootstrap",
+    "title": "Tailwind CSS vs Bootstrap — Which CSS Framework in 2026?",
+    "category": "css",
+    "description": "Tailwind CSS and Bootstrap represent two philosophies of CSS frameworks. Tailwind is utility-first: you compose designs from small utility classes directly in HTML. Bootstrap is component-first: it provides pre-built components like navbars, cards, and modals. Tailwind produces smaller bundles (only used utilities ship) and offers more design flexibility. Bootstrap gets you to a working prototype faster with less CSS knowledge required.",
+    "metaDescription": "Tailwind CSS vs Bootstrap compared for 2026. Bundle size, customization, learning curve, component availability, and which CSS framework to use.",
+    "attributes": {
+      "approach": "Utility-first vs Component-first",
+      "bundle_size": "Small (purged) vs Medium",
+      "learning_curve": "Moderate vs Easy",
+      "customization": "Highly flexible vs Theme-based",
+      "best_for": "Custom designs vs Rapid prototyping",
+      "pricing": "Free / open source"
+    },
+    "relatedSlugs": [],
+    "createdAt": "2026-02-15",
+    "updatedAt": "2026-03-20"
+  }
+]
