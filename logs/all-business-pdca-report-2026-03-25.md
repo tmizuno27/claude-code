@@ -1,29 +1,40 @@
 # 全事業 PDCA 日次レポート (2026-03-25)
-実行時刻: 2026-03-25 17:45 PYT
+実行時刻: 2026-03-25 17:57 PYT
 
 
 # 古い記事・パフォーマンス低下 検出レポート (2026-03-25)
 
 ## 南米おやじ
 
-- 特記事項なし
+### CTR改善候補（順位10位内・CTR<1%）: 2件
+- `ai-app-sidejob` pos=6.1 CTR=0% imp=10
+- `data-entry-automation` pos=4.3 CTR=0% imp=22
 
 ## マッチングナビ
 
-- 特記事項なし
+### CTR改善候補（順位10位内・CTR<1%）: 1件
+- `matching-app-ranking-2026` pos=7.9 CTR=0% imp=19
 
 ## SIM比較
 
-- 特記事項なし
+### CTR改善候補（順位10位内・CTR<1%）: 2件
+- `sub-kaisen-kakuyasu-sim-osusume` pos=9.9 CTR=0% imp=21
+- `kakuyasu-sim-ryokin-hikaku-ichiran` pos=10.0 CTR=0% imp=109
 
 ---
-*自動生成: 2026-03-25 17:45 PYT*
+*自動生成: 2026-03-25 17:57 PYT*
 
 # 1. ブログ 3サイト
 
 ## 南米おやじ (nambei-oyaji.com)
 
-### CHECK: GSCエラー: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+### CHECK
+| 指標 | 今週 | 先週 | 変化 |
+|------|-----:|-----:|-----:|
+| インプレッション | 140 | 32 | +108 (+338%) |
+| クリック | 6 | 3 | +3 |
+
+- GA4（7日間）: PV=131 / ユーザー=27 / セッション=34
 
 ### ACT
 - 公開記事数: 80
@@ -32,11 +43,17 @@
   - `%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e6%b0%b8%e4%bd%8f%e6%a8%a9%e3%81%ae%e8%b2%bb%e7%94%a8%e3%81%a8%e7%94%b3%e8%ab%8b%e6%89%8b%e9%a0%86%e3%82%92%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e8%a7%a3`
 
 ### PLAN
-- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
+- ✅ 推移観察継続
 
 ## マッチングナビ (otona-match.com)
 
-### CHECK: GSCエラー: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+### CHECK
+| 指標 | 今週 | 先週 | 変化 |
+|------|-----:|-----:|-----:|
+| インプレッション | 122 | 0 | +122 (+0%) |
+| クリック | 2 | 0 | +2 |
+
+- GA4（7日間）: PV=151 / ユーザー=60 / セッション=62
 
 ### ACT
 - 公開記事数: 88
@@ -45,11 +62,17 @@
   - `kekkon-soudan-40dai-josei-osusume`
 
 ### PLAN
-- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
+- ✅ 推移観察継続
 
 ## SIM比較 (sim-hikaku.online)
 
-### CHECK: GSCエラー: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+### CHECK
+| 指標 | 今週 | 先週 | 変化 |
+|------|-----:|-----:|-----:|
+| インプレッション | 132 | 0 | +132 (+0%) |
+| クリック | 0 | 0 | +0 |
+
+- GA4（7日間）: PV=51 / ユーザー=34 / セッション=35
 
 ### ACT
 - 公開記事数: 67
@@ -58,7 +81,7 @@
   - `esim-osusume-2026`
 
 ### PLAN
-- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
+- 🎯 インプレッションあるがクリック0 → タイトル/メタ改善でCTR向上
 
 # はてなブログ（nambei-oyaji.hatenablog.com）
 
@@ -237,8 +260,8 @@
 ### CHECK — ログ最終更新
 | ログ | 最終更新 | ステータス |
 |------|---------|-----------|
-| Git自動同期 | 03/25 17:45 | ✅ 正常 |
-| SEO PDCA | 03/25 17:37 | ✅ 正常 |
+| Git自動同期 | 03/25 17:58 | ✅ 正常 |
+| SEO PDCA | 03/25 17:57 | ✅ 正常 |
 | X投稿(@nambei) | 03/25 14:16 | ✅ 正常 |
 | X投稿(@prodhq27) | 03/25 14:00 | ✅ 正常 |
 | APIヘルスチェック | 03/25 06:00 | ✅ 正常 |
@@ -349,4 +372,4 @@
 - 事業別ROIの把握 → 注力先の判断材料に
 
 ---
-*自動生成: 2026-03-25 17:45 PYT*
+*自動生成: 2026-03-25 17:57 PYT*
