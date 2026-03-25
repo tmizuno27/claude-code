@@ -1,5 +1,5 @@
 {
-  "date": "2026-03-24",
+  "date": "2026-03-25",
   "actions": [
     {
       "id": "apify-paypal-setup",
@@ -12,22 +12,22 @@
       "id": "pseo-content-generate",
       "title": "pSEOページ量産開始",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-24T20:05:00-03:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "rapidapi-pro-plan-check",
       "title": "RapidAPI有料移行促進",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-24T19:30:00-03:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "nambei-article-boost",
       "title": "南米おやじ記事追加",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-24T19:25:00-03:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
@@ -40,8 +40,8 @@
       "id": "x-first-tweet",
       "title": "X投稿開始（API/ツール系）",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-24T19:19:00-03:00"
+      "done": false,
+      "done_at": null
     }
   ]
 }
