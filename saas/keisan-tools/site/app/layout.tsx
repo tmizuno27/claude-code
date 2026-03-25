@@ -5,6 +5,7 @@ import Script from 'next/script';
 import '@/styles/globals.css';
 
 const GA_MEASUREMENT_ID = 'G-3R1LVHX9VJ';
+const ADSENSE_CLIENT_ID = 'ca-pub-7177224921699744';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
@@ -32,6 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={notoSansJP.variable}>
       <head>
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
