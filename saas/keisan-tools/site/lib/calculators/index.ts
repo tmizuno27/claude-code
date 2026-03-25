@@ -4230,22 +4230,6 @@ export function dailyWaterIntake(inputs: Record<string, number | string>): Recor
   };
 }
 
-export function walkingCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
-  const weight = inputs.weight as number;
-  const minutes = inputs.minutes as number;
-  const speed = inputs.speed as string;
-  const mets = speed === 'fast' ? 5.0 : speed === 'normal' ? 3.5 : 2.8;
-  const speedKmh = speed === 'fast' ? 6.4 : speed === 'normal' ? 4.8 : 3.2;
-  const calories = Math.round(mets * weight * (minutes / 60) * 1.05);
-  const distance = Math.round(speedKmh * (minutes / 60) * 10) / 10;
-  const steps = Math.round(distance * 1300);
-  return {
-    calories: `${calories}kcal` as unknown as number,
-    distance: `${distance}km` as unknown as number,
-    steps: `約${steps.toLocaleString()}歩` as unknown as number,
-  };
-}
-
 export function muscleMass(inputs: Record<string, number | string>): Record<string, number | string> {
   const weight = inputs.weight as number;
   const bodyFatPct = (inputs.bodyFat as number) / 100;
@@ -4351,18 +4335,6 @@ export function weightGainPregnancy(inputs: Record<string, number | string>): Re
     preBmi: `${Math.round(bmi * 10) / 10}` as unknown as number,
     recommendedGain: gain as unknown as number,
     targetWeight: `${Math.round((preWeight + midGain) * 10) / 10}kg` as unknown as number,
-  };
-}
-
-export function readingSpeed(inputs: Record<string, number | string>): Record<string, number | string> {
-  const totalChars = inputs.totalChars as number;
-  const wpm = inputs.wpm as number;
-  const totalMinutes = wpm > 0 ? Math.round(totalChars / wpm) : 0;
-  const h = Math.floor(totalMinutes / 60);
-  const m = totalMinutes % 60;
-  return {
-    totalMinutes: h > 0 ? `${h}時間${m}分` as unknown as number : `${m}分` as unknown as number,
-    pages: `約${Math.round(totalChars / 400)}ページ` as unknown as number,
   };
 }
 
@@ -4534,13 +4506,6 @@ export function pensionSimulation(inputs: Record<string, number | string>): Reco
     earlyPension: `${earlyPension.toLocaleString()}円` as unknown as number,
     latePension: `${latePension.toLocaleString()}円` as unknown as number,
   };
-}
-
-export function invoiceTax(inputs: Record<string, number | string>): Record<string, number | string> {
-  const amount = inputs.amount as number;
-  const taxRate = Number(inputs.taxRate) / 100;
-  const taxAmount = Math.floor(amount * taxRate);
-  return { taxAmount, totalAmount: amount + taxAmount };
 }
 
 export function freelanceIncomeSim(inputs: Record<string, number | string>): Record<string, number | string> {
