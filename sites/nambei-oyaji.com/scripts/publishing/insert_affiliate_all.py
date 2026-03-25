@@ -128,47 +128,84 @@ def replace_keyword(content, keyword, link_html, affiliate_url, max_replace=2):
     return ''.join(result), count
 
 
+def _extract_url_from_html(html_str):
+    """HTMLタグからhref URLを抽出"""
+    m = re.search(r'href="([^"]+)"', html_str)
+    return m.group(1) if m else ""
+
+
+def _extract_tracking_from_html(html_str):
+    """A8.net等のHTML素材からトラッキング画像URLを抽出"""
+    m = re.search(r'<img[^>]+src="([^"]+)"', html_str)
+    return m.group(1) if m else ""
+
+
 def build_link_rules(affiliates):
     """affiliate-links.json から挿入ルールリストを構築。
-    プレースホルダーや承認待ちはスキップ。"""
+    プレースホルダーや承認待ちはスキップ。
+    url フィールドと html / html_a8 フィールドの両方に対応。"""
     rules = []
     categories = affiliates.get("categories", {})
     for cat_key, cat in categories.items():
         for link in cat.get("links", []):
+            if link.get("status") in ("pending_approval", "rejected"):
+                continue
+
             url = link.get("url", "")
-            # プレースホルダー・承認待ちをスキップ
-            if not url or "YOUR-AFFILIATE-LINK" in url:
+            html_raw = link.get("html", "")
+            html_a8 = link.get("html_a8", "")
+
+            # url も html も無ければスキップ
+            if not url and not html_raw and not html_a8:
                 continue
-            if link.get("status") == "pending_approval":
+            if url and "YOUR-AFFILIATE-LINK" in url:
                 continue
 
-            # tracking_img または tracking_img_moshimo からURLを抽出
-            tracking_img_url = ""
-            tracking_img_raw = link.get("tracking_img", "")
-            tracking_img_moshimo = link.get("tracking_img_moshimo", "")
-            tracking_img_vc = link.get("tracking_img_vc", "")
+            # A8.net HTMLが優先（CTRが高い素材を選定済み）、次にhtml、最後にurl
+            if html_a8:
+                use_html = html_a8
+                use_url = _extract_url_from_html(html_a8)
+                tracking_img_url = _extract_tracking_from_html(html_a8)
+            elif html_raw:
+                use_html = html_raw
+                use_url = _extract_url_from_html(html_raw)
+                tracking_img_url = _extract_tracking_from_html(html_raw)
+            else:
+                use_html = ""
+                use_url = url
+                # tracking_img の抽出（従来ロジック）
+                tracking_img_url = ""
+                tracking_img_raw = link.get("tracking_img", "")
+                tracking_img_moshimo = link.get("tracking_img_moshimo", "")
+                tracking_img_vc = link.get("tracking_img_vc", "")
 
-            if tracking_img_raw:
-                img_match = re.search(r'src="([^"]+)"', tracking_img_raw)
-                if img_match:
-                    tracking_img_url = img_match.group(1)
-                elif not tracking_img_raw.startswith("<"):
-                    # URLそのものが入っている場合
-                    tracking_img_url = tracking_img_raw
-            elif tracking_img_moshimo:
-                tracking_img_url = tracking_img_moshimo
-            elif tracking_img_vc:
-                tracking_img_url = tracking_img_vc
+                if tracking_img_raw:
+                    img_match = re.search(r'src="([^"]+)"', tracking_img_raw)
+                    if img_match:
+                        tracking_img_url = img_match.group(1)
+                    elif not tracking_img_raw.startswith("<"):
+                        tracking_img_url = tracking_img_raw
+                elif tracking_img_moshimo:
+                    tracking_img_url = tracking_img_moshimo
+                elif tracking_img_vc:
+                    tracking_img_url = tracking_img_vc
 
-            # anchor_text があればそれを使用、なければ name をキーワードに
             keywords = link.get("anchor_text", [link["name"]])
 
             for kw in keywords:
-                link_html = f'<a href="{url}" rel="nofollow" target="_blank">{kw}</a>'
+                if use_html:
+                    a_match = re.search(r'(<a\b[^>]+>)(.*?)(</a>)', use_html, re.DOTALL)
+                    if a_match:
+                        link_html = f'{a_match.group(1)}{kw}{a_match.group(3)}'
+                    else:
+                        link_html = use_html
+                else:
+                    link_html = f'<a href="{use_url}" rel="nofollow" target="_blank">{kw}</a>'
+
                 rules.append({
                     "keyword": kw,
                     "link_html": link_html,
-                    "url": url,
+                    "url": use_url,
                     "name": link["name"],
                     "tracking_img_url": tracking_img_url,
                 })
