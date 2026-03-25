@@ -77,8 +77,8 @@ Markdown形式で出力してください。タイトルは含めず本文のみ
 ### 元記事本文
 {content}
 
-### 本家記事URL
-{url}
+### 本家記事URL（末尾のリンクにはこのURLをそのまま使うこと）
+{url}?utm_source=hatena&utm_medium=blog&utm_campaign=digest
 """
 
 
