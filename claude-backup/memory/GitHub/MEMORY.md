@@ -16,10 +16,11 @@
 - フリーランスのオンラインセールスマンとして稼働中（2025年〜）
 - Webメディア事業が育つまでの生活費を支える主力収入源
 
-## 運営サイト一覧（3サイト）
+## 運営サイト一覧（3サイト + はてなブログ）
 - **nambei-oyaji.com**: 南米おやじの海外生活ラボ（主力、51記事）→ [blog-seo-rules.md](blog-seo-rules.md)
 - **otona-match.com**: 大人のマッチングナビ（61記事全公開）→ [otona-match-site.md](otona-match-site.md)
 - **sim-hikaku.online**: SIM比較オンライン（25記事、成長中）→ [sim-hikaku-site.md](sim-hikaku-site.md)
+- **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用、7記事）→ [hatena-blog-business.md](hatena-blog-business.md)
 
 ## ブログデザイン・フォーマット
 - **デザイン確定版**: [blog-design-golden-state.md](blog-design-golden-state.md) — Apple風カラー・frosted glass
