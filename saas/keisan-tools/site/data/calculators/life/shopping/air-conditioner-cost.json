@@ -1,0 +1,83 @@
+{
+  "slug": "air-conditioner-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "エアコン電気代計算",
+  "description": "エアコンの電気代を計算",
+  "metaTitle": "エアコン電気代計算ツール｜keisan.tools",
+  "metaDescription": "エアコンの消費電力と使用時間から月額電気代を自動計算。",
+  "calculatorFunction": "airConditionerCost",
+  "inputs": [
+    {
+      "id": "capacity",
+      "label": "畳数",
+      "type": "number",
+      "default": 8,
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "畳"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "1日の使用時間",
+      "type": "number",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "step": 1,
+      "unit": "時間"
+    },
+    {
+      "id": "days",
+      "label": "使用日数",
+      "type": "number",
+      "default": 30,
+      "min": 1,
+      "max": 90,
+      "step": 1,
+      "unit": "日"
+    },
+    {
+      "id": "pricePerKwh",
+      "label": "電力単価",
+      "type": "number",
+      "default": 31,
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "円/kWh"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyCost",
+      "label": "月額電気代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "dailyCost",
+      "label": "1日あたり",
+      "format": "currency"
+    },
+    {
+      "id": "seasonCost",
+      "label": "シーズン合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>エアコン電気代</h3><p>畳数に応じた消費電力と使用時間から電気代を計算します。</p>",
+  "faq": [
+    {
+      "question": "つけっぱなしの方が安い？",
+      "answer": "30分以内の外出ならつけっぱなしの方が、それ以上なら切った方が省エネです。"
+    },
+    {
+      "question": "設定温度で電気代は変わる？",
+      "answer": "冷房を1℃上げると約10%、暖房を1℃下げると約10%の節電になります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

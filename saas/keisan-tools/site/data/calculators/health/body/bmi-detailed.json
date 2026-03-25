@@ -1,0 +1,68 @@
+{
+  "slug": "bmi-detailed",
+  "category": "health",
+  "subcategory": "body",
+  "title": "BMI計算（詳細版）",
+  "description": "BMIと肥満度を詳細に判定",
+  "metaTitle": "BMI計算ツール（詳細版）｜keisan.tools",
+  "metaDescription": "身長と体重からBMIを計算し、WHO基準と日本基準で判定。",
+  "calculatorFunction": "bmiDetailed",
+  "inputs": [
+    {
+      "id": "height",
+      "label": "身長",
+      "type": "number",
+      "default": 170,
+      "min": 100,
+      "max": 250,
+      "step": 0.1,
+      "unit": "cm"
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "default": 65,
+      "min": 20,
+      "max": 300,
+      "step": 0.1,
+      "unit": "kg"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "bmi",
+      "label": "BMI",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "category",
+      "label": "判定（日本基準）",
+      "format": "text"
+    },
+    {
+      "id": "idealWeight",
+      "label": "適正体重",
+      "format": "number"
+    },
+    {
+      "id": "weightDiff",
+      "label": "適正体重との差",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>BMIの詳細判定</h3><p>BMI＝体重(kg)÷身長(m)²で計算します。日本肥満学会の基準で判定します。</p>",
+  "faq": [
+    {
+      "question": "日本の肥満基準は？",
+      "answer": "18.5未満:低体重、18.5-25:普通体重、25-30:肥満1度、30-35:肥満2度、35-40:肥満3度、40以上:肥満4度"
+    },
+    {
+      "question": "WHOと日本の基準の違いは？",
+      "answer": "WHOは25以上を過体重、30以上を肥満としますが、日本は25以上を肥満としています。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

@@ -1,0 +1,85 @@
+{
+  "slug": "swimming-calorie",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "水泳消費カロリー計算",
+  "description": "泳ぎ方と時間から消費カロリーを計算",
+  "metaTitle": "水泳消費カロリー計算ツール｜keisan.tools",
+  "metaDescription": "泳法と時間を入力して水泳の消費カロリーを自動計算。",
+  "calculatorFunction": "swimmingCalorie",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1,
+      "unit": "kg"
+    },
+    {
+      "id": "minutes",
+      "label": "時間",
+      "type": "number",
+      "default": 30,
+      "min": 1,
+      "max": 300,
+      "step": 1,
+      "unit": "分"
+    },
+    {
+      "id": "stroke",
+      "label": "泳法",
+      "type": "select",
+      "options": [
+        {
+          "value": "crawl",
+          "label": "クロール（8METs）"
+        },
+        {
+          "value": "breaststroke",
+          "label": "平泳ぎ（6METs）"
+        },
+        {
+          "value": "backstroke",
+          "label": "背泳ぎ（5METs）"
+        },
+        {
+          "value": "butterfly",
+          "label": "バタフライ（10METs）"
+        },
+        {
+          "value": "water_walk",
+          "label": "水中ウォーキング（4METs）"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "消費カロリー",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "fatBurn",
+      "label": "脂肪燃焼量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>水泳の消費カロリー</h3><p>泳法ごとのMETs値を使用して消費カロリーを計算します。</p>",
+  "faq": [
+    {
+      "question": "一番カロリーを消費する泳法は？",
+      "answer": "バタフライが最も消費カロリーが高く、次いでクロールです。"
+    },
+    {
+      "question": "水泳はダイエットに効果的？",
+      "answer": "全身運動で関節への負担が少なく、効率的な有酸素運動です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

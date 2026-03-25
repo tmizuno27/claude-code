@@ -1,0 +1,83 @@
+{
+  "slug": "wallpaper-calculator",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "壁紙必要量計算",
+  "description": "部屋のサイズから壁紙の必要量を計算",
+  "metaTitle": "壁紙必要量計算ツール｜keisan.tools",
+  "metaDescription": "部屋のサイズを入力して壁紙の必要m数を自動計算。",
+  "calculatorFunction": "wallpaperCalculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "部屋の幅",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 30,
+      "step": 0.1,
+      "unit": "m"
+    },
+    {
+      "id": "depth",
+      "label": "部屋の奥行",
+      "type": "number",
+      "default": 5,
+      "min": 0,
+      "max": 30,
+      "step": 0.1,
+      "unit": "m"
+    },
+    {
+      "id": "height",
+      "label": "天井高",
+      "type": "number",
+      "default": 2.4,
+      "min": 1,
+      "max": 5,
+      "step": 0.1,
+      "unit": "m"
+    },
+    {
+      "id": "rollWidth",
+      "label": "壁紙幅",
+      "type": "number",
+      "default": 92,
+      "min": 50,
+      "max": 120,
+      "step": 1,
+      "unit": "cm"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalLength",
+      "label": "必要m数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "rolls",
+      "label": "必要本数（10m巻）",
+      "format": "number"
+    },
+    {
+      "id": "wallArea",
+      "label": "壁面積",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>壁紙の必要量</h3><p>壁の周囲長と天井高から壁紙の必要量を計算します。</p>",
+  "faq": [
+    {
+      "question": "壁紙1本は何m？",
+      "answer": "一般的な国産壁紙は10m巻です。"
+    },
+    {
+      "question": "柄合わせの分は？",
+      "answer": "柄のある壁紙は10-20%多めに見積もりましょう。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

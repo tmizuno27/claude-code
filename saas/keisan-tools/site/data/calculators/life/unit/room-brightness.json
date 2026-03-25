@@ -1,0 +1,76 @@
+{
+  "slug": "room-brightness",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "照明の明るさ計算",
+  "description": "部屋の広さから必要な照明の明るさを計算",
+  "metaTitle": "照明の明るさ計算ツール｜keisan.tools",
+  "metaDescription": "部屋の広さを入力して必要なルーメン数・ワット数を自動計算。",
+  "calculatorFunction": "roomBrightness",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "部屋の広さ",
+      "type": "number",
+      "default": 6,
+      "min": 1,
+      "max": 30,
+      "step": 1,
+      "unit": "畳"
+    },
+    {
+      "id": "roomType",
+      "label": "部屋の用途",
+      "type": "select",
+      "options": [
+        {
+          "value": "living",
+          "label": "リビング"
+        },
+        {
+          "value": "bedroom",
+          "label": "寝室"
+        },
+        {
+          "value": "study",
+          "label": "書斎"
+        },
+        {
+          "value": "kitchen",
+          "label": "キッチン"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "lumens",
+      "label": "必要ルーメン数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ledWatt",
+      "label": "LEDワット目安",
+      "format": "number"
+    },
+    {
+      "id": "fixtures",
+      "label": "シーリングライト数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>照明の明るさ</h3><p>部屋の広さと用途に応じた適切な明るさを計算します。</p>",
+  "faq": [
+    {
+      "question": "1畳あたり何ルーメン？",
+      "answer": "リビングは約400lm/畳、寝室は約200lm/畳が目安です。"
+    },
+    {
+      "question": "LEDの選び方は？",
+      "answer": "色温度は電球色(3000K)がリラックス、昼白色(5000K)が作業向きです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

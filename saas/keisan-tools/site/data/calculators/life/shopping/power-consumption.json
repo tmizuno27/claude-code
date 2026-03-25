@@ -1,0 +1,88 @@
+{
+  "slug": "power-consumption",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "家電消費電力比較",
+  "description": "家電の年間電気代を比較",
+  "metaTitle": "家電消費電力比較ツール｜keisan.tools",
+  "metaDescription": "2つの家電の消費電力を入力して年間電気代を比較。買い替え判断に。",
+  "calculatorFunction": "powerConsumption",
+  "inputs": [
+    {
+      "id": "watt1",
+      "label": "旧家電の消費電力",
+      "type": "number",
+      "default": 800,
+      "min": 1,
+      "max": 99999,
+      "step": 1,
+      "unit": "W"
+    },
+    {
+      "id": "watt2",
+      "label": "新家電の消費電力",
+      "type": "number",
+      "default": 500,
+      "min": 1,
+      "max": 99999,
+      "step": 1,
+      "unit": "W"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "1日の使用時間",
+      "type": "number",
+      "default": 4,
+      "min": 0,
+      "max": 24,
+      "step": 0.5,
+      "unit": "時間"
+    },
+    {
+      "id": "pricePerKwh",
+      "label": "電力単価",
+      "type": "number",
+      "default": 31,
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "円/kWh"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualCost1",
+      "label": "旧家電の年間電気代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualCost2",
+      "label": "新家電の年間電気代",
+      "format": "currency"
+    },
+    {
+      "id": "annualSaving",
+      "label": "年間節約額",
+      "format": "currency"
+    },
+    {
+      "id": "tenYearSaving",
+      "label": "10年間の節約額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>消費電力比較</h3><p>家電の買い替えによる電気代の節約効果を計算します。</p>",
+  "faq": [
+    {
+      "question": "家電の買い替え目安は？",
+      "answer": "10年前の家電は最新型と比べて30-50%電力消費が多いことがあります。"
+    },
+    {
+      "question": "待機電力は？",
+      "answer": "待機電力は年間で数千円のコストになることがあります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

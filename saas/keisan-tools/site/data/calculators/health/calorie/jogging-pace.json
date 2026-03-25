@@ -1,0 +1,63 @@
+{
+  "slug": "jogging-pace",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "ジョギングペース計算",
+  "description": "距離と時間からペースを計算",
+  "metaTitle": "ジョギングペース計算ツール｜keisan.tools",
+  "metaDescription": "距離と時間を入力してジョギングのペース（km/分）を自動計算。",
+  "calculatorFunction": "joggingPace",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "距離",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "min": 0.1,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "minutes",
+      "label": "時間",
+      "type": "number",
+      "unit": "分",
+      "default": 30,
+      "min": 1,
+      "max": 600,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "pace",
+      "label": "ペース（分/km）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "speed",
+      "label": "速度（km/h）",
+      "format": "number"
+    },
+    {
+      "id": "calories",
+      "label": "推定消費カロリー",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ジョギングペース</h3><p>距離÷時間でペースを算出します。</p>",
+  "faq": [
+    {
+      "question": "初心者の目安ペースは？",
+      "answer": "6-7分/kmが無理なく走れるペースです。"
+    },
+    {
+      "question": "フルマラソンのペースは？",
+      "answer": "サブ4（4時間切り）は約5分40秒/km、サブ3は約4分15秒/kmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

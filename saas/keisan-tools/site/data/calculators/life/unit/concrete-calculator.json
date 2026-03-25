@@ -1,0 +1,73 @@
+{
+  "slug": "concrete-calculator",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "コンクリート量計算",
+  "description": "施工面積からコンクリートの必要量を計算",
+  "metaTitle": "コンクリート量計算ツール｜keisan.tools",
+  "metaDescription": "施工面積と厚さからコンクリートの必要量を自動計算。",
+  "calculatorFunction": "concreteCalculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "幅",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "step": 0.1,
+      "unit": "m"
+    },
+    {
+      "id": "depth",
+      "label": "奥行",
+      "type": "number",
+      "default": 5,
+      "min": 0,
+      "max": 100,
+      "step": 0.1,
+      "unit": "m"
+    },
+    {
+      "id": "thickness",
+      "label": "厚さ",
+      "type": "number",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "unit": "cm"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "volume",
+      "label": "必要体積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "weight",
+      "label": "概算重量",
+      "format": "number"
+    },
+    {
+      "id": "bags",
+      "label": "セメント袋数（25kg）",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>コンクリート量の計算</h3><p>幅×奥行×厚さで体積を算出します。</p>",
+  "faq": [
+    {
+      "question": "コンクリートの比重は？",
+      "answer": "約2.3t/m³です。"
+    },
+    {
+      "question": "DIYで何袋必要？",
+      "answer": "25kgのセメント1袋で約0.012m³のコンクリートが作れます。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

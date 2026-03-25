@@ -1,0 +1,82 @@
+{
+  "slug": "cycling-calorie",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "サイクリング消費カロリー計算",
+  "description": "自転車の消費カロリーを計算",
+  "metaTitle": "サイクリング消費カロリー計算｜keisan.tools",
+  "metaDescription": "体重と走行時間から自転車の消費カロリーを自動計算。",
+  "calculatorFunction": "cyclingCalorie",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "default": 65,
+      "min": 20,
+      "max": 200,
+      "step": 0.1,
+      "unit": "kg"
+    },
+    {
+      "id": "minutes",
+      "label": "時間",
+      "type": "number",
+      "default": 30,
+      "min": 1,
+      "max": 300,
+      "step": 1,
+      "unit": "分"
+    },
+    {
+      "id": "intensity",
+      "label": "強度",
+      "type": "select",
+      "options": [
+        {
+          "value": "light",
+          "label": "軽い（10km/h）4METs"
+        },
+        {
+          "value": "moderate",
+          "label": "普通（16km/h）6METs"
+        },
+        {
+          "value": "vigorous",
+          "label": "速い（25km/h）10METs"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "消費カロリー",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "distance",
+      "label": "推定走行距離",
+      "format": "number"
+    },
+    {
+      "id": "fatBurn",
+      "label": "脂肪燃焼量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>サイクリングの消費カロリー</h3><p>METs×体重(kg)×時間(h)×1.05で消費カロリーを計算します。</p>",
+  "faq": [
+    {
+      "question": "自転車通勤のカロリーは？",
+      "answer": "片道30分（普通速度）で体重65kgの人は約200kcal消費します。"
+    },
+    {
+      "question": "ランニングとどちらが効果的？",
+      "answer": "同じ時間ならランニングの方が消費カロリーは高いですが、自転車は関節への負担が少ないです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

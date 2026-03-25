@@ -1,0 +1,53 @@
+{
+  "slug": "stretch-timer",
+  "category": "health",
+  "subcategory": "body",
+  "title": "ストレッチ時間計算",
+  "description": "デスクワーク時間から推奨ストレッチ時間を計算",
+  "metaTitle": "ストレッチ時間計算ツール｜keisan.tools",
+  "metaDescription": "デスクワーク時間を入力して推奨ストレッチ時間と種目数を計算。",
+  "calculatorFunction": "stretchTimer",
+  "inputs": [
+    {
+      "id": "deskHours",
+      "label": "デスクワーク時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 8,
+      "min": 1,
+      "max": 16,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stretchMinutes",
+      "label": "推奨ストレッチ時間",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "exercises",
+      "label": "推奨種目数",
+      "format": "number"
+    },
+    {
+      "id": "breakInterval",
+      "label": "推奨休憩間隔",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ストレッチ時間の目安</h3><p>デスクワーク時間に応じた適切なストレッチ時間を提案します。</p>",
+  "faq": [
+    {
+      "question": "どのくらいの頻度で休憩すべき？",
+      "answer": "1時間に1回、5-10分の休憩が推奨されます。"
+    },
+    {
+      "question": "ストレッチの効果は？",
+      "answer": "血行促進、肩こり・腰痛予防、集中力向上に効果があります。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

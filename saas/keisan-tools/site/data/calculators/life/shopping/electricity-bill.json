@@ -1,0 +1,83 @@
+{
+  "slug": "electricity-bill",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "電気料金計算",
+  "description": "消費電力と使用時間から電気代を計算",
+  "metaTitle": "電気料金計算ツール｜keisan.tools",
+  "metaDescription": "家電の消費電力と使用時間を入力して電気代を自動計算。",
+  "calculatorFunction": "electricityBill",
+  "inputs": [
+    {
+      "id": "watt",
+      "label": "消費電力",
+      "type": "number",
+      "default": 1000,
+      "min": 1,
+      "max": 99999,
+      "step": 1,
+      "unit": "W"
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "1日の使用時間",
+      "type": "number",
+      "default": 3,
+      "min": 0,
+      "max": 24,
+      "step": 0.5,
+      "unit": "時間"
+    },
+    {
+      "id": "days",
+      "label": "使用日数",
+      "type": "number",
+      "default": 30,
+      "min": 1,
+      "max": 365,
+      "step": 1,
+      "unit": "日"
+    },
+    {
+      "id": "pricePerKwh",
+      "label": "電力単価",
+      "type": "number",
+      "default": 31,
+      "min": 10,
+      "max": 100,
+      "step": 1,
+      "unit": "円/kWh"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyCost",
+      "label": "電気代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "kwhUsed",
+      "label": "消費電力量",
+      "format": "number"
+    },
+    {
+      "id": "dailyCost",
+      "label": "1日あたり",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>電気料金の計算</h3><p>消費電力(kW)×使用時間(h)×電力単価(円/kWh)で計算します。</p>",
+  "faq": [
+    {
+      "question": "電力単価の目安は？",
+      "answer": "2026年現在、全国平均で約31円/kWhです。"
+    },
+    {
+      "question": "エアコンの電気代は？",
+      "answer": "6畳用で1時間約15-25円が目安です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

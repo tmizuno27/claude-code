@@ -1,0 +1,63 @@
+{
+  "slug": "carpet-calculator",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "カーペット面積計算",
+  "description": "部屋のサイズから必要なカーペット面積を計算",
+  "metaTitle": "カーペット面積計算ツール｜keisan.tools",
+  "metaDescription": "部屋のサイズを入力して必要なカーペット面積を自動計算。",
+  "calculatorFunction": "carpetCalculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "部屋の幅",
+      "type": "number",
+      "unit": "m",
+      "default": 4,
+      "min": 0,
+      "max": 50,
+      "step": 0.1
+    },
+    {
+      "id": "depth",
+      "label": "部屋の奥行",
+      "type": "number",
+      "unit": "m",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "tatami",
+      "label": "畳数換算",
+      "format": "number"
+    },
+    {
+      "id": "cost",
+      "label": "概算費用（3000円/㎡）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>カーペット面積</h3><p>幅×奥行で面積を算出し、畳数に換算します。</p>",
+  "faq": [
+    {
+      "question": "1畳は何㎡？",
+      "answer": "約1.62㎡（中京間）です。"
+    },
+    {
+      "question": "カーペットの費用目安は？",
+      "answer": "量販店で2,000-5,000円/㎡が一般的です。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}
