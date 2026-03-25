@@ -1,0 +1,88 @@
+{
+  "slug": "matrix",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "行列計算",
+  "description": "2×2行列の加算・乗算・行列式・逆行列を計算。",
+  "metaTitle": "行列計算ツール｜2×2行列の演算を自動計算",
+  "metaDescription": "2×2行列の要素を入力して行列式や逆行列を自動計算。",
+  "calculatorFunction": "matrix",
+  "inputs": [
+    {
+      "id": "a11",
+      "label": "a₁₁",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    },
+    {
+      "id": "a12",
+      "label": "a₁₂",
+      "type": "number",
+      "unit": "",
+      "default": 2,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    },
+    {
+      "id": "a21",
+      "label": "a₂₁",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    },
+    {
+      "id": "a22",
+      "label": "a₂₂",
+      "type": "number",
+      "unit": "",
+      "default": 4,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "determinant",
+      "label": "行列式",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "inverse",
+      "label": "逆行列",
+      "format": "text",
+      "primary": false
+    },
+    {
+      "id": "trace",
+      "label": "トレース",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>行列の基本</h3><p>行列式(det) = a₁₁×a₂₂ - a₁₂×a₂₁。det≠0なら逆行列が存在します。</p>",
+  "faq": [
+    {
+      "question": "行列式が0だと？",
+      "answer": "逆行列が存在しません（特異行列）。連立方程式が解なしまたは無限解になります。"
+    },
+    {
+      "question": "行列は何に使う？",
+      "answer": "連立方程式、CG、機械学習、量子力学、経済学など幅広く使われます。"
+    }
+  ],
+  "related": [
+    "power",
+    "logarithm"
+  ],
+  "popular": false
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "vision-test",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "視力換算",
+  "description": "小数視力・分数視力・logMAR値を相互換算。",
+  "metaTitle": "視力換算ツール｜小数視力⇔分数視力を自動変換",
+  "metaDescription": "日本式の小数視力と海外の分数視力を自動換算。",
+  "calculatorFunction": "visionTest",
+  "inputs": [
+    {
+      "id": "decimalVision",
+      "label": "小数視力",
+      "type": "number",
+      "unit": "",
+      "default": 1.0,
+      "min": 0.01,
+      "max": 2.0,
+      "step": 0.01
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fraction",
+      "label": "分数視力（米国式）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "logmar",
+      "label": "logMAR値",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "status",
+      "label": "区分",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>視力の表記</h3><p>日本: 小数視力（1.0が正常）。米国: 分数視力（20/20が正常）。1.0 = 20/20 = logMAR 0.0。</p>",
+  "faq": [
+    {
+      "question": "視力1.0は良い方？",
+      "answer": "正常視力です。2.0は非常に良い視力。0.3以下は矯正が推奨されます。"
+    },
+    {
+      "question": "20/20とは？",
+      "answer": "20フィート（約6m）離れて20フィート相当の文字が見える=正常視力です。"
+    }
+  ],
+  "related": [
+    "medical-expense"
+  ],
+  "popular": false
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "disability-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "就業不能保険計算",
+  "description": "就業不能時に必要な保障額を計算。",
+  "metaTitle": "就業不能保険計算ツール｜必要な保障額を自動計算",
+  "metaDescription": "月収と固定費を入力して就業不能時に必要な保障額を自動計算。",
+  "calculatorFunction": "disabilityInsurance",
+  "inputs": [
+    {
+      "id": "monthlyIncome",
+      "label": "月収",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "monthlyExpense",
+      "label": "月の固定費",
+      "type": "number",
+      "unit": "万円",
+      "default": 20,
+      "min": 0,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "id": "publicBenefit",
+      "label": "公的給付（傷病手当金等）",
+      "type": "number",
+      "unit": "万円",
+      "default": 15,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyShortfall",
+      "label": "月額不足額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualShortfall",
+      "label": "年間不足額",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "recommendedCoverage",
+      "label": "推奨保障額（月額）",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>就業不能リスク</h3><p>病気やケガで働けなくなった場合、傷病手当金（給与の2/3、最長1年6ヶ月）の後は収入が途絶えます。</p>",
+  "faq": [
+    {
+      "question": "傷病手当金とは？",
+      "answer": "健保加入者が病気で休業した場合、標準報酬日額の2/3が最長1年6ヶ月支給されます。"
+    },
+    {
+      "question": "自営業者は？",
+      "answer": "国保には傷病手当金がないため、民間の就業不能保険の重要性が高いです。"
+    }
+  ],
+  "related": [
+    "life-insurance",
+    "social-insurance"
+  ],
+  "popular": false
+}

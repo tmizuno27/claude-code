@@ -1,0 +1,64 @@
+{
+  "slug": "vocab-size",
+  "category": "education",
+  "subcategory": "study",
+  "title": "英単語数レベル判定",
+  "description": "知っている英単語数から英語レベルを判定。",
+  "metaTitle": "英単語レベル判定ツール｜語彙数から英語力を自動判定",
+  "metaDescription": "英単語数を入力して英語レベルとTOEIC目安スコアを自動判定。",
+  "calculatorFunction": "vocabSize",
+  "inputs": [
+    {
+      "id": "words",
+      "label": "推定語彙数",
+      "type": "number",
+      "unit": "語",
+      "default": 5000,
+      "min": 100,
+      "max": 100000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "level",
+      "label": "英語レベル",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "cefrLevel",
+      "label": "CEFR",
+      "format": "text",
+      "primary": false
+    },
+    {
+      "id": "toeicEstimate",
+      "label": "TOEIC目安",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "equivalent",
+      "label": "相当する学年",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>語彙数の目安</h3><p>中学卒: 約1,200語、高校卒: 約3,000語、大学卒: 約5,000語、TOEIC900: 約10,000語、ネイティブ: 20,000〜35,000語。</p>",
+  "faq": [
+    {
+      "question": "何語あればTOEIC700取れる？",
+      "answer": "約5,000〜7,000語が目安です。"
+    },
+    {
+      "question": "効率的な単語の覚え方は？",
+      "answer": "頻出順に学習、文脈で覚える、間隔反復法（Anki等）が効果的です。"
+    }
+  ],
+  "related": [
+    "english-score",
+    "reading-speed"
+  ],
+  "popular": false
+}

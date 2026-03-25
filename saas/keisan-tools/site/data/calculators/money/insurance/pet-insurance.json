@@ -1,0 +1,102 @@
+{
+  "slug": "pet-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "ペット保険料計算",
+  "description": "ペットの年齢・種類から保険料の概算を計算。",
+  "metaTitle": "ペット保険料計算ツール｜犬猫の保険料を自動概算",
+  "metaDescription": "ペットの年齢と種類から保険料の月額目安を自動計算。",
+  "calculatorFunction": "petInsurance",
+  "inputs": [
+    {
+      "id": "petType",
+      "label": "ペットの種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "dog_small",
+          "label": "小型犬"
+        },
+        {
+          "value": "dog_medium",
+          "label": "中型犬"
+        },
+        {
+          "value": "dog_large",
+          "label": "大型犬"
+        },
+        {
+          "value": "cat",
+          "label": "猫"
+        }
+      ],
+      "default": "dog_small"
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 3,
+      "min": 0,
+      "max": 15,
+      "step": 1
+    },
+    {
+      "id": "coverage",
+      "label": "補償割合",
+      "type": "select",
+      "options": [
+        {
+          "value": "50",
+          "label": "50%"
+        },
+        {
+          "value": "70",
+          "label": "70%"
+        },
+        {
+          "value": "100",
+          "label": "100%"
+        }
+      ],
+      "default": "70"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyPremium",
+      "label": "月額保険料（概算）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualPremium",
+      "label": "年額保険料",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "lifetime",
+      "label": "生涯保険料（概算）",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>ペット保険</h3><p>年齢が上がるほど保険料UP。大型犬>小型犬>猫の順で高い傾向。補償割合は50〜100%。</p>",
+  "faq": [
+    {
+      "question": "ペット保険は必要？",
+      "answer": "手術費は数十万円になることも。高齢になるほど加入しにくいため早めの検討を。"
+    },
+    {
+      "question": "いくらくらい？",
+      "answer": "小型犬・猫で月2,000〜5,000円、大型犬で月3,000〜8,000円程度です。"
+    }
+  ],
+  "related": [
+    "life-insurance",
+    "car-insurance"
+  ],
+  "popular": false
+}

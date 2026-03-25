@@ -1,0 +1,76 @@
+{
+  "slug": "individual-enterprise-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "個人事業税計算",
+  "description": "個人事業主の事業税を計算。業種ごとの税率対応。",
+  "metaTitle": "個人事業税計算ツール｜事業所得から事業税を自動計算【2026年版】",
+  "metaDescription": "事業所得と業種を入力して個人事業税を自動計算。",
+  "calculatorFunction": "individualEnterpriseTax",
+  "inputs": [
+    {
+      "id": "income",
+      "label": "事業所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "industry",
+      "label": "業種",
+      "type": "select",
+      "options": [
+        {
+          "value": "type1",
+          "label": "第1種（5%: 物品販売、飲食等）"
+        },
+        {
+          "value": "type2",
+          "label": "第2種（4%: 畜産、水産等）"
+        },
+        {
+          "value": "type3",
+          "label": "第3種（5%: 医業、弁護士等）"
+        },
+        {
+          "value": "type3b",
+          "label": "第3種（3%: あんま、マッサージ等）"
+        }
+      ],
+      "default": "type1"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "enterpriseTax",
+      "label": "個人事業税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "deduction",
+      "label": "事業主控除",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>個人事業税</h3><p>事業所得が290万円を超える個人事業主に課税。290万円の事業主控除あり。税率は業種により3〜5%。</p>",
+  "faq": [
+    {
+      "question": "290万以下なら非課税？",
+      "answer": "はい。事業主控除290万円以下なら非課税です。"
+    },
+    {
+      "question": "フリーランスも対象？",
+      "answer": "はい。ただし業種によっては非課税のものもあります。"
+    }
+  ],
+  "related": [
+    "freelance-tax",
+    "blue-return"
+  ],
+  "popular": false
+}

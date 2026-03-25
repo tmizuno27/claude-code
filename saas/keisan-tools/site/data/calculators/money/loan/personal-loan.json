@@ -1,0 +1,78 @@
+{
+  "slug": "personal-loan",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "フリーローン計算",
+  "description": "フリーローンの月返済額と利息を計算。",
+  "metaTitle": "フリーローン計算ツール｜月返済額と利息を自動計算",
+  "metaDescription": "フリーローンの借入額と金利から月返済額を自動計算。",
+  "calculatorFunction": "personalLoan",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "借入額",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 8,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "years",
+      "label": "返済期間",
+      "type": "number",
+      "unit": "年",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyPayment",
+      "label": "月返済額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalPayment",
+      "label": "返済総額",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalInterest",
+      "label": "利息合計",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>フリーローン</h3><p>使途自由のローン。金利は銀行系3〜14%、消費者金融系3〜18%程度。</p>",
+  "faq": [
+    {
+      "question": "カードローンとの違いは？",
+      "answer": "フリーローンは一度の借入、カードローンは限度額内で繰り返し借入可能です。"
+    },
+    {
+      "question": "審査は厳しい？",
+      "answer": "銀行系は厳しめ、消費者金融系は比較的通りやすいですが金利が高いです。"
+    }
+  ],
+  "related": [
+    "credit-card-interest",
+    "debt-repayment"
+  ],
+  "popular": false
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "normal-distribution",
+  "category": "math",
+  "subcategory": "statistics",
+  "title": "正規分布計算",
+  "description": "平均と標準偏差から正規分布の確率を計算。",
+  "metaTitle": "正規分布計算ツール｜z値と確率を自動計算",
+  "metaDescription": "平均・標準偏差・値を入力してz値と確率を自動計算。",
+  "calculatorFunction": "normalDistribution",
+  "inputs": [
+    {
+      "id": "mean",
+      "label": "平均値",
+      "type": "number",
+      "unit": "",
+      "default": 0,
+      "min": -1000,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "stddev",
+      "label": "標準偏差",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": 0.01,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "x",
+      "label": "値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -1000,
+      "max": 1000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "zScore",
+      "label": "z値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "probability",
+      "label": "P(X≤x)",
+      "format": "percent",
+      "primary": false
+    },
+    {
+      "id": "upperProbability",
+      "label": "P(X>x)",
+      "format": "percent",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>正規分布</h3><p>平均±1σに約68%、±2σに約95%、±3σに約99.7%のデータが含まれます。</p>",
+  "faq": [
+    {
+      "question": "z値とは？",
+      "answer": "データが平均から標準偏差何個分離れているかを示す値。z=(x-μ)/σ。"
+    },
+    {
+      "question": "偏差値との関係は？",
+      "answer": "偏差値 = z×10+50。z=1なら偏差値60、z=2なら偏差値70です。"
+    }
+  ],
+  "related": [
+    "hensachi",
+    "standard-deviation",
+    "average"
+  ],
+  "popular": false
+}

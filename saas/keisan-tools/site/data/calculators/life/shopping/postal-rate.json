@@ -1,0 +1,70 @@
+{
+  "slug": "postal-rate",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "郵便料金計算",
+  "description": "封書・はがき・荷物の郵便料金を計算。",
+  "metaTitle": "郵便料金計算ツール｜サイズと重さから送料を自動計算",
+  "metaDescription": "郵便物のサイズと重さを入力して郵便料金を自動計算。",
+  "calculatorFunction": "postalRate",
+  "inputs": [
+    {
+      "id": "type",
+      "label": "郵便の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "letter_standard",
+          "label": "定形郵便"
+        },
+        {
+          "value": "letter_nonstandard",
+          "label": "定形外郵便"
+        },
+        {
+          "value": "postcard",
+          "label": "はがき"
+        },
+        {
+          "value": "parcel",
+          "label": "ゆうパック"
+        }
+      ],
+      "default": "letter_standard"
+    },
+    {
+      "id": "weight",
+      "label": "重さ",
+      "type": "number",
+      "unit": "g",
+      "default": 25,
+      "min": 0,
+      "max": 30000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "postage",
+      "label": "郵便料金",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>郵便料金（2026年）</h3><p>定形郵便: 110円（25g以下）、定形外: 120円〜。はがき: 85円。ゆうパック: サイズ・地域により異なる。</p>",
+  "faq": [
+    {
+      "question": "定形と定形外の違い？",
+      "answer": "定形: 長辺23.5cm以内、短辺12cm以内、厚さ1cm以内、50g以内。それ以外は定形外です。"
+    },
+    {
+      "question": "速達はいくら追加？",
+      "answer": "250gまで+260円、1kgまで+350円、4kgまで+600円です。"
+    }
+  ],
+  "related": [
+    "per-unit-price",
+    "discount"
+  ],
+  "popular": false
+}

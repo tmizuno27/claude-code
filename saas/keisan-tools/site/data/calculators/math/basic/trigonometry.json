@@ -1,0 +1,64 @@
+{
+  "slug": "trigonometry",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "三角関数計算",
+  "description": "角度からsin・cos・tanの値を計算。",
+  "metaTitle": "三角関数計算ツール｜sin・cos・tanを自動計算",
+  "metaDescription": "角度を入力してsin・cos・tanの値を自動計算。",
+  "calculatorFunction": "trigonometry",
+  "inputs": [
+    {
+      "id": "angle",
+      "label": "角度",
+      "type": "number",
+      "unit": "度",
+      "default": 30,
+      "min": -360,
+      "max": 360,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "sin",
+      "label": "sin",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "cos",
+      "label": "cos",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "tan",
+      "label": "tan",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "radian",
+      "label": "ラジアン",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>主な三角関数の値</h3><p>sin30°=0.5、cos30°=√3/2、tan30°=1/√3。sin45°=cos45°=1/√2。sin60°=√3/2。</p>",
+  "faq": [
+    {
+      "question": "度とラジアンの違い？",
+      "answer": "360度=2πラジアン。ラジアン=度×π/180。"
+    },
+    {
+      "question": "三角関数は何に使う？",
+      "answer": "物理学（波・振動）、工学（電気回路）、測量、CG、音声処理などに使われます。"
+    }
+  ],
+  "related": [
+    "pythagorean",
+    "circle"
+  ],
+  "popular": false
+}

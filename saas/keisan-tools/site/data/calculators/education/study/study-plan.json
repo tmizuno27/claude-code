@@ -1,0 +1,78 @@
+{
+  "slug": "study-plan",
+  "category": "education",
+  "subcategory": "study",
+  "title": "学習計画計算",
+  "description": "試験日までに必要な1日の勉強時間を計算。",
+  "metaTitle": "学習計画計算ツール｜試験日までの勉強時間を自動計算",
+  "metaDescription": "試験日と総学習時間を入力して1日に必要な勉強時間を自動計算。",
+  "calculatorFunction": "studyPlan",
+  "inputs": [
+    {
+      "id": "totalHours",
+      "label": "必要な総学習時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 300,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "daysUntilExam",
+      "label": "試験までの日数",
+      "type": "number",
+      "unit": "日",
+      "default": 90,
+      "min": 1,
+      "max": 365,
+      "step": 1
+    },
+    {
+      "id": "availableDays",
+      "label": "週の勉強可能日数",
+      "type": "number",
+      "unit": "日",
+      "default": 6,
+      "min": 1,
+      "max": 7,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyHours",
+      "label": "1日の勉強時間",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "weeklyHours",
+      "label": "週の勉強時間",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "totalStudyDays",
+      "label": "総勉強日数",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>学習時間の目安</h3><p>TOEIC700: 約500時間、日商簿記2級: 約300時間、宅建: 約300時間、FP2級: 約200時間。</p>",
+  "faq": [
+    {
+      "question": "1日何時間が限界？",
+      "answer": "集中力は90分が限界。休憩を挟んで1日4〜6時間が効率的な上限です。"
+    },
+    {
+      "question": "毎日やるべき？",
+      "answer": "毎日少しずつ（1〜2時間）>週末まとめて（10時間）。記憶の定着に差が出ます。"
+    }
+  ],
+  "related": [
+    "study-time",
+    "reading-speed"
+  ],
+  "popular": false
+}

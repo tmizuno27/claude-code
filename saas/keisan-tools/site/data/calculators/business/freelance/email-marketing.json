@@ -1,0 +1,104 @@
+{
+  "slug": "email-marketing",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "メルマガ配信効果計算",
+  "description": "メールマーケティングの開封率・クリック率から売上予測。",
+  "metaTitle": "メルマガ効果計算ツール｜配信数からの売上を自動予測",
+  "metaDescription": "配信数と開封率・CVRを入力してメルマガの売上効果を自動計算。",
+  "calculatorFunction": "emailMarketing",
+  "inputs": [
+    {
+      "id": "subscribers",
+      "label": "配信数",
+      "type": "number",
+      "unit": "通",
+      "default": 10000,
+      "min": 0,
+      "max": 10000000,
+      "step": 100
+    },
+    {
+      "id": "openRate",
+      "label": "開封率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "clickRate",
+      "label": "クリック率",
+      "type": "number",
+      "unit": "%",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "cvr",
+      "label": "CVR（購入率）",
+      "type": "number",
+      "unit": "%",
+      "default": 2,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "avgOrderValue",
+      "label": "平均購入単価",
+      "type": "number",
+      "unit": "円",
+      "default": 5000,
+      "min": 0,
+      "max": 1000000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "opens",
+      "label": "開封数",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "clicks",
+      "label": "クリック数",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "conversions",
+      "label": "CV数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "revenue",
+      "label": "売上予測",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>メルマガの平均値</h3><p>開封率: 15〜25%、クリック率: 2〜5%、CVR: 1〜3%。業種により大きく異なります。</p>",
+  "faq": [
+    {
+      "question": "開封率を上げるには？",
+      "answer": "件名の工夫、配信時間の最適化、セグメント配信が効果的です。"
+    },
+    {
+      "question": "配信頻度の目安は？",
+      "answer": "ECなら週1〜2回、BtoBなら月2〜4回が一般的です。"
+    }
+  ],
+  "related": [
+    "freelance-rate",
+    "roi"
+  ],
+  "popular": false
+}

@@ -1,0 +1,104 @@
+{
+  "slug": "packing-list",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "旅行持ち物チェック計算",
+  "description": "旅行日数・渡航先から必要な着替え・持ち物量を計算。",
+  "metaTitle": "旅行持ち物計算ツール｜日数に応じた持ち物量を自動計算",
+  "metaDescription": "旅行日数を入力して必要な着替え枚数や荷物の目安量を自動計算。",
+  "calculatorFunction": "packingList",
+  "inputs": [
+    {
+      "id": "days",
+      "label": "旅行日数",
+      "type": "number",
+      "unit": "日",
+      "default": 5,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "id": "season",
+      "label": "季節",
+      "type": "select",
+      "options": [
+        {
+          "value": "spring",
+          "label": "春"
+        },
+        {
+          "value": "summer",
+          "label": "夏"
+        },
+        {
+          "value": "autumn",
+          "label": "秋"
+        },
+        {
+          "value": "winter",
+          "label": "冬"
+        }
+      ],
+      "default": "summer"
+    },
+    {
+      "id": "laundry",
+      "label": "洗濯可能",
+      "type": "select",
+      "options": [
+        {
+          "value": "yes",
+          "label": "あり"
+        },
+        {
+          "value": "no",
+          "label": "なし"
+        }
+      ],
+      "default": "no"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tops",
+      "label": "トップス",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "bottoms",
+      "label": "ボトムス",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "underwear",
+      "label": "下着",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "socks",
+      "label": "靴下",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>持ち物の目安</h3><p>洗濯なし: トップス=日数分、下着=日数分。洗濯あり: 3日分+予備1でOK。</p>",
+  "faq": [
+    {
+      "question": "7日間で洗濯なしの場合？",
+      "answer": "トップス7枚、ボトムス3枚、下着7セットが目安です。"
+    },
+    {
+      "question": "荷物を減らすコツは？",
+      "answer": "圧縮袋、着回しやすい色で統一、現地調達を活用しましょう。"
+    }
+  ],
+  "related": [
+    "tip-calculator",
+    "currency-convert"
+  ],
+  "popular": false
+}

@@ -1,0 +1,89 @@
+{
+  "slug": "protein-need",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "タンパク質必要量計算",
+  "description": "体重と活動量から1日に必要なタンパク質量を計算。",
+  "metaTitle": "タンパク質必要量計算ツール｜1日の適正摂取量を自動計算",
+  "metaDescription": "体重と運動量を入力して1日に必要なタンパク質量を自動計算。",
+  "calculatorFunction": "proteinNeed",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 30,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "activity",
+      "label": "活動レベル",
+      "type": "select",
+      "options": [
+        {
+          "value": "sedentary",
+          "label": "デスクワーク"
+        },
+        {
+          "value": "moderate",
+          "label": "週2〜3回運動"
+        },
+        {
+          "value": "active",
+          "label": "週4〜5回運動"
+        },
+        {
+          "value": "athlete",
+          "label": "アスリート"
+        }
+      ],
+      "default": "moderate"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyProtein",
+      "label": "1日の推奨タンパク質量",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "perMeal",
+      "label": "1食あたり（3食の場合）",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "chickenBreast",
+      "label": "鶏むね肉換算",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "eggs",
+      "label": "卵換算",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>タンパク質の必要量</h3><p>一般成人: 体重×0.8〜1g、運動する人: 体重×1.2〜1.6g、アスリート: 体重×1.6〜2g。</p>",
+  "faq": [
+    {
+      "question": "プロテインは必要？",
+      "answer": "食事だけで十分な量を摂れるなら不要。食事で足りない場合の補助として有効です。"
+    },
+    {
+      "question": "タンパク質の摂りすぎは？",
+      "answer": "腎臓に負担がかかる可能性。体重×2gを超えないのが目安です。"
+    }
+  ],
+  "related": [
+    "meal-calorie",
+    "daily-calorie",
+    "basal-metabolism"
+  ],
+  "popular": false
+}

@@ -1,0 +1,92 @@
+{
+  "slug": "paper-size",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "用紙サイズ一覧",
+  "description": "A判・B判の用紙サイズをmm/cm/inchで表示。",
+  "metaTitle": "用紙サイズ一覧ツール｜A4・B5等のサイズを自動表示",
+  "metaDescription": "用紙の規格を選んでサイズをmm・cm・inchで表示。面積計算も。",
+  "calculatorFunction": "paperSize",
+  "inputs": [
+    {
+      "id": "size",
+      "label": "用紙規格",
+      "type": "select",
+      "options": [
+        {
+          "value": "A3",
+          "label": "A3"
+        },
+        {
+          "value": "A4",
+          "label": "A4"
+        },
+        {
+          "value": "A5",
+          "label": "A5"
+        },
+        {
+          "value": "B4",
+          "label": "B4"
+        },
+        {
+          "value": "B5",
+          "label": "B5"
+        },
+        {
+          "value": "letter",
+          "label": "レター（US）"
+        }
+      ],
+      "default": "A4"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "widthMm",
+      "label": "幅（mm）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "heightMm",
+      "label": "高さ（mm）",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "widthInch",
+      "label": "幅（inch）",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "heightInch",
+      "label": "高さ（inch）",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "areaCm2",
+      "label": "面積（cm²）",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>主な用紙サイズ</h3><p>A4: 210×297mm、A3: 297×420mm、B5: 182×257mm、B4: 257×364mm。</p>",
+  "faq": [
+    {
+      "question": "A4とレターの違い？",
+      "answer": "A4は210×297mm、レターは215.9×279.4mm。レターの方が幅広で短いです。"
+    },
+    {
+      "question": "A判の法則は？",
+      "answer": "A0（841×1189mm）を半分にするとA1、さらに半分でA2…と続きます。面積が半分ずつ。"
+    }
+  ],
+  "related": [
+    "area",
+    "length"
+  ],
+  "popular": false
+}

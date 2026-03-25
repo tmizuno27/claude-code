@@ -1,0 +1,94 @@
+{
+  "slug": "ltv",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "顧客生涯価値（LTV）計算",
+  "description": "顧客のLTV（ライフタイムバリュー）を計算。",
+  "metaTitle": "LTV計算ツール｜顧客生涯価値を自動計算",
+  "metaDescription": "平均購入額と購入頻度からLTVを自動計算。",
+  "calculatorFunction": "ltv",
+  "inputs": [
+    {
+      "id": "avgOrderValue",
+      "label": "平均購入単価",
+      "type": "number",
+      "unit": "円",
+      "default": 5000,
+      "min": 0,
+      "max": 10000000,
+      "step": 100
+    },
+    {
+      "id": "purchaseFrequency",
+      "label": "年間購入回数",
+      "type": "number",
+      "unit": "回",
+      "default": 4,
+      "min": 0,
+      "max": 365,
+      "step": 1
+    },
+    {
+      "id": "customerLifespan",
+      "label": "顧客継続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 3,
+      "min": 0.5,
+      "max": 30,
+      "step": 0.5
+    },
+    {
+      "id": "grossMarginRate",
+      "label": "粗利率",
+      "type": "number",
+      "unit": "%",
+      "default": 40,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "ltv",
+      "label": "LTV（売上ベース）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "ltvProfit",
+      "label": "LTV（利益ベース）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "annualRevenue",
+      "label": "年間売上/顧客",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "cac_limit",
+      "label": "許容CAC上限",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>LTVとは</h3><p>LTV = 平均購入単価 × 購入頻度 × 継続年数。CACの3倍以上が健全な水準。</p>",
+  "faq": [
+    {
+      "question": "LTVが重要な理由は？",
+      "answer": "新規顧客獲得コスト(CAC)の上限を決める指標。LTV > CACでないと赤字です。"
+    },
+    {
+      "question": "LTVを上げるには？",
+      "answer": "購入単価UP、購入頻度UP、継続率UP（解約率DOWN）の3つのレバーがあります。"
+    }
+  ],
+  "related": [
+    "roi",
+    "break-even"
+  ],
+  "popular": false
+}

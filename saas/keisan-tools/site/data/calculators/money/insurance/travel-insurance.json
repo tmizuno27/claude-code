@@ -1,0 +1,102 @@
+{
+  "slug": "travel-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "海外旅行保険計算",
+  "description": "渡航先・日数から海外旅行保険料の概算を計算。",
+  "metaTitle": "海外旅行保険計算ツール｜渡航先から保険料を自動概算",
+  "metaDescription": "渡航先と旅行日数を入力して海外旅行保険料の目安を自動計算。",
+  "calculatorFunction": "travelInsurance",
+  "inputs": [
+    {
+      "id": "destination",
+      "label": "渡航先",
+      "type": "select",
+      "options": [
+        {
+          "value": "asia",
+          "label": "アジア"
+        },
+        {
+          "value": "europe",
+          "label": "ヨーロッパ"
+        },
+        {
+          "value": "usa",
+          "label": "アメリカ"
+        },
+        {
+          "value": "oceania",
+          "label": "オセアニア"
+        }
+      ],
+      "default": "asia"
+    },
+    {
+      "id": "days",
+      "label": "旅行日数",
+      "type": "number",
+      "unit": "日",
+      "default": 7,
+      "min": 1,
+      "max": 90,
+      "step": 1
+    },
+    {
+      "id": "plan",
+      "label": "プラン",
+      "type": "select",
+      "options": [
+        {
+          "value": "basic",
+          "label": "エコノミー"
+        },
+        {
+          "value": "standard",
+          "label": "スタンダード"
+        },
+        {
+          "value": "premium",
+          "label": "プレミアム"
+        }
+      ],
+      "default": "standard"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "premium",
+      "label": "保険料",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "medicalCoverage",
+      "label": "治療費用保障",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "liabilityCoverage",
+      "label": "賠償責任保障",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>海外旅行保険</h3><p>海外の医療費は高額。アメリカでは盲腸手術で300万円以上かかることも。クレジットカード付帯保険では不十分な場合が多いです。</p>",
+  "faq": [
+    {
+      "question": "クレカ付帯で十分？",
+      "answer": "治療費の上限が低い（100〜300万円）ため、アメリカ等では不十分です。"
+    },
+    {
+      "question": "持病があっても入れる？",
+      "answer": "告知事項によりますが、持病のある方向けのプランもあります。"
+    }
+  ],
+  "related": [
+    "car-insurance",
+    "life-insurance"
+  ],
+  "popular": false
+}

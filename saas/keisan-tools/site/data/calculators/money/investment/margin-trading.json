@@ -1,0 +1,100 @@
+{
+  "slug": "margin-trading",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "信用取引計算",
+  "description": "信用取引の証拠金・レバレッジ・損益を計算。",
+  "metaTitle": "信用取引計算ツール｜証拠金とレバレッジの損益を自動計算",
+  "metaDescription": "信用取引の条件を入力して必要証拠金と損益を自動計算。",
+  "calculatorFunction": "marginTrading",
+  "inputs": [
+    {
+      "id": "stockPrice",
+      "label": "株価",
+      "type": "number",
+      "unit": "円",
+      "default": 2000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "shares",
+      "label": "株数",
+      "type": "number",
+      "unit": "株",
+      "default": 100,
+      "min": 1,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "id": "marginRate",
+      "label": "委託保証金率",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 20,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "priceChange",
+      "label": "値動き",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": -50,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tradeAmount",
+      "label": "約定代金",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "requiredMargin",
+      "label": "必要証拠金",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "leverage",
+      "label": "レバレッジ",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "profitLoss",
+      "label": "損益",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "returnRate",
+      "label": "証拠金に対するリターン",
+      "format": "percent",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>信用取引</h3><p>証拠金の約3.3倍の取引が可能。利益も損失も約3.3倍に。追証（追加証拠金）のリスクあり。</p>",
+  "faq": [
+    {
+      "question": "追証とは？",
+      "answer": "保証金率が維持率（通常20%）を下回ると追加入金が必要になります。"
+    },
+    {
+      "question": "信用取引のリスクは？",
+      "answer": "レバレッジにより損失が拡大します。投資額以上の損失が出る可能性もあります。"
+    }
+  ],
+  "related": [
+    "stock-profit",
+    "forex-profit"
+  ],
+  "popular": false
+}

@@ -1,0 +1,86 @@
+{
+  "slug": "school-supplies",
+  "category": "education",
+  "subcategory": "school",
+  "title": "入学準備費用計算",
+  "description": "小学校・中学校の入学準備にかかる費用を概算。",
+  "metaTitle": "入学準備費用計算ツール｜必要な費用を項目別に自動計算",
+  "metaDescription": "入学する学校の種類を選んで準備費用の概算を自動計算。",
+  "calculatorFunction": "schoolSupplies",
+  "inputs": [
+    {
+      "id": "schoolType",
+      "label": "学校",
+      "type": "select",
+      "options": [
+        {
+          "value": "elementary_public",
+          "label": "公立小学校"
+        },
+        {
+          "value": "elementary_private",
+          "label": "私立小学校"
+        },
+        {
+          "value": "junior_public",
+          "label": "公立中学校"
+        },
+        {
+          "value": "junior_private",
+          "label": "私立中学校"
+        },
+        {
+          "value": "high_public",
+          "label": "公立高校"
+        },
+        {
+          "value": "high_private",
+          "label": "私立高校"
+        }
+      ],
+      "default": "elementary_public"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "uniformCost",
+      "label": "制服・体操着",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "suppliesCost",
+      "label": "学用品",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "otherCost",
+      "label": "その他",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalCost",
+      "label": "合計",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>入学準備費用の目安</h3><p>公立小学校: 5〜10万円、私立小学校: 20〜40万円、公立中学校: 10〜15万円、私立中学校: 25〜50万円。</p>",
+  "faq": [
+    {
+      "question": "就学援助制度とは？",
+      "answer": "経済的に困難な家庭に学用品費・給食費等を援助する制度です。各自治体に申請します。"
+    },
+    {
+      "question": "ランドセルの相場は？",
+      "answer": "2〜8万円。平均は約5〜6万円。5年間使うことを考えて選びましょう。"
+    }
+  ],
+  "related": [
+    "tuition-cost",
+    "child-cost"
+  ],
+  "popular": false
+}

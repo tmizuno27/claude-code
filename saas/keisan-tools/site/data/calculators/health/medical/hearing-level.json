@@ -1,0 +1,57 @@
+{
+  "slug": "hearing-level",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "騒音レベル計算",
+  "description": "日常の音のデシベル値と聴覚への影響を表示。",
+  "metaTitle": "騒音レベル計算ツール｜デシベル値と聴覚リスクを自動表示",
+  "metaDescription": "デシベル値を入力して音の大きさの目安と聴覚への影響を自動判定。",
+  "calculatorFunction": "hearingLevel",
+  "inputs": [
+    {
+      "id": "decibel",
+      "label": "音の大きさ",
+      "type": "number",
+      "unit": "dB",
+      "default": 80,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "comparison",
+      "label": "音の比較例",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "risk",
+      "label": "聴覚リスク",
+      "format": "text",
+      "primary": false
+    },
+    {
+      "id": "safeExposure",
+      "label": "安全な曝露時間",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>デシベルの目安</h3><p>30dB: ささやき声、50dB: 静かな事務所、70dB: 掃除機、85dB: 騒がしい交通、100dB: ライブ会場、120dB: ジェット機（苦痛レベル）</p>",
+  "faq": [
+    {
+      "question": "何dBから危険？",
+      "answer": "85dB以上の長時間曝露で聴覚に影響。100dB以上は短時間でもリスクがあります。"
+    },
+    {
+      "question": "イヤホンは何dB？",
+      "answer": "最大音量の60%で約80〜85dB。1日1時間以内が推奨です。"
+    }
+  ],
+  "related": [
+    "blood-alcohol"
+  ],
+  "popular": false
+}

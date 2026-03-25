@@ -1,0 +1,75 @@
+{
+  "slug": "polygon-area",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "正多角形の面積計算",
+  "description": "正n角形の一辺から面積を計算。",
+  "metaTitle": "正多角形の面積計算ツール｜辺の数と長さから面積を自動計算",
+  "metaDescription": "正多角形の辺の数と一辺の長さを入力して面積を自動計算。",
+  "calculatorFunction": "polygonArea",
+  "inputs": [
+    {
+      "id": "sides",
+      "label": "辺の数",
+      "type": "number",
+      "unit": "辺",
+      "default": 5,
+      "min": 3,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "sideLength",
+      "label": "一辺の長さ",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "perimeter",
+      "label": "周長",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "inradius",
+      "label": "内接円の半径",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "circumradius",
+      "label": "外接円の半径",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>正多角形の面積</h3><p>面積 = (n × a² × cot(π/n)) / 4。nが大きくなるほど円に近づきます。</p>",
+  "faq": [
+    {
+      "question": "正100角形は円に近い？",
+      "answer": "はい。辺の数が増えるほど面積は円に近づきます。正100角形は円との差が0.03%以下です。"
+    },
+    {
+      "question": "内角の計算は？",
+      "answer": "正n角形の1つの内角 = (n-2)×180°/n。正五角形は108度。"
+    }
+  ],
+  "related": [
+    "hexagon",
+    "circle",
+    "triangle"
+  ],
+  "popular": false
+}

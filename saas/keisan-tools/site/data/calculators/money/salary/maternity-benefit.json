@@ -1,0 +1,64 @@
+{
+  "slug": "maternity-benefit",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "出産手当金計算",
+  "description": "出産前後の出産手当金の支給額を計算。",
+  "metaTitle": "出産手当金計算ツール｜産休中の手当金を自動計算",
+  "metaDescription": "標準報酬月額を入力して出産手当金の支給額を自動計算。",
+  "calculatorFunction": "maternityBenefit",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "標準報酬月額",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyAmount",
+      "label": "日額",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalAmount",
+      "label": "総支給額（98日分）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "preBirth",
+      "label": "産前（42日分）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "postBirth",
+      "label": "産後（56日分）",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>出産手当金</h3><p>健康保険加入者が出産で休業した期間に支給。日額 = 標準報酬日額 × 2/3。産前42日+産後56日=最大98日分。</p>",
+  "faq": [
+    {
+      "question": "誰がもらえる？",
+      "answer": "健康保険に加入している被保険者本人が出産のため休業した場合に支給されます。"
+    },
+    {
+      "question": "退職後でももらえる？",
+      "answer": "退職日までに継続して1年以上加入しており、退職日に出勤していなければ受給可能です。"
+    }
+  ],
+  "related": [
+    "take-home-pay",
+    "social-insurance"
+  ],
+  "popular": false
+}

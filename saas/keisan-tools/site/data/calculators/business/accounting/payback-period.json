@@ -1,0 +1,78 @@
+{
+  "slug": "payback-period",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "回収期間計算",
+  "description": "投資の回収期間（ペイバック期間）を計算。",
+  "metaTitle": "回収期間計算ツール｜投資の元が取れる期間を自動計算",
+  "metaDescription": "投資額と年間収益を入力して投資の回収期間を自動計算。",
+  "calculatorFunction": "paybackPeriod",
+  "inputs": [
+    {
+      "id": "investment",
+      "label": "初期投資額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "annualReturn",
+      "label": "年間利益",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "annualCost",
+      "label": "年間コスト",
+      "type": "number",
+      "unit": "万円",
+      "default": 100,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "paybackYears",
+      "label": "回収期間",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "annualNetReturn",
+      "label": "年間純利益",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "roi5year",
+      "label": "5年ROI",
+      "format": "percent",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>回収期間とは</h3><p>投資額÷年間純利益。短いほど良い投資。一般的に3年以内が望ましいとされます。</p>",
+  "faq": [
+    {
+      "question": "何年以内なら良い投資？",
+      "answer": "業種により異なりますが、一般的に3〜5年以内が基準です。"
+    },
+    {
+      "question": "NPVとの違いは？",
+      "answer": "回収期間は時間価値を考慮しない簡便な方法。正確にはNPV(正味現在価値)で判断すべきです。"
+    }
+  ],
+  "related": [
+    "roi",
+    "break-even"
+  ],
+  "popular": false
+}

@@ -1,0 +1,100 @@
+{
+  "slug": "initial-cost",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "賃貸初期費用計算",
+  "description": "賃貸契約の初期費用（敷金・礼金・仲介手数料等）を概算。",
+  "metaTitle": "賃貸初期費用計算ツール｜引越しに必要な初期費用を自動計算",
+  "metaDescription": "家賃を入力するだけで賃貸契約にかかる初期費用の概算を自動計算。",
+  "calculatorFunction": "initialCost",
+  "inputs": [
+    {
+      "id": "rent",
+      "label": "月額家賃",
+      "type": "number",
+      "unit": "円",
+      "default": 80000,
+      "min": 0,
+      "max": 500000,
+      "step": 1000
+    },
+    {
+      "id": "deposit",
+      "label": "敷金",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 1,
+      "min": 0,
+      "max": 6,
+      "step": 0.5
+    },
+    {
+      "id": "keyMoney",
+      "label": "礼金",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 0.5
+    },
+    {
+      "id": "agentFee",
+      "label": "仲介手数料",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 1,
+      "min": 0,
+      "max": 1,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "depositAmount",
+      "label": "敷金",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "keyMoneyAmount",
+      "label": "礼金",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "agentFeeAmount",
+      "label": "仲介手数料",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "firstMonth",
+      "label": "前家賃",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalInitial",
+      "label": "初期費用合計",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>賃貸の初期費用</h3><p>一般的に家賃の4〜6ヶ月分。敷金1+礼金1+仲介手数料1+前家賃1+保証料0.5+火災保険=約4.5ヶ月分。</p>",
+  "faq": [
+    {
+      "question": "初期費用を抑えるには？",
+      "answer": "敷金・礼金ゼロ物件、フリーレント、仲介手数料半額の不動産会社を探しましょう。"
+    },
+    {
+      "question": "保証料とは？",
+      "answer": "保証会社に支払う費用。家賃の0.5〜1ヶ月分。連帯保証人の代わりです。"
+    }
+  ],
+  "related": [
+    "rent-calculator",
+    "moving-cost"
+  ],
+  "popular": false
+}

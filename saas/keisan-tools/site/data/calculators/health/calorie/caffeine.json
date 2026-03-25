@@ -1,0 +1,88 @@
+{
+  "slug": "caffeine",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "カフェイン摂取量計算",
+  "description": "コーヒー・お茶の摂取量からカフェイン量を計算。",
+  "metaTitle": "カフェイン摂取量計算ツール｜1日のカフェイン量を自動計算",
+  "metaDescription": "コーヒーやお茶の杯数からカフェイン摂取量を自動計算。",
+  "calculatorFunction": "caffeine",
+  "inputs": [
+    {
+      "id": "coffee",
+      "label": "コーヒー",
+      "type": "number",
+      "unit": "杯",
+      "default": 3,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "tea",
+      "label": "紅茶",
+      "type": "number",
+      "unit": "杯",
+      "default": 1,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "greenTea",
+      "label": "緑茶",
+      "type": "number",
+      "unit": "杯",
+      "default": 2,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "energyDrink",
+      "label": "エナジードリンク",
+      "type": "number",
+      "unit": "本",
+      "default": 0,
+      "min": 0,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCaffeine",
+      "label": "1日のカフェイン合計",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "status",
+      "label": "判定",
+      "format": "text",
+      "primary": false
+    },
+    {
+      "id": "safeLimit",
+      "label": "安全上限との差",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>カフェイン含有量の目安</h3><p>コーヒー1杯(150ml): 90mg、紅茶1杯: 50mg、緑茶1杯: 30mg、エナジードリンク1本: 80〜150mg。</p>",
+  "faq": [
+    {
+      "question": "1日の安全上限は？",
+      "answer": "健康な成人で400mg以下（コーヒー約4杯分）。妊婦は200mg以下が推奨です。"
+    },
+    {
+      "question": "カフェインの効果持続時間は？",
+      "answer": "約3〜5時間。半減期は約5時間。午後3時以降は睡眠に影響する可能性があります。"
+    }
+  ],
+  "related": [
+    "alcohol-calorie",
+    "daily-calorie"
+  ],
+  "popular": false
+}

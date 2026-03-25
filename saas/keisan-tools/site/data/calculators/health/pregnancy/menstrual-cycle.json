@@ -1,0 +1,74 @@
+{
+  "slug": "menstrual-cycle",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "生理周期計算",
+  "description": "生理周期のパターンから次回生理日を予測。",
+  "metaTitle": "生理周期計算ツール｜次回の生理開始日を自動予測",
+  "metaDescription": "過去の生理開始日から周期パターンを分析して次回を予測。",
+  "calculatorFunction": "menstrualCycle",
+  "inputs": [
+    {
+      "id": "lastPeriod",
+      "label": "前回の生理開始日",
+      "type": "date",
+      "default": "2026-03-01"
+    },
+    {
+      "id": "cycleLength",
+      "label": "生理周期",
+      "type": "number",
+      "unit": "日",
+      "default": 28,
+      "min": 21,
+      "max": 45,
+      "step": 1
+    },
+    {
+      "id": "periodLength",
+      "label": "生理期間",
+      "type": "number",
+      "unit": "日",
+      "default": 5,
+      "min": 2,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "nextPeriod",
+      "label": "次回生理予定日",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "lutealPhase",
+      "label": "黄体期開始",
+      "format": "text",
+      "primary": false
+    },
+    {
+      "id": "pmsStart",
+      "label": "PMS開始目安",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>生理周期</h3><p>正常な周期は25〜38日。黄体期（排卵後〜次の生理まで）は約14日で比較的安定しています。</p>",
+  "faq": [
+    {
+      "question": "正常な周期は？",
+      "answer": "25〜38日で、周期のばらつきが6日以内なら正常です。"
+    },
+    {
+      "question": "PMSとは？",
+      "answer": "月経前症候群。生理の3〜10日前に起こる身体的・精神的な症状です。"
+    }
+  ],
+  "related": [
+    "ovulation-day",
+    "due-date"
+  ],
+  "popular": false
+}

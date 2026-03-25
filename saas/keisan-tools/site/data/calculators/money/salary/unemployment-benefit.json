@@ -1,0 +1,100 @@
+{
+  "slug": "unemployment-benefit",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "失業手当計算",
+  "description": "雇用保険の失業手当（基本手当）の日額と受給期間を計算。",
+  "metaTitle": "失業手当計算ツール｜失業保険の給付額を自動計算",
+  "metaDescription": "年齢と前職の給与を入力して失業手当の日額と受給日数を自動計算。",
+  "calculatorFunction": "unemploymentBenefit",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 18,
+      "max": 65,
+      "step": 1
+    },
+    {
+      "id": "monthlySalary",
+      "label": "離職前6ヶ月の月給平均",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "yearsWorked",
+      "label": "雇用保険加入年数",
+      "type": "number",
+      "unit": "年",
+      "default": 10,
+      "min": 1,
+      "max": 40,
+      "step": 1
+    },
+    {
+      "id": "reason",
+      "label": "離職理由",
+      "type": "select",
+      "options": [
+        {
+          "value": "self",
+          "label": "自己都合"
+        },
+        {
+          "value": "company",
+          "label": "会社都合"
+        }
+      ],
+      "default": "self"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyAmount",
+      "label": "基本手当日額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalDays",
+      "label": "所定給付日数",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "totalAmount",
+      "label": "給付総額（概算）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "waitingPeriod",
+      "label": "給付制限期間",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>失業手当</h3><p>基本手当日額 = 離職前賃金日額 × 給付率（50〜80%）。年齢・加入年数・離職理由で給付日数が決まります。</p>",
+  "faq": [
+    {
+      "question": "自己都合と会社都合の違いは？",
+      "answer": "自己都合は2ヶ月の給付制限あり。会社都合は7日の待期期間後すぐ受給可能です。"
+    },
+    {
+      "question": "アルバイトしながら受給できる？",
+      "answer": "週20時間未満なら一定の範囲でアルバイト可能ですが、収入に応じて減額されます。"
+    }
+  ],
+  "related": [
+    "take-home-pay",
+    "social-insurance"
+  ],
+  "popular": false
+}

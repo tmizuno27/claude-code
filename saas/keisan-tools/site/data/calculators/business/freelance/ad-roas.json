@@ -1,0 +1,78 @@
+{
+  "slug": "ad-roas",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "広告ROAS計算",
+  "description": "広告費に対するROAS（費用対効果）を計算。",
+  "metaTitle": "広告ROAS計算ツール｜広告費用対効果を自動計算",
+  "metaDescription": "広告費と売上を入力してROASとCPAを自動計算。",
+  "calculatorFunction": "adRoas",
+  "inputs": [
+    {
+      "id": "adSpend",
+      "label": "広告費",
+      "type": "万円",
+      "unit": "",
+      "default": 50,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "revenue",
+      "label": "広告経由売上",
+      "type": "number",
+      "unit": "万円",
+      "default": 200,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "conversions",
+      "label": "CV数",
+      "type": "number",
+      "unit": "件",
+      "default": 50,
+      "min": 0,
+      "max": 1000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "roas",
+      "label": "ROAS",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "cpa",
+      "label": "CPA（顧客獲得単価）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "profit",
+      "label": "利益（広告費差引後）",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>ROAS</h3><p>ROAS = 広告経由売上÷広告費×100。200%以上（2倍以上）が目安。粗利率を考慮して判断。</p>",
+  "faq": [
+    {
+      "question": "ROASとROIの違いは？",
+      "answer": "ROASは売上ベース、ROIは利益ベース。ROAS 200%でも粗利率50%ならROI 0%です。"
+    },
+    {
+      "question": "CPAの目安は？",
+      "answer": "LTVの1/3以下が健全。商材により数百円〜数万円まで幅があります。"
+    }
+  ],
+  "related": [
+    "roi",
+    "ltv"
+  ],
+  "popular": false
+}

@@ -1,0 +1,58 @@
+{
+  "slug": "childcare-benefit",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "育児休業給付金計算",
+  "description": "育休中の給付金の支給額を計算。",
+  "metaTitle": "育児休業給付金計算ツール｜育休中の手取りを自動計算",
+  "metaDescription": "月給を入力して育児休業給付金の支給額を自動計算。",
+  "calculatorFunction": "childcareBenefit",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "休業前の月給",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "first6months",
+      "label": "最初の6ヶ月（月額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "after6months",
+      "label": "7ヶ月目以降（月額）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalYear",
+      "label": "1年間の総額",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>育児休業給付金</h3><p>最初の180日: 月給の67%、181日目以降: 月給の50%。上限額あり（2026年: 約31万円/月）。</p>",
+  "faq": [
+    {
+      "question": "男性でも受給できる？",
+      "answer": "はい。男女問わず雇用保険加入者が育休を取得すれば受給できます。"
+    },
+    {
+      "question": "社会保険料は？",
+      "answer": "育休中は社会保険料が免除されます。"
+    }
+  ],
+  "related": [
+    "maternity-benefit",
+    "take-home-pay"
+  ],
+  "popular": false
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "churn-rate",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "解約率計算",
+  "description": "月次・年次の解約率（チャーンレート）を計算。",
+  "metaTitle": "解約率計算ツール｜SaaSのチャーンレートを自動計算",
+  "metaDescription": "期首顧客数と解約数から月次・年次の解約率を自動計算。",
+  "calculatorFunction": "churnRate",
+  "inputs": [
+    {
+      "id": "startCustomers",
+      "label": "期首の顧客数",
+      "type": "number",
+      "unit": "人",
+      "default": 100,
+      "min": 0,
+      "max": 1000000,
+      "step": 1
+    },
+    {
+      "id": "churned",
+      "label": "期間中の解約数",
+      "type": "number",
+      "unit": "人",
+      "default": 5,
+      "min": 0,
+      "max": 1000000,
+      "step": 1
+    },
+    {
+      "id": "period",
+      "label": "計算期間",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 1,
+      "min": 1,
+      "max": 12,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyChurn",
+      "label": "月次解約率",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "annualChurn",
+      "label": "年間解約率（概算）",
+      "format": "percent",
+      "primary": false
+    },
+    {
+      "id": "avgLifespan",
+      "label": "平均顧客寿命",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "retentionRate",
+      "label": "継続率",
+      "format": "percent",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>解約率（チャーンレート）</h3><p>月次解約率 = 解約数÷期首顧客数。SaaSでは月3%以下が目安。1%以下なら優秀。</p>",
+  "faq": [
+    {
+      "question": "月3%の年間解約率は？",
+      "answer": "1-(1-0.03)^12 ≒ 30.7%。年間で約3割の顧客が離脱します。"
+    },
+    {
+      "question": "チャーンを下げるには？",
+      "answer": "オンボーディング強化、カスタマーサクセス、プロダクト改善が3大施策です。"
+    }
+  ],
+  "related": [
+    "ltv",
+    "break-even"
+  ],
+  "popular": false
+}

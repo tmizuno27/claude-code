@@ -1,0 +1,62 @@
+{
+  "slug": "city-planning-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "都市計画税計算",
+  "description": "固定資産税評価額から都市計画税を計算。",
+  "metaTitle": "都市計画税計算ツール｜固定資産税評価額から自動計算【2026年版】",
+  "metaDescription": "固定資産税評価額を入力して都市計画税を自動計算。",
+  "calculatorFunction": "cityPlanningTax",
+  "inputs": [
+    {
+      "id": "landValue",
+      "label": "土地の評価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 2000,
+      "min": 0,
+      "max": 500000,
+      "step": 10
+    },
+    {
+      "id": "buildingValue",
+      "label": "建物の評価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1500,
+      "min": 0,
+      "max": 500000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tax",
+      "label": "都市計画税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "withFixedAsset",
+      "label": "固定資産税+都市計画税",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>都市計画税</h3><p>市街化区域内の土地・建物に課される税金。税率は上限0.3%（自治体により異なる）。固定資産税と一緒に課税されます。</p>",
+  "faq": [
+    {
+      "question": "どこでかかる？",
+      "answer": "市街化区域内の不動産に課税。市街化調整区域は非課税です。"
+    },
+    {
+      "question": "固定資産税との違い？",
+      "answer": "固定資産税は全ての不動産、都市計画税は市街化区域のみです。"
+    }
+  ],
+  "related": [
+    "fixed-asset-tax",
+    "real-estate-acquisition-tax"
+  ],
+  "popular": false
+}

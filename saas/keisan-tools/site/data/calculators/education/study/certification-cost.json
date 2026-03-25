@@ -1,0 +1,110 @@
+{
+  "slug": "certification-cost",
+  "category": "education",
+  "subcategory": "study",
+  "title": "資格取得費用計算",
+  "description": "主要資格の受験料と学習費用を概算。",
+  "metaTitle": "資格取得費用計算ツール｜受験料と学習費用を自動計算",
+  "metaDescription": "資格を選んで受験料と一般的な学習費用を自動概算。",
+  "calculatorFunction": "certificationCost",
+  "inputs": [
+    {
+      "id": "cert",
+      "label": "資格",
+      "type": "select",
+      "options": [
+        {
+          "value": "toeic",
+          "label": "TOEIC"
+        },
+        {
+          "value": "bookkeeping2",
+          "label": "日商簿記2級"
+        },
+        {
+          "value": "fp2",
+          "label": "FP2級"
+        },
+        {
+          "value": "takken",
+          "label": "宅建"
+        },
+        {
+          "value": "ipa_fe",
+          "label": "基本情報技術者"
+        },
+        {
+          "value": "cpa",
+          "label": "公認会計士"
+        },
+        {
+          "value": "lawyer",
+          "label": "司法試験"
+        }
+      ],
+      "default": "bookkeeping2"
+    },
+    {
+      "id": "studyMethod",
+      "label": "学習方法",
+      "type": "select",
+      "options": [
+        {
+          "value": "self",
+          "label": "独学"
+        },
+        {
+          "value": "online",
+          "label": "オンライン講座"
+        },
+        {
+          "value": "school",
+          "label": "スクール通学"
+        }
+      ],
+      "default": "self"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "examFee",
+      "label": "受験料",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "studyCost",
+      "label": "学習費用（概算）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalCost",
+      "label": "総費用",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "studyHours",
+      "label": "標準学習時間",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>主要資格の費用</h3><p>TOEIC: 受験7,810円+教材5,000円〜。簿記2級: 受験5,500円+教材10,000円〜。宅建: 受験8,200円+教材20,000円〜。</p>",
+  "faq": [
+    {
+      "question": "独学で合格できる？",
+      "answer": "簿記2級、FP2級、ITパスポートなどは独学で十分可能です。会計士・司法試験はスクール推奨。"
+    },
+    {
+      "question": "費用対効果の高い資格は？",
+      "answer": "宅建（不動産）、FP2級（金融）、日商簿記2級（経理）は汎用性が高くコスパ良好です。"
+    }
+  ],
+  "related": [
+    "tuition-cost",
+    "study-plan"
+  ],
+  "popular": false
+}

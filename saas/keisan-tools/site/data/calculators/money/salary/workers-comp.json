@@ -1,0 +1,64 @@
+{
+  "slug": "workers-comp",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "労災保険給付計算",
+  "description": "労災の休業補償給付の日額を計算。",
+  "metaTitle": "労災保険給付計算ツール｜休業補償給付の日額を自動計算",
+  "metaDescription": "平均賃金を入力して労災の休業補償給付の日額を自動計算。",
+  "calculatorFunction": "workersComp",
+  "inputs": [
+    {
+      "id": "avgDailyWage",
+      "label": "平均賃金（日額）",
+      "type": "number",
+      "unit": "円",
+      "default": 12000,
+      "min": 0,
+      "max": 100000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "compensationDaily",
+      "label": "休業補償給付（日額）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "specialDaily",
+      "label": "休業特別支給金（日額）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalDaily",
+      "label": "合計日額（80%）",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "monthly30",
+      "label": "30日分の合計",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>労災の休業補償</h3><p>休業4日目から支給。休業補償給付（60%）+ 休業特別支給金（20%）= 平均賃金の80%が支給されます。</p>",
+  "faq": [
+    {
+      "question": "いつから支給？",
+      "answer": "休業4日目から。最初の3日間は会社が休業補償を支払います。"
+    },
+    {
+      "question": "通勤中の怪我も対象？",
+      "answer": "はい。通勤災害として労災の対象になります。"
+    }
+  ],
+  "related": [
+    "overtime-pay",
+    "social-insurance"
+  ],
+  "popular": false
+}

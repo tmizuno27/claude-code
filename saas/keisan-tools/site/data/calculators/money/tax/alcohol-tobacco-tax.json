@@ -1,0 +1,89 @@
+{
+  "slug": "alcohol-tobacco-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "酒税・たばこ税計算",
+  "description": "ビール・ワイン・たばこの税額を計算。",
+  "metaTitle": "酒税・たばこ税計算ツール｜1本あたりの税額を自動計算",
+  "metaDescription": "お酒やたばこの税額を自動計算。価格に占める税金の割合も表示。",
+  "calculatorFunction": "alcoholTobaccoTax",
+  "inputs": [
+    {
+      "id": "product",
+      "label": "商品",
+      "type": "select",
+      "options": [
+        {
+          "value": "beer",
+          "label": "ビール（350ml）"
+        },
+        {
+          "value": "happoshu",
+          "label": "発泡酒（350ml）"
+        },
+        {
+          "value": "new_genre",
+          "label": "第3のビール（350ml）"
+        },
+        {
+          "value": "wine",
+          "label": "ワイン（750ml）"
+        },
+        {
+          "value": "sake",
+          "label": "日本酒（720ml）"
+        },
+        {
+          "value": "cigarette",
+          "label": "たばこ（1箱20本）"
+        }
+      ],
+      "default": "beer"
+    },
+    {
+      "id": "price",
+      "label": "購入価格",
+      "type": "number",
+      "unit": "円",
+      "default": 250,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxAmount",
+      "label": "税額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "taxRatio",
+      "label": "価格に占める税率",
+      "format": "percent",
+      "primary": false
+    },
+    {
+      "id": "preTaxPrice",
+      "label": "税抜価格",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>酒税</h3><p>ビール350ml: 約63円、発泡酒: 約47円、第3のビール: 約38円。2026年10月にビール系飲料の税率が一本化予定。</p>",
+  "faq": [
+    {
+      "question": "ビールの税金はいくら？",
+      "answer": "350ml缶で約63円。価格の約25%が酒税です。"
+    },
+    {
+      "question": "たばこの税金は？",
+      "answer": "1箱（600円）のうち約370円が税金（約62%）です。"
+    }
+  ],
+  "related": [
+    "consumption-tax"
+  ],
+  "popular": false
+}

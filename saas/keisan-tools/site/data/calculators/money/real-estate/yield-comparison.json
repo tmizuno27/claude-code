@@ -1,0 +1,94 @@
+{
+  "slug": "yield-comparison",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "不動産利回り比較",
+  "description": "表面利回りと実質利回りを比較計算。",
+  "metaTitle": "不動産利回り比較ツール｜表面利回りと実質利回りを自動計算",
+  "metaDescription": "物件価格と家賃から表面利回りと実質利回りを比較計算。",
+  "calculatorFunction": "yieldComparison",
+  "inputs": [
+    {
+      "id": "propertyPrice",
+      "label": "物件価格",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "monthlyRent",
+      "label": "月額家賃",
+      "type": "number",
+      "unit": "万円",
+      "default": 15,
+      "min": 0,
+      "max": 500,
+      "step": 0.5
+    },
+    {
+      "id": "annualExpense",
+      "label": "年間経費",
+      "type": "number",
+      "unit": "万円",
+      "default": 50,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "vacancy",
+      "label": "空室率",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossYield",
+      "label": "表面利回り",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "netYield",
+      "label": "実質利回り",
+      "format": "percent",
+      "primary": false
+    },
+    {
+      "id": "annualIncome",
+      "label": "年間家賃収入",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "annualNetIncome",
+      "label": "年間純収益",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>不動産利回り</h3><p>表面利回り = 年間家賃÷物件価格。実質利回り = (年間家賃−経費)÷物件価格。実質利回りで判断すべきです。</p>",
+  "faq": [
+    {
+      "question": "利回り何%なら投資すべき？",
+      "answer": "実質利回り4%以上が目安。5%以上なら優秀です。"
+    },
+    {
+      "question": "表面利回りだけで判断していい？",
+      "answer": "いいえ。管理費・修繕費・税金・空室損失を引いた実質利回りで判断しましょう。"
+    }
+  ],
+  "related": [
+    "property-yield",
+    "rent-vs-buy"
+  ],
+  "popular": false
+}

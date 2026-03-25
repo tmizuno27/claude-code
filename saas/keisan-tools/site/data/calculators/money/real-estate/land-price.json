@@ -1,0 +1,68 @@
+{
+  "slug": "land-price",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "坪単価・㎡単価変換",
+  "description": "坪単価と㎡単価を相互変換。面積からの総額計算。",
+  "metaTitle": "坪単価⇔㎡単価変換ツール｜不動産の価格を自動変換",
+  "metaDescription": "坪単価と㎡単価を自動変換。土地面積からの総額計算にも対応。",
+  "calculatorFunction": "landPrice",
+  "inputs": [
+    {
+      "id": "pricePerTsubo",
+      "label": "坪単価",
+      "type": "number",
+      "unit": "万円/坪",
+      "default": 100,
+      "min": 0,
+      "max": 10000,
+      "step": 1
+    },
+    {
+      "id": "areaTsubo",
+      "label": "面積",
+      "type": "number",
+      "unit": "坪",
+      "default": 30,
+      "min": 0,
+      "max": 10000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "pricePerM2",
+      "label": "㎡単価",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalPrice",
+      "label": "総額",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "areaM2",
+      "label": "面積（㎡）",
+      "format": "number",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>坪と㎡の換算</h3><p>1坪 = 約3.3058㎡。坪単価×3.3 ≒ ㎡単価。</p>",
+  "faq": [
+    {
+      "question": "1坪は何㎡？",
+      "answer": "約3.3058㎡です。畳2枚分が1坪です。"
+    },
+    {
+      "question": "坪単価100万円は高い？",
+      "answer": "東京23区の住宅地平均は200〜400万円/坪。地方都市は10〜50万円/坪程度です。"
+    }
+  ],
+  "related": [
+    "property-yield",
+    "rent-vs-buy"
+  ],
+  "popular": false
+}

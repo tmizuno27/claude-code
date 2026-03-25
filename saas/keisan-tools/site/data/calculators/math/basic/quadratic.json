@@ -1,0 +1,84 @@
+{
+  "slug": "quadratic",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "二次方程式の解計算",
+  "description": "ax²+bx+c=0の解を計算。判別式で解の種類も判定。",
+  "metaTitle": "二次方程式の解計算ツール｜解の公式を自動計算",
+  "metaDescription": "係数a,b,cを入力して二次方程式の解を自動計算。",
+  "calculatorFunction": "quadratic",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "係数a",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    },
+    {
+      "id": "b",
+      "label": "係数b",
+      "type": "number",
+      "unit": "",
+      "default": -5,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    },
+    {
+      "id": "c_val",
+      "label": "係数c",
+      "type": "number",
+      "unit": "",
+      "default": 6,
+      "min": -999,
+      "max": 999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "x1",
+      "label": "解x₁",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "x2",
+      "label": "解x₂",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "discriminant",
+      "label": "判別式D",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "solutionType",
+      "label": "解の種類",
+      "format": "text",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>解の公式</h3><p>x = (-b ± √(b²-4ac)) / 2a。判別式D = b²-4ac。D>0: 異なる2実数解、D=0: 重解、D<0: 虚数解。</p>",
+  "faq": [
+    {
+      "question": "判別式が負だと？",
+      "answer": "実数解なし。虚数解（複素数解）になります。"
+    },
+    {
+      "question": "解と係数の関係は？",
+      "answer": "x₁+x₂ = -b/a、x₁×x₂ = c/a"
+    }
+  ],
+  "related": [
+    "power",
+    "square-root"
+  ],
+  "popular": false
+}

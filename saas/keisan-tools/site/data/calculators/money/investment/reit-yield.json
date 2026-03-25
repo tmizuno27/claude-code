@@ -1,0 +1,78 @@
+{
+  "slug": "reit-yield",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "REIT利回り計算",
+  "description": "不動産投資信託(REIT)の分配金利回りを計算。",
+  "metaTitle": "REIT利回り計算ツール｜分配金利回りを自動計算",
+  "metaDescription": "REITの投資口価格と分配金を入力して利回りを自動計算。",
+  "calculatorFunction": "reitYield",
+  "inputs": [
+    {
+      "id": "price",
+      "label": "投資口価格",
+      "type": "number",
+      "unit": "円",
+      "default": 150000,
+      "min": 0,
+      "max": 10000000,
+      "step": 100
+    },
+    {
+      "id": "annualDistribution",
+      "label": "年間分配金",
+      "type": "number",
+      "unit": "円",
+      "default": 6000,
+      "min": 0,
+      "max": 1000000,
+      "step": 100
+    },
+    {
+      "id": "units",
+      "label": "保有口数",
+      "type": "number",
+      "unit": "口",
+      "default": 10,
+      "min": 1,
+      "max": 10000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "yield",
+      "label": "分配金利回り",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "monthlyIncome",
+      "label": "月額分配金収入",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "annualIncome",
+      "label": "年間分配金収入",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>REIT投資</h3><p>不動産投資信託。利益の90%超を分配するため高利回り。J-REITの平均利回りは4〜5%程度。</p>",
+  "faq": [
+    {
+      "question": "REITのリスクは？",
+      "answer": "不動産市況の変動、金利上昇、テナント退去などがリスクです。"
+    },
+    {
+      "question": "NISAで買える？",
+      "answer": "はい。成長投資枠でJ-REITを購入できます。"
+    }
+  ],
+  "related": [
+    "dividend-yield",
+    "property-yield"
+  ],
+  "popular": false
+}

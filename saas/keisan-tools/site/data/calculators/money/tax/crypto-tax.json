@@ -1,0 +1,80 @@
+{
+  "slug": "crypto-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "仮想通貨の税金計算",
+  "description": "仮想通貨の売却益・交換益にかかる税金を計算。",
+  "metaTitle": "仮想通貨の税金計算ツール｜暗号資産の利益から税額を自動計算【2026年版】",
+  "metaDescription": "仮想通貨の利益を入力して所得税・住民税を自動計算。",
+  "calculatorFunction": "cryptoTax",
+  "inputs": [
+    {
+      "id": "profit",
+      "label": "仮想通貨の利益",
+      "type": "万円",
+      "unit": "",
+      "default": 100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "otherIncome",
+      "label": "その他の所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 100000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxableIncome",
+      "label": "課税所得",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "incomeTax",
+      "label": "所得税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "residentTax",
+      "label": "住民税",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "totalTax",
+      "label": "税額合計",
+      "format": "currency",
+      "primary": false
+    },
+    {
+      "id": "effectiveRate",
+      "label": "実効税率",
+      "format": "percent",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>仮想通貨の税金</h3><p>雑所得として総合課税。他の所得と合算して累進税率（5〜45%）+住民税10%が適用されます。</p>",
+  "faq": [
+    {
+      "question": "株と同じ税率？",
+      "answer": "いいえ。株は分離課税20.315%ですが、仮想通貨は総合課税で最大55%になります。"
+    },
+    {
+      "question": "損失の繰越は？",
+      "answer": "2026年時点では仮想通貨の損失繰越は認められていません。"
+    }
+  ],
+  "related": [
+    "income-tax",
+    "side-job-tax"
+  ],
+  "popular": false
+}

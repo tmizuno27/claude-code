@@ -1,0 +1,102 @@
+{
+  "slug": "school-commute",
+  "category": "education",
+  "subcategory": "school",
+  "title": "通学時間計算",
+  "description": "通学距離と手段から所要時間と年間コストを計算。",
+  "metaTitle": "通学時間計算ツール｜通学の所要時間と年間コストを自動計算",
+  "metaDescription": "通学距離と手段を入力して所要時間と交通費を自動計算。",
+  "calculatorFunction": "schoolCommute",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "通学距離",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 0.1
+    },
+    {
+      "id": "method",
+      "label": "通学手段",
+      "type": "select",
+      "options": [
+        {
+          "value": "walk",
+          "label": "徒歩"
+        },
+        {
+          "value": "bike",
+          "label": "自転車"
+        },
+        {
+          "value": "bus",
+          "label": "バス"
+        },
+        {
+          "value": "train",
+          "label": "電車"
+        },
+        {
+          "value": "car",
+          "label": "送迎（車）"
+        }
+      ],
+      "default": "train"
+    },
+    {
+      "id": "monthlyCost",
+      "label": "定期代/交通費",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 0,
+      "max": 100000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "commuteTime",
+      "label": "片道所要時間",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "dailyTime",
+      "label": "往復時間",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "annualTime",
+      "label": "年間通学時間",
+      "format": "number",
+      "primary": false
+    },
+    {
+      "id": "annualCost",
+      "label": "年間交通費",
+      "format": "currency",
+      "primary": false
+    }
+  ],
+  "explanation": "<h3>通学時間の目安</h3><p>徒歩: 時速4km、自転車: 時速15km、バス: 時速20km、電車: 時速40km（乗換含む）。</p>",
+  "faq": [
+    {
+      "question": "通学時間の平均は？",
+      "answer": "中学生: 約20分、高校生: 約40分、大学生: 約60分が全国平均です。"
+    },
+    {
+      "question": "長時間通学のデメリットは？",
+      "answer": "睡眠時間の減少、放課後活動の制限、体力の消耗。片道90分超は検討が必要です。"
+    }
+  ],
+  "related": [
+    "commute-cost",
+    "fuel-cost"
+  ],
+  "popular": false
+}
