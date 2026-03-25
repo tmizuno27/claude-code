@@ -71,5 +71,19 @@
       { "slug": "school", "name": "学校・受験" },
       { "slug": "study", "name": "学習・成績" }
     ]
+  },
+  {
+    "slug": "unit",
+    "name": "単位変換",
+    "description": "長さ・重さ・温度・面積・体積・速度など、あらゆる単位をかんたん変換",
+    "icon": "📏",
+    "subcategories": [
+      { "slug": "length", "name": "長さ" },
+      { "slug": "weight", "name": "重さ" },
+      { "slug": "temperature", "name": "温度" },
+      { "slug": "area", "name": "面積" },
+      { "slug": "volume", "name": "体積" },
+      { "slug": "speed", "name": "速度" }
+    ]
   }
 ]
