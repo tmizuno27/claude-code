@@ -1,8 +1,8 @@
 {
   "name": "QR Code Generator API",
   "slug": "qr-code-generator-api",
-  "description": "Free QR Code API - PNG/SVG/Base64, Sub-50ms Edge, Custom Colors | 500/mo",
-  "long_description": "## Why QR Code Generator API?\n- ✅ Zero authentication required — start generating QR codes instantly\n- ✅ 3 output formats (PNG, SVG, Base64) with full color customization\n- ✅ Sub-50ms response via Cloudflare's global edge network (300+ locations)\n\n## Key Features\n- PNG, SVG, and Base64 output formats\n- Custom foreground & background colors (hex)\n- Adjustable error correction levels (L/M/Q/H)\n- Configurable size from 10px to 1000px\n- CORS enabled for browser-side usage\n\n## Use Cases\n- **E-commerce**: QR codes for product pages, payments, and receipts\n- **Marketing**: Flyers, business cards, and poster campaigns\n- **Event Management**: Ticket QR codes and check-in systems\n- **Mobile Apps**: Deep-link QR codes for app downloads\n\n## Quick Start\n```\nGET /generate?text=https://example.com&size=300&format=png&color=FF0000&bgcolor=FFFFFF\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes all formats and colors. No credit card required.\n\n## Alternative To\nLooking for a **QR code API alternative** to goqr.me, QR Server, or QRickit? This API offers faster response times via Cloudflare's edge network with a generous free tier.\n\n## Sample Response\nWith `format=base64`:\n```json\n{\"qr_code\": \"data:image/png;base64,iVBOR...\"}\n```\n\n## Need More Requests?\nThe **free plan** (500 req/mo) is perfect for prototyping. Upgrade to **Pro ($5.99/mo)** for production workloads with 50,000 requests and 10 req/sec rate limit.",
+  "description": "Generate QR codes in <50ms — PNG/SVG/Base64, custom colors, edge-deployed. Free 500/mo. goqr.me alternative.",
+  "long_description": "## The Fastest QR Code API on RapidAPI\nGenerate production-ready QR codes in under 50ms from Cloudflare's 300+ edge locations. PNG, SVG, or Base64 JSON output with full color customization.\n\n## Why This API?\n- **Sub-50ms latency** from Cloudflare's global edge network\n- **3 output formats**: PNG (raster), SVG (vector/print), Base64 JSON (embed in HTML without file I/O)\n- **Brand colors**: Custom foreground + background hex colors\n- **Error correction**: L/M/Q/H levels — H allows logo overlay on center 20%\n- **No auth overhead**: Subscribe on RapidAPI and call immediately\n\n## Real-World Use Cases\n- **E-commerce**: Dynamic checkout/payment QR codes per order\n- **Restaurants**: Contactless digital menu QR codes per table\n- **SaaS invoices**: Embed QR codes in HTML/PDF via Base64 data_uri\n- **Marketing**: Branded QR codes for flyers, posters, business cards\n- **Mobile apps**: Deep link QR codes for app downloads and sharing\n- **CI/CD**: Generate deployment preview QR codes in your pipeline\n\n## Quick Start\n```\nGET /generate?text=https://example.com&size=400&format=png&color=FF5722\n```\nReturns binary PNG. Use `format=base64` for JSON with embeddable `data_uri`.\n\n## Pricing — 97% Cheaper Than Alternatives\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes all formats and colors. No credit card required.\n\n## Alternative To\nFaster and cheaper alternative to goqr.me, QR Server, QRickit, and QR Code Monkey. Same features, documented rate limits, RapidAPI support, and SLA guarantee on paid plans.\n\n## Sample Base64 Response\n```json\n{\"data\": \"iVBOR...\", \"data_uri\": \"data:image/png;base64,iVBOR...\", \"size\": 1234}\n```",
   "category": "Tools",
   "tags": [
     "qr-code",
@@ -15,11 +15,12 @@
     "marketing-tools",
     "e-commerce-tools",
     "payment-qr",
-    "dynamic-qr",
+    "svg-generator",
+    "base64-qr",
     "cloudflare-edge",
-    "svg-generator"
+    "goqr-alternative"
   ],
-  "website": "https://qr-code-api.your-domain.workers.dev",
+  "website": "https://qr-code-api.t-mizuno27.workers.dev",
   "pricing": {
     "plans": [
       {
@@ -30,9 +31,10 @@
           "requests_per_second": 1
         },
         "features": [
-          "PNG output",
-          "Default colors",
-          "Up to 500px"
+          "All formats (PNG/SVG/Base64)",
+          "Custom colors",
+          "All sizes (10-1000px)",
+          "Error correction L/M/Q/H"
         ]
       },
       {
@@ -43,9 +45,9 @@
           "requests_per_second": 10
         },
         "features": [
-          "All formats (PNG/SVG/Base64)",
-          "Custom colors",
-          "Up to 1000px",
+          "All Basic features",
+          "50,000 requests/month",
+          "10 req/sec throughput",
           "Priority support"
         ]
       },
@@ -58,7 +60,8 @@
         },
         "features": [
           "All Pro features",
-          "Highest rate limits",
+          "500,000 requests/month",
+          "50 req/sec throughput",
           "Dedicated support"
         ]
       },
@@ -70,8 +73,9 @@
           "requests_per_second": 100
         },
         "features": [
-          "Unlimited formats",
-          "Maximum throughput",
+          "All Ultra features",
+          "5,000,000 requests/month",
+          "100 req/sec throughput",
           "SLA guarantee"
         ]
       }
@@ -82,13 +86,13 @@
       "name": "Generate QR Code",
       "method": "GET",
       "path": "/generate",
-      "description": "Generate a QR code from text or URL",
+      "description": "Generate a QR code from text or URL in PNG, SVG, or Base64 format",
       "parameters": [
         {
           "name": "text",
           "type": "string",
           "required": true,
-          "description": "Text or URL to encode"
+          "description": "Text or URL to encode (max 4296 chars)"
         },
         {
           "name": "size",
@@ -102,39 +106,30 @@
           "type": "string",
           "required": false,
           "default": "png",
-          "enum": [
-            "png",
-            "svg",
-            "base64"
-          ],
-          "description": "Output format"
+          "enum": ["png", "svg", "base64"],
+          "description": "Output format: png (raster), svg (vector), base64 (JSON)"
         },
         {
           "name": "color",
           "type": "string",
           "required": false,
           "default": "000000",
-          "description": "Foreground color (6-digit hex)"
+          "description": "Foreground color (6-digit hex, no #)"
         },
         {
           "name": "bgcolor",
           "type": "string",
           "required": false,
           "default": "ffffff",
-          "description": "Background color (6-digit hex)"
+          "description": "Background color (6-digit hex, no #)"
         },
         {
           "name": "error_correction",
           "type": "string",
           "required": false,
           "default": "M",
-          "enum": [
-            "L",
-            "M",
-            "Q",
-            "H"
-          ],
-          "description": "Error correction level"
+          "enum": ["L", "M", "Q", "H"],
+          "description": "Error correction: L(7%), M(15%), Q(25%), H(30%)"
         }
       ]
     },
