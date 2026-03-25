@@ -140,7 +140,18 @@
       "ping_url": "https://hc-ping.com/691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
       "uuid": "691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
       "ps1": "all-business-kpi.ps1",
-      "status": "created"
+      "status": "repurposed_as_HatenaPipeline"
+    },
+    "HatenaPipeline": {
+      "name": "HatenaPipeline",
+      "ping_url": "https://hc-ping.com/691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
+      "uuid": "691cd9ed-9f36-43ae-a4cc-812b8d4e687d",
+      "ps1": "HatenaPipeline.ps1",
+      "status": "created",
+      "schedule": "0 7 * * 1,3,5",
+      "tz": "America/Asuncion",
+      "grace": 3600,
+      "tags": "hatena blog nambei-oyaji"
     }
   }
 }
