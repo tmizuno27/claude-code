@@ -110,6 +110,56 @@
       "created": "2026-03-20",
       "completed_at": "2026-03-20",
       "output_dir": "product-factory/outputs/2026-03-20/markdown-converter-api/"
+    },
+    {
+      "id": "prompt-006",
+      "category": "gumroad-notion",
+      "name": "Solopreneur AI Business Toolkit",
+      "price": 29,
+      "status": "completed",
+      "created": "2026-03-25",
+      "completed_at": "2026-03-25",
+      "output_dir": "product-factory/outputs/2026-03-25/solopreneur-ai-business-toolkit/"
+    },
+    {
+      "id": "prompt-007",
+      "category": "gumroad-notion",
+      "name": "Email Marketing Prompt Pack",
+      "price": 19,
+      "status": "completed",
+      "created": "2026-03-25",
+      "completed_at": "2026-03-25",
+      "output_dir": "product-factory/outputs/2026-03-25/email-marketing-prompt-pack/"
+    },
+    {
+      "id": "gumroad-018",
+      "category": "gumroad-notion",
+      "name": "Content Repurposing System",
+      "price": 24,
+      "status": "completed",
+      "created": "2026-03-25",
+      "completed_at": "2026-03-25",
+      "output_dir": "product-factory/outputs/2026-03-25/content-repurposing-system/"
+    },
+    {
+      "id": "gumroad-019",
+      "category": "gumroad-notion",
+      "name": "Client Onboarding Kit",
+      "price": 22,
+      "status": "completed",
+      "created": "2026-03-25",
+      "completed_at": "2026-03-25",
+      "output_dir": "product-factory/outputs/2026-03-25/client-onboarding-kit/"
+    },
+    {
+      "id": "gumroad-020",
+      "category": "gumroad-notion",
+      "name": "Digital Product Launch Playbook",
+      "price": 27,
+      "status": "completed",
+      "created": "2026-03-25",
+      "completed_at": "2026-03-25",
+      "output_dir": "product-factory/outputs/2026-03-25/digital-product-launch-playbook/"
     }
   ]
 }
