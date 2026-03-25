@@ -1,8 +1,10 @@
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
+const GA_ID = 'G-HT51NK0YHE';
 
 export const metadata = {
   title: {
@@ -23,6 +25,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
+      <head>
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
+      </head>
       <body>
         <header className="site-header">
           <div className="container header-inner">
