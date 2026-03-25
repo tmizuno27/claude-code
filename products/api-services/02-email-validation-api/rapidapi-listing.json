@@ -1,22 +1,23 @@
 {
   "name": "Email Validation API",
-  "tagline": "Validate email addresses instantly without sending emails",
-  "description": "Free Email Validator API - Disposable Block, MX Check, Typo Fix | ZeroBounce Alt",
+  "tagline": "Validate 50K emails for $9.99 flat — ZeroBounce charges $400 for the same volume",
+  "description": "Email validation API: MX check, 500+ disposable blocklist, typo fix. $9.99/50K flat vs ZeroBounce $400. Free 500/mo.",
   "category": "Data",
   "tags": [
     "email-validation",
-    "email-checker",
-    "disposable-email",
-    "free-api",
-    "rest-api",
     "email-verification",
-    "bounce-detection",
-    "email-deliverability",
+    "disposable-email",
     "mx-lookup",
+    "email-checker",
+    "bounce-prevention",
+    "zerobounce-alternative",
+    "hunter-alternative",
+    "email-deliverability",
     "spam-prevention",
     "saas-signup",
     "lead-quality",
-    "zerobounce-alternative"
+    "free-api",
+    "bulk-email-validation"
   ],
   "pricing": [
     {
@@ -26,8 +27,8 @@
       "rate_limit_per_second": 1,
       "features": [
         "Single email validation",
-        "All validation checks",
-        "JSON response"
+        "All checks (MX, disposable, typo, role-based)",
+        "Confidence score 0-100"
       ]
     },
     {
@@ -36,9 +37,9 @@
       "requests_per_month": 50000,
       "rate_limit_per_second": 10,
       "features": [
-        "Single & bulk validation",
-        "Up to 50 emails per bulk request",
-        "All validation checks",
+        "Single + bulk validation (50/request)",
+        "50,000 validations/month",
+        "All checks included",
         "Priority support"
       ]
     },
@@ -48,9 +49,9 @@
       "requests_per_month": 500000,
       "rate_limit_per_second": 50,
       "features": [
-        "Single & bulk validation",
-        "Up to 50 emails per bulk request",
-        "All validation checks",
+        "Single + bulk validation (50/request)",
+        "500,000 validations/month",
+        "All checks included",
         "Dedicated support"
       ]
     }
@@ -74,11 +75,9 @@
       "method": "POST",
       "path": "/validate/bulk",
       "body": {
-        "emails": [
-          "user@example.com"
-        ]
+        "emails": ["user@example.com"]
       }
     }
   ],
-  "long_description": "## Why Email Validation API?\n- ✅ Validates without sending any emails — instant, non-intrusive checks\n- ✅ 500+ disposable domain blacklist with typo correction (gmial→gmail)\n- ✅ MX record verification + RFC 5322 format validation in one call\n\n## Key Features\n- RFC 5322 format validation with detailed error messages\n- MX record verification for deliverability\n- Disposable/temporary email detection (500+ domains)\n- Typo correction suggestions\n- Bulk validation up to 50 emails per request (Pro+)\n\n## Use Cases\n- **SaaS Signups**: Block disposable emails at registration\n- **Email Marketing**: Clean mailing lists before campaigns\n- **E-commerce**: Reduce failed order confirmation emails\n- **Lead Generation**: Ensure collected emails are valid\n\n## Quick Start\n```\nGET /validate?email=user@example.com\n```\nReturns JSON with `is_valid`, `is_disposable`, `has_mx`, `suggestion`, and more.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes all validation checks. No credit card required.\n\n## Alternative To\nA cost-effective **email verification API alternative** to ZeroBounce, Hunter.io, and NeverBounce. No signup friction with a free 500-request tier.\n\n## Sample Response\n```json\n{\"email\":\"test@gmail.com\",\"valid\":true,\"is_disposable\":false,\"has_mx\":true,\"score\":95}\n```\n\n## Need More Requests?\nStart free with 500 validations/month. Scale to **Pro ($9.99/mo)** for bulk validation of 50,000 emails with 10 req/sec throughput."
+  "long_description": "## Save $390/mo vs ZeroBounce at 50K Emails\nFlat-rate email validation instead of per-email billing. Validate 50,000 emails for $9.99/mo. ZeroBounce charges $400 for the same volume. Hunter.io charges $4,900.\n\n## Every Validation Includes All Checks\n- **MX record verification** via DNS-over-HTTPS (no emails sent)\n- **Disposable email detection** against 500+ domains (Mailinator, Guerrilla, 10MinuteMail)\n- **Typo correction** (gmial.com -> gmail.com, yaho.com -> yahoo.com)\n- **Role-based detection** (admin@, info@, support@, noreply@)\n- **Free provider detection** (Gmail, Yahoo, Outlook)\n- **Confidence score** 0-100 for easy filtering\n\n## Cost Comparison\n| Volume | This API | ZeroBounce | Hunter.io |\n|--------|----------|-----------|----------|\n| 500/mo | **FREE** | $0 (100 free) | $0 (25 free) |\n| 50K/mo | **$9.99** | $400 | $4,900 |\n| 500K/mo | **$29.99** | $4,000 | N/A |\n\n## Use Cases\n- **SaaS signup forms**: Block disposable emails, catch typos before account creation\n- **Email marketing**: Clean lists before campaigns to protect sender reputation\n- **E-commerce checkout**: Ensure order confirmations reach customers\n- **Lead generation**: Score leads by email quality (corporate vs free vs disposable)\n- **Fraud prevention**: Block trial farming with disposable email detection\n\n## Quick Start\n```\nGET /validate?email=user@gmial.com\n→ {\"valid\": true, \"suggestion\": \"user@gmail.com\", \"score\": 85}\n```\n\n## Bulk Validation\n```\nPOST /validate/bulk\n{\"emails\": [\"user1@gmail.com\", \"fake@mailinator.com\"]}\n```\nUp to 50 emails per request.\n\nFree tier: 500 validations/month. No credit card required."
 }
