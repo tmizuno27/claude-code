@@ -1,0 +1,64 @@
+{
+  "slug": "nm-mm",
+  "category": "unit",
+  "subcategory": "length",
+  "title": "ナノメートル↔ミリメートル変換",
+  "description": "ナノメートルとミリメートルを相互変換します",
+  "metaTitle": "ナノメートル ミリメートル 変換｜nm↔mm換算｜keisan.tools",
+  "metaDescription": "ナノメートル（nm）とミリメートル（mm）の変換ツール。1mm＝1,000,000nmで即計算。半導体・光学分野に。",
+  "calculatorFunction": "nmToMm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 5,
+      "min": 0,
+      "max": 999999999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "変換方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "a_to_b",
+          "label": "ナノメートル → ミリメートル"
+        },
+        {
+          "value": "b_to_a",
+          "label": "ミリメートル → ナノメートル"
+        }
+      ],
+      "default": "a_to_b"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "変換結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "formula",
+      "label": "計算式",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>ナノメートルとミリメートルの変換</h3><p><strong>1mm = 1,000,000nm</strong>です。半導体の製造プロセス（5nm, 7nmなど）や光の波長の表記で使われます。</p>",
+  "faq": [
+    {
+      "question": "1ナノメートルは何ミリメートル？",
+      "answer": "1nm = 0.000001mm（100万分の1mm）です。"
+    },
+    {
+      "question": "可視光の波長は？",
+      "answer": "可視光は約380nm〜780nmで、0.00038mm〜0.00078mmです。"
+    }
+  ],
+  "related": [],
+  "popular": false
+}

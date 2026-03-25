@@ -3790,6 +3790,9 @@ export function nauticalMileToKm(inputs: Record<string, number | string>): Recor
 export function micronToMm(inputs: Record<string, number | string>): Record<string, number> {
   return unitConvert(inputs.value as number, inputs.direction as string, 1000, 6);
 }
+export function nmToMm(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 1000000, 10);
+}
 export function kenToM(inputs: Record<string, number | string>): Record<string, number> {
   const v = inputs.value as number;
   const d = inputs.direction as string;
@@ -4405,6 +4408,7 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   riToKm,
   nauticalMileToKm,
   micronToMm,
+  nmToMm,
   kenToM,
   // Unit conversion category - Weight
   kgToLb,
