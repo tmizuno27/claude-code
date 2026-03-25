@@ -1842,6 +1842,1675 @@ export function tsuboSqm(inputs: Record<string, number | string>): Record<string
   }
 }
 
+export function adRoas(inputs: Record<string, number | string>): Record<string, number | string> {
+  const adSpend = inputs.adSpend as number;
+  const revenue = inputs.revenue as number;
+  const conversions = inputs.conversions as number;
+  const roas = adSpend > 0 ? Math.round(revenue / adSpend * 100) : 0;
+  return { roas, profit: revenue - adSpend };
+}
+
+export function advancePayment(inputs: Record<string, number | string>): Record<string, number | string> {
+  const loanBalance = inputs.loanBalance as number;
+  const rate = inputs.rate as number;
+  const remainingYears = inputs.remainingYears as number;
+  const advanceAmount = inputs.advanceAmount as number;
+  const type = inputs.type as string;
+  const current10k = currentBalance * 10000;
+  const advance10k = advanceAmount * 10000;
+  const remaining = current10k - advance10k;
+  const savedInterest = Math.round(advance10k * rate / 100 * remainingYears);
+  return { remaining, savedInterest, newBalance: Math.max(remaining, 0) };
+}
+
+export function airConditionerCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const capacity = inputs.capacity as number;
+  const hoursPerDay = inputs.hoursPerDay as number;
+  const days = inputs.days as number;
+  const pricePerKwh = inputs.pricePerKwh as number;
+  const wattMap: Record<number, number> = { 4: 300, 6: 450, 8: 630, 10: 830, 12: 1050, 14: 1300, 16: 1500, 18: 1700, 20: 2000, 22: 2200, 24: 2500, 26: 2800, 28: 3000, 30: 3300 };
+  const watt = wattMap[capacity] || capacity * 100;
+  const kwh = watt / 1000 * hoursPerDay * days;
+  const cost = Math.round(kwh * pricePerKwh);
+  return { monthlyCost: cost, dailyCost: Math.round(cost / days), seasonCost: Math.round(cost * 3) };
+}
+
+export function alcoholCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const drinkType = inputs.drinkType as string;
+  const amount = inputs.amount as number;
+  const alcoholPercent: Record<string, number> = { beer: 5, wine: 12, sake: 15, shochu: 25, whisky: 40, chuhai: 7 };
+  const pct = alcoholPercent[drinkType] || 5;
+  const pureAlcohol = amount * pct / 100 * 0.8;
+  const calories = Math.round(pureAlcohol * 7.1);
+  return { calories, pureAlcohol: Math.round(pureAlcohol * 10) / 10 };
+}
+
+export function alcoholTobaccoTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const product = inputs.product as string;
+  const price = inputs.price as number;
+  const qty = quantity as number;
+  const taxRates: Record<string, number> = { beer: 77, wine: 47, sake: 38, whisky: 67, tobacco: 16.7 };
+  const rate = taxRates[productType] || 50;
+  const tax = Math.round(qty * rate);
+  return { tax, unitTax: rate, totalWithTax: Math.round(qty * rate * 1.1) };
+}
+
+export function anniversary(inputs: Record<string, number | string>): Record<string, number | string> {
+  const startDate = inputs.startDate as number;
+  const startDate = new Date(startYear, startMonth - 1, startDay);
+  const now = new Date();
+  const diffMs = now.getTime() - startDate.getTime();
+  const days = Math.floor(diffMs / 86400000);
+  const next100 = Math.ceil(days / 100) * 100;
+  return { days, months: Math.floor(days / 30), years: Math.round(days / 365 * 10) / 10, nextMilestone: next100 };
+}
+
+export function assetAllocation(inputs: Record<string, number | string>): Record<string, number | string> {
+  const age = inputs.age as number;
+  const riskTolerance = inputs.riskTolerance as string;
+  const totalAsset = inputs.totalAsset as number;
+  const total = stocks + bonds + realEstate + cash;
+  if (total === 0) return { stocksRatio: 0, bondsRatio: 0, realEstateRatio: 0, cashRatio: 0, total: 0 };
+  return { stocksRatio: Math.round(stocks/total*100), bondsRatio: Math.round(bonds/total*100), realEstateRatio: Math.round(realEstate/total*100), cashRatio: Math.round(cash/total*100), total };
+}
+
+export function autoTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const displacement = inputs.displacement as string;
+  const years = inputs.years as number;
+  const displacement = inputs.displacement as number;
+  let tax: number;
+  if (displacement <= 1000) tax = 29500;
+  else if (displacement <= 1500) tax = 34500;
+  else if (displacement <= 2000) tax = 39500;
+  else if (displacement <= 2500) tax = 45000;
+  else if (displacement <= 3000) tax = 51000;
+  else if (displacement <= 3500) tax = 58000;
+  else if (displacement <= 4000) tax = 66500;
+  else if (displacement <= 4500) tax = 76500;
+  else if (displacement <= 6000) tax = 88000;
+  else tax = 111000;
+  const ecoDiscount = typeof inputs.ecoDiscount === 'number' ? inputs.ecoDiscount : 0;
+  const finalTax = Math.round(tax * (1 - ecoDiscount / 100));
+  return { tax: finalTax, baseTax: tax, annualCost: finalTax };
+}
+
+export function babyGrowth(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthsAge = inputs.monthsAge as number;
+  const gender = inputs.gender as string;
+  const weight = inputs.weight as number;
+  const height = inputs.height as number;
+  const weekNum = week as number;
+  const estimatedWeight = weekNum < 20 ? Math.round(weekNum * 15) : Math.round(weekNum * weekNum * 1.5 - 20 * weekNum);
+  const estimatedLength = Math.round(weekNum * 1.2);
+  return { estimatedWeight, estimatedLength };
+}
+
+export function baseConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const num = number as number;
+  return { decimal: num, binary: parseInt(num.toString(2)) || 0, octal: parseInt(num.toString(8)) || 0, hex: num.toString(16).toUpperCase() } as any;
+}
+
+export function bloodAlcohol(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const gender = inputs.gender as string;
+  const pureAlcohol = inputs.pureAlcohol as number;
+  const hours = inputs.hours as number;
+  const pureAlcohol = drinks * 14;
+  const bodyWater = weight * (gender === 'male' ? 0.68 : 0.55);
+  const bac = Math.round((pureAlcohol / (bodyWater * 10) - 0.015 * hours) * 1000) / 1000;
+  return { bac: Math.max(bac, 0), status: bac > 0.08 ? '飲酒運転基準超' : bac > 0 ? '微量' : '検出なし' } as any;
+}
+
+export function blueReturn(inputs: Record<string, number | string>): Record<string, number | string> {
+  const businessIncome = inputs.businessIncome as number;
+  const deductionType = inputs.deductionType as string;
+  const income10k = income * 10000;
+  const blueDeduction = 650000;
+  const taxable = Math.max(income10k - blueDeduction - 480000, 0);
+  const taxSaving = Math.round(blueDeduction * 0.2);
+  return { blueDeduction, taxable, taxSaving };
+}
+
+export function bmiChild(inputs: Record<string, number | string>): Record<string, number | string> {
+  const age = inputs.age as number;
+  const height = inputs.height as number;
+  const weight = inputs.weight as number;
+  const gender = inputs.gender as string;
+  const bmiVal = Math.round(weight / Math.pow(height / 100, 2) * 10) / 10;
+  return { bmi: bmiVal };
+}
+
+export function bmiDetailed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const height = inputs.height as number;
+  const weight = inputs.weight as number;
+  const bmiVal = Math.round(weight / Math.pow(height / 100, 2) * 10) / 10;
+  const idealWt = Math.round(Math.pow(height / 100, 2) * 22 * 10) / 10;
+  const cat = bmiVal < 18.5 ? '低体重' : bmiVal < 25 ? '普通体重' : bmiVal < 30 ? '肥満1度' : bmiVal < 35 ? '肥満2度' : '肥満3度以上';
+  return { bmi: bmiVal, category: cat, idealWeight: idealWt, weightDiff: Math.round((weight - idealWt) * 10) / 10 } as any;
+}
+
+export function bmiPet(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const idealWeight = inputs.idealWeight as number;
+  const bcs = Math.round(weight / idealWeight * 5);
+  const diff = Math.round((weight - idealWeight) * 10) / 10;
+  return { bcs: Math.min(Math.max(bcs, 1), 9), weightDiff: diff };
+}
+
+export function bodyFatPercentage(inputs: Record<string, number | string>): Record<string, number | string> {
+  const height = inputs.height as number;
+  const weight = inputs.weight as number;
+  const age = inputs.age as number;
+  const gender = inputs.gender as string;
+  const bmiVal = weight / Math.pow(height / 100, 2);
+  const isMale = gender === 'male';
+  const bf = isMale ? 1.2 * bmiVal + 0.23 * age - 16.2 : 1.2 * bmiVal + 0.23 * age - 5.4;
+  const category = isMale ? (bf < 10 ? '低い' : bf < 20 ? '標準' : bf < 25 ? 'やや高い' : '高い') : (bf < 20 ? '低い' : bf < 30 ? '標準' : bf < 35 ? 'やや高い' : '高い');
+  return { bodyFat: Math.round(bf * 10) / 10, bmi: Math.round(bmiVal * 10) / 10, category } as any;
+}
+
+export function bondYield(inputs: Record<string, number | string>): Record<string, number | string> {
+  const faceValue = inputs.faceValue as number;
+  const purchasePrice = inputs.purchasePrice as number;
+  const couponRate = inputs.couponRate as number;
+  const yearsToMaturity = inputs.yearsToMaturity as number;
+  const faceValue10k = faceValue * 10000;
+  const purchasePrice10k = purchasePrice * 10000;
+  const annualCoupon = Math.round(faceValue10k * couponRate / 100);
+  const currentYield = purchasePrice10k > 0 ? Math.round(annualCoupon / purchasePrice10k * 10000) / 100 : 0;
+  const totalReturn = annualCoupon * yearsToMaturity + (faceValue10k - purchasePrice10k);
+  return { annualCoupon, currentYield, totalReturn };
+}
+
+export function businessDays(inputs: Record<string, number | string>): Record<string, number | string> {
+  const startDate = inputs.startDate as number;
+  const days = inputs.days as number;
+  const totalDays = daysCount as number;
+  const weekends = Math.floor(totalDays / 7) * 2;
+  const bd = totalDays - weekends;
+  return { businessDays: bd, weekendDays: weekends };
+}
+
+export function caffeine(inputs: Record<string, number | string>): Record<string, number | string> {
+  const coffee = inputs.coffee as number;
+  const tea = inputs.tea as number;
+  const greenTea = inputs.greenTea as number;
+  const energyDrink = inputs.energyDrink as number;
+  const caffeinePerCup: Record<string, number> = { coffee: 95, tea: 47, energy: 80, cola: 34 };
+  const mg = (caffeinePerCup[drinkType] || 95) * cups;
+  const safe = mg <= 400;
+  return { totalCaffeine: mg, safe: safe ? 1 : 0, halfLifeHours: 5 };
+}
+
+export function capitalGainsTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const salePrice = inputs.salePrice as number;
+  const purchasePrice = inputs.purchasePrice as number;
+  const expenses = inputs.expenses as number;
+  const assetType = inputs.assetType as string;
+  const gain10k = gain * 10000;
+  const shortTermRate = 0.3942;
+  const longTermRate = 0.2042;
+  const rate = holdingPeriod === 'short' ? shortTermRate : longTermRate;
+  const tax = Math.round(gain10k * rate);
+  return { tax, effectiveRate: Math.round(rate * 10000) / 100, afterTax: gain10k - tax };
+}
+
+export function carCostTotal(inputs: Record<string, number | string>): Record<string, number | string> {
+  const carType = inputs.carType as string;
+  const annualMileage = inputs.annualMileage as number;
+  const fuelEfficiency = inputs.fuelEfficiency as number;
+  const fuelPrice = inputs.fuelPrice as number;
+  const annual = (insurance + tax + maintenance + fuel) * 10000;
+  return { annual, monthly: Math.round(annual / 12), daily: Math.round(annual / 365) };
+}
+
+export function carLease(inputs: Record<string, number | string>): Record<string, number | string> {
+  const carPrice = inputs.carPrice as number;
+  const leaseMonthly = inputs.leaseMonthly as number;
+  const leaseYears = inputs.leaseYears as number;
+  const residualRate = inputs.residualRate as number;
+  const price10k = vehiclePrice * 10000;
+  const residual10k = Math.round(price10k * residualRate / 100);
+  const leaseBase = price10k - residual10k;
+  const months = leaseYears * 12;
+  const monthlyPayment = Math.round(leaseBase / months);
+  return { monthlyPayment, totalPayment: monthlyPayment * months, residualValue: residual10k };
+}
+
+export function carbonFootprint(inputs: Record<string, number | string>): Record<string, number | string> {
+  const carKm = inputs.carKm as number;
+  const electricityKwh = inputs.electricityKwh as number;
+  const gasM3 = inputs.gasM3 as number;
+  const electricity = electricityKwh * 0.423;
+  const gas = gasM3 * 2.21;
+  const car = carKm * 0.23;
+  const total = Math.round((electricity + gas + car) * 10) / 10;
+  return { total, electricity: Math.round(electricity * 10) / 10, gas: Math.round(gas * 10) / 10, car: Math.round(car * 10) / 10 };
+}
+
+export function carpetCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const width = inputs.width as number;
+  const depth = inputs.depth as number;
+  const a = width * depth;
+  const tatami = Math.round(a / 1.62 * 10) / 10;
+  return { area: Math.round(a * 100) / 100, tatami, cost: Math.round(a * 3000) };
+}
+
+export function certificationCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const cert = inputs.cert as string;
+  const studyMethod = inputs.studyMethod as string;
+  const total = examFee + textbookCost + courseFee;
+  return { total, monthlyIfSave: Math.round(total / monthsToSave) };
+}
+
+export function childCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const childAge = inputs.childAge as number;
+  const schoolType = inputs.schoolType as string;
+  const university = inputs.university as string;
+  const annual = (education + food + clothing + medical) * 10000;
+  return { annual, monthly: Math.round(annual / 12), total18years: annual * 18 };
+}
+
+export function childcareBenefit(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlySalary = inputs.monthlySalary as number;
+  const salary10k = monthlySalary * 10000;
+  const first6months = Math.round(salary10k * 0.67);
+  const after6months = Math.round(salary10k * 0.50);
+  const total = first6months * 6 + after6months * 6;
+  return { first6months, after6months, annualTotal: total };
+}
+
+export function chineseZodiac(inputs: Record<string, number | string>): Record<string, number | string> {
+  const year = inputs.year as number;
+  const animals = ['子(ねずみ)', '丑(うし)', '寅(とら)', '卯(うさぎ)', '辰(たつ)', '巳(へび)', '午(うま)', '未(ひつじ)', '申(さる)', '酉(とり)', '戌(いぬ)', '亥(いのしし)'];
+  const idx = (year - 4) % 12;
+  return { zodiac: animals[idx >= 0 ? idx : idx + 12], year } as any;
+}
+
+export function churnRate(inputs: Record<string, number | string>): Record<string, number | string> {
+  const startCustomers = inputs.startCustomers as number;
+  const churned = inputs.churned as number;
+  const period = inputs.period as number;
+  const rate = totalCustomers > 0 ? Math.round(lostCustomers / totalCustomers * 10000) / 100 : 0;
+  const retentionRate = 100 - rate;
+  return { churnRate: rate, retentionRate, avgLifespan: rate > 0 ? Math.round(100 / rate * 10) / 10 : 0 };
+}
+
+export function cityPlanningTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const landValue = inputs.landValue as number;
+  const buildingValue = inputs.buildingValue as number;
+  const assessed10k = assessedValue * 10000;
+  const rate = taxRate / 100;
+  const tax = Math.round(assessed10k * rate);
+  return { tax, monthlyTax: Math.round(tax / 12) };
+}
+
+export function clothingSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const jpSize = inputs.jpSize as string;
+  const gender = inputs.gender as string;
+  const h = height as number; const w = weight as number;
+  const bmi = w / Math.pow(h / 100, 2);
+  const size = bmi < 18.5 ? 'S' : bmi < 23 ? 'M' : bmi < 25 ? 'L' : bmi < 28 ? 'XL' : 'XXL';
+  return { size, bmi: Math.round(bmi * 10) / 10 } as any;
+}
+
+export function commuteCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const method = inputs.method as string;
+  const monthlyCost = inputs.monthlyCost as number;
+  const distance = inputs.distance as number;
+  const monthly = monthlyCost as number;
+  const workDaysPerMonth = workDays as number;
+  const annual = monthly * 12;
+  const daily = Math.round(monthly / workDaysPerMonth);
+  const taxFree = Math.min(annual, 150000);
+  return { annual, daily, taxFree, taxable: Math.max(annual - 150000, 0) };
+}
+
+export function compoundInterestDetail(inputs: Record<string, number | string>): Record<string, number | string> {
+  const principal = inputs.principal as number;
+  const rate = inputs.rate as number;
+  const years = inputs.years as number;
+  const monthly = inputs.monthly as number;
+  const p = principal * 10000;
+  const r = rate / 100;
+  const m = monthly * 10000;
+  let fv = p * Math.pow(1 + r, years);
+  if (m > 0) fv += m * ((Math.pow(1 + r/12, years*12) - 1) / (r/12));
+  const totalDeposit = p + m * years * 12;
+  const interest = Math.round(fv - totalDeposit);
+  return { futureValue: Math.round(fv), totalDeposit: Math.round(totalDeposit), interest, returnRate: totalDeposit > 0 ? Math.round(interest / totalDeposit * 100) : 0 };
+}
+
+export function concreteCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const width = inputs.width as number;
+  const depth = inputs.depth as number;
+  const thickness = inputs.thickness as number;
+  const vol = width * depth * thickness / 100;
+  const wt = Math.round(vol * 2300);
+  return { volume: Math.round(vol * 100) / 100, weight: wt, bags: Math.ceil(vol / 0.012) };
+}
+
+export function consumptionTaxCalc(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const direction = inputs.direction as string;
+  const rate = inputs.rate as string;
+  const r = rate === '8' ? 0.08 : 0.10;
+  if (direction === 'excl_to_incl') {
+    const taxAmount = Math.round(price * r);
+    return { result: price + taxAmount, taxAmount };
+  } else {
+    const exclPrice = Math.round(price / (1 + r));
+    return { result: exclPrice, taxAmount: price - exclPrice };
+  }
+}
+
+export function corporatePension(inputs: Record<string, number | string>): Record<string, number | string> {
+  const years = inputs.years as number;
+  const avgSalary = inputs.avgSalary as number;
+  const type = inputs.type as string;
+  const dcContribution = inputs.dcContribution as number;
+  const monthly10k = monthlyContribution * 10000;
+  const r = expectedReturn / 100 / 12;
+  const months = years * 12;
+  const total = monthly10k * months;
+  const fv = r > 0 ? Math.round(monthly10k * ((Math.pow(1+r,months)-1)/r)) : total;
+  return { futureValue: fv, totalContribution: total, investmentReturn: fv - total };
+}
+
+export function corporateTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const taxableIncome = inputs.taxableIncome as number;
+  const isSmall = inputs.isSmall as string;
+  const income10k = income * 10000;
+  let rate: number;
+  if (income10k <= 8000000) rate = 0.15;
+  else rate = 0.234;
+  const tax = Math.round(income10k * rate);
+  const effectiveRate = Math.round(rate * 10000) / 100;
+  const localTax = Math.round(tax * 0.174);
+  return { corporateTax: tax, effectiveRate, localTax, totalTax: tax + localTax };
+}
+
+export function correlation(inputs: Record<string, number | string>): Record<string, number | string> {
+  const dataX = inputs.dataX as number;
+  const dataY = inputs.dataY as number;
+  // Simplified: return placeholder for correlation coefficient
+  const xMean = (x1 + x2 + x3) / 3;
+  const yMean = (y1 + y2 + y3) / 3;
+  const num = (x1-xMean)*(y1-yMean) + (x2-xMean)*(y2-yMean) + (x3-xMean)*(y3-yMean);
+  const denX = Math.sqrt(Math.pow(x1-xMean,2) + Math.pow(x2-xMean,2) + Math.pow(x3-xMean,2));
+  const denY = Math.sqrt(Math.pow(y1-yMean,2) + Math.pow(y2-yMean,2) + Math.pow(y3-yMean,2));
+  const r = denX*denY > 0 ? Math.round(num / (denX * denY) * 10000) / 10000 : 0;
+  return { correlation: r, strength: Math.abs(r) > 0.7 ? '強い' : Math.abs(r) > 0.4 ? '中程度' : '弱い' } as any;
+}
+
+export function cryptoTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const profit = inputs.profit as number;
+  const otherIncome = inputs.otherIncome as number;
+  const profit10k = profit * 10000;
+  const otherIncome10k = otherIncome * 10000;
+  const totalIncome = profit10k + otherIncome10k;
+  let rate: number;
+  if (totalIncome <= 1950000) rate = 0.15;
+  else if (totalIncome <= 3300000) rate = 0.20;
+  else if (totalIncome <= 6950000) rate = 0.30;
+  else if (totalIncome <= 9000000) rate = 0.33;
+  else rate = 0.43;
+  const tax = Math.round(profit10k * rate);
+  return { tax, effectiveRate: Math.round(rate * 100), afterTax: profit10k - tax };
+}
+
+export function currencyConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const rate = inputs.rate as number;
+  const direction = inputs.direction as string;
+  const result = Math.round(amount * exchangeRate * 100) / 100;
+  return { result, rate: exchangeRate };
+}
+
+export function cyclingCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const minutes = inputs.minutes as number;
+  const intensity = inputs.intensity as string;
+  const metsMap: Record<string, number> = { light: 4, moderate: 6, vigorous: 10 };
+  const m = metsMap[intensity] || 6;
+  const cal = Math.round(m * weight * (minutes / 60) * 1.05);
+  const speedMap: Record<string, number> = { light: 10, moderate: 16, vigorous: 25 };
+  const dist = Math.round((speedMap[intensity] || 16) * minutes / 60 * 100) / 100;
+  return { calories: cal, distance: dist, fatBurn: Math.round(cal / 7.2 * 10) / 10 };
+}
+
+export function dataSizeConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const fromUnit = inputs.fromUnit as string;
+  const multipliers: Record<string, number> = { B: 1, KB: 1024, MB: 1048576, GB: 1073741824, TB: 1099511627776 };
+  const bytes = value * (multipliers[fromUnit] || 1);
+  return { B: bytes, KB: Math.round(bytes / 1024 * 1000) / 1000, MB: Math.round(bytes / 1048576 * 1000) / 1000, GB: Math.round(bytes / 1073741824 * 10000) / 10000, TB: Math.round(bytes / 1099511627776 * 100000) / 100000 };
+}
+
+export function debtRepayment(inputs: Record<string, number | string>): Record<string, number | string> {
+  const balance = inputs.balance as number;
+  const rate = inputs.rate as number;
+  const monthlyPayment = inputs.monthlyPayment as number;
+  const debt10k = totalDebt * 10000;
+  const payment10k = monthlyPayment * 10000;
+  const r = interestRate / 100 / 12;
+  let balance = debt10k; let months = 0; let totalInterest = 0;
+  while (balance > 0 && months < 600) { const interest = Math.round(balance * r); totalInterest += interest; balance = balance + interest - payment10k; months++; }
+  return { months, years: Math.round(months / 12 * 10) / 10, totalInterest, totalPaid: debt10k + totalInterest };
+}
+
+export function disabilityInsurance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlyIncome = inputs.monthlyIncome as number;
+  const monthlyExpense = inputs.monthlyExpense as number;
+  const publicBenefit = inputs.publicBenefit as number;
+  const monthly10k = monthlyIncome * 10000;
+  const coverage = Math.round(monthly10k * coverageRate / 100);
+  const premium = Math.round(coverage * 0.02);
+  return { coverage, premium, annualPremium: premium * 12 };
+}
+
+export function dollarCostAveraging(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlyAmount = inputs.monthlyAmount as number;
+  const years = inputs.years as number;
+  const expectedReturn = inputs.expectedReturn as number;
+  const m = monthlyAmount * 10000;
+  const totalMonths = years * 12;
+  const totalInvested = m * totalMonths;
+  const r = expectedReturn / 100 / 12;
+  const fv = r > 0 ? Math.round(m * ((Math.pow(1+r, totalMonths)-1)/r)) : totalInvested;
+  const profit = fv - totalInvested;
+  return { totalInvested, futureValue: fv, profit, profitRate: totalInvested > 0 ? Math.round(profit/totalInvested*100) : 0 };
+}
+
+export function downloadTime(inputs: Record<string, number | string>): Record<string, number | string> {
+  const fileSize = inputs.fileSize as number;
+  const speed = inputs.speed as number;
+  const sizeMB = fileSize as number;
+  const speedMbps = connectionSpeed as number;
+  const seconds = Math.round(sizeMB * 8 / speedMbps);
+  return { seconds, minutes: Math.round(seconds / 60 * 10) / 10 };
+}
+
+export function electricityBill(inputs: Record<string, number | string>): Record<string, number | string> {
+  const watt = inputs.watt as number;
+  const hoursPerDay = inputs.hoursPerDay as number;
+  const days = inputs.days as number;
+  const pricePerKwh = inputs.pricePerKwh as number;
+  const kwhUsed = watt / 1000 * hoursPerDay * days;
+  const cost = Math.round(kwhUsed * pricePerKwh);
+  return { monthlyCost: cost, kwhUsed: Math.round(kwhUsed * 10) / 10, dailyCost: Math.round(cost / days) };
+}
+
+export function ellipse(inputs: Record<string, number | string>): Record<string, number | string> {
+  const a = inputs.a as number;
+  const b = inputs.b as number;
+  const a = semiMajor as number; const b = semiMinor as number;
+  const area = Math.round(Math.PI * a * b * 100) / 100;
+  const perimeter = Math.round(Math.PI * (3*(a+b) - Math.sqrt((3*a+b)*(a+3*b))) * 100) / 100;
+  return { area, perimeter };
+}
+
+export function emailMarketing(inputs: Record<string, number | string>): Record<string, number | string> {
+  const subscribers = inputs.subscribers as number;
+  const openRate = inputs.openRate as number;
+  const clickRate = inputs.clickRate as number;
+  const cvr = inputs.cvr as number;
+  const avgOrderValue = inputs.avgOrderValue as number;
+  const opens = Math.round(sent * openRate / 100);
+  const clicks = Math.round(opens * clickRate / 100);
+  return { opens, clicks, conversionEstimate: Math.round(clicks * 0.02) };
+}
+
+export function emergencyFund(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlyExpense = inputs.monthlyExpense as number;
+  const employmentType = inputs.employmentType as string;
+  const monthly = monthlyExpenses * 10000;
+  const fund3 = monthly * 3;
+  const fund6 = monthly * 6;
+  const fund12 = monthly * 12;
+  return { fund3, fund6, fund12 };
+}
+
+export function energyConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const fromUnit = inputs.fromUnit as string;
+  const cal = value as number;
+  return { kcal: cal, kJ: Math.round(cal * 4.184 * 100) / 100, wh: Math.round(cal * 1.163 * 100) / 100 };
+}
+
+export function englishScore(inputs: Record<string, number | string>): Record<string, number | string> {
+  const toeicScore = inputs.toeicScore as number;
+  const toeic = score as number;
+  const ielts = Math.round((toeic / 990 * 9) * 10) / 10;
+  const toefl = Math.round(toeic / 990 * 120);
+  return { toeic, ielts: Math.min(ielts, 9), toefl: Math.min(toefl, 120) };
+}
+
+export function etfCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const investAmount = inputs.investAmount as number;
+  const expenseRatio = inputs.expenseRatio as number;
+  const years = inputs.years as number;
+  const annualReturn = inputs.annualReturn as number;
+  const investment10k = investment * 10000;
+  const annualCost = Math.round(investment10k * expenseRatio / 100);
+  const cost10yr = annualCost * 10;
+  return { annualCost, cost10yr, dailyCost: Math.round(annualCost / 365) };
+}
+
+export function evCostComparison(inputs: Record<string, number | string>): Record<string, number | string> {
+  const annualMileage = inputs.annualMileage as number;
+  const evEfficiency = inputs.evEfficiency as number;
+  const electricityPrice = inputs.electricityPrice as number;
+  const gasEfficiency = inputs.gasEfficiency as number;
+  const gasPrice = inputs.gasPrice as number;
+  const evAnnual = Math.round(annualKm / evEfficiency * electricityRate);
+  const gasAnnual = Math.round(annualKm / gasFuelEfficiency * gasPrice);
+  return { evAnnual, gasAnnual, savings: gasAnnual - evAnnual };
+}
+
+export function exerciseCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const minutes = inputs.minutes as number;
+  const exercise = inputs.exercise as string;
+  const metsMap: Record<string, number> = { jogging: 7, cycling: 6, swimming: 8, yoga: 3, tennis: 7, dancing: 5 };
+  const m = metsMap[exercise] || 5;
+  const cal = Math.round(m * weight * (minutes / 60) * 1.05);
+  return { calories: cal, fatBurn: Math.round(cal / 7.2 * 10) / 10 };
+}
+
+export function fabricCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const width = inputs.width as number;
+  const height = inputs.height as number;
+  const fabricWidth = inputs.fabricWidth as number;
+  const seam = inputs.seam as number;
+  const totalArea = width * length / 10000;
+  const fabricWidth = fabricWidthCm / 100;
+  const fabricLength = Math.ceil(totalArea / fabricWidth * 100) / 100;
+  return { fabricLength: Math.round(fabricLength * 100) / 100, totalArea: Math.round(totalArea * 100) / 100 };
+}
+
+export function fireInsurance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const buildingType = inputs.buildingType as string;
+  const area = inputs.area as number;
+  const coverage = inputs.coverage as number;
+  const base = buildingValue * 10000;
+  const rateMap: Record<string, number> = { wooden: 0.001, fireproof: 0.0005 };
+  const r = rateMap[structure] || 0.001;
+  const annual = Math.round(base * r);
+  return { annual, fiveYear: annual * 5, tenYear: annual * 10 };
+}
+
+export function fractionCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const num1 = inputs.num1 as number;
+  const den1 = inputs.den1 as number;
+  const operator = inputs.operator as string;
+  const num2 = inputs.num2 as number;
+  const den2 = inputs.den2 as number;
+  function gcd(a: number, b: number): number { return b === 0 ? a : gcd(b, a % b); }
+  let rn: number, rd: number;
+  if (operator === 'add') { rn = num1*den2 + num2*den1; rd = den1*den2; }
+  else if (operator === 'sub') { rn = num1*den2 - num2*den1; rd = den1*den2; }
+  else if (operator === 'mul') { rn = num1*num2; rd = den1*den2; }
+  else { rn = num1*den2; rd = den1*num2; }
+  const g = gcd(Math.abs(rn), Math.abs(rd));
+  return { resultNum: rn/g, resultDen: rd/g, decimal: Math.round(rn/rd * 10000) / 10000 };
+}
+
+export function freelanceRate(inputs: Record<string, number | string>): Record<string, number | string> {
+  const targetIncome = inputs.targetIncome as number;
+  const workDays = inputs.workDays as number;
+  const workHours = inputs.workHours as number;
+  const expenseRate = inputs.expenseRate as number;
+  const annual10k = targetIncome * 10000;
+  const totalCost = annual10k + expenses * 10000 + annual10k * 0.3;
+  const hourly = Math.round(totalCost / (workHoursPerMonth * 12));
+  return { hourlyRate: hourly, dailyRate: hourly * 8, monthlyRate: hourly * workHoursPerMonth };
+}
+
+export function gardenSoil(inputs: Record<string, number | string>): Record<string, number | string> {
+  const area = inputs.area as number;
+  const depth = inputs.depth as number;
+  const pricePerBag = inputs.pricePerBag as number;
+  const bagVolume = inputs.bagVolume as number;
+  const volume = width * depth * soilDepth / 100;
+  const bags = Math.ceil(volume / 14);
+  return { volume: Math.round(volume * 100) / 100, bags };
+}
+
+export function goldInvestment(inputs: Record<string, number | string>): Record<string, number | string> {
+  const purchasePrice = inputs.purchasePrice as number;
+  const currentPrice = inputs.currentPrice as number;
+  const grams = inputs.grams as number;
+  const totalCost = Math.round(goldPrice * weight);
+  return { totalCost, perGram: goldPrice, weight };
+}
+
+export function gpaCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const subjects = inputs.subjects as number;
+  const s1 = inputs.s1 as number;
+  const s2 = inputs.s2 as number;
+  const s3 = inputs.s3 as number;
+  const s4 = inputs.s4 as number;
+  const s5 = inputs.s5 as number;
+  const c1 = inputs.c1 as number;
+  const c2 = inputs.c2 as number;
+  const c3 = inputs.c3 as number;
+  const c4 = inputs.c4 as number;
+  const c5 = inputs.c5 as number;
+  const scores = [s1, s2, s3, s4, s5];
+  const credits = [c1, c2, c3, c4, c5];
+  const count = subjects as number;
+  let totalPoints = 0; let totalCredits = 0;
+  for (let i = 0; i < count; i++) { totalPoints += (scores[i] as number) * (credits[i] as number); totalCredits += credits[i] as number; }
+  return { gpa: totalCredits > 0 ? Math.round(totalPoints / totalCredits * 100) / 100 : 0, totalCredits, totalPoints };
+}
+
+export function gradeCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const subject1 = inputs.subject1 as number;
+  const subject2 = inputs.subject2 as number;
+  const subject3 = inputs.subject3 as number;
+  const subject4 = inputs.subject4 as number;
+  const subject5 = inputs.subject5 as number;
+  const total = score1 + score2 + score3;
+  const avg = Math.round(total / 3 * 10) / 10;
+  const grade = avg >= 90 ? 'A' : avg >= 80 ? 'B' : avg >= 70 ? 'C' : avg >= 60 ? 'D' : 'F';
+  return { average: avg, grade, total } as any;
+}
+
+export function grossMargin(inputs: Record<string, number | string>): Record<string, number | string> {
+  const revenue = inputs.revenue as number;
+  const cogs = inputs.cogs as number;
+  const revenue10k = revenue * 10000;
+  const cogs10k = cogs * 10000;
+  const grossProfit = revenue10k - cogs10k;
+  const margin = revenue10k > 0 ? Math.round(grossProfit / revenue10k * 10000) / 100 : 0;
+  return { grossProfit, margin };
+}
+
+export function hearingLevel(inputs: Record<string, number | string>): Record<string, number | string> {
+  const decibel = inputs.decibel as number;
+  const avg = Math.round((freq500 + freq1000 + freq2000 + freq4000) / 4);
+  const level = avg < 25 ? '正常' : avg < 40 ? '軽度難聴' : avg < 70 ? '中等度難聴' : '高度難聴';
+  return { average: avg, level } as any;
+}
+
+export function hensachi(inputs: Record<string, number | string>): Record<string, number | string> {
+  const score = inputs.score as number;
+  const average = inputs.average as number;
+  const sd = inputs.sd as number;
+  const dev = stdDeviation > 0 ? Math.round((score - average) / stdDeviation * 10 + 50) : 50;
+  return { hensachi: dev };
+}
+
+export function hexagon(inputs: Record<string, number | string>): Record<string, number | string> {
+  const side = inputs.side as number;
+  const s = sideLength as number;
+  return { area: Math.round(3 * Math.sqrt(3) / 2 * s * s * 100) / 100, perimeter: Math.round(6 * s * 100) / 100 };
+}
+
+export function housingDeduction(inputs: Record<string, number | string>): Record<string, number | string> {
+  const loanBalance = inputs.loanBalance as number;
+  const houseType = inputs.houseType as string;
+  const moveInYear = inputs.moveInYear as number;
+  const loanBalance10k = loanBalance * 10000;
+  const deduction = Math.min(Math.round(loanBalance10k * 0.007), 210000);
+  const total13yr = deduction * 13;
+  return { annualDeduction: deduction, total13yr };
+}
+
+export function individualEnterpriseTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = inputs.income as number;
+  const industry = inputs.industry as string;
+  const income10k = income * 10000;
+  const deduction = 2900000;
+  const taxable = Math.max(income10k - deduction, 0);
+  const tax = Math.round(taxable * 0.05);
+  return { tax, taxable, deduction };
+}
+
+export function inflationCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const inflationRate = inputs.inflationRate as number;
+  const years = inputs.years as number;
+  const r = inflationRate / 100;
+  const futureNominal = Math.round(amount * 10000 * Math.pow(1 + r, years));
+  const realValue = Math.round(amount * 10000 / Math.pow(1 + r, years));
+  const loss = Math.round((1 - 1 / Math.pow(1 + r, years)) * 100);
+  return { futureNominal, realValue, purchasingPowerLoss: loss };
+}
+
+export function inheritanceTaxSimulation(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalAssets = inputs.totalAssets as number;
+  const heirs = inputs.heirs as number;
+  const spouse = inputs.spouse as string;
+  const assets10k = assets * 10000;
+  const basicDeduction = 30000000 + 6000000 * heirs;
+  const taxable = Math.max(assets10k - basicDeduction, 0);
+  let rate = 0.10; let ded = 0;
+  if (taxable > 600000000) { rate = 0.55; ded = 72000000; }
+  else if (taxable > 300000000) { rate = 0.50; ded = 42000000; }
+  else if (taxable > 200000000) { rate = 0.45; ded = 27000000; }
+  else if (taxable > 100000000) { rate = 0.40; ded = 17000000; }
+  else if (taxable > 50000000) { rate = 0.30; ded = 7000000; }
+  else if (taxable > 30000000) { rate = 0.20; ded = 2000000; }
+  else if (taxable > 10000000) { rate = 0.15; ded = 500000; }
+  const tax = Math.round(taxable * rate - ded);
+  return { tax: Math.max(tax, 0), basicDeduction, taxable };
+}
+
+export function initialCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const rent = inputs.rent as number;
+  const deposit = inputs.deposit as number;
+  const keyMoney = inputs.keyMoney as number;
+  const agentFee = inputs.agentFee as number;
+  const price10k = price * 10000;
+  const agentFee = Math.round(price10k * 0.03 + 60000) * 1.1;
+  const regTax = Math.round(price10k * 0.02);
+  const acqTax = Math.round(price10k * 0.03);
+  const total = Math.round(agentFee + regTax + acqTax);
+  return { agentFee: Math.round(agentFee), registrationTax: regTax, acquisitionTax: acqTax, total };
+}
+
+export function investmentReturn(inputs: Record<string, number | string>): Record<string, number | string> {
+  const initialAmount = inputs.initialAmount as number;
+  const monthlyAmount = inputs.monthlyAmount as number;
+  const annualReturn = inputs.annualReturn as number;
+  const years = inputs.years as number;
+  const initial10k = initialAmount * 10000;
+  const final10k = finalAmount * 10000;
+  const profit = final10k - initial10k;
+  const returnRate = Math.round(profit / initial10k * 10000) / 100;
+  const annualReturn = Math.round((Math.pow(final10k / initial10k, 1 / years) - 1) * 10000) / 100;
+  return { profit, returnRate, annualReturn };
+}
+
+export function japaneseEra(inputs: Record<string, number | string>): Record<string, number | string> {
+  const year = inputs.year as number;
+  const y = year as number;
+  let era = ''; let eraYear = 0;
+  if (y >= 2019) { era = '令和'; eraYear = y - 2018; }
+  else if (y >= 1989) { era = '平成'; eraYear = y - 1988; }
+  else if (y >= 1926) { era = '昭和'; eraYear = y - 1925; }
+  else if (y >= 1912) { era = '大正'; eraYear = y - 1911; }
+  else { era = '明治'; eraYear = y - 1867; }
+  return { era, eraYear, fullText: `${era}${eraYear}年` } as any;
+}
+
+export function joggingPace(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const minutes = inputs.minutes as number;
+  const pace = Math.round(minutes / distance * 100) / 100;
+  const speedKmh = Math.round(distance / (minutes / 60) * 10) / 10;
+  const cal = Math.round(7 * 65 * (minutes / 60) * 1.05);
+  return { pace, speed: speedKmh, calories: cal };
+}
+
+export function laborCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlySalary = inputs.monthlySalary as number;
+  const bonusMonths = inputs.bonusMonths as number;
+  const salary10k = salary * 10000;
+  const socialIns = Math.round(salary10k * 0.15);
+  const totalCost = salary10k + socialIns;
+  const laborCostRatio = revenue > 0 ? Math.round(totalCost / (revenue * 10000) * 100) : 0;
+  return { totalCost, socialInsurance: socialIns, laborCostRatio };
+}
+
+export function landPrice(inputs: Record<string, number | string>): Record<string, number | string> {
+  const pricePerTsubo = inputs.pricePerTsubo as number;
+  const areaTsubo = inputs.areaTsubo as number;
+  const pricePerSqm10k = pricePerSqm * 10000;
+  const totalPrice = Math.round(pricePerSqm10k * area);
+  const tsubo = Math.round(area / 3.30579 * 100) / 100;
+  const pricePerTsubo = Math.round(totalPrice / tsubo);
+  return { totalPrice, tsubo, pricePerTsubo };
+}
+
+export function logarithm(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const base = inputs.base as number;
+  const val = value as number;
+  const b = base as number;
+  const result = Math.log(val) / Math.log(b);
+  return { result: Math.round(result * 10000) / 10000, ln: Math.round(Math.log(val) * 10000) / 10000, log10: Math.round(Math.log10(val) * 10000) / 10000 };
+}
+
+export function ltv(inputs: Record<string, number | string>): Record<string, number | string> {
+  const avgOrderValue = inputs.avgOrderValue as number;
+  const purchaseFrequency = inputs.purchaseFrequency as number;
+  const customerLifespan = inputs.customerLifespan as number;
+  const grossMarginRate = inputs.grossMarginRate as number;
+  const value = avgPurchase * purchaseFrequency * customerLifespan;
+  return { ltv: Math.round(value), annualValue: Math.round(avgPurchase * purchaseFrequency) };
+}
+
+export function mansionCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const managementFee = inputs.managementFee as number;
+  const repairReserve = inputs.repairReserve as number;
+  const parkingFee = inputs.parkingFee as number;
+  const ownershipYears = inputs.ownershipYears as number;
+  const price10k = price * 10000;
+  const management10k = management * 10000;
+  const repair10k = repair * 10000;
+  const monthlyCost = management10k + repair10k;
+  const annualCost = monthlyCost * 12;
+  return { monthlyCost, annualCost, totalCost30yr: annualCost * 30 + price10k };
+}
+
+export function marginTrading(inputs: Record<string, number | string>): Record<string, number | string> {
+  const stockPrice = inputs.stockPrice as number;
+  const shares = inputs.shares as number;
+  const marginRate = inputs.marginRate as number;
+  const priceChange = inputs.priceChange as number;
+  const deposit10k = deposit * 10000;
+  const totalPosition = Math.round(deposit10k * leverage);
+  const profitLoss = Math.round(totalPosition * priceChange / 100);
+  return { totalPosition, profitLoss, returnOnDeposit: Math.round(profitLoss / deposit10k * 100) };
+}
+
+export function maternityBenefit(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlySalary = inputs.monthlySalary as number;
+  const dailyWage = Math.round(monthlySalary * 10000 / 30);
+  const benefit = Math.round(dailyWage * 2 / 3);
+  const totalDays = 98;
+  const totalBenefit = benefit * totalDays;
+  return { dailyBenefit: benefit, totalBenefit, totalDays };
+}
+
+export function matrix(inputs: Record<string, number | string>): Record<string, number | string> {
+  const a11 = inputs.a11 as number;
+  const a12 = inputs.a12 as number;
+  const a21 = inputs.a21 as number;
+  const a22 = inputs.a22 as number;
+  const det = a11 * a22 - a12 * a21;
+  return { determinant: det, trace: a11 + a22 };
+}
+
+export function mealCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const rice = inputs.rice as number;
+  const meat = inputs.meat as number;
+  const fish = inputs.fish as number;
+  const vegetables = inputs.vegetables as number;
+  const oil = inputs.oil as number;
+  const total = rice + mainDish + sideDish + soup;
+  return { total, perMeal: total };
+}
+
+export function medianMode(inputs: Record<string, number | string>): Record<string, number | string> {
+  const data = inputs.data as number;
+  const values = [v1, v2, v3, v4, v5].filter((v): v is number => typeof v === 'number').slice(0, n as number).sort((a, b) => a - b);
+  const len = values.length;
+  const median = len % 2 === 0 ? (values[len/2-1] + values[len/2]) / 2 : values[Math.floor(len/2)];
+  const mean = values.reduce((s, v) => s + v, 0) / len;
+  return { median, mean: Math.round(mean * 100) / 100 };
+}
+
+export function medicineDose(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const dosePerKg = inputs.dosePerKg as number;
+  const timesPerDay = inputs.timesPerDay as number;
+  const adultDose = standardDose as number;
+  const childDose = Math.round(adultDose * childWeight / 50 * 10) / 10;
+  return { childDose, ratio: Math.round(childWeight / 50 * 100) };
+}
+
+export function meetingCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const participants = inputs.participants as number;
+  const avgHourlyRate = inputs.avgHourlyRate as number;
+  const durationMinutes = inputs.durationMinutes as number;
+  const hourlyRate = averageSalary * 10000 / 12 / 160;
+  const cost = Math.round(hourlyRate * participants * durationMinutes / 60);
+  return { cost, perMinute: Math.round(cost / durationMinutes) };
+}
+
+export function menstrualCycle(inputs: Record<string, number | string>): Record<string, number | string> {
+  const lastPeriod = inputs.lastPeriod as number;
+  const cycleLength = inputs.cycleLength as number;
+  const periodLength = inputs.periodLength as number;
+  const nextPeriod = cycleLength;
+  const ovulationDay = cycleLength - 14;
+  const fertileStart = ovulationDay - 5;
+  return { nextPeriod, ovulationDay, fertileStart: Math.max(fertileStart, 1), fertileEnd: ovulationDay + 1 };
+}
+
+export function minimumWage(inputs: Record<string, number | string>): Record<string, number | string> {
+  const hourlyWage = inputs.hourlyWage as number;
+  const region = inputs.region as string;
+  const hourly = minimumWageAmount as number;
+  const monthly = Math.round(hourly * hoursPerDay * daysPerMonth);
+  const annual = monthly * 12;
+  return { monthly, annual, hourly };
+}
+
+export function nationalHealthInsurance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = inputs.income as number;
+  const members = inputs.members as number;
+  const age = inputs.age as number;
+  const income10k = income * 10000;
+  const taxable = Math.max(income10k - 430000, 0);
+  const medical = Math.min(Math.round(taxable * 0.0789 + 22200 * family), 650000);
+  const support = Math.min(Math.round(taxable * 0.0266 + 7500 * family), 220000);
+  const care = age >= 40 && age < 65 ? Math.min(Math.round(taxable * 0.0222 + 6200 * family), 170000) : 0;
+  const total = medical + support + care;
+  return { total, monthly: Math.round(total / 12), medical, support, care };
+}
+
+export function normalDistribution(inputs: Record<string, number | string>): Record<string, number | string> {
+  const mean = inputs.mean as number;
+  const stddev = inputs.stddev as number;
+  const x = inputs.x as number;
+  const z = (x - mean) / stdDev;
+  return { zScore: Math.round(z * 10000) / 10000 };
+}
+
+export function ovulationDay(inputs: Record<string, number | string>): Record<string, number | string> {
+  const lastPeriod = inputs.lastPeriod as number;
+  const cycleLength = inputs.cycleLength as number;
+  const ovDay = cycleLength - 14;
+  const fertileStart = ovDay - 5;
+  const fertileEnd = ovDay + 1;
+  return { ovulationDay: ovDay, fertileStart: Math.max(fertileStart, 1), fertileEnd };
+}
+
+export function packingList(inputs: Record<string, number | string>): Record<string, number | string> {
+  const days = inputs.days as number;
+  const season = inputs.season as string;
+  const laundry = inputs.laundry as string;
+  const base = 5;
+  const clothingSets = days;
+  const totalItems = base + clothingSets + (days > 3 ? 3 : 0);
+  return { totalItems, clothingSets, luggageWeight: Math.round(totalItems * 0.3 * 10) / 10 };
+}
+
+export function paintArea(inputs: Record<string, number | string>): Record<string, number | string> {
+  const width = inputs.width as number;
+  const depth = inputs.depth as number;
+  const height = inputs.height as number;
+  const windows = inputs.windows as number;
+  const doors = inputs.doors as number;
+  const wallArea = 2 * (width + depth) * height - windows * 1.5 - doors * 1.8;
+  const ceilArea = width * depth;
+  const total = Math.round((wallArea + ceilArea) * 100) / 100;
+  return { wallArea: Math.round(wallArea * 100) / 100, ceilingArea: Math.round(ceilArea * 100) / 100, totalArea: total, paintLiters: Math.round(total / 6 * 10) / 10 };
+}
+
+export function paintCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const wallArea = inputs.wallArea as number;
+  const coats = inputs.coats as number;
+  const coveragePerLiter = inputs.coveragePerLiter as number;
+  const canSize = inputs.canSize as number;
+  const totalArea = wallArea as number;
+  const coats = numberOfCoats as number;
+  const liters = Math.ceil(totalArea * coats / 6 * 10) / 10;
+  return { liters, cans: Math.ceil(liters / 4) };
+}
+
+export function paperSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const size = inputs.size as string;
+  const sizes: Record<string, number[]> = { A0:[841,1189], A1:[594,841], A2:[420,594], A3:[297,420], A4:[210,297], A5:[148,210], A6:[105,148], B0:[1000,1414], B1:[707,1000], B2:[500,707], B3:[353,500], B4:[250,353], B5:[176,250] };
+  const s = sizes[size] || sizes['A4'];
+  return { width: s[0], height: s[1], area: s[0] * s[1] };
+}
+
+export function partyFood(inputs: Record<string, number | string>): Record<string, number | string> {
+  const guests = inputs.guests as number;
+  const duration = inputs.duration as number;
+  const style = inputs.style as string;
+  const foodPerPerson = 300;
+  const drinkPerPerson = 500;
+  const totalFood = guests * foodPerPerson * hours / 2;
+  const totalDrink = guests * drinkPerPerson * hours / 2;
+  return { totalFoodG: Math.round(totalFood), totalDrinkMl: Math.round(totalDrink) };
+}
+
+export function paybackPeriod(inputs: Record<string, number | string>): Record<string, number | string> {
+  const investment = inputs.investment as number;
+  const annualReturn = inputs.annualReturn as number;
+  const annualCost = inputs.annualCost as number;
+  const invest10k = investment * 10000;
+  const annual10k = annualCashflow * 10000;
+  const period = annual10k > 0 ? Math.round(invest10k / annual10k * 10) / 10 : 0;
+  return { period, monthlyReturn: Math.round(annual10k / 12) };
+}
+
+export function perPbr(inputs: Record<string, number | string>): Record<string, number | string> {
+  const stockPrice = inputs.stockPrice as number;
+  const eps = inputs.eps as number;
+  const bps = inputs.bps as number;
+  const per = stockPrice / eps;
+  const pbr = stockPrice / bps;
+  return { per: Math.round(per * 100) / 100, pbr: Math.round(pbr * 100) / 100, earningsYield: Math.round(1/per * 10000) / 100 };
+}
+
+export function percentageCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const valueA = inputs.valueA as number;
+  const valueB = inputs.valueB as number;
+  const calcType = inputs.calcType as string;
+  if (calcType === 'of') return { result: Math.round(valueB * valueA / 100 * 100) / 100, explanation: `${valueB}の${valueA}%` } as any;
+  if (calcType === 'is') return { result: valueB > 0 ? Math.round(valueA / valueB * 10000) / 100 : 0, explanation: `${valueA}は${valueB}の何%` } as any;
+  return { result: valueA > 0 ? Math.round((valueB - valueA) / valueA * 10000) / 100 : 0, explanation: `${valueA}→${valueB}の変化率` } as any;
+}
+
+export function personalLoan(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const rate = inputs.rate as number;
+  const years = inputs.years as number;
+  const amt10k = amount * 10000;
+  const r = rate / 100 / 12;
+  const months = years * 12;
+  const payment = r > 0 ? Math.round(amt10k * r / (1 - Math.pow(1+r, -months))) : Math.round(amt10k / months);
+  return { monthlyPayment: payment, totalPayment: payment * months, totalInterest: payment * months - amt10k };
+}
+
+export function petAge(inputs: Record<string, number | string>): Record<string, number | string> {
+  const petType = inputs.petType as string;
+  const age = inputs.age as number;
+  const petYears = age as number;
+  const isdog = petType === 'dog';
+  const humanAge = isdog ? (petYears <= 2 ? petYears * 12 : 24 + (petYears - 2) * 4) : (petYears <= 2 ? petYears * 12.5 : 25 + (petYears - 2) * 4);
+  return { humanAge: Math.round(humanAge) };
+}
+
+export function petInsurance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const petType = inputs.petType as string;
+  const age = inputs.age as number;
+  const coverage = inputs.coverage as string;
+  const base = petAge < 3 ? 2000 : petAge < 7 ? 3000 : 5000;
+  const typeMultiplier = petType === 'dog' ? 1.2 : 1.0;
+  const monthly = Math.round(base * typeMultiplier * coverageRate / 100);
+  return { monthly, annual: monthly * 12 };
+}
+
+export function photoPrint(inputs: Record<string, number | string>): Record<string, number | string> {
+  const widthPx = inputs.widthPx as number;
+  const heightPx = inputs.heightPx as number;
+  const dpi = inputs.dpi as number;
+  const dpiNeeded = 300;
+  const widthPixels = Math.round(printWidth * 2.54 * dpiNeeded);
+  const heightPixels = Math.round(printHeight * 2.54 * dpiNeeded);
+  const megapixels = Math.round(widthPixels * heightPixels / 1000000 * 10) / 10;
+  return { widthPixels, heightPixels, megapixels };
+}
+
+export function pointValue(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const rate = inputs.rate as number;
+  const monthlySpend = inputs.monthlySpend as number;
+  const pointRate = rate as number;
+  const totalPoints = points as number;
+  const value = Math.round(totalPoints * pointRate / 100);
+  return { value, effectiveDiscount: pointRate };
+}
+
+export function polygonArea(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sides = inputs.sides as number;
+  const sideLength = inputs.sideLength as number;
+  const n = sides as number; const s = sideLength as number;
+  const area = Math.round(n * s * s / (4 * Math.tan(Math.PI / n)) * 100) / 100;
+  return { area, perimeter: Math.round(n * s * 100) / 100 };
+}
+
+export function postalRate(inputs: Record<string, number | string>): Record<string, number | string> {
+  const type = inputs.type as string;
+  const weight = inputs.weight as number;
+  const w = weightGram as number;
+  let rate: number;
+  if (mailType === 'letter') { rate = w <= 25 ? 84 : w <= 50 ? 94 : 140; }
+  else if (mailType === 'postcard') { rate = 63; }
+  else { rate = w <= 150 ? 180 : w <= 250 ? 215 : w <= 500 ? 310 : w <= 1000 ? 360 : 510; }
+  return { rate };
+}
+
+export function powerConsumption(inputs: Record<string, number | string>): Record<string, number | string> {
+  const watt1 = inputs.watt1 as number;
+  const watt2 = inputs.watt2 as number;
+  const hoursPerDay = inputs.hoursPerDay as number;
+  const pricePerKwh = inputs.pricePerKwh as number;
+  const kwh1 = watt1 / 1000 * hoursPerDay * 365;
+  const kwh2 = watt2 / 1000 * hoursPerDay * 365;
+  const cost1 = Math.round(kwh1 * pricePerKwh);
+  const cost2 = Math.round(kwh2 * pricePerKwh);
+  return { annualCost1: cost1, annualCost2: cost2, annualSaving: cost1 - cost2, tenYearSaving: (cost1 - cost2) * 10 };
+}
+
+export function pressureConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const fromUnit = inputs.fromUnit as string;
+  const hpa = value as number;
+  return { hPa: hpa, atm: Math.round(hpa / 1013.25 * 10000) / 10000, mmHg: Math.round(hpa * 0.75006 * 100) / 100, psi: Math.round(hpa * 0.014504 * 10000) / 10000 };
+}
+
+export function pricingMarkup(inputs: Record<string, number | string>): Record<string, number | string> {
+  const cost = inputs.cost as number;
+  const price = inputs.price as number;
+  const cost10k = cost * 10000;
+  const price = Math.round(cost10k * (1 + markupRate / 100));
+  const profit = price - cost10k;
+  const margin = price > 0 ? Math.round(profit / price * 100) : 0;
+  return { price, profit, margin };
+}
+
+export function primeFactorization(inputs: Record<string, number | string>): Record<string, number | string> {
+  const number = inputs.number as number;
+  let n = number as number;
+  const factors: number[] = [];
+  for (let d = 2; d * d <= n; d++) { while (n % d === 0) { factors.push(d); n /= d; } }
+  if (n > 1) factors.push(n);
+  return { factors: factors.length, result: factors.join(' × '), isPrime: factors.length <= 1 ? 1 : 0 } as any;
+}
+
+export function probability(inputs: Record<string, number | string>): Record<string, number | string> {
+  const n = inputs.n as number;
+  const r = inputs.r as number;
+  const favorable = favorableOutcomes as number;
+  const total = totalOutcomes as number;
+  const p = total > 0 ? favorable / total : 0;
+  return { probability: Math.round(p * 10000) / 10000, percentage: Math.round(p * 10000) / 100, odds: `${favorable}:${total - favorable}` } as any;
+}
+
+export function proteinNeed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const activity = inputs.activity as string;
+  const multiplier: Record<string, number> = { sedentary: 0.8, moderate: 1.2, athlete: 1.6, bodybuilder: 2.0 };
+  const m = multiplier[activityLevel] || 0.8;
+  const daily = Math.round(weight * m);
+  return { dailyProtein: daily, perMeal: Math.round(daily / 3) };
+}
+
+export function pythagorean(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sideA = inputs.sideA as number;
+  const sideB = inputs.sideB as number;
+  const a = sideA as number; const b = sideB as number;
+  const c = Math.sqrt(a*a + b*b);
+  return { hypotenuse: Math.round(c * 10000) / 10000, area: Math.round(a * b / 2 * 100) / 100 };
+}
+
+export function quadratic(inputs: Record<string, number | string>): Record<string, number | string> {
+  const a = inputs.a as number;
+  const b = inputs.b as number;
+  const c_val = inputs.c_val as number;
+  const discriminant = b * b - 4 * a * c;
+  if (discriminant < 0) return { discriminant, realRoots: 0 } as any;
+  const x1 = Math.round((-b + Math.sqrt(discriminant)) / (2 * a) * 10000) / 10000;
+  const x2 = Math.round((-b - Math.sqrt(discriminant)) / (2 * a) * 10000) / 10000;
+  return { x1, x2, discriminant, realRoots: discriminant === 0 ? 1 : 2 };
+}
+
+export function randomNumber(inputs: Record<string, number | string>): Record<string, number | string> {
+  const min = inputs.min as number;
+  const max = inputs.max as number;
+  const count = inputs.count as number;
+  const min = minValue as number;
+  const max = maxValue as number;
+  const result = Math.floor(Math.random() * (max - min + 1)) + min;
+  return { result, min, max };
+}
+
+export function realEstateAcquisitionTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const landValue = inputs.landValue as number;
+  const buildingValue = inputs.buildingValue as number;
+  const isResidential = inputs.isResidential as string;
+  const assessment10k = assessment * 10000;
+  const landTax = Math.round(assessment10k * 0.5 * 0.03);
+  const buildingTax = Math.round(assessment10k * 0.03);
+  return { landTax, buildingTax, totalTax: landTax + buildingTax };
+}
+
+export function rebalance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalAsset = inputs.totalAsset as number;
+  const currentStock = inputs.currentStock as number;
+  const currentBond = inputs.currentBond as number;
+  const targetStock = inputs.targetStock as number;
+  const targetBond = inputs.targetBond as number;
+  const total = stocksCurrent + bondsCurrent + cashCurrent;
+  if (total === 0) return { stocksAdj: 0, bondsAdj: 0, cashAdj: 0 };
+  const stocksTarget = Math.round(total * stocksTargetPct / 100);
+  const bondsTarget = Math.round(total * bondsTargetPct / 100);
+  const cashTarget = total - stocksTarget - bondsTarget;
+  return { stocksAdj: stocksTarget - stocksCurrent, bondsAdj: bondsTarget - bondsCurrent, cashAdj: cashTarget - cashCurrent };
+}
+
+export function recipeScale(inputs: Record<string, number | string>): Record<string, number | string> {
+  const originalServings = inputs.originalServings as number;
+  const newServings = inputs.newServings as number;
+  const ingredientAmount = inputs.ingredientAmount as number;
+  const ratio = targetServings / originalServings;
+  return { ratio: Math.round(ratio * 100) / 100, scaledAmount: Math.round(ingredientAmount * ratio * 10) / 10 };
+}
+
+export function refinance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const remainingBalance = inputs.remainingBalance as number;
+  const currentRate = inputs.currentRate as number;
+  const newRate = inputs.newRate as number;
+  const remainingYears = inputs.remainingYears as number;
+  const refinanceCost = inputs.refinanceCost as number;
+  const bal10k = balance * 10000;
+  const oldRate = currentRate / 100 / 12;
+  const newRate = newInterestRate / 100 / 12;
+  const months = remainingYears * 12;
+  const oldPayment = oldRate > 0 ? Math.round(bal10k * oldRate / (1 - Math.pow(1+oldRate, -months))) : Math.round(bal10k / months);
+  const newPayment = newRate > 0 ? Math.round(bal10k * newRate / (1 - Math.pow(1+newRate, -months))) : Math.round(bal10k / months);
+  const savings = (oldPayment - newPayment) * months;
+  return { oldPayment, newPayment, monthlySavings: oldPayment - newPayment, totalSavings: savings };
+}
+
+export function registrationTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const propertyValue = inputs.propertyValue as number;
+  const regType = inputs.regType as string;
+  const loanAmount = inputs.loanAmount as number;
+  const value10k = value * 10000;
+  const rateMap: Record<string, number> = { ownership: 0.02, mortgage: 0.004, transfer: 0.02 };
+  const rate = rateMap[type] || 0.02;
+  const tax = Math.round(value10k * rate);
+  return { tax, rate: rate * 100 };
+}
+
+export function reitYield(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price = inputs.price as number;
+  const annualDistribution = inputs.annualDistribution as number;
+  const units = inputs.units as number;
+  const annualDiv = dividend * 12;
+  const yld = price > 0 ? Math.round(annualDiv / price * 10000) / 100 : 0;
+  return { annualDividend: annualDiv, yield: yld, afterTax: Math.round(annualDiv * 0.79685) };
+}
+
+export function rentCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = inputs.income as number;
+  const familySize = inputs.familySize as number;
+  const rent10k = rent * 10000;
+  const annualRent = rent10k * 12;
+  const deposit10k = deposit * rent10k;
+  const key10k = keyMoney * rent10k;
+  const initialCost = deposit10k + key10k + rent10k;
+  return { annualRent, initialCost, monthlyCost: rent10k };
+}
+
+export function roomBrightness(inputs: Record<string, number | string>): Record<string, number | string> {
+  const area = inputs.area as number;
+  const roomType = inputs.roomType as string;
+  const lumensPerJo: Record<string, number> = { living: 400, bedroom: 200, study: 500, kitchen: 300 };
+  const lm = (lumensPerJo[roomType] || 400) * area;
+  return { lumens: lm, ledWatt: Math.round(lm / 100), fixtures: Math.ceil(area / 8) };
+}
+
+export function rule72(inputs: Record<string, number | string>): Record<string, number | string> {
+  const rate = inputs.rate as number;
+  const years = Math.round(72 / rate * 10) / 10;
+  const actualYears = Math.round(Math.log(2) / Math.log(1 + rate / 100) * 10) / 10;
+  return { years, actualYears, rate };
+}
+
+export function runningPace(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const hours = inputs.hours as number;
+  const minutes = inputs.minutes as number;
+  const paceMin = Math.round(time / distance * 100) / 100;
+  const speed = Math.round(distance / (time / 60) * 10) / 10;
+  return { pace: paceMin, speed, estimatedMarathon: Math.round(paceMin * 42.195) };
+}
+
+export function salaryAfterTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const income = inputs.income as number;
+  const dependents = inputs.dependents as number;
+  const inc = income * 10000;
+  const si = Math.round(inc * 0.15);
+  const employmentDed = inc <= 1625000 ? 550000 : inc <= 1800000 ? Math.round(inc * 0.4 - 100000) : inc <= 3600000 ? Math.round(inc * 0.3 + 80000) : inc <= 6600000 ? Math.round(inc * 0.2 + 440000) : Math.round(inc * 0.1 + 1100000);
+  const taxableInc = Math.max(inc - employmentDed - si - 480000 - dependents * 380000, 0);
+  let taxRate = 0.05; let ded = 0;
+  if (taxableInc > 40000000) { taxRate = 0.45; ded = 4796000; }
+  else if (taxableInc > 18000000) { taxRate = 0.40; ded = 2796000; }
+  else if (taxableInc > 9000000) { taxRate = 0.33; ded = 1536000; }
+  else if (taxableInc > 6950000) { taxRate = 0.23; ded = 636000; }
+  else if (taxableInc > 3300000) { taxRate = 0.20; ded = 427500; }
+  else if (taxableInc > 1950000) { taxRate = 0.10; ded = 97500; }
+  const incomeTax = Math.round(taxableInc * taxRate - ded);
+  const residentTax = Math.round(taxableInc * 0.10);
+  const totalTax = incomeTax + residentTax;
+  const takeHome = inc - si - totalTax;
+  return { takeHome, monthlyTakeHome: Math.round(takeHome / 12), totalTax, socialInsurance: si, ratio: Math.round(takeHome / inc * 100) };
+}
+
+export function salaryComparison(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlySalary = inputs.monthlySalary as number;
+  const bonusMonths = inputs.bonusMonths as number;
+  const salaryA10k = salaryA * 10000;
+  const salaryB10k = salaryB * 10000;
+  const diff = salaryA10k - salaryB10k;
+  const ratio = salaryB10k > 0 ? Math.round(salaryA10k / salaryB10k * 100) : 0;
+  return { diff, ratio, monthlyDiff: Math.round(diff / 12) };
+}
+
+export function scholarship(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalBorrowed = inputs.totalBorrowed as number;
+  const rate = inputs.rate as number;
+  const years = inputs.years as number;
+  const total = monthlyAmount * 10000 * 12 * years;
+  return { total, monthly: monthlyAmount * 10000, annual: monthlyAmount * 10000 * 12 };
+}
+
+export function schoolCommute(inputs: Record<string, number | string>): Record<string, number | string> {
+  const distance = inputs.distance as number;
+  const method = inputs.method as string;
+  const monthlyCost = inputs.monthlyCost as number;
+  const monthlyPass = monthlyCost as number;
+  const annual = monthlyPass * 12;
+  const fourYears = annual * 4;
+  return { annual, fourYears, daily: Math.round(monthlyPass / 20) };
+}
+
+export function schoolSupplies(inputs: Record<string, number | string>): Record<string, number | string> {
+  const schoolType = inputs.schoolType as string;
+  const total = notebooks * 200 + pens * 150 + textbooks * 1500;
+  return { total, perItem: Math.round(total / (notebooks + pens + textbooks)) };
+}
+
+export function screenSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const inches = inputs.inches as number;
+  const ratio = inputs.ratio as string;
+  const diagonal = diagonalInch as number;
+  const ratio = aspectRatio === '16:9' ? 16/9 : aspectRatio === '16:10' ? 16/10 : aspectRatio === '4:3' ? 4/3 : 16/9;
+  const widthInch = diagonal / Math.sqrt(1 + 1/(ratio*ratio));
+  const heightInch = widthInch / ratio;
+  return { widthCm: Math.round(widthInch * 2.54 * 10) / 10, heightCm: Math.round(heightInch * 2.54 * 10) / 10, areaSqCm: Math.round(widthInch * heightInch * 2.54 * 2.54) };
+}
+
+export function severanceTax(inputs: Record<string, number | string>): Record<string, number | string> {
+  const severance = inputs.severance as number;
+  const years = inputs.years as number;
+  const severance10k = severance * 10000;
+  const deduction = yearsWorked <= 20 ? yearsWorked * 400000 : 8000000 + (yearsWorked - 20) * 700000;
+  const taxable = Math.max(Math.round((severance10k - deduction) / 2), 0);
+  let rate: number; let ded = 0;
+  if (taxable <= 1950000) rate = 0.05;
+  else if (taxable <= 3300000) { rate = 0.10; ded = 97500; }
+  else if (taxable <= 6950000) { rate = 0.20; ded = 427500; }
+  else { rate = 0.23; ded = 636000; }
+  const incomeTax = Math.round(taxable * rate - ded);
+  const residentTax = Math.round(taxable * 0.10);
+  return { incomeTax: Math.max(incomeTax, 0), residentTax, deduction, taxable, afterTax: severance10k - Math.max(incomeTax, 0) - residentTax };
+}
+
+export function shoeSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const jpSize = inputs.jpSize as number;
+  const gender = inputs.gender as string;
+  const footLength = footLengthCm as number;
+  const jp = Math.round(footLength * 2) / 2;
+  const us = Math.round((footLength - 18) / 0.667 * 10) / 10;
+  const eu = Math.round((footLength + 1.5) * 1.5 * 10) / 10;
+  return { jp, us: Math.max(us, 1), eu };
+}
+
+export function sleepCycle(inputs: Record<string, number | string>): Record<string, number | string> {
+  const wakeUpHour = inputs.wakeUpHour as number;
+  const wakeUpMinute = inputs.wakeUpMinute as number;
+  const cycles = [4, 5, 6];
+  const results: Record<string, number> = {};
+  for (const c of cycles) { results[`bedtime${c}`] = c * 90 + 15; }
+  return results;
+}
+
+export function squareRoot(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const num = number as number;
+  return { result: Math.round(Math.sqrt(num) * 10000) / 10000, squared: num, isInteger: Number.isInteger(Math.sqrt(num)) ? 1 : 0 };
+}
+
+export function stampDuty(inputs: Record<string, number | string>): Record<string, number | string> {
+  const amount = inputs.amount as number;
+  const docType = inputs.docType as string;
+  const amount10k = amount * 10000;
+  let stampDuty: number;
+  if (amount10k <= 10000) stampDuty = 200;
+  else if (amount10k <= 1000000) stampDuty = 400;
+  else if (amount10k <= 2000000) stampDuty = 600;
+  else if (amount10k <= 3000000) stampDuty = 1000;
+  else if (amount10k <= 5000000) stampDuty = 2000;
+  else if (amount10k <= 10000000) stampDuty = 10000;
+  else if (amount10k <= 50000000) stampDuty = 20000;
+  else if (amount10k <= 100000000) stampDuty = 60000;
+  else stampDuty = 100000;
+  return { stampDuty, contractAmount: amount10k };
+}
+
+export function stretchTimer(inputs: Record<string, number | string>): Record<string, number | string> {
+  const deskHours = inputs.deskHours as number;
+  const mins = Math.round(deskHours * 3);
+  return { stretchMinutes: mins, exercises: Math.round(mins / 3), breakInterval: 60 };
+}
+
+export function studyPlan(inputs: Record<string, number | string>): Record<string, number | string> {
+  const totalHours = inputs.totalHours as number;
+  const daysUntilExam = inputs.daysUntilExam as number;
+  const availableDays = inputs.availableDays as number;
+  const totalHours = targetHours as number;
+  const daysAvail = daysAvailable as number;
+  const dailyHours = Math.round(totalHours / daysAvail * 10) / 10;
+  return { dailyHours, weeklyHours: Math.round(dailyHours * 7 * 10) / 10 };
+}
+
+export function subscriptionCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const sub1 = inputs.sub1 as number;
+  const sub2 = inputs.sub2 as number;
+  const sub3 = inputs.sub3 as number;
+  const sub4 = inputs.sub4 as number;
+  const sub5 = inputs.sub5 as number;
+  const total = sub1 + sub2 + sub3 + sub4 + sub5;
+  return { monthlyTotal: total, annualTotal: total * 12, dailyCost: Math.round(total / 30) };
+}
+
+export function swimmingCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const minutes = inputs.minutes as number;
+  const stroke = inputs.stroke as string;
+  const metsMap: Record<string, number> = { crawl: 8, breaststroke: 6, backstroke: 5, butterfly: 10, water_walk: 4 };
+  const m = metsMap[stroke] || 6;
+  const cal = Math.round(m * weight * (minutes / 60) * 1.05);
+  return { calories: cal, fatBurn: Math.round(cal / 7.2 * 10) / 10 };
+}
+
+export function targetHeartRate(inputs: Record<string, number | string>): Record<string, number | string> {
+  const age = inputs.age as number;
+  const restingHR = inputs.restingHR as number;
+  const maxHR = 220 - age;
+  const lower = Math.round(maxHR * 0.6);
+  const upper = Math.round(maxHR * 0.8);
+  const fatBurn = Math.round(maxHR * 0.65);
+  return { maxHR, lower, upper, fatBurn };
+}
+
+export function tileCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const areaWidth = inputs.areaWidth as number;
+  const areaDepth = inputs.areaDepth as number;
+  const tileSize = inputs.tileSize as number;
+  const lossRate = inputs.lossRate as number;
+  const area = areaWidth * areaDepth;
+  const tileArea = (tileSize / 100) * (tileSize / 100);
+  const tilesRaw = area / tileArea;
+  const tiles = Math.ceil(tilesRaw * (1 + lossRate / 100));
+  return { tilesNeeded: tiles, area: Math.round(area * 100) / 100, boxes: Math.ceil(tiles / 10) };
+}
+
+export function timeConvert(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const fromUnit = inputs.fromUnit as string;
+  const totalSeconds = hours * 3600 + minutes * 60 + seconds;
+  return { totalSeconds, totalMinutes: Math.round(totalSeconds / 60 * 100) / 100, totalHours: Math.round(totalSeconds / 3600 * 1000) / 1000, days: Math.round(totalSeconds / 86400 * 1000) / 1000 };
+}
+
+export function timeZone(inputs: Record<string, number | string>): Record<string, number | string> {
+  const fromOffset = inputs.fromOffset as number;
+  const toOffset = inputs.toOffset as number;
+  const hour = inputs.hour as number;
+  const diff = toOffset - fromOffset;
+  let h = hour + diff;
+  let dayShift = 0;
+  if (h >= 24) { h -= 24; dayShift = 1; } else if (h < 0) { h += 24; dayShift = -1; }
+  return { convertedHour: h, dayShift, timeDiff: diff } as any;
+}
+
+export function tipCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const billAmount = inputs.billAmount as number;
+  const tipRate = inputs.tipRate as number;
+  const people = inputs.people as number;
+  const tip = Math.round(billAmount * tipRate / 100);
+  const total = billAmount + tip;
+  const perPerson = people > 0 ? Math.round(total / people) : total;
+  return { tip, total, perPerson };
+}
+
+export function trapezoid(inputs: Record<string, number | string>): Record<string, number | string> {
+  const topBase = inputs.topBase as number;
+  const bottomBase = inputs.bottomBase as number;
+  const height = inputs.height as number;
+  const a = topBase as number; const b = bottomBase as number; const h = trapHeight as number;
+  return { area: Math.round((a + b) * h / 2 * 100) / 100, perimeter: Math.round((a + b + 2 * Math.sqrt(Math.pow((b-a)/2, 2) + h*h)) * 100) / 100 };
+}
+
+export function travelInsurance(inputs: Record<string, number | string>): Record<string, number | string> {
+  const destination = inputs.destination as string;
+  const days = inputs.days as number;
+  const plan = inputs.plan as string;
+  const base = days <= 3 ? 500 : days <= 7 ? 1000 : days <= 14 ? 2000 : 3000;
+  const regionMultiplier = destination === 'asia' ? 1.0 : destination === 'europe' ? 1.5 : destination === 'americas' ? 1.5 : 1.2;
+  const premium = Math.round(base * regionMultiplier * people);
+  return { premium, perPerson: Math.round(premium / people) };
+}
+
+export function trigonometry(inputs: Record<string, number | string>): Record<string, number | string> {
+  const angle = inputs.angle as number;
+  const rad = angle * Math.PI / 180;
+  return { sin: Math.round(Math.sin(rad) * 10000) / 10000, cos: Math.round(Math.cos(rad) * 10000) / 10000, tan: Math.round(Math.tan(rad) * 10000) / 10000 };
+}
+
+export function tsuboM2(inputs: Record<string, number | string>): Record<string, number | string> {
+  const value = inputs.value as number;
+  const fromUnit = inputs.fromUnit as string;
+  const sqm = tsubo * 3.30579;
+  return { sqm: Math.round(sqm * 100) / 100, tsubo, jo: Math.round(tsubo * 2 * 100) / 100 };
+}
+
+export function typingSpeed(inputs: Record<string, number | string>): Record<string, number | string> {
+  const characters = inputs.characters as number;
+  const minutes = inputs.minutes as number;
+  const wpm = Math.round(characters / minutes * 60 / 5);
+  const cpm = Math.round(characters / minutes);
+  return { wpm, cpm };
+}
+
+export function unemploymentBenefit(inputs: Record<string, number | string>): Record<string, number | string> {
+  const age = inputs.age as number;
+  const monthlySalary = inputs.monthlySalary as number;
+  const yearsWorked = inputs.yearsWorked as number;
+  const reason = inputs.reason as string;
+  const dailyWage = Math.round(monthlySalary * 10000 / 30);
+  const rate = dailyWage < 5110 ? 0.8 : dailyWage < 12580 ? 0.65 : 0.5;
+  const dailyBenefit = Math.round(dailyWage * rate);
+  const totalDays = yearsWorked < 5 ? 90 : yearsWorked < 10 ? 120 : 150;
+  return { dailyBenefit, totalDays, totalBenefit: dailyBenefit * totalDays };
+}
+
+export function unitPrice(inputs: Record<string, number | string>): Record<string, number | string> {
+  const price1 = inputs.price1 as number;
+  const amount1 = inputs.amount1 as number;
+  const price2 = inputs.price2 as number;
+  const amount2 = inputs.amount2 as number;
+  const upA = price1 / amount1 * 100;
+  const upB = price2 / amount2 * 100;
+  const verdict = upA < upB ? '商品Aがお得' : upA > upB ? '商品Bがお得' : '同じ';
+  return { unitPriceA: Math.round(upA * 10) / 10, unitPriceB: Math.round(upB * 10) / 10, savings: Math.round(Math.abs(upA - upB) * 10) / 10, verdict } as any;
+}
+
+export function visionTest(inputs: Record<string, number | string>): Record<string, number | string> {
+  const decimalVision = inputs.decimalVision as number;
+  const corrected = uncorrectedVision * correctionFactor;
+  return { corrected: Math.round(corrected * 10) / 10, diopter: Math.round(-1 / corrected * 100) / 100 };
+}
+
+export function vocabSize(inputs: Record<string, number | string>): Record<string, number | string> {
+  const words = inputs.words as number;
+  const est = knownWords * totalWords / sampleSize;
+  return { estimatedVocab: Math.round(est), knownRate: Math.round(knownWords / sampleSize * 100) };
+}
+
+export function waistHipRatio(inputs: Record<string, number | string>): Record<string, number | string> {
+  const waist = inputs.waist as number;
+  const hip = inputs.hip as number;
+  const gender = inputs.gender as string;
+  const ratio = Math.round(waist / hip * 100) / 100;
+  const risk = typeof gender === 'string' ? ((gender === 'male' && ratio > 0.9) || (gender === 'female' && ratio > 0.85) ? 'リスクあり' : '正常') : (ratio > 0.9 ? 'リスクあり' : '正常');
+  return { ratio, risk } as any;
+}
+
+export function walkingCalorie(inputs: Record<string, number | string>): Record<string, number | string> {
+  const weight = inputs.weight as number;
+  const minutes = inputs.minutes as number;
+  const speed = inputs.speed as string;
+  const mets: Record<string, number> = { slow: 2.5, normal: 3.5, fast: 5.0 };
+  const m = mets[speed] || 3.5;
+  const cal = Math.round(m * weight * (minutes / 60) * 1.05);
+  const speedKm: Record<string, number> = { slow: 3, normal: 4, fast: 6 };
+  const dist = Math.round((speedKm[speed] || 4) * minutes / 60 * 100) / 100;
+  const steps = Math.round(dist * 1000 / 0.7);
+  return { calories: cal, distance: dist, steps };
+}
+
+export function wallpaperCalculator(inputs: Record<string, number | string>): Record<string, number | string> {
+  const width = inputs.width as number;
+  const depth = inputs.depth as number;
+  const height = inputs.height as number;
+  const rollWidth = inputs.rollWidth as number;
+  const perimeter = 2 * (width + depth);
+  const wallArea = perimeter * height;
+  const rollW = rollWidth / 100;
+  const strips = Math.ceil(perimeter / rollW);
+  const totalLength = Math.round(strips * height * 100) / 100;
+  return { totalLength, rolls: Math.ceil(totalLength / 10), wallArea: Math.round(wallArea * 100) / 100 };
+}
+
+export function weddingCost(inputs: Record<string, number | string>): Record<string, number | string> {
+  const guests = inputs.guests as number;
+  const style = inputs.style as string;
+  const giftPerPerson = inputs.giftPerPerson as number;
+  const venue = venueCost * 10000;
+  const food = foodCost * guests * 10000;
+  const total = venue + food;
+  const perGuest = guests > 0 ? Math.round(total / guests) : 0;
+  return { total, perGuest };
+}
+
+export function workersComp(inputs: Record<string, number | string>): Record<string, number | string> {
+  const avgDailyWage = inputs.avgDailyWage as number;
+  const dailyWage = Math.round(monthlySalary * 10000 / 30);
+  const benefit = Math.round(dailyWage * 0.8);
+  const total = benefit * days;
+  return { dailyBenefit: benefit, totalBenefit: total };
+}
+
+export function workingCapital(inputs: Record<string, number | string>): Record<string, number | string> {
+  const receivables = inputs.receivables as number;
+  const inventory = inputs.inventory as number;
+  const payables = inputs.payables as number;
+  const ar10k = receivables * 10000;
+  const inv10k = inventory * 10000;
+  const ap10k = payables * 10000;
+  const wc = ar10k + inv10k - ap10k;
+  return { workingCapital: wc, ratio: ap10k > 0 ? Math.round((ar10k + inv10k) / ap10k * 100) / 100 : 0 };
+}
+
+export function yieldComparison(inputs: Record<string, number | string>): Record<string, number | string> {
+  const propertyPrice = inputs.propertyPrice as number;
+  const monthlyRent = inputs.monthlyRent as number;
+  const annualExpense = inputs.annualExpense as number;
+  const vacancy = inputs.vacancy as number;
+  const priceA10k = priceA * 10000;
+  const priceB10k = priceB * 10000;
+  const rentA10k = rentA * 10000;
+  const rentB10k = rentB * 10000;
+  const yieldA = priceA10k > 0 ? Math.round(rentA10k * 12 / priceA10k * 10000) / 100 : 0;
+  const yieldB = priceB10k > 0 ? Math.round(rentB10k * 12 / priceB10k * 10000) / 100 : 0;
+  return { yieldA, yieldB, difference: Math.round((yieldA - yieldB) * 100) / 100 };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   loanRepayment,
@@ -1978,6 +3647,168 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   scholarshipRepayment,
   wifiSpeed,
   tsuboSqm,
+  adRoas,
+  advancePayment,
+  airConditionerCost,
+  alcoholCalorie,
+  alcoholTobaccoTax,
+  anniversary,
+  assetAllocation,
+  autoTax,
+  babyGrowth,
+  baseConvert,
+  bloodAlcohol,
+  blueReturn,
+  bmiChild,
+  bmiDetailed,
+  bmiPet,
+  bodyFatPercentage,
+  bondYield,
+  businessDays,
+  caffeine,
+  capitalGainsTax,
+  carCostTotal,
+  carLease,
+  carbonFootprint,
+  carpetCalculator,
+  certificationCost,
+  childCost,
+  childcareBenefit,
+  chineseZodiac,
+  churnRate,
+  cityPlanningTax,
+  clothingSize,
+  commuteCost,
+  compoundInterestDetail,
+  concreteCalculator,
+  consumptionTaxCalc,
+  corporatePension,
+  corporateTax,
+  correlation,
+  cryptoTax,
+  currencyConvert,
+  cyclingCalorie,
+  dataSizeConvert,
+  debtRepayment,
+  disabilityInsurance,
+  dollarCostAveraging,
+  downloadTime,
+  electricityBill,
+  ellipse,
+  emailMarketing,
+  emergencyFund,
+  energyConvert,
+  englishScore,
+  etfCost,
+  evCostComparison,
+  exerciseCalorie,
+  fabricCalculator,
+  fireInsurance,
+  fractionCalculator,
+  freelanceRate,
+  gardenSoil,
+  goldInvestment,
+  gpaCalculator,
+  gradeCalculator,
+  grossMargin,
+  hearingLevel,
+  hensachi,
+  hexagon,
+  housingDeduction,
+  individualEnterpriseTax,
+  inflationCalculator,
+  inheritanceTaxSimulation,
+  initialCost,
+  investmentReturn,
+  japaneseEra,
+  joggingPace,
+  laborCost,
+  landPrice,
+  logarithm,
+  ltv,
+  mansionCost,
+  marginTrading,
+  maternityBenefit,
+  matrix,
+  mealCalorie,
+  medianMode,
+  medicineDose,
+  meetingCost,
+  menstrualCycle,
+  minimumWage,
+  nationalHealthInsurance,
+  normalDistribution,
+  ovulationDay,
+  packingList,
+  paintArea,
+  paintCalculator,
+  paperSize,
+  partyFood,
+  paybackPeriod,
+  perPbr,
+  percentageCalculator,
+  personalLoan,
+  petAge,
+  petInsurance,
+  photoPrint,
+  pointValue,
+  polygonArea,
+  postalRate,
+  powerConsumption,
+  pressureConvert,
+  pricingMarkup,
+  primeFactorization,
+  probability,
+  proteinNeed,
+  pythagorean,
+  quadratic,
+  randomNumber,
+  realEstateAcquisitionTax,
+  rebalance,
+  recipeScale,
+  refinance,
+  registrationTax,
+  reitYield,
+  rentCalculator,
+  roomBrightness,
+  rule72,
+  runningPace,
+  salaryAfterTax,
+  salaryComparison,
+  scholarship,
+  schoolCommute,
+  schoolSupplies,
+  screenSize,
+  severanceTax,
+  shoeSize,
+  sleepCycle,
+  squareRoot,
+  stampDuty,
+  stretchTimer,
+  studyPlan,
+  subscriptionCost,
+  swimmingCalorie,
+  targetHeartRate,
+  tileCalculator,
+  timeConvert,
+  timeZone,
+  tipCalculator,
+  trapezoid,
+  travelInsurance,
+  trigonometry,
+  tsuboM2,
+  typingSpeed,
+  unemploymentBenefit,
+  unitPrice,
+  visionTest,
+  vocabSize,
+  waistHipRatio,
+  walkingCalorie,
+  wallpaperCalculator,
+  weddingCost,
+  workersComp,
+  workingCapital,
+  yieldComparison,
 };
 
 export function getCalculatorFunction(
