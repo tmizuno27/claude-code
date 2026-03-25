@@ -23,8 +23,10 @@ from datetime import datetime
 from pathlib import Path
 
 # Log settings
-LOG_DIR = Path(__file__).parent.parent.parent.parent.parent / "logs"
+LOG_DIR = Path(__file__).parent.parent.parent.parent / "logs"
 LOG_FILE = LOG_DIR / "hatena-pipeline.log"
+
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
