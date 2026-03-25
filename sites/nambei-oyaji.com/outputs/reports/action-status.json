@@ -2,46 +2,75 @@
   "date": "2026-03-25",
   "actions": [
     {
-      "id": "apify-paypal-setup",
-      "title": "Apify PayPal出金設定",
+      "id": "gsc-key-renewal",
+      "title": "Google Cloud サービスアカウントキー再発行（3サイトGSC/GA4復旧）",
       "priority": "P1",
       "done": false,
-      "done_at": null
+      "done_at": null,
+      "reason": "全3サイト+keisan-toolsでGSC/GA4認証エラー（invalid_grant）。Google Cloud Consoleで新キー生成が必要",
+      "effort": "手動10分",
+      "revenue_potential": "SEOデータなしでは改善判断不可。全サイト共通ブロッカー"
     },
     {
       "id": "pseo-content-generate",
       "title": "pSEOページ量産開始",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-25 17:40 PYT",
+      "reason": "既に5,052ページ生成済み・455ページSSGデプロイ済み"
     },
     {
-      "id": "rapidapi-pro-plan-check",
-      "title": "RapidAPI有料移行促進",
+      "id": "keisan-adsense-apply",
+      "title": "keisan-tools.com AdSense申請",
       "priority": "P1",
       "done": false,
-      "done_at": null
+      "done_at": null,
+      "reason": "369ページ公開中。申請基準30ページを大幅超過。申請可能",
+      "effort": "手動15分",
+      "revenue_potential": "計算ツールサイトはAdSense相性◎"
     },
     {
-      "id": "nambei-article-boost",
-      "title": "南米おやじ記事追加",
+      "id": "apify-paypal-setup",
+      "title": "Apify PayPal出金設定",
       "priority": "P2",
       "done": false,
-      "done_at": null
+      "done_at": null,
+      "reason": "売上発生時に出金できるよう事前設定",
+      "effort": "手動5分"
+    },
+    {
+      "id": "rapidapi-seo-improve",
+      "title": "RapidAPI リスティングSEO改善（タイトル・説明・タグ）",
+      "priority": "P2",
+      "done": false,
+      "done_at": null,
+      "reason": "24API全て利用ゼロ。ディスカバラビリティ改善が急務",
+      "effort": "自動化可能"
+    },
+    {
+      "id": "x-nambei-error-fix",
+      "title": "@nambei_oyaji X投稿エラー1件の修正",
+      "priority": "P3",
+      "done": false,
+      "done_at": null,
+      "reason": "過去7日で1件エラー。投稿自体は8件成功中"
     },
     {
       "id": "stripe-kyc-resolve",
       "title": "Stripe KYC問題解決",
       "priority": "P1",
       "done": false,
-      "done_at": null
+      "done_at": null,
+      "reason": "WP Linker決済、n8nテンプレート等複数事業がブロック中",
+      "effort": "手動（書類準備）"
     },
     {
-      "id": "x-first-tweet",
-      "title": "X投稿開始（API/ツール系）",
-      "priority": "P2",
-      "done": false,
-      "done_at": null
+      "id": "pdca-script-bugs-fixed",
+      "title": "日次レポートスクリプト3件のバグ修正",
+      "priority": "P1",
+      "done": true,
+      "done_at": "2026-03-25 17:45 PYT",
+      "reason": "now_imp未定義エラー、X投稿数0表示、keisan-tools 0ページ表示を修正"
     }
   ]
 }
