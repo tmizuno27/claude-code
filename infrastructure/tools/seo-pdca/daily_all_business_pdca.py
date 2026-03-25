@@ -341,6 +341,12 @@ def pdca_gumroad():
     product_count = 0
     if products_dir.exists():
         product_count = len([d for d in products_dir.iterdir() if d.is_dir()])
+    # n8nテンプレートも同アカウント
+    n8n_dir = PRODUCTS_DIR / "n8n-templates"
+    if n8n_dir.exists():
+        n8n_count = len([f for f in (n8n_dir / "workflows").iterdir() if f.suffix == ".json"]) if (n8n_dir / "workflows").exists() else 0
+    else:
+        n8n_count = 0
 
     # X投稿ログから効果確認
     x_log = LOG_DIR / "x-prodhq27-posts.log"
@@ -349,7 +355,10 @@ def pdca_gumroad():
         try:
             lines = x_log.read_text(encoding="utf-8", errors="replace").splitlines()
             week_ago = (NOW - timedelta(days=7)).strftime("%Y-%m-%d")
-            recent_posts = sum(1 for l in lines if week_ago <= l[:10] if l[:4].isdigit())
+            for l in lines:
+                date_str = l[1:11] if l.startswith("[") and len(l) > 11 else (l[:10] if len(l) > 10 and l[:4].isdigit() else "")
+                if date_str >= week_ago and ("OK:" in l or "POSTED" in l):
+                    recent_posts += 1
         except Exception:
             pass
 
@@ -488,8 +497,15 @@ def pdca_twitter():
             try:
                 lines = acc["log"].read_text(encoding="utf-8", errors="replace").splitlines()
                 for l in lines:
-                    if l[:4].isdigit() and l[:10] >= week_ago:
-                        recent += 1
+                    # ログ形式: [2026-03-25 14:16:18] or 2026-03-25 ...
+                    date_str = ""
+                    if l.startswith("[") and len(l) > 11:
+                        date_str = l[1:11]
+                    elif len(l) > 10 and l[:4].isdigit():
+                        date_str = l[:10]
+                    if date_str >= week_ago:
+                        if "OK:" in l or "POSTED" in l or "投稿成功" in l:
+                            recent += 1
                         if "error" in l.lower() or "fail" in l.lower():
                             errors += 1
             except Exception:
