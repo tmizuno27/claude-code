@@ -1,3 +1,5 @@
+export const dynamic = 'force-static';
+
 import { cities, getAllRegions, getAllComparisons } from '@/lib/data';
 import type { MetadataRoute } from 'next';
 
