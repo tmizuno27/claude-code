@@ -128,19 +128,17 @@ def escape_xml(text):
     return text
 
 
-def post_to_hatena(hatena_config, title, body, categories, is_draft=False):
-    """Post article to Hatena Blog via AtomPub API."""
+def post_to_hatena(hatena_config, title, body, categories, is_draft=False, max_retries=3):
+    """Post article to Hatena Blog via AtomPub API with retry."""
     hatena_id = hatena_config["hatena_id"]
     blog_id = hatena_config["blog_id"]
     api_key = hatena_config["api_key"]
 
     endpoint = f"https://blog.hatena.ne.jp/{hatena_id}/{blog_id}/atom/entry"
 
-    # Escape XML content
-    escaped_body = escape_xml(body)
-    escaped_title = escape_xml(title)
-
-    entry_xml = build_atom_entry(escaped_title, escaped_body, categories, is_draft)
+    # Title/category escaping is handled inside build_atom_entry.
+    # Body is wrapped in CDATA, so no escaping needed.
+    entry_xml = build_atom_entry(title, body, categories, is_draft)
 
     # WSSE authentication
     auth_string = b64encode(f"{hatena_id}:{api_key}".encode()).decode()
@@ -150,17 +148,37 @@ def post_to_hatena(hatena_config, title, body, categories, is_draft=False):
         "Authorization": f"Basic {auth_string}"
     }
 
-    response = requests.post(endpoint, data=entry_xml.encode("utf-8"), headers=headers)
+    last_error = ""
+    for attempt in range(max_retries):
+        try:
+            response = requests.post(
+                endpoint, data=entry_xml.encode("utf-8"), headers=headers, timeout=30
+            )
 
-    if response.status_code in (200, 201):
-        # Extract entry URL from response
-        entry_url = ""
-        url_match = re.search(r'<link rel="alternate"[^>]*href="([^"]+)"', response.text)
-        if url_match:
-            entry_url = url_match.group(1)
-        return True, entry_url
-    else:
-        return False, f"HTTP {response.status_code}: {response.text[:500]}"
+            if response.status_code in (200, 201):
+                entry_url = ""
+                url_match = re.search(
+                    r'<link rel="alternate"[^>]*href="([^"]+)"', response.text
+                )
+                if url_match:
+                    entry_url = url_match.group(1)
+                return True, entry_url
+
+            last_error = f"HTTP {response.status_code}: {response.text[:500]}"
+
+            # Don't retry on client errors (4xx) except 429
+            if 400 <= response.status_code < 500 and response.status_code != 429:
+                return False, last_error
+
+        except requests.RequestException as e:
+            last_error = f"Request error: {e}"
+
+        if attempt < max_retries - 1:
+            wait = 2 ** (attempt + 1)  # 2s, 4s
+            logger.warning(f"  → リトライ {attempt + 1}/{max_retries} ({wait}秒後)")
+            time.sleep(wait)
+
+    return False, last_error
 
 
 def detect_categories(title, body):
@@ -220,8 +238,13 @@ def main():
 
     logger.info(f"投稿対象: {len(targets)}記事 (draft={args.draft})")
 
+    # NOTE: 記事#1がドラフトのままの場合、はてなブログ管理画面から手動で公開してください。
+    # AtomPub APIでは既存記事のドラフト→公開変更にはPUTリクエスト（entry ID指定）が必要です。
+    # 対象URL: https://blog.hatena.ne.jp/{hatena_id}/{blog_id}/atom/entry/{entry_id}
+    # 自動検出が必要な場合は GET で記事一覧を取得し app:draft=yes を検索してください。
+
     success_count = 0
-    for entry in targets:
+    for idx, entry in enumerate(targets):
         article_id = entry["article_id"]
         hatena_file = entry["hatena_file"]
         hatena_title = entry["hatena_title"]
@@ -243,6 +266,11 @@ def main():
         success, result = post_to_hatena(
             hatena_config, hatena_title, body, categories, is_draft=args.draft
         )
+
+        # Wait between posts to avoid spam detection (skip after last post)
+        if not args.dry_run and idx < len(targets) - 1:
+            logger.info("  → 30秒待機（スパム検知回避）")
+            time.sleep(30)
 
         if success:
             hatena_log["published"].append({

@@ -16,18 +16,14 @@ import argparse
 import csv
 import json
 import logging
+import random
+import re
 import sys
+import time
 from datetime import datetime
 from pathlib import Path
 
 import requests
-
-HAS_ANTHROPIC = False
-try:
-    import anthropic
-    HAS_ANTHROPIC = True
-except ImportError:
-    pass
 
 # Log settings
 logging.basicConfig(
@@ -178,7 +174,6 @@ def fetch_article_from_wp(permalink, secrets):
             posts = response.json()
             if posts:
                 # Return rendered content (HTML), strip tags for conversion
-                import re
                 html_content = posts[0].get("content", {}).get("rendered", "")
                 # Basic HTML to text conversion
                 text = re.sub(r'<[^>]+>', '', html_content)
@@ -221,23 +216,52 @@ def convert_article(api_key, title, content, url):
     return data["content"][0]["text"]
 
 
-def generate_hatena_title(original_title):
-    """Generate a different title for Hatena blog."""
+def convert_article_with_retry(api_key, title, content, url, max_retries=3):
+    """Wrap convert_article with exponential backoff retry."""
+    backoff_seconds = [5, 10, 20]
+    for attempt in range(max_retries):
+        try:
+            return convert_article(api_key, title, content, url)
+        except Exception as e:
+            if attempt < max_retries - 1:
+                wait = backoff_seconds[attempt]
+                logger.warning(f"  → 変換失敗 (attempt {attempt + 1}/{max_retries}): {e}")
+                logger.info(f"  → {wait}秒後にリトライ...")
+                time.sleep(wait)
+            else:
+                raise
+
+
+def generate_hatena_title(original_title, article_id):
+    """Generate a deterministic title for Hatena blog."""
     # Remove SEO elements like 【2026年版】, pipes, etc.
-    import re
     title = re.sub(r'【.*?】', '', original_title)
     title = title.split('｜')[0].strip()
     title = title.split('|')[0].strip()
-    # Add casual prefix
+    # Add casual prefix (deterministic based on article_id)
     prefixes = [
         "パラグアイ暮らしメモ：",
         "南米生活の雑記：",
         "移住者の本音：",
         "アスンシオンから：",
     ]
-    import random
-    prefix = random.choice(prefixes)
-    return f"{prefix}{title}"
+    prefix = prefixes[int(article_id) % len(prefixes)]
+    full_title = f"{prefix}{title}"
+    # Truncate if over 25 characters
+    if len(full_title) > 25:
+        full_title = full_title[:25] + "…"
+    return full_title
+
+
+def ensure_utm_link(body, original_url):
+    """Ensure the converted body contains the UTM-tagged URL."""
+    utm_url = f"{original_url}?utm_source=hatena&utm_medium=blog&utm_campaign=digest"
+    if utm_url not in body:
+        if original_url in body:
+            body = body.replace(original_url, utm_url)
+        else:
+            body += f"\n\n---\n\n詳しくは本家記事をどうぞ → [{original_url}]({utm_url})"
+    return body
 
 
 def main():
@@ -299,8 +323,9 @@ def main():
 
         # Convert
         try:
-            hatena_body = convert_article(api_key, original_title, content, url)
-            hatena_title = generate_hatena_title(original_title)
+            hatena_body = convert_article_with_retry(api_key, original_title, content, url)
+            hatena_title = generate_hatena_title(original_title, article_id)
+            hatena_body = ensure_utm_link(hatena_body, url)
         except Exception as e:
             logger.error(f"  → 変換エラー: {e}")
             continue
