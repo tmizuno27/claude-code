@@ -1,0 +1,25 @@
+{
+  "slug": "wifi-speed",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "通信速度換算（Mbps↔MB/s）",
+  "description": "Mbps（メガビット）とMB/s（メガバイト）を相互変換。ダウンロード時間の目安も計算。",
+  "metaTitle": "通信速度換算ツール｜Mbps→MB/s変換＆ダウンロード時間計算",
+  "metaDescription": "通信速度のMbpsとMB/sを自動変換。1GBのダウンロード時間の目安もわかる。WiFi速度の確認に便利な無料ツール。",
+  "calculatorFunction": "wifiSpeed",
+  "inputs": [
+    { "id": "speedMbps", "label": "通信速度", "type": "number", "unit": "Mbps", "default": 100, "min": 0.1, "max": 10000, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "speedMBs", "label": "MB/s換算", "format": "number", "primary": true },
+    { "id": "speedGbps", "label": "Gbps換算", "format": "number" },
+    { "id": "downloadTime1GB", "label": "1GBダウンロード時間", "format": "number" },
+    { "id": "downloadTime100MB", "label": "100MBダウンロード時間", "format": "number" }
+  ],
+  "explanation": "<h3>MbpsとMB/sの違い</h3><p>Mbps（メガビット/秒）はネットワーク速度の単位、MB/s（メガバイト/秒）はファイル転送速度の単位です。1MB/s = 8Mbps の関係です。</p>",
+  "faq": [
+    { "question": "100Mbpsだと1GBのダウンロードにどれくらい？", "answer": "理論上は約82秒（1分22秒）ですが、実効速度は表示速度の30〜70%程度です。" }
+  ],
+  "related": ["data-size", "speed"],
+  "popular": false
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "scholarship-repayment",
+  "category": "education",
+  "subcategory": "school",
+  "title": "奨学金返済シミュレーション",
+  "description": "奨学金の借入額・利率・返済期間から月々の返済額と利息総額を計算。",
+  "metaTitle": "奨学金返済シミュレーションツール｜月額返済額と利息を自動計算",
+  "metaDescription": "奨学金の借入総額・利率・返済年数を入力して月々の返済額・総返済額・利息総額を自動計算する無料ツール。",
+  "calculatorFunction": "scholarshipRepayment",
+  "inputs": [
+    { "id": "totalBorrowed", "label": "借入総額", "type": "number", "unit": "万円", "default": 300, "min": 10, "max": 2000, "step": 10 },
+    { "id": "annualRate", "label": "年利", "type": "number", "unit": "%", "default": 0.5, "min": 0, "max": 5, "step": 0.01, "hint": "第一種は無利子、第二種は0.5〜1%程度" },
+    { "id": "repaymentYears", "label": "返済期間", "type": "number", "unit": "年", "default": 20, "min": 1, "max": 30, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "monthlyPayment", "label": "月々の返済額", "format": "yen", "primary": true },
+    { "id": "totalPayment", "label": "総返済額", "format": "yen" },
+    { "id": "totalInterest", "label": "利息総額", "format": "yen" }
+  ],
+  "explanation": "<h3>奨学金の返済方法</h3><p>日本学生支援機構（JASSO）の奨学金は、卒業後に月々の定額返済で返していきます。第一種（無利子）と第二種（有利子）があります。</p>",
+  "faq": [
+    { "question": "奨学金300万円の月額返済は？", "answer": "利率0.5%・返済期間20年の場合、月約13,000円です。無利子なら月12,500円になります。" }
+  ],
+  "related": ["education-cost-sim", "education-loan", "tuition-cost"],
+  "popular": true,
+  "popularOrder": 27
+}

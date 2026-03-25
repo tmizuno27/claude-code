@@ -1,0 +1,29 @@
+{
+  "slug": "education-cost-sim",
+  "category": "education",
+  "subcategory": "school",
+  "title": "教育費シミュレーション",
+  "description": "子供の年齢と進学コースから卒業までの教育費総額を計算。毎月の貯蓄目安もわかる。",
+  "metaTitle": "教育費シミュレーションツール｜子供の教育にかかる費用を自動計算",
+  "metaDescription": "子供の年齢と進学コース（公立/私立）を入力して、卒業までの教育費総額と月々の貯蓄額を自動計算する無料ツール。",
+  "calculatorFunction": "educationCostSim",
+  "inputs": [
+    { "id": "childAge", "label": "子供の現在の年齢", "type": "number", "unit": "歳", "default": 6, "min": 0, "max": 18, "step": 1 },
+    { "id": "plan", "label": "進学コース", "type": "select", "default": "all_public", "options": [
+      { "value": "all_public", "label": "オール公立" },
+      { "value": "all_private", "label": "オール私立" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "totalRemaining", "label": "残りの教育費総額", "format": "yen", "primary": true },
+    { "id": "yearsLeft", "label": "卒業までの年数", "format": "number" },
+    { "id": "monthlyNeeded", "label": "月々の貯蓄目安", "format": "yen" }
+  ],
+  "explanation": "<h3>教育費の目安</h3><p>文部科学省の調査によると、幼稚園から大学までの教育費は、オール公立で約800万円、オール私立で約2,300万円かかります。</p>",
+  "faq": [
+    { "question": "教育費はいつから貯め始めるべき？", "answer": "できるだけ早くから始めることが重要です。児童手当を全額貯蓄すると約200万円になり、大学費用の足しになります。" }
+  ],
+  "related": ["tuition-cost", "scholarship-repayment", "savings-goal"],
+  "popular": true,
+  "popularOrder": 26
+}
