@@ -217,13 +217,15 @@
         },
         {
           "name": "ブライダルネット",
-          "status": "pending_approval",
-          "html": null,
+          "status": "active",
+          "url": "https://h.accesstrade.net/sp/cc?rk=01000n8c00opif",
+          "tracking_img": "https://h.accesstrade.net/sp/rr?rk=01000n8c00opif",
           "anchor_text": ["ブライダルネット"],
           "commission": "新規会員登録1,000〜4,532円",
-          "asp": "A8.net",
+          "asp": "アクセストレード",
           "epc": 9.91,
-          "context": "婚活サイト・オンライン結婚相談所記事で使用"
+          "context": "婚活サイト・オンライン結婚相談所記事で使用",
+          "note": "アクセストレード提携済（2026-03-25）"
         },
         {
           "name": "IBJメンバーズ",
