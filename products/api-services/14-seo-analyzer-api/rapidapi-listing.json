@@ -1,25 +1,25 @@
 {
   "name": "SEO Analyzer API",
   "slug": "seo-analyzer-api",
-  "description": "Free SEO Analyzer API - Score, Meta, Headings, Links | Ahrefs Alt",
-  "long_description": "## Why SEO Analyzer API?\n- ✅ Comprehensive on-page audit: meta tags, headings, links, structured data\n- ✅ SEO score 0-100 with actionable improvement recommendations\n- ✅ Checks Open Graph, Twitter Card, robots.txt, and canonical tags\n\n## Key Features\n- Meta title/description analysis with length validation\n- Heading structure analysis (H1-H6)\n- Internal/external link counting and analysis\n- Structured data (Schema.org) detection\n- Open Graph and Twitter Card validation\n- SEO score 0-100 with recommendations\n\n## Use Cases\n- **SEO Agencies**: Automated on-page audits for clients\n- **Content Teams**: Pre-publish SEO checklist validation\n- **Developers**: SEO monitoring in CI/CD pipelines\n- **Marketers**: Competitive analysis of competitor pages\n\n## Quick Start\n```\nGET /analyze?url=https://example.com\n```\nReturns JSON with `score`, `meta`, `headings`, `links`, `structured_data`, `recommendations`.\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes full SEO analysis. No credit card required.\n\n## Alternative To\nA free **SEO audit API alternative** to Ahrefs, Moz, and Screaming Frog. Instant on-page SEO scoring via edge computing.\n\n## Need More Requests?\nFree plan (500 audits/month) for single-site checks. **Pro ($9.99/mo)** for SEO agencies and bulk site auditing.",
+  "description": "Free Ahrefs API alternative: 19-point on-page SEO audit, score 0-100, structured data. CI/CD ready. 500/mo free.",
+  "long_description": "## Free Ahrefs API Alternative for On-Page SEO\nGet a 19-point SEO audit with weighted scoring (0-100) for any URL. One API call, under $0.0002/page. The on-page analysis you'd pay Ahrefs $99/mo for.\n\n## 19 SEO Checks in One Call\n- Title tag (length + presence)\n- Meta description (length + presence)\n- Heading structure (H1-H6 hierarchy)\n- Image alt text coverage\n- Internal/external link counts\n- Canonical URL validation\n- Robots meta directives\n- Open Graph tags\n- Twitter Card tags\n- JSON-LD structured data\n- Word count, page size, viewport, favicon, hreflang, language\n\n## Built for CI/CD Pipelines\nAdd SEO regression checks to GitHub Actions, GitLab CI, or any pipeline:\n```bash\nSCORE=$(curl -s /score?url=https://staging.mysite.com | jq '.seo_score')\nif [ \"$SCORE\" -lt 70 ]; then exit 1; fi\n```\nCatch missing meta tags, broken heading structure, and lost structured data before deploying.\n\n## Cost Comparison\n| | This API | Ahrefs API | Moz API |\n|---|---|---|---|\n| 500 audits/mo | **FREE** | $99+/mo | $99+/mo |\n| 50K audits/mo | **$9.99** | $99+/mo | $99+/mo |\n\n## 4 Granular Endpoints\n- `/analyze` — Full 19-point audit\n- `/score` — Score only (CI/CD optimized)\n- `/headings` — H1-H6 structure\n- `/links` — Internal/external link analysis\n\n## Use Cases\n- SEO agency client dashboards\n- Content team pre-publish validation\n- Competitor page analysis\n- Site migration QA\n- Chrome extension / SaaS product integration\n\nFree tier: 500 audits/month. No credit card required.",
   "category": "Tools",
   "tags": [
     "seo",
+    "seo-audit",
     "website-analysis",
     "meta-tags",
-    "seo-audit",
-    "free-api",
-    "rest-api",
-    "developer-tools",
-    "ahrefs-alternative",
-    "moz-alternative",
     "on-page-seo",
     "seo-score",
     "structured-data",
+    "ahrefs-alternative",
+    "moz-alternative",
+    "cicd-seo",
+    "developer-tools",
+    "free-api",
     "cloudflare-edge"
   ],
-  "website": "https://seo-analyzer-api.your-domain.workers.dev",
+  "website": "https://seo-analyzer-api.t-mizuno27.workers.dev",
   "pricing": {
     "plans": [
       {
@@ -30,35 +30,36 @@
           "requests_per_second": 1
         },
         "features": [
-          "Full SEO analysis",
-          "SEO score",
-          "Up to 500 requests/month"
+          "Full 19-point SEO analysis",
+          "Score, headings, links endpoints",
+          "500 audits/month"
         ]
       },
       {
         "name": "Pro",
-        "price": 5.99,
+        "price": 9.99,
         "rate_limit": {
           "requests_per_month": 50000,
           "requests_per_second": 10
         },
         "features": [
           "All endpoints",
-          "Heading/link analysis",
-          "Score breakdown",
+          "50,000 audits/month",
+          "100 req/min throughput",
           "Priority support"
         ]
       },
       {
         "name": "Ultra",
-        "price": 14.99,
+        "price": 24.99,
         "rate_limit": {
           "requests_per_month": 500000,
           "requests_per_second": 50
         },
         "features": [
           "All Pro features",
-          "Highest rate limits",
+          "500,000 audits/month",
+          "500 req/min throughput",
           "Dedicated support"
         ]
       },
@@ -70,7 +71,8 @@
           "requests_per_second": 100
         },
         "features": [
-          "Unlimited endpoints",
+          "All Ultra features",
+          "2,000,000 audits/month",
           "Maximum throughput",
           "SLA guarantee"
         ]
@@ -82,7 +84,7 @@
       "name": "Full SEO Analysis",
       "method": "GET",
       "path": "/analyze",
-      "description": "Complete SEO analysis of a webpage",
+      "description": "Complete 19-point SEO audit with weighted scoring",
       "parameters": [
         {
           "name": "url",
@@ -93,10 +95,24 @@
       ]
     },
     {
+      "name": "SEO Score",
+      "method": "GET",
+      "path": "/score",
+      "description": "Get SEO score only (0-100) — optimized for CI/CD pipelines",
+      "parameters": [
+        {
+          "name": "url",
+          "type": "string",
+          "required": true,
+          "description": "URL of the webpage"
+        }
+      ]
+    },
+    {
       "name": "Heading Structure",
       "method": "GET",
       "path": "/headings",
-      "description": "Extract heading structure (H1-H6) only",
+      "description": "Extract H1-H6 heading hierarchy",
       "parameters": [
         {
           "name": "url",
@@ -110,21 +126,7 @@
       "name": "Link Analysis",
       "method": "GET",
       "path": "/links",
-      "description": "Analyze internal and external links",
-      "parameters": [
-        {
-          "name": "url",
-          "type": "string",
-          "required": true,
-          "description": "URL of the webpage"
-        }
-      ]
-    },
-    {
-      "name": "SEO Score",
-      "method": "GET",
-      "path": "/score",
-      "description": "Get SEO score with detailed breakdown",
+      "description": "Analyze internal and external links with nofollow detection",
       "parameters": [
         {
           "name": "url",
