@@ -26,11 +26,22 @@ type: project
   - `hatena_converter.py` — WP記事→ダイジェスト変換（Claude API使用）
   - `hatena_publisher.py` — AtomPub APIで自動投稿
   - `hatena_pipeline.py` — 統合パイプライン（変換+投稿一括）
-- **Task Scheduler**: `HatenaPipeline` — 月・水・金 7:00 PYT（日本時間19:00）、1記事ずつ投稿。収益記事を優先
-- **ログ**: `logs/hatena-pipeline.log`
+- **Task Scheduler**: `HatenaPipeline` — 月・水・金 7:00 PYT（日本時間19:00）、2記事ずつ投稿。収益記事を優先
+- **ログ**: `logs/hatena-pipeline.log`（RotatingFileHandler、1MB×3世代）
 - **投稿記録**: `published/hatena-log.json`
 - **変換済み記事**: `outputs/hatena/`
+- **Healthchecks.io**: `691cd9ed-9f36-43ae-a4cc-812b8d4e687d`
+
+## 品質対策（2026-03-24監査で追加）
+
+- XMLエスケープ: CDATA方式でMarkdown記法の破損を防止
+- UTMリンク: 後処理で `?utm_source=hatena&utm_medium=blog&utm_campaign=digest` を保証
+- リトライ: Claude API・AtomPub API共に3回exponential backoff
+- 投稿間隔: 30秒（スパム検知回避）
+- タイトル生成: article_id % len(prefixes) で冪等化
 
 ## 開設日・初期投稿
 
-- 2026-03-24 開設、7記事公開済み（#1〜#5, #14, #17 + #4自動変換）
+- 2026-03-24 開設、8記事公開済み（#1〜#5, #14, #17 + #4自動変換）
+- グループ参加済み: 海外移住綜合 + 海外生活系3グループ
+- Aboutページ設定済み
