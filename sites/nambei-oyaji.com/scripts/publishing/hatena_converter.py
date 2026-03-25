@@ -22,10 +22,12 @@ from pathlib import Path
 
 import requests
 
+HAS_ANTHROPIC = False
 try:
     import anthropic
+    HAS_ANTHROPIC = True
 except ImportError:
-    anthropic = None
+    pass
 
 # Log settings
 logging.basicConfig(
@@ -165,22 +167,34 @@ def fetch_article_from_wp(permalink, secrets):
     return None
 
 
-def convert_article(client, title, content, url):
-    """Convert WordPress article to Hatena digest using Claude API."""
+def convert_article(api_key, title, content, url):
+    """Convert WordPress article to Hatena digest using Claude API (requests)."""
     prompt = CONVERSION_PROMPT.format(
         title=title,
-        content=content[:8000],  # Truncate to avoid token limits
+        content=content[:8000],
         url=url
     )
 
-    response = client.messages.create(
-        model="claude-sonnet-4-6",
-        max_tokens=2000,
-        timeout=120.0,
-        messages=[{"role": "user", "content": prompt}]
+    response = requests.post(
+        "https://api.anthropic.com/v1/messages",
+        headers={
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+            "content-type": "application/json"
+        },
+        json={
+            "model": "claude-sonnet-4-6",
+            "max_tokens": 2000,
+            "messages": [{"role": "user", "content": prompt}]
+        },
+        timeout=120
     )
 
-    return response.content[0].text
+    if response.status_code != 200:
+        raise Exception(f"API error {response.status_code}: {response.text[:200]}")
+
+    data = response.json()
+    return data["content"][0]["text"]
 
 
 def generate_hatena_title(original_title):
