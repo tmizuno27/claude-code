@@ -1,5 +1,5 @@
 # 全事業 PDCA 日次レポート (2026-03-25)
-実行時刻: 2026-03-25 06:30 PYT
+実行時刻: 2026-03-25 17:37 PYT
 
 
 # 古い記事・パフォーマンス低下 検出レポート (2026-03-25)
@@ -17,7 +17,7 @@
 - 特記事項なし
 
 ---
-*自動生成: 2026-03-25 06:30 PYT*
+*自動生成: 2026-03-25 17:37 PYT*
 
 # 1. ブログ 3サイト
 
@@ -28,29 +28,46 @@
 - GA4（7日間）: PV=131 / ユーザー=27 / セッション=34
 
 ### ACT
-- 公開記事数: 76
-- 内部リンク不足（2本未満）: 0件
+- 公開記事数: 80
+- 内部リンク不足（2本未満）: 2件
+  - `%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e3%81%ab%e6%97%a5%e6%9c%ac%e4%ba%ba%e3%81%8c%e7%a7%bb%e4%bd%8f%e3%81%99%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%83%bb%e3%83%87%e3%83%a1%e3%83%aa`
+  - `%e3%83%91%e3%83%a9%e3%82%b0%e3%82%a2%e3%82%a4%e6%b0%b8%e4%bd%8f%e6%a8%a9%e3%81%ae%e8%b2%bb%e7%94%a8%e3%81%a8%e7%94%b3%e8%ab%8b%e6%89%8b%e9%a0%86%e3%82%92%e5%9c%a8%e4%bd%8f%e8%80%85%e3%81%8c%e8%a7%a3`
 
 ### PLAN
-# blogs: エラー
-```
-Traceback (most recent call last):
-  File "C:\Users\tmizu\マイドライブ\GitHub\claude-code\infrastructure\tools\seo-pdca\daily_all_business_pdca.py", line 1291, in main
-    func()
-    ~~~~^^
-  File "C:\Users\tmizu\マイドライブ\GitHub\claude-code\infrastructure\tools\seo-pdca\daily_all_business_pdca.py", line 261, in pdca_blogs
-    if now_imp < 50:
-       ^^^^^^^
-UnboundLocalError: cannot access local variable 'now_imp' where it is not associated with a value
+- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
 
-```
+## マッチングナビ (otona-match.com)
+
+### CHECK: GSCエラー: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+
+### ACT
+- 公開記事数: 88
+- 内部リンク不足（2本未満）: 2件
+  - `matching-app-shinken-kousai`
+  - `kekkon-soudan-40dai-josei-osusume`
+
+### PLAN
+- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
+
+## SIM比較 (sim-hikaku.online)
+
+### CHECK: GSCエラー: ('invalid_grant: Invalid JWT Signature.', {'error': 'invalid_grant', 'error_description': 'Invalid JWT Signature.'})
+
+### ACT
+- 公開記事数: 67
+- 内部リンク不足（2本未満）: 2件
+  - `wimax-kakuyasu-sim-hikaku`
+  - `esim-osusume-2026`
+
+### PLAN
+- ⚠️ インプレッション極少 → ロングテールKW記事追加が急務
 
 # はてなブログ（nambei-oyaji.hatenablog.com）
 
 ### CHECK
 - 総投稿数: **0**
 - 過去7日の投稿: **0件**
-- 変換済みダイジェスト: 9件
+- 変換済みダイジェスト: 16件
 - パイプライン最終実行: 2026-03-25 07:00 PYT
 
 ### ACT
@@ -124,7 +141,7 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 # 7. Apify Actors（5本）
 
 ### CHECK
-- 公開Actor数: 5
+- 公開Actor数: 8
 - ⚠️ Apify API統計の自動取得は未実装
 
 ### PLAN
@@ -155,18 +172,18 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 # 11. Dev.to（技術記事）
 
 ### CHECK
-- 記事数: 6
+- 記事数: 8
 - 総閲覧数: 0
 - 総リアクション: 0
 - 総コメント: 0
 
 | 記事 | 閲覧数 | リアクション |
 |------|------:|----------:|
+| Free Screenshot API — Capture Any Webpage as PNG w | 0 | 0 |
+| Free Email Validation API — Catch Disposable & Inv | 0 | 0 |
 | How to Build a Trending Topics Dashboard with One  | 0 | 0 |
 | Automate WordPress Internal Linking for SEO — Free | 0 | 0 |
 | Free WHOIS & DNS Lookup API — Build Domain Tools W | 0 | 0 |
-| Build Automated SEO Audits with a Free API -- No A | 0 | 0 |
-| Free IP Geolocation API with VPN Detection -- ipin | 0 | 0 |
 
 ### PLAN
 - 閲覧数が伸びている記事があればRapidAPI導線を強化
@@ -187,12 +204,12 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 # 13. Stock Assets（出品準備中）
 
 ### CHECK
-- 生成済み画像: 775枚
-- メタデータCSV: 21ファイル
+- 生成済み画像: 914枚
+- メタデータCSV: 22ファイル
 - ステータス: 出品準備中（Adobe Stock/Freepik）
 
 ### PLAN
-- ✅ 775枚生成済み → Adobe Stockアカウント開設→テスト出品が次のステップ
+- ✅ 914枚生成済み → Adobe Stockアカウント開設→テスト出品が次のステップ
 - 出品後はダウンロード数・収益をAdobe Stock Contributorダッシュボードで追跡
 
 # 14. POD Etsy — AsuInk（準備中）
@@ -222,12 +239,12 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 ### CHECK — ログ最終更新
 | ログ | 最終更新 | ステータス |
 |------|---------|-----------|
-| Git自動同期 | 03/25 06:44 | ✅ 正常 |
-| SEO PDCA | 03/25 06:01 | ✅ 正常 |
-| X投稿(@nambei) | 03/24 19:40 | ✅ 正常 |
-| X投稿(@prodhq27) | 03/24 19:19 | ✅ 正常 |
+| Git自動同期 | 03/25 17:38 | ✅ 正常 |
+| SEO PDCA | 03/25 17:37 | ✅ 正常 |
+| X投稿(@nambei) | 03/25 14:16 | ✅ 正常 |
+| X投稿(@prodhq27) | 03/25 14:00 | ✅ 正常 |
 | APIヘルスチェック | 03/25 06:00 | ✅ 正常 |
-| ダッシュボード更新 | 03/25 07:00 | ✅ 正常 |
+| ダッシュボード更新 | 03/25 17:00 | ✅ 正常 |
 
 ### PLAN
 - 停止/遅延しているタスクがあれば原因調査→復旧
@@ -237,12 +254,12 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 ### CHECK
 - URL: https://keisan-tools.com
 - 稼働状況: HTTP 200
-- サイトマップ: ⚠️ サイトマップ未検出または解析失敗
-- 公開ページ数: 0
+- サイトマップ: ✅ sitemap.xml (369ページ)
+- 公開ページ数: 369
 - GA4エラー: 401 Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.
 
 ### ACT
-- ⚠️ 0ページ → AdSense申請には30ページ以上必要。ページ追加を優先
+- ✅ 369ページ公開中 → AdSense申請可能ライン
 
 ### PLAN
 - 300ページ目標に向けてページ量産継続
@@ -263,12 +280,12 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 # 18. フリーランス（Fiverr/Upwork）
 
 ### CHECK
-- Gig定義ファイル数: 29
+- Gig定義ファイル数: 30
   - `CLAUDE.md`
+  - `fiverr-gigs-ready.md`
   - `01_概要・使い分けガイド.md`
   - `02_日本人が稼ぎやすいジャンルTOP10.md`
   - `03_滑舌不要ジャンルTOP10.md`
-  - `04_特化戦略ガイド.md`
 
 ### PLAN
 - Fiverrアカウント開設・Gig公開の進捗確認
@@ -297,7 +314,7 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 # 21. AI自動化ビジネス
 
 ### CHECK
-- 企画書・リサーチファイル数: 48
+- 企画書・リサーチファイル数: 49
   - `ai-business-comparison.md`
   - `api-ideas-ranked.md`
   - `api-marketplace-research.md`
@@ -334,4 +351,4 @@ UnboundLocalError: cannot access local variable 'now_imp' where it is not associ
 - 事業別ROIの把握 → 注力先の判断材料に
 
 ---
-*自動生成: 2026-03-25 06:30 PYT*
+*自動生成: 2026-03-25 17:37 PYT*
