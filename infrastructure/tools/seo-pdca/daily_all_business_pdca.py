@@ -496,14 +496,14 @@ def pdca_twitter():
         if acc["log"].exists():
             try:
                 lines = acc["log"].read_text(encoding="utf-8", errors="replace").splitlines()
+                last_date = ""
                 for l in lines:
-                    # ログ形式: [2026-03-25 14:16:18] or 2026-03-25 ...
-                    date_str = ""
-                    if l.startswith("[") and len(l) > 11:
-                        date_str = l[1:11]
+                    # ログ形式: [2026-03-25 14:16:18] or 2026-03-25T... or タイムスタンプなし
+                    if l.startswith("[") and len(l) > 11 and l[1:5].isdigit():
+                        last_date = l[1:11]
                     elif len(l) > 10 and l[:4].isdigit():
-                        date_str = l[:10]
-                    if date_str >= week_ago:
+                        last_date = l[:10]
+                    if last_date >= week_ago:
                         if "OK:" in l or "POSTED" in l or "投稿成功" in l:
                             recent += 1
                         if "error" in l.lower() or "fail" in l.lower():
