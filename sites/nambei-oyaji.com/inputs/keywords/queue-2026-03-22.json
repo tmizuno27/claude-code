@@ -95,7 +95,9 @@
     "keyword": "海外 リモートワーク 税金",
     "type": "longtail",
     "priority": 16,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-25",
+    "article_path": "outputs/articles/2026-03-25/article-kaigai-remotework-zeikin.md"
   },
   {
     "keyword": "海外 リモートワーク ビザ",

@@ -1,0 +1,28 @@
+{
+  "slug": "condo-monthly",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "マンション月額費用計算",
+  "description": "住宅ローン返済額・管理費・修繕積立金・駐車場代を合計した月額費用を計算。",
+  "metaTitle": "マンション月額費用計算ツール｜ローン+管理費+修繕積立金の合計シミュレーション",
+  "metaDescription": "住宅ローン返済額・管理費・修繕積立金・駐車場代を入力して月額と年額の総コストを自動計算する無料ツール。",
+  "calculatorFunction": "condoMonthly",
+  "inputs": [
+    { "id": "loanPayment", "label": "住宅ローン月額返済", "type": "number", "unit": "円", "default": 80000, "min": 0, "max": 500000, "step": 1000 },
+    { "id": "managementFee", "label": "管理費", "type": "number", "unit": "円", "default": 15000, "min": 0, "max": 100000, "step": 500 },
+    { "id": "repairReserve", "label": "修繕積立金", "type": "number", "unit": "円", "default": 12000, "min": 0, "max": 100000, "step": 500 },
+    { "id": "parkingFee", "label": "駐車場代", "type": "number", "unit": "円", "default": 15000, "min": 0, "max": 50000, "step": 500 },
+    { "id": "otherFee", "label": "その他（町会費等）", "type": "number", "unit": "円", "default": 500, "min": 0, "max": 10000, "step": 100 }
+  ],
+  "outputs": [
+    { "id": "total", "label": "月額合計", "format": "yen", "primary": true },
+    { "id": "nonLoan", "label": "ローン以外の固定費", "format": "yen" },
+    { "id": "annual", "label": "年間合計", "format": "yen" }
+  ],
+  "explanation": "<h3>マンション維持費の内訳</h3><p>住宅ローン以外にも管理費・修繕積立金・駐車場代などが毎月かかります。購入前にトータルコストを把握することが重要です。</p>",
+  "faq": [
+    { "question": "管理費と修繕積立金の相場は？", "answer": "管理費は月1〜2万円、修繕積立金は月1〜1.5万円が相場です。築年数が古いマンションほど高くなる傾向があります。" }
+  ],
+  "related": ["housing-loan", "rent-vs-buy", "rent-budget"],
+  "popular": false
+}

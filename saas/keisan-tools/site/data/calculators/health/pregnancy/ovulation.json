@@ -1,0 +1,27 @@
+{
+  "slug": "ovulation",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "排卵日計算",
+  "description": "最終月経日と生理周期から排卵日・妊娠しやすい期間を計算。次の生理予定日も表示。",
+  "metaTitle": "排卵日計算ツール｜最終月経日から排卵日・妊娠しやすい日を自動計算",
+  "metaDescription": "最終月経日と生理周期を入力するだけで排卵予定日と妊娠しやすい期間を自動計算。次の生理予定日も表示する無料ツール。",
+  "calculatorFunction": "ovulationCalc",
+  "inputs": [
+    { "id": "lastPeriod", "label": "最終月経開始日", "type": "date", "default": "today" },
+    { "id": "cycleLength", "label": "生理周期", "type": "number", "unit": "日", "default": 28, "min": 21, "max": 45, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "ovulationDate", "label": "排卵予定日", "format": "text", "primary": true },
+    { "id": "fertileStart", "label": "妊娠しやすい期間（開始）", "format": "text" },
+    { "id": "fertileEnd", "label": "妊娠しやすい期間（終了）", "format": "text" },
+    { "id": "nextPeriod", "label": "次の生理予定日", "format": "text" }
+  ],
+  "explanation": "<h3>排卵日の計算方法</h3><p>排卵日は次の生理予定日の約14日前に起こります。排卵日 = 最終月経開始日 +（生理周期 − 14日）で計算します。</p><h3>妊娠しやすい期間</h3><p>排卵日の5日前から排卵日翌日までが妊娠しやすい期間とされています。</p>",
+  "faq": [
+    { "question": "排卵日は正確にわかる？", "answer": "あくまで目安です。より正確に知りたい場合は基礎体温の測定や排卵検査薬の使用をおすすめします。" }
+  ],
+  "related": ["due-date", "pregnancy-week"],
+  "popular": true,
+  "popularOrder": 21
+}

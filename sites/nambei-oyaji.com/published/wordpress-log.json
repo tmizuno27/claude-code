@@ -358,6 +358,15 @@
       "status": "draft",
       "source_file": "outputs\\articles\\kaigai-freelance-zeikin-hikiojusha.md",
       "published_at": "2026-03-25T05:08:54.139406"
+    },
+    {
+      "source_file": "outputs/articles/2026-03-25/article-kaigai-remotework-zeikin.md",
+      "post_id": 3127,
+      "title": "海外リモートワークの税金はどうなる？非居住者の確定申告・源泉徴収を在住者が解説【2026年版】",
+      "slug": "kaigai-remotework-zeikin",
+      "status": "draft",
+      "published_at": "2026-03-25",
+      "keyword": "海外 リモートワーク 税金"
     }
   ]
 }

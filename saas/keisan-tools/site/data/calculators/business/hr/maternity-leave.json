@@ -1,0 +1,25 @@
+{
+  "slug": "maternity-leave",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "産休・育休期間計算",
+  "description": "出産予定日から産前産後休業・育児休業の期間を自動計算。職場復帰予定日の目安がわかる。",
+  "metaTitle": "産休・育休期間計算ツール｜出産予定日から休業期間を自動計算",
+  "metaDescription": "出産予定日を入力するだけで産前休業・産後休業・育児休業の期間と終了日を自動計算。復帰予定日の確認に。",
+  "calculatorFunction": "maternityLeave",
+  "inputs": [
+    { "id": "dueDate", "label": "出産予定日", "type": "date", "default": "today" }
+  ],
+  "outputs": [
+    { "id": "prenatalStart", "label": "産前休業開始日", "format": "text", "primary": true },
+    { "id": "postnatalEnd", "label": "産後休業終了日", "format": "text" },
+    { "id": "childcareEnd1", "label": "育休終了日（1歳まで）", "format": "text" },
+    { "id": "childcareEnd2", "label": "育休延長時（2歳まで）", "format": "text" }
+  ],
+  "explanation": "<h3>産休・育休の法定期間</h3><ul><li><strong>産前休業</strong>: 出産予定日の6週間前（42日前）から</li><li><strong>産後休業</strong>: 出産翌日から8週間（56日間）</li><li><strong>育児休業</strong>: 産後休業終了翌日〜子が1歳になるまで（保育所に入れない場合は最長2歳まで延長可）</li></ul>",
+  "faq": [
+    { "question": "パパ育休はいつから？", "answer": "2022年10月から「産後パパ育休（出生時育児休業）」が施行。子の出生後8週間以内に最大4週間取得可能です。" }
+  ],
+  "related": ["annual-leave", "social-insurance"],
+  "popular": false
+}

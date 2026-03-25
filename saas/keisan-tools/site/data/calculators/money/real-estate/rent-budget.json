@@ -1,0 +1,26 @@
+{
+  "slug": "rent-budget",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "家賃の目安計算",
+  "description": "手取り月収から適正家賃の目安を計算。初期費用の目安も算出。",
+  "metaTitle": "家賃の目安計算ツール｜手取り月収から適正家賃をシミュレーション",
+  "metaDescription": "手取り月収を入力するだけで適正家賃の目安を自動計算。年間家賃・初期費用の目安もわかる無料ツール。",
+  "calculatorFunction": "rentBudget",
+  "inputs": [
+    { "id": "monthlyIncome", "label": "手取り月収", "type": "number", "unit": "円", "default": 250000, "min": 50000, "max": 2000000, "step": 10000 },
+    { "id": "ratio", "label": "家賃割合", "type": "slider", "unit": "%", "default": 30, "min": 15, "max": 40, "step": 1, "hint": "一般的には25〜30%" }
+  ],
+  "outputs": [
+    { "id": "budget", "label": "適正家賃", "format": "yen", "primary": true },
+    { "id": "annualRent", "label": "年間家賃", "format": "yen" },
+    { "id": "initialCost", "label": "初期費用目安（家賃5ヶ月分）", "format": "yen" }
+  ],
+  "explanation": "<h3>家賃の適正割合</h3><p>一般的に手取り月収の25〜30%が適正家賃の目安です。30%を超えると生活が厳しくなる可能性があります。</p><h3>初期費用の目安</h3><p>敷金・礼金・仲介手数料・前家賃など、通常は家賃の4〜6ヶ月分が必要です。</p>",
+  "faq": [
+    { "question": "手取り25万で家賃はいくらまで？", "answer": "30%で7.5万円、25%で6.25万円が目安です。固定費を抑えて貯金や投資に回すなら25%以下がおすすめです。" }
+  ],
+  "related": ["rent-vs-buy", "condo-monthly", "housing-loan"],
+  "popular": true,
+  "popularOrder": 23
+}

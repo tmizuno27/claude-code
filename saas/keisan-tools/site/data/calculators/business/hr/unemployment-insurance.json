@@ -1,0 +1,28 @@
+{
+  "slug": "unemployment-insurance",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "失業保険（雇用保険）計算",
+  "description": "退職前の給与から失業手当の日額・総額・受給期間を計算。ハローワーク申請前の金額確認に。",
+  "metaTitle": "失業保険計算ツール｜失業手当の日額・総額を自動シミュレーション",
+  "metaDescription": "退職前の日額賃金・年齢・勤続年数から失業手当(基本手当)の日額・受給期間・総額を自動計算する無料ツール。",
+  "calculatorFunction": "unemploymentInsurance",
+  "inputs": [
+    { "id": "dailyWage", "label": "退職前6ヶ月の平均日額賃金", "type": "number", "unit": "円", "default": 10000, "min": 2000, "max": 30000, "step": 100 },
+    { "id": "age", "label": "年齢", "type": "number", "unit": "歳", "default": 35, "min": 18, "max": 65, "step": 1 },
+    { "id": "yearsWorked", "label": "雇用保険加入期間", "type": "number", "unit": "年", "default": 10, "min": 0, "max": 40, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "dailyAllowance", "label": "基本手当日額", "format": "yen", "primary": true },
+    { "id": "totalDays", "label": "所定給付日数", "format": "number" },
+    { "id": "totalAmount", "label": "受給総額", "format": "yen" },
+    { "id": "monthlyEstimate", "label": "月額換算（28日分）", "format": "yen" }
+  ],
+  "explanation": "<h3>失業手当の計算方法</h3><p>基本手当日額 = 賃金日額 × 給付率（50〜80%）で計算します。給付率は賃金日額が低いほど高くなります。</p><h3>給付日数</h3><p>自己都合退職の場合、雇用保険加入期間に応じて90〜150日。会社都合の場合はさらに長くなります。</p>",
+  "faq": [
+    { "question": "自己都合退職でもらえる？", "answer": "はい。ただし7日間の待期期間+2ヶ月の給付制限期間があり、実際に受給開始は退職から約2ヶ月半後です。" }
+  ],
+  "related": ["take-home-pay", "income-tax", "social-insurance"],
+  "popular": true,
+  "popularOrder": 22
+}
