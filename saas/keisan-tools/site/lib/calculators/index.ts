@@ -3726,6 +3726,374 @@ export function yieldComparison(inputs: Record<string, number | string>): Record
   };
 }
 
+// === UNIT CONVERSION CATEGORY ===
+
+function unitConvert(value: number, direction: string, factor: number, precision: number = 6): { result: number; formula: number } {
+  const result = direction === 'a_to_b' ? value / factor : value * factor;
+  const rounded = Math.round(result * Math.pow(10, precision)) / Math.pow(10, precision);
+  return { result: rounded, formula: rounded };
+}
+
+// Length
+export function cmToInch(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 2.54, 6);
+}
+export function mToFeet(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 0.3048, 6);
+}
+export function kmToMile(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 1.60934, 6);
+}
+export function mmToInch(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 25.4, 6);
+}
+export function mToYard(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 0.9144, 6);
+}
+export function cmToFeet(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 30.48, 6);
+}
+export function mToKm(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 1000, 6);
+}
+export function inchToFeet(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 12, 6);
+}
+export function shakuToCm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 30.303 : v / 30.303;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function sunToMm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 30.303 : v / 30.303;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function riToKm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 3.92727 : v / 3.92727;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function nauticalMileToKm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1.852 : v / 1.852;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function micronToMm(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 1000, 6);
+}
+export function kenToM(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1.81818 : v / 1.81818;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+
+// Weight
+export function kgToLb(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 0.453592 : v * 0.453592;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function gToOz(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 28.3495 : v * 28.3495;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function kgToStone(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 6.35029 : v * 6.35029;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function tonToKg(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1000 : v / 1000;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function mgToG(inputs: Record<string, number | string>): Record<string, number> {
+  return unitConvert(inputs.value as number, inputs.direction as string, 1000, 6);
+}
+export function kanToKg(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 3.75 : v / 3.75;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function monmeToG(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 3.75 : v / 3.75;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function caratToG(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 0.2 : v / 0.2;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function lbToOz(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 16 : v / 16;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function grainToMg(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 64.79891 : v / 64.79891;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+
+// Temperature
+export function celsiusToFahrenheit(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 9 / 5 + 32 : (v - 32) * 5 / 9;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+export function celsiusToKelvin(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v + 273.15 : v - 273.15;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+export function fahrenheitToKelvin(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? (v - 32) * 5 / 9 + 273.15 : (v - 273.15) * 9 / 5 + 32;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+export function celsiusToRankine(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? (v + 273.15) * 9 / 5 : v * 5 / 9 - 273.15;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+export function fahrenheitToCelsius(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? (v - 32) * 5 / 9 : v * 9 / 5 + 32;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+export function reaumurToCelsius(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 5 / 4 : v * 4 / 5;
+  const rounded = Math.round(result * 100) / 100;
+  return { result: rounded, formula: rounded };
+}
+
+// Area
+export function sqmToSqft(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 10.7639 : v / 10.7639;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function hectareToAcre(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 2.47105 : v / 2.47105;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function tsuboToSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 3.30579 : v / 3.30579;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function joToSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1.62 : v / 1.62;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function tsuboToJo(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 2.04 : v / 2.04;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function sqmToAcre(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 4046.86 : v * 4046.86;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function sqkmToSqmi(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 2.58999 : v * 2.58999;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function aarToSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 100 : v / 100;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function seToSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 99.1736 : v / 99.1736;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function tanToSqm(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 991.736 : v / 991.736;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+
+// Volume
+export function literToGallon(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 3.78541 : v * 3.78541;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function mlToFloz(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 29.5735 : v * 29.5735;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function literToCup(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 0.2 : v * 0.2;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function ccToMl(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  return { result: v, formula: v };
+}
+export function literToM3(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 1000 : v * 1000;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function tbspToMl(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 15 : v / 15;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function tspToMl(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 5 : v / 5;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function goToMl(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 180.39 : v / 180.39;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function pintToMl(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 473.176 : v / 473.176;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+export function shoToLiter(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1.80391 : v / 1.80391;
+  const rounded = Math.round(result * 1000000) / 1000000;
+  return { result: rounded, formula: rounded };
+}
+
+// Speed
+export function kmhToMph(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v / 1.60934 : v * 1.60934;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function msToKmh(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 3.6 : v / 3.6;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function knotToKmh(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1.852 : v / 1.852;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function machToKmh(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 1225.044 : v / 1225.044;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function fpsToMs(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 0.3048 : v / 0.3048;
+  const rounded = Math.round(result * 10000) / 10000;
+  return { result: rounded, formula: rounded };
+}
+export function lightSpeedToMs(inputs: Record<string, number | string>): Record<string, number> {
+  const v = inputs.value as number;
+  const d = inputs.direction as string;
+  const result = d === 'a_to_b' ? v * 299792458 : v / 299792458;
+  return { result: result, formula: result };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   adRoas,
@@ -4023,6 +4391,68 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   yieldComparison,
   zodiac,
   calcCompoundInterest: compoundInterest,
+  // Unit conversion category - Length
+  cmToInch,
+  mToFeet,
+  kmToMile,
+  mmToInch,
+  mToYard,
+  cmToFeet,
+  mToKm,
+  inchToFeet,
+  shakuToCm,
+  sunToMm,
+  riToKm,
+  nauticalMileToKm,
+  micronToMm,
+  kenToM,
+  // Unit conversion category - Weight
+  kgToLb,
+  gToOz,
+  kgToStone,
+  tonToKg,
+  mgToG,
+  kanToKg,
+  monmeToG,
+  caratToG,
+  lbToOz,
+  grainToMg,
+  // Unit conversion category - Temperature
+  celsiusToFahrenheit,
+  celsiusToKelvin,
+  fahrenheitToKelvin,
+  celsiusToRankine,
+  fahrenheitToCelsius,
+  reaumurToCelsius,
+  // Unit conversion category - Area
+  sqmToSqft,
+  hectareToAcre,
+  tsuboToSqm,
+  joToSqm,
+  tsuboToJo,
+  sqmToAcre,
+  sqkmToSqmi,
+  aarToSqm,
+  seToSqm,
+  tanToSqm,
+  // Unit conversion category - Volume
+  literToGallon,
+  mlToFloz,
+  literToCup,
+  ccToMl,
+  literToM3,
+  tbspToMl,
+  tspToMl,
+  goToMl,
+  pintToMl,
+  shoToLiter,
+  // Unit conversion category - Speed
+  kmhToMph,
+  msToKmh,
+  knotToKmh,
+  machToKmh,
+  fpsToMs,
+  lightSpeedToMs,
 };
 
 export function getCalculatorFunction(
