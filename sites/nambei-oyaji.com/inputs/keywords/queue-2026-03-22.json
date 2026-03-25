@@ -19,7 +19,9 @@
     "keyword": "パラグアイ 永住権 申請",
     "type": "longtail",
     "priority": 3,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-25",
+    "article_path": "outputs/articles/2026-03-25/article-paraguay-eijuuken-hiyou-shinsei.md"
   },
   {
     "keyword": "パラグアイ 日本人 死亡",
@@ -31,7 +33,9 @@
     "keyword": "パラグアイ 日本人 移住",
     "type": "longtail",
     "priority": 5,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-25",
+    "article_path": "outputs/articles/2026-03-25/article-paraguay-nihonjin-ijuu.md"
   },
   {
     "keyword": "パラグアイ 日本人 仕事",
