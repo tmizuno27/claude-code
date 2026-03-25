@@ -1,0 +1,14 @@
+{
+  "name": "amazon-product-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Scrape Amazon product details including price, reviews, ratings, and specifications",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}
