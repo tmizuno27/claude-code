@@ -1,0 +1,14 @@
+{
+  "name": "email-finder",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Find email addresses and contact info from websites for lead generation",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}
