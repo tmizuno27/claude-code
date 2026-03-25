@@ -1,0 +1,71 @@
+{
+  "slug": "working-capital",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "運転資金計算",
+  "description": "売掛金・買掛金・在庫から必要な運転資金を計算。",
+  "metaTitle": "運転資金計算ツール｜必要な運転資金を自動計算",
+  "metaDescription": "売掛金・買掛金・在庫を入力して必要な運転資金を自動計算。",
+  "calculatorFunction": "workingCapital",
+  "inputs": [
+    {
+      "id": "receivables",
+      "label": "売掛金",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "inventory",
+      "label": "棚卸資産",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "payables",
+      "label": "買掛金",
+      "type": "number",
+      "unit": "万円",
+      "default": 400,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "workingCapital",
+      "label": "所要運転資金",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "turnoverDays",
+      "label": "運転資金回転日数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>運転資金</h3><p>所要運転資金 = 売掛金 + 棚卸資産 − 買掛金</p>",
+  "faq": [
+    {
+      "question": "足りない場合は？",
+      "answer": "売掛金回収短縮、在庫削減、短期借入の活用が対策です。"
+    },
+    {
+      "question": "黒字倒産とは？",
+      "answer": "利益は出ているが運転資金不足で支払いができなくなる状態です。"
+    }
+  ],
+  "related": [
+    "cash-flow",
+    "break-even"
+  ],
+  "popular": false
+}

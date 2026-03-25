@@ -1,0 +1,66 @@
+{
+  "slug": "pythagorean",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "三平方の定理計算",
+  "description": "直角三角形の2辺から残りの1辺を計算。",
+  "metaTitle": "三平方の定理（ピタゴラス）計算ツール｜2辺から斜辺を自動計算",
+  "metaDescription": "直角三角形の2辺を入力して斜辺を自動計算。",
+  "calculatorFunction": "pythagorean",
+  "inputs": [
+    {
+      "id": "sideA",
+      "label": "辺a",
+      "type": "number",
+      "unit": "cm",
+      "default": 3,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    },
+    {
+      "id": "sideB",
+      "label": "辺b",
+      "type": "number",
+      "unit": "cm",
+      "default": 4,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hypotenuse",
+      "label": "斜辺c",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number"
+    },
+    {
+      "id": "perimeter",
+      "label": "周長",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>三平方の定理</h3><p>a² + b² = c²</p>",
+  "faq": [
+    {
+      "question": "いつ使う？",
+      "answer": "建築、測量、ナビゲーション等で距離計算に使われます。"
+    },
+    {
+      "question": "逆に辺aを求めるには？",
+      "answer": "a = √(c² - b²)"
+    }
+  ],
+  "related": [
+    "triangle",
+    "circle"
+  ],
+  "popular": false
+}

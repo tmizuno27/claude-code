@@ -1,0 +1,94 @@
+{
+  "slug": "energy-convert",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "エネルギー変換",
+  "description": "cal・kcal・J・kJ・kWhを相互変換。",
+  "metaTitle": "エネルギー変換ツール｜cal⇔J⇔kWhを自動変換",
+  "metaDescription": "エネルギーの単位を自動変換。cal・kcal・J・kJ・kWh対応。",
+  "calculatorFunction": "energyConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1000,
+      "min": 0,
+      "max": 9999999,
+      "step": 1
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "cal",
+          "label": "cal"
+        },
+        {
+          "value": "kcal",
+          "label": "kcal"
+        },
+        {
+          "value": "J",
+          "label": "J"
+        },
+        {
+          "value": "kJ",
+          "label": "kJ"
+        },
+        {
+          "value": "kWh",
+          "label": "kWh"
+        }
+      ],
+      "default": "kcal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "cal",
+      "label": "cal",
+      "format": "number"
+    },
+    {
+      "id": "kcal",
+      "label": "kcal",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "J",
+      "label": "J",
+      "format": "number"
+    },
+    {
+      "id": "kJ",
+      "label": "kJ",
+      "format": "number"
+    },
+    {
+      "id": "kWh",
+      "label": "kWh",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>エネルギー換算</h3><p>1kcal = 4.184kJ。1kWh = 860kcal。</p>",
+  "faq": [
+    {
+      "question": "食品の「100カロリー」は？",
+      "answer": "100kcalです。日常では「カロリー」=「キロカロリー」です。"
+    },
+    {
+      "question": "1kWhは何円？",
+      "answer": "2026年時点で約30〜40円程度です。"
+    }
+  ],
+  "related": [
+    "daily-calorie",
+    "temperature"
+  ],
+  "popular": false
+}

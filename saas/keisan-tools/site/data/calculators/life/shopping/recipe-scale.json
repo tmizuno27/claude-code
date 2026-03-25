@@ -1,0 +1,71 @@
+{
+  "slug": "recipe-scale",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "レシピ分量計算",
+  "description": "レシピの人数変更に合わせて分量を自動換算。",
+  "metaTitle": "レシピ分量計算ツール｜人数に合わせて材料を自動換算",
+  "metaDescription": "レシピの元の人数と変更後の人数を入力して材料の分量を自動換算。",
+  "calculatorFunction": "recipeScale",
+  "inputs": [
+    {
+      "id": "originalServings",
+      "label": "元のレシピ（人数）",
+      "type": "number",
+      "unit": "人分",
+      "default": 4,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "newServings",
+      "label": "作りたい人数",
+      "type": "number",
+      "unit": "人分",
+      "default": 2,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "ingredientAmount",
+      "label": "元の材料の量",
+      "type": "number",
+      "unit": "g",
+      "default": 200,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "scaledAmount",
+      "label": "換算後の量",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ratio",
+      "label": "倍率",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>分量計算</h3><p>換算後 = 元の量 × (作りたい人数 ÷ 元の人数)。4人分→2人分なら全ての材料を半分に。</p>",
+  "faq": [
+    {
+      "question": "調味料も同じ倍率？",
+      "answer": "基本は同じですが、塩・醤油は少し控えめにすると美味しく仕上がります。"
+    },
+    {
+      "question": "加熱時間も変わる？",
+      "answer": "量が変わると加熱時間も調整が必要です。半量なら火の通りが早くなります。"
+    }
+  ],
+  "related": [
+    "per-unit-price",
+    "split-bill"
+  ],
+  "popular": false
+}

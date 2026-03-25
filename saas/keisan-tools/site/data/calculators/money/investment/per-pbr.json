@@ -1,0 +1,81 @@
+{
+  "slug": "per-pbr",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "PER・PBR計算",
+  "description": "株価・EPS・BPSからPER・PBRを計算。割安・割高判定。",
+  "metaTitle": "PER・PBR計算ツール｜株価の割安・割高を自動判定",
+  "metaDescription": "株価とEPS・BPSを入力してPER・PBRを自動計算。割安度の目安も表示。",
+  "calculatorFunction": "perPbr",
+  "inputs": [
+    {
+      "id": "stockPrice",
+      "label": "株価",
+      "type": "number",
+      "unit": "円",
+      "default": 2000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1
+    },
+    {
+      "id": "eps",
+      "label": "EPS（1株当たり利益）",
+      "type": "number",
+      "unit": "円",
+      "default": 150,
+      "min": -10000,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "bps",
+      "label": "BPS（1株当たり純資産）",
+      "type": "number",
+      "unit": "円",
+      "default": 1500,
+      "min": 0,
+      "max": 1000000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "per",
+      "label": "PER（株価収益率）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "pbr",
+      "label": "PBR（株価純資産倍率）",
+      "format": "number"
+    },
+    {
+      "id": "earningsYield",
+      "label": "益回り",
+      "format": "percent"
+    },
+    {
+      "id": "evaluation",
+      "label": "割安度判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>PER</h3><p>株価÷EPS。日本株平均は15倍程度。</p><h3>PBR</h3><p>株価÷BPS。1倍以下は「解散価値以下」。</p>",
+  "faq": [
+    {
+      "question": "PERが低いほどお買い得？",
+      "answer": "一般的にはそうですが、業績悪化懸念で低い場合もあります。"
+    },
+    {
+      "question": "PBR1倍割れとは？",
+      "answer": "株価が企業の解散価値を下回っている状態です。"
+    }
+  ],
+  "related": [
+    "stock-profit",
+    "dividend-yield"
+  ],
+  "popular": false
+}

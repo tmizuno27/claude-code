@@ -1,0 +1,71 @@
+{
+  "slug": "labor-cost",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "人件費計算",
+  "description": "給与額面から会社負担の社会保険料を含む総人件費を計算。",
+  "metaTitle": "人件費計算ツール｜給与額面から会社負担の総コストを自動計算",
+  "metaDescription": "従業員の給与額面を入力して社会保険料の会社負担分を含む総人件費を自動計算。",
+  "calculatorFunction": "laborCost",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給（額面）",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 10,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "bonusMonths",
+      "label": "賞与月数",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 4,
+      "min": 0,
+      "max": 12,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualSalary",
+      "label": "年間給与",
+      "format": "currency"
+    },
+    {
+      "id": "companyInsurance",
+      "label": "社会保険料（会社負担）",
+      "format": "currency"
+    },
+    {
+      "id": "totalCost",
+      "label": "総人件費（年間）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "costRatio",
+      "label": "額面に対する倍率",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>会社負担</h3><p>健康保険約5%、厚生年金9.15%、雇用保険0.6%等。合計約15%が会社負担です。</p>",
+  "faq": [
+    {
+      "question": "社保は折半？",
+      "answer": "健保と厚生年金は折半です。雇用保険と労災は会社負担が大きいです。"
+    },
+    {
+      "question": "パートの社保は？",
+      "answer": "週20h以上・月額8.8万円以上で加入対象です。"
+    }
+  ],
+  "related": [
+    "social-insurance",
+    "overtime-pay"
+  ],
+  "popular": false
+}

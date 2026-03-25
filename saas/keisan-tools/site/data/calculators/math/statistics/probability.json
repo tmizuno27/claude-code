@@ -1,0 +1,66 @@
+{
+  "slug": "probability",
+  "category": "math",
+  "subcategory": "statistics",
+  "title": "確率計算",
+  "description": "順列・組み合わせ・確率を計算。nPr、nCr対応。",
+  "metaTitle": "確率・順列・組み合わせ計算ツール｜nPr・nCrを自動計算",
+  "metaDescription": "n個からr個を選ぶ順列・組み合わせを自動計算。",
+  "calculatorFunction": "probability",
+  "inputs": [
+    {
+      "id": "n",
+      "label": "n（全体の数）",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "r",
+      "label": "r（選ぶ数）",
+      "type": "number",
+      "unit": "",
+      "default": 3,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "permutation",
+      "label": "順列 nPr",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "combination",
+      "label": "組み合わせ nCr",
+      "format": "number"
+    },
+    {
+      "id": "factorial",
+      "label": "n!",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>順列と組み合わせ</h3><p>nPr = n!/(n-r)!（順序あり）。nCr = n!/(r!(n-r)!)（順序なし）。</p>",
+  "faq": [
+    {
+      "question": "ロト6の当選確率は？",
+      "answer": "43C6 = 6,096,454通り。約610万分の1です。"
+    },
+    {
+      "question": "順列と組み合わせの違い？",
+      "answer": "順列は順序を区別、組み合わせは区別しません。"
+    }
+  ],
+  "related": [
+    "average",
+    "standard-deviation"
+  ],
+  "popular": false
+}

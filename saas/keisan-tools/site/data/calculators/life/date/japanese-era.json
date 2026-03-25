@@ -1,0 +1,56 @@
+{
+  "slug": "japanese-era",
+  "category": "life",
+  "subcategory": "date",
+  "title": "和暦・西暦変換",
+  "description": "和暦（令和・平成・昭和）と西暦を相互変換。",
+  "metaTitle": "和暦⇔西暦変換ツール｜令和・平成・昭和を自動変換",
+  "metaDescription": "和暦と西暦を相互変換。生年月日の変換にも便利。",
+  "calculatorFunction": "japaneseEra",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "西暦",
+      "type": "number",
+      "unit": "年",
+      "default": 2026,
+      "min": 1868,
+      "max": 2100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "era",
+      "label": "和暦",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "eraYear",
+      "label": "和暦の年数",
+      "format": "number"
+    },
+    {
+      "id": "eto",
+      "label": "干支",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>元号一覧</h3><p>令和: 2019年〜、平成: 1989〜2019年、昭和: 1926〜1989年、大正: 1912〜1926年、明治: 1868〜1912年</p>",
+  "faq": [
+    {
+      "question": "令和元年は西暦何年？",
+      "answer": "2019年です。"
+    },
+    {
+      "question": "昭和100年は西暦何年？",
+      "answer": "2025年です（昭和年数+1925）。"
+    }
+  ],
+  "related": [
+    "age-calculator",
+    "zodiac"
+  ],
+  "popular": false
+}

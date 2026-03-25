@@ -1,0 +1,62 @@
+{
+  "slug": "business-days",
+  "category": "life",
+  "subcategory": "date",
+  "title": "営業日計算",
+  "description": "開始日から指定営業日後の日付を計算。祝日を考慮。",
+  "metaTitle": "営業日計算ツール｜土日祝を除いた営業日を自動計算",
+  "metaDescription": "開始日から指定営業日数後の日付を自動計算。土日祝日を除いた営業日計算。",
+  "calculatorFunction": "businessDays",
+  "inputs": [
+    {
+      "id": "startDate",
+      "label": "開始日",
+      "type": "date",
+      "default": "2026-04-01"
+    },
+    {
+      "id": "days",
+      "label": "営業日数",
+      "type": "number",
+      "unit": "日",
+      "default": 10,
+      "min": 1,
+      "max": 365,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "endDate",
+      "label": "指定営業日後の日付",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "calendarDays",
+      "label": "暦日数",
+      "format": "number"
+    },
+    {
+      "id": "weekends",
+      "label": "含まれる土日数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>営業日とは</h3><p>土曜・日曜・祝日を除いた平日のことです。ビジネスの納期計算に使われます。</p>",
+  "faq": [
+    {
+      "question": "祝日は考慮される？",
+      "answer": "本ツールでは土日のみ除外。祝日は年度によって異なるため概算です。"
+    },
+    {
+      "question": "10営業日は何週間？",
+      "answer": "通常2週間（14暦日）です。祝日があると少し延びます。"
+    }
+  ],
+  "related": [
+    "work-days",
+    "days-between"
+  ],
+  "popular": false
+}

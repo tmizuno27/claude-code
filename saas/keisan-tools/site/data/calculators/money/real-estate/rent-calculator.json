@@ -1,0 +1,71 @@
+{
+  "slug": "rent-calculator",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "適正家賃計算",
+  "description": "年収・手取りから適正な家賃の上限を計算。",
+  "metaTitle": "適正家賃計算ツール｜年収から家賃の目安を自動計算",
+  "metaDescription": "年収を入力するだけで適正家賃の目安を自動計算。手取りの25%・30%・35%の3段階表示。",
+  "calculatorFunction": "rentCalculator",
+  "inputs": [
+    {
+      "id": "income",
+      "label": "年収（額面）",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "familySize",
+      "label": "家族人数",
+      "type": "number",
+      "unit": "人",
+      "default": 1,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "conservative",
+      "label": "堅実ライン（25%）",
+      "format": "currency"
+    },
+    {
+      "id": "standard",
+      "label": "標準ライン（30%）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "max",
+      "label": "上限ライン（35%）",
+      "format": "currency"
+    },
+    {
+      "id": "estimatedTakeHome",
+      "label": "手取り月額（推定）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>家賃の目安</h3><p>手取りの30%以内が適正。25%以内なら貯蓄に余裕が生まれます。</p>",
+  "faq": [
+    {
+      "question": "年収400万なら？",
+      "answer": "手取り約26万円の30%で約7.8万円が目安です。"
+    },
+    {
+      "question": "家族が増えたら？",
+      "answer": "教育費・食費が増えるため25%以内推奨です。"
+    }
+  ],
+  "related": [
+    "take-home-pay",
+    "rent-vs-buy"
+  ],
+  "popular": false
+}

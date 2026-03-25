@@ -1,0 +1,67 @@
+{
+  "slug": "ovulation-day",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "排卵日予測計算",
+  "description": "生理周期から排卵日と妊娠しやすい時期を予測。",
+  "metaTitle": "排卵日予測計算ツール｜生理周期から排卵日を自動計算",
+  "metaDescription": "最終生理日と周期を入力して排卵日と妊娠しやすい期間を自動予測。",
+  "calculatorFunction": "ovulationDay",
+  "inputs": [
+    {
+      "id": "lastPeriod",
+      "label": "最終月経開始日",
+      "type": "date",
+      "default": "2026-03-01"
+    },
+    {
+      "id": "cycleLength",
+      "label": "生理周期",
+      "type": "number",
+      "unit": "日",
+      "default": 28,
+      "min": 21,
+      "max": 45,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "ovulationDate",
+      "label": "排卵予定日",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "fertileStart",
+      "label": "妊娠しやすい期間（開始）",
+      "format": "text"
+    },
+    {
+      "id": "fertileEnd",
+      "label": "妊娠しやすい期間（終了）",
+      "format": "text"
+    },
+    {
+      "id": "nextPeriod",
+      "label": "次回生理予定日",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>排卵日の計算</h3><p>排卵は次の生理予定日の約14日前に起こります。</p>",
+  "faq": [
+    {
+      "question": "計算通りに排卵する？",
+      "answer": "個人差が大きいため、基礎体温や排卵検査薬の併用を推奨します。"
+    },
+    {
+      "question": "周期が不規則な場合は？",
+      "answer": "計算精度が低下します。婦人科に相談しましょう。"
+    }
+  ],
+  "related": [
+    "due-date",
+    "pregnancy-week"
+  ],
+  "popular": false
+}

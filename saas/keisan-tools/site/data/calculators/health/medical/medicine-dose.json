@@ -1,0 +1,76 @@
+{
+  "slug": "medicine-dose",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "薬の服用量計算",
+  "description": "体重から小児の薬の適正服用量を計算。",
+  "metaTitle": "薬の服用量計算ツール｜体重から適正量を自動計算",
+  "metaDescription": "体重と用量を入力して適正な服用量を自動計算。",
+  "calculatorFunction": "medicineDose",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 20,
+      "min": 1,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "dosePerKg",
+      "label": "用量",
+      "type": "number",
+      "unit": "mg/kg",
+      "default": 10,
+      "min": 0.1,
+      "max": 1000,
+      "step": 0.1
+    },
+    {
+      "id": "timesPerDay",
+      "label": "服用回数",
+      "type": "number",
+      "unit": "回/日",
+      "default": 3,
+      "min": 1,
+      "max": 6,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "singleDose",
+      "label": "1回の服用量",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "dailyDose",
+      "label": "1日の総量",
+      "format": "number"
+    },
+    {
+      "id": "weeklyDose",
+      "label": "1週間の総量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>注意</h3><p>本ツールは参考値です。実際の服用量は必ず医師・薬剤師の指示に従ってください。</p>",
+  "faq": [
+    {
+      "question": "子供の薬は大人の半分？",
+      "answer": "いいえ。必ず体重あたりの用量で計算してください。"
+    },
+    {
+      "question": "体重が増えたら量も変わる？",
+      "answer": "はい。定期的に医師に確認しましょう。"
+    }
+  ],
+  "related": [
+    "medical-expense",
+    "high-cost-medical"
+  ],
+  "popular": false
+}

@@ -1,0 +1,81 @@
+{
+  "slug": "fire-insurance",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "火災保険料計算",
+  "description": "建物の構造・面積から火災保険料の概算を計算。",
+  "metaTitle": "火災保険料計算ツール｜建物条件から保険料を自動概算【2026年版】",
+  "metaDescription": "建物の構造や面積を入力して火災保険料の目安を自動計算。",
+  "calculatorFunction": "fireInsurance",
+  "inputs": [
+    {
+      "id": "buildingType",
+      "label": "建物構造",
+      "type": "select",
+      "options": [
+        {
+          "value": "wood",
+          "label": "木造"
+        },
+        {
+          "value": "steel",
+          "label": "鉄骨造"
+        },
+        {
+          "value": "rc",
+          "label": "鉄筋コンクリート"
+        }
+      ],
+      "default": "wood"
+    },
+    {
+      "id": "area",
+      "label": "延べ床面積",
+      "type": "number",
+      "unit": "㎡",
+      "default": 100,
+      "min": 10,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "coverage",
+      "label": "保険金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 2000,
+      "min": 100,
+      "max": 100000,
+      "step": 100
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualPremium",
+      "label": "年間保険料（概算）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "fiveYearPremium",
+      "label": "5年一括払い（概算）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>火災保険料の決まり方</h3><p>建物の構造、所在地、築年数、保険金額によって決まります。</p>",
+  "faq": [
+    {
+      "question": "火災保険は必須？",
+      "answer": "法的には任意ですが、住宅ローン利用時は加入が条件です。"
+    },
+    {
+      "question": "地震保険は別？",
+      "answer": "はい。火災保険とセットでしか加入できません。"
+    }
+  ],
+  "related": [
+    "earthquake-insurance",
+    "rent-vs-buy"
+  ],
+  "popular": false
+}

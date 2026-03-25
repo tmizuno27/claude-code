@@ -1,0 +1,83 @@
+{
+  "slug": "waist-hip-ratio",
+  "category": "health",
+  "subcategory": "body",
+  "title": "ウエスト・ヒップ比計算",
+  "description": "ウエストとヒップの比率からメタボリスクを判定。",
+  "metaTitle": "ウエスト・ヒップ比計算ツール｜メタボリスクを自動判定",
+  "metaDescription": "ウエストとヒップを入力してWHRとメタボリスクを自動判定。",
+  "calculatorFunction": "waistHipRatio",
+  "inputs": [
+    {
+      "id": "waist",
+      "label": "ウエスト",
+      "type": "number",
+      "unit": "cm",
+      "default": 80,
+      "min": 40,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "hip",
+      "label": "ヒップ",
+      "type": "number",
+      "unit": "cm",
+      "default": 95,
+      "min": 40,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "whr",
+      "label": "ウエスト・ヒップ比",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "risk",
+      "label": "健康リスク",
+      "format": "text"
+    },
+    {
+      "id": "bodyType",
+      "label": "体型タイプ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>WHR</h3><p>男性0.90以上、女性0.85以上は内臓脂肪型肥満のリスク高です。</p>",
+  "faq": [
+    {
+      "question": "BMIとWHRどちらが重要？",
+      "answer": "WHRの方が心血管疾患リスク予測に優れるという研究もあります。"
+    },
+    {
+      "question": "ウエストの測り方は？",
+      "answer": "おへその高さで息を吐いたときに測ります。"
+    }
+  ],
+  "related": [
+    "bmi",
+    "body-fat",
+    "ideal-weight"
+  ],
+  "popular": false
+}

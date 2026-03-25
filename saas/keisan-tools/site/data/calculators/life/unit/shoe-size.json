@@ -1,0 +1,72 @@
+{
+  "slug": "shoe-size",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "靴サイズ変換",
+  "description": "日本・US・UK・EUの靴サイズを相互変換。",
+  "metaTitle": "靴サイズ変換ツール｜日本⇔US⇔UK⇔EUサイズを自動変換",
+  "metaDescription": "日本の靴サイズからUS・UK・EUサイズを自動変換。海外通販に便利。",
+  "calculatorFunction": "shoeSize",
+  "inputs": [
+    {
+      "id": "jpSize",
+      "label": "日本サイズ",
+      "type": "number",
+      "unit": "cm",
+      "default": 26,
+      "min": 15,
+      "max": 35,
+      "step": 0.5
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "us",
+      "label": "USサイズ",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "uk",
+      "label": "UKサイズ",
+      "format": "number"
+    },
+    {
+      "id": "eu",
+      "label": "EUサイズ",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>サイズ換算の目安</h3><p>日本26cm = US8（男性）= UK7.5 = EU41程度。メーカーにより差があります。</p>",
+  "faq": [
+    {
+      "question": "海外の靴は大きめ？",
+      "answer": "ブランドにより異なります。0.5〜1サイズ大きめを選ぶのが安全です。"
+    },
+    {
+      "question": "足幅はどう選ぶ？",
+      "answer": "日本人は幅広が多いため、ワイド(W)を選ぶと快適な場合があります。"
+    }
+  ],
+  "related": [
+    "length",
+    "weight-convert"
+  ],
+  "popular": false
+}

@@ -1,0 +1,76 @@
+{
+  "slug": "hensachi",
+  "category": "education",
+  "subcategory": "school",
+  "title": "偏差値計算",
+  "description": "テストの点数から偏差値を計算。",
+  "metaTitle": "偏差値計算ツール｜テストの点数から偏差値を自動計算",
+  "metaDescription": "テストの点数と平均点を入力して偏差値を自動計算。",
+  "calculatorFunction": "hensachi",
+  "inputs": [
+    {
+      "id": "score",
+      "label": "あなたの点数",
+      "type": "number",
+      "unit": "点",
+      "default": 75,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "average",
+      "label": "平均点",
+      "type": "number",
+      "unit": "点",
+      "default": 60,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "sd",
+      "label": "標準偏差",
+      "type": "number",
+      "unit": "",
+      "default": 15,
+      "min": 0.1,
+      "max": 1000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hensachi",
+      "label": "偏差値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "percentile",
+      "label": "上位何%",
+      "format": "percent"
+    },
+    {
+      "id": "rank",
+      "label": "100人中の順位",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>偏差値の計算式</h3><p>偏差値 = (得点−平均点)÷標準偏差×10+50</p>",
+  "faq": [
+    {
+      "question": "100を超えることはある？",
+      "answer": "理論上はありますが実際にはほぼありません。"
+    },
+    {
+      "question": "日本独自？",
+      "answer": "はい。海外ではパーセンタイル順位が一般的です。"
+    }
+  ],
+  "related": [
+    "exam-score",
+    "standard-deviation"
+  ],
+  "popular": false
+}

@@ -1,0 +1,66 @@
+{
+  "slug": "trapezoid",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "台形の面積計算",
+  "description": "上底・下底・高さから台形の面積を計算。",
+  "metaTitle": "台形の面積計算ツール｜上底・下底・高さから自動計算",
+  "metaDescription": "上底・下底・高さを入力して台形の面積を自動計算。",
+  "calculatorFunction": "trapezoid",
+  "inputs": [
+    {
+      "id": "topBase",
+      "label": "上底",
+      "type": "number",
+      "unit": "cm",
+      "default": 5,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    },
+    {
+      "id": "bottomBase",
+      "label": "下底",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    },
+    {
+      "id": "height",
+      "label": "高さ",
+      "type": "number",
+      "unit": "cm",
+      "default": 8,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>公式</h3><p>面積 = (上底 + 下底) × 高さ ÷ 2</p>",
+  "faq": [
+    {
+      "question": "台形とは？",
+      "answer": "1組の対辺が平行な四角形です。"
+    },
+    {
+      "question": "公式を忘れたら？",
+      "answer": "「（上底＋下底）×高さ÷2」。長方形の応用です。"
+    }
+  ],
+  "related": [
+    "rectangle",
+    "triangle"
+  ],
+  "popular": false
+}

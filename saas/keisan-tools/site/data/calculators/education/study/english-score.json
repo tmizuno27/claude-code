@@ -1,0 +1,61 @@
+{
+  "slug": "english-score",
+  "category": "education",
+  "subcategory": "study",
+  "title": "英語スコア換算",
+  "description": "TOEIC・TOEFL・英検・IELTSのスコアを相互換算。",
+  "metaTitle": "英語スコア換算ツール｜TOEIC⇔TOEFL⇔英検⇔IELTSを自動換算",
+  "metaDescription": "TOEIC・TOEFL・英検・IELTSのスコアを相互換算。目安の対照表付き。",
+  "calculatorFunction": "englishScore",
+  "inputs": [
+    {
+      "id": "toeicScore",
+      "label": "TOEICスコア",
+      "type": "number",
+      "unit": "点",
+      "default": 700,
+      "min": 10,
+      "max": 990,
+      "step": 5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "toeflIbt",
+      "label": "TOEFL iBT（目安）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "eiken",
+      "label": "英検（目安）",
+      "format": "text"
+    },
+    {
+      "id": "ielts",
+      "label": "IELTS（目安）",
+      "format": "number"
+    },
+    {
+      "id": "cefr",
+      "label": "CEFR",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>スコア換算の目安</h3><p>TOEIC 900点≒TOEFL iBT 100点≒英検1級≒IELTS 7.0≒CEFR C1</p><h3>注意</h3><p>異なるテストの正確な換算は困難です。あくまで目安としてご利用ください。</p>",
+  "faq": [
+    {
+      "question": "TOEICとTOEFLの違いは？",
+      "answer": "TOEICはリスニング・リーディング中心（ビジネス英語）。TOEFLは4技能（アカデミック英語）です。"
+    },
+    {
+      "question": "就活に必要なスコアは？",
+      "answer": "TOEIC 600点以上で「英語力あり」、730点以上で「英語を活かせる」と評価されます。"
+    }
+  ],
+  "related": [
+    "hensachi",
+    "gpa"
+  ],
+  "popular": false
+}

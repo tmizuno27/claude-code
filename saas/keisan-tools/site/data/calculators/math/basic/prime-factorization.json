@@ -1,0 +1,56 @@
+{
+  "slug": "prime-factorization",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "素因数分解",
+  "description": "整数を素因数分解して素数の積で表現。",
+  "metaTitle": "素因数分解ツール｜整数を素数の積に自動分解",
+  "metaDescription": "整数を入力するだけで素因数分解を自動計算。約数の個数も表示。",
+  "calculatorFunction": "primeFactorization",
+  "inputs": [
+    {
+      "id": "number",
+      "label": "整数",
+      "type": "number",
+      "unit": "",
+      "default": 360,
+      "min": 2,
+      "max": 999999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "factorization",
+      "label": "素因数分解",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "divisorCount",
+      "label": "約数の個数",
+      "format": "number"
+    },
+    {
+      "id": "isPrime",
+      "label": "素数判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>素因数分解</h3><p>360 = 2³ × 3² × 5。</p>",
+  "faq": [
+    {
+      "question": "何に使う？",
+      "answer": "GCD・LCM計算、暗号理論等に使われます。"
+    },
+    {
+      "question": "1は素数？",
+      "answer": "いいえ。素数は「1より大きい自然数で1と自身でしか割れない数」です。"
+    }
+  ],
+  "related": [
+    "gcd-lcm",
+    "percentage"
+  ],
+  "popular": false
+}

@@ -1,0 +1,86 @@
+{
+  "slug": "garden-soil",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "土・砂利の量計算",
+  "description": "花壇・庭の面積と深さから必要な土・砂利の量を計算。",
+  "metaTitle": "土・砂利の必要量計算ツール｜花壇の面積から自動計算",
+  "metaDescription": "花壇の面積と深さを入力して必要な土・砂利の量とコストを自動計算。",
+  "calculatorFunction": "gardenSoil",
+  "inputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "type": "number",
+      "unit": "㎡",
+      "default": 10,
+      "min": 0,
+      "max": 10000,
+      "step": 0.1
+    },
+    {
+      "id": "depth",
+      "label": "深さ",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "pricePerBag",
+      "label": "1袋の価格",
+      "type": "number",
+      "unit": "円",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "bagVolume",
+      "label": "1袋の容量",
+      "type": "number",
+      "unit": "リットル",
+      "default": 14,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "volumeL",
+      "label": "必要量（リットル）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "bags",
+      "label": "必要な袋数",
+      "format": "number"
+    },
+    {
+      "id": "totalCost",
+      "label": "合計費用",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>土の量の計算</h3><p>必要量(L) = 面積(㎡) × 深さ(cm) × 10。1㎡×10cm = 100リットル。</p>",
+  "faq": [
+    {
+      "question": "培養土とホームセンターの安い土の違いは？",
+      "answer": "培養土は肥料が配合済みで植物の成長に適しています。安い土は改良が必要な場合があります。"
+    },
+    {
+      "question": "1㎡にどのくらいの土が必要？",
+      "answer": "深さ10cmで約100リットル（14L袋で約7〜8袋）。"
+    }
+  ],
+  "related": [
+    "area",
+    "volume"
+  ],
+  "popular": false
+}

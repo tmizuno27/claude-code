@@ -1,0 +1,82 @@
+{
+  "slug": "real-estate-acquisition-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "不動産取得税計算",
+  "description": "不動産の取得価格から不動産取得税を計算。住宅用の軽減措置対応。",
+  "metaTitle": "不動産取得税計算ツール｜取得価格から税額を自動計算【2026年版】",
+  "metaDescription": "土地・建物の取得価格を入力して不動産取得税を自動計算。住宅用の軽減税率にも対応。",
+  "calculatorFunction": "realEstateAcquisitionTax",
+  "inputs": [
+    {
+      "id": "landValue",
+      "label": "土地の固定資産税評価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 500000,
+      "step": 10
+    },
+    {
+      "id": "buildingValue",
+      "label": "建物の固定資産税評価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1500,
+      "min": 0,
+      "max": 500000,
+      "step": 10
+    },
+    {
+      "id": "isResidential",
+      "label": "住宅用",
+      "type": "select",
+      "options": [
+        {
+          "value": "yes",
+          "label": "はい"
+        },
+        {
+          "value": "no",
+          "label": "いいえ"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "landTax",
+      "label": "土地の取得税",
+      "format": "currency"
+    },
+    {
+      "id": "buildingTax",
+      "label": "建物の取得税",
+      "format": "currency"
+    },
+    {
+      "id": "totalTax",
+      "label": "不動産取得税合計",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>不動産取得税とは</h3><p>土地や建物を取得した際に一度だけ課される都道府県税です。住宅用は軽減措置があります。</p>",
+  "faq": [
+    {
+      "question": "不動産取得税はいつ払う？",
+      "answer": "取得後3〜6ヶ月程度で納税通知書が届きます。"
+    },
+    {
+      "question": "相続でも課税される？",
+      "answer": "いいえ。相続による取得は非課税です。"
+    }
+  ],
+  "related": [
+    "fixed-asset-tax",
+    "inheritance-tax"
+  ],
+  "popular": false
+}

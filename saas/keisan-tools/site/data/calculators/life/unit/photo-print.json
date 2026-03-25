@@ -1,0 +1,81 @@
+{
+  "slug": "photo-print",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "写真プリントサイズ計算",
+  "description": "ピクセル数と解像度からプリント可能なサイズを計算。",
+  "metaTitle": "写真プリントサイズ計算ツール｜ピクセル数から印刷サイズを自動計算",
+  "metaDescription": "写真のピクセル数を入力して最大プリントサイズを自動計算。dpi解像度対応。",
+  "calculatorFunction": "photoPrint",
+  "inputs": [
+    {
+      "id": "widthPx",
+      "label": "横幅",
+      "type": "number",
+      "unit": "px",
+      "default": 4000,
+      "min": 1,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "heightPx",
+      "label": "縦幅",
+      "type": "number",
+      "unit": "px",
+      "default": 3000,
+      "min": 1,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "dpi",
+      "label": "解像度",
+      "type": "number",
+      "unit": "dpi",
+      "default": 300,
+      "min": 72,
+      "max": 600,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "widthCm",
+      "label": "横幅（cm）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "heightCm",
+      "label": "縦幅（cm）",
+      "format": "number"
+    },
+    {
+      "id": "megapixels",
+      "label": "画素数",
+      "format": "number"
+    },
+    {
+      "id": "aspectRatio",
+      "label": "アスペクト比",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>印刷に必要な解像度</h3><p>一般的なプリント: 300dpi、大判ポスター: 150dpi、Web表示: 72dpi。</p>",
+  "faq": [
+    {
+      "question": "300dpiで十分？",
+      "answer": "一般的なプリント（A4まで）なら300dpiで十分な品質です。"
+    },
+    {
+      "question": "スマホの写真はA4で印刷できる？",
+      "answer": "1200万画素以上（4000×3000px）ならA4 300dpiで十分な品質です。"
+    }
+  ],
+  "related": [
+    "data-size",
+    "area"
+  ],
+  "popular": false
+}

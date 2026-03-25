@@ -1,0 +1,92 @@
+{
+  "slug": "corporate-pension",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "企業年金受給額計算",
+  "description": "勤続年数・平均給与から企業年金の受給額を概算。",
+  "metaTitle": "企業年金受給額計算ツール｜勤続年数から年金額を自動概算",
+  "metaDescription": "勤続年数と平均給与を入力して企業年金の受給額を概算計算。DB・DC対応。",
+  "calculatorFunction": "corporatePension",
+  "inputs": [
+    {
+      "id": "years",
+      "label": "勤続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 30,
+      "min": 1,
+      "max": 45,
+      "step": 1
+    },
+    {
+      "id": "avgSalary",
+      "label": "平均給与（月額）",
+      "type": "number",
+      "unit": "万円",
+      "default": 35,
+      "min": 10,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "type",
+      "label": "年金種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "db",
+          "label": "確定給付（DB）"
+        },
+        {
+          "value": "dc",
+          "label": "確定拠出（DC）"
+        }
+      ],
+      "default": "db"
+    },
+    {
+      "id": "dcContribution",
+      "label": "DC月額掛金",
+      "type": "number",
+      "unit": "円",
+      "default": 20000,
+      "min": 0,
+      "max": 55000,
+      "step": 1000
+    }
+  ],
+  "outputs": [
+    {
+      "id": "lumpSum",
+      "label": "一時金受取額（概算）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annuity",
+      "label": "年金受取額（年額概算）",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyPension",
+      "label": "月額年金（概算）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>確定給付型（DB）</h3><p>給付額が決まっている企業年金。</p><h3>確定拠出型（DC）</h3><p>掛金を自分で運用。運用成績次第で受取額が変わります。</p>",
+  "faq": [
+    {
+      "question": "DBとDCどちらが有利？",
+      "answer": "DBは安定、DCは運用次第で増える可能性があります。"
+    },
+    {
+      "question": "転職するとどうなる？",
+      "answer": "DBは脱退一時金、DCはiDeCoか転職先DCに移換できます。"
+    }
+  ],
+  "related": [
+    "pension-estimate",
+    "ideco-simulation"
+  ],
+  "popular": false
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "pet-age",
+  "category": "life",
+  "subcategory": "date",
+  "title": "ペット年齢計算",
+  "description": "犬・猫の年齢を人間の年齢に換算。",
+  "metaTitle": "犬猫の年齢計算ツール｜人間に換算した年齢を自動計算",
+  "metaDescription": "犬や猫の年齢を入力して人間に換算した年齢を自動計算。犬のサイズ別対応。",
+  "calculatorFunction": "petAge",
+  "inputs": [
+    {
+      "id": "petType",
+      "label": "ペットの種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "dog_small",
+          "label": "犬（小型）"
+        },
+        {
+          "value": "dog_medium",
+          "label": "犬（中型）"
+        },
+        {
+          "value": "dog_large",
+          "label": "犬（大型）"
+        },
+        {
+          "value": "cat",
+          "label": "猫"
+        }
+      ],
+      "default": "dog_small"
+    },
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 5,
+      "min": 0,
+      "max": 25,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "humanAge",
+      "label": "人間換算年齢",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "lifeStage",
+      "label": "ライフステージ",
+      "format": "text"
+    },
+    {
+      "id": "avgLifespan",
+      "label": "平均寿命",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>犬の年齢換算</h3><p>最初の2年で約24歳相当、その後は1年で約4〜7歳加算（体格により異なる）。</p><h3>猫の年齢換算</h3><p>1歳で約18歳、2歳で約24歳、その後は1年で約4歳加算。</p>",
+  "faq": [
+    {
+      "question": "犬の1年は人間の7年？",
+      "answer": "単純な7倍は不正確です。若い時期に急速に成長し、その後は緩やかに加齢します。"
+    },
+    {
+      "question": "犬と猫どちらが長生き？",
+      "answer": "一般に猫の方が長生き（平均15〜18歳）。犬は体格で差があり、小型犬15年、大型犬10年程度です。"
+    }
+  ],
+  "related": [
+    "age-calculator",
+    "anniversary"
+  ],
+  "popular": false
+}

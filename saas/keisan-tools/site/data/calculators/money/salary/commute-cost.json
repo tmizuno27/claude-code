@@ -1,0 +1,91 @@
+{
+  "slug": "commute-cost",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "通勤費計算",
+  "description": "通勤距離・交通手段から月額・年額の通勤費と非課税限度額を計算。",
+  "metaTitle": "通勤費計算ツール｜通勤手当の非課税限度額を自動計算【2026年版】",
+  "metaDescription": "通勤距離と交通手段を入力して通勤費と非課税限度額を自動計算。",
+  "calculatorFunction": "commuteCost",
+  "inputs": [
+    {
+      "id": "method",
+      "label": "通勤手段",
+      "type": "select",
+      "options": [
+        {
+          "value": "train",
+          "label": "電車・バス"
+        },
+        {
+          "value": "car",
+          "label": "自家用車"
+        },
+        {
+          "value": "both",
+          "label": "電車+車"
+        }
+      ],
+      "default": "train"
+    },
+    {
+      "id": "monthlyCost",
+      "label": "月額定期代/ガソリン代",
+      "type": "number",
+      "unit": "円",
+      "default": 15000,
+      "min": 0,
+      "max": 500000,
+      "step": 100
+    },
+    {
+      "id": "distance",
+      "label": "片道距離（車通勤時）",
+      "type": "number",
+      "unit": "km",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyTotal",
+      "label": "月額通勤費",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualTotal",
+      "label": "年額通勤費",
+      "format": "currency"
+    },
+    {
+      "id": "taxFreeLimit",
+      "label": "非課税限度額（月額）",
+      "format": "currency"
+    },
+    {
+      "id": "taxableAmount",
+      "label": "課税対象額（月額）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>通勤手当の非課税限度額</h3><p>電車・バス通勤は月額15万円まで非課税。マイカー通勤は片道距離に応じた非課税限度額があります。</p>",
+  "faq": [
+    {
+      "question": "通勤手当は給与に含まれる？",
+      "answer": "非課税限度額以内なら所得税の課税対象外です。"
+    },
+    {
+      "question": "自転車通勤にも通勤手当は出る？",
+      "answer": "会社の規定次第ですが、マイカー通勤と同じ非課税限度額が適用されます。"
+    }
+  ],
+  "related": [
+    "take-home-pay",
+    "annual-income"
+  ],
+  "popular": false
+}

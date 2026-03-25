@@ -1,0 +1,85 @@
+{
+  "slug": "time-convert",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "時間変換",
+  "description": "時間・分・秒・日を相互変換。",
+  "metaTitle": "時間変換ツール｜時間⇔分⇔秒⇔日を自動変換",
+  "metaDescription": "時間の単位を自動変換。時間・分・秒・日を相互変換。",
+  "calculatorFunction": "timeConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 90,
+      "min": 0,
+      "max": 9999999,
+      "step": 1
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "seconds",
+          "label": "秒"
+        },
+        {
+          "value": "minutes",
+          "label": "分"
+        },
+        {
+          "value": "hours",
+          "label": "時間"
+        },
+        {
+          "value": "days",
+          "label": "日"
+        }
+      ],
+      "default": "minutes"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "seconds",
+      "label": "秒",
+      "format": "number"
+    },
+    {
+      "id": "minutes",
+      "label": "分",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "hours",
+      "label": "時間",
+      "format": "number"
+    },
+    {
+      "id": "days",
+      "label": "日",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>時間の換算</h3><p>1日 = 24時間 = 1,440分 = 86,400秒。</p>",
+  "faq": [
+    {
+      "question": "100分は何時間何分？",
+      "answer": "1時間40分です。"
+    },
+    {
+      "question": "10000秒は？",
+      "answer": "約2時間46分40秒です。"
+    }
+  ],
+  "related": [
+    "length",
+    "speed"
+  ],
+  "popular": false
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "ellipse",
+  "category": "math",
+  "subcategory": "geometry",
+  "title": "楕円の面積・周長計算",
+  "description": "長半径と短半径から楕円の面積と周長を計算。",
+  "metaTitle": "楕円の面積・周長計算ツール｜半径から自動計算",
+  "metaDescription": "楕円の長半径と短半径を入力して面積と周長を自動計算。",
+  "calculatorFunction": "ellipse",
+  "inputs": [
+    {
+      "id": "a",
+      "label": "長半径",
+      "type": "number",
+      "unit": "cm",
+      "default": 10,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    },
+    {
+      "id": "b",
+      "label": "短半径",
+      "type": "number",
+      "unit": "cm",
+      "default": 6,
+      "min": 0,
+      "max": 99999,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "area",
+      "label": "面積",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "circumference",
+      "label": "周長（近似）",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>楕円の公式</h3><p>面積 = π × a × b</p>",
+  "faq": [
+    {
+      "question": "円は楕円の特殊な場合？",
+      "answer": "はい。長半径=短半径の楕円が円です。"
+    },
+    {
+      "question": "焦点とは？",
+      "answer": "c² = a² - b² で焦点間距離が求まります。"
+    }
+  ],
+  "related": [
+    "circle",
+    "sphere"
+  ],
+  "popular": false
+}

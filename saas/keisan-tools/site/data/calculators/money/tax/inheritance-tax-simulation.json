@@ -1,0 +1,87 @@
+{
+  "slug": "inheritance-tax-simulation",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "相続税シミュレーション（複数相続人）",
+  "description": "相続財産と相続人数から相続税の概算と分配額を計算。",
+  "metaTitle": "相続税シミュレーション｜複数相続人の税額を自動計算【2026年版】",
+  "metaDescription": "相続財産総額と相続人数を入力して相続税と1人あたりの負担額を自動計算。",
+  "calculatorFunction": "inheritanceTaxSimulation",
+  "inputs": [
+    {
+      "id": "totalAssets",
+      "label": "相続財産総額",
+      "type": "number",
+      "unit": "万円",
+      "default": 10000,
+      "min": 0,
+      "max": 10000000,
+      "step": 100
+    },
+    {
+      "id": "heirs",
+      "label": "法定相続人数",
+      "type": "number",
+      "unit": "人",
+      "default": 3,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "id": "spouse",
+      "label": "配偶者あり",
+      "type": "select",
+      "options": [
+        {
+          "value": "yes",
+          "label": "あり"
+        },
+        {
+          "value": "no",
+          "label": "なし"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "basicDeduction",
+      "label": "基礎控除額",
+      "format": "currency"
+    },
+    {
+      "id": "taxableAmount",
+      "label": "課税遺産総額",
+      "format": "currency"
+    },
+    {
+      "id": "totalTax",
+      "label": "相続税総額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "perPersonTax",
+      "label": "1人あたり税額（概算）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>基礎控除</h3><p>3,000万円 + 600万円 × 法定相続人数。配偶者は1億6,000万円まで非課税。</p>",
+  "faq": [
+    {
+      "question": "基礎控除以下なら非課税？",
+      "answer": "はい。申告も不要です。"
+    },
+    {
+      "question": "配偶者控除とは？",
+      "answer": "配偶者の取得分は法定相続分か1.6億円のいずれか大きい方まで非課税です。"
+    }
+  ],
+  "related": [
+    "inheritance-tax",
+    "gift-tax"
+  ],
+  "popular": false
+}

@@ -1,0 +1,80 @@
+{
+  "slug": "registration-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "登録免許税計算",
+  "description": "不動産登記にかかる登録免許税を計算。",
+  "metaTitle": "登録免許税計算ツール｜不動産登記の税額を自動計算【2026年版】",
+  "metaDescription": "不動産の固定資産税評価額を入力して登録免許税を自動計算。所有権移転・抵当権設定対応。",
+  "calculatorFunction": "registrationTax",
+  "inputs": [
+    {
+      "id": "propertyValue",
+      "label": "固定資産税評価額",
+      "type": "number",
+      "unit": "万円",
+      "default": 2000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "regType",
+      "label": "登記の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "ownership_sale",
+          "label": "所有権移転（売買）"
+        },
+        {
+          "value": "ownership_inheritance",
+          "label": "所有権移転（相続）"
+        },
+        {
+          "value": "preservation",
+          "label": "所有権保存（新築）"
+        },
+        {
+          "value": "mortgage",
+          "label": "抵当権設定"
+        }
+      ],
+      "default": "ownership_sale"
+    },
+    {
+      "id": "loanAmount",
+      "label": "借入額（抵当権設定時）",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "registrationTax",
+      "label": "登録免許税",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>登録免許税とは</h3><p>不動産の登記の際に納める国税です。税率は登記の種類により異なります。</p>",
+  "faq": [
+    {
+      "question": "住宅用の軽減税率は？",
+      "answer": "自己居住用住宅の場合、所有権移転は0.3%、所有権保存は0.15%に軽減されます。"
+    },
+    {
+      "question": "いつ払う？",
+      "answer": "登記申請時に納付します。"
+    }
+  ],
+  "related": [
+    "real-estate-acquisition-tax",
+    "fixed-asset-tax"
+  ],
+  "popular": false
+}

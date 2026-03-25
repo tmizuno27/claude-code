@@ -1,0 +1,84 @@
+{
+  "slug": "minimum-wage",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "最低賃金チェック",
+  "description": "時給が最低賃金を満たしているか確認。",
+  "metaTitle": "最低賃金チェックツール｜あなたの時給は最低賃金以上？【2026年版】",
+  "metaDescription": "時給を入力して最低賃金を満たしているか自動チェック。都道府県別対応。",
+  "calculatorFunction": "minimumWage",
+  "inputs": [
+    {
+      "id": "hourlyWage",
+      "label": "時給",
+      "type": "number",
+      "unit": "円",
+      "default": 1100,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "region",
+      "label": "都道府県",
+      "type": "select",
+      "options": [
+        {
+          "value": "tokyo",
+          "label": "東京都"
+        },
+        {
+          "value": "osaka",
+          "label": "大阪府"
+        },
+        {
+          "value": "aichi",
+          "label": "愛知県"
+        },
+        {
+          "value": "fukuoka",
+          "label": "福岡県"
+        },
+        {
+          "value": "other",
+          "label": "全国平均"
+        }
+      ],
+      "default": "tokyo"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "minimumWage",
+      "label": "最低賃金",
+      "format": "currency"
+    },
+    {
+      "id": "isAbove",
+      "label": "判定",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "difference",
+      "label": "差額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>最低賃金（2026年度見込み）</h3><p>東京: 1,163円、大阪: 1,114円、全国平均: 1,055円</p>",
+  "faq": [
+    {
+      "question": "月給制でも適用？",
+      "answer": "はい。月給÷所定労働時間が最低賃金以上必要です。"
+    },
+    {
+      "question": "毎年上がる？",
+      "answer": "近年は毎年引き上げ。政府は2030年代に全国1,500円を目標。"
+    }
+  ],
+  "related": [
+    "hourly-wage",
+    "part-time-income"
+  ],
+  "popular": false
+}

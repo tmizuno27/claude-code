@@ -1,0 +1,100 @@
+{
+  "slug": "moving-estimate",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "引越し費用計算",
+  "description": "荷物量・距離・時期から引越し費用を概算。",
+  "metaTitle": "引越し費用計算ツール｜荷物量と距離から料金を自動概算",
+  "metaDescription": "荷物量と引越し距離を入力して引越し費用を自動概算。繁忙期の割増も考慮。",
+  "calculatorFunction": "movingEstimate",
+  "inputs": [
+    {
+      "id": "household",
+      "label": "世帯人数",
+      "type": "select",
+      "options": [
+        {
+          "value": "single",
+          "label": "単身"
+        },
+        {
+          "value": "couple",
+          "label": "2人"
+        },
+        {
+          "value": "family3",
+          "label": "3人家族"
+        },
+        {
+          "value": "family4",
+          "label": "4人家族以上"
+        }
+      ],
+      "default": "single"
+    },
+    {
+      "id": "distance",
+      "label": "移動距離",
+      "type": "number",
+      "unit": "km",
+      "default": 50,
+      "min": 1,
+      "max": 2000,
+      "step": 10
+    },
+    {
+      "id": "season",
+      "label": "時期",
+      "type": "select",
+      "options": [
+        {
+          "value": "peak",
+          "label": "繁忙期（3-4月）"
+        },
+        {
+          "value": "normal",
+          "label": "通常期"
+        },
+        {
+          "value": "off",
+          "label": "閑散期（1-2月、6-8月）"
+        }
+      ],
+      "default": "normal"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "estimateLow",
+      "label": "最安見積もり",
+      "format": "currency"
+    },
+    {
+      "id": "estimateAvg",
+      "label": "平均的な見積もり",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "estimateHigh",
+      "label": "最高見積もり",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>引越し費用の相場</h3><p>単身・近距離: 3〜5万円、家族・近距離: 7〜15万円。繁忙期は1.3〜2倍になります。</p>",
+  "faq": [
+    {
+      "question": "繁忙期を避けると安い？",
+      "answer": "はい。3月下旬〜4月上旬を避けるだけで半額近くになることもあります。"
+    },
+    {
+      "question": "見積もりは複数取るべき？",
+      "answer": "はい。最低3社は比較しましょう。一括見積もりサイトが便利です。"
+    }
+  ],
+  "related": [
+    "moving-cost",
+    "rent-calculator"
+  ],
+  "popular": false
+}

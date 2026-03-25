@@ -1,0 +1,86 @@
+{
+  "slug": "mansion-cost",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "マンション管理費計算",
+  "description": "管理費・修繕積立金の年間コストを計算。",
+  "metaTitle": "マンション管理費・修繕積立金計算ツール｜年間コストを自動計算",
+  "metaDescription": "管理費と修繕積立金を入力してマンション維持費の年間・生涯コストを自動計算。",
+  "calculatorFunction": "mansionCost",
+  "inputs": [
+    {
+      "id": "managementFee",
+      "label": "管理費",
+      "type": "number",
+      "unit": "円/月",
+      "default": 15000,
+      "min": 0,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "id": "repairReserve",
+      "label": "修繕積立金",
+      "type": "number",
+      "unit": "円/月",
+      "default": 10000,
+      "min": 0,
+      "max": 100000,
+      "step": 100
+    },
+    {
+      "id": "parkingFee",
+      "label": "駐車場代",
+      "type": "number",
+      "unit": "円/月",
+      "default": 10000,
+      "min": 0,
+      "max": 50000,
+      "step": 100
+    },
+    {
+      "id": "ownershipYears",
+      "label": "所有予定年数",
+      "type": "number",
+      "unit": "年",
+      "default": 30,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyTotal",
+      "label": "月額合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualTotal",
+      "label": "年額合計",
+      "format": "currency"
+    },
+    {
+      "id": "lifetimeTotal",
+      "label": "所有期間の総額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>マンションの維持費</h3><p>管理費と修繕積立金が毎月かかります。修繕積立金は築年数とともに増額される傾向があります。</p>",
+  "faq": [
+    {
+      "question": "管理費の相場は？",
+      "answer": "全国平均は月15,000〜20,000円程度です。"
+    },
+    {
+      "question": "修繕積立金が安すぎると？",
+      "answer": "将来の大規模修繕時に一時金を請求される可能性があります。"
+    }
+  ],
+  "related": [
+    "rent-vs-buy",
+    "fixed-asset-tax"
+  ],
+  "popular": false
+}

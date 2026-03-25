@@ -1,0 +1,81 @@
+{
+  "slug": "debt-repayment",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "借金返済計画計算",
+  "description": "借入残高・金利・月返済額から完済までの期間を計算。",
+  "metaTitle": "借金返済計画シミュレーション｜最速完済プランを自動計算",
+  "metaDescription": "借入残高と金利、月返済額を入力して完済までの期間と総支払額を自動計算。",
+  "calculatorFunction": "debtRepayment",
+  "inputs": [
+    {
+      "id": "balance",
+      "label": "借入残高",
+      "type": "number",
+      "unit": "万円",
+      "default": 200,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 15,
+      "min": 0,
+      "max": 20,
+      "step": 0.1
+    },
+    {
+      "id": "monthlyPayment",
+      "label": "毎月返済額",
+      "type": "number",
+      "unit": "万円",
+      "default": 5,
+      "min": 0.1,
+      "max": 1000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "months",
+      "label": "完済までの月数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "totalPayment",
+      "label": "総支払額",
+      "format": "currency"
+    },
+    {
+      "id": "totalInterest",
+      "label": "利息合計",
+      "format": "currency"
+    },
+    {
+      "id": "interestRatio",
+      "label": "利息の割合",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>返済の優先順位</h3><p>金利の高いものから優先的に返済するのが総支払額を最小にする方法です。</p>",
+  "faq": [
+    {
+      "question": "繰上返済すべき？",
+      "answer": "金利が高い借入ほど効果大です。"
+    },
+    {
+      "question": "返済額を増やせない場合は？",
+      "answer": "債務整理の相談を弁護士や司法書士にしましょう。"
+    }
+  ],
+  "related": [
+    "credit-card-interest",
+    "repayment-plan"
+  ],
+  "popular": false
+}

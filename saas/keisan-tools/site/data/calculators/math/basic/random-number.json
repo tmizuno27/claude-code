@@ -1,0 +1,76 @@
+{
+  "slug": "random-number",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "乱数生成",
+  "description": "指定した範囲の乱数を生成。",
+  "metaTitle": "乱数生成ツール｜ランダムな数字を自動生成",
+  "metaDescription": "最小値と最大値を指定してランダムな数字を自動生成。くじ引きやゲームに。",
+  "calculatorFunction": "randomNumber",
+  "inputs": [
+    {
+      "id": "min",
+      "label": "最小値",
+      "type": "number",
+      "unit": "",
+      "default": 1,
+      "min": -999999,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "max",
+      "label": "最大値",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": -999999,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "count",
+      "label": "生成個数",
+      "type": "number",
+      "unit": "個",
+      "default": 1,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "result",
+      "label": "生成された乱数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "sum",
+      "label": "合計",
+      "format": "number"
+    },
+    {
+      "id": "avg",
+      "label": "平均",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>乱数とは</h3><p>予測不可能なランダムな数値。くじ引き、抽選、サイコロの代わりに使えます。</p>",
+  "faq": [
+    {
+      "question": "本当にランダム？",
+      "answer": "コンピュータの乱数は擬似乱数ですが、一般的な用途には十分です。"
+    },
+    {
+      "question": "何に使う？",
+      "answer": "くじ引き、座席決め、パスワード生成、統計のサンプリングなどに使われます。"
+    }
+  ],
+  "related": [
+    "probability",
+    "average"
+  ],
+  "popular": false
+}

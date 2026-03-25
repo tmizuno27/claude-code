@@ -1,0 +1,106 @@
+{
+  "slug": "child-cost",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "子育て費用計算",
+  "description": "子供の年齢から大学卒業までの教育費・養育費を概算。",
+  "metaTitle": "子育て費用計算ツール｜出産から大学卒業までの総費用を自動計算",
+  "metaDescription": "子供の年齢と進路を選ぶだけで大学卒業までの教育費・養育費の総額を自動計算。",
+  "calculatorFunction": "childCost",
+  "inputs": [
+    {
+      "id": "childAge",
+      "label": "子供の年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 0,
+      "min": 0,
+      "max": 18,
+      "step": 1
+    },
+    {
+      "id": "schoolType",
+      "label": "進路",
+      "type": "select",
+      "options": [
+        {
+          "value": "all_public",
+          "label": "全て公立"
+        },
+        {
+          "value": "private_high",
+          "label": "高校から私立"
+        },
+        {
+          "value": "all_private",
+          "label": "全て私立"
+        }
+      ],
+      "default": "all_public"
+    },
+    {
+      "id": "university",
+      "label": "大学",
+      "type": "select",
+      "options": [
+        {
+          "value": "national",
+          "label": "国公立"
+        },
+        {
+          "value": "private_arts",
+          "label": "私立文系"
+        },
+        {
+          "value": "private_science",
+          "label": "私立理系"
+        },
+        {
+          "value": "none",
+          "label": "進学しない"
+        }
+      ],
+      "default": "national"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "educationCost",
+      "label": "教育費合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "livingCost",
+      "label": "養育費合計（概算）",
+      "format": "currency"
+    },
+    {
+      "id": "totalCost",
+      "label": "総費用",
+      "format": "currency"
+    },
+    {
+      "id": "monthlySaving",
+      "label": "必要な月額貯蓄",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>子育て費用の目安</h3><p>全て公立で約800万円、全て私立で約2,200万円。大学費用が最大の支出です。</p>",
+  "faq": [
+    {
+      "question": "全て公立だといくら？",
+      "answer": "幼稚園〜大学（国公立）で約800〜1,000万円です。"
+    },
+    {
+      "question": "学資保険は入るべき？",
+      "answer": "返戻率が低い現在は、NISAでの積立投資の方が効率的な場合が多いです。"
+    }
+  ],
+  "related": [
+    "education-loan",
+    "savings-simulation",
+    "tuition-cost"
+  ],
+  "popular": false
+}

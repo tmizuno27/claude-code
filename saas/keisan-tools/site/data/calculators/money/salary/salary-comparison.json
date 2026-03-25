@@ -1,0 +1,66 @@
+{
+  "slug": "salary-comparison",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "月給・年収換算",
+  "description": "月給から年収、年収から月給への換算。賞与回数を考慮。",
+  "metaTitle": "月給⇔年収換算ツール｜ボーナス込みの年収を自動計算",
+  "metaDescription": "月給と賞与月数を入力して年収を自動計算。年収から月給への逆算にも対応。",
+  "calculatorFunction": "salaryComparison",
+  "inputs": [
+    {
+      "id": "monthlySalary",
+      "label": "月給（額面）",
+      "type": "number",
+      "unit": "万円",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "bonusMonths",
+      "label": "賞与（月給の何ヶ月分）",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 4,
+      "min": 0,
+      "max": 12,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualSalary",
+      "label": "年収",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "bonusTotal",
+      "label": "賞与合計（年間）",
+      "format": "currency"
+    },
+    {
+      "id": "dailyWage",
+      "label": "日給換算（20日/月）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>年収の計算方法</h3><p>年収 = 月給 × 12 + 月給 × 賞与月数。</p>",
+  "faq": [
+    {
+      "question": "額面と手取りの違いは？",
+      "answer": "額面は税金・社会保険料を引く前の総支給額。手取りは引いた後の金額です。"
+    },
+    {
+      "question": "年収500万の月給は？",
+      "answer": "賞与4ヶ月の場合、月給は約31.25万円です。"
+    }
+  ],
+  "related": [
+    "take-home-pay",
+    "hourly-wage"
+  ],
+  "popular": false
+}

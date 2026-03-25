@@ -1,0 +1,87 @@
+{
+  "slug": "carbon-footprint",
+  "category": "life",
+  "subcategory": "car",
+  "title": "CO2排出量計算",
+  "description": "車の走行距離・電気使用量からCO2排出量を概算。",
+  "metaTitle": "CO2排出量計算ツール｜生活からのCO2排出量を自動計算",
+  "metaDescription": "車の走行距離や電気使用量を入力してCO2排出量を自動計算。",
+  "calculatorFunction": "carbonFootprint",
+  "inputs": [
+    {
+      "id": "carKm",
+      "label": "車の月間走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 500,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "electricityKwh",
+      "label": "月間電気使用量",
+      "type": "number",
+      "unit": "kWh",
+      "default": 300,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "gasM3",
+      "label": "月間ガス使用量",
+      "type": "number",
+      "unit": "㎥",
+      "default": 30,
+      "min": 0,
+      "max": 1000,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "carCo2",
+      "label": "車のCO2排出量",
+      "format": "number"
+    },
+    {
+      "id": "electricityCo2",
+      "label": "電気のCO2排出量",
+      "format": "number"
+    },
+    {
+      "id": "gasCo2",
+      "label": "ガスのCO2排出量",
+      "format": "number"
+    },
+    {
+      "id": "totalCo2",
+      "label": "月間CO2排出量合計",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "annualCo2",
+      "label": "年間CO2排出量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>CO2排出係数</h3><p>ガソリン: 2.32kg-CO2/L、電気: 0.47kg-CO2/kWh（2024年全国平均）、都市ガス: 2.21kg-CO2/㎥</p>",
+  "faq": [
+    {
+      "question": "日本人1人の平均は？",
+      "answer": "年間約7.6t-CO2（2022年）。世界平均は約4.7tです。"
+    },
+    {
+      "question": "CO2を減らすには？",
+      "answer": "車の利用を減らす、省エネ家電に替える、再エネ電力を選ぶのが効果的です。"
+    }
+  ],
+  "related": [
+    "fuel-cost",
+    "ev-cost",
+    "electricity-cost"
+  ],
+  "popular": false
+}

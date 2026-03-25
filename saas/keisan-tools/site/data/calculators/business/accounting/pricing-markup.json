@@ -1,0 +1,72 @@
+{
+  "slug": "pricing-markup",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "原価率・マークアップ計算",
+  "description": "原価と売価から原価率・マークアップ率を計算。",
+  "metaTitle": "原価率・マークアップ計算ツール｜売価設定を自動計算",
+  "metaDescription": "原価と売価を入力して原価率・マークアップ率を自動計算。逆算にも対応。",
+  "calculatorFunction": "pricingMarkup",
+  "inputs": [
+    {
+      "id": "cost",
+      "label": "原価",
+      "type": "number",
+      "unit": "円",
+      "default": 700,
+      "min": 0,
+      "max": 99999999,
+      "step": 1
+    },
+    {
+      "id": "price",
+      "label": "売価",
+      "type": "number",
+      "unit": "円",
+      "default": 1000,
+      "min": 0,
+      "max": 99999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "costRate",
+      "label": "原価率",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "markupRate",
+      "label": "マークアップ率",
+      "format": "percent"
+    },
+    {
+      "id": "profitPerUnit",
+      "label": "1個あたり利益",
+      "format": "currency"
+    },
+    {
+      "id": "grossMargin",
+      "label": "粗利率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>原価率とマークアップ率</h3><p>原価率 = 原価÷売価。マークアップ率 = (売価−原価)÷原価。飲食業は原価率30%が目安。</p>",
+  "faq": [
+    {
+      "question": "原価率30%って高い？",
+      "answer": "飲食業では30%が目安。小売業では60〜70%が一般的です。"
+    },
+    {
+      "question": "マークアップとマージンの違い？",
+      "answer": "マークアップは原価基準、マージンは売価基準です。"
+    }
+  ],
+  "related": [
+    "gross-margin",
+    "profit-margin",
+    "break-even"
+  ],
+  "popular": false
+}

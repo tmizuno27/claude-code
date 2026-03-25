@@ -1,0 +1,101 @@
+{
+  "slug": "refinance",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "借り換え効果計算",
+  "description": "住宅ローンの借り換えによる返済額の削減効果を計算。",
+  "metaTitle": "住宅ローン借り換え計算ツール｜借り換え効果を自動シミュレーション",
+  "metaDescription": "現在のローンと借り換え先の条件を入力して借り換え効果を自動計算。",
+  "calculatorFunction": "refinance",
+  "inputs": [
+    {
+      "id": "remainingBalance",
+      "label": "ローン残高",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 100000,
+      "step": 10
+    },
+    {
+      "id": "currentRate",
+      "label": "現在の金利",
+      "type": "number",
+      "unit": "%",
+      "default": 1.5,
+      "min": 0,
+      "max": 20,
+      "step": 0.01
+    },
+    {
+      "id": "newRate",
+      "label": "借り換え後の金利",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 20,
+      "step": 0.01
+    },
+    {
+      "id": "remainingYears",
+      "label": "残り返済期間",
+      "type": "number",
+      "unit": "年",
+      "default": 25,
+      "min": 1,
+      "max": 35,
+      "step": 1
+    },
+    {
+      "id": "refinanceCost",
+      "label": "借り換え費用",
+      "type": "number",
+      "unit": "万円",
+      "default": 80,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "currentTotal",
+      "label": "現在のローン総返済額",
+      "format": "currency"
+    },
+    {
+      "id": "newTotal",
+      "label": "借り換え後の総返済額",
+      "format": "currency"
+    },
+    {
+      "id": "savings",
+      "label": "削減効果（手数料込み）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyDiff",
+      "label": "月額返済の差額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>借り換えの目安</h3><p>金利差1%以上・残高1,000万円以上・残り期間10年以上のうち2つ以上なら検討の価値があります。</p>",
+  "faq": [
+    {
+      "question": "借り換え費用にはどんなものがある？",
+      "answer": "事務手数料、保証料、印紙税、登記費用等で合計50〜100万円程度です。"
+    },
+    {
+      "question": "変動から固定への借り換えは？",
+      "answer": "金利上昇リスクを避けたい場合に有効です。"
+    }
+  ],
+  "related": [
+    "housing-loan",
+    "mortgage-comparison"
+  ],
+  "popular": false
+}

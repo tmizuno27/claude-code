@@ -1,0 +1,76 @@
+{
+  "slug": "water-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "水道代計算",
+  "description": "水道使用量から月額の水道料金を概算。",
+  "metaTitle": "水道代計算ツール｜使用量から水道料金を自動概算",
+  "metaDescription": "水道の使用量を入力して月額の水道料金を自動概算計算。",
+  "calculatorFunction": "waterCost",
+  "inputs": [
+    {
+      "id": "usage",
+      "label": "月間使用量",
+      "type": "number",
+      "unit": "㎥",
+      "default": 20,
+      "min": 0,
+      "max": 500,
+      "step": 1
+    },
+    {
+      "id": "region",
+      "label": "地域",
+      "type": "select",
+      "options": [
+        {
+          "value": "tokyo",
+          "label": "東京23区"
+        },
+        {
+          "value": "osaka",
+          "label": "大阪市"
+        },
+        {
+          "value": "other",
+          "label": "全国平均"
+        }
+      ],
+      "default": "tokyo"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyCost",
+      "label": "月額水道代（概算）",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualCost",
+      "label": "年間水道代",
+      "format": "currency"
+    },
+    {
+      "id": "perLiter",
+      "label": "1リットルあたり",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>水道料金の仕組み</h3><p>基本料金 + 従量料金（使用量に応じた段階制）+ 下水道料金で構成。自治体により大きく異なります。</p>",
+  "faq": [
+    {
+      "question": "1人暮らしの平均は？",
+      "answer": "月8〜15㎥程度で、月2,000〜3,000円が目安です。"
+    },
+    {
+      "question": "水道代が高い地域は？",
+      "answer": "水源が遠い・人口が少ない地域は高くなる傾向があります。"
+    }
+  ],
+  "related": [
+    "electricity-cost",
+    "gas-cost"
+  ],
+  "popular": false
+}

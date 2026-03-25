@@ -1,0 +1,91 @@
+{
+  "slug": "party-food",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "パーティー食材計算",
+  "description": "参加人数からパーティーに必要な食材・飲み物の量を計算。",
+  "metaTitle": "パーティー食材計算ツール｜人数から必要な食べ物・飲み物を自動計算",
+  "metaDescription": "パーティーの参加人数を入力して必要な食材と飲み物の量を自動計算。",
+  "calculatorFunction": "partyFood",
+  "inputs": [
+    {
+      "id": "guests",
+      "label": "参加人数",
+      "type": "number",
+      "unit": "人",
+      "default": 10,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "duration",
+      "label": "所要時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 3,
+      "min": 1,
+      "max": 8,
+      "step": 0.5
+    },
+    {
+      "id": "style",
+      "label": "スタイル",
+      "type": "select",
+      "options": [
+        {
+          "value": "light",
+          "label": "軽食"
+        },
+        {
+          "value": "standard",
+          "label": "標準"
+        },
+        {
+          "value": "full",
+          "label": "フルコース"
+        }
+      ],
+      "default": "standard"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "foodKg",
+      "label": "食材（目安）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "drinksL",
+      "label": "飲み物（リットル）",
+      "format": "number"
+    },
+    {
+      "id": "alcoholL",
+      "label": "アルコール（リットル）",
+      "format": "number"
+    },
+    {
+      "id": "budgetPerPerson",
+      "label": "1人あたり予算目安",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>パーティーの食材目安</h3><p>1人あたり: 軽食200〜300g、標準400〜500g、フル700〜1000g。飲み物は1人あたり1L/3時間が目安。</p>",
+  "faq": [
+    {
+      "question": "予算の目安は？",
+      "answer": "家庭パーティーなら1人1,500〜3,000円。飲み物込みで2,000〜4,000円程度。"
+    },
+    {
+      "question": "余った食材は？",
+      "answer": "冷凍保存できるものを多めに、生鮮品は控えめに計画すると無駄が減ります。"
+    }
+  ],
+  "related": [
+    "split-bill",
+    "per-unit-price"
+  ],
+  "popular": false
+}

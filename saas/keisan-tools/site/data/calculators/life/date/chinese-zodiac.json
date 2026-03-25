@@ -1,0 +1,62 @@
+{
+  "slug": "chinese-zodiac",
+  "category": "life",
+  "subcategory": "date",
+  "title": "十二支計算",
+  "description": "生年から十二支（干支）と相性を計算。",
+  "metaTitle": "十二支計算ツール｜生まれ年から干支を自動計算",
+  "metaDescription": "生まれ年を入力して十二支（干支）を自動計算。相性の目安も表示。",
+  "calculatorFunction": "chineseZodiac",
+  "inputs": [
+    {
+      "id": "year",
+      "label": "生まれ年",
+      "type": "number",
+      "unit": "年",
+      "default": 1990,
+      "min": 1900,
+      "max": 2100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "zodiac",
+      "label": "十二支",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "element",
+      "label": "五行",
+      "format": "text"
+    },
+    {
+      "id": "compatibility",
+      "label": "相性の良い干支",
+      "format": "text"
+    },
+    {
+      "id": "nextYear",
+      "label": "次の年男/年女",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>十二支</h3><p>子(ね)・丑(うし)・寅(とら)・卯(う)・辰(たつ)・巳(み)・午(うま)・未(ひつじ)・申(さる)・酉(とり)・戌(いぬ)・亥(い)の12種類。</p>",
+  "faq": [
+    {
+      "question": "干支と十二支の違いは？",
+      "answer": "十二支は12種類の動物。干支（十干十二支）は十干と十二支の組み合わせで60種類あります。"
+    },
+    {
+      "question": "年男/年女はいつ？",
+      "answer": "12年ごとに巡ってきます。次は現在の年齢+12歳の年です。"
+    }
+  ],
+  "related": [
+    "zodiac",
+    "age-calculator",
+    "japanese-era"
+  ],
+  "popular": false
+}

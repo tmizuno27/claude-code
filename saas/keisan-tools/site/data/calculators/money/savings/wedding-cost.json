@@ -1,0 +1,95 @@
+{
+  "slug": "wedding-cost",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "結婚費用計算",
+  "description": "結婚式の規模・スタイルから総費用と自己負担額を概算。",
+  "metaTitle": "結婚費用計算ツール｜結婚式の総費用と自己負担額を自動計算",
+  "metaDescription": "招待人数とスタイルを選んで結婚式の費用と自己負担額を自動計算。",
+  "calculatorFunction": "weddingCost",
+  "inputs": [
+    {
+      "id": "guests",
+      "label": "招待人数",
+      "type": "number",
+      "unit": "人",
+      "default": 60,
+      "min": 0,
+      "max": 300,
+      "step": 1
+    },
+    {
+      "id": "style",
+      "label": "スタイル",
+      "type": "select",
+      "options": [
+        {
+          "value": "hotel",
+          "label": "ホテル"
+        },
+        {
+          "value": "guesthouse",
+          "label": "ゲストハウス"
+        },
+        {
+          "value": "restaurant",
+          "label": "レストラン"
+        },
+        {
+          "value": "chapel",
+          "label": "チャペル・教会"
+        }
+      ],
+      "default": "hotel"
+    },
+    {
+      "id": "giftPerPerson",
+      "label": "ご祝儀平均",
+      "type": "number",
+      "unit": "万円",
+      "default": 3.3,
+      "min": 0,
+      "max": 10,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalCost",
+      "label": "結婚式の総費用",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "giftTotal",
+      "label": "ご祝儀合計（見込み）",
+      "format": "currency"
+    },
+    {
+      "id": "selfPayment",
+      "label": "自己負担額",
+      "format": "currency"
+    },
+    {
+      "id": "perGuest",
+      "label": "1人あたり単価",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>結婚式の費用相場</h3><p>全国平均は約303万円（2025年調査）。ゲスト1人あたり約5〜7万円が目安です。</p>",
+  "faq": [
+    {
+      "question": "ご祝儀の相場は？",
+      "answer": "友人3万円、親族5〜10万円、上司3〜5万円が一般的です。"
+    },
+    {
+      "question": "節約するには？",
+      "answer": "少人数婚、平日・オフシーズン、レストランウェディングで費用を抑えられます。"
+    }
+  ],
+  "related": [
+    "savings-simulation",
+    "savings-goal"
+  ],
+  "popular": false
+}

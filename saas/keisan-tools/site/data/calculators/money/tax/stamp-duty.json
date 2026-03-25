@@ -1,0 +1,66 @@
+{
+  "slug": "stamp-duty",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "印紙税計算",
+  "description": "契約書・領収書の金額から必要な収入印紙の額面を計算。",
+  "metaTitle": "印紙税計算ツール｜契約金額から収入印紙の金額を自動判定【2026年版】",
+  "metaDescription": "契約書や領収書の金額を入力するだけで必要な印紙税額を自動計算。",
+  "calculatorFunction": "stampDuty",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "契約金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "docType",
+      "label": "文書の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "contract",
+          "label": "不動産売買契約書"
+        },
+        {
+          "value": "receipt",
+          "label": "領収書"
+        },
+        {
+          "value": "construction",
+          "label": "請負契約書"
+        }
+      ],
+      "default": "contract"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stampTax",
+      "label": "印紙税額",
+      "format": "currency",
+      "primary": true
+    }
+  ],
+  "explanation": "<h3>印紙税とは</h3><p>契約書や領収書などの課税文書に課される税金です。電子契約書には印紙税はかかりません。</p>",
+  "faq": [
+    {
+      "question": "電子契約なら印紙税は不要？",
+      "answer": "はい。電子契約書は課税文書に該当しないため不要です。"
+    },
+    {
+      "question": "印紙を貼り忘れるとどうなる？",
+      "answer": "過怠税として本来の3倍が課されます。"
+    }
+  ],
+  "related": [
+    "consumption-tax",
+    "corporate-tax"
+  ],
+  "popular": false
+}

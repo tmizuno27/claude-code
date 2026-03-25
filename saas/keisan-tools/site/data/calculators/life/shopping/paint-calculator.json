@@ -1,0 +1,86 @@
+{
+  "slug": "paint-calculator",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "塗料必要量計算",
+  "description": "壁の面積から必要な塗料の量と缶数を計算。",
+  "metaTitle": "塗料必要量計算ツール｜壁の面積から必要な塗料を自動計算",
+  "metaDescription": "壁の面積を入力して必要な塗料の量と缶数を自動計算。DIYのペンキ塗りに。",
+  "calculatorFunction": "paintCalculator",
+  "inputs": [
+    {
+      "id": "wallArea",
+      "label": "塗装面積",
+      "type": "number",
+      "unit": "㎡",
+      "default": 30,
+      "min": 0,
+      "max": 10000,
+      "step": 0.1
+    },
+    {
+      "id": "coats",
+      "label": "塗り回数",
+      "type": "number",
+      "unit": "回",
+      "default": 2,
+      "min": 1,
+      "max": 4,
+      "step": 1
+    },
+    {
+      "id": "coveragePerLiter",
+      "label": "1Lあたりの塗装面積",
+      "type": "number",
+      "unit": "㎡/L",
+      "default": 8,
+      "min": 1,
+      "max": 20,
+      "step": 0.5
+    },
+    {
+      "id": "canSize",
+      "label": "缶のサイズ",
+      "type": "number",
+      "unit": "L",
+      "default": 4,
+      "min": 0.5,
+      "max": 20,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalLiters",
+      "label": "必要な塗料（リットル）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "cans",
+      "label": "必要な缶数",
+      "format": "number"
+    },
+    {
+      "id": "actualArea",
+      "label": "実際の塗装可能面積",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>塗料の計算</h3><p>必要量(L) = 塗装面積(㎡) × 塗り回数 ÷ 1Lあたり塗装面積。窓・ドア部分は差し引きます。</p>",
+  "faq": [
+    {
+      "question": "2度塗りは必要？",
+      "answer": "はい。均一な仕上がりと耐久性のため、2度塗りが基本です。"
+    },
+    {
+      "question": "1Lでどのくらい塗れる？",
+      "answer": "一般的な水性ペイントで6〜10㎡程度です。塗料の種類や下地により異なります。"
+    }
+  ],
+  "related": [
+    "area",
+    "per-unit-price"
+  ],
+  "popular": false
+}

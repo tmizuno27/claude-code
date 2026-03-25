@@ -1,0 +1,77 @@
+{
+  "slug": "corporate-tax",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "法人税計算",
+  "description": "法人の課税所得から法人税額を計算。中小法人の軽減税率にも対応。",
+  "metaTitle": "法人税計算シミュレーション｜課税所得から法人税を自動計算【2026年版】",
+  "metaDescription": "法人の課税所得を入力するだけで法人税額を自動計算。中小法人の軽減税率15%にも対応。",
+  "calculatorFunction": "corporateTax",
+  "inputs": [
+    {
+      "id": "taxableIncome",
+      "label": "課税所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    },
+    {
+      "id": "isSmall",
+      "label": "中小法人",
+      "type": "select",
+      "options": [
+        {
+          "value": "yes",
+          "label": "はい（資本金1億円以下）"
+        },
+        {
+          "value": "no",
+          "label": "いいえ"
+        }
+      ],
+      "default": "yes"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "corporateTax",
+      "label": "法人税額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "effectiveRate",
+      "label": "実効税率",
+      "format": "percent"
+    },
+    {
+      "id": "localTax",
+      "label": "法人住民税（概算）",
+      "format": "currency"
+    },
+    {
+      "id": "totalTax",
+      "label": "税負担合計（概算）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>法人税の税率（2026年）</h3><p>普通法人の法人税率は23.2%です。中小法人（資本金1億円以下）は年800万円以下の所得に対して15%の軽減税率が適用されます。</p>",
+  "faq": [
+    {
+      "question": "中小法人の軽減税率とは？",
+      "answer": "資本金1億円以下の法人は、年800万円以下の所得部分に15%の軽減税率が適用されます。"
+    },
+    {
+      "question": "法人税と所得税の違いは？",
+      "answer": "法人税は法人の所得に課される税金、所得税は個人の所得に課される税金です。"
+    }
+  ],
+  "related": [
+    "income-tax",
+    "freelance-tax"
+  ],
+  "popular": false
+}

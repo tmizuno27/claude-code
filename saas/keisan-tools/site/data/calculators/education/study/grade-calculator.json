@@ -1,0 +1,102 @@
+{
+  "slug": "grade-calculator",
+  "category": "education",
+  "subcategory": "study",
+  "title": "成績計算",
+  "description": "各科目の得点から総合得点・平均点を計算。",
+  "metaTitle": "成績計算ツール｜科目別の得点から総合成績を自動計算",
+  "metaDescription": "各科目の得点を入力して総合得点・平均点を自動計算。",
+  "calculatorFunction": "gradeCalculator",
+  "inputs": [
+    {
+      "id": "subject1",
+      "label": "国語",
+      "type": "number",
+      "unit": "点",
+      "default": 75,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "subject2",
+      "label": "数学",
+      "type": "number",
+      "unit": "点",
+      "default": 80,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "subject3",
+      "label": "英語",
+      "type": "number",
+      "unit": "点",
+      "default": 70,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "subject4",
+      "label": "理科",
+      "type": "number",
+      "unit": "点",
+      "default": 85,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "subject5",
+      "label": "社会",
+      "type": "number",
+      "unit": "点",
+      "default": 65,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "totalScore",
+      "label": "合計点",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "averageScore",
+      "label": "平均点",
+      "format": "number"
+    },
+    {
+      "id": "highest",
+      "label": "最高点の科目",
+      "format": "text"
+    },
+    {
+      "id": "lowest",
+      "label": "最低点の科目",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>5教科の合計</h3><p>各100点満点で500点満点。平均70点以上が上位校の目安。</p>",
+  "faq": [
+    {
+      "question": "内申点はどう計算？",
+      "answer": "5段階×9教科で45点満点。実技教科が2倍の自治体もあります。"
+    },
+    {
+      "question": "合計点より偏差値？",
+      "answer": "はい。テスト難易度により変動するため偏差値が正確です。"
+    }
+  ],
+  "related": [
+    "exam-score",
+    "hensachi",
+    "gpa"
+  ],
+  "popular": false
+}

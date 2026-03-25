@@ -1,0 +1,99 @@
+{
+  "slug": "clothing-size",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "洋服サイズ変換",
+  "description": "日本・US・UK・EUの洋服サイズを相互変換。",
+  "metaTitle": "洋服サイズ変換ツール｜日本⇔US⇔UK⇔EUサイズを自動変換",
+  "metaDescription": "日本の洋服サイズから海外サイズを自動変換。海外通販に便利。",
+  "calculatorFunction": "clothingSize",
+  "inputs": [
+    {
+      "id": "jpSize",
+      "label": "日本サイズ",
+      "type": "select",
+      "options": [
+        {
+          "value": "XS",
+          "label": "XS"
+        },
+        {
+          "value": "S",
+          "label": "S"
+        },
+        {
+          "value": "M",
+          "label": "M"
+        },
+        {
+          "value": "L",
+          "label": "L"
+        },
+        {
+          "value": "XL",
+          "label": "XL"
+        },
+        {
+          "value": "2XL",
+          "label": "2XL"
+        }
+      ],
+      "default": "M"
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "us",
+      "label": "USサイズ",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "uk",
+      "label": "UKサイズ",
+      "format": "text"
+    },
+    {
+      "id": "eu",
+      "label": "EUサイズ",
+      "format": "text"
+    },
+    {
+      "id": "chest",
+      "label": "胸囲の目安",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>サイズ換算</h3><p>日本のMはUS/UKのSに相当することが多いです。海外サイズは日本より大きめです。</p>",
+  "faq": [
+    {
+      "question": "海外ブランドはサイズが違う？",
+      "answer": "はい。日本のM≒海外のSが一般的です。1〜2サイズ小さめを選びましょう。"
+    },
+    {
+      "question": "実寸を測るべき？",
+      "answer": "はい。胸囲・ウエスト・ヒップの実寸とサイズチャートの比較が確実です。"
+    }
+  ],
+  "related": [
+    "shoe-size",
+    "length"
+  ],
+  "popular": false
+}

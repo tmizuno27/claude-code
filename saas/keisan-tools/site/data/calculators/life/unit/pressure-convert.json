@@ -1,0 +1,85 @@
+{
+  "slug": "pressure-convert",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "圧力変換",
+  "description": "hPa・atm・psi・mmHgなどを相互変換。",
+  "metaTitle": "圧力変換ツール｜hPa⇔atm⇔psi⇔mmHgを自動変換",
+  "metaDescription": "圧力の単位を自動変換。hPa・atm・psi・mmHgに対応。",
+  "calculatorFunction": "pressureConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 1013.25,
+      "min": 0,
+      "max": 9999999,
+      "step": 0.01
+    },
+    {
+      "id": "fromUnit",
+      "label": "変換元",
+      "type": "select",
+      "options": [
+        {
+          "value": "hPa",
+          "label": "hPa"
+        },
+        {
+          "value": "atm",
+          "label": "atm"
+        },
+        {
+          "value": "psi",
+          "label": "psi"
+        },
+        {
+          "value": "mmHg",
+          "label": "mmHg"
+        }
+      ],
+      "default": "hPa"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "hPa",
+      "label": "hPa",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "atm",
+      "label": "atm",
+      "format": "number"
+    },
+    {
+      "id": "psi",
+      "label": "psi",
+      "format": "number"
+    },
+    {
+      "id": "mmHg",
+      "label": "mmHg",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>圧力の単位</h3><p>1atm = 1013.25hPa = 760mmHg = 14.696psi</p>",
+  "faq": [
+    {
+      "question": "1気圧は何hPa？",
+      "answer": "1013.25hPaです。"
+    },
+    {
+      "question": "血圧の単位mmHgとは？",
+      "answer": "水銀柱ミリメートルです。"
+    }
+  ],
+  "related": [
+    "temperature",
+    "length"
+  ],
+  "popular": false
+}

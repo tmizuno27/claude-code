@@ -1,0 +1,77 @@
+{
+  "slug": "currency-convert",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "為替レート計算",
+  "description": "2つの通貨間の為替レートで金額を変換。",
+  "metaTitle": "為替レート計算ツール｜外貨換算を自動計算",
+  "metaDescription": "金額と為替レートを入力して外貨換算を自動計算。海外旅行・送金に便利。",
+  "calculatorFunction": "currencyConvert",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "金額",
+      "type": "number",
+      "unit": "",
+      "default": 10000,
+      "min": 0,
+      "max": 99999999,
+      "step": 1
+    },
+    {
+      "id": "rate",
+      "label": "為替レート",
+      "type": "number",
+      "unit": "",
+      "default": 150,
+      "min": 0.001,
+      "max": 99999,
+      "step": 0.01
+    },
+    {
+      "id": "direction",
+      "label": "換算方向",
+      "type": "select",
+      "options": [
+        {
+          "value": "jpyToForeign",
+          "label": "円→外貨（÷レート）"
+        },
+        {
+          "value": "foreignToJpy",
+          "label": "外貨→円（×レート）"
+        }
+      ],
+      "default": "foreignToJpy"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "converted",
+      "label": "換算結果",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "inverse",
+      "label": "逆換算",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>為替レートの見方</h3><p>USD/JPY=150は「1ドル=150円」。円から外貨は÷、外貨から円は×で計算します。</p>",
+  "faq": [
+    {
+      "question": "両替はどこがお得？",
+      "answer": "空港より銀行、銀行よりネット両替が一般的にお得です。クレジットカード払いが最もレートが良いことが多いです。"
+    },
+    {
+      "question": "送金手数料は？",
+      "answer": "銀行送金は数千円。Wiseなどのサービスは数百円〜で送金可能です。"
+    }
+  ],
+  "related": [
+    "tip-calculator",
+    "split-bill"
+  ],
+  "popular": false
+}

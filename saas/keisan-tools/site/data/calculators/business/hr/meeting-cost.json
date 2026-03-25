@@ -1,0 +1,76 @@
+{
+  "slug": "meeting-cost",
+  "category": "business",
+  "subcategory": "hr",
+  "title": "会議コスト計算",
+  "description": "参加者の人数・時給・時間から会議の人件費コストを計算。",
+  "metaTitle": "会議コスト計算ツール｜会議の人件費を自動計算",
+  "metaDescription": "参加人数と会議時間を入力して会議にかかる人件費コストを自動計算。",
+  "calculatorFunction": "meetingCost",
+  "inputs": [
+    {
+      "id": "participants",
+      "label": "参加者数",
+      "type": "number",
+      "unit": "人",
+      "default": 5,
+      "min": 1,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "avgHourlyRate",
+      "label": "平均時給（会社負担込み）",
+      "type": "number",
+      "unit": "円",
+      "default": 4000,
+      "min": 500,
+      "max": 50000,
+      "step": 100
+    },
+    {
+      "id": "durationMinutes",
+      "label": "会議時間",
+      "type": "number",
+      "unit": "分",
+      "default": 60,
+      "min": 5,
+      "max": 480,
+      "step": 5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "meetingCost",
+      "label": "会議コスト",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "perMinuteCost",
+      "label": "1分あたりコスト",
+      "format": "currency"
+    },
+    {
+      "id": "annualCost",
+      "label": "週1開催の年間コスト",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>会議の隠れコスト</h3><p>5人×4,000円/h×1時間=20,000円。週1回で年間約100万円。参加者を絞ることが最大のコスト削減です。</p>",
+  "faq": [
+    {
+      "question": "時給4,000円は妥当？",
+      "answer": "月給30万円+社会保険料の場合、時間あたりコストは約3,500〜4,000円です。"
+    },
+    {
+      "question": "会議を減らすには？",
+      "answer": "議題を事前共有、必要最小限の参加者、スタンディング会議（15分）が有効です。"
+    }
+  ],
+  "related": [
+    "labor-cost",
+    "hourly-wage"
+  ],
+  "popular": false
+}

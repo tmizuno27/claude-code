@@ -1,0 +1,62 @@
+{
+  "slug": "median-mode",
+  "category": "math",
+  "subcategory": "statistics",
+  "title": "中央値・最頻値計算",
+  "description": "データセットから中央値・最頻値・四分位数を計算。",
+  "metaTitle": "中央値・最頻値計算ツール｜データの代表値を自動計算",
+  "metaDescription": "数値データを入力して中央値・最頻値・四分位数を自動計算。",
+  "calculatorFunction": "medianMode",
+  "inputs": [
+    {
+      "id": "data",
+      "label": "データ（カンマ区切り）",
+      "type": "text",
+      "default": "10,20,20,30,40,50,50,50,60"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "median",
+      "label": "中央値",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "mode",
+      "label": "最頻値",
+      "format": "text"
+    },
+    {
+      "id": "q1",
+      "label": "第1四分位数",
+      "format": "number"
+    },
+    {
+      "id": "q3",
+      "label": "第3四分位数",
+      "format": "number"
+    },
+    {
+      "id": "range",
+      "label": "範囲",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>代表値</h3><p>平均値は外れ値に影響されやすい。年収などは中央値が適切です。</p>",
+  "faq": [
+    {
+      "question": "中央値と平均値どちらを使う？",
+      "answer": "外れ値がある場合は中央値、正規分布に近い場合は平均値。"
+    },
+    {
+      "question": "四分位数とは？",
+      "answer": "データを4等分する値。箱ひげ図で使われます。"
+    }
+  ],
+  "related": [
+    "average",
+    "standard-deviation"
+  ],
+  "popular": false
+}

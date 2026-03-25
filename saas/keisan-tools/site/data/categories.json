@@ -36,7 +36,8 @@
       { "slug": "date", "name": "日付・時間" },
       { "slug": "unit", "name": "単位変換" },
       { "slug": "shopping", "name": "買い物・割引" },
-      { "slug": "car", "name": "車・交通" }
+      { "slug": "car", "name": "車・交通" },
+      { "slug": "utility", "name": "光熱費・通信費" }
     ]
   },
   {

@@ -1,0 +1,58 @@
+{
+  "slug": "correlation",
+  "category": "math",
+  "subcategory": "statistics",
+  "title": "相関係数計算",
+  "description": "2つのデータセットの相関係数を計算。",
+  "metaTitle": "相関係数計算ツール｜2つのデータの相関を自動計算",
+  "metaDescription": "2つのデータセットを入力してピアソンの相関係数を自動計算。",
+  "calculatorFunction": "correlation",
+  "inputs": [
+    {
+      "id": "dataX",
+      "label": "データX（カンマ区切り）",
+      "type": "text",
+      "default": "1,2,3,4,5,6,7,8,9,10"
+    },
+    {
+      "id": "dataY",
+      "label": "データY（カンマ区切り）",
+      "type": "text",
+      "default": "2,4,5,4,5,7,8,9,10,12"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "r",
+      "label": "相関係数 (r)",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "r2",
+      "label": "決定係数 (R²)",
+      "format": "number"
+    },
+    {
+      "id": "interpretation",
+      "label": "相関の強さ",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>相関係数の解釈</h3><p>|r|≥0.7: 強い相関、0.4〜0.7: 中程度、<0.2: ほぼ無相関。</p>",
+  "faq": [
+    {
+      "question": "-1に近いとは？",
+      "answer": "強い負の相関。一方が増えると他方が減ります。"
+    },
+    {
+      "question": "相関=因果関係？",
+      "answer": "いいえ。相関は関連性を示すだけです。"
+    }
+  ],
+  "related": [
+    "average",
+    "standard-deviation"
+  ],
+  "popular": false
+}

@@ -1,0 +1,97 @@
+{
+  "slug": "baby-growth",
+  "category": "health",
+  "subcategory": "pregnancy",
+  "title": "赤ちゃん成長曲線計算",
+  "description": "月齢・体重・身長からパーセンタイル値を計算。",
+  "metaTitle": "赤ちゃん成長曲線計算ツール｜体重・身長のパーセンタイルを自動計算",
+  "metaDescription": "赤ちゃんの月齢・体重・身長を入力して成長の目安を自動計算。",
+  "calculatorFunction": "babyGrowth",
+  "inputs": [
+    {
+      "id": "monthsAge",
+      "label": "月齢",
+      "type": "number",
+      "unit": "ヶ月",
+      "default": 6,
+      "min": 0,
+      "max": 36,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男の子"
+        },
+        {
+          "value": "female",
+          "label": "女の子"
+        }
+      ],
+      "default": "male"
+    },
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 7.5,
+      "min": 1,
+      "max": 25,
+      "step": 0.1
+    },
+    {
+      "id": "height",
+      "label": "身長",
+      "type": "number",
+      "unit": "cm",
+      "default": 67,
+      "min": 30,
+      "max": 120,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "weightStatus",
+      "label": "体重の評価",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "heightStatus",
+      "label": "身長の評価",
+      "format": "text"
+    },
+    {
+      "id": "avgWeight",
+      "label": "同月齢の平均体重",
+      "format": "number"
+    },
+    {
+      "id": "avgHeight",
+      "label": "同月齢の平均身長",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>成長曲線とは</h3><p>3〜97パーセンタイルの範囲内であれば正常な成長と考えられます。</p>",
+  "faq": [
+    {
+      "question": "曲線から外れていたら？",
+      "answer": "一時的なずれは問題ありません。成長のペースが一定かが重要です。"
+    },
+    {
+      "question": "平均より重い/軽い",
+      "answer": "パーセンタイル範囲内なら問題ありません。"
+    }
+  ],
+  "related": [
+    "pregnancy-week",
+    "due-date"
+  ],
+  "popular": false
+}

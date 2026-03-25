@@ -1,0 +1,93 @@
+{
+  "slug": "alcohol-calorie",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "お酒のカロリー計算",
+  "description": "飲酒量からカロリーと純アルコール量を計算。",
+  "metaTitle": "お酒のカロリー計算ツール｜飲酒量からカロリーを自動計算",
+  "metaDescription": "ビール・日本酒・ワインの飲酒量からカロリーとアルコール量を自動計算。",
+  "calculatorFunction": "alcoholCalorie",
+  "inputs": [
+    {
+      "id": "drinkType",
+      "label": "お酒の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "beer",
+          "label": "ビール（5%）"
+        },
+        {
+          "value": "sake",
+          "label": "日本酒（15%）"
+        },
+        {
+          "value": "wine",
+          "label": "ワイン（12%）"
+        },
+        {
+          "value": "whisky",
+          "label": "ウイスキー（40%）"
+        },
+        {
+          "value": "shochu",
+          "label": "焼酎（25%）"
+        },
+        {
+          "value": "chuhai",
+          "label": "チューハイ（5%）"
+        }
+      ],
+      "default": "beer"
+    },
+    {
+      "id": "amount",
+      "label": "飲酒量",
+      "type": "number",
+      "unit": "ml",
+      "default": 500,
+      "min": 0,
+      "max": 5000,
+      "step": 50
+    }
+  ],
+  "outputs": [
+    {
+      "id": "calories",
+      "label": "カロリー",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "pureAlcohol",
+      "label": "純アルコール量",
+      "format": "number"
+    },
+    {
+      "id": "drinkUnit",
+      "label": "ドリンク数",
+      "format": "number"
+    },
+    {
+      "id": "decompositionTime",
+      "label": "分解時間（目安）",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>お酒のカロリー</h3><p>アルコール1gは7kcal。ビール500mlで約200kcal。</p>",
+  "faq": [
+    {
+      "question": "ビール500mlのカロリーは？",
+      "answer": "約200kcal。ご飯1杯分に近いです。"
+    },
+    {
+      "question": "分解時間は？",
+      "answer": "体重60kgで純アルコール20gの分解に約3〜4時間です。"
+    }
+  ],
+  "related": [
+    "daily-calorie",
+    "meal-calorie"
+  ],
+  "popular": false
+}

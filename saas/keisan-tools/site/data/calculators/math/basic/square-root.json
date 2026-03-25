@@ -1,0 +1,61 @@
+{
+  "slug": "square-root",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "平方根・立方根計算",
+  "description": "平方根（ルート）と立方根を計算。",
+  "metaTitle": "平方根・立方根計算ツール｜ルートの値を自動計算",
+  "metaDescription": "数値を入力して平方根（ルート）と立方根を自動計算。",
+  "calculatorFunction": "squareRoot",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値",
+      "type": "number",
+      "unit": "",
+      "default": 144,
+      "min": 0,
+      "max": 9999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "squareRoot",
+      "label": "平方根（√）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "cubeRoot",
+      "label": "立方根（∛）",
+      "format": "number"
+    },
+    {
+      "id": "square",
+      "label": "2乗",
+      "format": "number"
+    },
+    {
+      "id": "cube",
+      "label": "3乗",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>平方根</h3><p>√144 = 12（12² = 144）。√2 ≈ 1.414、√3 ≈ 1.732。</p>",
+  "faq": [
+    {
+      "question": "ルートの暗記は必要？",
+      "answer": "√2≈1.414、√3≈1.732、√5≈2.236は覚えておくと便利です。"
+    },
+    {
+      "question": "負の数の平方根は？",
+      "answer": "実数の範囲では存在しません。虚数i（i²=-1）を使って表します。"
+    }
+  ],
+  "related": [
+    "power",
+    "logarithm"
+  ],
+  "popular": false
+}

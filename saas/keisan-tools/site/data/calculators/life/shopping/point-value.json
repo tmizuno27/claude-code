@@ -1,0 +1,76 @@
+{
+  "slug": "point-value",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "ポイント還元計算",
+  "description": "ポイント還元率から実質割引額・年間お得額を計算。",
+  "metaTitle": "ポイント還元率計算ツール｜実質割引額を自動計算",
+  "metaDescription": "ポイント還元率と利用金額から実質的な割引額を自動計算。",
+  "calculatorFunction": "pointValue",
+  "inputs": [
+    {
+      "id": "amount",
+      "label": "利用金額",
+      "type": "number",
+      "unit": "円",
+      "default": 10000,
+      "min": 0,
+      "max": 99999999,
+      "step": 100
+    },
+    {
+      "id": "rate",
+      "label": "還元率",
+      "type": "number",
+      "unit": "%",
+      "default": 1,
+      "min": 0,
+      "max": 50,
+      "step": 0.1
+    },
+    {
+      "id": "monthlySpend",
+      "label": "月間平均利用額",
+      "type": "number",
+      "unit": "円",
+      "default": 100000,
+      "min": 0,
+      "max": 10000000,
+      "step": 1000
+    }
+  ],
+  "outputs": [
+    {
+      "id": "pointsEarned",
+      "label": "獲得ポイント",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "discountEquivalent",
+      "label": "実質割引額",
+      "format": "currency"
+    },
+    {
+      "id": "annualSavings",
+      "label": "年間お得額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>還元率の比較</h3><p>一般カード0.5〜1%、高還元カード1.5〜2%程度です。</p>",
+  "faq": [
+    {
+      "question": "1%と2%の差は？",
+      "answer": "月10万円利用なら年間12,000円の差です。"
+    },
+    {
+      "question": "有効期限は？",
+      "answer": "カード会社により1年〜無期限まで様々です。"
+    }
+  ],
+  "related": [
+    "discount",
+    "tax-included"
+  ],
+  "popular": false
+}

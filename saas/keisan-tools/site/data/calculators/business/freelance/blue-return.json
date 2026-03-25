@@ -1,0 +1,77 @@
+{
+  "slug": "blue-return",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "青色申告節税計算",
+  "description": "青色申告特別控除による節税額を計算。白色申告との比較。",
+  "metaTitle": "青色申告節税計算ツール｜白色申告との差額を自動計算【2026年版】",
+  "metaDescription": "事業所得を入力して青色申告特別控除による節税額を自動計算。",
+  "calculatorFunction": "blueReturn",
+  "inputs": [
+    {
+      "id": "businessIncome",
+      "label": "事業所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 500,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "deductionType",
+      "label": "控除額",
+      "type": "select",
+      "options": [
+        {
+          "value": "65",
+          "label": "65万円（e-Tax＋複式簿記）"
+        },
+        {
+          "value": "55",
+          "label": "55万円（複式簿記）"
+        },
+        {
+          "value": "10",
+          "label": "10万円（簡易簿記）"
+        }
+      ],
+      "default": "65"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxSavings",
+      "label": "所得税の節税額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "residentTaxSavings",
+      "label": "住民税の節税額",
+      "format": "currency"
+    },
+    {
+      "id": "totalSavings",
+      "label": "合計節税効果",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>青色申告特別控除</h3><p>e-Tax+複式簿記: 65万円、複式簿記のみ: 55万円、簡易簿記: 10万円。</p>",
+  "faq": [
+    {
+      "question": "面倒？",
+      "answer": "会計ソフトを使えばそれほど手間はかかりません。"
+    },
+    {
+      "question": "開業届と同時に出せる？",
+      "answer": "はい。開業から2ヶ月以内が期限です。"
+    }
+  ],
+  "related": [
+    "freelance-tax",
+    "income-tax",
+    "side-job-tax"
+  ],
+  "popular": false
+}

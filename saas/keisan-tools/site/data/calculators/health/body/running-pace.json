@@ -1,0 +1,81 @@
+{
+  "slug": "running-pace",
+  "category": "health",
+  "subcategory": "body",
+  "title": "ランニングペース計算",
+  "description": "距離と時間からペース（km/分）を計算。",
+  "metaTitle": "ランニングペース計算ツール｜距離と時間からペースを自動計算",
+  "metaDescription": "走った距離と時間を入力してペース（分/km）とスピードを自動計算。",
+  "calculatorFunction": "runningPace",
+  "inputs": [
+    {
+      "id": "distance",
+      "label": "距離",
+      "type": "number",
+      "unit": "km",
+      "default": 5,
+      "min": 0.1,
+      "max": 200,
+      "step": 0.1
+    },
+    {
+      "id": "hours",
+      "label": "時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 0,
+      "min": 0,
+      "max": 24,
+      "step": 1
+    },
+    {
+      "id": "minutes",
+      "label": "分",
+      "type": "number",
+      "unit": "分",
+      "default": 25,
+      "min": 0,
+      "max": 59,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "pace",
+      "label": "ペース（分/km）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "speed",
+      "label": "速度（km/h）",
+      "format": "number"
+    },
+    {
+      "id": "marathon",
+      "label": "フルマラソン予想タイム",
+      "format": "text"
+    },
+    {
+      "id": "half",
+      "label": "ハーフマラソン予想タイム",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>ランニングペースの目安</h3><p>初心者: 7〜8分/km、中級: 5〜6分/km、上級: 4分/km以下。マラソンサブ4は5分40秒/km。</p>",
+  "faq": [
+    {
+      "question": "サブ4とは？",
+      "answer": "フルマラソンを4時間以内で完走すること。ペースは5分40秒/km以内です。"
+    },
+    {
+      "question": "5kmのタイム目安は？",
+      "answer": "初心者30〜40分、中級20〜25分、上級15〜20分。"
+    }
+  ],
+  "related": [
+    "calorie-burn",
+    "target-heart-rate"
+  ],
+  "popular": false
+}

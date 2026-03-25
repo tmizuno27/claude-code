@@ -1,0 +1,86 @@
+{
+  "slug": "medical-insurance-premium",
+  "category": "money",
+  "subcategory": "insurance",
+  "title": "国民健康保険料計算",
+  "description": "所得・世帯人数から国民健康保険料の年額を計算。",
+  "metaTitle": "国民健康保険料計算ツール｜所得から国保料を自動計算【2026年版】",
+  "metaDescription": "前年所得と世帯人数を入力して国民健康保険料を自動計算。介護分にも対応。",
+  "calculatorFunction": "nationalHealthInsurance",
+  "inputs": [
+    {
+      "id": "income",
+      "label": "前年の総所得",
+      "type": "number",
+      "unit": "万円",
+      "default": 400,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "members",
+      "label": "世帯の加入者数",
+      "type": "number",
+      "unit": "人",
+      "default": 2,
+      "min": 1,
+      "max": 10,
+      "step": 1
+    },
+    {
+      "id": "age",
+      "label": "世帯主の年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 45,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "medicalPart",
+      "label": "医療分",
+      "format": "currency"
+    },
+    {
+      "id": "supportPart",
+      "label": "後期高齢者支援分",
+      "format": "currency"
+    },
+    {
+      "id": "carePart",
+      "label": "介護分（40-64歳）",
+      "format": "currency"
+    },
+    {
+      "id": "totalPremium",
+      "label": "国保料年額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyPremium",
+      "label": "月額換算",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>国保料の構成</h3><p>医療分 + 後期高齢者支援分 + 介護分（40〜64歳のみ）の3つで構成。自治体ごとに異なります。</p>",
+  "faq": [
+    {
+      "question": "国保と社保の違いは？",
+      "answer": "国保は自営業者向け。社保は会社員向けで保険料は会社と折半です。"
+    },
+    {
+      "question": "上限額は？",
+      "answer": "2026年度は合計最大106万円です。"
+    }
+  ],
+  "related": [
+    "social-insurance",
+    "freelance-tax"
+  ],
+  "popular": false
+}

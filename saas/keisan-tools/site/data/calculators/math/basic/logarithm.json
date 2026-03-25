@@ -1,0 +1,66 @@
+{
+  "slug": "logarithm",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "対数計算",
+  "description": "常用対数・自然対数・任意の底の対数を計算。",
+  "metaTitle": "対数計算ツール｜log・lnを自動計算",
+  "metaDescription": "数値を入力して常用対数・自然対数・任意の底の対数を自動計算。",
+  "calculatorFunction": "logarithm",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "真数",
+      "type": "number",
+      "unit": "",
+      "default": 100,
+      "min": 0.001,
+      "max": 9999999,
+      "step": 1
+    },
+    {
+      "id": "base",
+      "label": "底",
+      "type": "number",
+      "unit": "",
+      "default": 10,
+      "min": 0.001,
+      "max": 9999999,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "log10",
+      "label": "常用対数 (log₁₀)",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "ln",
+      "label": "自然対数 (ln)",
+      "format": "number"
+    },
+    {
+      "id": "logBase",
+      "label": "指定した底の対数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>対数とは</h3><p>a^x = b のとき x = log_a(b)。log₁₀(100) = 2。</p>",
+  "faq": [
+    {
+      "question": "常用対数と自然対数の違いは？",
+      "answer": "常用対数は底が10、自然対数は底がe≈2.718です。"
+    },
+    {
+      "question": "何に使う？",
+      "answer": "マグニチュード、デシベル、pHなどに使われます。"
+    }
+  ],
+  "related": [
+    "power",
+    "percentage"
+  ],
+  "popular": false
+}

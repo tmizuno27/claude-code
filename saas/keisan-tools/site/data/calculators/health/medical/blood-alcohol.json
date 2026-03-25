@@ -1,0 +1,92 @@
+{
+  "slug": "blood-alcohol",
+  "category": "health",
+  "subcategory": "medical",
+  "title": "血中アルコール濃度計算",
+  "description": "飲酒量・体重から血中アルコール濃度と分解時間を計算。",
+  "metaTitle": "血中アルコール濃度計算ツール｜飲酒量から濃度と分解時間を自動計算",
+  "metaDescription": "飲酒量と体重を入力して血中アルコール濃度を自動計算。飲酒運転防止に。",
+  "calculatorFunction": "bloodAlcohol",
+  "inputs": [
+    {
+      "id": "weight",
+      "label": "体重",
+      "type": "number",
+      "unit": "kg",
+      "default": 65,
+      "min": 30,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "gender",
+      "label": "性別",
+      "type": "select",
+      "options": [
+        {
+          "value": "male",
+          "label": "男性"
+        },
+        {
+          "value": "female",
+          "label": "女性"
+        }
+      ],
+      "default": "male"
+    },
+    {
+      "id": "pureAlcohol",
+      "label": "純アルコール量",
+      "type": "number",
+      "unit": "g",
+      "default": 20,
+      "min": 0,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "hours",
+      "label": "経過時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 0,
+      "min": 0,
+      "max": 24,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "bac",
+      "label": "血中アルコール濃度",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "soberTime",
+      "label": "完全分解時間",
+      "format": "number"
+    },
+    {
+      "id": "status",
+      "label": "酔いの状態",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>飲酒運転の基準</h3><p>日本では血中0.03%以上で酒気帯び運転。0.05%以上で酒酔い運転です。</p>",
+  "faq": [
+    {
+      "question": "ビール1杯で運転できる？",
+      "answer": "ビール500mlの分解に3〜4時間。飲酒直後の運転は違法です。"
+    },
+    {
+      "question": "寝れば覚める？",
+      "answer": "睡眠中も分解速度は変わりません。翌朝でも残っている可能性があります。"
+    }
+  ],
+  "related": [
+    "alcohol-calorie",
+    "medicine-dose"
+  ],
+  "popular": false
+}

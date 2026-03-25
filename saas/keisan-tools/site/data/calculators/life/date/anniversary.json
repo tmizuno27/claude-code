@@ -1,0 +1,67 @@
+{
+  "slug": "anniversary",
+  "category": "life",
+  "subcategory": "date",
+  "title": "記念日計算",
+  "description": "特定の日から100日目、1000日目などを計算。",
+  "metaTitle": "記念日計算ツール｜100日目・1000日目を自動計算",
+  "metaDescription": "記念日を入力して100日目、200日目、1000日目、各年の記念日を自動計算。",
+  "calculatorFunction": "anniversary",
+  "inputs": [
+    {
+      "id": "startDate",
+      "label": "起点の日付",
+      "type": "date",
+      "default": "2024-01-01"
+    }
+  ],
+  "outputs": [
+    {
+      "id": "days100",
+      "label": "100日目",
+      "format": "text"
+    },
+    {
+      "id": "days200",
+      "label": "200日目",
+      "format": "text"
+    },
+    {
+      "id": "days365",
+      "label": "1年記念日",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "days500",
+      "label": "500日目",
+      "format": "text"
+    },
+    {
+      "id": "days1000",
+      "label": "1000日目",
+      "format": "text"
+    },
+    {
+      "id": "elapsedDays",
+      "label": "今日までの日数",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>記念日の種類</h3><p>100日記念、1000日記念はカップルに人気。金婚式（50年）・銀婚式（25年）も有名です。</p>",
+  "faq": [
+    {
+      "question": "100日記念はいつ？",
+      "answer": "起点日を含めて100日目です。"
+    },
+    {
+      "question": "結婚記念日の名称は？",
+      "answer": "1年: 紙婚式、25年: 銀婚式、50年: 金婚式"
+    }
+  ],
+  "related": [
+    "days-between",
+    "countdown"
+  ],
+  "popular": false
+}

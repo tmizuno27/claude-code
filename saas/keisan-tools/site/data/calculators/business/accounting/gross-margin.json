@@ -1,0 +1,66 @@
+{
+  "slug": "gross-margin",
+  "category": "business",
+  "subcategory": "accounting",
+  "title": "粗利益率計算",
+  "description": "売上高と原価から粗利益・粗利益率を計算。",
+  "metaTitle": "粗利益率計算ツール｜売上高と原価から粗利益率を自動計算",
+  "metaDescription": "売上高と売上原価を入力して粗利益と粗利益率を自動計算。",
+  "calculatorFunction": "grossMargin",
+  "inputs": [
+    {
+      "id": "revenue",
+      "label": "売上高",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "cogs",
+      "label": "売上原価",
+      "type": "number",
+      "unit": "万円",
+      "default": 600,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "grossProfit",
+      "label": "粗利益",
+      "format": "currency"
+    },
+    {
+      "id": "grossMarginRate",
+      "label": "粗利益率",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "markupRate",
+      "label": "原価率",
+      "format": "percent"
+    }
+  ],
+  "explanation": "<h3>粗利益率</h3><p>（売上高−原価）÷売上高×100。業種別目安: 小売25〜35%、飲食60〜70%、IT 70〜90%</p>",
+  "faq": [
+    {
+      "question": "粗利益と営業利益の違いは？",
+      "answer": "営業利益は粗利益からさらに販管費を引いたものです。"
+    },
+    {
+      "question": "粗利益率を上げるには？",
+      "answer": "売価UP、原価DOWN、高粗利商品の比率UP。"
+    }
+  ],
+  "related": [
+    "profit-margin",
+    "break-even"
+  ],
+  "popular": false
+}

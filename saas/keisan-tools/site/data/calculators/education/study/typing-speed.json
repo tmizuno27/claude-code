@@ -1,0 +1,66 @@
+{
+  "slug": "typing-speed",
+  "category": "education",
+  "subcategory": "study",
+  "title": "タイピング速度計算",
+  "description": "入力文字数と時間からタイピング速度を計算。",
+  "metaTitle": "タイピング速度計算ツール｜WPM・CPMを自動計算",
+  "metaDescription": "入力文字数と所要時間からタイピング速度を自動計算。レベル判定付き。",
+  "calculatorFunction": "typingSpeed",
+  "inputs": [
+    {
+      "id": "characters",
+      "label": "入力文字数",
+      "type": "number",
+      "unit": "文字",
+      "default": 300,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "minutes",
+      "label": "所要時間",
+      "type": "number",
+      "unit": "分",
+      "default": 5,
+      "min": 0.1,
+      "max": 120,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "cpm",
+      "label": "CPM（文字/分）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "wpm",
+      "label": "WPM（英単語/分）",
+      "format": "number"
+    },
+    {
+      "id": "level",
+      "label": "レベル判定",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>速度の目安</h3><p>初心者: 〜100CPM、一般: 100〜200CPM、上級: 200〜400CPM</p>",
+  "faq": [
+    {
+      "question": "速いとどのくらい得？",
+      "answer": "1日2時間タイピングするなら速度2倍で年間240時間の差。"
+    },
+    {
+      "question": "コツは？",
+      "answer": "ホームポジション、キーボードを見ない、正確性優先。"
+    }
+  ],
+  "related": [
+    "reading-speed",
+    "study-time"
+  ],
+  "popular": false
+}

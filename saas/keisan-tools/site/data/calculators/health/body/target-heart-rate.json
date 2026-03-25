@@ -1,0 +1,71 @@
+{
+  "slug": "target-heart-rate",
+  "category": "health",
+  "subcategory": "body",
+  "title": "目標心拍数計算",
+  "description": "年齢と安静時心拍数から運動時の目標心拍数を計算。",
+  "metaTitle": "目標心拍数計算ツール｜運動強度別の心拍数を自動計算",
+  "metaDescription": "年齢と安静時心拍数を入力して運動強度別の目標心拍数を自動計算。",
+  "calculatorFunction": "targetHeartRate",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 10,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "restingHR",
+      "label": "安静時心拍数",
+      "type": "number",
+      "unit": "bpm",
+      "default": 70,
+      "min": 30,
+      "max": 120,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "maxHR",
+      "label": "最大心拍数",
+      "format": "number"
+    },
+    {
+      "id": "fatBurnZone",
+      "label": "脂肪燃焼ゾーン（50-60%）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "cardioZone",
+      "label": "有酸素ゾーン（60-70%）",
+      "format": "text"
+    },
+    {
+      "id": "highIntensity",
+      "label": "高強度ゾーン（70-85%）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>カルボーネン法</h3><p>目標心拍数 = （最大心拍数 - 安静時心拍数）× 運動強度(%) + 安静時心拍数</p>",
+  "faq": [
+    {
+      "question": "脂肪燃焼に最適な心拍数は？",
+      "answer": "最大心拍数の50〜60%です。35歳なら約120〜135bpm。"
+    },
+    {
+      "question": "安静時心拍数の測り方は？",
+      "answer": "朝起きてすぐ、座った状態で1分間の脈拍を数えます。"
+    }
+  ],
+  "related": [
+    "calorie-burn",
+    "basal-metabolism"
+  ],
+  "popular": false
+}

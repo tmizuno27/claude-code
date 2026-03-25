@@ -1,0 +1,81 @@
+{
+  "slug": "fabric-calculator",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "生地必要量計算",
+  "description": "作りたいものの寸法から必要な生地の量を計算。",
+  "metaTitle": "生地必要量計算ツール｜必要な生地のメートル数を自動計算",
+  "metaDescription": "作りたいものの寸法を入力して必要な生地の量を自動計算。裁縫・手芸に。",
+  "calculatorFunction": "fabricCalculator",
+  "inputs": [
+    {
+      "id": "width",
+      "label": "必要な幅",
+      "type": "number",
+      "unit": "cm",
+      "default": 100,
+      "min": 1,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "height",
+      "label": "必要な丈",
+      "type": "number",
+      "unit": "cm",
+      "default": 150,
+      "min": 1,
+      "max": 1000,
+      "step": 1
+    },
+    {
+      "id": "fabricWidth",
+      "label": "生地幅",
+      "type": "number",
+      "unit": "cm",
+      "default": 110,
+      "min": 50,
+      "max": 200,
+      "step": 1
+    },
+    {
+      "id": "seam",
+      "label": "縫い代",
+      "type": "number",
+      "unit": "cm",
+      "default": 2,
+      "min": 0,
+      "max": 10,
+      "step": 0.5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "fabricLength",
+      "label": "必要な生地の長さ",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "totalArea",
+      "label": "必要面積",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>生地の計算</h3><p>必要な丈 + 縫い代×2 = 裁断丈。生地幅に収まらない場合は複数パーツに分割します。</p>",
+  "faq": [
+    {
+      "question": "生地幅110cmとは？",
+      "answer": "一般的な綿布の幅です。ウール・ポリエステルは140〜150cmが多いです。"
+    },
+    {
+      "question": "柄合わせは？",
+      "answer": "柄のリピートがある場合、リピート分（10〜30cm程度）を追加で必要とします。"
+    }
+  ],
+  "related": [
+    "area",
+    "per-unit-price"
+  ],
+  "popular": false
+}

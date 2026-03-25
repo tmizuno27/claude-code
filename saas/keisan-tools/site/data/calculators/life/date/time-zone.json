@@ -1,0 +1,76 @@
+{
+  "slug": "time-zone",
+  "category": "life",
+  "subcategory": "date",
+  "title": "時差計算",
+  "description": "2つの都市間の時差と現地時間を計算。",
+  "metaTitle": "時差計算ツール｜世界の時差と現地時間を自動計算",
+  "metaDescription": "2つの都市のUTCオフセットから時差と現地時間を自動計算。",
+  "calculatorFunction": "timeZone",
+  "inputs": [
+    {
+      "id": "fromOffset",
+      "label": "出発地のUTCオフセット",
+      "type": "number",
+      "unit": "時間",
+      "default": 9,
+      "min": -12,
+      "max": 14,
+      "step": 0.5
+    },
+    {
+      "id": "toOffset",
+      "label": "目的地のUTCオフセット",
+      "type": "number",
+      "unit": "時間",
+      "default": -5,
+      "min": -12,
+      "max": 14,
+      "step": 0.5
+    },
+    {
+      "id": "hour",
+      "label": "出発地の時刻",
+      "type": "number",
+      "unit": "時",
+      "default": 12,
+      "min": 0,
+      "max": 23,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "timeDiff",
+      "label": "時差",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "destinationTime",
+      "label": "目的地の時刻",
+      "format": "number"
+    },
+    {
+      "id": "dayChange",
+      "label": "日付の変化",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>時差の計算</h3><p>時差 = 目的地のUTCオフセット − 出発地のUTCオフセット。</p>",
+  "faq": [
+    {
+      "question": "日本と主要都市の時差は？",
+      "answer": "ロンドン: -9h、NY: -14h、LA: -17h、シドニー: +2h"
+    },
+    {
+      "question": "サマータイムは？",
+      "answer": "サマータイム中はUTCオフセットが1時間進みます。"
+    }
+  ],
+  "related": [
+    "days-between",
+    "countdown"
+  ],
+  "popular": false
+}

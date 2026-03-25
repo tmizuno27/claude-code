@@ -1,0 +1,66 @@
+{
+  "slug": "download-time",
+  "category": "life",
+  "subcategory": "unit",
+  "title": "ダウンロード時間計算",
+  "description": "ファイルサイズと回線速度からダウンロード時間を計算。",
+  "metaTitle": "ダウンロード時間計算ツール｜ファイルサイズと回線速度から自動計算",
+  "metaDescription": "ファイルサイズと回線速度を入力してダウンロード時間を自動計算。",
+  "calculatorFunction": "downloadTime",
+  "inputs": [
+    {
+      "id": "fileSize",
+      "label": "ファイルサイズ",
+      "type": "number",
+      "unit": "MB",
+      "default": 1000,
+      "min": 0,
+      "max": 999999,
+      "step": 1
+    },
+    {
+      "id": "speed",
+      "label": "回線速度",
+      "type": "number",
+      "unit": "Mbps",
+      "default": 100,
+      "min": 0.1,
+      "max": 10000,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "seconds",
+      "label": "ダウンロード時間（秒）",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "minutes",
+      "label": "分",
+      "format": "number"
+    },
+    {
+      "id": "hours",
+      "label": "時間",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>計算方法</h3><p>時間(秒) = ファイルサイズ(MB) × 8 ÷ 回線速度(Mbps)。1MB = 8Mbit。</p>",
+  "faq": [
+    {
+      "question": "実際の速度は表示速度より遅い？",
+      "answer": "はい。実効速度は理論値の30〜70%程度です。"
+    },
+    {
+      "question": "100Mbpsで1GBのダウンロードは？",
+      "answer": "理論上約80秒、実効速度だと2〜3分程度です。"
+    }
+  ],
+  "related": [
+    "data-size",
+    "speed"
+  ],
+  "popular": false
+}

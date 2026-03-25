@@ -1,0 +1,76 @@
+{
+  "slug": "tip-calculator",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "チップ計算",
+  "description": "食事代からチップ額と合計金額を計算。",
+  "metaTitle": "チップ計算ツール｜食事代からチップ額を自動計算",
+  "metaDescription": "食事代とチップ率を入力してチップ額と合計金額を自動計算。割り勘対応。",
+  "calculatorFunction": "tipCalculator",
+  "inputs": [
+    {
+      "id": "billAmount",
+      "label": "食事代",
+      "type": "number",
+      "unit": "ドル",
+      "default": 50,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "tipRate",
+      "label": "チップ率",
+      "type": "number",
+      "unit": "%",
+      "default": 18,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    },
+    {
+      "id": "people",
+      "label": "人数",
+      "type": "number",
+      "unit": "人",
+      "default": 2,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "tipAmount",
+      "label": "チップ額",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "totalBill",
+      "label": "合計金額",
+      "format": "number"
+    },
+    {
+      "id": "perPerson",
+      "label": "1人あたり",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>チップの相場</h3><p>アメリカ: 15〜20%、ヨーロッパ: 5〜10%。日本にはチップ文化はありません。</p>",
+  "faq": [
+    {
+      "question": "チップはいつ払う？",
+      "answer": "レストランでは会計時にクレジットカード伝票に記入するか、現金をテーブルに置きます。"
+    },
+    {
+      "question": "不要な国は？",
+      "answer": "日本、韓国、中国、オーストラリアなどでは不要です。"
+    }
+  ],
+  "related": [
+    "split-bill",
+    "discount"
+  ],
+  "popular": false
+}

@@ -1,0 +1,86 @@
+{
+  "slug": "housing-deduction",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "住宅ローン控除計算",
+  "description": "住宅ローン残高から住宅ローン控除（減税）額を計算。",
+  "metaTitle": "住宅ローン控除計算ツール｜年間の減税額を自動計算【2026年版】",
+  "metaDescription": "住宅ローン残高を入力して住宅ローン控除による減税額を自動計算。",
+  "calculatorFunction": "housingDeduction",
+  "inputs": [
+    {
+      "id": "loanBalance",
+      "label": "年末ローン残高",
+      "type": "number",
+      "unit": "万円",
+      "default": 3000,
+      "min": 0,
+      "max": 100000,
+      "step": 10
+    },
+    {
+      "id": "houseType",
+      "label": "住宅の種類",
+      "type": "select",
+      "options": [
+        {
+          "value": "new_eco",
+          "label": "新築（省エネ基準適合）"
+        },
+        {
+          "value": "new_normal",
+          "label": "新築（一般）"
+        },
+        {
+          "value": "used",
+          "label": "中古"
+        }
+      ],
+      "default": "new_eco"
+    },
+    {
+      "id": "moveInYear",
+      "label": "入居年",
+      "type": "number",
+      "unit": "年",
+      "default": 2026,
+      "min": 2022,
+      "max": 2030,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "annualDeduction",
+      "label": "年間控除額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "controlLimit",
+      "label": "控除上限",
+      "format": "currency"
+    },
+    {
+      "id": "totalDeduction",
+      "label": "控除期間中の総額（概算）",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>住宅ローン控除（2026年）</h3><p>年末ローン残高×0.7%が所得税から控除されます。新築は最大13年間、中古は最大10年間。</p>",
+  "faq": [
+    {
+      "question": "いくら戻る？",
+      "answer": "残高3,000万円なら年21万円（0.7%）。ただし納税額が上限です。"
+    },
+    {
+      "question": "確定申告は必要？",
+      "answer": "初年度は確定申告が必要。2年目以降は年末調整でOKです。"
+    }
+  ],
+  "related": [
+    "housing-loan",
+    "income-tax"
+  ],
+  "popular": false
+}

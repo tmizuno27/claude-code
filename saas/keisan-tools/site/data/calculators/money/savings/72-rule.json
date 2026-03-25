@@ -1,0 +1,56 @@
+{
+  "slug": "72-rule",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "72の法則計算",
+  "description": "金利から資産が2倍になるまでの年数を計算。",
+  "metaTitle": "72の法則計算ツール｜お金が2倍になる年数を自動計算",
+  "metaDescription": "金利を入力するだけで資産が2倍になるまでの年数を自動計算。72の法則をわかりやすく解説。",
+  "calculatorFunction": "rule72",
+  "inputs": [
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 5,
+      "min": 0.01,
+      "max": 100,
+      "step": 0.1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "yearsToDouble",
+      "label": "2倍になる年数",
+      "format": "number",
+      "primary": true
+    },
+    {
+      "id": "yearsToTriple",
+      "label": "3倍になる年数",
+      "format": "number"
+    },
+    {
+      "id": "actual",
+      "label": "実際の年数（複利計算）",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>72の法則とは</h3><p>72 ÷ 年利（%）= 資産が2倍になる年数。例: 年利6%なら12年で2倍。</p>",
+  "faq": [
+    {
+      "question": "72の法則は正確？",
+      "answer": "概算です。年利1〜10%程度で精度が高くなります。"
+    },
+    {
+      "question": "年利0.001%の預金だと？",
+      "answer": "72,000年かかります。"
+    }
+  ],
+  "related": [
+    "compound-interest",
+    "savings-simulation"
+  ],
+  "popular": false
+}

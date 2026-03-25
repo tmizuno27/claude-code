@@ -1,0 +1,101 @@
+{
+  "slug": "ev-cost",
+  "category": "life",
+  "subcategory": "car",
+  "title": "EV vs ガソリン車コスト比較",
+  "description": "電気自動車とガソリン車の燃料費・維持費を比較計算。",
+  "metaTitle": "EV vs ガソリン車コスト比較ツール｜総コストを自動シミュレーション",
+  "metaDescription": "EVとガソリン車の燃料費を比較。何年で元が取れるか自動計算。",
+  "calculatorFunction": "evCostComparison",
+  "inputs": [
+    {
+      "id": "annualMileage",
+      "label": "年間走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 10000,
+      "min": 0,
+      "max": 100000,
+      "step": 1000
+    },
+    {
+      "id": "evEfficiency",
+      "label": "EV電費",
+      "type": "number",
+      "unit": "km/kWh",
+      "default": 6,
+      "min": 2,
+      "max": 10,
+      "step": 0.1
+    },
+    {
+      "id": "electricityPrice",
+      "label": "電気料金",
+      "type": "number",
+      "unit": "円/kWh",
+      "default": 35,
+      "min": 10,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "gasEfficiency",
+      "label": "ガソリン車燃費",
+      "type": "number",
+      "unit": "km/L",
+      "default": 15,
+      "min": 5,
+      "max": 40,
+      "step": 0.5
+    },
+    {
+      "id": "gasPrice",
+      "label": "ガソリン単価",
+      "type": "number",
+      "unit": "円/L",
+      "default": 175,
+      "min": 100,
+      "max": 300,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "evFuelCost",
+      "label": "EV年間電気代",
+      "format": "currency"
+    },
+    {
+      "id": "gasFuelCost",
+      "label": "ガソリン年間燃料代",
+      "format": "currency"
+    },
+    {
+      "id": "annualSavings",
+      "label": "年間燃料費の差額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "tenYearSavings",
+      "label": "10年間の燃料費差額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>EVの燃料費メリット</h3><p>EVは1km約5.8円、ガソリン車は1km約11.7円。燃料費は約半分です。</p>",
+  "faq": [
+    {
+      "question": "EVの方が安い？",
+      "answer": "燃料費は安いですが車両価格が高いため、走行距離次第です。"
+    },
+    {
+      "question": "充電はどこで？",
+      "answer": "自宅充電が基本。外出先は急速充電スタンドを利用します。"
+    }
+  ],
+  "related": [
+    "fuel-cost",
+    "car-cost"
+  ],
+  "popular": false
+}

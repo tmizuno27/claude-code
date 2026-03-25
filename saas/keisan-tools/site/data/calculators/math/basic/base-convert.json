@@ -1,0 +1,61 @@
+{
+  "slug": "base-convert",
+  "category": "math",
+  "subcategory": "basic",
+  "title": "進数変換",
+  "description": "10進数⇔2進数⇔8進数⇔16進数を相互変換。",
+  "metaTitle": "進数変換ツール｜10進数⇔2進数⇔16進数を自動変換",
+  "metaDescription": "10進数・2進数・8進数・16進数を相互変換。プログラミングに便利。",
+  "calculatorFunction": "baseConvert",
+  "inputs": [
+    {
+      "id": "value",
+      "label": "数値（10進数）",
+      "type": "number",
+      "unit": "",
+      "default": 255,
+      "min": 0,
+      "max": 4294967295,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "decimal",
+      "label": "10進数",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "binary",
+      "label": "2進数",
+      "format": "text"
+    },
+    {
+      "id": "octal",
+      "label": "8進数",
+      "format": "text"
+    },
+    {
+      "id": "hex",
+      "label": "16進数",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>進数</h3><p>2進数は0と1、16進数は0〜9とA〜Fを使います。</p>",
+  "faq": [
+    {
+      "question": "255がFFになる理由は？",
+      "answer": "15×16+15=255。16進数の15はF。"
+    },
+    {
+      "question": "16進数を使う理由は？",
+      "answer": "2進数4桁が16進数1桁に対応し、バイナリを簡潔に表現できます。"
+    }
+  ],
+  "related": [
+    "power",
+    "logarithm"
+  ],
+  "popular": false
+}

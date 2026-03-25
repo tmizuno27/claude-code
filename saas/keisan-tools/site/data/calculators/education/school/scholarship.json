@@ -1,0 +1,76 @@
+{
+  "slug": "scholarship",
+  "category": "education",
+  "subcategory": "school",
+  "title": "奨学金返済計算",
+  "description": "奨学金の総額・利率から月々の返済額を計算。",
+  "metaTitle": "奨学金返済計算シミュレーション｜月々の返済額を自動計算",
+  "metaDescription": "奨学金の借入総額と利率を入力して月々の返済額・返済総額を自動計算。",
+  "calculatorFunction": "scholarship",
+  "inputs": [
+    {
+      "id": "totalBorrowed",
+      "label": "借入総額",
+      "type": "number",
+      "unit": "万円",
+      "default": 300,
+      "min": 0,
+      "max": 10000,
+      "step": 10
+    },
+    {
+      "id": "rate",
+      "label": "年利",
+      "type": "number",
+      "unit": "%",
+      "default": 0.5,
+      "min": 0,
+      "max": 5,
+      "step": 0.01
+    },
+    {
+      "id": "years",
+      "label": "返済期間",
+      "type": "number",
+      "unit": "年",
+      "default": 15,
+      "min": 1,
+      "max": 20,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "monthlyPayment",
+      "label": "月々の返済額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "totalPayment",
+      "label": "返済総額",
+      "format": "currency"
+    },
+    {
+      "id": "totalInterest",
+      "label": "利息合計",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>JASSO奨学金</h3><p>第一種（無利子）と第二種（有利子、上限3%）があります。</p>",
+  "faq": [
+    {
+      "question": "返済開始はいつ？",
+      "answer": "卒業後7ヶ月目からです。"
+    },
+    {
+      "question": "返済が厳しい場合は？",
+      "answer": "返済猶予（最長10年）、減額返還制度があります。"
+    }
+  ],
+  "related": [
+    "education-loan",
+    "debt-repayment"
+  ],
+  "popular": false
+}

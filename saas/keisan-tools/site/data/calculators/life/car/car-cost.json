@@ -1,0 +1,120 @@
+{
+  "slug": "car-cost",
+  "category": "life",
+  "subcategory": "car",
+  "title": "車の維持費計算",
+  "description": "車種別の年間維持費（税金・保険・車検・ガソリン）を総合計算。",
+  "metaTitle": "車の維持費計算ツール｜年間コストを項目別に自動計算",
+  "metaDescription": "車種を選ぶだけで年間の維持費を項目別に自動計算。",
+  "calculatorFunction": "carCostTotal",
+  "inputs": [
+    {
+      "id": "carType",
+      "label": "車種",
+      "type": "select",
+      "options": [
+        {
+          "value": "kei",
+          "label": "軽自動車"
+        },
+        {
+          "value": "compact",
+          "label": "コンパクトカー"
+        },
+        {
+          "value": "sedan",
+          "label": "セダン"
+        },
+        {
+          "value": "suv",
+          "label": "SUV"
+        },
+        {
+          "value": "minivan",
+          "label": "ミニバン"
+        }
+      ],
+      "default": "compact"
+    },
+    {
+      "id": "annualMileage",
+      "label": "年間走行距離",
+      "type": "number",
+      "unit": "km",
+      "default": 10000,
+      "min": 0,
+      "max": 100000,
+      "step": 1000
+    },
+    {
+      "id": "fuelEfficiency",
+      "label": "燃費",
+      "type": "number",
+      "unit": "km/L",
+      "default": 15,
+      "min": 1,
+      "max": 50,
+      "step": 0.5
+    },
+    {
+      "id": "fuelPrice",
+      "label": "ガソリン単価",
+      "type": "number",
+      "unit": "円/L",
+      "default": 175,
+      "min": 100,
+      "max": 300,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "taxCost",
+      "label": "自動車税",
+      "format": "currency"
+    },
+    {
+      "id": "insuranceCost",
+      "label": "任意保険（年額概算）",
+      "format": "currency"
+    },
+    {
+      "id": "inspectionCost",
+      "label": "車検費用（年割り）",
+      "format": "currency"
+    },
+    {
+      "id": "fuelCostTotal",
+      "label": "ガソリン代",
+      "format": "currency"
+    },
+    {
+      "id": "totalAnnualCost",
+      "label": "年間維持費合計",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "monthlyCost",
+      "label": "月額換算",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>車の維持費の内訳</h3><p>自動車税、任意保険、車検、ガソリン代が主な項目です。軽自動車は普通車より年間10〜20万円安くなります。</p>",
+  "faq": [
+    {
+      "question": "年間いくら？",
+      "answer": "軽自動車で約30〜40万円、コンパクトカーで約40〜50万円が目安です。"
+    },
+    {
+      "question": "カーシェアと自家用車どちらが得？",
+      "answer": "月300km以下ならカーシェアが安い場合が多いです。"
+    }
+  ],
+  "related": [
+    "fuel-cost",
+    "car-tax",
+    "car-insurance"
+  ],
+  "popular": false
+}

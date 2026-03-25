@@ -1,0 +1,92 @@
+{
+  "slug": "freelance-rate",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "フリーランス単価計算",
+  "description": "希望年収から必要な時間単価・月額単価を逆算。",
+  "metaTitle": "フリーランス単価計算ツール｜希望年収から必要な時給を自動計算",
+  "metaDescription": "希望年収と稼働時間を入力してフリーランスに必要な単価を自動計算。",
+  "calculatorFunction": "freelanceRate",
+  "inputs": [
+    {
+      "id": "targetIncome",
+      "label": "希望手取り年収",
+      "type": "number",
+      "unit": "万円",
+      "default": 600,
+      "min": 0,
+      "max": 50000,
+      "step": 10
+    },
+    {
+      "id": "workDays",
+      "label": "月間稼働日数",
+      "type": "number",
+      "unit": "日",
+      "default": 20,
+      "min": 1,
+      "max": 30,
+      "step": 1
+    },
+    {
+      "id": "workHours",
+      "label": "1日の稼働時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 8,
+      "min": 1,
+      "max": 16,
+      "step": 1
+    },
+    {
+      "id": "expenseRate",
+      "label": "経費率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "requiredRevenue",
+      "label": "必要売上（年間）",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyRate",
+      "label": "月額単価",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "dailyRate",
+      "label": "日額単価",
+      "format": "currency"
+    },
+    {
+      "id": "hourlyRate",
+      "label": "時間単価",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>フリーランスの単価設定</h3><p>手取り年収に税金（約25〜30%）、社会保険料（約15%）、経費を加算した金額が必要売上です。</p>",
+  "faq": [
+    {
+      "question": "会社員500万相当のフリーランス売上は？",
+      "answer": "年商800〜900万円程度が必要です。"
+    },
+    {
+      "question": "単価を上げるには？",
+      "answer": "専門性を高める、実績を積む、紹介案件を増やす。"
+    }
+  ],
+  "related": [
+    "freelance-tax",
+    "invoice-tax",
+    "hourly-wage"
+  ],
+  "popular": false
+}

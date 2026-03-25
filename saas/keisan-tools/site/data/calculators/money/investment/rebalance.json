@@ -1,0 +1,96 @@
+{
+  "slug": "rebalance",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "リバランス計算",
+  "description": "現在のポートフォリオから目標配分への調整額を計算。",
+  "metaTitle": "リバランス計算ツール｜ポートフォリオの調整額を自動計算",
+  "metaDescription": "現在の資産配分と目標配分を入力してリバランスに必要な売買額を自動計算。",
+  "calculatorFunction": "rebalance",
+  "inputs": [
+    {
+      "id": "totalAsset",
+      "label": "総資産額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 10000000,
+      "step": 10
+    },
+    {
+      "id": "currentStock",
+      "label": "現在の株式比率",
+      "type": "number",
+      "unit": "%",
+      "default": 70,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "currentBond",
+      "label": "現在の債券比率",
+      "type": "number",
+      "unit": "%",
+      "default": 20,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "targetStock",
+      "label": "目標株式比率",
+      "type": "number",
+      "unit": "%",
+      "default": 60,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    },
+    {
+      "id": "targetBond",
+      "label": "目標債券比率",
+      "type": "number",
+      "unit": "%",
+      "default": 30,
+      "min": 0,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stockAdjust",
+      "label": "株式の調整額",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "bondAdjust",
+      "label": "債券の調整額",
+      "format": "currency"
+    },
+    {
+      "id": "cashAdjust",
+      "label": "現金の調整額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>リバランスとは</h3><p>値動きにより崩れた資産配分を目標比率に戻す作業です。年1回程度が一般的。</p>",
+  "faq": [
+    {
+      "question": "リバランスの効果は？",
+      "answer": "リスクを一定に保ち、高い時に売って安い時に買う効果があります。"
+    },
+    {
+      "question": "税金はかかる？",
+      "answer": "特定口座では売却益に約20%の税金がかかります。NISA口座内なら非課税です。"
+    }
+  ],
+  "related": [
+    "asset-allocation",
+    "nisa-simulation"
+  ],
+  "popular": false
+}

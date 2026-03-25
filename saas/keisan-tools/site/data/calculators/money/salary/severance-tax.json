@@ -1,0 +1,76 @@
+{
+  "slug": "severance-tax",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "退職金の税金計算",
+  "description": "退職金の額と勤続年数から退職所得税・住民税を計算。",
+  "metaTitle": "退職金の税金計算シミュレーション｜退職所得税を自動計算【2026年版】",
+  "metaDescription": "退職金と勤続年数を入力するだけで退職所得にかかる税金を自動計算。",
+  "calculatorFunction": "severanceTax",
+  "inputs": [
+    {
+      "id": "severance",
+      "label": "退職金額",
+      "type": "number",
+      "unit": "万円",
+      "default": 2000,
+      "min": 0,
+      "max": 100000,
+      "step": 10
+    },
+    {
+      "id": "years",
+      "label": "勤続年数",
+      "type": "number",
+      "unit": "年",
+      "default": 20,
+      "min": 1,
+      "max": 50,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "deduction",
+      "label": "退職所得控除額",
+      "format": "currency"
+    },
+    {
+      "id": "taxableRetirement",
+      "label": "退職所得",
+      "format": "currency"
+    },
+    {
+      "id": "incomeTax",
+      "label": "所得税",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "residentTax",
+      "label": "住民税",
+      "format": "currency"
+    },
+    {
+      "id": "netSeverance",
+      "label": "手取り額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>退職所得控除</h3><p>勤続20年以下: 40万円×勤続年数。勤続20年超: 800万円+70万円×（勤続年数-20年）。</p>",
+  "faq": [
+    {
+      "question": "退職金にも税金がかかる？",
+      "answer": "はい。ただし退職所得控除と1/2課税で通常の給与より税負担は軽いです。"
+    },
+    {
+      "question": "退職所得の受給に関する申告書とは？",
+      "answer": "会社に提出することで適正な税額が源泉徴収されます。"
+    }
+  ],
+  "related": [
+    "income-tax",
+    "take-home-pay"
+  ],
+  "popular": false
+}

@@ -1,0 +1,81 @@
+{
+  "slug": "electricity-cost",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "電気代計算",
+  "description": "家電の消費電力と使用時間から電気代を計算。",
+  "metaTitle": "電気代計算ツール｜家電の電気代を自動計算",
+  "metaDescription": "消費電力と使用時間を入力して1日・1ヶ月・1年の電気代を自動計算。",
+  "calculatorFunction": "electricityCost",
+  "inputs": [
+    {
+      "id": "watt",
+      "label": "消費電力",
+      "type": "number",
+      "unit": "W",
+      "default": 1000,
+      "min": 0,
+      "max": 100000,
+      "step": 1
+    },
+    {
+      "id": "hoursPerDay",
+      "label": "1日の使用時間",
+      "type": "number",
+      "unit": "時間",
+      "default": 8,
+      "min": 0,
+      "max": 24,
+      "step": 0.5
+    },
+    {
+      "id": "pricePerKwh",
+      "label": "電気料金単価",
+      "type": "number",
+      "unit": "円/kWh",
+      "default": 35,
+      "min": 10,
+      "max": 100,
+      "step": 1
+    }
+  ],
+  "outputs": [
+    {
+      "id": "dailyCost",
+      "label": "1日の電気代",
+      "format": "currency"
+    },
+    {
+      "id": "monthlyCost",
+      "label": "1ヶ月の電気代",
+      "format": "currency",
+      "primary": true
+    },
+    {
+      "id": "annualCost",
+      "label": "1年間の電気代",
+      "format": "currency"
+    },
+    {
+      "id": "kwhPerMonth",
+      "label": "月間消費電力量",
+      "format": "number"
+    }
+  ],
+  "explanation": "<h3>電気代の計算式</h3><p>電気代 = 消費電力(W) ÷ 1000 × 使用時間(h) × 電気料金単価(円/kWh)</p>",
+  "faq": [
+    {
+      "question": "電気料金の単価は？",
+      "answer": "約30〜40円/kWhが目安です。"
+    },
+    {
+      "question": "待機電力はどのくらい？",
+      "answer": "一般家庭で年間約6,000〜8,000円です。"
+    }
+  ],
+  "related": [
+    "discount",
+    "per-unit-price"
+  ],
+  "popular": false
+}

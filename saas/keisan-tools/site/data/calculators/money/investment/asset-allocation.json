@@ -1,0 +1,97 @@
+{
+  "slug": "asset-allocation",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "資産配分計算",
+  "description": "年齢・リスク許容度から推奨する資産配分を計算。",
+  "metaTitle": "資産配分（アセットアロケーション）計算ツール｜最適な投資比率を算出",
+  "metaDescription": "年齢とリスク許容度を入力して最適な資産配分を自動計算。",
+  "calculatorFunction": "assetAllocation",
+  "inputs": [
+    {
+      "id": "age",
+      "label": "年齢",
+      "type": "number",
+      "unit": "歳",
+      "default": 35,
+      "min": 18,
+      "max": 80,
+      "step": 1
+    },
+    {
+      "id": "riskTolerance",
+      "label": "リスク許容度",
+      "type": "select",
+      "options": [
+        {
+          "value": "low",
+          "label": "低い（安定重視）"
+        },
+        {
+          "value": "medium",
+          "label": "中程度"
+        },
+        {
+          "value": "high",
+          "label": "高い（成長重視）"
+        }
+      ],
+      "default": "medium"
+    },
+    {
+      "id": "totalAsset",
+      "label": "運用資産額",
+      "type": "number",
+      "unit": "万円",
+      "default": 1000,
+      "min": 0,
+      "max": 1000000,
+      "step": 10
+    }
+  ],
+  "outputs": [
+    {
+      "id": "stockRatio",
+      "label": "株式比率",
+      "format": "percent",
+      "primary": true
+    },
+    {
+      "id": "bondRatio",
+      "label": "債券比率",
+      "format": "percent"
+    },
+    {
+      "id": "cashRatio",
+      "label": "現金比率",
+      "format": "percent"
+    },
+    {
+      "id": "stockAmount",
+      "label": "株式投資額",
+      "format": "currency"
+    },
+    {
+      "id": "bondAmount",
+      "label": "債券投資額",
+      "format": "currency"
+    }
+  ],
+  "explanation": "<h3>資産配分の基本</h3><p>「100 − 年齢 = 株式比率」が古典的な目安です。</p>",
+  "faq": [
+    {
+      "question": "どのくらいの頻度で見直す？",
+      "answer": "年に1回のリバランスが一般的です。"
+    },
+    {
+      "question": "NISAやiDeCoも含める？",
+      "answer": "はい。全金融資産を合算して考えるべきです。"
+    }
+  ],
+  "related": [
+    "nisa-simulation",
+    "ideco-simulation",
+    "fire-calculation"
+  ],
+  "popular": false
+}

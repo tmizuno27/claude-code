@@ -1,0 +1,71 @@
+{
+  "slug": "sleep-cycle",
+  "category": "health",
+  "subcategory": "body",
+  "title": "睡眠サイクル計算",
+  "description": "起床時間・就寝時間からレム睡眠のタイミングを計算。",
+  "metaTitle": "睡眠サイクル計算ツール｜最適な起床・就寝時間を自動計算",
+  "metaDescription": "起床時間を入力して最適な就寝時間を自動計算。90分の睡眠サイクルに基づく。",
+  "calculatorFunction": "sleepCycle",
+  "inputs": [
+    {
+      "id": "wakeUpHour",
+      "label": "起床時間（時）",
+      "type": "number",
+      "unit": "時",
+      "default": 7,
+      "min": 0,
+      "max": 23,
+      "step": 1
+    },
+    {
+      "id": "wakeUpMinute",
+      "label": "起床時間（分）",
+      "type": "number",
+      "unit": "分",
+      "default": 0,
+      "min": 0,
+      "max": 59,
+      "step": 5
+    }
+  ],
+  "outputs": [
+    {
+      "id": "bedtime6",
+      "label": "6サイクル（9時間）",
+      "format": "text",
+      "primary": true
+    },
+    {
+      "id": "bedtime5",
+      "label": "5サイクル（7.5時間）",
+      "format": "text"
+    },
+    {
+      "id": "bedtime4",
+      "label": "4サイクル（6時間）",
+      "format": "text"
+    },
+    {
+      "id": "bedtime3",
+      "label": "3サイクル（4.5時間）",
+      "format": "text"
+    }
+  ],
+  "explanation": "<h3>睡眠サイクル</h3><p>1サイクルは約90分。レム睡眠の終わりに起きるとスッキリ目覚められます。寝付くまでの15分を考慮。</p>",
+  "faq": [
+    {
+      "question": "何時間寝ればいい？",
+      "answer": "成人は7〜9時間が推奨。最低でも6時間（4サイクル）が望ましいです。"
+    },
+    {
+      "question": "90分サイクルは正確？",
+      "answer": "個人差があります（80〜110分）。目安として活用してください。"
+    }
+  ],
+  "related": [
+    "calorie-burn",
+    "daily-calorie"
+  ],
+  "popular": false
+}
