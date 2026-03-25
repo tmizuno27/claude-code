@@ -1,0 +1,23 @@
+{
+  "name": "currency-converter",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/fetch-rates.mjs && next build",
+    "build:no-fetch": "next build",
+    "start": "next start",
+    "fetch-rates": "node scripts/fetch-rates.mjs",
+    "generate-sitemap": "node scripts/generate-sitemap.mjs"
+  },
+  "dependencies": {
+    "next": "^16.2.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "typescript": "^6.0.2"
+  }
+}
