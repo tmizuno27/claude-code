@@ -113,6 +113,12 @@ type: reference
 | SimRewriteDetector | 月曜 | 21:50 | リライト候補抽出 |
 | SimWpBackup | 土曜 | 22:20 | WP全記事HTML保存(4世代) |
 
+## はてなブログ（nambei-oyaji.hatenablog.com）
+
+| タスク名 | 頻度 | 時刻(PYT) | JST相当 | 内容 |
+|---------|------|----------|---------|------|
+| HatenaPipeline | 月水金 | 07:00 | 19:00 | WP記事→ダイジェスト変換→はてな投稿(2記事) |
+
 ## X (Twitter) 系
 
 | タスク名 | 頻度 | 時刻(PYT) | 内容 |
