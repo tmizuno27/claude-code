@@ -1,0 +1,16 @@
+{
+  "generated_at": "2026-03-26T07:54:12.461016",
+  "period_days": 7,
+  "property_id": "529807198",
+  "overview": {
+    "sessions": 1,
+    "pageviews": 1,
+    "users": 1
+  },
+  "top_pages": [
+    {
+      "path": "/",
+      "pageviews": 1
+    }
+  ]
+}
