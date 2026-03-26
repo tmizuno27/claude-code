@@ -43,7 +43,9 @@
     "keyword": "パラグアイ 日本人 仕事",
     "type": "longtail",
     "priority": 6,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sites\\nambei-oyaji.com\\outputs\\articles\\2026-03-26\\article-55142.md",
+    "processed_date": "2026-03-26"
   },
   {
     "keyword": "海外送金 比較 wise",
