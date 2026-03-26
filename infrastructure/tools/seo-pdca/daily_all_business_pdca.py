@@ -895,8 +895,16 @@ def pdca_keisan_tools():
         except Exception:
             continue
 
+    # サイトマップ取得失敗時はローカルビルド出力からページ数を取得
     if page_count == 0:
-        sitemap_status = "⚠️ サイトマップ未検出または解析失敗"
+        local_out = REPO_ROOT / "saas" / "keisan-tools" / "site" / "out"
+        if local_out.exists():
+            html_files = list(local_out.rglob("*.html"))
+            if html_files:
+                page_count = len(html_files)
+                sitemap_status = f"⚠️ サイトマップ解析失敗 → ローカルビルドから{page_count}ページ検出"
+        if page_count == 0:
+            sitemap_status = "⚠️ サイトマップ未検出・ローカルビルドも未検出"
 
     logger.report("### CHECK")
     logger.report(f"- URL: {url}")

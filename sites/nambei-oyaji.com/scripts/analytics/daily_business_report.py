@@ -703,7 +703,7 @@ def generate_priority_actions(blog_data: list, rapidapi_data: dict,
 
         x_info = (
             f"X(Twitter): フォロワー={x_data.get('followers', 0)}, "
-            f"ツイート数={x_data.get('tweet_count', 0)}"
+            f"ツイート数={x_data.get('tweets', 0)}"
         )
 
         prompt = f"""あなたは収益最大化の専門コンサルタントです。
@@ -1064,7 +1064,7 @@ def send_discord_notification(blog_data, rapidapi_data, apify_data, x_data, task
 
         # X集計
         followers = x_data.get("followers", "–")
-        tweets = x_data.get("tweet_count", "–")
+        tweets = x_data.get("tweets", "–")
 
         # Embed構築
         # ダッシュボードURL（GitHub上のHTMLファイル）
