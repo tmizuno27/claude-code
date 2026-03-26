@@ -3,13 +3,14 @@ import { Noto_Sans_JP } from 'next/font/google';
 import Link from 'next/link';
 import Script from 'next/script';
 import '@/styles/globals.css';
+import '@/styles/home.css';
 
 const GA_MEASUREMENT_ID = 'G-3R1LVHX9VJ';
 const ADSENSE_CLIENT_ID = 'ca-pub-7177224921699744';
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ['latin'],
-  weight: ['400', '600', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-noto-sans-jp',
   display: 'swap',
 });
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="site-header">
           <div className="header-inner">
             <Link href="/" className="site-logo">
+              <span className="site-logo-icon">⚡</span>
               keisan.tools
             </Link>
             <nav className="header-nav">
@@ -74,17 +76,38 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
 
         <footer className="site-footer">
-          <div className="footer-inner">
-            <div className="footer-links">
-              <Link href="/about/">サイトについて</Link>
-              <Link href="/privacy/">プライバシーポリシー</Link>
-              <Link href="/terms/">利用規約</Link>
-              <Link href="/contact/">お問い合わせ</Link>
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <div className="footer-logo">⚡ keisan.tools</div>
+              <p className="footer-tagline">あらゆる計算を、もっと簡単に。</p>
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--gray-500)', marginTop: '0.5rem' }}>
+            <div className="footer-col">
+              <h4 className="footer-heading">カテゴリ</h4>
+              <ul className="footer-links">
+                {NAV_CATEGORIES.map(cat => (
+                  <li key={cat.slug}>
+                    <Link href={`/${cat.slug}/`}>{cat.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-heading">サイト情報</h4>
+              <ul className="footer-links">
+                <li><Link href="/about/">サイトについて</Link></li>
+                <li><Link href="/privacy/">プライバシーポリシー</Link></li>
+                <li><Link href="/terms/">利用規約</Link></li>
+                <li><Link href="/contact/">お問い合わせ</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <p className="footer-disclaimer">
               ※計算結果は参考値です。正確な金額は専門家にご相談ください。
-            </div>
-            <div>&copy; {new Date().getFullYear()} keisan.tools</div>
+            </p>
+            <p className="footer-copyright">
+              &copy; {new Date().getFullYear()} keisan.tools
+            </p>
           </div>
         </footer>
       </body>
