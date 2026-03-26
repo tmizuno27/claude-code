@@ -15,7 +15,7 @@ SA_FILE = Path(
     "C:/Users/tmizu/マイドライブ/GitHub/claude-code"
     "/infrastructure/tools/sheets-sync/credentials/service-account.json"
 )
-SITEMAP = Path(__file__).resolve().parent.parent / "public" / "sitemap.xml"
+SITEMAP = Path(__file__).resolve().parent.parent / "out" / "sitemap.xml"
 ENDPOINT = "https://indexing.googleapis.com/v3/urlNotifications:publish"
 SCOPES = ["https://www.googleapis.com/auth/indexing"]
 
