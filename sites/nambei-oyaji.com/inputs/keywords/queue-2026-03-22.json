@@ -59,7 +59,9 @@
     "keyword": "海外移住 保険 どうする",
     "type": "longtail",
     "priority": 8,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sites\\nambei-oyaji.com\\outputs\\articles\\2026-03-26\\article-95091.md",
+    "processed_date": "2026-03-26"
   },
   {
     "keyword": "海外移住 保険 どうなる",
