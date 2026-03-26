@@ -47,6 +47,12 @@ Aggregate trending topics from 5 sources in a single Apify Actor run -- Google T
 | Raw JSON output | Yes | No | CSV export | CSV export | No |
 | Monthly cost | $0 (pay per run) | $39-249 | $199-499 | $50-150 | $18-99 |
 
+## Quick Start (3 Steps)
+
+1. **Click "Try for free"** on this Actor's page in Apify Store
+2. **Select sources** (Google Trends, Reddit, Hacker News, GitHub, Product Hunt) and region
+3. **Click "Start"** and get aggregated trending topics as JSON, CSV, or Excel
+
 ## Input
 
 | Field | Type | Default | Description |

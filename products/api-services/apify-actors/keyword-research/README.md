@@ -43,6 +43,12 @@ Discover high-potential long-tail keywords from Google Autocomplete suggestions 
 
 > **When to use this Actor:** You want free, real-time keyword ideas from what people actually type into Google. Combine with free tools like Google Search Console for volume estimation.
 
+## Quick Start (3 Steps)
+
+1. **Click "Try for free"** on this Actor's page in Apify Store
+2. **Enter seed keywords** (e.g., `["best CRM software", "email marketing"]`) and set your language
+3. **Click "Start"** and download ranked keyword ideas as JSON, CSV, or Excel
+
 ## Input
 
 | Field | Type | Default | Description |

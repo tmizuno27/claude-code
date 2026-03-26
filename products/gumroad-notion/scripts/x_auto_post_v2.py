@@ -24,8 +24,14 @@ import os
 import sys
 import time
 import re
+import random
 from datetime import datetime, timedelta
 from copy import deepcopy
+
+try:
+    import anthropic
+except ImportError:
+    anthropic = None
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 CRED_PATH = os.path.join(BASE_DIR, "config", "x-credentials.json")

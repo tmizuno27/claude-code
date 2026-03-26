@@ -70,19 +70,19 @@ GITHUB_VIEW_URL = "https://github.com/tmizuno27/claude-code/blob/main/blog/outpu
 # 時間帯ごとのカテゴリ設定
 SLOT_CONFIG = {
     "morning": {
-        "categories": ["パラグアイ生活Tips", "移住準備・手続き"],
-        "weights": [0.6, 0.4],
-        "description": "朝の投稿（JST 7:00-8:00）通勤時間帯。パラグアイの生活情報や移住ノウハウで「こんな暮らしがあるんだ」と興味を引く",
+        "categories": ["パラグアイ生活Tips", "移住準備・手続き", "ぶっちゃけ移住の現実"],
+        "weights": [0.4, 0.3, 0.3],
+        "description": "朝の投稿（JST 7:00-8:00）通勤時間帯。日本の通勤者に刺さる「こんな暮らしがあるんだ」系。フォーマットA(短文インパクト)かD(問いかけ)を優先。冒頭で注意を引く数字や問いかけを必ず入れる",
     },
     "noon": {
-        "categories": ["パラグアイ日常", "記事告知"],
-        "weights": [0.6, 0.4],
-        "description": "昼の投稿（JST 12:00-13:00）昼休み。パラグアイの食事・風景・日常の一コマで癒し＆興味喚起。記事告知の場合はブログ記事の紹介",
+        "categories": ["パラグアイ日常エピソード", "食・文化の驚き", "記事告知"],
+        "weights": [0.4, 0.35, 0.25],
+        "description": "昼の投稿（JST 12:00-13:00）昼休み。フォーマットB(ストーリー)かC(比較)を優先。「今日こんなことがあった」系の小さなエピソードで親近感を出す。食事・買い物・近所の出来事など日常の一コマ",
     },
     "evening": {
-        "categories": ["海外からの稼ぎ方", "パラグアイ子育て・家族"],
-        "weights": [0.5, 0.5],
-        "description": "夜の投稿（JST 20:30-21:30）帰宅後。海外移住後の仕事・収入の話や、家族4人のパラグアイ生活エピソードで共感を得る",
+        "categories": ["海外からの稼ぎ方", "パラグアイ子育て・家族", "移住のビフォーアフター"],
+        "weights": [0.35, 0.35, 0.3],
+        "description": "夜の投稿（JST 20:30-21:30）帰宅後。フォーマットC(比較)かE(リスト)を優先。仕事・収入・家族の話題で共感を得る。「移住前はこうだった→今はこう」の変化を具体的に語る",
     },
 }
 
@@ -227,8 +227,21 @@ def generate_post(api_key: str, slot: str) -> str:
         for p in recent[-5:]:
             recent_text += f"- {p}\n"
 
+    # フォーマットをランダムに選択
+    formats = ["A(短文インパクト型)", "B(ストーリー型)", "C(比較型)", "D(問いかけ型)", "E(リスト型)"]
+    chosen_format = random.choice(formats)
+
+    # エンゲージメントテクニックをランダムに選択
+    techniques = ["問いかけ型", "ビフォーアフター型", "ぶっちゃけ型", "数字ドン型", "失敗談型", "あるある否定型"]
+    chosen_technique = random.choice(techniques)
+
     user_prompt = f"""カテゴリ「{category}」の投稿を1つ生成してください。
 {config['description']}
+
+【今回の指定】
+- フォーマット: {chosen_format}
+- エンゲージメントテクニック: {chosen_technique}
+- この2つを組み合わせて、思わずいいね・RTしたくなる投稿を作ること
 
 今日の日付: {datetime.now().strftime('%Y年%m月%d日')}
 {recent_text}"""

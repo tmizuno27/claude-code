@@ -43,6 +43,12 @@ Extract video download URLs and metadata from 5 major social media platforms in 
 | No install required | Yes | Python required | Browser extension | SDK required |
 | Monthly cost | $0 (pay per run) | Free (self-hosted) | $9.99 | $49-199 |
 
+## Quick Start (3 Steps)
+
+1. **Click "Try for free"** on this Actor's page in Apify Store
+2. **Paste video URLs** from YouTube, TikTok, Instagram, X, or Facebook
+3. **Click "Start"** and get download URLs with metadata as JSON, CSV, or Excel
+
 ## Input
 
 | Field | Type | Required | Description |

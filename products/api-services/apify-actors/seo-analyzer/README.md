@@ -49,6 +49,12 @@ Run a comprehensive SEO audit on any webpage and get a weighted score out of 100
 | Cloud-based | Yes | Yes | Desktop only | Yes | Desktop only |
 | Monthly cost | $0 (pay per run) | $99-999 | $259/yr | $99-599 | $152/yr |
 
+## Quick Start (3 Steps)
+
+1. **Click "Try for free"** on this Actor's page in Apify Store
+2. **Paste URLs** you want to audit (e.g., `https://example.com`, `https://example.com/blog`)
+3. **Click "Start"** and get SEO scores with detailed check breakdowns as JSON, CSV, or Excel
+
 ## Input
 
 | Field | Type | Required | Description |

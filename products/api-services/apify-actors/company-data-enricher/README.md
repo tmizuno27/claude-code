@@ -27,6 +27,12 @@ Enrich company data by domain name, company name, or Wikidata ID using only free
 | **vs. Clearbit** | Saves $99-999/mo | Same core data from public sources |
 | **vs. ZoomInfo** | Saves $15,000+/yr | No enterprise contract needed |
 
+## Quick Start (3 Steps)
+
+1. **Click "Try for free"** on this Actor's page in Apify Store
+2. **Enter company domains** (e.g., `stripe.com`, `shopify.com`) or company names to search
+3. **Click "Start"** and download enriched company data as JSON, CSV, or Excel
+
 ## Input
 
 | Field | Type | Description |
