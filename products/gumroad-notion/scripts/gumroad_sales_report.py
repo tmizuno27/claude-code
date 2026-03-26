@@ -1,3 +1,5 @@
+import sys, io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')
 """
 Gumroad Sales Report
 Fetches product list and sales data via Gumroad API.
