@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getAllCalculators, getCategories } from '@/lib/utils/data';
 
+export const dynamic = 'force-static';
+
 const BASE_URL = 'https://keisan-tools.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
