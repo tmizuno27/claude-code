@@ -3,7 +3,7 @@ import { getCategories, getPopularCalculators, getAllCalculators } from '@/lib/u
 
 export default function HomePage() {
   const categories = getCategories();
-  const popularCalcs = getPopularCalculators();
+  const popularCalcs = getPopularCalculators().slice(0, 6);
   const totalCalcs = getAllCalculators().length;
 
   return (
