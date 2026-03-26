@@ -2,28 +2,32 @@
   "slug": "nisa-simulation",
   "category": "money",
   "subcategory": "investment",
-  "title": "NISA積立シミュレーション",
-  "description": "新NISAのつみたて投資枠・成長投資枠を使った積立投資の将来リターンをシミュレーションします。",
-  "metaTitle": "NISA積立シミュレーション｜keisan.tools",
-  "metaDescription": "新NISAの積立投資シミュレーション。毎月の積立額・想定利回り・投資期間から非課税で得られる将来の資産額を計算します。",
+  "title": "NISA非課税枠シミュレーション",
+  "description": "新NISAのつみたて投資枠・成長投資枠を使った積立投資の将来リターンと非課税メリットをシミュレーションします。",
+  "metaTitle": "NISA非課税枠シミュレーション｜非課税メリットを自動計算",
+  "metaDescription": "新NISAのつみたて投資枠・成長投資枠で毎月の積立額・投資期間・期待利回りから将来の資産額・非課税メリット額・課税時との差額を計算します。",
   "calculatorFunction": "calculateNisaSimulation",
   "inputs": [
-    { "id": "monthlyAmount", "label": "毎月の積立額", "type": "number", "unit": "円", "default": 30000, "min": 1000, "max": 300000, "step": 1000 },
-    { "id": "annualReturn", "label": "想定年利回り", "type": "slider", "unit": "%", "default": 5, "min": 1, "max": 15, "step": 0.5 },
-    { "id": "years", "label": "積立期間", "type": "slider", "unit": "年", "default": 20, "min": 1, "max": 40, "step": 1 },
-    { "id": "initialAmount", "label": "初期投資額", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 18000000, "step": 10000 }
+    { "id": "monthlyAmount", "label": "毎月の投資額", "type": "number", "unit": "万円", "default": 3, "min": 0.1, "max": 30, "step": 0.1 },
+    { "id": "years", "label": "投資期間", "type": "slider", "unit": "年", "default": 20, "min": 1, "max": 40, "step": 1 },
+    { "id": "expectedReturn", "label": "期待利回り", "type": "slider", "unit": "%", "default": 5, "min": 1, "max": 15, "step": 0.5 },
+    { "id": "nisaType", "label": "NISA種類", "type": "select", "default": "tsumitate", "options": [{ "value": "tsumitate", "label": "つみたて投資枠（年120万円）" }, { "value": "growth", "label": "成長投資枠（年240万円）" }] }
   ],
   "outputs": [
     { "id": "totalAssets", "label": "将来の資産額", "format": "currency", "primary": true },
-    { "id": "totalInvestment", "label": "投資元本合計", "format": "currency" },
-    { "id": "totalProfit", "label": "運用益（非課税）", "format": "currency" },
-    { "id": "taxSaved", "label": "節税効果（概算）", "format": "currency" }
+    { "id": "totalInvestment", "label": "元本合計", "format": "currency" },
+    { "id": "totalProfit", "label": "運用益", "format": "currency" },
+    { "id": "taxSaved", "label": "非課税メリット額", "format": "currency" },
+    { "id": "taxedAssets", "label": "課税口座での資産額", "format": "currency" },
+    { "id": "difference", "label": "NISA vs 課税口座の差額", "format": "currency" }
   ],
-  "explanation": "<h3>NISAとは</h3><p>NISA（少額投資非課税制度）は、投資で得た利益が非課税になる制度です。2024年から始まった新NISAでは、つみたて投資枠（年120万円）と成長投資枠（年240万円）を合わせて年間最大360万円、生涯で最大1,800万円まで非課税で投資できます。</p><h3>計算方法</h3><p>複利計算により将来の資産額を算出します。通常の投資では利益に約20.315%の税金がかかりますが、NISAではこれが非課税となるため、その分が節税効果として表示されます。</p>",
+  "explanation": "<h3>NISAとは</h3><p>NISA（少額投資非課税制度）は、投資で得た利益が非課税になる制度です。2024年から始まった新NISAでは、<strong>つみたて投資枠（年120万円）</strong>と<strong>成長投資枠（年240万円）</strong>を合わせて年間最大360万円、生涯で最大1,800万円まで非課税で投資できます。</p><h3>非課税メリットの計算</h3><p>通常の課税口座では利益に約20.315%の税金がかかります。NISAではこれが非課税となるため、長期投資ほど複利効果と合わせて大きな差が生まれます。このツールでは課税口座との差額も算出し、NISAの具体的なメリット額を可視化します。</p><h3>つみたて vs 成長投資枠</h3><p>つみたて投資枠は年120万円（月10万円）まで、インデックスファンド等が対象。成長投資枠は年240万円（月20万円）まで、個別株やETFも購入可能です。</p>",
   "faq": [
     { "question": "NISAの非課税枠はいくらですか？", "answer": "新NISAでは、つみたて投資枠が年120万円、成長投資枠が年240万円で、合計年間360万円です。生涯投資枠は1,800万円（うち成長投資枠は1,200万円まで）です。" },
-    { "question": "想定利回りはどのくらいが現実的ですか？", "answer": "全世界株式インデックスファンドの過去20年の平均リターンは年5〜7%程度です。ただし将来のリターンは保証されないため、保守的に3〜5%で計算することをおすすめします。" }
+    { "question": "想定利回りはどのくらいが現実的ですか？", "answer": "全世界株式インデックスファンドの過去20年の平均リターンは年5〜7%程度です。ただし将来のリターンは保証されないため、保守的に3〜5%で計算することをおすすめします。" },
+    { "question": "つみたて投資枠と成長投資枠の違いは？", "answer": "つみたて投資枠は年120万円まで、金融庁が選定した投資信託が対象です。成長投資枠は年240万円まで、個別株やETFなど幅広い商品に投資できます。両方を併用可能です。" },
+    { "question": "NISAと課税口座でどのくらい差が出ますか？", "answer": "月3万円を年利5%で20年運用した場合、運用益は約520万円。課税口座なら約105万円が税金で引かれますが、NISAならこの分がまるまる手元に残ります。" }
   ],
-  "related": ["compound-interest", "ideco-simulation"],
+  "related": ["compound-interest", "ideco-simulation", "dollar-cost-averaging"],
   "popular": true
 }

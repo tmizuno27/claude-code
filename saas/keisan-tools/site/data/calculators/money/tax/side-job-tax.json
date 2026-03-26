@@ -2,82 +2,31 @@
   "slug": "side-job-tax",
   "category": "money",
   "subcategory": "tax",
-  "title": "副業税金計算",
-  "description": "副業収入にかかる税金を計算します",
-  "metaTitle": "副業税金計算ツール｜keisan.tools",
-  "metaDescription": "副業収入と経費を入力して追加の税金額を自動計算。",
+  "title": "副業所得税計算",
+  "description": "本業年収と副業収入から副業分の所得税・住民税・確定申告の要否を計算します。",
+  "metaTitle": "副業所得税計算ツール｜確定申告の要否も自動判定",
+  "metaDescription": "本業年収・副業年収・経費を入力して副業分の所得税・住民税を自動計算。確定申告が必要かどうかもひと目で分かる無料シミュレーションツールです。",
   "calculatorFunction": "sideJobTax",
   "inputs": [
-    {
-      "id": "mainIncome",
-      "label": "本業年収",
-      "type": "number",
-      "unit": "万円",
-      "default": 500,
-      "min": 0,
-      "max": 10000,
-      "step": 10
-    },
-    {
-      "id": "sideRevenue",
-      "label": "副業収入",
-      "type": "number",
-      "unit": "万円",
-      "default": 100,
-      "min": 0,
-      "max": 10000,
-      "step": 1
-    },
-    {
-      "id": "sideExpenses",
-      "label": "副業経費",
-      "type": "number",
-      "unit": "万円",
-      "default": 20,
-      "min": 0,
-      "max": 10000,
-      "step": 1
-    }
+    { "id": "mainIncome", "label": "本業年収（額面）", "type": "number", "unit": "万円", "default": 500, "min": 0, "max": 10000, "step": 10 },
+    { "id": "sideRevenue", "label": "副業年収（売上）", "type": "number", "unit": "万円", "default": 100, "min": 0, "max": 10000, "step": 1 },
+    { "id": "sideExpenses", "label": "副業経費", "type": "number", "unit": "万円", "default": 20, "min": 0, "max": 10000, "step": 1 },
+    { "id": "hasSpouse", "label": "配偶者の有無", "type": "select", "default": "no", "options": [{ "value": "yes", "label": "あり（配偶者控除対象）" }, { "value": "no", "label": "なし" }] }
   ],
   "outputs": [
-    {
-      "id": "sideIncome",
-      "label": "副業所得",
-      "format": "currency",
-      "primary": true
-    },
-    {
-      "id": "additionalIncomeTax",
-      "label": "追加所得税",
-      "format": "currency"
-    },
-    {
-      "id": "additionalResidentTax",
-      "label": "追加住民税",
-      "format": "currency"
-    },
-    {
-      "id": "totalAdditionalTax",
-      "label": "追加税金合計",
-      "format": "currency"
-    },
-    {
-      "id": "needsFiling",
-      "label": "確定申告の要否",
-      "format": "text"
-    }
+    { "id": "sideIncome", "label": "副業所得", "format": "currency", "primary": true },
+    { "id": "additionalIncomeTax", "label": "副業分の所得税", "format": "currency" },
+    { "id": "additionalResidentTax", "label": "副業分の住民税", "format": "currency" },
+    { "id": "totalAdditionalTax", "label": "追加税金合計", "format": "currency" },
+    { "id": "needsFiling", "label": "確定申告の要否", "format": "text" }
   ],
-  "explanation": "<h3>副業の税金</h3><p>副業所得が20万円超で確定申告が必要です。</p>",
+  "explanation": "<h3>副業の税金計算</h3><p>副業の所得（収入 - 経費）が<strong>年間20万円を超える</strong>と確定申告が必要です。副業にかかる税金は、本業と合算した総所得に対する累進課税で計算されるため、本業年収が高いほど副業分の税率も高くなります。</p><h3>計算の仕組み</h3><p>本業のみの所得税と、本業+副業を合算した所得税の<strong>差額</strong>が副業分の所得税となります。住民税は副業所得に対して一律10%です。</p><h3>配偶者控除</h3><p>配偶者控除（38万円）が適用される場合、課税所得が減額されるため、税額も変わります。配偶者の年収が150万円以下の場合に満額控除が適用されます。</p>",
   "faq": [
-    {
-      "question": "20万円以下なら税金ゼロ？",
-      "answer": "所得税は不要ですが住民税の申告は必要です。"
-    },
-    {
-      "question": "会社にバレない方法は？",
-      "answer": "住民税を普通徴収にすることで対応可能です。"
-    }
+    { "question": "副業所得20万円以下でも申告は必要？", "answer": "所得税の確定申告は不要ですが、住民税の申告は必要です。住民税は所得が1円でも発生すれば申告義務があります。" },
+    { "question": "会社に副業がバレない方法は？", "answer": "確定申告時に住民税の徴収方法を「普通徴収（自分で納付）」にすることで、会社の給与から天引きされずに済みます。ただし、自治体によっては対応できない場合もあります。" },
+    { "question": "副業の経費として認められるものは？", "answer": "副業に直接必要な支出が経費になります。例：PC・通信費・交通費・書籍代・セミナー費用など。プライベートと兼用する場合は按分が必要です。" },
+    { "question": "副業が赤字の場合はどうなる？", "answer": "事業所得として認められれば、本業の給与所得と損益通算が可能で、税金が還付されることがあります。ただし雑所得では損益通算できません。" }
   ],
-  "related": [],
-  "popular": false
+  "related": ["income-tax", "resident-tax", "medical-deduction"],
+  "popular": true
 }
