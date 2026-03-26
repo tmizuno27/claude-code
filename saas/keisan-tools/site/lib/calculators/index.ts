@@ -1323,16 +1323,35 @@ export function medicalDeduction(inputs: Record<string, number | string>): Recor
   return { deduction: Math.round(deduction), taxSaving: Math.round(deduction * taxRate), outOfPocket: Math.round(totalMedical - insurance) };
 }
 
-export function sideJobTax(inputs: Record<string, number | string>): Record<string, number> {
+export function sideJobTax(inputs: Record<string, number | string>): Record<string, number | string> {
   const mainIncome = (inputs.mainIncome as number) * 10000;
-  const sideIncome = (inputs.sideIncome as number) * 10000;
+  const sideRevenue = (inputs.sideRevenue as number) * 10000;
   const sideExpenses = (inputs.sideExpenses as number) * 10000;
-  const sideProfit = sideIncome - sideExpenses;
-  const needsFiling = sideProfit > 200000 ? 1 : 0;
-  const taxRate = mainIncome > 6950000 ? 0.23 : mainIncome > 3300000 ? 0.20 : 0.10;
-  const additionalTax = Math.round(sideProfit * taxRate * 1.021);
-  const residentTax = Math.round(sideProfit * 0.10);
-  return { sideProfit: Math.round(sideProfit), needsFiling, additionalIncomeTax: additionalTax, additionalResidentTax: residentTax, totalAdditionalTax: additionalTax + residentTax };
+  const hasSpouse = inputs.hasSpouse as string;
+  const sideIncome = Math.max(0, sideRevenue - sideExpenses);
+  // Main income tax (for comparison)
+  const mainDeduction = calcEmploymentDeduction(mainIncome);
+  const mainEmploymentIncome = Math.max(0, mainIncome - mainDeduction);
+  const basicDeduction = 480_000;
+  const spouseDeduction = hasSpouse === 'yes' ? 380_000 : 0;
+  const estimatedSocialInsurance = Math.round(mainIncome * 0.1475);
+  const mainDeductions = estimatedSocialInsurance + basicDeduction + spouseDeduction;
+  const mainTaxableIncome = Math.max(0, mainEmploymentIncome - mainDeductions);
+  const mainTax = Math.round(calcIncomeTaxAmount(mainTaxableIncome) * 1.021);
+  // Combined income tax (main + side)
+  const combinedTaxableIncome = mainTaxableIncome + sideIncome;
+  const combinedTax = Math.round(calcIncomeTaxAmount(combinedTaxableIncome) * 1.021);
+  const additionalIncomeTax = combinedTax - mainTax;
+  const additionalResidentTax = Math.round(sideIncome * 0.10);
+  const totalAdditionalTax = additionalIncomeTax + additionalResidentTax;
+  const needsFiling = sideIncome > 200_000 ? '必要' : '不要（住民税申告は必要）';
+  return {
+    sideIncome: Math.round(sideIncome),
+    additionalIncomeTax,
+    additionalResidentTax,
+    totalAdditionalTax,
+    needsFiling,
+  };
 }
 
 export function propertyYield(inputs: Record<string, number | string>): Record<string, number> {
@@ -1897,13 +1916,19 @@ export function scholarshipRepayment(inputs: Record<string, number | string>): R
   const totalBorrowed = (inputs.totalBorrowed as number) * 10000;
   const annualRate = (inputs.annualRate as number) / 100;
   const repaymentYears = inputs.repaymentYears as number;
+  const graceMonths = (inputs.graceMonths as number) || 0;
   const monthlyRate = annualRate / 12;
+  // During grace period, interest accrues on principal
+  let principalAfterGrace = totalBorrowed;
+  if (monthlyRate > 0 && graceMonths > 0) {
+    principalAfterGrace = totalBorrowed * Math.pow(1 + monthlyRate, graceMonths);
+  }
   const totalMonths = repaymentYears * 12;
   let monthlyPayment: number;
   if (monthlyRate === 0) {
-    monthlyPayment = totalBorrowed / totalMonths;
+    monthlyPayment = principalAfterGrace / totalMonths;
   } else {
-    monthlyPayment = totalBorrowed * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+    monthlyPayment = principalAfterGrace * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
   }
   const totalPayment = monthlyPayment * totalMonths;
   const totalInterest = totalPayment - totalBorrowed;
@@ -2935,13 +2960,40 @@ export function meetingCost(inputs: Record<string, number | string>): Record<str
 }
 
 export function menstrualCycle(inputs: Record<string, number | string>): Record<string, number | string> {
-  const lastPeriod = Number(inputs.lastPeriod ?? 0);
-  const cycleLength = Number(inputs.cycleLength ?? 0);
-  const periodLength = Number(inputs.periodLength ?? 0);
+  const lastPeriodStr = String(inputs.lastPeriod ?? '');
+  const cycleLength = Number(inputs.cycleLength ?? 28);
+  // Parse date string (YYYY-MM-DD) or timestamp
+  let lastPeriodDate: Date;
+  if (lastPeriodStr && lastPeriodStr.includes('-')) {
+    lastPeriodDate = new Date(lastPeriodStr + 'T00:00:00');
+  } else {
+    lastPeriodDate = new Date(Number(lastPeriodStr));
+  }
+  if (isNaN(lastPeriodDate.getTime())) {
+    return { nextPeriod: '日付を入力してください', ovulationDay: '-', fertileStart: '-', fertileEnd: '-' };
+  }
+  const addDays = (date: Date, days: number): Date => {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  };
+  const formatDate = (date: Date): string => {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const d = String(date.getDate()).padStart(2, '0');
+    return `${y}年${Number(m)}月${Number(d)}日`;
+  };
+  const nextPeriodDate = addDays(lastPeriodDate, cycleLength);
+  // Ovulation: ~14 days before next period (luteal phase is ~14 days)
+  const ovulationDate = addDays(nextPeriodDate, -14);
+  // Fertile window: 5 days before ovulation to 1 day after
+  const fertileStartDate = addDays(ovulationDate, -5);
+  const fertileEndDate = addDays(ovulationDate, 1);
   return {
-    nextPeriod: Math.round(lastPeriod * cycleLength),
-    lutealPhase: Math.round(lastPeriod),
-    pmsStart: Math.round(lastPeriod)
+    nextPeriod: formatDate(nextPeriodDate),
+    ovulationDay: formatDate(ovulationDate),
+    fertileStart: formatDate(fertileStartDate),
+    fertileEnd: formatDate(fertileEndDate),
   };
 }
 
