@@ -42,6 +42,116 @@ LOG_PATH = os.path.join(LOG_DIR, "x-prodhq27-posts.log")
 
 # Optional: Healthchecks.io ping URL (set in config or env)
 HEALTHCHECK_URL = os.environ.get("HEALTHCHECK_X_POST", "")
+SECRETS_PATH = os.path.join(BASE_DIR, "config", "secrets.json")
+
+# Products for dynamic tweet generation
+PRODUCTS = [
+    {"name": "Freelance Business OS", "price": "$19", "benefit": "Track clients, projects, invoices, and income in one dashboard. Stop juggling 5 different apps."},
+    {"name": "Content Creator Dashboard", "price": "$17", "benefit": "Plan, create, and schedule content across platforms. See what performs and what doesn't."},
+    {"name": "Student Study Hub", "price": "$9", "benefit": "Track assignments, study hours, and grades. Know exactly where to focus before exams."},
+    {"name": "Life OS / Second Brain", "price": "$19", "benefit": "Capture everything — tasks, notes, goals, habits — in one connected system."},
+    {"name": "Small Business CRM", "price": "$19", "benefit": "Manage leads, deals, and follow-ups without paying $50+/mo for bloated CRM software."},
+    {"name": "Side Hustle Tracker", "price": "$14", "benefit": "Track multiple income streams, expenses, and hourly rates. Know your REAL profit per project."},
+    {"name": "Social Media Planner", "price": "$14", "benefit": "Batch-create a month of content in one sitting. Never stare at a blank screen again."},
+    {"name": "Job Search Tracker", "price": "$9", "benefit": "Track applications, interviews, follow-ups, and offers. Stop losing opportunities in your inbox."},
+    {"name": "Digital Products OS", "price": "$19", "benefit": "Manage your entire digital product business — from idea to launch to revenue tracking."},
+    {"name": "Ultimate Bundle (15 templates)", "price": "$49 (75% OFF)", "benefit": "Every Notion template we make, for the price of two. One purchase, complete workspace."},
+]
+
+PRODHQ_SYSTEM_PROMPT = """You are a tweet writer for @prodhq27, a Notion template seller on Gumroad.
+
+## Voice & Tone
+- Direct, no-fluff, slightly opinionated
+- Speak from experience (as a productivity nerd who builds systems)
+- Use concrete numbers and specific examples
+- Never sound salesy or desperate. Sound like someone sharing what works
+
+## Tweet Types & Guidelines
+
+### VALUE tweets (most common)
+Give genuinely useful productivity/Notion tips. The goal is to make people think "this person knows their stuff" so they check your profile.
+- Share a specific workflow, hack, or insight
+- Include a concrete number or timeframe when possible
+- End with a thought that makes people want to reply or save
+
+### PROMO tweets (product promotion)
+Highlight a specific PROBLEM the product solves, not features.
+- Lead with the pain point ("Tracking clients in spreadsheets?")
+- Show the transformation ("→ One dashboard. Every client, project, and invoice.")
+- Include the Gumroad link naturally: tatsuya27.gumroad.com
+- Price anchoring: compare to expensive alternatives
+
+### ENGAGEMENT tweets
+Designed to get replies and discussion.
+- Ask a genuine question about productivity struggles
+- Share a controversial take on popular tools/methods
+- "Unpopular opinion:" or "Hot take:" format works well
+
+## Rules
+1. Max 280 characters
+2. 1-2 hashtags maximum (or zero)
+3. No emojis spam (0-2 max)
+4. No generic motivational fluff
+5. Sound like a real person, not a brand
+6. Every tweet should make someone want to follow you OR visit your Gumroad
+
+## Output
+Return ONLY the tweet text. No explanations."""
+
+
+def generate_dynamic_tweet(category: str) -> str | None:
+    """Generate a tweet dynamically using Claude API when static tweets are exhausted."""
+    if anthropic is None:
+        return None
+    if not os.path.exists(SECRETS_PATH):
+        return None
+
+    try:
+        with open(SECRETS_PATH, "r", encoding="utf-8") as f:
+            secrets = json.load(f)
+        api_key = secrets.get("claude_api", {}).get("api_key")
+        if not api_key:
+            return None
+    except Exception:
+        return None
+
+    product = random.choice(PRODUCTS)
+
+    prompts_by_category = {
+        "value": f"Write a VALUE tweet. Share a genuinely useful productivity or Notion tip. Make it specific and actionable. Today is {datetime.now().strftime('%B %d, %Y')}.",
+        "promo": f"Write a PROMO tweet for: {product['name']} ({product['price']}). Benefit: {product['benefit']}. Link: tatsuya27.gumroad.com. Lead with the problem it solves.",
+        "engagement": "Write an ENGAGEMENT tweet. Ask a question or share a hot take about productivity tools, workflows, or remote work that will get people replying.",
+        "thread": f"Write a VALUE tweet (single tweet, not a thread). Share a framework or system for productivity. Today is {datetime.now().strftime('%B %d, %Y')}.",
+        "seasonal": f"Write a VALUE tweet relevant to {datetime.now().strftime('%B %Y')}. Connect it to seasonal productivity themes (Q1 goals, new year, summer planning, etc.).",
+    }
+
+    user_prompt = prompts_by_category.get(category, prompts_by_category["value"])
+
+    # Get recent posted tweets to avoid repetition
+    try:
+        data = load_schedule()
+        recent = [t["text"][:80] for t in data["tweets"] if t.get("posted") and t.get("posted_at")]
+        recent = sorted(recent, key=lambda x: x, reverse=True)[:5]
+        if recent:
+            user_prompt += "\n\nAvoid similar content to these recent posts:\n" + "\n".join(f"- {r}" for r in recent)
+    except Exception:
+        pass
+
+    try:
+        client = anthropic.Anthropic(api_key=api_key)
+        response = client.messages.create(
+            model="claude-sonnet-4-6",
+            max_tokens=256,
+            system=PRODHQ_SYSTEM_PROMPT,
+            messages=[{"role": "user", "content": user_prompt}],
+        )
+        text = response.content[0].text.strip()
+        if text.startswith('"') and text.endswith('"'):
+            text = text[1:-1]
+        return text
+    except Exception as e:
+        log(f"WARNING: Claude API generation failed: {e}")
+        return None
 
 
 def log(msg):
@@ -286,51 +396,68 @@ def main():
                     log(f"FALLBACK: No {category} tweets, using {fallback}")
                     break
 
+    # Dynamic generation fallback: if no static tweets, generate with Claude API
+    use_dynamic = False
+    dynamic_text = None
     if tweet is None:
-        log("No unposted tweets remaining in any category. Refill schedule.")
-        ping_healthcheck(success=False)
-        return
+        log(f"No static tweets for {category}. Attempting Claude API dynamic generation...")
+        dynamic_text = generate_dynamic_tweet(category)
+        if dynamic_text:
+            use_dynamic = True
+            log(f"DYNAMIC [{category}]: {dynamic_text[:100]}...")
+        else:
+            log("No unposted tweets remaining and dynamic generation failed. Refill schedule.")
+            ping_healthcheck(success=False)
+            return
 
     if dry_run:
-        preview = tweet["text"][:100].replace("\n", " ")
-        product = tweet.get("product", "")
-        log(f"DRY RUN: [{tweet['category']}] {product} - {preview}...")
+        if use_dynamic:
+            log(f"DRY RUN (dynamic): [{category}] - {dynamic_text[:100]}...")
+        else:
+            preview = tweet["text"][:100].replace("\n", " ")
+            product = tweet.get("product", "")
+            log(f"DRY RUN: [{tweet['category']}] {product} - {preview}...")
         return
 
     try:
         client = get_client()
 
-        is_thread = tweet.get("is_thread", False)
-
-        # On Free plan, threads consume multiple tweets from daily quota.
-        # If a thread has >3 parts, post just the first part as a standalone tweet.
-        if is_thread:
-            parts = tweet["text"].split("\n---\n")
-            if len(parts) > 3:
-                log(f"THREAD TRUNCATED: {len(parts)} parts → posting first part only (Free plan safety)")
-                is_thread = False
-                tweet["text"] = parts[0].strip()
-
-        if is_thread:
-            tweet_ids = post_thread(client, tweet)
-            tweet["posted"] = True
-            tweet["posted_at"] = now.strftime("%Y-%m-%d %H:%M:%S")
-            tweet["tweet_id"] = tweet_ids[0]
-            tweet["thread_ids"] = tweet_ids
-            save_schedule(data)
-            product = tweet.get("product", "")
-            label = f"[{tweet['category']}] {product}" if product else f"[{tweet['category']}]"
-            log(f"OK THREAD: {label} - {len(tweet_ids)} tweets - Root ID: {tweet_ids[0]}")
-        else:
-            response = client.create_tweet(text=tweet["text"])
+        if use_dynamic:
+            response = client.create_tweet(text=dynamic_text)
             tweet_id = response.data["id"]
-            tweet["posted"] = True
-            tweet["posted_at"] = now.strftime("%Y-%m-%d %H:%M:%S")
-            tweet["tweet_id"] = str(tweet_id)
-            save_schedule(data)
-            product = tweet.get("product", "")
-            label = f"[{tweet['category']}] {product}" if product else f"[{tweet['category']}]"
-            log(f"OK: {label} - Tweet ID: {tweet_id}")
+            log(f"OK (dynamic): [{category}] - Tweet ID: {tweet_id}")
+        else:
+            is_thread = tweet.get("is_thread", False)
+
+            # On Free plan, threads consume multiple tweets from daily quota.
+            # If a thread has >3 parts, post just the first part as a standalone tweet.
+            if is_thread:
+                parts = tweet["text"].split("\n---\n")
+                if len(parts) > 3:
+                    log(f"THREAD TRUNCATED: {len(parts)} parts → posting first part only (Free plan safety)")
+                    is_thread = False
+                    tweet["text"] = parts[0].strip()
+
+            if is_thread:
+                tweet_ids = post_thread(client, tweet)
+                tweet["posted"] = True
+                tweet["posted_at"] = now.strftime("%Y-%m-%d %H:%M:%S")
+                tweet["tweet_id"] = tweet_ids[0]
+                tweet["thread_ids"] = tweet_ids
+                save_schedule(data)
+                product = tweet.get("product", "")
+                label = f"[{tweet['category']}] {product}" if product else f"[{tweet['category']}]"
+                log(f"OK THREAD: {label} - {len(tweet_ids)} tweets - Root ID: {tweet_ids[0]}")
+            else:
+                response = client.create_tweet(text=tweet["text"])
+                tweet_id = response.data["id"]
+                tweet["posted"] = True
+                tweet["posted_at"] = now.strftime("%Y-%m-%d %H:%M:%S")
+                tweet["tweet_id"] = str(tweet_id)
+                save_schedule(data)
+                product = tweet.get("product", "")
+                label = f"[{tweet['category']}] {product}" if product else f"[{tweet['category']}]"
+                log(f"OK: {label} - Tweet ID: {tweet_id}")
 
         ping_healthcheck(success=True)
 
