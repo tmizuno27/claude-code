@@ -314,12 +314,30 @@ export function consumptionTax(inputs: Record<string, number | string>): Record<
 
 // --- Fixed Asset Tax ---
 export function fixedAssetTax(inputs: Record<string, number | string>): Record<string, number> {
-  const assessedValue = (inputs.assessedValue as number) * 10000;
-  const taxRate = (inputs.taxRate as number) / 100;
-  const cityPlanningRate = (inputs.cityPlanningRate as number) / 100;
-  const fixedTax = Math.round(assessedValue * taxRate);
-  const cityTax = Math.round(assessedValue * cityPlanningRate);
-  return { fixedAssetTax: fixedTax, cityPlanningTax: cityTax, totalTax: fixedTax + cityTax, monthlyTax: Math.round((fixedTax + cityTax) / 12) };
+  const landValue = (inputs.landValue as number) * 10000;
+  const buildingValue = (inputs.buildingValue as number) * 10000;
+  const isResidential = inputs.isResidential as string;
+  const isNewBuilding = inputs.isNewBuilding as string;
+  const fixedTaxRate = 0.014; // 1.4%
+  const cityTaxRate = 0.003; // 0.3%
+  // Land: residential land exemption
+  let landFixedBase = landValue;
+  let landCityBase = landValue;
+  if (isResidential === 'small') {
+    landFixedBase = landValue / 6;
+    landCityBase = landValue / 3;
+  } else if (isResidential === 'general') {
+    landFixedBase = landValue / 3;
+    landCityBase = landValue * 2 / 3;
+  }
+  // Building: new construction reduction (1/2 for 3 years)
+  let buildingFixedBase = buildingValue;
+  if (isNewBuilding === 'yes') {
+    buildingFixedBase = buildingValue / 2;
+  }
+  const fixedTax = Math.round((landFixedBase + buildingFixedBase) * fixedTaxRate);
+  const cityTax = Math.round((landCityBase + buildingValue) * cityTaxRate);
+  return { fixedAssetTax: fixedTax, cityPlanningTax: cityTax, totalTax: fixedTax + cityTax };
 }
 
 // --- Bonus Take-Home ---
@@ -432,13 +450,36 @@ export function rentVsBuy(inputs: Record<string, number | string>): Record<strin
 export function calculateNisaSimulation(inputs: Record<string, number | string>): Record<string, number> {
   const monthly = (inputs.monthlyAmount as number) * 10000;
   const years = inputs.years as number;
-  const rate = (inputs.expectedReturn as number) / 100 / 12;
-  let balance = 0;
-  for (let i = 0; i < years * 12; i++) balance = (balance + monthly) * (1 + rate);
-  const totalInvested = monthly * years * 12;
-  const profit = balance - totalInvested;
-  const taxSaved = Math.round(profit * 0.20315);
-  return { finalAmount: Math.round(balance), totalInvested: Math.round(totalInvested), profit: Math.round(profit), taxSaved };
+  const annualRate = (inputs.expectedReturn as number) / 100;
+  const monthlyRate = annualRate / 12;
+  const nisaType = inputs.nisaType as string;
+  // Annual limit: tsumitate=120万, growth=240万
+  const annualLimit = nisaType === 'growth' ? 2_400_000 : 1_200_000;
+  const effectiveMonthly = Math.min(monthly, annualLimit / 12);
+  const totalMonths = years * 12;
+  // NISA account (tax-free)
+  let nisaBalance = 0;
+  for (let i = 0; i < totalMonths; i++) nisaBalance = (nisaBalance + effectiveMonthly) * (1 + monthlyRate);
+  const totalInvestment = effectiveMonthly * totalMonths;
+  const totalProfit = nisaBalance - totalInvestment;
+  const taxSaved = Math.round(totalProfit * 0.20315);
+  // Taxed account for comparison (tax on gains each year approximation)
+  let taxedBalance = 0;
+  for (let i = 0; i < totalMonths; i++) {
+    taxedBalance = (taxedBalance + effectiveMonthly) * (1 + monthlyRate);
+  }
+  const taxedProfit = taxedBalance - totalInvestment;
+  const taxOnProfit = Math.round(taxedProfit * 0.20315);
+  const taxedAssets = Math.round(taxedBalance - taxOnProfit);
+  const difference = Math.round(nisaBalance) - taxedAssets;
+  return {
+    totalAssets: Math.round(nisaBalance),
+    totalInvestment: Math.round(totalInvestment),
+    totalProfit: Math.round(totalProfit),
+    taxSaved,
+    taxedAssets,
+    difference,
+  };
 }
 
 // --- iDeCo Simulation ---

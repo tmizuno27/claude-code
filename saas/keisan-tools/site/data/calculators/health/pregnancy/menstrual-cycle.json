@@ -2,73 +2,28 @@
   "slug": "menstrual-cycle",
   "category": "health",
   "subcategory": "pregnancy",
-  "title": "生理周期計算",
-  "description": "生理周期のパターンから次回生理日を予測。",
-  "metaTitle": "生理周期計算ツール｜次回の生理開始日を自動予測",
-  "metaDescription": "過去の生理開始日から周期パターンを分析して次回を予測。",
+  "title": "月経周期・排卵日計算",
+  "description": "最終月経開始日と平均周期から次回月経予定日・排卵予定日・妊娠しやすい期間を計算します。",
+  "metaTitle": "月経周期・排卵日計算ツール｜妊娠しやすい期間を自動計算",
+  "metaDescription": "最終月経開始日と平均周期を入力するだけで次回月経予定日・排卵予定日・妊娠しやすい期間を自動計算。妊活や体調管理に役立つ無料ツールです。",
   "calculatorFunction": "menstrualCycle",
   "inputs": [
-    {
-      "id": "lastPeriod",
-      "label": "前回の生理開始日",
-      "type": "date",
-      "default": "2026-03-01"
-    },
-    {
-      "id": "cycleLength",
-      "label": "生理周期",
-      "type": "number",
-      "unit": "日",
-      "default": 28,
-      "min": 21,
-      "max": 45,
-      "step": 1
-    },
-    {
-      "id": "periodLength",
-      "label": "生理期間",
-      "type": "number",
-      "unit": "日",
-      "default": 5,
-      "min": 2,
-      "max": 10,
-      "step": 1
-    }
+    { "id": "lastPeriod", "label": "最終月経開始日", "type": "date", "default": "today" },
+    { "id": "cycleLength", "label": "平均周期", "type": "number", "unit": "日", "default": 28, "min": 21, "max": 45, "step": 1 }
   ],
   "outputs": [
-    {
-      "id": "nextPeriod",
-      "label": "次回生理予定日",
-      "format": "text",
-      "primary": true
-    },
-    {
-      "id": "lutealPhase",
-      "label": "黄体期開始",
-      "format": "text",
-      "primary": false
-    },
-    {
-      "id": "pmsStart",
-      "label": "PMS開始目安",
-      "format": "text",
-      "primary": false
-    }
+    { "id": "nextPeriod", "label": "次回月経予定日", "format": "text", "primary": true },
+    { "id": "ovulationDay", "label": "排卵予定日", "format": "text" },
+    { "id": "fertileStart", "label": "妊娠しやすい期間（開始）", "format": "text" },
+    { "id": "fertileEnd", "label": "妊娠しやすい期間（終了）", "format": "text" }
   ],
-  "explanation": "<h3>生理周期</h3><p>正常な周期は25〜38日。黄体期（排卵後〜次の生理まで）は約14日で比較的安定しています。</p>",
+  "explanation": "<h3>月経周期と排卵日の関係</h3><p>排卵は次の月経が始まる<strong>約14日前</strong>に起こります（黄体期が約14日で安定しているため）。つまり周期が28日なら月経開始から14日目頃、35日なら21日目頃が排卵日の目安です。</p><h3>妊娠しやすい期間</h3><p>精子の寿命は約3〜5日、卵子の寿命は約24時間です。そのため、排卵日の<strong>5日前から排卵日翌日まで</strong>が妊娠しやすい期間（受胎可能期間）となります。</p><h3>注意事項</h3><p>この計算はあくまで目安です。ストレス・体調・生活リズムの変化で周期がずれることがあります。正確な排卵日の把握には基礎体温の記録や排卵検査薬の使用が有効です。</p>",
   "faq": [
-    {
-      "question": "正常な周期は？",
-      "answer": "25〜38日で、周期のばらつきが6日以内なら正常です。"
-    },
-    {
-      "question": "PMSとは？",
-      "answer": "月経前症候群。生理の3〜10日前に起こる身体的・精神的な症状です。"
-    }
+    { "question": "正常な月経周期はどのくらい？", "answer": "25〜38日が正常範囲です。周期のばらつきが6日以内であれば問題ありません。極端に短い（24日以下）または長い（39日以上）場合は婦人科を受診しましょう。" },
+    { "question": "排卵日を正確に知る方法は？", "answer": "基礎体温を毎朝測定して記録する方法、排卵検査薬でLHサージを検出する方法、産婦人科で超音波検査を受ける方法があります。複数の方法を併用するとより正確です。" },
+    { "question": "妊娠しやすい日はいつ？", "answer": "排卵日の2日前が最も妊娠確率が高いとされています。排卵日の5日前から排卵日翌日までの約6日間が受胎可能期間です。" },
+    { "question": "生理不順の場合はどうすればいい？", "answer": "周期が不規則な場合、この計算ツールの精度は下がります。基礎体温の測定や婦人科での相談をおすすめします。3ヶ月以上生理が来ない場合は必ず受診しましょう。" }
   ],
-  "related": [
-    "ovulation-day",
-    "due-date"
-  ],
+  "related": ["ovulation-day", "due-date", "pregnancy-week"],
   "popular": false
 }

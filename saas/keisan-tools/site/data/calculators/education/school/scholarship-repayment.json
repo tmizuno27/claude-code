@@ -3,25 +3,29 @@
   "category": "education",
   "subcategory": "school",
   "title": "奨学金返済シミュレーション",
-  "description": "奨学金の借入額・利率・返済期間から月々の返済額と利息総額を計算。",
-  "metaTitle": "奨学金返済シミュレーションツール｜月額返済額と利息を自動計算",
-  "metaDescription": "奨学金の借入総額・利率・返済年数を入力して月々の返済額・総返済額・利息総額を自動計算する無料ツール。",
+  "description": "奨学金の借入総額・利率・返済期間・据置期間から月額返済額と利息総額を計算します。",
+  "metaTitle": "奨学金返済シミュレーション｜据置期間対応の返済計算",
+  "metaDescription": "奨学金の借入総額・利率・返済期間・据置期間を入力して月々の返済額・総返済額・利息総額を自動計算。JASSO第一種・第二種に対応した無料ツールです。",
   "calculatorFunction": "scholarshipRepayment",
   "inputs": [
     { "id": "totalBorrowed", "label": "借入総額", "type": "number", "unit": "万円", "default": 300, "min": 10, "max": 2000, "step": 10 },
     { "id": "annualRate", "label": "年利", "type": "number", "unit": "%", "default": 0.5, "min": 0, "max": 5, "step": 0.01, "hint": "第一種は無利子、第二種は0.5〜1%程度" },
-    { "id": "repaymentYears", "label": "返済期間", "type": "number", "unit": "年", "default": 20, "min": 1, "max": 30, "step": 1 }
+    { "id": "repaymentYears", "label": "返済期間", "type": "number", "unit": "年", "default": 20, "min": 1, "max": 30, "step": 1 },
+    { "id": "graceMonths", "label": "据置期間", "type": "number", "unit": "月", "default": 0, "min": 0, "max": 60, "step": 1, "hint": "卒業後、返済開始までの猶予期間" }
   ],
   "outputs": [
-    { "id": "monthlyPayment", "label": "月々の返済額", "format": "yen", "primary": true },
-    { "id": "totalPayment", "label": "総返済額", "format": "yen" },
-    { "id": "totalInterest", "label": "利息総額", "format": "yen" }
+    { "id": "monthlyPayment", "label": "月額返済額", "format": "currency", "primary": true },
+    { "id": "totalPayment", "label": "総返済額", "format": "currency" },
+    { "id": "totalInterest", "label": "利息総額", "format": "currency" }
   ],
-  "explanation": "<h3>奨学金の返済方法</h3><p>日本学生支援機構（JASSO）の奨学金は、卒業後に月々の定額返済で返していきます。第一種（無利子）と第二種（有利子）があります。</p>",
+  "explanation": "<h3>奨学金の返済方法</h3><p>日本学生支援機構（JASSO）の奨学金は、卒業後に月々の定額返済（元利均等返済）で返していきます。<strong>第一種（無利子）</strong>と<strong>第二種（有利子）</strong>があります。</p><h3>据置期間とは</h3><p>卒業後すぐに返済を始められない場合、最大で一定期間の猶予（据置期間）を申請できます。据置期間中は元本の返済が猶予されますが、<strong>有利子の場合は据置期間中も利息が発生</strong>し、元本に加算されます。</p><h3>返済のポイント</h3><p>繰上げ返済を行えば利息を節約できます。返還期限猶予制度や減額返還制度など、返済が困難な場合の救済制度も用意されています。</p>",
   "faq": [
-    { "question": "奨学金300万円の月額返済は？", "answer": "利率0.5%・返済期間20年の場合、月約13,000円です。無利子なら月12,500円になります。" }
+    { "question": "奨学金300万円の月額返済はいくら？", "answer": "利率0.5%・返済期間20年の場合、月約13,100円です。無利子（第一種）なら月12,500円になります。" },
+    { "question": "据置期間中も利息はかかる？", "answer": "第二種（有利子）の場合、据置期間中も利息が発生し、元本に加算されます。第一種（無利子）の場合は利息がないので据置期間の影響はありません。" },
+    { "question": "繰上げ返済のメリットは？", "answer": "繰上げ返済すると将来の利息が減ります。まとまった資金ができた場合、JASSOのスカラネットから繰上げ返済の申請が可能です。手数料はかかりません。" },
+    { "question": "返済が困難な場合はどうする？", "answer": "返還期限猶予（最大10年間返済を猶予）や減額返還（月々の返済額を1/2または1/3に減額）の制度があります。延滞する前にJASSOに相談しましょう。" }
   ],
-  "related": ["education-cost-sim", "education-loan", "tuition-cost"],
+  "related": ["education-cost-sim", "tuition-cost", "compound-interest"],
   "popular": true,
   "popularOrder": 27
 }
