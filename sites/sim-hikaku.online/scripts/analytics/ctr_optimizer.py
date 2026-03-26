@@ -234,7 +234,7 @@ def identify_low_ctr_pages(pages, page_queries, min_impressions=3):
 
 
 def generate_optimized_title(old_title, top_queries, position):
-    """検索クエリに基づいてタイトルを最適化"""
+    """検索クエリに基づいてタイトルを最適化（CTR 0%対策で積極的に変更）"""
     new_title = old_title
 
     # 年号を2026年に統一
@@ -247,23 +247,61 @@ def generate_optimized_title(old_title, top_queries, position):
     if not has_year and has_keyword:
         new_title = "【2026年最新】" + new_title
 
-    # 上位検索クエリのキーワードがタイトルに含まれていなければ追加を検討
+    # 上位検索クエリのキーワードをタイトルに反映
     if top_queries:
         top_query = top_queries[0]["query"]
         # 「評判」「口コミ」が検索されているのにタイトルにない場合
         for kw in ["評判", "口コミ", "デメリット", "メリット"]:
             if kw in top_query and kw not in new_title:
-                # タイトル末尾の「｜」の前に追加
                 if "｜" in new_title:
                     parts = new_title.split("｜", 1)
                     new_title = f"{parts[0]}の{kw}｜{parts[1]}"
                 break
 
+        # 検索クエリに「価格」があるのにタイトルに「料金」しかない場合、両方入れる
+        query_words = set()
+        for q in top_queries[:3]:
+            query_words.update(q["query"].split())
+
+        # 「価格」が検索されてるなら「料金・価格」にする
+        if "価格" in query_words and "価格" not in new_title and "料金" in new_title:
+            new_title = new_title.replace("料金比較", "料金・価格比較", 1)
+
+        # GB数が検索KWにあればタイトルに反映
+        for word in query_words:
+            gb_match = re.match(r"(\d+)gb", word, re.IGNORECASE)
+            if gb_match and gb_match.group(0).lower() not in new_title.lower():
+                # 「一覧表」の前に具体的GB数を追加
+                if "一覧" in new_title and "1GB" not in new_title:
+                    new_title = new_title.replace(
+                        "一覧表", f"一覧表｜1GB〜{gb_match.group(1)}GBの最安がわかる", 1
+                    )
+                    break
+
+    # CTRパワーワード追加（積極的）
+    # 「最安プランはどこ？」→「最安プランはここだ！元通信社員が厳選」
+    if "最安プランはどこ" in new_title:
+        new_title = new_title.replace("最安プランはどこ？", "最安プランを元通信社員が厳選")
+
+    # 「完全ガイド」→「完全攻略ガイド」
+    if "完全ガイド" in new_title and "攻略" not in new_title:
+        new_title = new_title.replace("完全ガイド", "完全攻略ガイド")
+
+    # 「あなたに最適なSIMが見つかる」→ もっと具体的に
+    if "あなたに最適なSIMが見つかる" in new_title:
+        new_title = new_title.replace(
+            "あなたに最適なSIMが見つかる", "3分診断で最適SIMがわかる"
+        )
+
+    # 「月額0円〜」系の数字はそのまま活かす（具体的数字はCTR高い）
+
+    # 「障害対策も万全」→ もっと緊急感
+    if "障害対策も万全" in new_title:
+        new_title = new_title.replace("障害対策も万全", "通信障害に備える保険SIM")
+
     # 数字を強調（CTR向上に効果的）
-    # 「N選」「N社」「Nステップ」等がない場合、具体的数字を追加
     has_number = bool(re.search(r"\d+選|\d+社|\d+ステップ|\d+つ|\d+個", new_title))
     if not has_number and "比較" in new_title:
-        # 比較記事に「プロが」を追加
         if "プロが" not in new_title and "徹底" in new_title:
             new_title = new_title.replace("徹底比較", "プロが徹底比較", 1)
             new_title = new_title.replace("徹底検証", "プロが徹底検証", 1)
@@ -271,9 +309,8 @@ def generate_optimized_title(old_title, top_queries, position):
     # 二重括弧修正
     new_title = re.sub(r"【(\d{4}年[^】]*)】【([^】]+)】", r"【\1・\2】", new_title)
 
-    # タイトル長制限（32文字前後が最適、最大60文字）
+    # タイトル長制限（60文字以内）
     if len(new_title) > 60:
-        # 「｜」以降を短縮
         if "｜" in new_title:
             parts = new_title.split("｜")
             main = parts[0]
