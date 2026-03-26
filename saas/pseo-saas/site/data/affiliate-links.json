@@ -1,0 +1,117 @@
+{
+  "_comment": "Affiliate URL mapping. Replace placeholder URLs with real affiliate links after joining each program.",
+  "jasper": {
+    "url": "https://www.jasper.ai?fpr=aicompare",
+    "commission": "30% recurring",
+    "program": "Jasper Partner Program",
+    "status": "placeholder"
+  },
+  "writesonic": {
+    "url": "https://writesonic.com?ref=aicompare",
+    "commission": "30% recurring",
+    "program": "Writesonic Affiliate",
+    "status": "placeholder"
+  },
+  "copy-ai": {
+    "url": "https://www.copy.ai/?via=aicompare",
+    "commission": "Variable recurring",
+    "program": "Copy.ai Affiliate",
+    "status": "placeholder"
+  },
+  "synthesia": {
+    "url": "https://www.synthesia.io/?via=aicompare",
+    "commission": "$50-200 one-time",
+    "program": "Synthesia Partner",
+    "status": "placeholder"
+  },
+  "semrush": {
+    "url": "https://www.semrush.com/lp/affiliate/?ref=aicompare",
+    "commission": "$200 one-time + $10/trial",
+    "program": "Semrush Affiliate (BeRush)",
+    "status": "placeholder"
+  },
+  "notion-ai": {
+    "url": "https://affiliate.notion.so/aicompare",
+    "commission": "50% for 12 months",
+    "program": "Notion Affiliate",
+    "status": "placeholder"
+  },
+  "clickup-ai": {
+    "url": "https://clickup.com/?fp_ref=aicompare",
+    "commission": "$25-30 one-time",
+    "program": "ClickUp Affiliate",
+    "status": "placeholder"
+  },
+  "surfer-seo": {
+    "url": "https://surferseo.com/?fp_ref=aicompare",
+    "commission": "25% recurring",
+    "program": "Surfer SEO Affiliate",
+    "status": "placeholder"
+  },
+  "canva": {
+    "url": "https://partner.canva.com/aicompare",
+    "commission": "Up to 80% first payment",
+    "program": "Canva Affiliate",
+    "status": "placeholder"
+  },
+  "deepl": {
+    "url": "https://www.deepl.com/pro?ref=aicompare",
+    "commission": "Variable",
+    "program": "DeepL Affiliate",
+    "status": "placeholder"
+  },
+  "heygen": {
+    "url": "https://www.heygen.com/?ref=aicompare",
+    "commission": "20% recurring",
+    "program": "HeyGen Affiliate",
+    "status": "placeholder"
+  },
+  "elevenlabs": {
+    "url": "https://elevenlabs.io/?from=aicompare",
+    "commission": "22% recurring",
+    "program": "ElevenLabs Affiliate",
+    "status": "placeholder"
+  },
+  "github-copilot": {
+    "url": "https://github.com/features/copilot?ref=aicompare",
+    "commission": "Variable",
+    "program": "GitHub Affiliate",
+    "status": "placeholder"
+  },
+  "cursor": {
+    "url": "https://cursor.sh/?ref=aicompare",
+    "commission": "Variable",
+    "program": "Cursor Referral",
+    "status": "placeholder"
+  },
+  "zapier": {
+    "url": "https://zapier.com/?ref=aicompare",
+    "commission": "Variable",
+    "program": "Zapier Affiliate",
+    "status": "placeholder"
+  },
+  "intercom": {
+    "url": "https://www.intercom.com/partner/aicompare",
+    "commission": "Variable",
+    "program": "Intercom Partner",
+    "status": "placeholder"
+  },
+  "framer": {
+    "url": "https://www.framer.com/?ref=aicompare",
+    "commission": "50% first year",
+    "program": "Framer Affiliate",
+    "status": "placeholder"
+  },
+  "beautiful-ai": {
+    "url": "https://www.beautiful.ai/?ref=aicompare",
+    "commission": "Variable",
+    "program": "Beautiful.ai Affiliate",
+    "status": "placeholder"
+  },
+  "gamma": {
+    "url": "https://gamma.app/?ref=aicompare",
+    "commission": "Variable",
+    "program": "Gamma Affiliate",
+    "status": "placeholder"
+  }
+}
