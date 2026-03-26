@@ -514,8 +514,8 @@ def wait_for_approval(original_text: str) -> tuple[str, str]:
         # pendingファイルを再読み込み
         pending = load_pending_tweet()
         if pending is None:
-            print("WARNING: pending-tweets.json が見つかりません。自動投稿します")
-            return original_text, "approved"
+            print("WARNING: pending-tweets.json が見つかりません。重複投稿を避けるためスキップします")
+            return original_text, "skip"
 
         status = pending.get("status", "pending")
 

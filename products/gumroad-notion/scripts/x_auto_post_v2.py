@@ -184,6 +184,8 @@ def show_stats(data):
 
 
 COOLDOWN_MINUTES = 15
+# X API Free plan: 17 tweets per 24 hours (official limit)
+DAILY_TWEET_LIMIT = 15  # Conservative limit to avoid hitting 17
 
 
 def get_last_post_time():
@@ -201,6 +203,26 @@ def get_last_post_time():
         return None
     except Exception:
         return None
+
+
+def count_posts_last_24h():
+    """Count successful posts in the last 24 hours from log file."""
+    if not os.path.exists(LOG_PATH):
+        return 0
+    cutoff = datetime.now() - timedelta(hours=24)
+    count = 0
+    try:
+        with open(LOG_PATH, "r", encoding="utf-8") as f:
+            for line in f:
+                if "OK:" in line or "OK THREAD:" in line or "POSTED id=" in line:
+                    match = re.search(r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\]", line)
+                    if match:
+                        ts = datetime.strptime(match.group(1), "%Y-%m-%d %H:%M:%S")
+                        if ts >= cutoff:
+                            count += 1
+    except Exception:
+        pass
+    return count
 
 
 def main():
@@ -227,6 +249,12 @@ def main():
         if last_post and (now - last_post) < timedelta(minutes=COOLDOWN_MINUTES):
             elapsed = int((now - last_post).total_seconds() / 60)
             log(f"SKIP: Last post was {elapsed}min ago (cooldown: {COOLDOWN_MINUTES}min). Aborting.")
+            return
+
+        # Daily rate limit check (Free plan: 17 tweets/24h, using conservative limit)
+        posts_24h = count_posts_last_24h()
+        if posts_24h >= DAILY_TWEET_LIMIT:
+            log(f"SKIP: {posts_24h} posts in last 24h (limit: {DAILY_TWEET_LIMIT}). Rate limit protection.")
             return
 
     # Determine category
