@@ -99,7 +99,9 @@
     "keyword": "南米 移住 おすすめ 無料",
     "type": "question",
     "priority": 13,
-    "status": "pending"
+    "status": "processed",
+    "article_path": "C:\\Users\\tmizu\\マイドライブ\\GitHub\\claude-code\\sites\\nambei-oyaji.com\\outputs\\articles\\2026-03-26\\article-72807.md",
+    "processed_date": "2026-03-26"
   },
   {
     "keyword": "南米 移住 おすすめ 方法",
