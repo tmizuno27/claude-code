@@ -169,6 +169,11 @@ def pdca_blogs():
         logger.report("")
 
         # --- GSC: 今週 vs 先週 ---
+        now_imp = 0
+        now_click = 0
+        prev_imp = 0
+        prev_click = 0
+        imp_delta = 0
         try:
             resp_now = gsc.searchanalytics().query(
                 siteUrl=cfg["gsc_url"],
@@ -259,9 +264,7 @@ def pdca_blogs():
         logger.report("### PLAN")
         actions = []
         # GSCエラー時のフォールバック
-        now_imp = locals().get("now_imp", 0)
-        imp_delta = locals().get("imp_delta", 0)
-        now_click = locals().get("now_click", 0)
+        # now_imp / imp_delta / now_click are initialized above the try block
         if now_imp < 50:
             actions.append("⚠️ インプレッション極少 → ロングテールKW記事追加が急務")
         if imp_delta < 0:
