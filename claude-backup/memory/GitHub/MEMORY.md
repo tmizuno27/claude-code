@@ -40,6 +40,7 @@
 - **Sheets同期**: `infrastructure/tools/sheets-sync/` — 5分おき
 - **バックアップ**: `claude-backup/` — メモリ（ジャンクション）+ settings.json
 - **タスク稼働確認ルール**: [feedback_proactive_task_check.md](feedback_proactive_task_check.md) — 変更時は依存スクリプト全確認、会話冒頭でログ健全性チェック
+- **Vercelデプロイ確認必須**: [feedback_vercel_deploy_check.md](feedback_vercel_deploy_check.md) — デプロイ前にprojectId確認、デプロイ後に表示確認
 
 ## WordPress REST API（nambei-oyaji.com）
 - 認証: `nambei-oyaji.com/config/secrets.json` + `wp-credentials.json`
