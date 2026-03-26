@@ -21,9 +21,9 @@
       "id": "pdca-script-bugs-fixed",
       "title": "日次レポートスクリプト3件のバグ修正",
       "priority": "P1",
-      "done": false,
-      "done_at": null,
-      "reason": "now_imp未定義・X投稿0表示・keisan-tools 0ページ表示を修正"
+      "done": true,
+      "done_at": "2026-03-26T10:00:00-03:00",
+      "reason": "now_imp未定義・X投稿0表示・keisan-tools 0ページ表示を修正完了"
     },
     {
       "id": "ctr-improve-5articles",
