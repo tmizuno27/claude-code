@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "Hash & Encode Tool",
-  "version": "1.0.0",
-  "description": "Hash and encode text in your browser. Supports common algorithms and formats. Zero network requests.",
-  "permissions": ["activeTab", "contextMenus", "storage"],
+  "version": "1.1.0",
+  "description": "Developer tool for hashing (MD5, SHA-1, SHA-256, SHA-512), encoding (Base64, URL, HTML), and decoding (JWT). 100% offline — zero network requests.",
+  "permissions": ["contextMenus", "storage"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -21,5 +21,8 @@
   },
   "background": {
     "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
   }
 }
