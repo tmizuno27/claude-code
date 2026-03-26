@@ -104,7 +104,9 @@
       "id": 12,
       "category": "value",
       "text": "I tracked 200+ job applications in a spreadsheet.\n\nKey insight: The jobs I got interviews for had one thing in common — I customized the first sentence of my cover letter.\n\nData reveals patterns your gut never will.\n\n#JobSearch",
-      "posted": false
+      "posted": true,
+      "posted_at": "2026-03-26 19:00:14",
+      "tweet_id": "2037288536433398082"
     },
     {
       "id": 13,
