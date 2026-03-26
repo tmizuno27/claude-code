@@ -78,6 +78,14 @@ export default async function ComparePage({ params }) {
             <div className="score-label">Overall Score</div>
             <div className="price-tag">{toolA.pricing_starts || 'Contact'}</div>
             {toolA.free_plan && <span className="badge badge-green" style={{ marginLeft: 8 }}>Free Plan</span>}
+            <a
+              href={toolA.affiliate_url || toolA.website}
+              target="_blank"
+              rel={toolA.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="score-card-cta"
+            >
+              Try {toolA.name} &rarr;
+            </a>
           </div>
           <div className="vs-badge">VS</div>
           <div className={`score-card${!isWinnerA ? ' winner' : ''}`}>
@@ -86,6 +94,14 @@ export default async function ComparePage({ params }) {
             <div className="score-label">Overall Score</div>
             <div className="price-tag">{toolB.pricing_starts || 'Contact'}</div>
             {toolB.free_plan && <span className="badge badge-green" style={{ marginLeft: 8 }}>Free Plan</span>}
+            <a
+              href={toolB.affiliate_url || toolB.website}
+              target="_blank"
+              rel={toolB.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="score-card-cta"
+            >
+              Try {toolB.name} &rarr;
+            </a>
           </div>
         </div>
 
@@ -214,6 +230,16 @@ export default async function ComparePage({ params }) {
         <div className="verdict-box">
           <h2>Our Verdict</h2>
           <p>{content.verdict}</p>
+          <div className="verdict-cta">
+            <a
+              href={content.winner.affiliate_url || content.winner.website}
+              target="_blank"
+              rel={content.winner.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="cta-btn cta-btn-winner"
+            >
+              Try {content.winner.name} — Our Top Pick &rarr;
+            </a>
+          </div>
         </div>
 
         {/* CTA Buttons */}

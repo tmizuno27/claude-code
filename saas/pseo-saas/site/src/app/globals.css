@@ -608,3 +608,37 @@ a:hover {
   background: var(--green);
   color: #fff;
 }
+
+.cta-btn-winner {
+  background: linear-gradient(135deg, var(--accent), #6366f1);
+  color: #fff;
+  font-size: 1.05rem;
+  padding: 16px 32px;
+}
+
+.score-card-cta {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.score-card-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.verdict-cta {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.verdict-cta .cta-btn {
+  display: inline-flex;
+}
