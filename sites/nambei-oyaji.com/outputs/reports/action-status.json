@@ -12,15 +12,15 @@
       "id": "nambei-ga4-fix",
       "title": "南米おやじGA4タイムアウト修正",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-27T09:45:00"
     },
     {
       "id": "pseo-gsc-submit",
       "title": "pSEO5056PをGSCにサイトマップ送信",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-27T09:50:00"
     },
     {
       "id": "pseo-adsense-apply",
@@ -33,8 +33,8 @@
       "id": "rapidapi-traffic-check",
       "title": "RapidAPI 24API使用ログ確認",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-27T09:40:00"
     },
     {
       "id": "stripe-kyc-resolve",
@@ -47,15 +47,15 @@
       "id": "nambei-top3-article-rewrite",
       "title": "南米おやじGSC上位クエリ記事改善",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-27T10:00:00"
     },
     {
       "id": "x-rapidapi-promotion",
       "title": "XでRapidAPI紹介ツイート投稿",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "2026-03-27T09:55:00"
     }
   ]
 }
