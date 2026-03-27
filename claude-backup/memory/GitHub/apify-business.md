@@ -27,6 +27,9 @@ Apify Store上に5つのActorを公開・収益化設定済み。
 | 4 | Company Data Enricher | $5.00 / 1,000 results | API 20 |
 | 5 | SEO Analyzer | $3.00 / 1,000 results | API 14 |
 
+### README更新（2026-03-27）
+全5 ActorのREADMEをApify API経由で自動更新完了。
+
 ### 注意事項
 - Apifyは毎日自動テストを実行。3日連続失敗で「under maintenance」マーク
 - Redditソース（Trends Aggregator）は403エラーが出る場合あり（他ソースは正常）

@@ -10,7 +10,7 @@ Gumroad Notionテンプレート出品作業の進捗（2026-03-17更新）
 
 **How to apply:** 全商品セットアップ完了。Cover/Thumbnail/Summary/タグ全て設定済み。あとは集客・マーケティングフェーズ。
 
-## 出品状況（全11商品 完全セットアップ済み 2026-03-17）
+## 出品状況（全12商品 2026-03-27更新）
 - [x] 1. Freelance Business OS ($19)
 - [x] 2. Content Creator Dashboard ($15)
 - [x] 3. Student Study Hub ($9)
@@ -22,6 +22,7 @@ Gumroad Notionテンプレート出品作業の進捗（2026-03-17更新）
 - [x] 9. Book & Learning Tracker ($9)
 - [x] 10. Digital Products Business OS ($19)
 - [x] 11. Ultimate Bundle — 全10本セット ($49)
+- [x] 12. Social Media Marketing Mega Prompt Pack（2026-03-27 新規公開）
 
 ## サムネイル・Cover画像
 `claude-code/products/gumroad-notion/images/` に全22枚生成済み（Pillow自動生成）
@@ -32,6 +33,7 @@ Gumroad Notionテンプレート出品作業の進捗（2026-03-17更新）
 ## Gumroadアカウント
 - URL: tatsuya27.gumroad.com
 - n8nテンプレート9本も同アカウントで公開中
+- 売上レポートスクリプト稼働中（トークン設定済み 2026-03-27）
 
 ## Notionテンプレートリンク（全て共有済み）
 1. https://tmizuno.notion.site/Freelance-Business-OS-325e2be6f322814980f0d8913a4cc6fc

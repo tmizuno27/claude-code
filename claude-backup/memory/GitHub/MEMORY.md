@@ -88,10 +88,11 @@
 - PayPal payout接続済み、日次ヘルスチェック自動化済み
 - **プロジェクトパス**: `claude-code/products/api-services/`
 
-## Chrome拡張ポートフォリオ事業（2/10本公開済み）
+## Chrome拡張ポートフォリオ事業（4/10本公開済み）
 - **詳細**: [chrome-extensions-business.md](chrome-extensions-business.md)
-- 公開済み2本: Regex Tester, AI Text Rewriter（2026-03-17確認）
-- 審査待ち8本: JSON Formatter Pro, Color Picker, Lorem Ipsum, Hash & Encode, Page Speed, WHOIS Lookup, Currency Converter, SEO Inspector
+- 公開済み4本: AI Text Rewriter, Color Picker, Domain WHOIS, SEO Inspector（2026-03-27確認）
+- 審査待ち4本: Quick Currency, JSON Formatter, Lorem Ipsum, Page Speed。Hash & Encode再提出済み
+- プライバシーポリシー: 7/8拡張にGitHub Pages URL設定済み（2026-03-27）
 - **プロジェクトパス**: `claude-code/products/chrome-extensions/`
 
 ## WP Linker Micro SaaS（稼働中）
@@ -126,7 +127,7 @@
 
 ## Gumroad Notionテンプレート販売事業（全11商品 完全セットアップ済み + X自動投稿稼働中）
 - **進捗**: [gumroad-listing-progress.md](gumroad-listing-progress.md)
-- 全10本+バンドル($49) = 11商品 Cover/Thumbnail/Summary/タグ全て設定済み（2026-03-17）
+- 全10本+バンドル($49)+AIプロンプトパック = 12商品（2026-03-27: Social Media Marketing Mega Prompt Pack追加）
 - アカウント: tatsuya27.gumroad.com（n8nテンプレート9本も同アカウント、こちらも全整備済み）
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿（10:00/14:00/19:00 PYT）
 - **Gumroad出品時の注意**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — サムネ必須、Pillow自動生成
@@ -192,11 +193,15 @@
 - WP Linker決済、n8nテンプレート、Notionテンプレート、pSEO、Chrome拡張等が全てStripeブロック中
 - ユーザーが「Stripe連携できました」と言ったら即座にこのリストを実行
 
-## 優先タスク（2026-03-17更新）
-- **Gumroad X自動投稿**: @prodhq27稼働開始。25本のツイート（価値15+商品10）が自動投稿中
-- **RapidAPI**: 全21本出品済み（売上$0 → SEO/導線改善が必要）
-- **Chrome拡張**: 審査待ち8本の通過確認
+## GitHubリポジトリ
+- **公開設定**: PUBLIC（2026-03-27変更、旧private）
+- リポジトリ: https://github.com/tmizuno27/claude-code
+
+## 優先タスク（2026-03-27更新）
+- **RapidAPI**: Top 5リスティング最適化済み、残り19本も順次改善
+- **Chrome拡張**: 審査待ち確認+Hash & Encode再審査後にプライバシーポリシー設定
 - **Value Commerce**: プログラム提携（3サイト分）
+- **PDCA日次サマリー**: [pdca-2026-03-27.md](pdca-2026-03-27.md)
 
 ## Dev.toアカウント
 - **詳細**: [devto-account.md](devto-account.md) — miccho27、記事6本（4本公開+2本下書き自動公開予定）、APIキー保存済み、Task Scheduler「DevTo-PublishDrafts」登録済み

@@ -49,5 +49,9 @@ type: project
 - **12-Social Video API**: 非公開化（2026-03-24）— 著作権リスク回避
 - **収益目標**: $30-50/mo（現実的修正、2026-03-24）
 
+### リスティング最適化（2026-03-27）
+- Top 5 APIのShort Description/Category/Tags/Long Descriptionをユーザーが手動更新済み
+- コピペガイド作成済み: `products/api-services/docs/rapidapi-copypaste-guide.txt`
+
 **Why:** KYC不要、PayPal受取、マーケットプレイスが集客・課金・サポート全処理、運用コスト$0
 **How to apply:** n8nテンプレート事業と並行。売上モニタリングのみ必要
