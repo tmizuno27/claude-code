@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Chrome Extensions by miccho27</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #0a0a0a;
+            color: #d4d4d4;
+            line-height: 1.75;
+            padding: 48px 20px;
+        }
+        .container { max-width: 760px; margin: 0 auto; }
+        h1 { font-size: 2.25rem; color: #fff; margin-bottom: 6px; letter-spacing: -0.02em; }
+        .subtitle { color: #777; margin-bottom: 40px; font-size: 0.95rem; }
+        h2 { font-size: 1.3rem; color: #fff; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid #222; }
+        h3 { font-size: 1.05rem; color: #ccc; margin: 20px 0 8px; }
+        p, li { margin-bottom: 10px; }
+        ul { padding-left: 24px; }
+        a { color: #5e9eff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .ext-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 0.92rem; }
+        .ext-table th, .ext-table td { text-align: left; padding: 10px 14px; border-bottom: 1px solid #1e1e1e; }
+        .ext-table th { color: #aaa; font-weight: 600; background: #111; }
+        .ext-table td { color: #ccc; }
+        .ext-table tr:hover td { background: #141414; }
+        .highlight { background: #112; border-left: 3px solid #5e9eff; padding: 16px 20px; margin: 20px 0; border-radius: 4px; }
+        .highlight p { margin-bottom: 0; }
+        .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid #222; color: #555; font-size: 0.85rem; }
+        .footer a { color: #5e9eff; }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.6rem; }
+            body { padding: 28px 16px; }
+            .ext-table { font-size: 0.82rem; }
+            .ext-table th, .ext-table td { padding: 8px 10px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">Chrome Extensions published by <strong>miccho27</strong> &mdash; Last updated: <span id="lastUpdated"></span></p>
+
+    <div class="highlight">
+        <p><strong>Summary:</strong> Our extensions do not collect, store, transmit, or share any personal data. We do not use analytics, tracking pixels, or any third-party data services.</p>
+    </div>
+
+    <h2>1. Scope</h2>
+    <p>This Privacy Policy applies to all Chrome extensions published by <strong>miccho27</strong> on the Chrome Web Store, including but not limited to the extensions listed below. When we release new extensions, they are covered by this same policy unless a separate policy is provided.</p>
+
+    <h2>2. Extensions Covered</h2>
+    <table class="ext-table">
+        <thead>
+            <tr><th>Extension</th><th>Permissions Used</th><th>Purpose of Permissions</th></tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>JSON Formatter Pro</td>
+                <td>clipboardRead, clipboardWrite</td>
+                <td>Read JSON from clipboard and copy formatted output</td>
+            </tr>
+            <tr>
+                <td>Color Picker Pro</td>
+                <td>activeTab</td>
+                <td>Pick colours from the active webpage</td>
+            </tr>
+            <tr>
+                <td>Lorem Ipsum Generator</td>
+                <td>clipboardWrite</td>
+                <td>Copy generated placeholder text to clipboard</td>
+            </tr>
+            <tr>
+                <td>Hash &amp; Encode Toolkit</td>
+                <td>clipboardWrite</td>
+                <td>Copy hashed or encoded output to clipboard</td>
+            </tr>
+            <tr>
+                <td>Page Speed Checker</td>
+                <td>activeTab</td>
+                <td>Measure performance metrics of the current page</td>
+            </tr>
+            <tr>
+                <td>WHOIS Lookup</td>
+                <td>activeTab</td>
+                <td>Read the current tab's URL to perform WHOIS lookup</td>
+            </tr>
+            <tr>
+                <td>Currency Converter</td>
+                <td>storage</td>
+                <td>Cache exchange rates locally to reduce API calls</td>
+            </tr>
+            <tr>
+                <td>SEO Inspector</td>
+                <td>activeTab</td>
+                <td>Analyse SEO elements of the current page</td>
+            </tr>
+            <tr>
+                <td>Regex Tester</td>
+                <td>clipboardWrite</td>
+                <td>Copy regex matches to clipboard</td>
+            </tr>
+            <tr>
+                <td>AI Text Rewriter</td>
+                <td>storage</td>
+                <td>Store user preferences (e.g. tone settings) locally</td>
+            </tr>
+            <tr>
+                <td>Tab Manager</td>
+                <td>tabs, storage</td>
+                <td>List and organise open tabs; save tab groups locally</td>
+            </tr>
+        </tbody>
+    </table>
+    <p>All permissions are used solely for the stated in-extension functionality. No data obtained through these permissions is transmitted externally.</p>
+
+    <h2>3. Data Collection</h2>
+    <p>We do <strong>not</strong> collect any data. Specifically:</p>
+    <ul>
+        <li>No personally identifiable information (PII) is collected, stored, or transmitted.</li>
+        <li>No browsing history, keystrokes, or form data is recorded.</li>
+        <li>No analytics tools, tracking pixels, or telemetry of any kind are embedded.</li>
+        <li>No cookies are set by any of our extensions.</li>
+        <li>No data is shared with or sold to third parties.</li>
+    </ul>
+
+    <h2>4. Local Storage</h2>
+    <p>Some extensions use the <code>chrome.storage.local</code> API to save user preferences (e.g. cached exchange rates, tone settings, saved tab groups). This data:</p>
+    <ul>
+        <li>Is stored entirely on your device.</li>
+        <li>Is never transmitted to any external server.</li>
+        <li>Can be deleted at any time by uninstalling the extension or clearing extension data in Chrome settings.</li>
+    </ul>
+
+    <h2>5. Network Requests</h2>
+    <p>Certain extensions (e.g. Currency Converter, WHOIS Lookup) make network requests to public APIs to retrieve non-personal data such as exchange rates or domain registration information. These requests:</p>
+    <ul>
+        <li>Do not include any personal or identifying information.</li>
+        <li>Are made only when you actively use the feature.</li>
+        <li>Are sent over HTTPS.</li>
+    </ul>
+
+    <h2>6. GDPR Compliance (EU Users)</h2>
+    <p>Under the General Data Protection Regulation (GDPR), you have the right to access, rectify, and delete your personal data. Because our extensions do not collect or process any personal data, there is no personal data to access, modify, or delete. If you have questions about your data rights, please contact us.</p>
+
+    <h2>7. CCPA Compliance (California Users)</h2>
+    <p>Under the California Consumer Privacy Act (CCPA), California residents have the right to know what personal information is collected, request deletion, and opt out of sale. We do not collect, store, or sell any personal information. There is nothing to disclose, delete, or opt out of.</p>
+
+    <h2>8. Children's Privacy</h2>
+    <p>Our extensions are general-purpose developer and productivity tools. We do not knowingly collect any information from anyone, including children under the age of 13. Our extensions comply with the Children's Online Privacy Protection Act (COPPA).</p>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated "Last updated" date. Continued use of our extensions after changes constitutes acceptance of the revised policy.</p>
+
+    <h2>10. Contact</h2>
+    <p>If you have questions or concerns about this Privacy Policy, please contact us at:</p>
+    <p><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+
+    <div class="footer">
+        <p>&copy; <span id="year"></span> miccho27. All rights reserved. | <a href="index.html">Home</a></p>
+    </div>
+
+</div>
+
+<script>
+    document.getElementById('lastUpdated').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
