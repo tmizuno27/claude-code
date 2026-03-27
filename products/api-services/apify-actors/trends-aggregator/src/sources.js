@@ -75,14 +75,14 @@ export async function googleDaily(geo = 'US', limit = 25) {
 
 // ── Hacker News Trending ──
 export async function hackerNewsTrending(limit = 25) {
-  const res = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
+  const res = await fetchWithRetry('https://hacker-news.firebaseio.com/v0/topstories.json');
   if (!res.ok) throw new Error(`HN returned ${res.status}`);
   const ids = await res.json();
   const top = ids.slice(0, limit);
 
   const stories = await Promise.all(
     top.map(async (id) => {
-      const r = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+      const r = await fetchWithRetry(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
       if (!r.ok) return null;
       const item = await r.json();
       return {
@@ -108,7 +108,7 @@ export async function hackerNewsTrending(limit = 25) {
 
 // ── Reddit Trending ──
 export async function redditTrending(limit = 25) {
-  const res = await fetch(`https://www.reddit.com/r/popular.json?limit=${limit}`, {
+  const res = await fetchWithRetry(`https://www.reddit.com/r/popular.json?limit=${limit}`, {
     headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAggregator/1.0; +https://apify.com/miccho27)' },
   });
   if (!res.ok) throw new Error(`Reddit returned ${res.status}`);
@@ -157,7 +157,7 @@ export async function githubTrending(limit = 25) {
 
 // ── Product Hunt Today ──
 export async function productHuntToday(limit = 20) {
-  const res = await fetch('https://www.producthunt.com/frontend/graphql', {
+  const res = await fetchWithRetry('https://www.producthunt.com/frontend/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

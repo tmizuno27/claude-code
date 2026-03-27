@@ -79,8 +79,8 @@ export default function RootLayout({
               url: "https://wp-linker.vercel.app",
               offers: {
                 "@type": "AggregateOffer",
-                lowPrice: "9",
-                highPrice: "79",
+                lowPrice: "0",
+                highPrice: "49",
                 priceCurrency: "USD",
                 offerCount: "3",
               },
@@ -108,6 +108,14 @@ export default function RootLayout({
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Yes. WP Linker only reads your published posts to analyze links. We never modify your content without your explicit approval.",
+                  },
+                },
+                {
+                  "@type": "Question",
+                  name: "What's included in the free plan?",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: "The free plan includes full internal link analysis, orphan post detection, and link coverage scoring for up to 30 posts on 1 site. No credit card required, free forever.",
                   },
                 },
                 {

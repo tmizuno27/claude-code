@@ -76,31 +76,45 @@ DEFAULT_USER_AGENT = (
 # ---------------------------------------------------------------------------
 
 
+MAX_RETRIES = 2
+RETRY_DELAY_S = 2.0
+FETCH_TIMEOUT_S = 15
+
+
 def fetch_google_suggestions(keyword: str, language: str = "ja") -> list[str]:
-    """Call Google Suggest and return a list of suggestion strings."""
+    """Call Google Suggest and return a list of suggestion strings with retry."""
     encoded_query = urllib.parse.quote(keyword)
     url = GOOGLE_SUGGEST_URL.format(lang=language, query=encoded_query)
 
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": DEFAULT_USER_AGENT})
-        with urllib.request.urlopen(req, timeout=10) as response:
-            raw = response.read().decode("utf-8")
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": DEFAULT_USER_AGENT})
+            with urllib.request.urlopen(req, timeout=FETCH_TIMEOUT_S) as response:
+                raw = response.read().decode("utf-8")
 
-        # Firefox client returns: [query, [suggestion1, suggestion2, ...], ...]
-        data = json.loads(raw)
-        suggestions: list[str] = data[1] if len(data) > 1 else []
-        logger.debug("Suggest '%s' → %d results", keyword, len(suggestions))
-        return suggestions
+            # Firefox client returns: [query, [suggestion1, suggestion2, ...], ...]
+            data = json.loads(raw)
+            suggestions: list[str] = data[1] if len(data) > 1 else []
+            logger.debug("Suggest '%s' → %d results", keyword, len(suggestions))
+            return suggestions
 
-    except urllib.error.URLError as exc:
-        logger.warning("URLError for '%s': %s", keyword, exc)
-        return []
-    except (json.JSONDecodeError, IndexError) as exc:
-        logger.warning("Parse error for '%s': %s", keyword, exc)
-        return []
-    except Exception as exc:  # noqa: BLE001
-        logger.warning("Unexpected error for '%s': %s", keyword, exc)
-        return []
+        except urllib.error.URLError as exc:
+            logger.warning("URLError for '%s' (attempt %d/%d): %s", keyword, attempt + 1, MAX_RETRIES + 1, exc)
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_DELAY_S)
+            else:
+                return []
+        except (json.JSONDecodeError, IndexError) as exc:
+            logger.warning("Parse error for '%s': %s", keyword, exc)
+            return []
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Unexpected error for '%s' (attempt %d/%d): %s", keyword, attempt + 1, MAX_RETRIES + 1, exc)
+            if attempt < MAX_RETRIES:
+                time.sleep(RETRY_DELAY_S)
+            else:
+                return []
+
+    return []
 
 
 def generate_question_patterns(seed: str, max_patterns: int = 4) -> list[str]:

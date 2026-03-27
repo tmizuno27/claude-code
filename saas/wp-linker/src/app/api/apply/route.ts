@@ -1,12 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { WPClient } from "@/lib/wp-client";
 import { buildRelatedLinksHtml } from "@/lib/linker-engine";
+import { createServerSupabaseClient } from "@/lib/supabase-server";
 import type { LinkSuggestion } from "@/lib/types";
 
 const LINK_SECTION_MARKER = "<!-- wp-linker-internal-links -->";
 
 export async function POST(req: NextRequest) {
   try {
+    // Authentication check
+    const supabase = await createServerSupabaseClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
+      return NextResponse.json(
+        { error: "Authentication required" },
+        { status: 401 }
+      );
+    }
+
     const { rest_api_url, username, app_password, suggestions } =
       (await req.json()) as {
         rest_api_url: string;
