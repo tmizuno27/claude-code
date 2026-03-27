@@ -1,13 +1,28 @@
 import Link from 'next/link';
 import { getCategories, getPopularCalculators, getAllCalculators } from '@/lib/utils/data';
+import JsonLd from '@/components/seo/JsonLd';
 
 export default function HomePage() {
   const categories = getCategories();
   const popularCalcs = getPopularCalculators().slice(0, 6);
   const totalCalcs = getAllCalculators().length;
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'keisan.tools',
+    url: 'https://keisan-tools.com/',
+    description: `無料で使えるオンライン計算ツール。${totalCalcs}種類以上。`,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: 'https://keisan-tools.com/?q={search_term_string}',
+      'query-input': 'required name=search_term_string',
+    },
+  };
+
   return (
     <>
+      <JsonLd data={websiteJsonLd} />
       {/* Hero Section - Apple-style full-width */}
       <section className="home-hero">
         <div className="home-hero-inner">

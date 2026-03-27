@@ -180,6 +180,8 @@ export default async function ComparePage({ params }) {
           <p>{content.featureAnalysis}</p>
         </div>
 
+        <AdSlot position="after-features" format="horizontal" />
+
         {/* Pricing Analysis */}
         <div className="prose">
           <h2>Pricing Breakdown</h2>
@@ -262,6 +264,8 @@ export default async function ComparePage({ params }) {
             Try {toolB.name} {toolB.free_plan ? '(Free)' : ''} &rarr;
           </a>
         </div>
+
+        <AdSlot position="after-verdict" format="rectangle" />
 
         {/* FAQ */}
         <div className="prose"><h2>Frequently Asked Questions</h2></div>

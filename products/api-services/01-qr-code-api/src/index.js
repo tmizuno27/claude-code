@@ -691,7 +691,15 @@ export default {
       return new Response(
         JSON.stringify({
           name: 'QR Code Generator API',
-          
+          version: '1.2.0',
+        _related: {
+          message: "These APIs work great with QR Code Generator",
+          apis: [
+            {name: "Screenshot API", use: "Capture QR code landing pages", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api"},
+            {name: "PDF Generator API", use: "Embed QR codes in PDF invoices/reports", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/pdf-generator-api"},
+            {name: "Placeholder Image API", use: "Generate placeholder images alongside QR codes", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/placeholder-image-api"},
+          ]
+        },
         _premium: {
           message: "You are using the FREE tier of QR Code API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/qr-code-api/pricing",
