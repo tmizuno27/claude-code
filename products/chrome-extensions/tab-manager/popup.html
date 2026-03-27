@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Manager & Session Saver</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">Tab Manager</h1>
+      <div class="header-actions">
+        <button id="btn-theme" class="icon-btn" title="Toggle dark mode">
+          <span class="icon-theme">&#9790;</span>
+        </button>
+        <button id="btn-pro" class="badge-btn" title="Pro status">FREE</button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+      <button class="nav-tab active" data-tab="tabs">Tabs</button>
+      <button class="nav-tab" data-tab="sessions">Sessions</button>
+    </nav>
+
+    <!-- Tab Panel: Tabs -->
+    <section id="panel-tabs" class="panel active">
+      <div class="toolbar">
+        <input type="text" id="search-tabs" class="search-input" placeholder="Search tabs...">
+        <button id="btn-close-duplicates" class="action-btn danger" title="Close duplicate tabs">
+          Close Duplicates
+        </button>
+      </div>
+      <div class="tab-count">
+        <span id="tab-count-label">0 tabs</span>
+      </div>
+      <ul id="tab-list" class="item-list"></ul>
+    </section>
+
+    <!-- Tab Panel: Sessions -->
+    <section id="panel-sessions" class="panel">
+      <div class="toolbar">
+        <input type="text" id="session-name" class="search-input" placeholder="Session name...">
+        <button id="btn-save-session" class="action-btn primary">Save Session</button>
+      </div>
+      <div class="toolbar secondary">
+        <button id="btn-export" class="action-btn small">Export</button>
+        <button id="btn-import" class="action-btn small">Import</button>
+        <input type="file" id="import-file" accept=".json" hidden>
+      </div>
+      <ul id="session-list" class="item-list"></ul>
+      <div id="session-empty" class="empty-state">No saved sessions yet.</div>
+    </section>
+
+    <!-- Toast -->
+    <div id="toast" class="toast hidden"></div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
