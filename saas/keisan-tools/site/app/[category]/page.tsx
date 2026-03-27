@@ -3,6 +3,8 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import { getCategories, getCalculatorsByCategory } from '@/lib/utils/data';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import JsonLd from '@/components/seo/JsonLd';
+import AdSlot from '@/components/ads/AdSlot';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -21,6 +23,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${cat.name}の計算ツール｜keisan.tools`,
     description: cat.description,
+    alternates: {
+      canonical: `/${category}/`,
+    },
   };
 }
 
@@ -40,8 +45,18 @@ export default async function CategoryPage({ params }: Props) {
     grouped[key].push(calc);
   }
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://keisan-tools.com/' },
+      { '@type': 'ListItem', position: 2, name: cat.name },
+    ],
+  };
+
   return (
     <div className="container">
+      <JsonLd data={breadcrumbJsonLd} />
       <Breadcrumb items={[{ label: cat.name }]} />
 
       <h1 className="section-title">
@@ -72,6 +87,8 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         );
       })}
+
+      <AdSlot position="in-article" format="horizontal" />
 
       {calculators.length === 0 && (
         <p style={{ color: 'var(--gray-400)', textAlign: 'center', padding: '3rem 0' }}>

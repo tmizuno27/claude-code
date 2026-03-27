@@ -22,7 +22,12 @@
     "dotenv",
     "environment variables",
     "secrets",
-    ".env"
+    ".env",
+    "env file",
+    "secret detection",
+    "env compare",
+    "env example",
+    "configuration"
   ],
   "activationEvents": [
     "workspaceContains:**/.env*"

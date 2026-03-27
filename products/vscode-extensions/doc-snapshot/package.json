@@ -17,7 +17,12 @@
     "version history",
     "diff",
     "backup",
-    "local history"
+    "local history",
+    "file history",
+    "file backup",
+    "document diff",
+    "file compare",
+    "version control"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -93,5 +98,9 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
   }
 }

@@ -22,7 +22,12 @@
     "transform",
     "case converter",
     "base64",
-    "clipboard"
+    "clipboard",
+    "camelCase",
+    "snake_case",
+    "url encode",
+    "json format",
+    "text transform"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",

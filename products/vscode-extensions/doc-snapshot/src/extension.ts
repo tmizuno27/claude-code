@@ -168,8 +168,6 @@ export function activate(context: vscode.ExtensionContext) {
 
       if (!action) { return; }
 
-      const snap = snapshots.find((s) => s.label === picked.label && s.timestamp.toString() === (picked.description?.split(' | ')[0] ? '' : ''));
-      // Re-find by label + matching description
       const matchedSnap = snapshots.find((s) =>
         s.label === picked.label &&
         picked.description?.startsWith(formatTimestamp(s.timestamp))

@@ -32,6 +32,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${calc.metaTitle || calc.title}｜keisan.tools`,
     description: calc.metaDescription || calc.description,
+    alternates: {
+      canonical: `/${category}/${calculator}/`,
+    },
   };
 }
 
@@ -48,8 +51,50 @@ export default async function CalculatorPage({ params }: Props) {
     .map(slug => findCalculatorBySlug(slug))
     .filter(Boolean);
 
+  // Structured data
+  const faqJsonLd = calc.faq.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: calc.faq.map(item => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  } : null;
+
+  const webAppJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: calc.title,
+    description: calc.description,
+    url: `https://keisan-tools.com/${category}/${calculator}/`,
+    applicationCategory: 'UtilityApplication',
+    operatingSystem: 'All',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'JPY',
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'ホーム', item: 'https://keisan-tools.com/' },
+      { '@type': 'ListItem', position: 2, name: cat.name, item: `https://keisan-tools.com/${category}/` },
+      { '@type': 'ListItem', position: 3, name: calc.title },
+    ],
+  };
+
   return (
     <div className="container">
+      <JsonLd data={webAppJsonLd} />
+      <JsonLd data={breadcrumbJsonLd} />
+      {faqJsonLd && <JsonLd data={faqJsonLd} />}
       <Breadcrumb
         items={[
           { label: cat.name, href: `/${category}/` },

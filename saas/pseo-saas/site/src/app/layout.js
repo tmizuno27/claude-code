@@ -5,6 +5,7 @@ import Link from 'next/link';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap' });
 const GA_ID = 'G-HT51NK0YHE';
+const ADSENSE_CLIENT_ID = 'ca-pub-7177224921699744';
 
 export const metadata = {
   title: {

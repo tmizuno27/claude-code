@@ -22,7 +22,12 @@
     "debug",
     "clean",
     "remove logs",
-    "linter"
+    "linter",
+    "debugger",
+    "print statement",
+    "code cleanup",
+    "debug removal",
+    "log cleaner"
   ],
   "activationEvents": [
     "onStartupFinished"

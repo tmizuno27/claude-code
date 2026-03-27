@@ -17,7 +17,12 @@
     "table",
     "csv",
     "formatter",
-    "markdown table"
+    "markdown table",
+    "table formatter",
+    "csv to markdown",
+    "table sort",
+    "table align",
+    "md table"
   ],
   "activationEvents": [
     "onLanguage:markdown"
@@ -110,5 +115,9 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
   }
 }

@@ -17,7 +17,12 @@
     "region",
     "collapse",
     "fold imports",
-    "organize code"
+    "organize code",
+    "custom folding",
+    "fold functions",
+    "fold comments",
+    "code collapse",
+    "fold preset"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -117,5 +122,9 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
   }
 }

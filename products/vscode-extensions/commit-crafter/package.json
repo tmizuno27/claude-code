@@ -17,7 +17,12 @@
     "commit message",
     "conventional commits",
     "gitmoji",
-    "scm"
+    "scm",
+    "git commit",
+    "commit generator",
+    "semantic commit",
+    "git workflow",
+    "commit template"
   ],
   "activationEvents": [],
   "main": "./out/extension.js",
@@ -79,5 +84,9 @@
     "@types/node": "^20.11.0",
     "@types/vscode": "^1.85.0",
     "typescript": "^5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tmizuno27/claude-code"
   }
 }
