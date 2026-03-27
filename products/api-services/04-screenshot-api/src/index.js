@@ -86,7 +86,14 @@ export default {
     const maxReq = parseInt(env.RATE_LIMIT_MAX) || 60;
     const window = parseInt(env.RATE_LIMIT_WINDOW) || 60;
     if (!checkRateLimit(ip, maxReq, window)) {
-      return errorResponse('Rate limit exceeded. Try again later.', 429);
+      return jsonResponse({
+        error: 'Rate limit exceeded. Try again later.',
+        upgrade: {
+          message: 'Need more? Upgrade to Pro for 50,000 req/mo at $9.99/mo',
+          url: 'https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api/pricing',
+          plans: {Pro: '$9.99/mo - 50K req', Ultra: '$29.99/mo - 500K req'}
+        }
+      }, 429);
     }
 
     // Parse parameters

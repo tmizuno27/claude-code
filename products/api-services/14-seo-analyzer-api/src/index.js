@@ -120,8 +120,14 @@ export default {
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
     const rl = checkRateLimit(ip);
     if (!rl.allowed) {
-      return error('Rate limit exceeded. Max 20 requests per minute.', 429,
-        { 'Retry-After': String(rl.retryAfter), 'X-RateLimit-Remaining': '0' });
+      return json({
+        error: 'Rate limit exceeded. Max 20 requests per minute.',
+        upgrade: {
+          message: 'Need more? Upgrade to Pro for 50,000 req/mo at $9.99/mo',
+          url: 'https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api/pricing',
+          plans: {Pro: '$9.99/mo - 50K req', Ultra: '$24.99/mo - 500K req', Mega: '$49.99/mo - 2M req'}
+        }
+      }, 429, { 'Retry-After': String(rl.retryAfter), 'X-RateLimit-Remaining': '0' });
     }
     const rlHeaders = { 'X-RateLimit-Remaining': String(rl.remaining) };
 

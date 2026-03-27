@@ -262,7 +262,14 @@ async function handleRequest(request) {
 
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   if (!checkRateLimit(ip)) {
-    return errorJson('Rate limit exceeded. Max 20 requests per minute.', 429);
+    return json({
+      error: 'Rate limit exceeded. Max 20 requests per minute.',
+      upgrade: {
+        message: 'Need more? Upgrade to Pro for 50,000 req/mo at $5.99/mo',
+        url: 'https://rapidapi.com/miccho27-5OJaGGbBiO/api/whois-domain-api/pricing',
+        plans: {Pro: '$5.99/mo - 50K req', Ultra: '$14.99/mo - 500K req', Mega: '$49.99/mo - 2M req'}
+      }
+    }, 429);
   }
 
   const url = new URL(request.url);
