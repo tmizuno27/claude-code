@@ -1,8 +1,17 @@
 ---
 name: RapidAPI API販売事業
-description: Cloudflare Workers上の21個のAPIをRapidAPIマーケットプレイスで販売する完全自動化ビジネス（全出品済み）
+description: Cloudflare Workers 24本。上位5本にクロスセル+アップセル実装済み（2026-03-28デプロイ）。Popularity Booster・テストスイート・Dev.to記事3本・リスティング最適化ドキュメント作成済み。売上$0→集客強化フェーズ
 type: project
 ---
+
+## 2026-03-28更新
+- 上位5本（SEO Analyzer, Email Validation, Screenshot, QR Code, WHOIS）にクロスセル(`_related`)+アップセル(`_premium`)実装→Cloudflare Workers再デプロイ済み
+- Popularity Booster: scripts/popularity-booster.py作成済み。PS1+VBS作成済み（Task Scheduler登録待ち、1日3回: 08:00/14:00/20:00）
+- テストスイート: scripts/api-test-suite.py（70+テストケース）
+- Dev.to記事3本作成済み（投稿待ち）
+- 残19本リスティング最適化ドキュメント: docs/listing-optimization-remaining-19.md
+- クロスセル・バンドル戦略: docs/cross-sell-bundle-strategy.md
+- 売上ゼロ脱却計画: docs/revenue-zero-escape-plan-2026-03-27.md
 
 ## RapidAPI API-as-a-Service事業
 

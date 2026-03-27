@@ -1,8 +1,14 @@
 ---
 name: Gumroad出品進捗
-description: Notionテンプレート10本+バンドルのGumroad出品状況。全11商品公開済み。タグ追加・1本目の整備が残タスク
+description: Notionテンプレート16本+AIプロンプトパック6本+バンドル。新商品Business Automation Prompt Pack($12)本体+リスティング+サムネイル完成、出品待ち
 type: project
 ---
+
+## 2026-03-28更新
+- 新AIプロンプトパック作成: 06-business-automation-prompts.md（50+プロンプト、$12）
+- リスティング作成: listings/18-business-automation-prompts.md
+- サムネイル+カバー画像生成済み: images/06-business-automation-pack.png, 06-business-automation-pack-cover.png
+- 次アクション: Gumroadに出品するだけ
 
 Gumroad Notionテンプレート出品作業の進捗（2026-03-17更新）
 

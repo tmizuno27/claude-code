@@ -1,8 +1,16 @@
 ---
 name: WP Linker SaaS Project
-description: WP Linker Micro SaaS project details — tech stack, URLs, credentials, deployment info
+description: WP Linker Micro SaaS。2026-03-28大幅改善（Free$0プラン/テスティモニアル/セキュリティ強化/SEO/オンボーディング）Vercelデプロイ済み
 type: project
 ---
+
+## 2026-03-28更新
+- Free $0プラン新設（30記事/週1回分析）、Pro $29→$19、Agency $79→$49
+- テスティモニアル3件追加、信頼バッジ追加
+- セキュリティ: 全APIルート認証追加、SSRF防止、セキュリティヘッダー5種追加
+- SEO: sitemap.ts/robots.txt自動生成、構造化データ更新
+- オンボーディング: 初回ユーザー3ステップガイド追加
+- Vercelデプロイ完了（ビルド45秒、11ページ）
 
 ## WP Linker — WordPress Internal Link Optimizer SaaS
 

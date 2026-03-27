@@ -1,8 +1,13 @@
 ---
 name: Apify DaaS事業
-description: Apify Store上の5 Actor（Social Video Downloader, SEO Analyzer, Company Data Enricher, Trends Aggregator, Keyword Research）の運用状況・価格設定
+description: Apify 6 Actor（既存5本改善済み+新規Website Tech Stack Detector）。全Actorにタイムアウト/リトライ追加、Store SEO最適化済み。apify pushでデプロイ待ち
 type: project
 ---
+
+## 2026-03-28更新
+- 既存5 Actor: タイムアウト30秒+リトライ2回追加、actor.json SEO最適化
+- 新Actor開発完了: Website Tech Stack Detector（80+技術を17カテゴリで検出、BuiltWith/Wappalyzer代替）
+- 次アクション: `apify push` で6 Actorデプロイ
 
 ## Apify DaaS事業（2026-03-16 立ち上げ完了）
 

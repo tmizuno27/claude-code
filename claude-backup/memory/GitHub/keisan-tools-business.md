@@ -1,8 +1,13 @@
 ---
 name: keisan-tools.com 計算ツールサイト事業
-description: keisan-tools.com - 日本語計算・シミュレーターサイト（Next.js 16 SSG、441計算ツール、AdSense+アフィリエイト収益化）
+description: keisan-tools.com - 441計算ツール。2026-03-28 SEO大幅改善（OGP/Twitter Card/構造化データ/キーワード）+Chrome拡張プライバシーポリシーホスト
 type: project
 ---
+
+## 2026-03-28更新
+- layout.tsx SEO改善: title template化、OGP、Twitter Card、keywords、構造化データ（WebSite+SearchAction）追加
+- Chrome拡張プライバシーポリシー: /chrome-privacy/ ルートで公開中
+- Vercelデプロイ済み
 
 ## keisan-tools.com — 高精度計算シミュレーションサイト
 

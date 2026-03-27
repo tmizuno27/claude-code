@@ -77,17 +77,17 @@
 - **タスク共通ルール**: [feedback_blog_tasks_shared.md](feedback_blog_tasks_shared.md)
 
 ## デジタルプロダクト事業
-- **RapidAPI（24本・収益$0）**: [rapidapi-business.md](rapidapi-business.md) — マーケティング強化が急務
-- **Apify（5 Actor）**: [apify-business.md](apify-business.md) — PayPal出金設定済み
+- **RapidAPI（24本・収益$0）**: [rapidapi-business.md](rapidapi-business.md) — 上位5本クロスセル実装済、Dev.to記事3本準備済
+- **Apify（6 Actor）**: [apify-business.md](apify-business.md) — 新Actor開発済、全Actor改善済、デプロイ待ち
 - **Apify公開作業中断**: [apify-actor-pending.md](apify-actor-pending.md) — Actor jmtLVhG6qPqjc0b34
-- **Chrome拡張（4/10本公開）**: [chrome-extensions-business.md](chrome-extensions-business.md)
+- **Chrome拡張（2/11本公開、PP公開済）**: [chrome-extensions-business.md](chrome-extensions-business.md)
 - **VS Code拡張（10本公開完了）**: [vscode-extensions-business.md](vscode-extensions-business.md)
-- **Gumroad（12商品）**: [gumroad-listing-progress.md](gumroad-listing-progress.md) / [gumroad-notion-business.md](gumroad-notion-business.md)
+- **Gumroad（13商品+新商品1出品待ち）**: [gumroad-listing-progress.md](gumroad-listing-progress.md) / [gumroad-notion-business.md](gumroad-notion-business.md)
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿
 
 ## SaaS・Webサービス
-- **WP Linker**: [wp-linker-project.md](wp-linker-project.md) — Stripe KYCブロック中
-- **keisan-tools**: [keisan-tools-business.md](keisan-tools-business.md) — 441ツール、AdSense申請済み
+- **WP Linker**: [wp-linker-project.md](wp-linker-project.md) — Free$0プラン新設、大幅改善デプロイ済み。Stripe KYCブロック中
+- **keisan-tools**: [keisan-tools-business.md](keisan-tools-business.md) — 441ツール、SEO大幅改善+PP公開デプロイ済み
 - **pSEO**: [pseo-site.md](pseo-site.md) — 5,056ページ、GSCサイトマップ送信完了
 
 ## その他事業
@@ -105,4 +105,5 @@
 - **Stripe連携待ち**: [stripe-pending-tasks.md](stripe-pending-tasks.md) — 「Stripe連携できました」で即実行
 
 ## PDCA実行記録
+- **2026-03-28**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列実行。デプロイ4件、新商品3件、コード修正多数、29記事生成、55ツイート追加
 - **2026-03-27**: [pdca-2026-03-27.md](pdca-2026-03-27.md) — GA4修正、pSEO GSC送信、ダッシュボードバグ修正3件、GitHub Pages無効化
