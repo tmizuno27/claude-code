@@ -30,7 +30,7 @@ APIS = [
     {"id": "08", "name": "JSON Formatter API", "subdomain": "json-formatter-api",
      "test": {"method": "POST", "path": "/validate", "json": {"data": '{"a":1}'}}},
     {"id": "09", "name": "Hash Encoding API", "subdomain": "hash-encoding-api",
-     "test": {"method": "GET", "path": "/hash", "params": {"algorithm": "sha256", "text": "hello"}}},
+     "test": {"method": "POST", "path": "/hash", "json": {"text": "hello", "algorithm": "sha256"}}},
     {"id": "10", "name": "Currency Exchange API", "subdomain": "currency-exchange-api",
      "test": {"method": "GET", "path": "/currencies"}},
     {"id": "11", "name": "AI Text API", "subdomain": "ai-text-api",
@@ -53,6 +53,14 @@ APIS = [
      "test": {"method": "GET", "path": "/github/trending"}},
     {"id": "20", "name": "Company Data API", "subdomain": "company-data-api",
      "test": {"method": "GET", "path": "/search", "params": {"q": "google"}}},
+    {"id": "21", "name": "WP Internal Link API", "subdomain": "wp-internal-link-api",
+     "test": {"method": "GET", "path": "/health"}},
+    {"id": "22", "name": "PDF Generator API", "subdomain": "pdf-generator-api",
+     "test": {"method": "GET", "path": "/"}},
+    {"id": "23", "name": "Placeholder Image API", "subdomain": "placeholder-image-api",
+     "test": {"method": "GET", "path": "/health"}},
+    {"id": "24", "name": "Markdown Converter API", "subdomain": "markdown-converter-api",
+     "test": {"method": "GET", "path": "/health"}},
 ]
 
 
