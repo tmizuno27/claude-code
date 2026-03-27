@@ -1,0 +1,43 @@
+{
+  "title": "Website Tech Stack Detector Input",
+  "description": "Detect 80+ technologies used on any website. Free alternative to BuiltWith ($295/mo) and Wappalyzer ($250/mo). Supports bulk URL processing with structured JSON/CSV output.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Website URLs",
+      "type": "array",
+      "description": "List of website URLs to analyze. Enter homepage URLs for best results (e.g., 'https://stripe.com', 'https://shopify.com'). Supports any publicly accessible URL. Bulk processing supported.",
+      "editor": "stringList",
+      "prefill": ["https://stripe.com", "https://github.com"]
+    },
+    "includeHeaders": {
+      "title": "Include HTTP Headers Analysis",
+      "type": "boolean",
+      "description": "Analyze HTTP response headers for additional technology signals (server type, CDN, security headers, caching). Slightly slower but provides more complete results.",
+      "default": true
+    },
+    "includeMetadata": {
+      "title": "Include Page Metadata",
+      "type": "boolean",
+      "description": "Include page title, meta description, favicon, and Open Graph data alongside tech stack results.",
+      "default": true
+    },
+    "categoryFilter": {
+      "title": "Category Filter (optional)",
+      "type": "array",
+      "description": "Only return technologies in these categories. Leave empty for all categories. Options: 'framework', 'cms', 'analytics', 'cdn', 'payment', 'marketing', 'hosting', 'javascript-library', 'css-framework', 'security', 'font', 'tag-manager', 'advertising', 'chat', 'video', 'database', 'server'.",
+      "editor": "stringList",
+      "prefill": []
+    },
+    "delayMs": {
+      "title": "Delay Between Requests (ms)",
+      "type": "integer",
+      "description": "Milliseconds to wait between each URL request. Lower = faster but higher risk of rate limiting. Recommended: 500-2000ms.",
+      "default": 1000,
+      "minimum": 0,
+      "maximum": 10000
+    }
+  },
+  "required": ["urls"]
+}
