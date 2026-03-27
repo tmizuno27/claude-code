@@ -855,6 +855,7 @@ def update_action_status_file(actions: list):
             f'<span class="a-check">{check_mark}</span>'
             f'<span class="a-pri {pri_class}">{a["priority"]}</span>'
             f'<div class="a-text"><strong>{a["title"]}</strong>'
+            f'{done_time_html}'
             f'<span class="a-reason">{sub_text}</span>'
             f'</div></div>'
         )
@@ -867,10 +868,12 @@ def update_action_status_file(actions: list):
     replacement = rf'\1\n{new_action_html}\n  \2'
     html = re.sub(pattern, replacement, html, flags=re.DOTALL)
 
-    # Update badge
+    # Update badge with done count
+    done_count = sum(1 for a in actions if a["id"] in existing_done)
+    badge_text = f"{done_count}/{len(actions)} 完了" if done_count > 0 else f"{len(actions)} items"
     html = re.sub(
         r'(id="actions".*?<span class="badge">).*?(</span>)',
-        rf'\g<1>{len(actions)} items\2',
+        rf'\g<1>{badge_text}\2',
         html
     )
 
