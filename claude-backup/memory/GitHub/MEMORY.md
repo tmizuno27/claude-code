@@ -173,6 +173,7 @@
 - **日本語で回答**: [feedback_respond_in_japanese.md](feedback_respond_in_japanese.md) — 特に指定がない限り日本語で応答
 - **先送り禁止**: [feedback_no_postpone.md](feedback_no_postpone.md) — 「次回対応」は禁止。今できることは今やる（全事業共通）
 - **手動より自動化優先**: [feedback_automate_over_manual.md](feedback_automate_over_manual.md) — 繰り返し手動作業は最初から自動化を提案
+- **自動化ファースト厳守**: [feedback_automate_first_always.md](feedback_automate_first_always.md) — 手動を提案する前に必ず自動化手段を検討・構築。全共通ルール
 - **自動作業は徹底的に**: [feedback_auto_work_exhaustive.md](feedback_auto_work_exhaustive.md) — 「自動で進めて」=全事業一括洗い出し+全実行。小出し禁止、コスト制限なし
 - データは必ず `claude-code/` 配下に保存（auto-sync対象）
 - 確認不要: 許可を得ずどんどん自動で進めること
