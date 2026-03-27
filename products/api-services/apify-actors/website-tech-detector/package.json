@@ -1,0 +1,14 @@
+{
+  "name": "website-tech-detector",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Detect 80+ technologies on any website - free BuiltWith & Wappalyzer alternative",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.0.0"
+  },
+  "author": "tmizuno27"
+}
