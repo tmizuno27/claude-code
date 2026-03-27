@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "keyword-research",
-  "title": "Keyword Research - Google Autocomplete Expander & Scorer",
-  "description": "Free Ahrefs & SEMrush alternative. Expand seed keywords using Google Autocomplete suggestions, auto-generate question variants, and score results by longtail potential. Supports 50+ languages (Japanese, English, Spanish, etc.). No API keys required. Perfect for SEO, content marketing, and blog keyword strategy.",
+  "title": "Keyword Research - Google Autocomplete Long-Tail Keyword Finder",
+  "description": "Free Ahrefs Keywords Explorer & SEMrush alternative. Expand seed keywords via Google Autocomplete, auto-generate question variants (who/what/when/where/why/how), score by long-tail potential (0-100). Supports 50+ languages (Japanese, English, Spanish, German, etc.). Bulk seed processing, JSON/CSV export. No API keys. Perfect for SEO keyword strategy, content calendar planning, FAQ generation, and blog topic research. From $0.01/run.",
   "version": "0.1",
   "buildTag": "latest",
   "input": "./input_schema.json",

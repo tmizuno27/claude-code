@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "trends-aggregator",
-  "title": "Trends Aggregator - Google, Reddit, HN, GitHub, Product Hunt",
-  "description": "Free Exploding Topics & BuzzSumo alternative. Aggregate trending topics from 5 sources in one run: Google Trends (with traffic volume & region filtering), Hacker News, Reddit, GitHub trending repos, and Product Hunt. Structured JSON output. No API keys required. Perfect for content marketing, SEO trend-jacking, and competitive intelligence.",
+  "title": "Trends Aggregator - Google Reddit HN GitHub Product Hunt",
+  "description": "Free Exploding Topics & BuzzSumo alternative. Aggregate trending topics from 5 sources in one run: Google Trends (daily searches + traffic volume + region filtering), Hacker News (top tech stories), Reddit (r/popular), GitHub (trending repos), Product Hunt (top launches). Structured JSON/CSV output. Schedule daily/hourly. No API keys. Ideal for content marketing, SEO trend-jacking, competitive intelligence, newsletter curation. From $0.01/run.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",
