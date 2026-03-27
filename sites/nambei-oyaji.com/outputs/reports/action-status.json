@@ -2,93 +2,60 @@
   "date": "2026-03-27",
   "actions": [
     {
-      "id": "gsc-key-renewal",
-      "title": "Google Cloud サービスアカウントキー再発行",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "3サイト+keisan-toolsのGSC/GA4復旧完了"
-    },
-    {
-      "id": "pseo-content-generate",
-      "title": "pSEOページ量産開始",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "5,052ページ生成済み・455ページSSGデプロイ済み"
-    },
-    {
-      "id": "pdca-script-bugs-fixed",
-      "title": "日次レポートスクリプト3件のバグ修正",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "now_imp未定義・X投稿0表示・keisan-tools 0ページ表示を修正完了"
-    },
-    {
-      "id": "ctr-improve-5articles",
-      "title": "CTR改善（5記事タイトル・メタ修正）",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "3サイト計5記事（順位10位内CTR0%）のタイトル短縮・メタ追加完了"
-    },
-    {
-      "id": "internal-link-fix",
-      "title": "内部リンク不足2記事の修正（南米おやじ）",
-      "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "2記事に計6本の内部リンクを自然挿入"
-    },
-    {
-      "id": "rapidapi-seo-improve",
-      "title": "RapidAPI 24本リスティングSEO改善案作成",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "全24APIの改善タイトル・説明・タグをMDにまとめ済み。手動更新が必要"
-    },
-    {
-      "id": "indexing-api-resend",
-      "title": "Indexing API再送信（GSC復旧後）",
-      "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "認証正常確認。明日06:00自動送信で対応"
-    },
-    {
-      "id": "keisan-adsense-apply",
-      "title": "keisan-tools.com AdSense申請",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "AdSense申請完了（準備中ステータス）"
-    },
-    {
-      "id": "rapidapi-studio-update",
-      "title": "RapidAPI Studioで24本リスティング手動更新",
-      "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "全24本Short Description更新完了。20本Public化（上限20）、4本Private"
-    },
-    {
       "id": "apify-paypal-setup",
-      "title": "Apify PayPal出金設定",
-      "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-27T10:00:00",
-      "reason": "既に設定済み（Identity verified, PayPal: t.mizuno27@gmail.com）"
+      "title": "ApifyにPayPal出金設定",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "nambei-ga4-fix",
+      "title": "南米おやじGA4タイムアウト修正",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-gsc-submit",
+      "title": "pSEO5056PをGSCにサイトマップ送信",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-adsense-apply",
+      "title": "pSEOサイトにAdSense申請",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "rapidapi-traffic-check",
+      "title": "RapidAPI 24API使用ログ確認",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題解決",
+      "title": "Stripe KYC問題を今日中に解決着手",
       "priority": "P1",
       "done": false,
-      "done_at": null,
-      "reason": "WP Linker・n8n等複数事業がブロック中",
-      "effort": "手動（書類準備）"
+      "done_at": null
+    },
+    {
+      "id": "nambei-top3-article-rewrite",
+      "title": "南米おやじGSC上位クエリ記事改善",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "x-rapidapi-promotion",
+      "title": "XでRapidAPI紹介ツイート投稿",
+      "priority": "P2",
+      "done": false,
+      "done_at": null
     }
   ]
 }
