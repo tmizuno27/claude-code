@@ -1,4 +1,4 @@
-import { browserHeaders } from './utils.js';
+import { browserHeaders, fetchWithRetry } from './utils.js';
 
 // ─── Helper ────────────────────────────────────────────────────
 
@@ -11,10 +11,10 @@ function ok(data) {
 }
 
 /**
- * Fetch a URL with browser-like headers. Returns Response.
+ * Fetch a URL with browser-like headers and retry/timeout support.
  */
 async function fetchPage(url, extraHeaders = {}) {
-  return fetch(url, {
+  return fetchWithRetry(url, {
     headers: browserHeaders(extraHeaders),
     redirect: 'follow',
   });

@@ -6,6 +6,10 @@ import {
   extractViewport, extractFavicon, extractHreflang, calculateSeoScore,
 } from './parser.js';
 
+const FETCH_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
 await Actor.init();
 
 const input = await Actor.getInput();
@@ -16,18 +20,41 @@ if (!input?.urls || !Array.isArray(input.urls) || input.urls.length === 0) {
 const analysisType = input.analysisType || 'full';
 const dataset = await Actor.openDataset();
 
+async function fetchWithTimeout(url, options, timeoutMs = FETCH_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { ...options, signal: controller.signal });
+    return res;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchPage(url) {
-  const res = await fetch(url, {
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'en-US,en;q=0.5',
-    },
-    redirect: 'follow',
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const html = await res.text();
-  return { html, size: new TextEncoder().encode(html).length, finalUrl: res.url };
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    try {
+      const res = await fetchWithTimeout(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.5',
+        },
+        redirect: 'follow',
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const html = await res.text();
+      return { html, size: new TextEncoder().encode(html).length, finalUrl: res.url };
+    } catch (e) {
+      lastError = e;
+      if (attempt < MAX_RETRIES) {
+        log.warning(`Attempt ${attempt + 1} failed for ${url}: ${e.message}. Retrying...`);
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      }
+    }
+  }
+  throw lastError;
 }
 
 function fullAnalysis(html, url, size) {
