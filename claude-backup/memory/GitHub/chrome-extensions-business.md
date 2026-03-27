@@ -1,8 +1,15 @@
 ---
 name: Chrome拡張ポートフォリオ事業
-description: Chrome Web Storeに10個の拡張を出品。Rick Blyth方式のポートフォリオ戦略で放置型収益を目指す
+description: Chrome拡張11本（公開2+審査待ち8+新規1）。プライバシーポリシー公開済み(keisan-tools.com/chrome-privacy/)、AI Text Rewriter v1.2.0バグ修正済み
 type: project
 ---
+
+## 2026-03-28更新
+- **合計11本**（新規Tab Manager追加）
+- AI Text Rewriter: scripting権限バグ修正（v1.2.0）→ CWS再アップロード必要
+- JSON Formatter Pro: 不要権限削除+host_permissions明示
+- プライバシーポリシー: https://keisan-tools.com/chrome-privacy/ で公開中
+- Tab Manager & Session Saver: 開発完了（アイコン追加→CWS提出待ち）
 
 Chrome拡張ポートフォリオ事業を2026-03-16に開始。10個の拡張を開発しChrome Web Storeに審査申請。
 2026-03-24時点: 4本公開済み（AI Text Rewriter 1user, Color Picker 0, Domain WHOIS 1user, SEO Inspector 0）、4本審査待ち（Quick Currency, JSON Formatter, Lorem Ipsum, Page Speed）。
