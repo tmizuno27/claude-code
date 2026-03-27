@@ -5,66 +5,57 @@ Profile: https://rapidapi.com/miccho27
 
 ---
 
-## Tweet 1: Portfolio Overview + Top APIs
+## Tweet 1: Portfolio Overview + Top APIs (280 chars)
 
 ```
-I built 20+ developer APIs on RapidAPI — all with FREE tiers (500 req/mo):
+20+ dev APIs on RapidAPI. All FREE tiers.
 
-- SEO Analyzer (Ahrefs alternative at 1% cost)
-- Email Validation (ZeroBounce alternative, 50K for $9.99)
-- Website Screenshot (URL to PNG/JPEG)
-- QR Code Generator (<50ms from 300+ edge locations)
-- WHOIS Domain Lookup + DNS
+Top picks:
+- SEO Analyzer (Ahrefs alt, 1% cost)
+- Email Validation (50K for $9.99 vs $400)
+- Screenshot API (URL to PNG)
+- QR Code Generator (<50ms)
+- WHOIS + DNS Lookup
 
-Plus: Currency Exchange, IP Geolocation, AI Translate, Crypto Data & more.
-
-Try any API free: https://rapidapi.com/miccho27
+Try free: https://rapidapi.com/miccho27
 
 #API #DevTools #SaaS
 ```
 
 ---
 
-## Tweet 2: Cost Comparison Hook
+## Tweet 2: Cost Comparison Hook (247 chars)
 
 ```
-Stop overpaying for developer APIs.
+Stop overpaying for dev APIs.
 
-SEO audit? Ahrefs charges $99/mo. Mine: FREE (500/mo) or $9.99 for 50K.
-Email validation? ZeroBounce charges $400 for 50K. Mine: $9.99.
-Screenshots? Urlbox starts at $19/mo. Mine: $9.99 for 50K.
+SEO audit: $99/mo at Ahrefs. Mine: FREE.
+Email validation: $400 at ZeroBounce. Mine: $9.99.
+Screenshots: $19/mo at Urlbox. Mine: $9.99.
 
-20+ APIs. All edge-deployed. All with free tiers.
+20+ APIs. Edge-deployed. Free tiers.
 
-Check them out: https://rapidapi.com/miccho27
+https://rapidapi.com/miccho27
 
 #API #Developers
 ```
 
 ---
 
-## Tweet 3: Use Case Focused
+## Tweet 3: Use Case Focused (263 chars)
 
 ```
-Building a SaaS? Save months of dev time with these APIs:
+Building a SaaS? Skip months of work:
 
-- Validate user emails at signup (block disposable addresses)
-- Auto-generate OG images with Screenshot API
-- Add SEO audit features without crawling infra
-- Generate QR codes in <50ms (PNG, SVG, Base64)
-- Domain WHOIS + DNS lookups for security tools
+- Validate emails at signup
+- Auto-generate OG images
+- Add SEO audits without infra
+- QR codes in <50ms
+- WHOIS + DNS lookups
 
-All free to start. No credit card needed.
+20+ APIs, all free to start. No credit card.
 
 https://rapidapi.com/miccho27
 
 #BuildInPublic #SaaS #API
 ```
-
----
-
-## Character Count Verification
-
-- Tweet 1: 276 chars (within 280 limit)
-- Tweet 2: 271 chars (within 280 limit)
-- Tweet 3: 274 chars (within 280 limit)
