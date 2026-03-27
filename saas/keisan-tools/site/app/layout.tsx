@@ -16,12 +16,33 @@ const notoSansJP = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: '計算ツール｜keisan.tools',
+  title: {
+    default: '計算ツール｜keisan.tools - 無料オンライン計算440種類以上',
+    template: '%s｜keisan.tools',
+  },
   description:
-    '無料で使えるオンライン計算ツール。住宅ローン、税金、BMI、日数計算など440種類以上。',
+    '無料で使えるオンライン計算ツール。住宅ローン、税金、BMI、日数計算、年齢計算など440種類以上。スマホ対応、登録不要ですぐ使えます。',
   metadataBase: new URL('https://keisan-tools.com'),
   alternates: {
     canonical: '/',
+  },
+  keywords: ['計算ツール', '無料', 'オンライン計算', '住宅ローン計算', '税金計算', 'BMI計算', '日数計算', '年齢計算', '割合計算', '電卓'],
+  openGraph: {
+    title: '計算ツール｜keisan.tools - 無料オンライン計算440種類以上',
+    description: '無料で使えるオンライン計算ツール440種類以上。スマホ対応、登録不要。',
+    url: 'https://keisan-tools.com',
+    siteName: 'keisan.tools',
+    locale: 'ja_JP',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '計算ツール｜keisan.tools',
+    description: '無料オンライン計算ツール440種類以上。スマホ対応、登録不要。',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   verification: {
     google: 'NbIFsNGN9cGMho1jOTMb0w7V9wLTucQoZQPq_vBUA_0',
@@ -44,6 +65,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja" className={notoSansJP.variable}>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'keisan.tools',
+              url: 'https://keisan-tools.com',
+              description: '無料で使えるオンライン計算ツール440種類以上',
+              potentialAction: {
+                '@type': 'SearchAction',
+                target: 'https://keisan-tools.com/search?q={search_term_string}',
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
         <Script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
