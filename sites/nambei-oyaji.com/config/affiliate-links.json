@@ -192,7 +192,7 @@
         {
           "name": "楽天プレミアムカード",
           "status": "pending",
-          "url": "",
+          "url": null,
           "anchor_text": [
             "楽天プレミアムカード"
           ],
@@ -254,7 +254,8 @@
         {
           "name": "ランサーズ",
           "status": "pending_affiliate",
-          "url": "https://www.lancers.jp/",
+          "url": null,
+          "note": "A8.netアフィリエイト申請後にURL設定。通常URLを使うとコミッション取りこぼしになるため null にしておく",
           "anchor_text": [
             "ランサーズ",
             "Lancers"

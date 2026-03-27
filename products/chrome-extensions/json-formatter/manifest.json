@@ -3,7 +3,8 @@
   "name": "JSON Formatter Pro",
   "version": "1.0.0",
   "description": "JSON formatter with syntax highlighting, collapsible tree view, JSON path, dark mode. Auto-detects JSON responses.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {

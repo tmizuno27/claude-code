@@ -60,7 +60,7 @@ APIS = [
     {"id": "23", "name": "Placeholder Image API", "subdomain": "placeholder-image-api",
      "test": {"method": "GET", "path": "/health"}},
     {"id": "24", "name": "Markdown Converter API", "subdomain": "markdown-converter-api",
-     "test": {"method": "GET", "path": "/health"}},
+     "test": {"method": "GET", "path": "/"}},
 ]
 
 

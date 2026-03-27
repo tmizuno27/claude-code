@@ -11,6 +11,7 @@ import Breadcrumb from '@/components/ui/Breadcrumb';
 import CalculatorClient from '@/components/calculator/CalculatorClient';
 import FAQ from '@/components/ui/FAQ';
 import AdSlot from '@/components/ads/AdSlot';
+import JsonLd from '@/components/seo/JsonLd';
 
 interface Props {
   params: Promise<{ category: string; calculator: string }>;
