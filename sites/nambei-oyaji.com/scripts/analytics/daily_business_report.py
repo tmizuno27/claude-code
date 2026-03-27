@@ -792,7 +792,18 @@ def update_action_status_file(actions: list):
     status_path = REPORTS_DIR / "action-status.json"
     dashboard_path = REPORTS_DIR / "daily-business-dashboard.html"
 
-    # 1. action-status.json を更新
+    # 1. action-status.json を更新（既存の完了状態を保持）
+    existing_done = {}
+    if status_path.exists():
+        try:
+            old_data = json.loads(status_path.read_text(encoding="utf-8"))
+            if old_data.get("date") == today_str:
+                for old_a in old_data.get("actions", []):
+                    if old_a.get("done"):
+                        existing_done[old_a["id"]] = old_a.get("done_at")
+        except Exception:
+            pass
+
     status_data = {
         "date": today_str,
         "actions": [
@@ -800,8 +811,8 @@ def update_action_status_file(actions: list):
                 "id": a["id"],
                 "title": a["title"],
                 "priority": a["priority"],
-                "done": False,
-                "done_at": None,
+                "done": a["id"] in existing_done,
+                "done_at": existing_done.get(a["id"]),
             }
             for a in actions
         ]
@@ -810,7 +821,7 @@ def update_action_status_file(actions: list):
         json.dumps(status_data, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8"
     )
-    logger.info(f"action-status.json 更新完了 ({len(actions)}件)")
+    logger.info(f"action-status.json 更新完了 ({len(actions)}件, {len(existing_done)}件完了済み保持)")
 
     # 2. ダッシュボードHTMLの優先アクション欄を書き換え
     if not dashboard_path.exists():
@@ -834,9 +845,14 @@ def update_action_status_file(actions: list):
             sub_parts.append(revenue)
         sub_text = "　".join(sub_parts)
 
+        is_done = a["id"] in existing_done
+        done_class = ' done' if is_done else ''
+        check_mark = '✅' if is_done else '☐'
+        done_time_html = f'<span class="done-time">✓ {existing_done[a["id"]]}</span>' if is_done and existing_done.get(a["id"]) else ''
+
         item = (
-            f'    <div class="action-item" data-action-id="{a["id"]}">'
-            f'<span class="a-check">☐</span>'
+            f'    <div class="action-item{done_class}" data-action-id="{a["id"]}">'
+            f'<span class="a-check">{check_mark}</span>'
             f'<span class="a-pri {pri_class}">{a["priority"]}</span>'
             f'<div class="a-text"><strong>{a["title"]}</strong>'
             f'<span class="a-reason">{sub_text}</span>'
