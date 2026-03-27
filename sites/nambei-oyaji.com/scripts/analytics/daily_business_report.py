@@ -83,45 +83,52 @@ def load_secrets(secrets_path: Path) -> dict:
 # 1. ブログ3サイト データ取得
 # ─────────────────────────────────────────────
 
+def _fetch_ga4_data_inner(property_id: str, credentials_file: Path) -> dict:
+    """GA4データを取得する内部関数（タイムアウトラッパーから呼ばれる）"""
+    from google.analytics.data_v1beta import BetaAnalyticsDataClient
+    from google.analytics.data_v1beta.types import DateRange, Metric, RunReportRequest
+    import os
+
+    if credentials_file.exists():
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(credentials_file)
+
+    client = BetaAnalyticsDataClient()
+    today = datetime.now()
+    yesterday = today - timedelta(days=1)
+
+    request = RunReportRequest(
+        property=f"properties/{property_id}",
+        date_ranges=[DateRange(
+            start_date=yesterday.strftime("%Y-%m-%d"),
+            end_date=today.strftime("%Y-%m-%d")
+        )],
+        metrics=[
+            Metric(name="screenPageViews"),
+            Metric(name="activeUsers"),
+        ]
+    )
+    response = client.run_report(request, timeout=30)
+    if response.rows:
+        return {
+            "status": "取得成功",
+            "pageviews": int(response.rows[0].metric_values[0].value),
+            "users": int(response.rows[0].metric_values[1].value),
+        }
+    return {"status": "取得成功", "pageviews": 0, "users": 0}
+
+
 def fetch_ga4_data_for_site(property_id: str, credentials_file: Path) -> dict:
-    """GA4データを取得する（1日分）"""
+    """GA4データを取得する（1日分）。10秒でタイムアウト"""
     if not property_id or "YOUR" in str(property_id):
         return {"status": "未設定", "pageviews": 0, "users": 0}
 
     try:
-        from google.analytics.data_v1beta import BetaAnalyticsDataClient
-        from google.analytics.data_v1beta.types import DateRange, Metric, RunReportRequest
-        from google.api_core.timeout import ExponentialTimeout
-        import os
-
-        if credentials_file.exists():
-            os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = str(credentials_file)
-
-        client = BetaAnalyticsDataClient()
-        timeout = ExponentialTimeout(initial=10, maximum=20)
-        today = datetime.now()
-        yesterday = today - timedelta(days=1)
-
-        request = RunReportRequest(
-            property=f"properties/{property_id}",
-            date_ranges=[DateRange(
-                start_date=yesterday.strftime("%Y-%m-%d"),
-                end_date=today.strftime("%Y-%m-%d")
-            )],
-            metrics=[
-                Metric(name="screenPageViews"),
-                Metric(name="activeUsers"),
-            ]
-        )
-        response = client.run_report(request, timeout=30)
-        if response.rows:
-            return {
-                "status": "取得成功",
-                "pageviews": int(response.rows[0].metric_values[0].value),
-                "users": int(response.rows[0].metric_values[1].value),
-            }
-        return {"status": "取得成功", "pageviews": 0, "users": 0}
-
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(_fetch_ga4_data_inner, property_id, credentials_file)
+            return future.result(timeout=10)
+    except FuturesTimeoutError:
+        logger.warning(f"GA4データ取得タイムアウト: property={property_id}")
+        return {"status": "タイムアウト", "pageviews": 0, "users": 0}
     except ImportError:
         return {"status": "ライブラリ未インストール", "pageviews": 0, "users": 0}
     except Exception as e:

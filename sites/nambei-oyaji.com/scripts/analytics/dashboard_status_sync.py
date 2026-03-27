@@ -17,6 +17,7 @@ import logging
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeoutError
 from datetime import datetime
 from pathlib import Path
 
@@ -64,41 +65,51 @@ def count_published_articles(site_dir: str) -> int:
                               for kw in ("公開", "publish")))
 
 
+def _check_ga4_access_inner(site_dir: str) -> bool:
+    """GA4 API にアクセスできるか（タイムアウトラッパーから呼ばれる内部関数）"""
+    settings_path = CLAUDE_CODE / site_dir / "config" / "settings.json"
+    if not settings_path.exists():
+        return False
+    settings = json.loads(settings_path.read_text(encoding="utf-8"))
+    ga_config = settings.get("google_analytics", {})
+    property_id = ga_config.get("property_id")
+    cred_file = ga_config.get("credentials_file", "")
+    if not property_id:
+        return False
+
+    cred_path = CLAUDE_CODE / site_dir / cred_file
+    if not cred_path.exists():
+        # Try config/ prefix
+        cred_path = CLAUDE_CODE / site_dir / "config" / cred_file
+    if not cred_path.exists():
+        return False
+
+    from google.analytics.data_v1beta import BetaAnalyticsDataClient
+    from google.analytics.data_v1beta.types import RunReportRequest, DateRange, Metric
+    from google.oauth2 import service_account
+
+    credentials = service_account.Credentials.from_service_account_file(
+        str(cred_path),
+        scopes=["https://www.googleapis.com/auth/analytics.readonly"],
+    )
+    client = BetaAnalyticsDataClient(credentials=credentials)
+    client.run_report(RunReportRequest(
+        property=f"properties/{property_id}",
+        date_ranges=[DateRange(start_date="yesterday", end_date="today")],
+        metrics=[Metric(name="sessions")],
+    ))
+    return True
+
+
 def check_ga4_access(site_dir: str) -> bool:
-    """GA4 API にアクセスできるか"""
+    """GA4 API にアクセスできるか。10秒でタイムアウト"""
     try:
-        settings_path = CLAUDE_CODE / site_dir / "config" / "settings.json"
-        if not settings_path.exists():
-            return False
-        settings = json.loads(settings_path.read_text(encoding="utf-8"))
-        ga_config = settings.get("google_analytics", {})
-        property_id = ga_config.get("property_id")
-        cred_file = ga_config.get("credentials_file", "")
-        if not property_id:
-            return False
-
-        cred_path = CLAUDE_CODE / site_dir / cred_file
-        if not cred_path.exists():
-            # Try config/ prefix
-            cred_path = CLAUDE_CODE / site_dir / "config" / cred_file
-        if not cred_path.exists():
-            return False
-
-        from google.analytics.data_v1beta import BetaAnalyticsDataClient
-        from google.analytics.data_v1beta.types import RunReportRequest, DateRange, Metric
-        from google.oauth2 import service_account
-
-        credentials = service_account.Credentials.from_service_account_file(
-            str(cred_path),
-            scopes=["https://www.googleapis.com/auth/analytics.readonly"],
-        )
-        client = BetaAnalyticsDataClient(credentials=credentials)
-        client.run_report(RunReportRequest(
-            property=f"properties/{property_id}",
-            date_ranges=[DateRange(start_date="yesterday", end_date="today")],
-            metrics=[Metric(name="sessions")],
-        ))
-        return True
+        with ThreadPoolExecutor(max_workers=1) as executor:
+            future = executor.submit(_check_ga4_access_inner, site_dir)
+            return future.result(timeout=10)
+    except FuturesTimeoutError:
+        logger.warning(f"GA4アクセス確認タイムアウト: {site_dir}")
+        return False
     except Exception:
         return False
 
