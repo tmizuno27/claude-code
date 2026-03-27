@@ -325,6 +325,33 @@ export default function Dashboard({ userId }: { userId: string }) {
           </div>
         )}
 
+        {/* Onboarding guide for first-time users */}
+        {savedSites.length === 0 && (
+          <div className="mb-6 bg-blue-50 border border-blue-200 rounded-2xl p-6">
+            <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-blue-600" />
+              Welcome! Let&apos;s set up your first site in 3 steps:
+            </h3>
+            <ol className="space-y-2 text-sm text-blue-800">
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600 shrink-0">1.</span>
+                Go to your WordPress dashboard &rarr; Users &rarr; Profile &rarr; scroll to &ldquo;Application Passwords&rdquo;
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600 shrink-0">2.</span>
+                Create a new application password (name it &ldquo;WP Linker&rdquo;) and copy it
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="font-bold text-blue-600 shrink-0">3.</span>
+                Enter your site URL, username, and the application password below
+              </li>
+            </ol>
+            <p className="mt-3 text-xs text-blue-600">
+              WP Linker uses read-only access. We never modify your content without your approval.
+            </p>
+          </div>
+        )}
+
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
           <div className="flex items-center gap-3 mb-6">
             <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center">

@@ -9,7 +9,33 @@ export class WPClient {
   private authHeader: string;
 
   constructor(restApiUrl: string, username: string, appPassword: string) {
-    this.restApiUrl = restApiUrl.replace(/\/$/, "");
+    // Validate URL to prevent SSRF
+    const cleaned = restApiUrl.replace(/\/$/, "");
+    try {
+      const parsed = new URL(cleaned);
+      if (!["http:", "https:"].includes(parsed.protocol)) {
+        throw new Error("Only HTTP/HTTPS protocols are allowed");
+      }
+      // Block private/internal IPs
+      const host = parsed.hostname.toLowerCase();
+      if (
+        host === "localhost" ||
+        host === "127.0.0.1" ||
+        host === "0.0.0.0" ||
+        host.startsWith("10.") ||
+        host.startsWith("172.") ||
+        host.startsWith("192.168.") ||
+        host === "metadata.google.internal" ||
+        host === "169.254.169.254"
+      ) {
+        throw new Error("Internal/private addresses are not allowed");
+      }
+    } catch (e) {
+      if (e instanceof Error && e.message.includes("not allowed")) throw e;
+      throw new Error("Invalid REST API URL");
+    }
+
+    this.restApiUrl = cleaned;
     this.authHeader =
       "Basic " + Buffer.from(`${username}:${appPassword}`).toString("base64");
   }

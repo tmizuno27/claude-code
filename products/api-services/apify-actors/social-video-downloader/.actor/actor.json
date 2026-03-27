@@ -1,8 +1,8 @@
 {
   "actorSpecification": 1,
   "name": "social-video-downloader",
-  "title": "Social Video Downloader - YouTube, TikTok, Instagram, X, Facebook",
-  "description": "Extract video download URLs and metadata from 5 platforms: YouTube (including Shorts), TikTok, Twitter/X, Instagram Reels, and Facebook. Bulk processing, full metadata (title, author, thumbnail, duration). No API keys required. Free alternative to yt-dlp cloud wrappers and commercial video APIs.",
+  "title": "Social Video Downloader - YouTube TikTok Instagram X Facebook",
+  "description": "Extract video download URLs and metadata from 5 social platforms: YouTube (videos + Shorts), TikTok, Twitter/X, Instagram (Reels + posts), Facebook. Direct download links with title, author, thumbnail, duration. Bulk URL processing, JSON/CSV/Excel export. Free yt-dlp cloud alternative. No API keys, no login. Ideal for social media archiving, content backup, competitor analysis, and research datasets. Pay-per-use from $0.01/video.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",
