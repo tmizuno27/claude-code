@@ -8,9 +8,9 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "WP Linker — WordPress Internal Link Optimizer | Boost SEO Without Plugins",
+  title: "WP Linker — Free WordPress Internal Link Optimizer | Boost SEO Without Plugins",
   description:
-    "Find orphan posts, get AI-powered internal link suggestions, and apply them with one click. Works via WordPress REST API — no plugin required. Free trial.",
+    "Find orphan posts, get AI-powered internal link suggestions, and apply them with one click. Works via WordPress REST API — no plugin required. Free forever for up to 30 posts.",
   keywords: [
     "WordPress internal links",
     "SEO tool",
@@ -20,14 +20,16 @@ export const metadata: Metadata = {
     "link coverage",
     "WordPress SEO",
     "internal linking strategy",
+    "free SEO tool",
+    "WordPress link audit",
   ],
   alternates: {
     canonical: "https://wp-linker.vercel.app",
   },
   openGraph: {
-    title: "WP Linker — Fix Orphan Posts & Boost Internal Links",
+    title: "WP Linker — Fix Orphan Posts & Boost Internal Links (Free)",
     description:
-      "Most WordPress sites have orphan posts killing their SEO. WP Linker finds and fixes them in minutes. No plugin required.",
+      "Most WordPress sites have orphan posts killing their SEO. WP Linker finds and fixes them in minutes. No plugin required. Free forever.",
     url: "https://wp-linker.vercel.app",
     type: "website",
     locale: "en_US",
@@ -43,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "WP Linker — WordPress Internal Link Optimizer",
+    title: "WP Linker — Free WordPress Internal Link Optimizer",
     description:
-      "Find orphan posts & boost internal links for WordPress. No plugin required.",
+      "Find orphan posts & boost internal links for WordPress. No plugin required. Free forever.",
     images: ["https://wp-linker.vercel.app/og-image.png"],
   },
   robots: {

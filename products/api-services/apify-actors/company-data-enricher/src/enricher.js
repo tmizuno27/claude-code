@@ -4,6 +4,30 @@
  * with Cloudflare Workers specifics (rate limiting, CORS, request routing) removed.
  */
 
+const FETCH_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
+async function fetchWithRetry(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(timer);
+      return res;
+    } catch (e) {
+      clearTimeout(timer);
+      lastError = e;
+      if (attempt < MAX_RETRIES) {
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      }
+    }
+  }
+  throw lastError;
+}
+
 const TECHNOLOGY_SIGNATURES = [
   { name: 'Google Analytics', patterns: ['google-analytics.com/analytics.js', 'googletagmanager.com/gtag', 'ga.js', 'gtag('] },
   { name: 'Google Tag Manager', patterns: ['googletagmanager.com/gtm.js'] },
@@ -79,7 +103,7 @@ function calculateAge(dateStr) {
  * Returns title, description, OG tags, social links, emails, phones, and raw html.
  */
 export async function fetchWebsiteMetadata(url) {
-  const response = await fetch(url, {
+  const response = await fetchWithRetry(url, {
     headers: { 'User-Agent': 'CompanyDataEnricher-ApifyActor/1.0' },
     redirect: 'follow',
   });
@@ -150,7 +174,7 @@ export function detectTechnologies(html) {
  */
 export async function rdapLookup(domain) {
   try {
-    const bootstrapRes = await fetch('https://data.iana.org/rdap/dns.json');
+    const bootstrapRes = await fetchWithRetry('https://data.iana.org/rdap/dns.json');
     if (!bootstrapRes.ok) throw new Error('RDAP bootstrap failed');
     const bootstrap = await bootstrapRes.json();
 
@@ -171,7 +195,7 @@ export async function rdapLookup(domain) {
     }
 
     const rdapUrl = `${rdapServer.replace(/\/$/, '')}/domain/${domain}`;
-    const res = await fetch(rdapUrl, {
+    const res = await fetchWithRetry(rdapUrl, {
       headers: { Accept: 'application/rdap+json' },
     });
 
@@ -278,7 +302,7 @@ export async function lookupDomain(domain) {
 export async function searchCompanies(query) {
   const apiUrl = `https://www.wikidata.org/w/api.php?action=wbsearchentities&search=${encodeURIComponent(query)}&language=en&limit=10&format=json`;
 
-  const res = await fetch(apiUrl, { headers: { 'User-Agent': 'CompanyDataEnricher-ApifyActor/1.0' } });
+  const res = await fetchWithRetry(apiUrl, { headers: { 'User-Agent': 'CompanyDataEnricher-ApifyActor/1.0' } });
   if (!res.ok) {
     throw new Error(`Wikidata API error: ${res.status}`);
   }
@@ -304,7 +328,7 @@ export async function searchCompanies(query) {
 export async function getWikidataEntity(wikidataId) {
   const apiUrl = `https://www.wikidata.org/w/api.php?action=wbgetentities&ids=${encodeURIComponent(wikidataId)}&languages=en&format=json`;
 
-  const res = await fetch(apiUrl, { headers: { 'User-Agent': 'CompanyDataEnricher-ApifyActor/1.0' } });
+  const res = await fetchWithRetry(apiUrl, { headers: { 'User-Agent': 'CompanyDataEnricher-ApifyActor/1.0' } });
   if (!res.ok) {
     throw new Error(`Wikidata API error: ${res.status}`);
   }

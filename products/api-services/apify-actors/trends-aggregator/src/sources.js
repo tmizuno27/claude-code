@@ -1,10 +1,34 @@
 // Core trend-fetching logic ported from 19-trends-api/src/index.js
 // Cloudflare Workers specifics (cache, rate limiter, Response/CORS) removed.
 
+const FETCH_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
+async function fetchWithRetry(url, options = {}, timeoutMs = FETCH_TIMEOUT_MS) {
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const res = await fetchWithRetry(url, { ...options, signal: controller.signal });
+      clearTimeout(timer);
+      return res;
+    } catch (e) {
+      clearTimeout(timer);
+      lastError = e;
+      if (attempt < MAX_RETRIES) {
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      }
+    }
+  }
+  throw lastError;
+}
+
 // ── Google Trends Daily ──
 export async function googleDaily(geo = 'US', limit = 25) {
   const url = `https://trends.google.com/trending/rss?geo=${encodeURIComponent(geo)}`;
-  const res = await fetch(url, {
+  const res = await fetchWithRetry(url, {
     headers: { 'User-Agent': 'Mozilla/5.0 (compatible; TrendsAggregator/1.0; +https://apify.com/miccho27)' },
   });
   if (!res.ok) throw new Error(`Google Trends returned ${res.status}`);
@@ -112,7 +136,7 @@ export async function githubTrending(limit = 25) {
   d.setDate(d.getDate() - 7);
   const since = d.toISOString().slice(0, 10);
   const url = `https://api.github.com/search/repositories?q=created:>${since}&sort=stars&order=desc&per_page=${limit}`;
-  const res = await fetch(url, {
+  const res = await fetchWithRetry(url, {
     headers: { 'User-Agent': 'TrendsAggregator/1.0', Accept: 'application/vnd.github.v3+json' },
   });
   if (!res.ok) throw new Error(`GitHub returned ${res.status}`);
