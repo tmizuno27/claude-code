@@ -137,11 +137,20 @@ export default {
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api/pricing",
           plans: ["Pro ($5.99/mo)", "Ultra ($14.99/mo)", "Mega ($49.99/mo)"]
         },
+        version: '1.2.0',
         endpoints: {
           '/analyze?url=': 'Full SEO analysis of a page',
           '/headings?url=': 'Heading structure only',
           '/links?url=': 'Link analysis only',
           '/score?url=': 'SEO score with breakdown',
+        },
+        _related: {
+          message: "These APIs work great with SEO Analyzer",
+          apis: [
+            {name: "Screenshot API", use: "Capture visual snapshots of analyzed pages", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api"},
+            {name: "WHOIS Domain API", use: "Check domain age & registrar for SEO context", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/whois-domain-api"},
+            {name: "Link Preview API", use: "Extract OG metadata alongside SEO analysis", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/link-preview-api"},
+          ]
         },
       }, 200, rlHeaders);
     }

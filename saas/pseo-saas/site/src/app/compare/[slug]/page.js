@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getComparisonPairs, getRelatedComparisons, getFeatureLabel } from '@/lib/tools';
 import { generateComparisonContent } from '@/lib/comparison';
+import AdSlot from '@/components/AdSlot';
 
 export function generateStaticParams() {
   return getComparisonPairs().map(p => ({ slug: p.slug }));

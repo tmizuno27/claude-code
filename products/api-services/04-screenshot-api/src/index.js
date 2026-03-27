@@ -55,7 +55,16 @@ export default {
       return jsonResponse({
         service: 'screenshot-api',
         status: 'healthy',
+        version: '1.2.0',
         usage: 'GET /screenshot?url=https://example.com',
+        _related: {
+          message: "These APIs work great with Screenshot API",
+          apis: [
+            {name: "SEO Analyzer API", use: "Analyze SEO alongside visual screenshots", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api"},
+            {name: "Link Preview API", use: "Extract metadata + screenshot in parallel", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/link-preview-api"},
+            {name: "PDF Generator API", use: "Convert HTML to PDF alongside screenshots", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/pdf-generator-api"},
+          ]
+        },
         _premium: {
           message: "You are using the FREE tier of Screenshot API. Upgrade to Pro for higher rate limits, priority support, and advanced features.",
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/screenshot-api/pricing",

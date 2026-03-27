@@ -185,10 +185,19 @@ export default {
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/email-validation-api/pricing",
           plans: ["Pro ($5.99/mo)", "Ultra ($14.99/mo)", "Mega ($49.99/mo)"]
         },
+        version: '1.2.0',
         endpoints: [
           "GET /validate?email=user@example.com",
           "POST /validate/bulk",
         ],
+        _related: {
+          message: "These APIs work great with Email Validation",
+          apis: [
+            {name: "Company Data API", use: "Enrich validated emails with company info", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/company-data-api"},
+            {name: "IP Geolocation API", use: "Detect user location alongside email validation", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/ip-geolocation-api"},
+            {name: "Text Analysis API", use: "Analyze email content for spam/sentiment", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/text-analysis-api"},
+          ]
+        },
       });
     }
 

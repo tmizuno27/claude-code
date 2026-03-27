@@ -1,0 +1,2 @@
+Keys with rank/seo/yoast/meta: ['meta']
+All keys: ['id', 'date', 'date_gmt', 'guid', 'modified', 'modified_gmt', 'slug', 'status', 'type', 'link', 'title', 'content', 'excerpt', 'author', 'featured_media', 'comment_status', 'ping_status', 'sticky', 'template', 'format', 'meta', 'categories', 'tags', 'class_list', '_links']

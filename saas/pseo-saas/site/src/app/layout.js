@@ -17,6 +17,9 @@ export const metadata = {
   verification: {
     google: 'ugn5HFr2hl7GqdPfPacONozz2ZW10w7gF05sM9C8jJE',
   },
+  other: {
+    'google-adsense-account': ADSENSE_CLIENT_ID,
+  },
   openGraph: {
     siteName: 'AI Tool Compare',
     type: 'website',
@@ -27,6 +30,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
       <head>
+        <Script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">{`
           window.dataLayer = window.dataLayer || [];

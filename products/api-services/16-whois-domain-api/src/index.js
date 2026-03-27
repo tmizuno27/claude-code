@@ -277,7 +277,16 @@ async function handleRequest(request) {
           upgrade_url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/whois-domain-api/pricing",
           plans: ["Pro ($5.99/mo)", "Ultra ($14.99/mo)", "Mega ($49.99/mo)"]
         },
+        version: '1.2.0',
         description: 'Domain WHOIS/RDAP lookup and DNS query API',
+        _related: {
+          message: "These APIs work great with WHOIS Domain API",
+          apis: [
+            {name: "SEO Analyzer API", use: "Analyze page SEO alongside domain data", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/seo-analyzer-api"},
+            {name: "Company Data API", use: "Enrich domain with company information", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/company-data-api"},
+            {name: "IP Geolocation API", use: "Resolve domain IP to geographic location", url: "https://rapidapi.com/miccho27-5OJaGGbBiO/api/ip-geolocation-api"},
+          ]
+        },
         endpoints: {
           '/lookup?domain=': 'Full RDAP/WHOIS domain lookup',
           '/dns?domain=': 'DNS records lookup (A, AAAA, MX, NS, TXT, CNAME)',
