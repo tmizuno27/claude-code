@@ -1,13 +1,14 @@
 """
 Batch submit URLs to Google Indexing API for sim-hikaku.online.
-Fetches all URLs from wp-sitemap.xml, then submits up to 200 (daily quota).
-Uses batch HTTP endpoint for efficiency.
+Fetches all URLs from wp-sitemap.xml, skips already-submitted URLs,
+then submits remaining URLs up to the daily quota (200).
+Tracks submitted URLs in a JSON log file for resumption across days.
 """
 
 import json
 import time
-import sys
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
@@ -16,48 +17,65 @@ from google.auth.transport.requests import AuthorizedSession
 
 # Config
 SITE_DOMAIN = "https://sim-hikaku.online"
-CREDENTIALS_PATH = Path(r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\nambei-oyaji.com\config\gsc-credentials.json")
+SCRIPT_DIR = Path(__file__).parent.parent / "outputs"
+SENT_LOG_PATH = SCRIPT_DIR / "indexing-sent-log.json"
+CREDENTIALS_PATH = Path(
+    r"C:\Users\tmizu\マイドライブ\GitHub\claude-code"
+    r"\sites\nambei-oyaji.com\config\gsc-credentials.json"
+)
 SCOPES = ["https://www.googleapis.com/auth/indexing"]
 INDEXING_API_URL = "https://indexing.googleapis.com/v3/urlNotifications:publish"
 BATCH_URL = "https://indexing.googleapis.com/batch"
 DAILY_QUOTA = 200
 
 
+def load_sent_urls() -> dict[str, str]:
+    """Load previously sent URLs with their submission timestamps."""
+    if SENT_LOG_PATH.exists():
+        data = json.loads(SENT_LOG_PATH.read_text(encoding="utf-8"))
+        return data.get("sent", {})
+    return {}
+
+
+def save_sent_urls(sent: dict[str, str]) -> None:
+    """Save sent URLs log."""
+    data = {
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "count": len(sent),
+        "sent": sent,
+    }
+    SENT_LOG_PATH.write_text(
+        json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+
+
 def get_sitemap_urls() -> list[str]:
     """Fetch all article URLs from the WordPress sitemap index."""
-    urls = []
-    try:
-        # Get sitemap index
-        resp = requests.get(f"{SITE_DOMAIN}/wp-sitemap.xml", timeout=30)
-        resp.raise_for_status()
-        root = ET.fromstring(resp.content)
-        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+    urls: list[str] = []
+    resp = requests.get(f"{SITE_DOMAIN}/wp-sitemap.xml", timeout=30)
+    resp.raise_for_status()
+    root = ET.fromstring(resp.content)
+    ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 
-        sitemap_locs = [loc.text for loc in root.findall(".//sm:loc", ns)]
-        print(f"Found {len(sitemap_locs)} sub-sitemaps")
+    sitemap_locs = [loc.text for loc in root.findall(".//sm:loc", ns)]
+    print(f"Found {len(sitemap_locs)} sub-sitemaps")
 
-        for sitemap_url in sitemap_locs:
-            try:
-                resp2 = requests.get(sitemap_url, timeout=30)
-                resp2.raise_for_status()
-                sub_root = ET.fromstring(resp2.content)
-                for loc in sub_root.findall(".//sm:loc", ns):
-                    if loc.text:
-                        urls.append(loc.text)
-            except Exception as e:
-                print(f"  Error fetching {sitemap_url}: {e}")
-
-    except Exception as e:
-        print(f"Error fetching sitemap index: {e}")
+    for sitemap_url in sitemap_locs:
+        resp2 = requests.get(sitemap_url, timeout=30)
+        resp2.raise_for_status()
+        sub_root = ET.fromstring(resp2.content)
+        for loc in sub_root.findall(".//sm:loc", ns):
+            if loc.text:
+                urls.append(loc.text)
 
     return urls
 
 
-def create_batch_body(urls: list[str], boundary: str = "batch_boundary") -> str:
+def create_batch_body(urls: list[str], boundary: str) -> str:
     """Create multipart batch request body for Indexing API."""
     parts = []
     for i, url in enumerate(urls):
-        part = (
+        parts.append(
             f"--{boundary}\r\n"
             f"Content-Type: application/http\r\n"
             f"Content-ID: <item{i}>\r\n"
@@ -67,141 +85,85 @@ def create_batch_body(urls: list[str], boundary: str = "batch_boundary") -> str:
             f"\r\n"
             f'{{"url": "{url}", "type": "URL_UPDATED"}}\r\n'
         )
-        parts.append(part)
     parts.append(f"--{boundary}--\r\n")
     return "".join(parts)
 
 
-def submit_batch(session: AuthorizedSession, urls: list[str]) -> tuple[int, int]:
-    """Submit a batch of URLs. Returns (success_count, error_count)."""
-    boundary = "batch_indexing"
-    body = create_batch_body(urls, boundary)
-    headers = {
-        "Content-Type": f"multipart/mixed; boundary={boundary}",
-    }
-    resp = session.post(BATCH_URL, data=body, headers=headers)
+def submit_individual(
+    session: AuthorizedSession,
+    urls: list[str],
+    sent: dict[str, str],
+) -> tuple[int, int]:
+    """Submit URLs one by one. Updates sent dict in-place. Returns (ok, err)."""
+    ok = 0
+    err = 0
+    now_str = datetime.now(timezone.utc).isoformat()
 
-    success = 0
-    errors = 0
-    if resp.status_code == 200:
-        # Parse batch response to find successes and failures
-        parts = resp.text.split("--batch")
-        for part in parts:
-            if "HTTP/1.1 200" in part:
-                success += 1
-            elif "HTTP/1.1 4" in part or "HTTP/1.1 5" in part:
-                errors += 1
-                # Extract which URL failed
-                for line in part.split("\n"):
-                    if '"error"' in line or "HTTP/1.1 4" in line or "HTTP/1.1 5" in line:
-                        print(f"    Error detail: {line.strip()[:200]}")
-                        break
-    else:
-        print(f"  Batch request failed: {resp.status_code} {resp.text[:500]}")
-        errors = len(urls)
-
-    return success, errors
-
-
-def submit_individual(session: AuthorizedSession, urls: list[str]) -> tuple[int, int]:
-    """Submit URLs one by one as fallback. Returns (success, errors)."""
-    success = 0
-    errors = 0
     for i, url in enumerate(urls):
         payload = {"url": url, "type": "URL_UPDATED"}
-        try:
-            resp = session.post(INDEXING_API_URL, json=payload)
-            if resp.status_code == 200:
-                success += 1
-                if (i + 1) % 10 == 0:
-                    print(f"  Submitted {i + 1}/{len(urls)}...")
-            elif resp.status_code == 429:
-                print(f"  Rate limited at {i + 1}/{len(urls)}. Waiting 60s...")
-                time.sleep(60)
-                resp = session.post(INDEXING_API_URL, json=payload)
-                if resp.status_code == 200:
-                    success += 1
-                else:
-                    errors += 1
-                    print(f"  Still failed after retry: {resp.status_code}")
-            else:
-                errors += 1
-                if errors <= 3:
-                    print(f"  Error for {url}: {resp.status_code} {resp.text[:200]}")
-        except Exception as e:
-            errors += 1
-            print(f"  Exception for {url}: {e}")
+        resp = session.post(INDEXING_API_URL, json=payload)
 
-        # Small delay to avoid rate limiting
-        if (i + 1) % 50 == 0:
-            print(f"  Pausing 5s after {i + 1} requests...")
-            time.sleep(5)
+        if resp.status_code == 200:
+            ok += 1
+            sent[url] = now_str
+            if (i + 1) % 10 == 0:
+                print(f"  Submitted {i + 1}/{len(urls)}...")
+                save_sent_urls(sent)  # checkpoint
+        elif resp.status_code == 429:
+            print(f"  Rate limited at URL #{i + 1}. Daily quota likely exhausted.")
+            print(f"  Saving progress ({ok} sent this run). Re-run tomorrow.")
+            save_sent_urls(sent)
+            return ok, len(urls) - i
         else:
-            time.sleep(0.5)
+            err += 1
+            print(f"  Error {resp.status_code} for {url}: {resp.text[:150]}")
 
-    return success, errors
+        time.sleep(0.5)
+
+    save_sent_urls(sent)
+    return ok, err
 
 
-def main():
-    # 1. Get URLs
+def main() -> None:
+    # 1. Get all URLs from sitemap
     print("Fetching URLs from sitemap...")
-    urls = get_sitemap_urls()
-    print(f"Found {len(urls)} URLs from sitemap")
+    all_urls = get_sitemap_urls()
+    print(f"Total URLs in sitemap: {len(all_urls)}")
 
-    if not urls:
-        print("No URLs found. Exiting.")
+    # 2. Load sent log and filter
+    sent = load_sent_urls()
+    pending = [u for u in all_urls if u not in sent]
+    print(f"Already submitted: {len(sent)}")
+    print(f"Pending: {len(pending)}")
+
+    if not pending:
+        print("All URLs already submitted! Nothing to do.")
         return
 
     # Cap at daily quota
-    if len(urls) > DAILY_QUOTA:
-        print(f"Capping at {DAILY_QUOTA} URLs (daily quota)")
-        urls = urls[:DAILY_QUOTA]
+    to_submit = pending[:DAILY_QUOTA]
+    print(f"Will submit: {len(to_submit)} URLs (daily quota: {DAILY_QUOTA})")
 
-    # 2. Authenticate
-    print("Authenticating with Google Indexing API...")
+    # 3. Authenticate
+    print("Authenticating...")
     credentials = service_account.Credentials.from_service_account_file(
         str(CREDENTIALS_PATH), scopes=SCOPES
     )
     session = AuthorizedSession(credentials)
 
-    # 3. Try batch first (up to 100 per batch request)
-    print(f"\nSubmitting {len(urls)} URLs...")
+    # 4. Submit individually (more reliable than batch for quota tracking)
+    print(f"\nSubmitting {len(to_submit)} URLs...")
+    ok, err = submit_individual(session, to_submit, sent)
 
-    total_success = 0
-    total_errors = 0
-
-    # Try batch in chunks of 100
-    batch_size = 100
-    use_batch = True
-
-    for start in range(0, len(urls), batch_size):
-        chunk = urls[start:start + batch_size]
-        print(f"\nBatch {start // batch_size + 1}: {len(chunk)} URLs...")
-
-        if use_batch:
-            s, e = submit_batch(session, chunk)
-            if s == 0 and e == len(chunk):
-                print("  Batch endpoint failed. Falling back to individual requests...")
-                use_batch = False
-                s, e = submit_individual(session, chunk)
-        else:
-            s, e = submit_individual(session, chunk)
-
-        total_success += s
-        total_errors += e
-        print(f"  Chunk result: {s} success, {e} errors")
-
-        if start + batch_size < len(urls):
-            print("  Pausing 2s between batches...")
-            time.sleep(2)
-
-    # 4. Report
-    print(f"\n{'='*50}")
+    # 5. Report
+    print(f"\n{'=' * 50}")
     print(f"RESULTS:")
-    print(f"  Total URLs: {len(urls)}")
-    print(f"  Submitted successfully: {total_success}")
-    print(f"  Errors: {total_errors}")
-    print(f"{'='*50}")
+    print(f"  Submitted this run: {ok}")
+    print(f"  Errors/remaining: {err}")
+    print(f"  Total submitted (all time): {len(sent)}")
+    print(f"  Still pending: {len(all_urls) - len(sent)}")
+    print(f"  Log saved to: {SENT_LOG_PATH}")
+    print(f"{'=' * 50}")
 
 
 if __name__ == "__main__":
