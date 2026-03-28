@@ -1,0 +1,34 @@
+{
+  "slug": "rent-affordability",
+  "category": "money",
+  "subcategory": "real-estate",
+  "title": "適正家賃計算",
+  "description": "手取り月収から適正な家賃の上限を計算。収入に対する家賃比率の目安と、生活費を考慮した無理のない家賃額を提案。",
+  "metaTitle": "適正家賃計算ツール｜手取りから家賃の目安を計算【収入別シミュレーション】",
+  "metaDescription": "手取り月収から適正な家賃を無料計算。家賃は手取りの何割が正解？収入別の家賃目安と生活費バランスを提案。",
+  "calculatorFunction": "rentAffordability",
+  "inputs": [
+    { "id": "monthlyIncome", "label": "手取り月収", "type": "number", "unit": "万円", "default": 25, "min": 10, "max": 200, "step": 1 },
+    { "id": "savings", "label": "毎月の貯金目標", "type": "number", "unit": "万円", "default": 3, "min": 0, "max": 50, "step": 0.5 },
+    { "id": "livingCost", "label": "家賃以外の生活費", "type": "number", "unit": "万円", "default": 10, "min": 5, "max": 100, "step": 0.5 },
+    { "id": "household", "label": "世帯構成", "type": "select", "default": "single", "options": [
+      { "value": "single", "label": "一人暮らし" },
+      { "value": "couple", "label": "二人暮らし" },
+      { "value": "family", "label": "家族（子あり）" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "recommendedRent", "label": "推奨家賃", "format": "currency", "primary": true },
+    { "id": "maxRent", "label": "上限家賃（30%基準）", "format": "currency" },
+    { "id": "rentRatio", "label": "推奨家賃の収入比", "format": "percent" },
+    { "id": "remainingAfterRent", "label": "家賃後の残額", "format": "currency" }
+  ],
+  "explanation": "<h3>家賃の目安</h3><p>一般的に家賃は手取り月収の25〜30%が目安とされています。</p><p>一人暮らし：手取りの25〜30%<br/>二人暮らし：手取りの25〜28%<br/>家族（子あり）：手取りの20〜25%</p><h3>計算方法</h3><p>手取りから貯金目標と生活費を引いた残額と、収入比率の目安の低い方を推奨家賃として提案します。</p>",
+  "faq": [
+    { "question": "家賃が手取りの30%を超えたら？", "answer": "生活費や貯金を圧迫するリスクがあります。特に子育て世帯では25%以下に抑えることが推奨されます。" },
+    { "question": "管理費・共益費は含める？", "answer": "はい。管理費・共益費も含めた総額で家賃比率を計算しましょう。" }
+  ],
+  "related": ["rent-vs-buy", "housing-loan"],
+  "popular": true,
+  "popularOrder": 11
+}

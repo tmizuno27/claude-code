@@ -1,0 +1,32 @@
+{
+  "slug": "point-reward-compare",
+  "category": "life",
+  "subcategory": "shopping",
+  "title": "ポイント還元率比較計算",
+  "description": "異なるポイント還元率のカード・決済手段を比較。月間利用額からの年間獲得ポイント差を計算します。",
+  "metaTitle": "ポイント還元率比較計算ツール｜どの決済が一番お得か比較",
+  "metaDescription": "最大3つの決済手段のポイント還元率を比較。月間利用額から年間の獲得ポイント差を無料計算。",
+  "calculatorFunction": "pointRewardCompare",
+  "inputs": [
+    { "id": "monthlySpend", "label": "月間利用額", "type": "number", "unit": "円", "default": 100000, "min": 1000, "max": 1000000, "step": 1000 },
+    { "id": "rateA", "label": "決済A 還元率", "type": "slider", "unit": "%", "default": 1.0, "min": 0.1, "max": 5.0, "step": 0.1 },
+    { "id": "rateB", "label": "決済B 還元率", "type": "slider", "unit": "%", "default": 1.5, "min": 0.1, "max": 5.0, "step": 0.1 },
+    { "id": "rateC", "label": "決済C 還元率", "type": "slider", "unit": "%", "default": 2.0, "min": 0.1, "max": 5.0, "step": 0.1 },
+    { "id": "annualFeeA", "label": "決済A 年会費", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 50000, "step": 100 },
+    { "id": "annualFeeB", "label": "決済B 年会費", "type": "number", "unit": "円", "default": 0, "min": 0, "max": 50000, "step": 100 },
+    { "id": "annualFeeC", "label": "決済C 年会費", "type": "number", "unit": "円", "default": 5500, "min": 0, "max": 50000, "step": 100 }
+  ],
+  "outputs": [
+    { "id": "bestOption", "label": "最もお得な決済", "format": "text", "primary": true },
+    { "id": "netBenefitA", "label": "決済A 年間純利益", "format": "currency" },
+    { "id": "netBenefitB", "label": "決済B 年間純利益", "format": "currency" },
+    { "id": "netBenefitC", "label": "決済C 年間純利益", "format": "currency" }
+  ],
+  "explanation": "<h3>ポイント還元の実質価値</h3><p>年間純利益 = （月間利用額 × 還元率 × 12ヶ月） − 年会費</p><p>高還元率でも年会費が高いと、利用額が少ない場合は損になることがあります。</p>",
+  "faq": [
+    { "question": "還元率が高いカードは？", "answer": "楽天カード1%、三井住友NL(タッチ)5%、リクルートカード1.2%などが人気です。利用シーンに合わせて選びましょう。" },
+    { "question": "年会費の元を取れる利用額は？", "answer": "年会費 ÷ (還元率の差 ÷ 100) で損益分岐点の年間利用額がわかります。" }
+  ],
+  "related": ["discount-rate", "tax-included"],
+  "popular": false
+}

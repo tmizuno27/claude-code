@@ -92,30 +92,27 @@ Free Email Validator - MX check, disposable detection (500+ domains), typo fix, 
 email validation, email verification, disposable email, mx lookup, bulk email check, email api, bounce detection, email hygiene, lead validation, free email validator
 ```
 
-### Long Description (Markdown)
+### Long Description
 ```
 Validate email addresses in real time with format checks, MX record lookups, disposable domain detection (500+ domains), free provider detection, role-based address detection, and typo suggestions.
 
-## Getting Started
-1. Subscribe (free plan available)
-2. Call `/validate?email=user@example.com`
-3. Check `valid`, `score`, and `suggestion` fields
-
-## Key Features
+## Why This API?
+- **Save $390/mo vs ZeroBounce** — Flat-rate pricing, not per-email billing
 - **MX Record Lookup** — DNS verification without sending emails
 - **Disposable Detection** — 500+ temporary email domains blocked
 - **Typo Correction** — Suggests fixes for gmial.com → gmail.com
 - **Bulk Validation** — Up to 50 emails per request
 - **Confidence Score** — 0-100 quality scoring
 
+## Pricing Comparison
+| Volume | This API | ZeroBounce | Hunter.io |
+|--------|----------|------------|-----------|
+| 500/mo | $0 (free) | $0 (100 free) | $0 (25 free) |
+| 50,000/mo | $9.99 | $400 | $4,900 |
+| 500,000/mo | $29.99 | $4,000 | N/A |
+
 ## Alternative To
-ZeroBounce ($16/2K emails), Hunter.io ($49/500 searches), NeverBounce ($8/1K). This API offers flat-rate pricing starting at $0/month.
-
-## Sample Response
-{"email":"user@example.com","valid":true,"score":100,"is_disposable":false,"suggestion":null}
-
-## Need More Requests?
-Upgrade to Pro (50,000 req/mo) or Ultra (500,000 req/mo) for high-volume email validation.
+ZeroBounce, Hunter.io, NeverBounce, Kickbox. Flat-rate pricing starting at $0/month.
 ```
 
 ---
@@ -124,12 +121,17 @@ Upgrade to Pro (50,000 req/mo) or Ultra (500,000 req/mo) for high-volume email v
 
 ### Title
 ```
-Link Preview API - Open Graph, Twitter Cards, Metadata Extraction
+Free Link Preview API - Open Graph, Twitter Cards, Favicon, Bulk URLs
 ```
 
 ### Short Description
 ```
-Free Link Preview API - Open Graph, Twitter Cards, RSS Discovery, Bulk URLs, No Auth
+Free URL metadata extractor - Open Graph, Twitter Cards, RSS discovery, bulk (10 URLs). Cached on edge.
+```
+
+### Tags
+```
+link preview, open graph, twitter cards, url metadata, web scraping, favicon, rss feed, social media preview, og tags, url parser
 ```
 
 ### Long Description
@@ -161,12 +163,17 @@ Upgrade to Pro for 50,000 requests/month at $5.99.
 
 ### Title
 ```
-Screenshot API - Capture Any Page as PNG or JPEG
+Free Website Screenshot API - Capture Any Page as PNG/JPEG | Custom Viewport
 ```
 
 ### Short Description
 ```
-Free Screenshot API - Full-Page, Custom Viewport, PNG/JPEG, Render Delay, No Auth
+Free Screenshot API - Capture any URL as PNG/JPEG. Full-page, custom viewport (320-3840px), render delay. 500 req/mo free.
+```
+
+### Tags
+```
+screenshot api, website screenshot, webpage capture, url to image, png screenshot, full page capture, website thumbnail, web capture api, headless browser, website preview
 ```
 
 ### Long Description
@@ -198,12 +205,17 @@ Upgrade to Pro (50,000/mo) or Ultra (500,000/mo).
 
 ### Title
 ```
-Text Analysis API - Sentiment, Keywords, Readability, NLP
+Free Text Analysis API - Sentiment, Keywords, Readability | NLP No AI Key
 ```
 
 ### Short Description
 ```
-Free Text Analysis API - Sentiment, Keywords, Readability, Language Detection, Pure JS NLP
+Free NLP API - Sentiment analysis, keyword extraction, readability score, language detection. No AI key needed.
+```
+
+### Tags
+```
+text analysis, sentiment analysis, keyword extraction, nlp api, readability score, language detection, natural language processing, text mining, content analysis, free nlp
 ```
 
 ### Long Description
@@ -231,16 +243,68 @@ Upgrade to Pro for 50,000 requests/month at $5.99.
 
 ---
 
-## API #07: URL Shortener API
+## API #06: IP Geolocation API
 
 ### Title
 ```
-URL Shortener API - Short Links with Click Analytics
+Free IP Geolocation API - VPN Detection, City Lookup, Bulk | HTTPS Free
 ```
 
 ### Short Description
 ```
-Free URL Shortener API - Click Analytics, Custom Aliases, Expiration, CF KV Storage
+Free IP Lookup - Country, city, ISP, VPN/proxy detection, bulk (20 IPs). HTTPS on free tier. $5.99 vs $99 ipinfo.
+```
+
+### Tags
+```
+ip geolocation, ip lookup, vpn detection, proxy detection, ip address api, geoip, ip location, ip to country, bulk ip lookup, free ip api
+```
+
+### Long Description
+```
+Look up any IP address to get country, city, region, timezone, ISP, and VPN/proxy/datacenter detection. Supports single IP, own-IP, and bulk lookups (up to 20 IPs).
+
+## Getting Started
+1. Subscribe (free plan available)
+2. GET `/lookup?ip=8.8.8.8`
+3. Get country, city, ISP, VPN status, and 15 data fields
+
+## Key Features
+- **15 Data Fields** — Country, city, region, timezone, ISP, org, ASN, etc.
+- **VPN/Proxy Detection** — Identify VPN, proxy, and datacenter IPs
+- **Bulk Lookup** — Up to 20 IPs per request
+- **Own IP Detection** — GET `/me` for the caller's IP info
+- **24h Edge Cache** — Sub-50ms for repeated lookups
+
+## Pricing Comparison
+| Feature | This API | ipinfo.io | ipapi.com |
+|---------|----------|-----------|-----------|
+| Free tier | 500/mo | 50K/mo (no VPN) | 1K/mo |
+| VPN detection | All plans | $249/mo | $24/mo |
+| Bulk lookup | All plans | Business only | No |
+| Pro price | $5.99/mo | $99/mo | $24/mo |
+
+## Alternative To
+ipinfo.io ($99/mo for VPN), ipstack ($10/mo), ip-api.com (no HTTPS on free). VPN detection on free tier.
+```
+
+---
+
+## API #07: URL Shortener API
+
+### Title
+```
+Free URL Shortener API - Short Links with Click Analytics & Expiration
+```
+
+### Short Description
+```
+Free URL Shortener - Create short links with click analytics (referrer, device, geo), custom aliases, expiration.
+```
+
+### Tags
+```
+url shortener, link shortener, short url, click analytics, link tracking, url redirect, custom short link, bitly alternative, link management, free url shortener
 ```
 
 ### Long Description

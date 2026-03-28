@@ -1,0 +1,41 @@
+{
+  "slug": "freelance-takehome",
+  "category": "business",
+  "subcategory": "freelance",
+  "title": "フリーランス手取り計算",
+  "description": "フリーランス・個人事業主の年間売上から、税金・社会保険料を差し引いた手取り額を計算。青色申告65万円控除に対応。",
+  "metaTitle": "フリーランス手取り計算シミュレーション｜個人事業主の税金・手取りを計算【2026年版】",
+  "metaDescription": "フリーランスの年間売上から所得税・住民税・国保・年金を差し引いた手取り額を無料シミュレーション。青色申告控除対応。",
+  "calculatorFunction": "freelanceTakehome",
+  "inputs": [
+    { "id": "revenue", "label": "年間売上", "type": "number", "unit": "万円", "default": 600, "min": 100, "max": 10000, "step": 10 },
+    { "id": "expenses", "label": "年間経費", "type": "number", "unit": "万円", "default": 100, "min": 0, "max": 5000, "step": 10 },
+    { "id": "blueReturn", "label": "青色申告特別控除", "type": "select", "default": "65", "options": [
+      { "value": "0", "label": "白色申告（控除なし）" },
+      { "value": "10", "label": "青色申告10万円控除" },
+      { "value": "55", "label": "青色申告55万円控除" },
+      { "value": "65", "label": "青色申告65万円控除（e-Tax）" }
+    ]},
+    { "id": "dependents", "label": "扶養家族数", "type": "slider", "unit": "人", "default": 0, "min": 0, "max": 5, "step": 1 },
+    { "id": "city", "label": "居住地区分", "type": "select", "default": "urban", "options": [
+      { "value": "urban", "label": "都市部（国保料高め）" },
+      { "value": "rural", "label": "地方（国保料安め）" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "takeHome", "label": "年間手取り額", "format": "currency", "primary": true },
+    { "id": "monthlyTakeHome", "label": "月額手取り", "format": "currency" },
+    { "id": "incomeTax", "label": "所得税", "format": "currency" },
+    { "id": "residentTax", "label": "住民税", "format": "currency" },
+    { "id": "healthInsurance", "label": "国民健康保険料", "format": "currency" },
+    { "id": "pension", "label": "国民年金保険料", "format": "currency" }
+  ],
+  "explanation": "<h3>フリーランスの手取り計算</h3><p>手取り = 売上 − 経費 − 税金 − 社会保険料</p><h3>控除の種類</h3><p>青色申告65万円控除（e-Tax要）、基礎控除48万円、社会保険料控除、扶養控除（1人38万円）</p><h3>社会保険</h3><p>国民健康保険：所得に応じて（前年所得の約10〜15%）<br/>国民年金：月額16,980円（2026年度）</p>",
+  "faq": [
+    { "question": "会社員と比べてどれくらい手取りが減る？", "answer": "同じ年収でも社会保険料の負担が大きく、会社員より手取りが10〜20%少なくなるケースが多いです。" },
+    { "question": "経費にできるものは？", "answer": "事業に必要な支出は経費になります。家賃（按分）、通信費、交通費、備品、外注費、交際費などが一般的です。" }
+  ],
+  "related": ["income-tax", "consumption-tax"],
+  "popular": true,
+  "popularOrder": 7
+}
