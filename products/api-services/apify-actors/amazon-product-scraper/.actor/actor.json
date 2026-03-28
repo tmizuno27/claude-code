@@ -2,7 +2,7 @@
   "actorSpecification": 1,
   "name": "amazon-product-scraper",
   "title": "Amazon Product Scraper - Price & Review Data Extractor",
-  "description": "Free Jungle Scout & Helium 10 alternative. Scrape Amazon product details or search results: price, ratings, reviews, BSR, features, images, ASIN. Supports 15+ Amazon marketplaces (US, UK, DE, JP, etc.). Two modes: direct URL scraping and keyword search. Bulk processing, JSON/CSV export. No API keys, no browser extension. Pay-per-use from $0.01/product. Ideal for product research, price monitoring, competitor analysis, and market research.",
+  "description": "Scrape Amazon product data: price, ratings, reviews, BSR, images, ASIN. Supports 15+ marketplaces. URL scraping and keyword search modes. Bulk processing, JSON/CSV export. From $0.01/product. Ideal for product research and price monitoring.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",

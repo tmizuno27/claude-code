@@ -2,7 +2,7 @@
   "actorSpecification": 1,
   "name": "website-tech-detector",
   "title": "Website Tech Detector - BuiltWith & Wappalyzer Alt",
-  "description": "Detect 80+ technologies on any website: frameworks (React, Vue, Angular, Next.js, Nuxt), CMS (WordPress, Shopify, Wix), analytics (Google Analytics, Hotjar, Segment), CDN (Cloudflare, Fastly), payments (Stripe, PayPal), marketing (HubSpot, Intercom), hosting (Vercel, Netlify, AWS). Free BuiltWith & Wappalyzer alternative. Bulk URL processing, JSON/CSV export. No API keys. From $0.01/URL. Perfect for competitive analysis, sales prospecting, and market research.",
+  "description": "Detect 80+ technologies on any website: frameworks, CMS, analytics, CDN, payments, marketing, hosting. Bulk URL processing, JSON/CSV export. No API keys. From $0.01/URL. For competitive analysis and sales prospecting.",
   "version": "1.0",
   "buildTag": "latest",
   "input": "./input_schema.json",
