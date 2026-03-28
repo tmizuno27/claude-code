@@ -80,16 +80,16 @@
 
 ## デジタルプロダクト事業
 - **RapidAPI（24本・収益$0）**: [rapidapi-business.md](rapidapi-business.md) — 上位5本クロスセル実装済、Dev.to記事3本準備済
-- **Apify（6 Actor）**: [apify-business.md](apify-business.md) — 新Actor開発済、全Actor改善済、デプロイ待ち
+- **Apify（9 Actor全デプロイ完了）**: [apify-business.md](apify-business.md) — バグ修正・構造修正済
 - **Apify公開作業中断**: [apify-actor-pending.md](apify-actor-pending.md) — Actor jmtLVhG6qPqjc0b34
 - **Chrome拡張（2/11本公開、PP公開済）**: [chrome-extensions-business.md](chrome-extensions-business.md)
 - **VS Code拡張（10本SEO改善版パブリッシュ済）**: [vscode-extensions-business.md](vscode-extensions-business.md)
-- **Gumroad（13商品+新商品1出品待ち）**: [gumroad-listing-progress.md](gumroad-listing-progress.md) / [gumroad-notion-business.md](gumroad-notion-business.md)
+- **Gumroad（35商品・トークン保存済）**: [gumroad-listing-progress.md](gumroad-listing-progress.md) / [gumroad-notion-business.md](gumroad-notion-business.md)
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿
 
 ## SaaS・Webサービス
 - **WP Linker**: [wp-linker-project.md](wp-linker-project.md) — Free$0プラン新設、大幅改善デプロイ済み。Stripe KYCブロック中
-- **keisan-tools**: [keisan-tools-business.md](keisan-tools-business.md) — 441ツール、SEO大幅改善+PP公開デプロイ済み
+- **keisan-tools**: [keisan-tools-business.md](keisan-tools-business.md) — 463ツール（+15追加）、SEO大幅改善+PP公開デプロイ済み
 - **pSEO**: [pseo-site.md](pseo-site.md) — 5,056ページ、GSCサイトマップ送信完了
 
 ## その他事業
@@ -103,8 +103,15 @@
 - **Dev.to**: [devto-account.md](devto-account.md) — miccho27、効果測定: [devto-followup-todo.md](devto-followup-todo.md)
 - **GitHubリポジトリ**: PUBLIC — https://github.com/tmizuno27/claude-code
 
+## 自動化スクリプト（Playwright）
+- **RapidAPI自動更新**: `products/api-services/marketing/rapidapi_auto_update.py` — サイト復旧後に `--dry-run` → 本番実行
+- **Fiverr自動出品**: `research/freelance/fiverr_auto_publish.py` — Gig作成制限解除後に実行（セッション保存済み）
+
 ## 待機中タスク
 - **Stripe連携待ち**: [stripe-pending-tasks.md](stripe-pending-tasks.md) — 「Stripe連携できました」で即実行
+- **Fiverr Gig 3-5**: 作成制限解除待ち→自動スクリプトで出品
+- **RapidAPI更新**: provider.rapidapi.comダウン復旧待ち→自動スクリプトで更新
+- **Hash & Encode Tool PP**: Chrome Web Store審査完了待ち→URL: `https://homepage-three-ochre.vercel.app/privacy-policy-hash-encode-tool.html`
 
 ## PDCA実行記録
 - **2026-03-28 午後**: [pdca-2026-03-28-session2.md](pdca-2026-03-28-session2.md) — 22タスク自動+手動対応。全10 VS Code拡張パブリッシュ、Apify 9本デプロイ、city-cost-pseoデプロイ、Gumroad 2商品出品、Fiverr Gig2出品、Playwright自動化スクリプト2本作成
