@@ -1,7 +1,7 @@
 {
   "meta": {
-    "generated_at": "2026-03-21T20:22:05.998912",
-    "period": "2026-03-23 to 2026-04-19",
+    "generated_at": "2026-03-28T20:04:48.491712",
+    "period": "2026-03-30 to 2026-04-26",
     "articles_per_week": 3
   },
   "content_pillars": {
@@ -57,45 +57,54 @@
   "weekly_schedule": [
     {
       "week": 1,
-      "start_date": "2026-03-23",
-      "end_date": "2026-03-29",
+      "start_date": "2026-03-30",
+      "end_date": "2026-04-05",
       "articles": [
         {
-          "date": "2026-03-24",
+          "date": "2026-03-31",
           "day_name": "火",
-          "keyword": "海外在住 在宅ワーク 副業",
+          "keyword": "パラグアイ 永住権 費用",
           "article_type": "how-to",
           "article_type_label": "ハウツー",
-          "priority": 7,
+          "priority": 2,
           "status": "planned"
         },
         {
-          "date": "2026-03-26",
+          "date": "2026-04-02",
           "day_name": "木",
-          "keyword": "海外送金 手数料 比較 銀行",
+          "keyword": "パラグアイ 永住権 申請",
           "article_type": "comparison",
           "article_type_label": "比較",
-          "priority": 9,
+          "priority": 3,
+          "status": "planned"
+        },
+        {
+          "date": "2026-04-04",
+          "day_name": "土",
+          "keyword": "パラグアイ 日本人 移住",
+          "article_type": "listicle",
+          "article_type_label": "まとめ",
+          "priority": 5,
           "status": "planned"
         }
       ]
     },
     {
       "week": 2,
-      "start_date": "2026-03-30",
-      "end_date": "2026-04-05",
-      "articles": []
-    },
-    {
-      "week": 3,
       "start_date": "2026-04-06",
       "end_date": "2026-04-12",
       "articles": []
     },
     {
-      "week": 4,
+      "week": 3,
       "start_date": "2026-04-13",
       "end_date": "2026-04-19",
+      "articles": []
+    },
+    {
+      "week": 4,
+      "start_date": "2026-04-20",
+      "end_date": "2026-04-26",
       "articles": []
     }
   ],
