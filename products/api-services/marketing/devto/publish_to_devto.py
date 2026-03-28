@@ -13,8 +13,13 @@ Usage:
 import json
 import sys
 import argparse
+import io
 from pathlib import Path
 import requests
+
+# Fix Windows console encoding
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 SCRIPT_DIR = Path(__file__).parent
 MARKETING_DIR = SCRIPT_DIR.parent
