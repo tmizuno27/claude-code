@@ -6,9 +6,23 @@ WordPress Storage Cleanup Script
 """
 
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 import json
 import time
 from pathlib import Path
+
+
+def create_session():
+    """Create a requests session with retry logic."""
+    s = requests.Session()
+    retries = Retry(total=3, backoff_factor=2, status_forcelist=[500, 502, 503, 507])
+    s.mount("https://", HTTPAdapter(max_retries=retries))
+    return s
+
+
+SESSION = create_session()
+TIMEOUT = 120
 
 SITES = [
     {
@@ -40,11 +54,11 @@ def get_all_posts(site):
     for post_type in ["posts", "pages"]:
         page = 1
         while True:
-            resp = requests.get(
+            resp = SESSION.get(
                 f"{site['api']}/{post_type}",
                 auth=get_auth(site),
                 params={"per_page": 100, "page": page, "status": "publish,draft,private"},
-                timeout=30,
+                timeout=TIMEOUT,
             )
             if resp.status_code != 200:
                 break
@@ -65,7 +79,7 @@ def delete_old_revisions(site):
     for post_id, title, post_type in posts:
         # Get revisions for this post
         endpoint = f"{site['api']}/{post_type}/{post_id}/revisions"
-        resp = requests.get(endpoint, auth=get_auth(site), timeout=30)
+        resp = SESSION.get(endpoint, auth=get_auth(site), timeout=TIMEOUT)
         if resp.status_code != 200:
             continue
         revisions = resp.json()
@@ -78,17 +92,17 @@ def delete_old_revisions(site):
         print(f"  [{short_title}] {len(revisions)} revisions -> deleting {len(to_delete)}")
 
         for rev in to_delete:
-            del_resp = requests.delete(
+            del_resp = SESSION.delete(
                 f"{site['api']}/{post_type}/{post_id}/revisions/{rev['id']}",
                 auth=get_auth(site),
                 params={"force": True},
-                timeout=30,
+                timeout=TIMEOUT,
             )
             if del_resp.status_code == 200:
                 total_deleted += 1
             else:
                 print(f"    WARN: Failed to delete revision {rev['id']}: {del_resp.status_code}")
-            time.sleep(0.1)  # Rate limit
+            time.sleep(0.3)
 
     print(f"  -> Deleted {total_deleted} revisions")
     return total_deleted
@@ -100,11 +114,11 @@ def empty_trash(site):
     for post_type in ["posts", "pages"]:
         page = 1
         while True:
-            resp = requests.get(
+            resp = SESSION.get(
                 f"{site['api']}/{post_type}",
                 auth=get_auth(site),
                 params={"per_page": 100, "page": page, "status": "trash"},
-                timeout=30,
+                timeout=TIMEOUT,
             )
             if resp.status_code != 200:
                 break
@@ -113,18 +127,18 @@ def empty_trash(site):
                 break
 
             for item in items:
-                del_resp = requests.delete(
+                del_resp = SESSION.delete(
                     f"{site['api']}/{post_type}/{item['id']}",
                     auth=get_auth(site),
                     params={"force": True},
-                    timeout=30,
+                    timeout=TIMEOUT,
                 )
                 if del_resp.status_code == 200:
                     total_deleted += 1
                     print(f"  Trash deleted: {item['title']['rendered'][:40]}")
                 else:
                     print(f"  WARN: Failed to delete trash {item['id']}: {del_resp.status_code}")
-                time.sleep(0.1)
+                time.sleep(0.3)
             page += 1
 
     print(f"  -> Deleted {total_deleted} trashed items")
@@ -136,11 +150,11 @@ def delete_unattached_media(site):
     total_deleted = 0
     page = 1
     while True:
-        resp = requests.get(
+        resp = SESSION.get(
             f"{site['api']}/media",
             auth=get_auth(site),
             params={"per_page": 100, "page": page},
-            timeout=30,
+            timeout=TIMEOUT,
         )
         if resp.status_code != 200:
             break
@@ -150,17 +164,17 @@ def delete_unattached_media(site):
 
         for item in items:
             if item.get("post") is None or item.get("post") == 0:
-                del_resp = requests.delete(
+                del_resp = SESSION.delete(
                     f"{site['api']}/media/{item['id']}",
                     auth=get_auth(site),
                     params={"force": True},
-                    timeout=30,
+                    timeout=TIMEOUT,
                 )
                 if del_resp.status_code == 200:
                     total_deleted += 1
                 else:
                     print(f"  WARN: Failed to delete media {item['id']}: {del_resp.status_code}")
-                time.sleep(0.1)
+                time.sleep(0.3)
         page += 1
 
     print(f"  -> Deleted {total_deleted} unattached media items")
@@ -170,11 +184,11 @@ def delete_unattached_media(site):
 def test_api(site):
     """Test if the API is responsive (507 resolved)."""
     try:
-        resp = requests.get(
+        resp = SESSION.get(
             f"{site['api']}/posts",
             auth=get_auth(site),
             params={"per_page": 1},
-            timeout=30,
+            timeout=TIMEOUT,
         )
         print(f"  API test: HTTP {resp.status_code}")
         return resp.status_code == 200
