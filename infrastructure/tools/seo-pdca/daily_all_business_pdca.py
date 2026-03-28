@@ -1206,14 +1206,20 @@ def pdca_hatena_blog():
         try:
             with open(hatena_log, "r", encoding="utf-8") as f:
                 log_data = json.load(f)
-            if isinstance(log_data, list):
-                total_posts = len(log_data)
-                # 過去7日の投稿
-                week_ago = (NOW - timedelta(days=7)).strftime("%Y-%m-%d")
-                for entry in log_data:
-                    pub_date = entry.get("published_at", entry.get("date", ""))[:10]
-                    if pub_date >= week_ago:
-                        recent_posts.append(entry)
+            # Support both list format and dict format {"published": [...]}
+            if isinstance(log_data, dict):
+                entries = log_data.get("published", [])
+            elif isinstance(log_data, list):
+                entries = log_data
+            else:
+                entries = []
+            total_posts = len(entries)
+            # 過去7日の投稿
+            week_ago = (NOW - timedelta(days=7)).strftime("%Y-%m-%d")
+            for entry in entries:
+                pub_date = entry.get("published_at", entry.get("date", ""))[:10]
+                if pub_date >= week_ago:
+                    recent_posts.append(entry)
         except Exception as e:
             logger.log(f"  [hatena] ログ読み込みエラー: {e}")
 
