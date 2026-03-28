@@ -5525,6 +5525,494 @@ export function dataTransferTime(inputs: Record<string, number | string>): Recor
   return { transferTime: timeStr as unknown as number };
 }
 
+// ====== Batch 3: New calculators ======
+
+// Flat 35 Simulation
+export function flat35Simulation(inputs: Record<string, number | string>): Record<string, number> {
+  const price = (inputs.price as number) * 10000;
+  const downPayment = (inputs.downPayment as number) * 10000;
+  const borrowAmount = price - downPayment;
+  const years = inputs.years as number;
+  const baseRate = (inputs.rate as number) / 100;
+  const dansin = inputs.dansin as string;
+  const annualRate = dansin === 'yes' ? baseRate + 0.002 : baseRate;
+  const monthlyRate = annualRate / 12;
+  const totalMonths = years * 12;
+
+  let monthlyPayment: number;
+  if (monthlyRate === 0) {
+    monthlyPayment = borrowAmount / totalMonths;
+  } else {
+    monthlyPayment = borrowAmount * monthlyRate * Math.pow(1 + monthlyRate, totalMonths) / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+  }
+  const totalPayment = monthlyPayment * totalMonths;
+  const totalInterest = totalPayment - borrowAmount;
+
+  return {
+    monthlyPayment: Math.round(monthlyPayment),
+    totalPayment: Math.round(totalPayment),
+    totalInterest: Math.round(totalInterest),
+    borrowAmount: Math.round(borrowAmount),
+  };
+}
+
+// Retirement Tax
+export function retirementTax(inputs: Record<string, number | string>): Record<string, number> {
+  const retirementPay = (inputs.retirementPay as number) * 10000;
+  const yearsOfService = inputs.yearsOfService as number;
+  const isDisability = inputs.isDisability === 'yes';
+
+  let deduction: number;
+  if (yearsOfService <= 20) {
+    deduction = Math.max(400000 * yearsOfService, 800000);
+  } else {
+    deduction = 8000000 + 700000 * (yearsOfService - 20);
+  }
+  if (isDisability) deduction += 1000000;
+
+  const taxableRetirementIncome = Math.max(0, Math.floor((retirementPay - deduction) / 2));
+
+  // Income tax (using progressive brackets)
+  let incomeTaxAmount = 0;
+  if (taxableRetirementIncome <= 1950000) incomeTaxAmount = taxableRetirementIncome * 0.05;
+  else if (taxableRetirementIncome <= 3300000) incomeTaxAmount = taxableRetirementIncome * 0.10 - 97500;
+  else if (taxableRetirementIncome <= 6950000) incomeTaxAmount = taxableRetirementIncome * 0.20 - 427500;
+  else if (taxableRetirementIncome <= 9000000) incomeTaxAmount = taxableRetirementIncome * 0.23 - 636000;
+  else if (taxableRetirementIncome <= 18000000) incomeTaxAmount = taxableRetirementIncome * 0.33 - 1536000;
+  else if (taxableRetirementIncome <= 40000000) incomeTaxAmount = taxableRetirementIncome * 0.40 - 2796000;
+  else incomeTaxAmount = taxableRetirementIncome * 0.45 - 4796000;
+
+  const incomeTax = Math.round(incomeTaxAmount * 1.021); // Reconstruction tax
+  const residentTax = Math.round(taxableRetirementIncome * 0.10);
+  const takeHome = retirementPay - incomeTax - residentTax;
+
+  return {
+    takeHome: Math.round(takeHome),
+    incomeTax,
+    residentTax,
+    deduction: Math.round(deduction),
+  };
+}
+
+// Rule of 72
+export function ruleOf72(inputs: Record<string, number | string>): Record<string, number> {
+  const rate = inputs.rate as number;
+  const initialAmount = (inputs.initialAmount as number) * 10000;
+  const targetMultiple = inputs.targetMultiple as number;
+
+  const yearsToDouble = rate > 0 ? 72 / rate : 999;
+  const exactYears = rate > 0 ? Math.log(2) / Math.log(1 + rate / 100) : 999;
+  const yearsToTarget = rate > 0 ? Math.log(targetMultiple) / Math.log(1 + rate / 100) : 999;
+  const targetAmount = initialAmount * targetMultiple;
+
+  return {
+    yearsToDouble: Math.round(yearsToDouble * 10) / 10,
+    yearsToTarget: Math.round(yearsToTarget * 10) / 10,
+    targetAmount: Math.round(targetAmount),
+    exactYears: Math.round(exactYears * 100) / 100,
+  };
+}
+
+// Real Wage
+export function realWage(inputs: Record<string, number | string>): Record<string, number> {
+  const currentSalary = (inputs.currentSalary as number) * 10000;
+  const raiseRate = (inputs.raiseRate as number) / 100;
+  const inflationRate = (inputs.inflationRate as number) / 100;
+  const years = inputs.years as number;
+
+  const nominalWageAfter = currentSalary * Math.pow(1 + raiseRate, years);
+  const realWageAfter = nominalWageAfter / Math.pow(1 + inflationRate, years);
+  const purchasingPowerChange = ((realWageAfter / currentSalary) - 1) * 100;
+
+  let cumulativeLoss = 0;
+  for (let i = 1; i <= years; i++) {
+    const nominal = currentSalary * Math.pow(1 + raiseRate, i);
+    const real = nominal / Math.pow(1 + inflationRate, i);
+    cumulativeLoss += (nominal - real) * 12;
+  }
+
+  return {
+    realWageAfter: Math.round(realWageAfter),
+    nominalWageAfter: Math.round(nominalWageAfter),
+    purchasingPowerChange: Math.round(purchasingPowerChange * 10) / 10,
+    cumulativeLoss: Math.round(cumulativeLoss),
+  };
+}
+
+// Education Fund
+export function educationFund(inputs: Record<string, number | string>): Record<string, number> {
+  const childAge = inputs.childAge as number;
+  const targetAge = inputs.targetAge as number;
+  const course = inputs.course as string;
+  const currentSavings = (inputs.currentSavings as number) * 10000;
+  const rate = (inputs.rate as number) / 100;
+
+  const costMap: Record<string, number> = {
+    public_all: 8000000,
+    private_high_univ: 12000000,
+    private_univ: 10000000,
+    private_all: 23000000,
+    private_med: 35000000,
+  };
+
+  const totalCost = costMap[course] || 8000000;
+  const yearsUntilTarget = Math.max(1, targetAge - childAge);
+  const monthsUntilTarget = yearsUntilTarget * 12;
+
+  const futureCurrentSavings = currentSavings * Math.pow(1 + rate / 12, monthsUntilTarget);
+  const shortfall = Math.max(0, totalCost - futureCurrentSavings);
+
+  let monthlyRequired: number;
+  if (rate === 0 || shortfall === 0) {
+    monthlyRequired = shortfall / monthsUntilTarget;
+  } else {
+    const monthlyRate = rate / 12;
+    monthlyRequired = shortfall * monthlyRate / (Math.pow(1 + monthlyRate, monthsUntilTarget) - 1);
+  }
+
+  return {
+    monthlyRequired: Math.round(monthlyRequired),
+    totalCost: Math.round(totalCost),
+    shortfall: Math.round(shortfall),
+    yearsUntilTarget,
+  };
+}
+
+// PFC Balance
+export function pfcBalance(inputs: Record<string, number | string>): Record<string, number> {
+  const calories = inputs.calories as number;
+  const goal = inputs.goal as string;
+
+  let pRatio: number, fRatio: number, cRatio: number;
+  if (goal === 'diet') {
+    pRatio = 0.30; fRatio = 0.25; cRatio = 0.45;
+  } else if (goal === 'muscle') {
+    pRatio = 0.30; fRatio = 0.20; cRatio = 0.50;
+  } else {
+    pRatio = 0.20; fRatio = 0.25; cRatio = 0.55;
+  }
+
+  const proteinCalories = Math.round(calories * pRatio);
+  const fatCalories = Math.round(calories * fRatio);
+  const carbsCalories = Math.round(calories * cRatio);
+
+  return {
+    protein: Math.round(proteinCalories / 4),
+    fat: Math.round(fatCalories / 9),
+    carbs: Math.round(carbsCalories / 4),
+    proteinCalories,
+    fatCalories,
+    carbsCalories,
+  };
+}
+
+// Body Age
+export function bodyAge(inputs: Record<string, number | string>): Record<string, number> {
+  const age = inputs.age as number;
+  const gender = inputs.gender as string;
+  const height = inputs.height as number;
+  const weight = inputs.weight as number;
+  const bodyFatPercent = (inputs.bodyFatPercent as number) / 100;
+
+  // Katch-McArdle formula: BMR = 370 + 21.6 * lean body mass
+  const leanBodyMass = weight * (1 - bodyFatPercent);
+  const bmr = 370 + 21.6 * leanBodyMass;
+
+  // Average BMR by age (approximate) - per year of age
+  // Male average BMR peaks around 18 and decreases ~10 kcal/year
+  // Female average BMR peaks around 18 and decreases ~7 kcal/year
+  const baseBmr = gender === 'male' ? 1680 : 1370;
+  const declinePerYear = gender === 'male' ? 10 : 7;
+  const averageBmr = baseBmr - declinePerYear * (age - 18);
+
+  // Body age estimation: find the age where average BMR matches actual BMR
+  const bodyAgeResult = 18 + (baseBmr - bmr) / declinePerYear;
+  const clampedBodyAge = Math.max(18, Math.min(80, Math.round(bodyAgeResult)));
+
+  return {
+    bodyAge: clampedBodyAge,
+    ageDifference: clampedBodyAge - age,
+    bmr: Math.round(bmr),
+    averageBmr: Math.round(averageBmr),
+  };
+}
+
+// Vitamin Intake
+export function vitaminIntake(inputs: Record<string, number | string>): Record<string, number> {
+  const age = inputs.age as number;
+  const gender = inputs.gender as string;
+  const pregnant = inputs.pregnant as string;
+  const activity = inputs.activity as string;
+
+  const isMale = gender === 'male';
+
+  // Base values (adult 30-49, based on Japanese dietary reference intakes)
+  let vitA = isMale ? 900 : 700; // μgRAE
+  let vitB1 = isMale ? 1.4 : 1.1; // mg
+  let vitB2 = isMale ? 1.6 : 1.2; // mg
+  let vitC = 100; // mg
+  let vitD = 8.5; // μg
+  let vitE = isMale ? 6.0 : 5.0; // mg
+
+  // Age adjustments
+  if (age < 18) {
+    vitA = Math.round(vitA * 0.8);
+    vitB1 *= 0.85; vitB2 *= 0.85;
+    vitC = 80;
+  } else if (age >= 70) {
+    vitA = Math.round(vitA * 0.9);
+    vitD = 10;
+  }
+
+  // Pregnancy/lactation
+  if (pregnant === 'pregnant') {
+    vitA += 80; vitB1 += 0.2; vitB2 += 0.3; vitC += 10; vitD += 1;
+  } else if (pregnant === 'lactating') {
+    vitA += 450; vitB1 += 0.2; vitB2 += 0.6; vitC += 45; vitD += 1;
+  }
+
+  // Activity level
+  if (activity === 'high') {
+    vitB1 *= 1.2; vitB2 *= 1.1; vitC += 20;
+  }
+
+  return {
+    vitaminA: Math.round(vitA),
+    vitaminB1: Math.round(vitB1 * 100) / 100,
+    vitaminB2: Math.round(vitB2 * 100) / 100,
+    vitaminC: Math.round(vitC),
+    vitaminD: Math.round(vitD * 10) / 10,
+    vitaminE: Math.round(vitE * 10) / 10,
+  };
+}
+
+// Car Annual Cost
+export function carAnnualCost(inputs: Record<string, number | string>): Record<string, number> {
+  const carType = inputs.carType as string;
+  const monthlyKm = inputs.monthlyKm as number;
+  const fuelEfficiency = inputs.fuelEfficiency as number;
+  const fuelPrice = inputs.fuelPrice as number;
+  const parkingCost = inputs.parkingCost as number;
+  const insuranceCost = inputs.insuranceCost as number;
+
+  // Annual automobile tax by car type
+  const taxMap: Record<string, number> = {
+    kei: 10800,
+    compact: 30500,
+    sedan: 36000,
+    large: 43500,
+  };
+
+  // Vehicle inspection cost (per 2 years, annualized)
+  const inspectionMap: Record<string, number> = {
+    kei: 50000,
+    compact: 80000,
+    sedan: 100000,
+    large: 120000,
+  };
+
+  const taxAnnual = taxMap[carType] || 30500;
+  const inspectionAnnual = Math.round((inspectionMap[carType] || 80000) / 2);
+  const fuelAnnual = Math.round((monthlyKm * 12 / fuelEfficiency) * fuelPrice);
+  const parkingAnnual = parkingCost * 12;
+  // Compulsory insurance ~12,000/year for kei, ~13,000 for others
+  const compulsoryInsurance = carType === 'kei' ? 12000 : 13000;
+
+  const totalAnnual = taxAnnual + inspectionAnnual + fuelAnnual + parkingAnnual + insuranceCost + compulsoryInsurance;
+
+  return {
+    totalAnnual,
+    monthlyAvg: Math.round(totalAnnual / 12),
+    fuelAnnual,
+    taxAnnual,
+    inspectionAnnual,
+  };
+}
+
+// Point Reward Compare
+export function pointRewardCompare(inputs: Record<string, number | string>): Record<string, number | string> {
+  const monthlySpend = inputs.monthlySpend as number;
+  const rateA = (inputs.rateA as number) / 100;
+  const rateB = (inputs.rateB as number) / 100;
+  const rateC = (inputs.rateC as number) / 100;
+  const feeA = inputs.annualFeeA as number;
+  const feeB = inputs.annualFeeB as number;
+  const feeC = inputs.annualFeeC as number;
+
+  const annualSpend = monthlySpend * 12;
+  const netA = Math.round(annualSpend * rateA - feeA);
+  const netB = Math.round(annualSpend * rateB - feeB);
+  const netC = Math.round(annualSpend * rateC - feeC);
+
+  let best = 'A';
+  if (netB >= netA && netB >= netC) best = 'B';
+  if (netC >= netA && netC >= netB) best = 'C';
+
+  return {
+    bestOption: `決済${best}` as unknown as number,
+    netBenefitA: netA,
+    netBenefitB: netB,
+    netBenefitC: netC,
+  };
+}
+
+// Freelance Takehome
+export function freelanceTakehome(inputs: Record<string, number | string>): Record<string, number> {
+  const revenue = (inputs.revenue as number) * 10000;
+  const expenses = (inputs.expenses as number) * 10000;
+  const blueReturn = (Number(inputs.blueReturn) || 0) * 10000;
+  const dependents = inputs.dependents as number;
+  const city = inputs.city as string;
+
+  const income = revenue - expenses;
+  const basicDeduction = 480000;
+  const dependentDeduction = dependents * 380000;
+  const pensionAnnual = 16980 * 12; // 2026 rate
+  const healthInsuranceRate = city === 'urban' ? 0.12 : 0.09;
+  const healthInsurance = Math.round(Math.max(0, income - blueReturn - basicDeduction) * healthInsuranceRate);
+  const socialInsurance = pensionAnnual + healthInsurance;
+
+  const taxableIncome = Math.max(0, income - blueReturn - basicDeduction - dependentDeduction - socialInsurance);
+
+  let tax = 0;
+  if (taxableIncome <= 1950000) tax = taxableIncome * 0.05;
+  else if (taxableIncome <= 3300000) tax = taxableIncome * 0.10 - 97500;
+  else if (taxableIncome <= 6950000) tax = taxableIncome * 0.20 - 427500;
+  else if (taxableIncome <= 9000000) tax = taxableIncome * 0.23 - 636000;
+  else if (taxableIncome <= 18000000) tax = taxableIncome * 0.33 - 1536000;
+  else if (taxableIncome <= 40000000) tax = taxableIncome * 0.40 - 2796000;
+  else tax = taxableIncome * 0.45 - 4796000;
+
+  const incomeTax = Math.round(tax * 1.021);
+  const residentTax = Math.round(taxableIncome * 0.10);
+  const takeHome = revenue - expenses - incomeTax - residentTax - socialInsurance;
+
+  return {
+    takeHome: Math.round(takeHome),
+    monthlyTakeHome: Math.round(takeHome / 12),
+    incomeTax,
+    residentTax,
+    healthInsurance: Math.round(healthInsurance),
+    pension: Math.round(pensionAnnual),
+  };
+}
+
+// Rent Affordability
+export function rentAffordability(inputs: Record<string, number | string>): Record<string, number> {
+  const monthlyIncome = (inputs.monthlyIncome as number) * 10000;
+  const savings = (inputs.savings as number) * 10000;
+  const livingCost = (inputs.livingCost as number) * 10000;
+  const household = inputs.household as string;
+
+  const ratioMap: Record<string, number> = {
+    single: 0.28,
+    couple: 0.26,
+    family: 0.23,
+  };
+  const targetRatio = ratioMap[household] || 0.28;
+
+  const maxRent = Math.round(monthlyIncome * 0.30);
+  const availableForRent = Math.max(0, monthlyIncome - savings - livingCost);
+  const recommendedRent = Math.min(Math.round(monthlyIncome * targetRatio), availableForRent);
+  const rentRatio = monthlyIncome > 0 ? Math.round((recommendedRent / monthlyIncome) * 1000) / 10 : 0;
+
+  return {
+    recommendedRent,
+    maxRent,
+    rentRatio,
+    remainingAfterRent: monthlyIncome - recommendedRent,
+  };
+}
+
+// Net Worth
+export function netWorth(inputs: Record<string, number | string>): Record<string, number> {
+  const cashSavings = (inputs.cashSavings as number) * 10000;
+  const investments = (inputs.investments as number) * 10000;
+  const realEstate = (inputs.realEstate as number) * 10000;
+  const otherAssets = (inputs.otherAssets as number) * 10000;
+  const mortgageLoan = (inputs.mortgageLoan as number) * 10000;
+  const otherLoans = (inputs.otherLoans as number) * 10000;
+
+  const totalAssets = cashSavings + investments + realEstate + otherAssets;
+  const totalLiabilities = mortgageLoan + otherLoans;
+  const netWorthValue = totalAssets - totalLiabilities;
+  const debtRatio = totalAssets > 0 ? Math.round((totalLiabilities / totalAssets) * 1000) / 10 : 0;
+
+  return {
+    netWorth: Math.round(netWorthValue),
+    totalAssets: Math.round(totalAssets),
+    totalLiabilities: Math.round(totalLiabilities),
+    debtRatio,
+  };
+}
+
+// Child Allowance
+export function childAllowance(inputs: Record<string, number | string>): Record<string, number> {
+  const c0to2 = inputs.children0to2 as number;
+  const c3to11 = inputs.children3to11 as number;
+  const c12to17 = inputs.children12to17 as number;
+  const totalChildren = inputs.totalChildren as number;
+
+  // 3rd child and beyond get 30,000/month regardless of age
+  // Count from oldest: if totalChildren >= 3, the 3rd+ get 30,000
+  const thirdChildOnward = Math.max(0, totalChildren - 2);
+  const normalChildren = Math.max(0, c0to2 + c3to11 + c12to17 - thirdChildOnward);
+
+  // Calculate normal rate children
+  let normalMonthly = 0;
+  let remaining0to2 = c0to2;
+  let remaining3to17 = c3to11 + c12to17;
+
+  if (thirdChildOnward > 0) {
+    // Deduct 3rd+ children from youngest first
+    const thirdFromOlder = Math.min(thirdChildOnward, c12to17 + c3to11 + c0to2);
+    const normalCount = c0to2 + c3to11 + c12to17 - thirdFromOlder;
+    remaining0to2 = Math.min(c0to2, normalCount);
+    remaining3to17 = Math.max(0, normalCount - remaining0to2);
+  }
+
+  normalMonthly = remaining0to2 * 15000 + remaining3to17 * 10000;
+  const thirdChildMonthly = thirdChildOnward * 30000;
+  const monthlyTotal = normalMonthly + thirdChildMonthly;
+  const annualTotal = monthlyTotal * 12;
+
+  // Rough estimate of total until 18 (average across current ages)
+  const avgYearsRemaining = Math.max(1, 10); // simplified
+  const totalUntil18 = annualTotal * avgYearsRemaining;
+
+  return {
+    monthlyTotal,
+    annualTotal,
+    totalUntil18,
+  };
+}
+
+// Pension Split
+export function pensionSplit(inputs: Record<string, number | string>): Record<string, number> {
+  const spouseAPension = (inputs.spouseAPension as number) * 10000;
+  const spouseBPension = (inputs.spouseBPension as number) * 10000;
+  const splitRatio = (inputs.splitRatio as number) / 100;
+  const splitType = inputs.splitType as string;
+
+  // For type 3, split ratio is always 50%
+  const effectiveRatio = splitType === 'type3' ? 0.5 : splitRatio;
+
+  // The difference in pension is split
+  const difference = spouseAPension - spouseBPension;
+  const transferAmount = Math.max(0, Math.round(difference * effectiveRatio));
+
+  const spouseAAfter = spouseAPension - transferAmount;
+  const spouseBAfter = spouseBPension + transferAmount;
+  const annualDifference = transferAmount * 12;
+
+  return {
+    spouseAAfter,
+    spouseBAfter,
+    transferAmount,
+    annualDifference,
+  };
+}
+
 // Calculator function registry
 const calculatorFunctions: Record<string, (inputs: Record<string, number | string>) => Record<string, number | string>> = {
   adRoas,
