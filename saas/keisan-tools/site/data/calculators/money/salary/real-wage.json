@@ -1,0 +1,29 @@
+{
+  "slug": "real-wage",
+  "category": "money",
+  "subcategory": "salary",
+  "title": "実質賃金計算",
+  "description": "名目賃金とインフレ率から実質的な購買力（実質賃金）を計算。昇給率とインフレ率の比較で実質的な給与変動がわかります。",
+  "metaTitle": "実質賃金計算ツール｜インフレ考慮の手取り購買力を計算",
+  "metaDescription": "名目賃金とインフレ率から実質賃金・購買力の変化を無料計算。昇給がインフレに追いついているか一目でわかります。",
+  "calculatorFunction": "realWage",
+  "inputs": [
+    { "id": "currentSalary", "label": "現在の月収", "type": "number", "unit": "万円", "default": 30, "min": 10, "max": 500, "step": 1 },
+    { "id": "raiseRate", "label": "昇給率", "type": "slider", "unit": "%", "default": 2, "min": 0, "max": 20, "step": 0.1 },
+    { "id": "inflationRate", "label": "インフレ率", "type": "slider", "unit": "%", "default": 3, "min": 0, "max": 20, "step": 0.1 },
+    { "id": "years", "label": "計算期間", "type": "slider", "unit": "年", "default": 5, "min": 1, "max": 30, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "realWageAfter", "label": "実質月収（期間後）", "format": "currency", "primary": true },
+    { "id": "nominalWageAfter", "label": "名目月収（期間後）", "format": "currency" },
+    { "id": "purchasingPowerChange", "label": "購買力変動率", "format": "percent" },
+    { "id": "cumulativeLoss", "label": "累積購買力損失", "format": "currency" }
+  ],
+  "explanation": "<h3>実質賃金とは</h3><p>物価変動を考慮した実際の購買力を示す指標です。名目賃金が上がっても、それ以上にインフレが進めば実質的な生活水準は下がります。</p><h3>計算式</h3><p>実質賃金 = 名目賃金 ÷ (1 + インフレ率)^年数</p>",
+  "faq": [
+    { "question": "日本のインフレ率は？", "answer": "2024〜2025年は約2〜3%で推移しています。過去30年はほぼ0%でしたが、近年は上昇傾向です。" },
+    { "question": "昇給率の平均は？", "answer": "大企業で約2.5〜3%、中小企業で約1.5〜2%が日本の平均的な昇給率です。" }
+  ],
+  "related": ["hourly-wage", "income-tax", "take-home-pay"],
+  "popular": false
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "flat35-simulation",
+  "category": "money",
+  "subcategory": "loan",
+  "title": "フラット35シミュレーション",
+  "description": "フラット35（全期間固定金利）の毎月返済額・総返済額・団信込み比較をシミュレーション。頭金の有無による金利差も反映。",
+  "metaTitle": "フラット35シミュレーション｜毎月の返済額を無料計算【2026年最新金利対応】",
+  "metaDescription": "フラット35の毎月返済額・総返済額を無料シミュレーション。頭金10%以上で金利優遇、団信ありなしの比較も。2026年最新金利対応。",
+  "calculatorFunction": "flat35Simulation",
+  "inputs": [
+    { "id": "price", "label": "物件価格", "type": "number", "unit": "万円", "default": 4000, "min": 500, "max": 30000, "step": 100 },
+    { "id": "downPayment", "label": "頭金", "type": "number", "unit": "万円", "default": 400, "min": 0, "max": 20000, "step": 50 },
+    { "id": "years", "label": "返済期間", "type": "slider", "unit": "年", "default": 35, "min": 15, "max": 35, "step": 1 },
+    { "id": "rate", "label": "適用金利（年利）", "type": "slider", "unit": "%", "default": 1.84, "min": 0.5, "max": 3.0, "step": 0.01 },
+    { "id": "dansin", "label": "団信加入", "type": "select", "default": "yes", "options": [
+      { "value": "yes", "label": "加入（金利+0.2%）" },
+      { "value": "no", "label": "加入しない" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "monthlyPayment", "label": "毎月の返済額", "format": "currency", "primary": true },
+    { "id": "totalPayment", "label": "総返済額", "format": "currency" },
+    { "id": "totalInterest", "label": "利息総額", "format": "currency" },
+    { "id": "borrowAmount", "label": "借入額", "format": "currency" }
+  ],
+  "explanation": "<h3>フラット35とは</h3><p>住宅金融支援機構と民間金融機関が提携して提供する、全期間固定金利型の住宅ローンです。最長35年間金利が変わらないため、返済計画が立てやすいのが特徴です。</p><h3>頭金による金利優遇</h3><p>物件価格の10%以上を頭金として用意すると「フラット35S」の適用で金利優遇を受けられます。</p><h3>団体信用生命保険（団信）</h3><p>加入する場合、金利に約0.2%上乗せとなります。加入しない場合は万が一に備えた生命保険の準備が必要です。</p>",
+  "faq": [
+    { "question": "フラット35の審査基準は？", "answer": "年収400万円未満は返済負担率30%以下、400万円以上は35%以下が基準です。前年度の年収で判断されます。" },
+    { "question": "変動金利とどちらがお得？", "answer": "金利上昇局面ではフラット35の方が安心です。ただし変動金利より初期金利は高めです。ライフプランに合わせて選択しましょう。" },
+    { "question": "繰上返済の手数料は？", "answer": "フラット35は繰上返済手数料が無料です。インターネットなら10万円から、窓口なら100万円から可能です。" }
+  ],
+  "related": ["housing-loan", "mortgage-affordability", "rent-affordability"],
+  "popular": true,
+  "popularOrder": 5
+}

@@ -1,83 +1,74 @@
 # Apify Actor デプロイガイド（9 Actor）
 
-## 現状
+## Actor一覧と価格設定
 
-9個のActorが開発済み。メモリによると6本公開済み、残りデプロイ待ち。
+| # | Actor | 推奨価格 | 競合比較 | ターゲット |
+|---|-------|---------|---------|-----------|
+| 1 | Amazon Product Scraper | $3.00 / 1,000 results | Jungle Scout $49/mo | ECセラー、リサーチャー |
+| 2 | Company Data Enricher | $5.00 / 1,000 results | Clearbit $99/mo | B2Bセールス、マーケター |
+| 3 | Email Finder | $4.00 / 1,000 results | Hunter.io $49/mo | リード獲得、営業 |
+| 4 | Google Maps Scraper | $3.00 / 1,000 results | Outscraper $0.002/rec | ローカルSEO、営業 |
+| 5 | Keyword Research | $3.00 / 1,000 results | Ahrefs $99/mo | SEO担当、ブロガー |
+| 6 | SEO Analyzer | $3.00 / 1,000 results | Screaming Frog $259/yr | Web開発者、SEO担当 |
+| 7 | Social Video Downloader | $2.00 / 1,000 results | yt-dlp(無料) | コンテンツクリエイター |
+| 8 | Trends Aggregator | $2.00 / 1,000 results | BuzzSumo $99/mo | マーケター、ライター |
+| 9 | Website Tech Detector | $3.00 / 1,000 results | BuiltWith $295/mo | セールス、競合分析 |
 
-## Actor一覧
+### 価格設定の根拠
+- **高付加価値（$5.00）**: Company Data Enricher — B2Bデータは商用価値が高い
+- **中付加価値（$3-4.00）**: Amazon, Email, Maps, Keyword, SEO, Tech — 明確な競合代替
+- **低価格（$2.00）**: Social Video, Trends — 無料代替が多い分野、低価格で回転率狙い
 
-| # | Actor | ディレクトリ | 状態 |
-|---|-------|-------------|------|
-| 1 | Amazon Product Scraper | `amazon-product-scraper/` | 要確認 |
-| 2 | Company Data Enricher | `company-data-enricher/` | 要確認 |
-| 3 | Email Finder | `email-finder/` | 要確認 |
-| 4 | Google Maps Scraper | `google-maps-scraper/` | 要確認 |
-| 5 | Keyword Research | `keyword-research/` | 要確認 |
-| 6 | SEO Analyzer | `seo-analyzer/` | 要確認 |
-| 7 | Social Video Downloader | `social-video-downloader/` | 要確認 |
-| 8 | Trends Aggregator | `trends-aggregator/` | 要確認 |
-| 9 | Website Tech Detector | `website-tech-detector/` | 要確認 |
+## デプロイ手順
 
-## デプロイ手順（各Actor共通）
+### 1. 前提条件
 
-### 前提
 ```bash
+# Apify CLI インストール
 npm install -g apify-cli
-apify login  # APIトークンでログイン
+
+# ログイン（APIトークン: Apify Console → Settings → Integrations）
+apify login
 ```
 
-### デプロイ
+### 2. 一括デプロイ
+
 ```bash
-cd products/api-services/apify-actors/[actor-name]
+cd "C:/Users/tmizu/マイドライブ/GitHub/claude-code/products/api-services/apify-actors"
+
+# ドライラン（実際にはデプロイしない）
+bash deploy-all.sh --dry-run
+
+# 本番デプロイ
+bash deploy-all.sh
+```
+
+### 3. 個別デプロイ
+
+```bash
+cd "C:/Users/tmizu/マイドライブ/GitHub/claude-code/products/api-services/apify-actors/[actor-name]"
 apify push
 ```
 
-### 確認
-```
-https://console.apify.com/actors
-```
+### 4. デプロイ後の確認
 
-## 一括デプロイスクリプト
+1. https://console.apify.com/actors で各Actorを確認
+2. 各ActorのPublicationタブでREADMEが反映されているか確認
+3. テスト実行（各ActorのInput画面からprefillデータで実行）
+4. Pricing設定を上記表の価格に合わせる
 
-```bash
-#!/bin/bash
-ACTORS_DIR="C:/Users/tmizu/マイドライブ/GitHub/claude-code/products/api-services/apify-actors"
+## 公開設定チェックリスト
 
-for actor_dir in "$ACTORS_DIR"/*/; do
-    actor_name=$(basename "$actor_dir")
-    echo "=== Deploying: $actor_name ==="
-    cd "$actor_dir"
-    if [ -f "package.json" ] || [ -f "requirements.txt" ]; then
-        apify push 2>&1
-        echo "  Result: $?"
-    else
-        echo "  SKIP: No package.json or requirements.txt"
-    fi
-    echo
-done
-```
+各Actorについて以下をApify Consoleで確認:
+- [ ] Actor名とタイトルが正しい
+- [ ] READMEが表示されている
+- [ ] Input Schemaのprefill値でテスト実行成功
+- [ ] Pricing設定済み
+- [ ] カテゴリ/タグ設定済み
+- [ ] SEO: title/descriptionに競合名（代替ツール名）が含まれている
 
-## 各Actorの改善ポイント
+## 中断中の作業
 
-### 共通
-- README.md に具体的なユースケースと出力例を追加
-- INPUT_SCHEMA.json にデフォルト値を設定（初回実行のハードルを下げる）
-- SEOキーワードをtitleとdescriptionに含める
-
-### 個別
-1. **Amazon Product Scraper** — 「free amazon scraper」「product data extraction」をタイトルに
-2. **Company Data Enricher** — 「lead enrichment」「B2B data」をキーワードに
-3. **Email Finder** — 「find email from domain」「hunter.io alternative」で差別化
-4. **Google Maps Scraper** — 最も需要が高い。「google maps data」「local business scraper」
-5. **Keyword Research** — 「free keyword tool」「SEO keyword analysis」
-6. **SEO Analyzer** — 「free SEO audit」「website analyzer」
-7. **Social Video Downloader** — 「download tiktok」「instagram video」需要大
-8. **Trends Aggregator** — 「google trends api」「trend monitoring」
-9. **Website Tech Detector** — 「technology stack checker」「wappalyzer alternative」
-
-## 手動アクション
-
-1. `apify login` でトークン認証
-2. 上記一括デプロイスクリプトを実行
-3. Apifyコンソールで各Actorの公開設定を確認
-4. READMEを改善後、再度 `apify push`
+- **Actor ID**: jmtLVhG6qPqjc0b34
+- **URL**: https://console.apify.com/actors/jmtLVhG6qPqjc0b34/publication
+- **状態**: Publication設定が途中で中断中（2026-03-16）

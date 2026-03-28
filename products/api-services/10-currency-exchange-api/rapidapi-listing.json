@@ -1,6 +1,6 @@
 {
-  "name": "Currency Exchange Rate API",
-  "description": "Free Currency Exchange API - 30+ Currencies, ECB Rates | Fixer Alt",
+  "name": "Free Currency Exchange API - Real-Time FX Rates, Conversion, Historical | ECB Data",
+  "description": "Free FX Rates API - 30+ currencies, real-time conversion, historical (1999~). ECB official data. Any base free.",
   "category": "Finance",
   "tags": [
     "currency",

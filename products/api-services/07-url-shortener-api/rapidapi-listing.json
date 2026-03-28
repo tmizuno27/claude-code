@@ -1,6 +1,6 @@
 {
-  "name": "URL Shortener API",
-  "description": "Free URL Shortener API - Click Analytics, Custom Aliases | Bitly Alt",
+  "name": "Free URL Shortener API - Short Links with Click Analytics & Expiration",
+  "description": "Free URL Shortener - Create short links with click analytics (referrer, device, geo), custom aliases, expiration.",
   "category": "Tools",
   "tags": [
     "url-shortener",

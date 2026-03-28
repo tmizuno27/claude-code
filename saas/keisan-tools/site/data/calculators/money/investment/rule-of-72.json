@@ -1,0 +1,29 @@
+{
+  "slug": "rule-of-72",
+  "category": "money",
+  "subcategory": "investment",
+  "title": "72の法則（資産倍増年数計算）",
+  "description": "72の法則で複利運用した場合に資産が2倍になるまでの年数を計算。目標金額への到達年数も算出。",
+  "metaTitle": "72の法則計算ツール｜資産が2倍になる年数を瞬時に計算",
+  "metaDescription": "72の法則で複利運用時に資産が2倍になる年数を無料計算。利回り別の比較や目標金額への到達年数も。",
+  "calculatorFunction": "ruleOf72",
+  "inputs": [
+    { "id": "rate", "label": "年間利回り", "type": "slider", "unit": "%", "default": 5, "min": 0.1, "max": 30, "step": 0.1 },
+    { "id": "initialAmount", "label": "初期投資額", "type": "number", "unit": "万円", "default": 100, "min": 1, "max": 100000, "step": 1 },
+    { "id": "targetMultiple", "label": "目標倍率", "type": "slider", "unit": "倍", "default": 2, "min": 2, "max": 10, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "yearsToDouble", "label": "2倍になる年数", "format": "decimal1", "primary": true },
+    { "id": "yearsToTarget", "label": "目標倍率到達年数", "format": "decimal1" },
+    { "id": "targetAmount", "label": "目標金額", "format": "currency" },
+    { "id": "exactYears", "label": "正確な2倍到達年数", "format": "decimal2" }
+  ],
+  "explanation": "<h3>72の法則とは</h3><p>「72 ÷ 年利（%）＝ 資産が2倍になるまでの年数」という投資の法則です。暗算でも大まかな目安がわかる便利な公式です。</p><h3>例</h3><p>年利3%の場合：72 ÷ 3 = 24年で2倍<br/>年利7%の場合：72 ÷ 7 ≒ 10.3年で2倍</p><h3>正確な計算</h3><p>正確には ln(2) / ln(1 + r) で算出します。72の法則は近似値ですが、利回り6〜10%の範囲で特に精度が高いです。</p>",
+  "faq": [
+    { "question": "72の法則はなぜ72なの？", "answer": "ln(2) ≒ 0.693 と複利計算の近似から導かれた数字です。72は2,3,4,6,8,9,12で割り切れるため暗算に便利です。" },
+    { "question": "インフレも考慮すべき？", "answer": "はい。実質利回り＝名目利回り−インフレ率で計算すると、実質的な購買力が2倍になる年数がわかります。" }
+  ],
+  "related": ["compound-interest", "investment-return", "sp500-simulation"],
+  "popular": true,
+  "popularOrder": 10
+}

@@ -1,7 +1,7 @@
 {
-  "name": "Weather API",
+  "name": "Free Weather API - Forecast, Current, Historical | Open-Meteo Powered",
   "slug": "weather-api",
-  "description": "Free Weather API - Forecast, Hourly, Historical | OpenWeatherMap Alt",
+  "description": "Free Weather API - Current conditions, 48h hourly + 7d daily forecast, historical data. Open-Meteo (ECMWF/NOAA).",
   "long_description": "## Why Weather API?\n- ✅ Current weather + daily forecast (16 days) + hourly forecast\n- ✅ Geocoding included — search by city name, not just coordinates\n- ✅ Historical weather data for trend analysis\n\n## Key Features\n- Current weather conditions (temperature, humidity, wind, etc.)\n- Daily forecast up to 16 days\n- Hourly forecast\n- Geocoding (city name to coordinates)\n- Historical weather data\n- Multiple units (metric/imperial)\n\n## Use Cases\n- **Travel Apps**: Weather forecasts for trip planning\n- **Agriculture**: Historical weather data for crop planning\n- **Event Planning**: Weather predictions for outdoor events\n- **IoT Dashboards**: Real-time weather monitoring\n\n## Quick Start\n```\nGET /current?city=Tokyo&units=metric\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $9.99 | 50,000 | 10/sec |\n| Ultra | $29.99 | 500,000 | 50/sec |\n\nFree tier includes current weather and 3-day forecast. No credit card required.\n\n## Alternative To\nA free **weather API alternative** to OpenWeatherMap, WeatherAPI, and AccuWeather. Powered by Open-Meteo with no API key required.\n\n## Need More Requests?\nFree plan (500 queries/month) for personal apps. **Pro ($5.99/mo)** for weather dashboards and IoT with 50,000 requests.",
   "category": "Weather",
   "tags": [

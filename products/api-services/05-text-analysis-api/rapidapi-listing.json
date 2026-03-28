@@ -1,7 +1,7 @@
 {
-  "name": "Text Analysis / NLP API",
+  "name": "Free Text Analysis API - Sentiment, Keywords, Readability | NLP No AI Key",
   "tagline": "Analyze text with sentiment, keywords, readability, language detection & summarization - no AI API keys needed",
-  "description": "Free NLP API - Sentiment, Keywords, Readability, 6-in-1 | MonkeyLearn Alt",
+  "description": "Free NLP API - Sentiment analysis, keyword extraction, readability score, language detection. No AI key needed.",
   "category": "Text Analysis",
   "tags": [
     "nlp",

@@ -1,7 +1,7 @@
 {
-  "name": "Email Validation API",
+  "name": "Free Email Validation API - MX Lookup, Disposable Detection, Bulk Verify",
   "tagline": "Validate 50K emails for $9.99 flat — ZeroBounce charges $400 for the same volume",
-  "description": "Email validation API: MX check, 500+ disposable blocklist, typo fix. $9.99/50K flat vs ZeroBounce $400. Free 500/mo.",
+  "description": "Free Email Validator - MX check, disposable detection (500+ domains), typo fix, bulk. Save $390/mo vs ZeroBounce.",
   "category": "Data",
   "tags": [
     "email-validation",
@@ -75,7 +75,9 @@
       "method": "POST",
       "path": "/validate/bulk",
       "body": {
-        "emails": ["user@example.com"]
+        "emails": [
+          "user@example.com"
+        ]
       }
     }
   ],

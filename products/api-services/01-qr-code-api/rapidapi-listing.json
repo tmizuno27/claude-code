@@ -1,7 +1,7 @@
 {
-  "name": "QR Code Generator API",
+  "name": "Free QR Code Generator API - PNG, SVG, Base64 | <50ms Edge Response",
   "slug": "qr-code-generator-api",
-  "description": "Generate QR codes in <50ms — PNG/SVG/Base64, custom colors, edge-deployed. Free 500/mo. goqr.me alternative.",
+  "description": "Free QR Code API - Generate PNG/SVG/Base64 in <50ms. Custom colors, error correction. 500 req/mo free.",
   "long_description": "## The Fastest QR Code API on RapidAPI\nGenerate production-ready QR codes in under 50ms from Cloudflare's 300+ edge locations. PNG, SVG, or Base64 JSON output with full color customization.\n\n## Why This API?\n- **Sub-50ms latency** from Cloudflare's global edge network\n- **3 output formats**: PNG (raster), SVG (vector/print), Base64 JSON (embed in HTML without file I/O)\n- **Brand colors**: Custom foreground + background hex colors\n- **Error correction**: L/M/Q/H levels — H allows logo overlay on center 20%\n- **No auth overhead**: Subscribe on RapidAPI and call immediately\n\n## Real-World Use Cases\n- **E-commerce**: Dynamic checkout/payment QR codes per order\n- **Restaurants**: Contactless digital menu QR codes per table\n- **SaaS invoices**: Embed QR codes in HTML/PDF via Base64 data_uri\n- **Marketing**: Branded QR codes for flyers, posters, business cards\n- **Mobile apps**: Deep link QR codes for app downloads and sharing\n- **CI/CD**: Generate deployment preview QR codes in your pipeline\n\n## Quick Start\n```\nGET /generate?text=https://example.com&size=400&format=png&color=FF5722\n```\nReturns binary PNG. Use `format=base64` for JSON with embeddable `data_uri`.\n\n## Pricing — 97% Cheaper Than Alternatives\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 500 | 1/sec |\n| Pro | $5.99 | 50,000 | 10/sec |\n| Ultra | $14.99 | 500,000 | 50/sec |\n| Mega | $49.99 | 5,000,000 | 100/sec |\n\nFree tier includes all formats and colors. No credit card required.\n\n## Alternative To\nFaster and cheaper alternative to goqr.me, QR Server, QRickit, and QR Code Monkey. Same features, documented rate limits, RapidAPI support, and SLA guarantee on paid plans.\n\n## Sample Base64 Response\n```json\n{\"data\": \"iVBOR...\", \"data_uri\": \"data:image/png;base64,iVBOR...\", \"size\": 1234}\n```",
   "category": "Tools",
   "tags": [
@@ -106,7 +106,11 @@
           "type": "string",
           "required": false,
           "default": "png",
-          "enum": ["png", "svg", "base64"],
+          "enum": [
+            "png",
+            "svg",
+            "base64"
+          ],
           "description": "Output format: png (raster), svg (vector), base64 (JSON)"
         },
         {
@@ -128,7 +132,12 @@
           "type": "string",
           "required": false,
           "default": "M",
-          "enum": ["L", "M", "Q", "H"],
+          "enum": [
+            "L",
+            "M",
+            "Q",
+            "H"
+          ],
           "description": "Error correction: L(7%), M(15%), Q(25%), H(30%)"
         }
       ]

@@ -1,6 +1,6 @@
 {
-  "name": "Hash & Encoding API",
-  "description": "Free Hash & Encoding API - SHA256, Bcrypt, HMAC, Base64 | 500/mo",
+  "name": "Free Hash & Encoding API - SHA256, MD5, Bcrypt, Base64, HMAC | Web Crypto",
+  "description": "Free Hash API - SHA256/384/512, MD5, bcrypt, Base64, HMAC, random string. Web Crypto, zero dependencies.",
   "category": "Tools",
   "tags": [
     "hash",

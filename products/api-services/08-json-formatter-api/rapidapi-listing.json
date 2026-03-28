@@ -1,6 +1,6 @@
 {
-  "name": "JSON Formatter & Validator API",
-  "description": "Free JSON Formatter API - Validate, Minify, Diff, CSV | JSONLint Alt",
+  "name": "Free JSON Formatter API - Validate, Minify, Diff, CSV Convert | All-in-One",
+  "description": "Free JSON toolkit API - Format, minify, validate, diff, JSON-to-CSV, CSV-to-JSON. The only all-in-one JSON API.",
   "category": "Tools",
   "tags": [
     "json",

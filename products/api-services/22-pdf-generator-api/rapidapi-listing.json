@@ -1,7 +1,7 @@
 {
-  "name": "PDF Generator API",
+  "name": "Free PDF Generator API - HTML/Markdown/URL to PDF | Custom Headers & Footers",
   "slug": "pdf-generator-api",
-  "description": "Free PDF Generator API - HTML/Markdown/URL to PDF | PDFShift Alt",
+  "description": "Free PDF API - Convert HTML, Markdown, or URL to PDF. Custom page size, margins, headers/footers. 500 req/mo free.",
   "long_description": "## Why PDF Generator API?\n- ✅ 3 input formats: HTML, Markdown, and URL — convert anything to PDF\n- ✅ Custom page size, margins, headers, footers, and orientation\n- ✅ Serverless generation on Cloudflare edge — no queue, instant results\n\n## Key Features\n- HTML to PDF with CSS support\n- Markdown to PDF with styling\n- URL to PDF (capture webpage as PDF)\n- Custom page size (A4, Letter, etc.)\n- Configurable margins, headers, and footers\n- Landscape/portrait orientation\n\n## Use Cases\n- **Invoicing**: Generate PDF invoices from HTML templates\n- **Reports**: Convert dashboards and reports to PDF\n- **Documentation**: Markdown docs to printable PDFs\n- **Archiving**: Save webpages as PDF documents\n\n## Quick Start\n```\nPOST /generate\n{\"html\": \"<h1>Invoice</h1><p>Total: $100</p>\", \"format\": \"A4\"}\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all input formats. No credit card required.\n\n## Alternative To\nA free **PDF generation API alternative** to PDFShift, HTML2PDF, and DocRaptor. Serverless on Cloudflare edge with no browser farm needed.\n\n## Need More Requests?\nFree plan (100 PDFs/month) for prototyping. **Pro ($5.99/mo)** for invoice generation and report automation with 5,000 PDFs.",
   "category": "Tools",
   "tags": [

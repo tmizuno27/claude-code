@@ -1,7 +1,7 @@
 {
-  "name": "Markdown Converter API",
+  "name": "Free Markdown Converter API - HTML to MD, MD to HTML, GFM, TOC, Syntax Highlight",
   "tagline": "Convert Markdown to HTML and back with full GFM support, syntax highlighting, and TOC generation",
-  "description": "Free Markdown API - HTML Convert, TOC, GFM Tables | Showdown Alt",
+  "description": "Free Markdown API - Bidirectional MD/HTML conversion, GFM tables, auto TOC, syntax highlighting. The only MD REST API.",
   "category": "Text_Analysis",
   "tags": [
     "markdown",

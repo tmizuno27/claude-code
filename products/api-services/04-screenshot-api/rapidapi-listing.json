@@ -1,7 +1,7 @@
 {
-  "name": "Website Screenshot API",
+  "name": "Free Website Screenshot API - Capture Any Page as PNG/JPEG | Custom Viewport",
   "tagline": "Capture website screenshots as PNG or JPEG images instantly",
-  "description": "Free Screenshot API - Full Page PNG/JPEG, Custom Viewport | Urlbox Alt",
+  "description": "Free Screenshot API - Capture any URL as PNG/JPEG. Full-page, custom viewport (320-3840px), render delay. 500 req/mo free.",
   "category": "Tools",
   "tags": [
     "screenshot",

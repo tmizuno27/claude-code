@@ -1,0 +1,37 @@
+{
+  "slug": "education-fund",
+  "category": "money",
+  "subcategory": "savings",
+  "title": "教育資金計画シミュレーション",
+  "description": "子どもの教育費に必要な積立額を逆算。幼稚園〜大学の進路パターン別に目標額を算出し、毎月の積立額を提案します。",
+  "metaTitle": "教育資金計画シミュレーション｜必要な毎月の積立額を計算【2026年版】",
+  "metaDescription": "子どもの教育費（幼稚園〜大学）に必要な積立額を無料シミュレーション。公立・私立の進路パターン別に毎月の積立額を提案。",
+  "calculatorFunction": "educationFund",
+  "inputs": [
+    { "id": "childAge", "label": "子どもの現在の年齢", "type": "slider", "unit": "歳", "default": 3, "min": 0, "max": 17, "step": 1 },
+    { "id": "targetAge", "label": "目標年齢（大学入学時）", "type": "slider", "unit": "歳", "default": 18, "min": 15, "max": 22, "step": 1 },
+    { "id": "course", "label": "進路パターン", "type": "select", "default": "public_all", "options": [
+      { "value": "public_all", "label": "オール公立" },
+      { "value": "private_high_univ", "label": "高校+大学私立" },
+      { "value": "private_univ", "label": "大学のみ私立" },
+      { "value": "private_all", "label": "オール私立" },
+      { "value": "private_med", "label": "私立医学部" }
+    ]},
+    { "id": "currentSavings", "label": "現在の教育貯金", "type": "number", "unit": "万円", "default": 0, "min": 0, "max": 5000, "step": 10 },
+    { "id": "rate", "label": "運用利回り", "type": "slider", "unit": "%", "default": 1, "min": 0, "max": 5, "step": 0.1 }
+  ],
+  "outputs": [
+    { "id": "monthlyRequired", "label": "毎月の必要積立額", "format": "currency", "primary": true },
+    { "id": "totalCost", "label": "教育費総額目安", "format": "currency" },
+    { "id": "shortfall", "label": "不足額", "format": "currency" },
+    { "id": "yearsUntilTarget", "label": "積立期間", "format": "decimal0" }
+  ],
+  "explanation": "<h3>教育費の目安</h3><p>文部科学省の調査による平均的な教育費（幼稚園〜大学）：</p><p>オール公立：約800万円<br/>高校+大学私立：約1,200万円<br/>オール私立：約2,300万円<br/>私立医学部：約3,500万円</p><h3>計算方法</h3><p>目標額から現在の貯金を引いた不足額を、複利運用を考慮した月額積立に換算します。</p>",
+  "faq": [
+    { "question": "教育資金はいつから貯め始めるべき？", "answer": "早ければ早いほど月々の負担は軽くなります。出生直後から月2〜3万円の積立が理想的です。" },
+    { "question": "学資保険とNISAどちらがいい？", "answer": "元本保証が欲しいなら学資保険、より高いリターンを狙うならNISAが向いています。併用もおすすめです。" }
+  ],
+  "related": ["savings-goal", "nisa-simulation", "compound-interest"],
+  "popular": true,
+  "popularOrder": 12
+}

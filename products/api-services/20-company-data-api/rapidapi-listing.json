@@ -1,7 +1,7 @@
 {
-  "name": "Company Data API",
+  "name": "Free Company Data API - Business Lookup, CRM Enrichment | Clearbit Alternative",
   "slug": "company-data-api",
-  "description": "Free Company Data API - Search, Domain Enrich, Tech | Clearbit Alt",
+  "description": "Free Company API - Search by name/domain, get industry, size, location, social profiles. Clearbit alternative at $0.",
   "long_description": "## Why Company Data API?\n- ✅ Enrich company data from public sources (Wikidata, web scraping)\n- ✅ Domain-based lookup — just provide a website URL\n- ✅ Company search by name with fuzzy matching\n\n## Key Features\n- Company search by name\n- Domain-based company lookup\n- Industry, employee count, revenue data\n- Founded date, headquarters, description\n- Social media profiles and website\n- Wikidata integration for verified data\n\n## Use Cases\n- **Sales Teams**: Enrich CRM records with company data\n- **Lead Generation**: Research prospects before outreach\n- **Market Research**: Analyze companies in target industries\n- **Due Diligence**: Quick company background checks\n\n## Quick Start\n```\nGET /search?name=Anthropic\n```\n\n## Pricing\n| Plan | Price | Requests/mo | Rate Limit |\n|------|-------|-------------|------------|\n| **Basic (FREE)** | $0 | 100 | 1/sec |\n| Pro | $9.99 | 5,000 | 10/sec |\n| Ultra | $29.99 | 25,000 | 50/sec |\n\nFree tier includes all search and enrichment features. No credit card required.\n\n## Alternative To\nA free **company data API alternative** to Clearbit, ZoomInfo, and FullContact. Combines OpenCorporates, RDAP, and web scraping.\n\n## Need More Requests?\nFree plan (500 lookups/month) for lead research. **Pro ($9.99/mo)** for CRM integrations and sales prospecting.",
   "category": "Business",
   "tags": [

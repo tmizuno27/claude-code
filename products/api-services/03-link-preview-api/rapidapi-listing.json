@@ -1,6 +1,6 @@
 {
-  "name": "Link Preview - Website Metadata API",
-  "description": "Free Link Preview API - OG/Twitter Card Unfurl, Edge-Cached | Microlink Alt",
+  "name": "Free Link Preview API - Open Graph, Twitter Cards, Favicon, Bulk URLs",
+  "description": "Free URL metadata extractor - Open Graph, Twitter Cards, RSS discovery, bulk (10 URLs). Cached on edge.",
   "category": "Tools",
   "tags": [
     "link-preview",
