@@ -84,12 +84,18 @@ def submit_batch(session: AuthorizedSession, urls: list[str]) -> tuple[int, int]
     success = 0
     errors = 0
     if resp.status_code == 200:
-        # Count HTTP 200 responses in batch response
-        for line in resp.text.split("\n"):
-            if line.startswith("HTTP/1.1 200"):
+        # Parse batch response to find successes and failures
+        parts = resp.text.split("--batch")
+        for part in parts:
+            if "HTTP/1.1 200" in part:
                 success += 1
-            elif line.startswith("HTTP/1.1 4") or line.startswith("HTTP/1.1 5"):
+            elif "HTTP/1.1 4" in part or "HTTP/1.1 5" in part:
                 errors += 1
+                # Extract which URL failed
+                for line in part.split("\n"):
+                    if '"error"' in line or "HTTP/1.1 4" in line or "HTTP/1.1 5" in line:
+                        print(f"    Error detail: {line.strip()[:200]}")
+                        break
     else:
         print(f"  Batch request failed: {resp.status_code} {resp.text[:500]}")
         errors = len(urls)
