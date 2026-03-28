@@ -1,0 +1,35 @@
+{
+  "slug": "pfc-balance",
+  "category": "health",
+  "subcategory": "body",
+  "title": "PFCバランス計算",
+  "description": "目標カロリーから最適なPFC（たんぱく質・脂質・炭水化物）のグラム数を計算。ダイエット・筋トレ・維持の3モード対応。",
+  "metaTitle": "PFCバランス計算ツール｜たんぱく質・脂質・炭水化物の最適量を計算",
+  "metaDescription": "目標カロリーから最適なPFC（タンパク質・脂質・炭水化物）バランスを無料計算。ダイエット・筋トレ・維持モード対応。",
+  "calculatorFunction": "pfcBalance",
+  "inputs": [
+    { "id": "calories", "label": "1日の目標カロリー", "type": "number", "unit": "kcal", "default": 2000, "min": 800, "max": 5000, "step": 50 },
+    { "id": "weight", "label": "体重", "type": "number", "unit": "kg", "default": 65, "min": 30, "max": 200, "step": 0.5 },
+    { "id": "goal", "label": "目的", "type": "select", "default": "maintain", "options": [
+      { "value": "diet", "label": "ダイエット（減量）" },
+      { "value": "maintain", "label": "体型維持" },
+      { "value": "muscle", "label": "筋肉増量" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "protein", "label": "たんぱく質 (P)", "format": "decimal0", "primary": true },
+    { "id": "fat", "label": "脂質 (F)", "format": "decimal0" },
+    { "id": "carbs", "label": "炭水化物 (C)", "format": "decimal0" },
+    { "id": "proteinCalories", "label": "P由来カロリー", "format": "decimal0" },
+    { "id": "fatCalories", "label": "F由来カロリー", "format": "decimal0" },
+    { "id": "carbsCalories", "label": "C由来カロリー", "format": "decimal0" }
+  ],
+  "explanation": "<h3>PFCバランスとは</h3><p>P=Protein（たんぱく質）、F=Fat（脂質）、C=Carbohydrate（炭水化物）の三大栄養素のバランスです。</p><h3>目的別の理想比率</h3><p>ダイエット：P30% / F25% / C45%<br/>体型維持：P20% / F25% / C55%<br/>筋肉増量：P30% / F20% / C50%</p><h3>カロリー換算</h3><p>たんぱく質1g＝4kcal、脂質1g＝9kcal、炭水化物1g＝4kcal</p>",
+  "faq": [
+    { "question": "タンパク質は体重の何倍が理想？", "answer": "一般的に体重×1.2〜2.0gが推奨されます。筋トレをする人は体重×1.6〜2.0g、一般人は体重×1.0〜1.2gが目安です。" },
+    { "question": "脂質を減らしすぎると？", "answer": "ホルモンバランスの乱れ、肌荒れ、便秘などの原因になります。総カロリーの20%以上は脂質から摂りましょう。" }
+  ],
+  "related": ["bmi", "basal-metabolism", "daily-calorie"],
+  "popular": true,
+  "popularOrder": 15
+}

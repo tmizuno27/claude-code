@@ -1,0 +1,33 @@
+{
+  "slug": "body-age",
+  "category": "health",
+  "subcategory": "body",
+  "title": "体内年齢計算",
+  "description": "基礎代謝量と平均値の比較から体内年齢（カラダ年齢）を推定。実年齢との差でフィットネスレベルがわかります。",
+  "metaTitle": "体内年齢計算ツール｜あなたのカラダ年齢を無料診断",
+  "metaDescription": "身長・体重・年齢・体脂肪率から体内年齢を無料計算。基礎代謝量ベースで実年齢との差をチェック。",
+  "calculatorFunction": "bodyAge",
+  "inputs": [
+    { "id": "age", "label": "実年齢", "type": "slider", "unit": "歳", "default": 35, "min": 18, "max": 80, "step": 1 },
+    { "id": "gender", "label": "性別", "type": "select", "default": "male", "options": [
+      { "value": "male", "label": "男性" },
+      { "value": "female", "label": "女性" }
+    ]},
+    { "id": "height", "label": "身長", "type": "number", "unit": "cm", "default": 170, "min": 130, "max": 210, "step": 0.1 },
+    { "id": "weight", "label": "体重", "type": "number", "unit": "kg", "default": 70, "min": 30, "max": 200, "step": 0.1 },
+    { "id": "bodyFatPercent", "label": "体脂肪率", "type": "slider", "unit": "%", "default": 20, "min": 3, "max": 50, "step": 0.5 }
+  ],
+  "outputs": [
+    { "id": "bodyAge", "label": "体内年齢", "format": "decimal0", "primary": true },
+    { "id": "ageDifference", "label": "実年齢との差", "format": "decimal0" },
+    { "id": "bmr", "label": "推定基礎代謝量", "format": "decimal0" },
+    { "id": "averageBmr", "label": "同年齢の平均基礎代謝", "format": "decimal0" }
+  ],
+  "explanation": "<h3>体内年齢とは</h3><p>基礎代謝量を同性の年齢別平均と比較し、自分の体がどの年齢に相当するかを示す指標です。基礎代謝が高いほど若い体内年齢になります。</p><h3>計算方法</h3><p>キャッチ・マカードル式で体脂肪率を考慮した基礎代謝を算出し、年齢別の平均基礎代謝と比較して体内年齢を推定します。</p>",
+  "faq": [
+    { "question": "体内年齢を若くするには？", "answer": "筋肉量を増やして基礎代謝を上げることが最も効果的です。筋トレと適切なタンパク質摂取を心がけましょう。" },
+    { "question": "体脂肪率がわからない場合は？", "answer": "男性なら20%、女性なら28%を目安に入力してください。体組成計があれば正確な値を使いましょう。" }
+  ],
+  "related": ["bmi", "basal-metabolism", "body-fat-percentage"],
+  "popular": false
+}

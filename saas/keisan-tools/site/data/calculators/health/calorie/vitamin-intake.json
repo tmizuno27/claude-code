@@ -1,0 +1,42 @@
+{
+  "slug": "vitamin-intake",
+  "category": "health",
+  "subcategory": "calorie",
+  "title": "1日のビタミン必要量計算",
+  "description": "年齢・性別・ライフスタイルから1日に必要なビタミン摂取量の目安を算出。厚生労働省の食事摂取基準に準拠。",
+  "metaTitle": "ビタミン必要量計算ツール｜1日に必要なビタミン量を無料計算",
+  "metaDescription": "年齢・性別に応じた1日のビタミン必要量を無料計算。ビタミンA・B群・C・D・Eの推奨量を厚生労働省基準で算出。",
+  "calculatorFunction": "vitaminIntake",
+  "inputs": [
+    { "id": "age", "label": "年齢", "type": "slider", "unit": "歳", "default": 35, "min": 1, "max": 80, "step": 1 },
+    { "id": "gender", "label": "性別", "type": "select", "default": "male", "options": [
+      { "value": "male", "label": "男性" },
+      { "value": "female", "label": "女性" }
+    ]},
+    { "id": "pregnant", "label": "妊娠・授乳", "type": "select", "default": "none", "options": [
+      { "value": "none", "label": "該当なし" },
+      { "value": "pregnant", "label": "妊娠中" },
+      { "value": "lactating", "label": "授乳中" }
+    ]},
+    { "id": "activity", "label": "運動習慣", "type": "select", "default": "moderate", "options": [
+      { "value": "low", "label": "ほとんどしない" },
+      { "value": "moderate", "label": "週2〜3回" },
+      { "value": "high", "label": "毎日運動" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "vitaminA", "label": "ビタミンA", "format": "decimal0", "primary": true },
+    { "id": "vitaminB1", "label": "ビタミンB1", "format": "decimal2" },
+    { "id": "vitaminB2", "label": "ビタミンB2", "format": "decimal2" },
+    { "id": "vitaminC", "label": "ビタミンC", "format": "decimal0" },
+    { "id": "vitaminD", "label": "ビタミンD", "format": "decimal1" },
+    { "id": "vitaminE", "label": "ビタミンE", "format": "decimal1" }
+  ],
+  "explanation": "<h3>ビタミンの役割</h3><p>ビタミンA：視力・免疫（μgRAE）<br/>ビタミンB1：糖質代謝（mg）<br/>ビタミンB2：エネルギー代謝（mg）<br/>ビタミンC：抗酸化・コラーゲン合成（mg）<br/>ビタミンD：骨・免疫（μg）<br/>ビタミンE：抗酸化（mg）</p>",
+  "faq": [
+    { "question": "サプリメントで補うべき？", "answer": "基本は食事から摂るのが理想です。不足しがちなビタミンDは日光浴やサプリでの補充も有効です。" },
+    { "question": "ビタミンの過剰摂取は危険？", "answer": "脂溶性ビタミン（A・D・E・K）は体内に蓄積するため過剰摂取に注意。水溶性（B群・C）は排出されやすいです。" }
+  ],
+  "related": ["water-intake", "daily-calorie", "pfc-balance"],
+  "popular": false
+}

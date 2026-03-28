@@ -1,0 +1,38 @@
+{
+  "slug": "car-annual-cost",
+  "category": "life",
+  "subcategory": "car",
+  "title": "車の年間維持費計算",
+  "description": "自動車税・車検・保険・ガソリン・駐車場代など、車の年間維持費を一括シミュレーション。軽自動車/普通車の比較も。",
+  "metaTitle": "車の年間維持費計算シミュレーション｜月々いくらかかる？【2026年版】",
+  "metaDescription": "車の年間維持費（税金・車検・保険・ガソリン・駐車場）を無料シミュレーション。軽自動車・普通車の比較表付き。",
+  "calculatorFunction": "carAnnualCost",
+  "inputs": [
+    { "id": "carType", "label": "車種区分", "type": "select", "default": "compact", "options": [
+      { "value": "kei", "label": "軽自動車" },
+      { "value": "compact", "label": "コンパクトカー（〜1.5L）" },
+      { "value": "sedan", "label": "セダン（1.5〜2.0L）" },
+      { "value": "large", "label": "大型車（2.0L超）" }
+    ]},
+    { "id": "monthlyKm", "label": "月間走行距離", "type": "slider", "unit": "km", "default": 500, "min": 100, "max": 3000, "step": 50 },
+    { "id": "fuelEfficiency", "label": "燃費", "type": "slider", "unit": "km/L", "default": 15, "min": 5, "max": 40, "step": 0.5 },
+    { "id": "fuelPrice", "label": "ガソリン単価", "type": "number", "unit": "円/L", "default": 175, "min": 100, "max": 250, "step": 1 },
+    { "id": "parkingCost", "label": "月額駐車場代", "type": "number", "unit": "円", "default": 15000, "min": 0, "max": 80000, "step": 1000 },
+    { "id": "insuranceCost", "label": "年間任意保険料", "type": "number", "unit": "円", "default": 60000, "min": 0, "max": 300000, "step": 1000 }
+  ],
+  "outputs": [
+    { "id": "totalAnnual", "label": "年間維持費合計", "format": "currency", "primary": true },
+    { "id": "monthlyAvg", "label": "月平均維持費", "format": "currency" },
+    { "id": "fuelAnnual", "label": "年間ガソリン代", "format": "currency" },
+    { "id": "taxAnnual", "label": "自動車税", "format": "currency" },
+    { "id": "inspectionAnnual", "label": "車検費用（年割）", "format": "currency" }
+  ],
+  "explanation": "<h3>車の維持費の内訳</h3><p>自動車税：軽10,800円/年、1.5L以下30,500円/年、2.0L以下36,000円/年、2.0L超43,500円/年〜</p><p>車検費用：2年に1回（初回3年）、軽約5万円、普通車約7〜12万円</p><p>その他：自賠責保険、駐車場代、ガソリン代、任意保険、メンテナンス費</p>",
+  "faq": [
+    { "question": "軽自動車と普通車でどれくらい差がある？", "answer": "年間で約15〜30万円の差があります。税金・車検・保険のすべてで軽自動車の方が安くなります。" },
+    { "question": "電気自動車（EV）の維持費は？", "answer": "ガソリン代の代わりに電気代がかかりますが、約1/3〜1/5程度。税金優遇もあり維持費は安くなります。" }
+  ],
+  "related": ["fuel-cost", "commute-cost"],
+  "popular": true,
+  "popularOrder": 18
+}
