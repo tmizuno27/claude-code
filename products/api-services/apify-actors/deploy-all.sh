@@ -29,7 +29,7 @@ if ! command -v apify &> /dev/null; then
 fi
 
 # ログイン確認
-if ! apify info 2>/dev/null | grep -q "User"; then
+if ! apify info 2>/dev/null | grep -qi "user"; then
   echo "ERROR: Apify にログインしていません"
   echo "  apify login"
   exit 1
