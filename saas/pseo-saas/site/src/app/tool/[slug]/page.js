@@ -32,8 +32,41 @@ export default async function ToolPage({ params }) {
   const cat = getCategoryBySlug(tool.category);
   const featureKeys = Object.keys(tool.features || {});
 
+  const toolJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: tool.name,
+    applicationCategory: cat?.name || 'Software',
+    description: tool.tagline,
+    url: tool.website,
+    operatingSystem: 'Web',
+    offers: {
+      '@type': 'Offer',
+      price: tool.free_plan ? '0' : (tool.pricing_starts || 'Contact').replace(/[^0-9.]/g, '') || '0',
+      priceCurrency: 'USD',
+    },
+    aggregateRating: tool.rating?.overall ? {
+      '@type': 'AggregateRating',
+      ratingValue: String(tool.rating.overall),
+      bestRating: '10',
+      ratingCount: '1',
+    } : undefined,
+  };
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ai-tool-compare-nu.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: cat?.name || 'Tools', item: `https://ai-tool-compare-nu.vercel.app/category/${tool.category}/` },
+      { '@type': 'ListItem', position: 3, name: tool.name },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="tool-header">
         <div className="container">
           <h1>{tool.name}</h1>

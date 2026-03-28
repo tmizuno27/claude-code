@@ -135,14 +135,16 @@
       "links": [
         {
           "name": "DMM英会話",
-          "status": "pending_approval",
+          "status": "active",
           "url": "//af.moshimo.com/af/c/click?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
+          "tracking_img_moshimo": "//i.moshimo.com/af/i/impression?a_id=5424892&p_id=1000&pc_id=1380&pl_id=72072",
           "anchor_text": [
             "DMM英会話",
             "DMMオンライン英会話"
           ],
           "commission": "無料体験で1,500〜3,000円",
-          "asp": "A8.net",
+          "asp": "もしもアフィリエイト",
+          "note": "もしもアフィリエイト経由。A8.netでは未提携",
           "context": "スペイン語レッスンもある。海外移住前の語学準備として"
         },
         {
@@ -191,7 +193,7 @@
         },
         {
           "name": "楽天プレミアムカード",
-          "status": "pending",
+          "status": "pending_approval",
           "url": null,
           "anchor_text": [
             "楽天プレミアムカード"

@@ -12,6 +12,13 @@ export async function generateMetadata({ params }) {
   return {
     title: `Best ${cat.name} Tools Compared (2026)`,
     description: `Compare the top ${cat.name.toLowerCase()} tools side-by-side. Features, pricing, and ratings for ${cat.tools.length} tools.`,
+    alternates: {
+      canonical: `/category/${slug}/`,
+    },
+    openGraph: {
+      title: `Best ${cat.name} Tools Compared (2026)`,
+      description: `Compare the top ${cat.name.toLowerCase()} tools. ${cat.tools.length} tools reviewed.`,
+    },
   };
 }
 
@@ -23,8 +30,18 @@ export default async function CategoryPage({ params }) {
   const tools = getToolsByCategory(slug);
   const pairs = getComparisonPairs().filter(p => p.category === slug);
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ai-tool-compare-nu.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: cat.name },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="cat-header">
         <div className="container">
           <h1>{cat.emoji} {cat.name}</h1>

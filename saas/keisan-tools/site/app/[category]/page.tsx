@@ -26,6 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: `/${category}/`,
     },
+    openGraph: {
+      title: `${cat.name}の計算ツール｜keisan.tools`,
+      description: cat.description,
+      url: `https://keisan-tools.com/${category}/`,
+    },
   };
 }
 

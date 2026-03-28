@@ -206,16 +206,16 @@ export default function LandingPage() {
       <section className="bg-gray-50 py-8 border-y border-gray-100">
         <div className="max-w-4xl mx-auto grid grid-cols-3 gap-4 text-center px-4">
           <div>
+            <p className="text-3xl font-bold text-gray-900">500+</p>
+            <p className="text-sm text-gray-500">Sites analyzed</p>
+          </div>
+          <div>
             <p className="text-3xl font-bold text-gray-900">3x</p>
             <p className="text-sm text-gray-500">Faster than manual linking</p>
           </div>
           <div>
             <p className="text-3xl font-bold text-gray-900">0</p>
             <p className="text-sm text-gray-500">Plugins to install</p>
-          </div>
-          <div>
-            <p className="text-3xl font-bold text-gray-900">100%</p>
-            <p className="text-sm text-gray-500">Link coverage target</p>
           </div>
         </div>
       </section>

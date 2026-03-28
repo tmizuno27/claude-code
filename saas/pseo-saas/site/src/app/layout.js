@@ -20,10 +20,24 @@ export const metadata = {
   other: {
     'google-adsense-account': ADSENSE_CLIENT_ID,
   },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
+    title: 'AI Tool Compare — Find the Best AI Tool for You',
+    description: 'Compare AI tools side-by-side. Detailed comparisons of features, pricing, and ratings.',
     siteName: 'AI Tool Compare',
     type: 'website',
+    url: 'https://ai-tool-compare-nu.vercel.app',
+    locale: 'en_US',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Tool Compare — Find the Best AI Tool for You',
+    description: 'Compare AI tools side-by-side with data-driven analysis.',
+  },
+  keywords: ['AI tools comparison', 'best AI tools', 'ChatGPT vs Claude', 'AI tool reviews', 'compare AI software'],
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }) {
