@@ -1,0 +1,18 @@
+{
+  "date": "2026-03-28",
+  "period_days": 7,
+  "total_queries": 59,
+  "new_keywords_found": 1,
+  "high_potential": 0,
+  "keywords": [
+    {
+      "query": "マチアプ 初メッセージ",
+      "page": "https://otona-match.com/matching-app-first-message/",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 100,
+      "position": 11,
+      "potential": "medium"
+    }
+  ]
+}
