@@ -5,8 +5,9 @@
       "id": "apify-paypal-setup",
       "title": "ApifyにPayPal設定",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:12",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "apify-actor-pricing",
@@ -26,15 +27,17 @@
       "id": "pseo-adsense-check",
       "title": "pSEOサイトのAdSense設置",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:13",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "pseo-gsc-submit",
       "title": "pSEOサイトをGSCに登録",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:13",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "nambei-gsc-lowctr",
