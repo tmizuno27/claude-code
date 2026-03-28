@@ -83,7 +83,7 @@
 - **Apify（6 Actor）**: [apify-business.md](apify-business.md) — 新Actor開発済、全Actor改善済、デプロイ待ち
 - **Apify公開作業中断**: [apify-actor-pending.md](apify-actor-pending.md) — Actor jmtLVhG6qPqjc0b34
 - **Chrome拡張（2/11本公開、PP公開済）**: [chrome-extensions-business.md](chrome-extensions-business.md)
-- **VS Code拡張（10本公開完了）**: [vscode-extensions-business.md](vscode-extensions-business.md)
+- **VS Code拡張（10本SEO改善版パブリッシュ済）**: [vscode-extensions-business.md](vscode-extensions-business.md)
 - **Gumroad（13商品+新商品1出品待ち）**: [gumroad-listing-progress.md](gumroad-listing-progress.md) / [gumroad-notion-business.md](gumroad-notion-business.md)
 - **Xマーケティング**: [x-prodhq27-account.md](x-prodhq27-account.md) — @prodhq27、1日3回自動投稿
 
@@ -107,5 +107,6 @@
 - **Stripe連携待ち**: [stripe-pending-tasks.md](stripe-pending-tasks.md) — 「Stripe連携できました」で即実行
 
 ## PDCA実行記録
-- **2026-03-28**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列+朝4タスク。Sheets Sync復旧、X投稿v2移行、CTR改善、内部リンク強化。手動TODO11件残
+- **2026-03-28 午後**: [pdca-2026-03-28-session2.md](pdca-2026-03-28-session2.md) — 22タスク自動+手動対応。全10 VS Code拡張パブリッシュ、Apify 9本デプロイ、city-cost-pseoデプロイ、Gumroad 2商品出品、Fiverr Gig2出品、Playwright自動化スクリプト2本作成
+- **2026-03-28 午前**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列+朝4タスク。Sheets Sync復旧、X投稿v2移行、CTR改善、内部リンク強化
 - **2026-03-27**: [pdca-2026-03-27.md](pdca-2026-03-27.md) — GA4修正、pSEO GSC送信、ダッシュボードバグ修正3件、GitHub Pages無効化
