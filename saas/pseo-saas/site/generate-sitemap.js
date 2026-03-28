@@ -23,6 +23,13 @@ function addUrl(loc, priority, changefreq = 'weekly') {
 // Home
 addUrl('/', '1.0', 'daily');
 
+// Static pages
+addUrl('/about/', '0.3', 'monthly');
+addUrl('/contact/', '0.3', 'monthly');
+addUrl('/privacy/', '0.2', 'monthly');
+addUrl('/terms/', '0.2', 'monthly');
+addUrl('/disclaimer/', '0.2', 'monthly');
+
 // Categories
 for (const catSlug of Object.keys(categoryMap)) {
   addUrl(`/category/${catSlug}/`, '0.8');

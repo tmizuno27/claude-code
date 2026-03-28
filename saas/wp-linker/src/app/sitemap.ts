@@ -12,7 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: "https://wp-linker.vercel.app/auth",
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.8,
+    },
+    {
+      url: "https://wp-linker.vercel.app/dashboard",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.6,
     },
   ];
 }
