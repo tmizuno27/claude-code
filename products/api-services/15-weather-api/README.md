@@ -125,6 +125,20 @@ A: Temperature in Celsius, wind speed in km/h, precipitation in mm. Use the `uni
 
 A free alternative to OpenWeatherMap API, WeatherAPI, and AccuWeather. Open-source data with no upstream API key costs.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **IP Geolocation API** | Auto-detect user location for weather lookup |
+| **AI Text API** | Generate weather-based content or notifications |
+| **News Aggregator API** | Combine weather with local news |
+| **Currency Exchange API** | Travel planning: weather + currency info |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `weather api`, `weather forecast api`, `free weather api`, `current weather api`, `historical weather`, `open meteo api`, `weather data`, `temperature api`, `forecast api`, `openweathermap alternative`

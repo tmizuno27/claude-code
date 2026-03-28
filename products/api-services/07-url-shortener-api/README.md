@@ -121,6 +121,20 @@ A: Redirects are served from Cloudflare KV edge storage with sub-10ms latency wo
 
 A free alternative to Bitly API, TinyURL API, and Rebrandly. Get click analytics without per-link pricing.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **QR Code API** | Generate QR codes for shortened URLs |
+| **Link Preview API** | Extract metadata before shortening |
+| **IP Geolocation API** | Geo-locate users who click short links |
+| **Screenshot API** | Capture thumbnails for link previews |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `url shortener api`, `link shortener`, `short url api`, `click tracking api`, `link analytics`, `bitly alternative`, `free url shortener`, `custom short links`, `link management api`, `url redirect api`

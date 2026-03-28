@@ -159,6 +159,20 @@ A: Not currently. For bulk generation, loop through `/generate`. At Pro tier (10
 **Q: Can I add a logo to the center of the QR code?**
 A: Not natively. Generate with `error_correction=H` (30% redundancy), then overlay your logo on the center 20% of the image client-side. The high error correction ensures scannability.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **PDF Generator API** | Generate PDFs with embedded QR codes |
+| **Screenshot API** | Capture QR code landing pages for previews |
+| **URL Shortener API** | Shorten URLs before encoding in QR codes |
+| **Placeholder Image API** | Generate placeholder images for prototypes |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `qr code api`, `qr code generator api`, `free qr api`, `qr code rest api`, `generate qr code programmatically`, `svg qr code api`, `base64 qr code`, `custom color qr code`, `qr code for e-commerce`, `cloudflare workers api`, `rapidapi qr code`, `qr code alternative to goqr`

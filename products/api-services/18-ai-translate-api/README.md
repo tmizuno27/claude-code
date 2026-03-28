@@ -128,6 +128,20 @@ A: M2M-100 can translate directly between any two supported languages (e.g., Jap
 
 A free alternative to DeepL API, Google Translate API, and LibreTranslate. Neural translation with 100+ languages and no per-character pricing.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **AI Text API** | Generate content then translate to any language |
+| **Text Analysis API** | Analyze sentiment in the source language |
+| **News Aggregator API** | Translate international news headlines |
+| **PDF Generator API** | Generate multilingual PDF documents |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `translation api`, `ai translate api`, `free translation api`, `multilingual api`, `machine translation`, `deepl alternative`, `google translate alternative`, `m2m100 api`, `language translation`, `text translation api`

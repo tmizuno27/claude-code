@@ -146,6 +146,20 @@ Returns the screenshot image directly with appropriate `Content-Type` header.
 
 A free alternative to ScreenshotAPI, URLBox, and Screenshotlayer. Capture website screenshots without complex setup or per-screenshot billing.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Link Preview API** | Extract OG metadata alongside screenshots |
+| **SEO Analyzer API** | Audit the page you are screenshotting |
+| **PDF Generator API** | Convert screenshots to PDF reports |
+| **QR Code API** | Generate QR codes linking to screenshot URLs |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `screenshot api`, `website screenshot`, `capture webpage`, `web screenshot api`, `page capture`, `full page screenshot`, `url to image`, `website thumbnail`, `free screenshot api`, `headless browser api`

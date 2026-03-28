@@ -124,6 +124,20 @@ A: Yes. With sub-100ms response times, it works well for live Markdown preview i
 
 A free alternative to Showdown.js API, Marked API, and Pandoc API. The only REST API with bidirectional conversion, auto TOC, and syntax highlighting built in.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **PDF Generator API** | Convert Markdown to HTML to PDF pipeline |
+| **AI Text API** | Generate content in Markdown format |
+| **JSON Formatter API** | Convert JSON data to Markdown tables |
+| **Text Analysis API** | Analyze Markdown content for readability |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `markdown to html api`, `html to markdown`, `markdown converter`, `gfm api`, `markdown parser api`, `free markdown api`, `toc generator`, `syntax highlighting api`, `markdown render api`, `text conversion api`

@@ -1,0 +1,41 @@
+{
+  "title": "Email Finder Input",
+  "description": "Find email addresses, phone numbers, and social links from any website. Free Hunter.io alternative for B2B lead generation. Supports homepage-only or deep scanning (contact, about, team pages).",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Website URLs",
+      "type": "array",
+      "description": "List of website URLs to scan for contact information. Enter company homepages for best results (e.g., 'https://stripe.com'). Bulk processing supported.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://stripe.com", "https://shopify.com"]
+    },
+    "scanDepth": {
+      "title": "Scan Depth",
+      "type": "string",
+      "description": "'homepage' scans only the main page (fast). 'deep' also scans /contact, /about, /team, /impressum pages for more complete results.",
+      "default": "homepage",
+      "enum": ["homepage", "deep"],
+      "enumTitles": [
+        "Homepage Only (fast, single page)",
+        "Deep Scan (homepage + contact/about/team pages)"
+      ],
+      "editor": "select"
+    },
+    "includePhones": {
+      "title": "Include Phone Numbers",
+      "type": "boolean",
+      "description": "Extract phone numbers from scanned pages.",
+      "default": true
+    },
+    "includeSocial": {
+      "title": "Include Social Links",
+      "type": "boolean",
+      "description": "Extract social media profile URLs (Facebook, Twitter, LinkedIn, Instagram, YouTube, TikTok, GitHub).",
+      "default": true
+    }
+  },
+  "required": ["urls"]
+}

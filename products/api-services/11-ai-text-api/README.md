@@ -218,6 +218,20 @@ A: No. All plans are flat-rate. 500 requests/month on free, 50,000 on Pro. No su
 
 A free alternative to OpenAI GPT API, Cohere, and AI21 Labs. No per-token billing, no API key management, no credit card required for free tier.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **AI Translation API** | Generate text then translate to any language |
+| **Text Analysis API** | Analyze AI-generated text for quality |
+| **SEO Analyzer API** | Generate SEO content then audit the page |
+| **Markdown Converter API** | Convert AI output to HTML or Markdown |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `ai text api`, `text generation api`, `summarize api`, `ai rewrite`, `llama api`, `free ai api`, `gpt alternative api`, `text summarization`, `ai translate api`, `chatgpt alternative`, `free gpt api`, `llama 3.1 api`, `ai content generation`, `sentiment analysis api`

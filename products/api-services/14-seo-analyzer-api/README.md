@@ -191,6 +191,20 @@ A: No single bulk endpoint, but at Pro tier (100 req/min), you can audit 6,000 p
 **Q: What's the response time?**
 A: Typically 200-500ms. The API fetches the target URL, parses HTML, runs all 19 checks, and returns results.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Link Preview API** | Extract OG tags for SEO preview validation |
+| **Screenshot API** | Visual SEO audit with page screenshots |
+| **WHOIS Domain API** | Check domain age and registration for SEO context |
+| **WP Internal Link API** | Optimize internal links after SEO audit |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `seo analyzer api`, `seo audit api`, `free ahrefs alternative`, `on-page seo api`, `website seo score api`, `meta tag analyzer`, `structured data checker`, `seo ci cd`, `seo score api`, `page audit api`, `moz alternative`, `seo automation api`, `heading analysis api`, `open graph checker`

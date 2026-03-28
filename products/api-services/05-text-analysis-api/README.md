@@ -124,6 +124,20 @@ A: It estimates the US school grade level needed to understand the text. A score
 
 A free alternative to MonkeyLearn, Aylien, and MeaningCloud. No per-analysis pricing, no AI API costs.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **AI Text API** | Generate text then analyze its quality |
+| **AI Translation API** | Translate then analyze sentiment per language |
+| **SEO Analyzer API** | Combine content analysis with technical SEO |
+| **News Aggregator API** | Analyze sentiment of news headlines |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `text analysis api`, `sentiment analysis api`, `nlp api`, `keyword extraction`, `readability score`, `text mining`, `content analysis`, `free nlp api`, `language detection`, `flesch kincaid api`

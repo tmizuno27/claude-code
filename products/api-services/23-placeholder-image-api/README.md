@@ -123,6 +123,20 @@ A: They are styled placeholder designs with category-specific color palettes and
 
 A free alternative to Placeholder.com, Lorem Picsum, and PlaceIMG. The only placeholder API with gradients, SVG output, and category presets.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **QR Code API** | Generate QR codes for prototyping |
+| **Screenshot API** | Capture real screenshots to replace placeholders |
+| **PDF Generator API** | Include placeholder images in PDF mockups |
+| **JSON Formatter API** | Mock API responses with placeholder data |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `placeholder image api`, `dummy image api`, `placeholder generator`, `svg placeholder`, `wireframe images`, `free placeholder api`, `custom image generator`, `development placeholder`, `mockup images`, `test image api`

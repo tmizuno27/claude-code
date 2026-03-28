@@ -1,0 +1,10 @@
+{
+  "actorSpecification": 1,
+  "name": "email-finder",
+  "title": "Email Finder - Free B2B Contact Scraper (Hunter.io & Snov.io Alternative)",
+  "description": "Free Hunter.io, Snov.io & FindThatLead alternative. Find email addresses, phone numbers, and social media links from any website. Two scan depths: homepage-only (fast) or deep scan (contact, about, team pages). Extracts company info from JSON-LD structured data. Bulk URL processing, JSON/CSV export. No API keys, no subscription. Pay-per-use from $0.01/domain. Perfect for B2B lead generation, sales prospecting, and business directory enrichment.",
+  "version": "1.0",
+  "buildTag": "latest",
+  "input": "./input_schema.json",
+  "dockerfile": "../Dockerfile"
+}

@@ -1,0 +1,50 @@
+{
+  "title": "Amazon Product Scraper Input",
+  "description": "Scrape Amazon product details or search results. Extract price, reviews, ratings, BSR, features, and images from any Amazon marketplace. Free Jungle Scout alternative.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "mode": {
+      "title": "Mode",
+      "type": "string",
+      "description": "Scraping mode: 'product' scrapes direct Amazon product URLs for full details. 'search' searches Amazon by keyword and returns product listings.",
+      "default": "product",
+      "enum": ["product", "search"],
+      "enumTitles": [
+        "Product URLs (scrape full product details)",
+        "Keyword Search (search Amazon and return listings)"
+      ],
+      "editor": "select"
+    },
+    "urls": {
+      "title": "Product URLs",
+      "type": "array",
+      "description": "List of Amazon product URLs to scrape (product mode only). Supports any Amazon marketplace URL containing /dp/ or /product/.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://www.amazon.com/dp/B0CHX3QBCH"]
+    },
+    "keywords": {
+      "title": "Search Keywords",
+      "type": "string",
+      "description": "Search query for Amazon keyword search (search mode only). Example: 'wireless earbuds', 'laptop stand'.",
+      "editor": "textfield",
+      "prefill": "wireless earbuds"
+    },
+    "marketplace": {
+      "title": "Marketplace",
+      "type": "string",
+      "description": "Amazon marketplace domain suffix. Examples: 'com' (US), 'co.uk' (UK), 'de' (Germany), 'co.jp' (Japan), 'fr' (France), 'it' (Italy), 'es' (Spain), 'ca' (Canada), 'com.au' (Australia).",
+      "default": "com",
+      "editor": "textfield"
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of search results to return (search mode only).",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 100
+    }
+  }
+}

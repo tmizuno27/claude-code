@@ -233,6 +233,20 @@ A: Up to 500 pages in the `pages` array. For larger sites, use `sitemap_url` or 
 **Q: Will this work with Gutenberg block content?**
 A: Yes. The API analyzes raw HTML, which is what Gutenberg produces. Pass `post.content.rendered` from the WP REST API.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **SEO Analyzer API** | Full SEO audit alongside link optimization |
+| **Link Preview API** | Extract metadata for link context |
+| **Text Analysis API** | Analyze content for keyword relevance |
+| **AI Text API** | Generate anchor text suggestions |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `wordpress internal link api`, `internal linking api`, `wp seo api`, `link suggestion api`, `internal link optimization`, `wordpress developer api`, `link whisper alternative`, `headless wordpress seo`, `anchor text api`, `content linking automation`, `wordpress rest api seo`, `internal link audit`

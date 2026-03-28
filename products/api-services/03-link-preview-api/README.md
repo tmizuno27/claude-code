@@ -104,6 +104,20 @@ print(f"{data['title']}: {data['description']}")
 
 A free alternative to LinkPreview.net, Microlink, and OpenGraph.io.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Screenshot API** | Capture full-page screenshots alongside OG data |
+| **SEO Analyzer API** | Deep SEO audit after extracting metadata |
+| **WHOIS Domain API** | Look up domain ownership for extracted URLs |
+| **Markdown Converter API** | Convert extracted content to Markdown |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `link preview api`, `url metadata`, `open graph api`, `twitter card extractor`, `unfurl url`, `website metadata`, `free link preview`, `og tags api`, `url preview`, `social media preview`

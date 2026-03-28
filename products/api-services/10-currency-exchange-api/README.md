@@ -179,6 +179,20 @@ AUD, BGN, BRL, CAD, CHF, CNY, CZK, DKK, EUR, GBP, HKD, HUF, IDR, ILS, INR, ISK, 
 
 A free alternative to Fixer.io, ExchangeRate-API, and Open Exchange Rates. Get ECB-sourced exchange rates with historical data and currency conversion without per-request billing.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **IP Geolocation API** | Auto-detect user currency from IP location |
+| **Crypto Data API** | Combine fiat and crypto rates in one dashboard |
+| **Company Data API** | Enrich company data with local currency info |
+| **PDF Generator API** | Generate multi-currency invoices |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `currency exchange api`, `exchange rate api`, `currency converter api`, `fx rates api`, `ecb exchange rates`, `historical exchange rates`, `free currency api`, `currency conversion`, `forex api`, `real-time exchange rates`

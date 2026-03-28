@@ -116,6 +116,20 @@ A: All qualities available from the platform are returned. Typically includes 36
 
 A free alternative to RapidAPI video downloader APIs, SaveFrom, and yt-dlp API wrappers. Multi-platform support with a simple REST API.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Screenshot API** | Capture video page thumbnails |
+| **Link Preview API** | Extract video metadata and OG tags |
+| **Trends API** | Find trending videos to download |
+| **AI Text API** | Generate descriptions for downloaded videos |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `video download api`, `social video api`, `tiktok download api`, `youtube video url`, `instagram video download`, `twitter video api`, `free video api`, `social media downloader`, `video extractor api`, `video url extractor`

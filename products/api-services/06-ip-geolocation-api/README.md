@@ -186,6 +186,20 @@ A: It returns the geolocation of the caller's IP using Cloudflare's built-in req
 
 A free alternative to ipinfo.io ($99/mo for VPN detection), ipstack, and ip-api.com Pro. Get VPN detection, bulk lookups, and rich geolocation data at a fraction of the cost.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Email Validation API** | Combine IP geo with email validation for fraud prevention |
+| **Currency Exchange API** | Auto-detect user currency from IP location |
+| **Weather API** | Get weather for the detected location |
+| **Company Data API** | Enrich IP data with company information |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `ip geolocation api`, `ip lookup`, `geoip`, `ip to location`, `vpn detection api`, `proxy detection`, `ip address api`, `geolocation rest api`, `free ip api`, `bulk ip lookup`, `ipinfo alternative`, `ip geolocation free`, `ip to country api`

@@ -128,6 +128,20 @@ A: HTML payloads up to 1MB are supported. For very complex pages with many image
 
 A free alternative to PDFShift, HTML2PDF, and DocRaptor. The only PDF API with built-in Markdown support and edge deployment.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **QR Code API** | Embed QR codes in generated PDFs |
+| **Markdown Converter API** | Convert Markdown to HTML, then to PDF |
+| **Screenshot API** | Include page screenshots in PDF reports |
+| **Currency Exchange API** | Multi-currency invoices |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `pdf generator api`, `html to pdf api`, `markdown to pdf`, `url to pdf`, `free pdf api`, `generate pdf`, `pdf conversion api`, `invoice pdf api`, `report generator`, `document generation api`

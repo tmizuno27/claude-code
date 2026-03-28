@@ -122,6 +122,20 @@ A: The API returns headlines, descriptions, and links. Full article content must
 
 A free alternative to NewsAPI, Bing News Search API, and GNews. No upstream API costs, commercial use allowed on free tier.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **AI Text API** | Summarize or rewrite news articles |
+| **AI Translation API** | Translate news to multiple languages |
+| **Text Analysis API** | Sentiment analysis on news headlines |
+| **Trends API** | Cross-reference news with trending topics |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `news api`, `news aggregator`, `headlines api`, `rss feed api`, `free news api`, `news search api`, `trending news`, `tech news api`, `news data`, `newsapi alternative`

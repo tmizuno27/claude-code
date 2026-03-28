@@ -242,6 +242,20 @@ A: Not currently. For real-time streaming, poll the /price endpoint at your desi
 
 A free, developer-friendly alternative to CoinMarketCap API, CoinGecko Pro, and CryptoCompare. No complex setup, no $50+/month subscription, no credit card required for free tier.
 
+
+## Also From This Publisher
+
+Build powerful workflows by combining APIs:
+
+| API | Why Combine? |
+|-----|-------------|
+| **Currency Exchange API** | Combine crypto + fiat rates for full coverage |
+| **Trends API** | Track which coins are trending on social media |
+| **News Aggregator API** | Get crypto news alongside price data |
+| **AI Text API** | Generate market analysis from crypto data |
+
+> All APIs include a free tier. Subscribe to one, discover the full toolkit on [our RapidAPI profile](https://rapidapi.com/miccho27-5OJaGGbBiO).
+
 ## Keywords
 
 `crypto api`, `cryptocurrency api`, `bitcoin price api`, `crypto market data`, `coin prices api`, `free crypto api`, `defi api`, `crypto chart api`, `market cap api`, `coingecko alternative`, `coinmarketcap alternative`, `real-time crypto prices`, `crypto trading api`
