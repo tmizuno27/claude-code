@@ -393,8 +393,8 @@ def mark_image_used(image_key: str):
             json.dump(tags_db, f, ensure_ascii=False, indent=2)
 
 
-def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
-    """Xに投稿（v2 API + v1.1 media upload）"""
+def post_to_x(creds: dict, text: str, image_path: Path = None, max_retries: int = 3) -> str | None:
+    """Xに投稿（v2 API + v1.1 media upload）。403/429エラー時はリトライする"""
     auth = tweepy.OAuth1UserHandler(
         creds["api_key"],
         creds["api_key_secret"],
@@ -410,23 +410,46 @@ def post_to_x(creds: dict, text: str, image_path: Path = None) -> str | None:
         access_token_secret=creds["access_token_secret"],
     )
 
-    try:
-        kwargs = {"text": text}
+    kwargs = {"text": text}
 
-        # 画像がある場合は v1.1 で media upload してから v2 で投稿
-        if image_path:
+    # 画像がある場合は v1.1 で media upload してから v2 で投稿
+    if image_path:
+        try:
             api = tweepy.API(auth)
             media = api.media_upload(filename=str(image_path))
             kwargs["media_ids"] = [media.media_id]
             print(f"OK: 画像アップロード成功 (画像: {image_path.name})")
+        except tweepy.errors.TweepyException as e:
+            print(f"WARNING: 画像アップロード失敗 - {e}。テキストのみで投稿します")
 
-        response = client.create_tweet(**kwargs)
-        tweet_id = response.data["id"]
-        print(f"OK: 投稿成功 (ID: {tweet_id})")
-        return tweet_id
-    except tweepy.errors.TweepyException as e:
-        print(f"ERROR: 投稿失敗 - {e}")
-        return None
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = client.create_tweet(**kwargs)
+            tweet_id = response.data["id"]
+            print(f"OK: 投稿成功 (ID: {tweet_id})")
+            return tweet_id
+        except tweepy.errors.Forbidden as e:
+            print(f"WARNING: 403 Forbidden (attempt {attempt}/{max_retries}) - {e}")
+            if attempt < max_retries:
+                wait_sec = 60 * attempt  # 1分、2分、3分と増加
+                print(f"  {wait_sec}秒後にリトライします...")
+                time.sleep(wait_sec)
+            else:
+                print(f"ERROR: 投稿失敗 - {max_retries}回リトライしても403。"
+                      "X Developer Portalでアプリ権限(Read and Write)を確認してください")
+                return None
+        except tweepy.errors.TooManyRequests as e:
+            print(f"WARNING: 429 Rate Limit (attempt {attempt}/{max_retries}) - {e}")
+            if attempt < max_retries:
+                wait_sec = 120 * attempt  # 2分、4分、6分
+                print(f"  レート制限中。{wait_sec}秒後にリトライします...")
+                time.sleep(wait_sec)
+            else:
+                print(f"ERROR: 投稿失敗 - レート制限が解除されません")
+                return None
+        except tweepy.errors.TweepyException as e:
+            print(f"ERROR: 投稿失敗 - {e}")
+            return None
 
 
 DASHBOARD_URL = "https://htmlpreview.github.io/?https://gist.githubusercontent.com/tmizuno27/16a8680cadf8aed0c207777f7468963b/raw/daily-business-dashboard.html"
