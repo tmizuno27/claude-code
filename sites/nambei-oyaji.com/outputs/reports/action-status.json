@@ -3,49 +3,56 @@
   "actions": [
     {
       "id": "apify-paypal-setup",
-      "title": "ApifyのPayPal出金設定",
+      "title": "ApifyにPayPal設定",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "nambei-ga4-fix",
-      "title": "南米ブログGA4タイムアウト修正",
+      "id": "apify-actor-pricing",
+      "title": "Apify Actor料金プラン確認",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "pseo-gsc-register",
+      "id": "rapidapi-free-to-paid",
+      "title": "RapidAPI無料枠を絞る",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-adsense-check",
+      "title": "pSEOサイトのAdSense設置",
+      "priority": "P1",
+      "done": false,
+      "done_at": null
+    },
+    {
+      "id": "pseo-gsc-submit",
       "title": "pSEOサイトをGSCに登録",
-      "priority": "P2",
-      "done": false,
-      "done_at": null
-    },
-    {
-      "id": "rapidapi-review-plans",
-      "title": "RapidAPI売上ゼロの原因調査",
       "priority": "P1",
       "done": false,
       "done_at": null
     },
     {
-      "id": "x-post-rapidapi",
-      "title": "RapidAPI製品をXで告知投稿",
+      "id": "nambei-gsc-lowctr",
+      "title": "南米サイトCTR改善",
       "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
-      "title": "Stripe KYC問題の解決",
-      "priority": "P1",
+      "title": "Stripe KYC解決に着手",
+      "priority": "P2",
       "done": false,
       "done_at": null
     },
     {
-      "id": "gumroad-n8n-list",
-      "title": "Gumroadでn8n無料公開準備",
+      "id": "rapidapi-promotion",
+      "title": "RapidAPIをXで告知",
       "priority": "P2",
       "done": false,
       "done_at": null
