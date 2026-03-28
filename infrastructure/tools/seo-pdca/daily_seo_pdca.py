@@ -34,7 +34,7 @@ from googleapiclient.discovery import build
 # ==== パス設定 ====
 SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent.parent.parent  # claude-code/
-CRED_PATH = REPO_ROOT / "sites" / "nambei-oyaji.com" / "config" / "sheets-sync-489022-4a9b0ccff584.json"
+CRED_PATH = REPO_ROOT / "sites" / "nambei-oyaji.com" / "config" / "gsc-credentials.json"
 LOG_DIR = REPO_ROOT / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
