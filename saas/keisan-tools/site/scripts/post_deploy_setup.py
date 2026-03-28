@@ -17,7 +17,7 @@ from google.oauth2 import service_account
 
 SA_FILE = Path(
     "C:/Users/tmizu/マイドライブ/GitHub/claude-code"
-    "/infrastructure/tools/sheets-sync/credentials/service-account.json"
+    "/sites/nambei-oyaji.com/config/gsc-credentials.json"
 )
 SITEMAP_PATH = Path(__file__).resolve().parent.parent / "public" / "sitemap.xml"
 SITE_URL = "https://keisan-tools.com"

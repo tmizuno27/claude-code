@@ -20,7 +20,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPT_DIR / '..' / '..'
 CONFIG_DIR = PROJECT_ROOT / 'config'
-SHEETS_CRED_PATH = PROJECT_ROOT / '..' / 'infrastructure' / 'tools' / 'sheets-sync' / 'credentials' / 'service-account.json'
+SHEETS_CRED_PATH = CONFIG_DIR / 'gsc-credentials.json'
 GSC_CRED_PATH = CONFIG_DIR / 'gsc-credentials.json'
 CSV_PATH = PROJECT_ROOT / 'outputs' / 'article-management.csv'
 SETTINGS_PATH = CONFIG_DIR / 'settings.json'

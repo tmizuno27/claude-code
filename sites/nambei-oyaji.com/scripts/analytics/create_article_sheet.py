@@ -12,7 +12,7 @@ from collections import Counter, OrderedDict
 from datetime import datetime, timezone, timedelta
 
 # 設定
-CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'infrastructure', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
+CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'config', 'gsc-credentials.json')
 CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'outputs', 'article-management.csv')
 SHEET_ID = os.environ.get('ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
 

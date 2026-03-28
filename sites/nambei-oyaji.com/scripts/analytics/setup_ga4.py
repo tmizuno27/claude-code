@@ -19,7 +19,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 CONFIG_DIR = PROJECT_ROOT / "config"
 SETTINGS_PATH = CONFIG_DIR / "settings.json"
-SA_SOURCE = PROJECT_ROOT.parent / "tools" / "sheets-sync" / "credentials" / "service-account.json"
+SA_SOURCE = CONFIG_DIR / "gsc-credentials.json"
 GA4_CRED_PATH = CONFIG_DIR / "ga4-credentials.json"
 GSC_CRED_PATH = CONFIG_DIR / "gsc-credentials.json"
 

@@ -18,7 +18,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 
 # 設定
-CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'infrastructure', 'tools', 'sheets-sync', 'credentials', 'service-account.json')
+CREDENTIALS_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'config', 'gsc-credentials.json')
 CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'outputs', 'article-management.csv')
 SHEET_ID = os.environ.get('OTONA_ARTICLE_SHEET_ID', '1rWFxYNCxyeIoW0QKXx4RsPbYfeJLp7j0bwKw8a6x6n8')
 
