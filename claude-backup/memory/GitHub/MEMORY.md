@@ -105,5 +105,5 @@
 - **Stripe連携待ち**: [stripe-pending-tasks.md](stripe-pending-tasks.md) — 「Stripe連携できました」で即実行
 
 ## PDCA実行記録
-- **2026-03-28**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列実行。デプロイ4件、新商品3件、コード修正多数、29記事生成、55ツイート追加
+- **2026-03-28**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列+朝4タスク。Sheets Sync復旧、X投稿v2移行、CTR改善、内部リンク強化。手動TODO11件残
 - **2026-03-27**: [pdca-2026-03-27.md](pdca-2026-03-27.md) — GA4修正、pSEO GSC送信、ダッシュボードバグ修正3件、GitHub Pages無効化
