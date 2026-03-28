@@ -69,6 +69,9 @@
 - A8.net: 3サイト提携・一括挿入完了
 - Value Commerce: 3サイト登録済、プログラム提携未着手
 
+## フォルダ構成ルール
+- **整理規約**: [folder-structure-rules.md](folder-structure-rules.md) — ログ一元管理、ファイル配置ルール（2026-03-28整理済み）
+
 ## インフラ・自動化
 - **GitHub自動同期**: [auto-sync-setup.md](auto-sync-setup.md) — 1分おき
 - **GitHub Pages無効化**: [github-pages-disabled.md](github-pages-disabled.md) — 2026-03-27無効化（ビルド失敗メール対策）
