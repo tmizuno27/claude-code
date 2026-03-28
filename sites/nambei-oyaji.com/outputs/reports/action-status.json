@@ -13,15 +13,17 @@
       "id": "apify-actor-pricing",
       "title": "Apify Actor料金プラン確認",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:14",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "rapidapi-free-to-paid",
       "title": "RapidAPI無料枠を絞る",
       "priority": "P1",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:15",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "pseo-adsense-check",
@@ -51,8 +53,9 @@
       "id": "stripe-kyc-resolve",
       "title": "Stripe KYC解決に着手",
       "priority": "P2",
-      "done": false,
-      "done_at": null
+      "done": true,
+      "done_at": "17:14",
+      "completed_date": "2026-03-28"
     },
     {
       "id": "rapidapi-promotion",
