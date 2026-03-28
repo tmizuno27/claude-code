@@ -28,6 +28,7 @@
 - **ダッシュボード自動更新**: [feedback_dashboard_realtime.md](feedback_dashboard_realtime.md)
 - **エージェント一覧**: [feedback_agent_list_table.md](feedback_agent_list_table.md)
 - **出品前に既存確認**: [feedback_check_existing_before_listing.md](feedback_check_existing_before_listing.md)
+- **出品手順は全項目漏れなく**: [feedback_gumroad_listing_complete.md](feedback_gumroad_listing_complete.md) — コンテンツ先に完成→全入力欄を一括提示
 - **Gumroadサムネ必須**: [feedback_gumroad_thumbnails.md](feedback_gumroad_thumbnails.md) — Python/Pillowで自動生成
 - **Reddit投稿は無効**: [feedback_reddit_posting.md](feedback_reddit_posting.md) — モデレーターに削除されるため提案禁止
 - **日次レポート鮮度チェック**: [feedback_daily_report_verify.md](feedback_daily_report_verify.md)
