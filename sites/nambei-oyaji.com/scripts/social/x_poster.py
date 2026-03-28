@@ -59,8 +59,18 @@ def load_credentials() -> dict:
     return creds
 
 
+def get_client(creds: dict) -> tweepy.Client:
+    """Tweepy v2 Client を取得"""
+    return tweepy.Client(
+        consumer_key=creds["api_key"],
+        consumer_secret=creds["api_key_secret"],
+        access_token=creds["access_token"],
+        access_token_secret=creds["access_token_secret"],
+    )
+
+
 def get_api(creds: dict) -> tweepy.API:
-    """Tweepy v1.1 API を取得"""
+    """Tweepy v1.1 API を取得（画像アップロード用）"""
     auth = tweepy.OAuth1UserHandler(
         creds["api_key"],
         creds["api_key_secret"],
@@ -70,8 +80,8 @@ def get_api(creds: dict) -> tweepy.API:
     return tweepy.API(auth)
 
 
-def post_tweet(api: tweepy.API, text: str, reply_to: str = None, image_path: str = None, dry_run: bool = False) -> str | None:
-    """1つのツイートを投稿する。成功時はtweet IDを返す"""
+def post_tweet(client_or_api, text: str, reply_to: str = None, image_path: str = None, dry_run: bool = False, creds: dict = None) -> str | None:
+    """1つのツイートを投稿する（v2 API使用）。成功時はtweet IDを返す"""
     if len(text) > 280:
         print(f"WARNING: 文字数が280を超えています ({len(text)}文字)。投稿をスキップします")
         return None
@@ -85,31 +95,58 @@ def post_tweet(api: tweepy.API, text: str, reply_to: str = None, image_path: str
             print(f"  (リプライ先: {reply_to})")
         return "dry-run-id"
 
+    # v2 Clientを取得（後方互換: API objectが渡された場合はcredsから作成）
+    if isinstance(client_or_api, tweepy.Client):
+        client = client_or_api
+    elif creds:
+        client = get_client(creds)
+    else:
+        print("ERROR: v2 Clientまたはcredsが必要です")
+        return None
+
     try:
-        kwargs = {"status": text}
+        kwargs = {"text": text}
         if reply_to:
-            kwargs["in_reply_to_status_id"] = reply_to
-        if image_path:
+            kwargs["in_reply_to_tweet_id"] = reply_to
+        if image_path and creds:
+            api = get_api(creds)
             media = api.media_upload(filename=image_path)
             kwargs["media_ids"] = [media.media_id]
             print(f"画像アップロード完了: {Path(image_path).name}")
-        status = api.update_status(**kwargs)
-        tweet_id = str(status.id)
-        print(f"OK: 投稿成功 (ID: {tweet_id})")
-        return tweet_id
+
+        for attempt in range(1, 4):
+            try:
+                response = client.create_tweet(**kwargs)
+                tweet_id = response.data["id"]
+                print(f"OK: 投稿成功 (ID: {tweet_id})")
+                return tweet_id
+            except tweepy.errors.Forbidden as e:
+                print(f"WARNING: 403 Forbidden (attempt {attempt}/3) - {e}")
+                if attempt < 3:
+                    time.sleep(60 * attempt)
+                else:
+                    print(f"ERROR: 投稿失敗 - 3回リトライしても403")
+                    return None
+            except tweepy.errors.TooManyRequests as e:
+                print(f"WARNING: 429 Rate Limit (attempt {attempt}/3) - {e}")
+                if attempt < 3:
+                    time.sleep(120 * attempt)
+                else:
+                    print(f"ERROR: 投稿失敗 - レート制限")
+                    return None
     except tweepy.errors.TweepyException as e:
         print(f"ERROR: 投稿失敗 - {e}")
         return None
 
 
-def post_thread(api: tweepy.API, texts: list[str], dry_run: bool = False) -> list[str]:
-    """スレッド形式で連続投稿"""
+def post_thread(client, texts: list[str], dry_run: bool = False, creds: dict = None) -> list[str]:
+    """スレッド形式で連続投稿（v2 API）"""
     tweet_ids = []
     reply_to = None
 
     for i, text in enumerate(texts, 1):
         print(f"\n--- スレッド {i}/{len(texts)} ---")
-        tweet_id = post_tweet(api, text, reply_to=reply_to, dry_run=dry_run)
+        tweet_id = post_tweet(client, text, reply_to=reply_to, dry_run=dry_run, creds=creds)
         if tweet_id:
             tweet_ids.append(tweet_id)
             reply_to = tweet_id
@@ -193,16 +230,16 @@ def main():
         sys.exit(1)
 
     creds = load_credentials()
-    api = get_api(creds)
+    client = get_client(creds)
 
     if args.text:
-        tweet_id = post_tweet(api, args.text, image_path=args.image, dry_run=args.dry_run)
+        tweet_id = post_tweet(client, args.text, image_path=args.image, dry_run=args.dry_run, creds=creds)
         if tweet_id and not args.dry_run:
             log_post(args.text, tweet_id)
 
     elif args.thread:
         texts = [t.strip() for t in args.thread.split("\\n\\n") if t.strip()]
-        tweet_ids = post_thread(api, texts, dry_run=args.dry_run)
+        tweet_ids = post_thread(client, texts, dry_run=args.dry_run, creds=creds)
         if tweet_ids and not args.dry_run:
             for text, tid in zip(texts, tweet_ids):
                 log_post(text, tid, category="thread")
@@ -216,7 +253,7 @@ def main():
         print(f"{len(posts)} 件の投稿が見つかりました")
         for i, post in enumerate(posts):
             print(f"\n--- [{post['category']}] {post['hour']}時台 ---")
-            tweet_id = post_tweet(api, post["text"], dry_run=args.dry_run)
+            tweet_id = post_tweet(client, post["text"], dry_run=args.dry_run, creds=creds)
             if tweet_id and not args.dry_run:
                 log_post(post["text"], tweet_id, category=post["category"])
             # スパム防止: 複数投稿時は30分間隔で分散
