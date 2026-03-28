@@ -533,6 +533,91 @@ Upgrade to Pro for 50,000 requests/month at $9.99.
 
 ---
 
+## API #13: Crypto Data API
+
+### Title
+```
+Free Crypto API - Real-Time Prices, Market Cap, Charts | 10,000+ Coins
+```
+
+### Short Description
+```
+Free Crypto API - Real-time prices, market cap, volume, charts for 10,000+ coins. Sub-100ms edge cached.
+```
+
+### Tags
+```
+crypto api, cryptocurrency prices, bitcoin api, market cap, crypto charts, coin data, ethereum api, crypto market data, defi api, free crypto api
+```
+
+### Long Description
+```
+Real-time cryptocurrency prices, market cap, 24h volume, price changes, and historical chart data for 10,000+ coins. Powered by CoinCap with Cloudflare edge caching.
+
+## Getting Started
+1. Subscribe (free plan available)
+2. GET `/prices?ids=bitcoin,ethereum`
+3. Get real-time prices with 24h change
+
+## Key Features
+- **10,000+ Coins** — Bitcoin, Ethereum, altcoins, DeFi tokens
+- **Real-Time Prices** — Updated every minute
+- **Historical Charts** — 1d, 7d, 30d, 90d, 365d intervals
+- **Market Data** — Market cap, volume, supply, ATH
+- **Sub-100ms** — Cloudflare edge cached responses
+
+## Alternative To
+CoinGecko API (rate limited), CoinMarketCap ($29/mo), CryptoCompare ($24/mo). 10K+ coins at $0/month.
+```
+
+---
+
+## API #14: SEO Analyzer API
+
+### Title
+```
+Free SEO Analyzer API - 19-Point Audit, Score 0-100 | Ahrefs Alternative
+```
+
+### Short Description
+```
+Free SEO Audit API - 19 weighted checks, 0-100 score, structured data, CI/CD ready. $9.99 vs Ahrefs $99/mo.
+```
+
+### Tags
+```
+seo analyzer, seo audit api, on-page seo, website audit, seo score, meta tags checker, structured data, seo tool api, ahrefs alternative, free seo api
+```
+
+### Long Description
+```
+19-point on-page SEO audit with weighted scoring (0-100) for any URL. Title, meta, headings, images, links, structured data, performance — all in one API call.
+
+## Getting Started
+1. Subscribe (free plan available)
+2. GET `/analyze?url=https://example.com`
+3. Get 0-100 score with 19 individual check results
+
+## Key Features
+- **19 Weighted Checks** — Title, meta, H1, images, links, schema, etc.
+- **0-100 Score** — Weighted composite score
+- **Structured Data** — JSON-LD and Open Graph validation
+- **CI/CD Ready** — Automate SEO checks in your pipeline
+- **Detailed Results** — Each check returns pass/fail with recommendations
+
+## Pricing Comparison
+| Feature | This API | Ahrefs | Moz | Screaming Frog |
+|---------|----------|--------|-----|-----------------|
+| Price | $0-9.99/mo | $99/mo | $79/mo | $259/yr |
+| API access | Yes | $399/mo | $79/mo | No |
+| Per-page cost | $0.0002 | N/A | N/A | N/A |
+
+## Alternative To
+Ahrefs Site Audit ($99/mo), Moz Pro ($79/mo), Screaming Frog ($259/yr). SEO auditing API at $0/month.
+```
+
+---
+
 ## API #15: Weather API
 
 ### Title
