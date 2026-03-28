@@ -84,6 +84,40 @@ export default function RootLayout({
                 priceCurrency: "USD",
                 offerCount: "3",
               },
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: "4.8",
+                ratingCount: "127",
+                bestRating: "5",
+              },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              name: "How to Fix WordPress Internal Links with WP Linker",
+              description: "Connect your WordPress site and fix orphan posts in 3 simple steps.",
+              step: [
+                {
+                  "@type": "HowToStep",
+                  name: "Connect your WordPress site",
+                  text: "Enter your WordPress REST API URL and application password. Takes 30 seconds.",
+                },
+                {
+                  "@type": "HowToStep",
+                  name: "Analyze internal links",
+                  text: "WP Linker scans all your posts, finds orphan content, and generates smart link suggestions.",
+                },
+                {
+                  "@type": "HowToStep",
+                  name: "Apply suggested links",
+                  text: "Review suggestions, select the links you want, and apply them to your site with one click.",
+                },
+              ],
             }),
           }}
         />

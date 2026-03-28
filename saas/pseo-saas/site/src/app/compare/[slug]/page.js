@@ -57,11 +57,25 @@ export default async function ComparePage({ params }) {
     })),
   };
 
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ai-tool-compare-nu.vercel.app/' },
+      { '@type': 'ListItem', position: 2, name: pair.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase()), item: `https://ai-tool-compare-nu.vercel.app/category/${pair.category}/` },
+      { '@type': 'ListItem', position: 3, name: `${toolA.name} vs ${toolB.name}` },
+    ],
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <div className="compare-header">
         <div className="container">
