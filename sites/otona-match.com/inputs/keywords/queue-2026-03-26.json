@@ -126,18 +126,21 @@
     "keyword": "婚活アプリ おすすめ 30代 女性",
     "type": "longtail",
     "priority": 18,
-    "status": "pending"
+    "status": "draft",
+    "draft_date": "2026-03-28"
   },
   {
     "keyword": "マッチング アプリ ペアーズ 評判",
     "type": "longtail",
     "priority": 19,
-    "status": "pending"
+    "status": "draft",
+    "draft_date": "2026-03-28"
   },
   {
     "keyword": "タップル スタンダード プラン 評判",
     "type": "longtail",
     "priority": 20,
-    "status": "pending"
+    "status": "draft",
+    "draft_date": "2026-03-28"
   }
 ]
