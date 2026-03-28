@@ -1,0 +1,29 @@
+{
+  "slug": "child-allowance",
+  "category": "money",
+  "subcategory": "tax",
+  "title": "児童手当計算",
+  "description": "子どもの年齢・人数と世帯年収から、受給できる児童手当の月額・年額を計算。2024年10月改正の所得制限撤廃に対応。",
+  "metaTitle": "児童手当計算ツール｜2026年版の受給額をシミュレーション【所得制限撤廃対応】",
+  "metaDescription": "児童手当の月額・年額を子どもの年齢と人数から無料計算。2024年10月改正（所得制限撤廃・高校生延長）対応。",
+  "calculatorFunction": "childAllowance",
+  "inputs": [
+    { "id": "children0to2", "label": "0〜2歳の子ども", "type": "slider", "unit": "人", "default": 0, "min": 0, "max": 5, "step": 1 },
+    { "id": "children3to11", "label": "3歳〜小学生の子ども", "type": "slider", "unit": "人", "default": 1, "min": 0, "max": 5, "step": 1 },
+    { "id": "children12to17", "label": "中学生〜高校生の子ども", "type": "slider", "unit": "人", "default": 1, "min": 0, "max": 5, "step": 1 },
+    { "id": "totalChildren", "label": "子どもの総数（大学生含む）", "type": "slider", "unit": "人", "default": 2, "min": 1, "max": 8, "step": 1 }
+  ],
+  "outputs": [
+    { "id": "monthlyTotal", "label": "月額合計", "format": "currency", "primary": true },
+    { "id": "annualTotal", "label": "年額合計", "format": "currency" },
+    { "id": "totalUntil18", "label": "18歳までの総受給見込み", "format": "currency" }
+  ],
+  "explanation": "<h3>2024年10月改正後の児童手当</h3><p>所得制限撤廃・高校生まで延長・第3子以降は月3万円に増額</p><p>0〜2歳：月15,000円<br/>3歳〜高校生：月10,000円<br/>第3子以降：月30,000円（全年齢）</p><h3>第3子のカウント方法</h3><p>22歳到達後の最初の3月31日まで（大学生等も含む）の子どもを上から数えます。</p>",
+  "faq": [
+    { "question": "所得制限はなくなった？", "answer": "2024年10月から所得制限は撤廃されました。全世帯が同額を受給できます。" },
+    { "question": "いつ振り込まれる？", "answer": "2024年10月から年6回（偶数月）に変更されました。各回2ヶ月分が振り込まれます。" }
+  ],
+  "related": ["income-tax", "education-fund"],
+  "popular": true,
+  "popularOrder": 9
+}

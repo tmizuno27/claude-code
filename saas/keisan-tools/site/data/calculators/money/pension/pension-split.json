@@ -1,0 +1,33 @@
+{
+  "slug": "pension-split",
+  "category": "money",
+  "subcategory": "pension",
+  "title": "年金分割計算",
+  "description": "離婚時の年金分割（合意分割・3号分割）の概算額を計算。分割割合に応じた受給額の変化をシミュレーション。",
+  "metaTitle": "年金分割計算シミュレーション｜離婚時の年金分割額を計算",
+  "metaDescription": "離婚時の年金分割（合意分割・3号分割）の受給額変化を無料シミュレーション。分割割合別の概算額を計算。",
+  "calculatorFunction": "pensionSplit",
+  "inputs": [
+    { "id": "spouseAPension", "label": "配偶者Aの厚生年金（月額）", "type": "number", "unit": "万円", "default": 12, "min": 0, "max": 30, "step": 0.5 },
+    { "id": "spouseBPension", "label": "配偶者Bの厚生年金（月額）", "type": "number", "unit": "万円", "default": 3, "min": 0, "max": 30, "step": 0.5 },
+    { "id": "marriageYears", "label": "婚姻期間", "type": "slider", "unit": "年", "default": 15, "min": 1, "max": 40, "step": 1 },
+    { "id": "splitRatio", "label": "分割割合", "type": "slider", "unit": "%", "default": 50, "min": 0, "max": 50, "step": 1 },
+    { "id": "splitType", "label": "分割方式", "type": "select", "default": "agreed", "options": [
+      { "value": "agreed", "label": "合意分割" },
+      { "value": "type3", "label": "3号分割" }
+    ]}
+  ],
+  "outputs": [
+    { "id": "spouseAAfter", "label": "配偶者A 分割後月額", "format": "currency", "primary": true },
+    { "id": "spouseBAfter", "label": "配偶者B 分割後月額", "format": "currency" },
+    { "id": "transferAmount", "label": "分割移転月額", "format": "currency" },
+    { "id": "annualDifference", "label": "年間受給差額", "format": "currency" }
+  ],
+  "explanation": "<h3>年金分割とは</h3><p>離婚時に婚姻期間中の厚生年金記録を分割する制度です。</p><h3>合意分割</h3><p>夫婦の話し合いまたは裁判で分割割合を決定（上限50%）。2008年4月以前の期間も対象。</p><h3>3号分割</h3><p>2008年4月以降の第3号被保険者期間について、相手の同意なしに50%分割可能。</p>",
+  "faq": [
+    { "question": "年金分割の請求期限は？", "answer": "離婚成立日の翌日から2年以内に請求が必要です。期限を過ぎると請求権が消滅します。" },
+    { "question": "年金分割すると相手の年金は減る？", "answer": "はい。婚姻期間に対応する部分の記録が移転するため、分割した側の年金額は減少します。" }
+  ],
+  "related": ["pension-estimate", "pension-contribution"],
+  "popular": false
+}

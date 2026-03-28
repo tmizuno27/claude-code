@@ -335,12 +335,17 @@ Upgrade to Pro for 50,000 requests/month at $5.99.
 
 ### Title
 ```
-JSON Formatter & Validator API - Format, Minify, Diff, CSV Convert
+Free JSON Formatter API - Validate, Minify, Diff, CSV Convert | All-in-One
 ```
 
 ### Short Description
 ```
-Free JSON API - Format, Minify, Validate, Diff, JMESPath, CSV Convert, Schema Validation
+Free JSON toolkit API - Format, minify, validate, diff, JSON-to-CSV, CSV-to-JSON. The only all-in-one JSON API.
+```
+
+### Tags
+```
+json formatter, json validator, json minify, json to csv, csv to json, json diff, json parser, json api, data conversion, free json tool
 ```
 
 ### Long Description
@@ -372,12 +377,17 @@ Upgrade to Pro for 50,000 requests/month at $5.99.
 
 ### Title
 ```
-Hash & Encoding API - SHA256, MD5, Bcrypt, Base64, HMAC
+Free Hash & Encoding API - SHA256, MD5, Bcrypt, Base64, HMAC | Web Crypto
 ```
 
 ### Short Description
 ```
-Free Hash API - SHA256, MD5, Bcrypt, HMAC, Base64, URL Encode, Random String, UUID
+Free Hash API - SHA256/384/512, MD5, bcrypt, Base64, HMAC, random string. Web Crypto, zero dependencies.
+```
+
+### Tags
+```
+hash api, sha256, md5, bcrypt, base64 encode, hmac, encryption api, hash generator, encoding api, cryptography, password hash
 ```
 
 ### Long Description
@@ -404,16 +414,99 @@ Upgrade to Pro for 50,000 requests/month at $5.99.
 
 ---
 
-## API #12: Social Video API
+## API #10: Currency Exchange API
 
 ### Title
 ```
-Social Video Download API - YouTube, TikTok, Instagram, X
+Free Currency Exchange API - Real-Time FX Rates, Conversion, Historical | ECB Data
 ```
 
 ### Short Description
 ```
-Free Social Video API - Download URLs from YouTube, TikTok, Instagram, X, Facebook, Reddit
+Free FX Rates API - 30+ currencies, real-time conversion, historical (1999~). ECB official data. Any base free.
+```
+
+### Tags
+```
+currency exchange, exchange rate api, forex api, currency converter, fx rates, ecb exchange rate, historical exchange rate, currency api, money conversion, free forex api
+```
+
+### Long Description
+```
+Real-time and historical currency exchange rates from the European Central Bank (ECB). Convert between 30+ currencies, fetch historical rates back to 1999.
+
+## Getting Started
+1. Subscribe (free plan available)
+2. GET `/latest?base=USD`
+3. Get all exchange rates with USD as base
+
+## Key Features
+- **30+ Currencies** — All major and many minor currencies
+- **Real-Time Rates** — Updated daily from ECB
+- **Historical Data** — Rates back to January 1999
+- **Any Base Currency** — Free on all plans (competitors charge extra)
+- **Direct Conversion** — `/convert?from=USD&to=EUR&amount=100`
+
+## Alternative To
+Fixer.io ($10/mo), exchangerate-api ($10/mo), Open Exchange Rates ($12/mo). ECB official data at $0/month.
+```
+
+---
+
+## API #11: AI Text API
+
+### Title
+```
+Free AI Text API - Generate, Summarize, Translate, Rewrite | Llama 3.1 No Key
+```
+
+### Short Description
+```
+Free AI Text API - Generate, summarize, translate, rewrite with Llama 3.1. No OpenAI key, flat-rate pricing.
+```
+
+### Tags
+```
+ai text generation, llama api, text summarization, ai rewrite, text generation api, openai alternative, free ai api, content generation, ai summarizer, natural language generation
+```
+
+### Long Description
+```
+AI-powered text generation, summarization, translation, and rewriting using Llama 3.1 on Cloudflare Workers AI. No OpenAI or Anthropic API key needed.
+
+## Getting Started
+1. Subscribe (free plan available)
+2. POST to `/generate` with `{"prompt": "Write a product description for..."}`
+3. Get AI-generated text
+
+## Key Features
+- **4 Modes** — Generate, summarize, translate, rewrite
+- **Llama 3.1** — Meta's open-source LLM, no API key overhead
+- **Flat-Rate Pricing** — Not per-token like OpenAI ($0.002/1K tokens)
+- **No Third-Party Keys** — Runs directly on Cloudflare Workers AI
+- **Streaming Support** — Real-time text generation
+
+## Alternative To
+OpenAI ($0.002/1K tokens), Cohere ($1/1K), AI21 ($0.003/1K). Flat-rate AI text at $0/month.
+```
+
+---
+
+## API #12: Social Video Download API
+
+### Title
+```
+Free Social Video Download API - YouTube, TikTok, Instagram, X | Extract URLs
+```
+
+### Short Description
+```
+Free Video Download API - Extract direct URLs from YouTube, TikTok, Instagram, X, Facebook, Reddit. Multiple qualities.
+```
+
+### Tags
+```
+video download api, youtube download, tiktok download, instagram video, social media downloader, video extractor, twitter video download, facebook video, video url api, free video api
 ```
 
 ### Long Description

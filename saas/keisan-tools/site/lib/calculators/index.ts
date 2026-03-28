@@ -5972,6 +5972,22 @@ const calculatorFunctions: Record<string, (inputs: Record<string, number | strin
   screenTime,
   roomAirVolume,
   dataTransferTime,
+  // Batch 3 - New calculators
+  flat35Simulation,
+  retirementTax,
+  ruleOf72,
+  realWage,
+  educationFund,
+  pfcBalance,
+  bodyAge,
+  vitaminIntake,
+  carAnnualCost,
+  pointRewardCompare,
+  freelanceTakehome,
+  rentAffordability,
+  netWorth,
+  childAllowance,
+  pensionSplit,
 };
 
 export function getCalculatorFunction(
