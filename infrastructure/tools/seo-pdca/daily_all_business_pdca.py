@@ -425,14 +425,23 @@ def pdca_vscode_extensions():
     try:
         api_url = "https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery"
         payload = {
-            "filters": [{"criteria": [{"filterType": 4, "value": publisher}], "pageSize": 50, "pageNumber": 1}],
+            "filters": [
+                {
+                    "criteria": [
+                        {"filterType": 8, "value": "Microsoft.VisualStudio.Code"},
+                        {"filterType": 10, "value": publisher},  # filterType 10 = Publisher name
+                    ],
+                    "pageSize": 50,
+                    "pageNumber": 1,
+                }
+            ],
             "assetTypes": [],
-            "flags": 0x200 | 0x80 | 0x2,  # IncludeStatistics | ExcludeNonValidated | IncludeVersions
+            "flags": 0x200 | 0x80,  # IncludeStatistics | IncludeLatestVersionOnly
         }
         resp = requests.post(
             api_url,
             json=payload,
-            headers={"Content-Type": "application/json", "Accept": "application/json;api-version=6.1-preview.1"},
+            headers={"Content-Type": "application/json", "Accept": "application/json;api-version=3.0-preview.1"},
             timeout=15,
         )
         if resp.status_code == 200:
