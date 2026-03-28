@@ -1,0 +1,43 @@
+{
+  "title": "Google Maps Scraper Input",
+  "description": "Scrape Google Maps business listings: name, address, phone, website, ratings, reviews, opening hours, GPS coordinates. Free alternative to Google Places API. No API key needed.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "searchQuery": {
+      "title": "Search Query",
+      "type": "string",
+      "description": "Search query for Google Maps (e.g., 'restaurants in Tokyo', 'dentists near San Francisco', 'hotels in Paris'). Leave empty if using Place URLs.",
+      "editor": "textfield",
+      "prefill": "restaurants in Tokyo"
+    },
+    "placeUrls": {
+      "title": "Place URLs",
+      "type": "array",
+      "description": "List of Google Maps place URLs to scrape for detailed information. Use this for specific businesses you already know.",
+      "editor": "stringList",
+      "items": { "type": "string" }
+    },
+    "maxResults": {
+      "title": "Max Results",
+      "type": "integer",
+      "description": "Maximum number of search results to return.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 100
+    },
+    "includeReviews": {
+      "title": "Include Reviews",
+      "type": "boolean",
+      "description": "Fetch detailed place info including reviews. Slower but provides richer data.",
+      "default": false
+    },
+    "language": {
+      "title": "Language",
+      "type": "string",
+      "description": "Language code for results. Examples: 'en' (English), 'ja' (Japanese), 'es' (Spanish), 'de' (German), 'fr' (French), 'pt' (Portuguese).",
+      "default": "en",
+      "editor": "textfield"
+    }
+  }
+}

@@ -19,24 +19,38 @@ const HEADERS = {
   'Accept-Language': 'en-US,en;q=0.5',
 };
 
+const FETCH_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
 const CONTACT_PATHS = ['/contact', '/contact-us', '/about', '/about-us', '/impressum', '/team'];
 
 async function fetchPage(url) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 15000);
-  try {
-    const res = await fetch(url, {
-      headers: HEADERS,
-      redirect: 'follow',
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const contentType = res.headers.get('content-type') || '';
-    if (!contentType.includes('text/html')) throw new Error('Not HTML');
-    return res.text();
-  } finally {
-    clearTimeout(timeout);
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    try {
+      const res = await fetch(url, {
+        headers: HEADERS,
+        redirect: 'follow',
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const contentType = res.headers.get('content-type') || '';
+      if (!contentType.includes('text/html')) throw new Error('Not HTML');
+      return res.text();
+    } catch (e) {
+      clearTimeout(timer);
+      lastError = e;
+      if (attempt < MAX_RETRIES) {
+        log.warning(`Attempt ${attempt + 1} failed for ${url}: ${e.message}. Retrying...`);
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      }
+    }
   }
+  throw lastError;
 }
 
 function delay(ms) {

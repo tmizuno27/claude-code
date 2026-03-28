@@ -22,6 +22,10 @@ const marketplace = input.marketplace || 'com';
 const maxResults = input.maxResults || 20;
 const dataset = await Actor.openDataset();
 
+const FETCH_TIMEOUT_MS = 30_000;
+const MAX_RETRIES = 2;
+const RETRY_DELAY_MS = 2_000;
+
 const HEADERS = {
   'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
@@ -30,9 +34,25 @@ const HEADERS = {
 };
 
 async function fetchPage(url) {
-  const res = await fetch(url, { headers: HEADERS, redirect: 'follow' });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+  let lastError;
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    try {
+      const res = await fetch(url, { headers: HEADERS, redirect: 'follow', signal: controller.signal });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return res.text();
+    } catch (e) {
+      clearTimeout(timer);
+      lastError = e;
+      if (attempt < MAX_RETRIES) {
+        log.warning(`Attempt ${attempt + 1} failed for ${url}: ${e.message}. Retrying...`);
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS));
+      }
+    }
+  }
+  throw lastError;
 }
 
 function delay(ms) {
