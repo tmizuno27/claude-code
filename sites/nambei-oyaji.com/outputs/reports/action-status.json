@@ -1,40 +1,40 @@
 {
-  "date": "2026-03-27",
+  "date": "2026-03-28",
   "actions": [
     {
       "id": "apify-paypal-setup",
       "title": "ApifyのPayPal出金設定",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T09:30:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "nambei-ga4-fix",
       "title": "南米ブログGA4タイムアウト修正",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T09:45:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "pseo-gsc-register",
       "title": "pSEOサイトをGSCに登録",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-27T09:50:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "rapidapi-review-plans",
       "title": "RapidAPI売上ゼロの原因調査",
       "priority": "P1",
-      "done": true,
-      "done_at": "2026-03-27T09:40:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "x-post-rapidapi",
       "title": "RapidAPI製品をXで告知投稿",
       "priority": "P2",
-      "done": true,
-      "done_at": "2026-03-27T09:55:00"
+      "done": false,
+      "done_at": null
     },
     {
       "id": "stripe-kyc-resolve",
