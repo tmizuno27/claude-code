@@ -338,17 +338,32 @@ def pdca_gumroad():
 
     gumroad_dir = PRODUCTS_DIR / "gumroad-notion"
 
-    # 商品一覧をディレクトリからカウント
-    products_dir = gumroad_dir / "products"
+    # Gumroad APIから商品数・売上データ取得
     product_count = 0
-    if products_dir.exists():
-        product_count = len([d for d in products_dir.iterdir() if d.is_dir()])
-    # n8nテンプレートも同アカウント
-    n8n_dir = PRODUCTS_DIR / "n8n-templates"
-    if n8n_dir.exists():
-        n8n_count = len([f for f in (n8n_dir / "workflows").iterdir() if f.suffix == ".json"]) if (n8n_dir / "workflows").exists() else 0
-    else:
-        n8n_count = 0
+    total_sales = 0
+    total_revenue = 0.0
+    gumroad_api_ok = False
+    secrets_path = gumroad_dir / "config" / "secrets.json"
+    if secrets_path.exists():
+        try:
+            secrets = json.loads(secrets_path.read_text(encoding="utf-8"))
+            token = secrets.get("gumroad_access_token", "")
+            if token:
+                resp = requests.get(
+                    "https://api.gumroad.com/v2/products",
+                    params={"access_token": token},
+                    timeout=15,
+                )
+                if resp.status_code == 200:
+                    data = resp.json()
+                    products = data.get("products", [])
+                    product_count = len(products)
+                    for p in products:
+                        total_sales += p.get("sales_count", 0)
+                        total_revenue += (p.get("total_revenue", 0) or 0) / 100.0
+                    gumroad_api_ok = True
+        except Exception as e:
+            logger.log(f"  [gumroad] API error: {e}")
 
     # X投稿ログから効果確認
     x_log = LOG_DIR / "x-prodhq27-posts.log"
@@ -365,17 +380,24 @@ def pdca_gumroad():
             pass
 
     logger.report("### CHECK")
-    logger.report(f"- 商品数: {product_count}（ディレクトリ数）")
+    if gumroad_api_ok:
+        logger.report(f"- 商品数: **{product_count}**（Gumroad API取得）")
+        logger.report(f"- 総販売数: **{total_sales}件**")
+        logger.report(f"- 総売上: **${total_revenue:.2f}**")
+    else:
+        logger.report(f"- 商品数: 取得失敗（API接続エラー）")
     logger.report(f"- @prodhq27 X投稿（過去7日）: {recent_posts}件")
-    logger.report(f"- ⚠️ Gumroad APIキー未設定のため売上データ自動取得不可")
     logger.report("")
 
     logger.report("### ACT")
     logger.report("- X自動投稿（@prodhq27）: 毎日3回稼働中")
+    if gumroad_api_ok and total_sales == 0:
+        logger.report("- ⚠️ 販売数ゼロ → 商品ページ・価格・プロモーション戦略の見直しが急務")
     logger.report("")
 
     logger.report("### PLAN")
-    logger.report("- Gumroad APIキー取得→secrets.jsonに設定で売上自動追跡を有効化")
+    if not gumroad_api_ok:
+        logger.report("- ⚠️ Gumroad API接続に失敗。トークンの有効性を確認")
     logger.report("- Product Hunt / IndieHackers への掲載でトラフィック獲得")
     logger.report("")
 
