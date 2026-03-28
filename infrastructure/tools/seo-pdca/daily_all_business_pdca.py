@@ -48,7 +48,7 @@ SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent.parent.parent  # claude-code/
 SITES_DIR = REPO_ROOT / "sites"
 PRODUCTS_DIR = REPO_ROOT / "products"
-CRED_PATH = REPO_ROOT / "infrastructure" / "tools" / "sheets-sync" / "credentials" / "service-account.json"
+CRED_PATH = REPO_ROOT / "sites" / "nambei-oyaji.com" / "config" / "gsc-credentials.json"
 LOG_DIR = REPO_ROOT / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 

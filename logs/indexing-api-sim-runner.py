@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 from google.auth.transport.requests import Request
 from datetime import datetime
 
-SA_PATH = r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\infrastructure\tools\sheets-sync\credentials\service-account.json"
+SA_PATH = r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\sites\nambei-oyaji.com\config\gsc-credentials.json"
 LOG_PATH = r"C:\Users\tmizu\マイドライブ\GitHub\claude-code\logs\indexing-api-sim-2026-03-24.log"
 WP_API = "https://sim-hikaku.online/wp-json/wp/v2/posts"
 WP_USER = "t.mizuno27@gmail.com"
