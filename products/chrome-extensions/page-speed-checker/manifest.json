@@ -3,7 +3,9 @@
   "name": "Page Speed Checker",
   "version": "1.0.0",
   "description": "Page speed checker: Google PageSpeed Insights scores & Core Web Vitals in one click. Performance, Accessibility, SEO.",
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -18,5 +20,6 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-page-speed-checker.html"
 }

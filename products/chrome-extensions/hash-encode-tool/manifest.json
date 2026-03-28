@@ -3,7 +3,10 @@
   "name": "Hash & Encode Tool",
   "version": "1.1.0",
   "description": "Developer tool for hashing (MD5, SHA-1, SHA-256, SHA-512), encoding (Base64, URL, HTML), and decoding (JWT). 100% offline — zero network requests.",
-  "permissions": ["contextMenus", "storage"],
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -24,5 +27,6 @@
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-hash-encode-tool.html"
 }

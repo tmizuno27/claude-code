@@ -3,7 +3,10 @@
   "name": "Tab Manager & Session Saver",
   "version": "1.0.0",
   "description": "Manage tabs, save & restore sessions, find duplicates, search tabs instantly. Boost your productivity with smart tab management.",
-  "permissions": ["tabs", "storage"],
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -30,5 +33,6 @@
       },
       "description": "Open Tab Manager popup"
     }
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-tab-manager.html"
 }

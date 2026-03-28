@@ -3,7 +3,9 @@
   "name": "SEO Inspector - Instant SEO Analysis",
   "version": "1.0.0",
   "description": "SEO analyzer: one-click 0-100 score, 20-point checklist, meta tags, headings, images, links. Free, no account needed.",
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -18,5 +20,6 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-seo-inspector.html"
 }

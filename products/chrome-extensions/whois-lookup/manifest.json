@@ -3,7 +3,10 @@
   "name": "Domain WHOIS Lookup",
   "version": "1.0.0",
   "description": "WHOIS lookup: domain registration, DNS records, SSL certificate info in one click. History & one-click copy.",
-  "permissions": ["activeTab", "storage"],
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -18,5 +21,6 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-whois-lookup.html"
 }

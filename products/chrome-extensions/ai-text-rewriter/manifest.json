@@ -3,7 +3,12 @@
   "name": "AI Text Rewriter",
   "version": "1.2.0",
   "description": "AI text rewriter: select any text and rewrite instantly. Casual, Professional, Shorter, Longer, Fix Grammar. BYOK OpenAI.",
-  "permissions": ["activeTab", "storage", "contextMenus", "scripting"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus",
+    "scripting"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -21,5 +26,6 @@
   },
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-ai-text-rewriter.html"
 }

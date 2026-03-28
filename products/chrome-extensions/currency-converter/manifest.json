@@ -3,7 +3,11 @@
   "name": "Quick Currency Converter",
   "version": "1.0.0",
   "description": "Currency converter with real-time exchange rates. 160+ currencies, favorites, right-click conversion. Fast & lightweight.",
-  "permissions": ["activeTab", "storage", "contextMenus"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -21,5 +25,6 @@
   },
   "background": {
     "service_worker": "background.js"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-currency-converter.html"
 }

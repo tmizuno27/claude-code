@@ -3,7 +3,9 @@
   "name": "Color Picker & Converter",
   "version": "1.0.0",
   "description": "Color picker & converter: HEX, RGB, HSL, CMYK. Eyedropper, WCAG contrast checker, palette generator. 100% offline.",
-  "permissions": ["storage"],
+  "permissions": [
+    "storage"
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -18,5 +20,6 @@
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  }
+  },
+  "homepage_url": "https://homepage-three-ochre.vercel.app/privacy-policy-color-picker.html"
 }
