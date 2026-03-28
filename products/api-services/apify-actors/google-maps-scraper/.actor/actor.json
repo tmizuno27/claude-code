@@ -1,7 +1,7 @@
 {
   "actorSpecification": 1,
   "name": "google-maps-scraper",
-  "title": "Google Maps Scraper - Free Local Business Data Extractor (No API Key)",
+  "title": "Google Maps Scraper - Local Business Data Extractor",
   "description": "Free PhantomBuster & Outscraper alternative. Scrape Google Maps business listings: name, address, phone, website, ratings, reviews, opening hours, GPS coordinates. Two modes: keyword search and direct place URL scraping. Multi-language support (en, ja, es, de, etc.). Bulk processing, JSON/CSV export. No Google API key, no Cloud billing. Pay-per-use from $0.01/listing. Ideal for local SEO, lead generation, market research, and business directory building.",
   "version": "1.0",
   "buildTag": "latest",
