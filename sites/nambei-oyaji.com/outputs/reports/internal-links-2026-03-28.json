@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-03-28",
-  "total_posts_updated": 0,
+  "total_posts_updated": 85,
   "changes": [
     {
       "post_id": 3513,
@@ -23,7 +23,7 @@
           "score": 11
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3512,
@@ -46,7 +46,7 @@
           "score": 11
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3399,
@@ -69,7 +69,7 @@
           "score": 64
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3398,
@@ -92,7 +92,7 @@
           "score": 61
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2152,
@@ -115,7 +115,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3305,
@@ -138,7 +138,7 @@
           "score": 29
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3304,
@@ -161,7 +161,7 @@
           "score": 34
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3171,
@@ -184,7 +184,7 @@
           "score": 13
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 3139,
@@ -207,7 +207,7 @@
           "score": 5
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2975,
@@ -230,7 +230,7 @@
           "score": 42
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2153,
@@ -253,7 +253,7 @@
           "score": 42
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2539,
@@ -276,7 +276,7 @@
           "score": 47
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2538,
@@ -299,7 +299,7 @@
           "score": 60
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2537,
@@ -322,7 +322,7 @@
           "score": 42
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2536,
@@ -345,7 +345,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2535,
@@ -368,7 +368,7 @@
           "score": 37
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2534,
@@ -391,7 +391,7 @@
           "score": 39
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2533,
@@ -414,7 +414,7 @@
           "score": 16
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2532,
@@ -437,7 +437,7 @@
           "score": 38
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2531,
@@ -460,7 +460,7 @@
           "score": 29
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2530,
@@ -483,7 +483,7 @@
           "score": 6
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2523,
@@ -506,7 +506,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2522,
@@ -529,7 +529,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2511,
@@ -552,7 +552,7 @@
           "score": 62
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2510,
@@ -575,7 +575,7 @@
           "score": 41
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2509,
@@ -598,7 +598,7 @@
           "score": 39
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2508,
@@ -621,7 +621,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2507,
@@ -644,7 +644,7 @@
           "score": 39
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2506,
@@ -667,7 +667,7 @@
           "score": 38
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2505,
@@ -690,7 +690,7 @@
           "score": 40
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2490,
@@ -713,7 +713,7 @@
           "score": 62
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2489,
@@ -736,7 +736,7 @@
           "score": 50
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2488,
@@ -759,7 +759,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2487,
@@ -782,7 +782,7 @@
           "score": 52
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2486,
@@ -805,7 +805,7 @@
           "score": 53
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2485,
@@ -828,7 +828,7 @@
           "score": 49
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2484,
@@ -851,7 +851,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2465,
@@ -874,7 +874,7 @@
           "score": 38
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2464,
@@ -897,7 +897,7 @@
           "score": 35
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2463,
@@ -920,7 +920,7 @@
           "score": 24
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2462,
@@ -943,7 +943,7 @@
           "score": 37
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2461,
@@ -966,7 +966,7 @@
           "score": 40
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2460,
@@ -989,7 +989,7 @@
           "score": 41
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2459,
@@ -1012,7 +1012,7 @@
           "score": 20
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2458,
@@ -1035,7 +1035,7 @@
           "score": 43
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2457,
@@ -1058,7 +1058,7 @@
           "score": 39
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2408,
@@ -1081,7 +1081,7 @@
           "score": 62
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2407,
@@ -1104,7 +1104,7 @@
           "score": 62
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2397,
@@ -1127,7 +1127,7 @@
           "score": 36
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2287,
@@ -1150,7 +1150,7 @@
           "score": 32
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2215,
@@ -1173,7 +1173,7 @@
           "score": 31
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2214,
@@ -1196,7 +1196,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2208,
@@ -1219,7 +1219,7 @@
           "score": 6
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2158,
@@ -1242,7 +1242,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2157,
@@ -1265,7 +1265,7 @@
           "score": 30
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2156,
@@ -1288,7 +1288,7 @@
           "score": 44
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2155,
@@ -1311,7 +1311,7 @@
           "score": 42
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2251,
@@ -1334,7 +1334,7 @@
           "score": 42
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2223,
@@ -1357,7 +1357,7 @@
           "score": 44
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2216,
@@ -1380,7 +1380,7 @@
           "score": 7
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1735,
@@ -1403,7 +1403,7 @@
           "score": 28
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2076,
@@ -1426,7 +1426,7 @@
           "score": 35
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2078,
@@ -1449,7 +1449,7 @@
           "score": 32
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2096,
@@ -1472,7 +1472,7 @@
           "score": 33
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2097,
@@ -1495,7 +1495,7 @@
           "score": 30
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2099,
@@ -1518,7 +1518,7 @@
           "score": 28
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2100,
@@ -1541,7 +1541,7 @@
           "score": 28
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2098,
@@ -1564,7 +1564,7 @@
           "score": 28
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2058,
@@ -1587,7 +1587,7 @@
           "score": 41
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2057,
@@ -1610,7 +1610,7 @@
           "score": 43
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2056,
@@ -1633,7 +1633,7 @@
           "score": 20
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2055,
@@ -1656,7 +1656,7 @@
           "score": 31
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2016,
@@ -1679,7 +1679,7 @@
           "score": 46
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2015,
@@ -1702,7 +1702,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2014,
@@ -1725,7 +1725,7 @@
           "score": 45
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2013,
@@ -1748,7 +1748,7 @@
           "score": 47
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 2012,
@@ -1771,7 +1771,7 @@
           "score": 44
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1214,
@@ -1794,7 +1794,7 @@
           "score": 23
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1070,
@@ -1817,7 +1817,7 @@
           "score": 25
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1069,
@@ -1840,7 +1840,7 @@
           "score": 15
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1068,
@@ -1863,7 +1863,7 @@
           "score": 9
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1067,
@@ -1886,7 +1886,7 @@
           "score": 13
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1066,
@@ -1909,7 +1909,7 @@
           "score": 31
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1065,
@@ -1932,7 +1932,7 @@
           "score": 28
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     },
     {
       "post_id": 1008,
@@ -1955,7 +1955,7 @@
           "score": 16
         }
       ],
-      "status": "skipped_dry_run"
+      "status": "updated"
     }
   ]
 }

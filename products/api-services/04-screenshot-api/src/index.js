@@ -43,7 +43,7 @@ function isValidUrl(str) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
     }
@@ -143,14 +143,23 @@ export default {
       return resp;
     }
 
-    // Fetch from thum.io
+    // Fetch from thum.io with explicit timeout (25s to stay within CF Workers 30s wall-clock limit)
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 25000);
+
     let upstream;
     try {
       upstream = await fetch(thumUrl, {
         headers: { 'User-Agent': 'ScreenshotAPI/1.0' },
+        signal: controller.signal,
       });
     } catch (err) {
+      if (err.name === 'AbortError') {
+        return errorResponse('Screenshot capture timed out. The target URL may be slow or unreachable. Try again or use a simpler page.', 504);
+      }
       return errorResponse('Failed to capture screenshot: ' + err.message, 502);
+    } finally {
+      clearTimeout(timeoutId);
     }
 
     if (!upstream.ok) {
@@ -158,9 +167,11 @@ export default {
     }
 
     const contentType = format === 'jpeg' ? 'image/jpeg' : 'image/png';
-    const body = await upstream.arrayBuffer();
 
-    const response = new Response(body, {
+    // Stream the response body directly instead of buffering the entire image in memory
+    const [bodyForResponse, bodyForCache] = upstream.body.tee();
+
+    const response = new Response(bodyForResponse, {
       status: 200,
       headers: {
         'Content-Type': contentType,
@@ -171,10 +182,10 @@ export default {
       },
     });
 
-    // Store in cache (non-blocking)
-    const cacheResp = new Response(body, response);
-    cacheResp.headers.set('Cache-Control', `public, max-age=${cacheTtl}`);
-    await cache.put(cacheKey, cacheResp);
+    // Store in cache non-blocking via waitUntil so the response is not delayed
+    const cacheHeaders = new Headers(response.headers);
+    cacheHeaders.set('Cache-Control', `public, max-age=${cacheTtl}`);
+    ctx.waitUntil(cache.put(cacheKey, new Response(bodyForCache, { headers: cacheHeaders })));
 
     return response;
   },
