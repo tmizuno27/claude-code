@@ -151,10 +151,16 @@ def pdca_blogs():
     logger.report("# 1. ブログ 3サイト")
     logger.report("")
 
-    gsc_creds = service_account.Credentials.from_service_account_file(
-        str(CRED_PATH), scopes=["https://www.googleapis.com/auth/webmasters.readonly"]
-    )
-    gsc = build("searchconsole", "v1", credentials=gsc_creds)
+    gsc = None
+    try:
+        gsc_creds = service_account.Credentials.from_service_account_file(
+            str(CRED_PATH), scopes=["https://www.googleapis.com/auth/webmasters.readonly"]
+        )
+        gsc = build("searchconsole", "v1", credentials=gsc_creds)
+    except Exception as e:
+        logger.log(f"  [blogs] GSC認証失敗: {e}")
+        logger.report(f"- ⚠️ GSC認証失敗（{e.__class__.__name__}）— ローカルデータのみでレポート生成")
+        logger.report("")
 
     end_date = (datetime.now() - timedelta(days=3)).strftime("%Y-%m-%d")
     start_7d = (datetime.now() - timedelta(days=10)).strftime("%Y-%m-%d")
