@@ -72,8 +72,7 @@ class WPClient:
         return posts
 
     def update_post(self, post_id, content):
-        sep = "&" if "?" in self.base_url else "?"
-        url = f"{self.base_url}/posts/{post_id}{sep}"
+        url = f"{self.base_url}/posts/{post_id}"
         resp = requests.post(url, headers=self.headers, json={"content": content}, timeout=30)
         return resp.status_code == 200
 
