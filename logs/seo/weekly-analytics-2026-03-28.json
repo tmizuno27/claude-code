@@ -1,0 +1,255 @@
+{
+  "generated_at": "2026-03-28 21:50:17",
+  "data": {
+    "nambei-oyaji.com": {
+      "period": {
+        "start": "2026-03-21",
+        "end": "2026-03-28"
+      },
+      "summary": {
+        "sessions": 66,
+        "pageviews": 191,
+        "users": 48
+      },
+      "prev_week": {
+        "sessions": 39,
+        "pageviews": 129,
+        "users": 22
+      },
+      "changes": {
+        "sessions_pct": 69.2,
+        "pageviews_pct": 48.1,
+        "users_pct": 118.2
+      },
+      "top_pages": [
+        {
+          "path": "/",
+          "title": "トップページ - 南米おやじ",
+          "pageviews": 45
+        },
+        {
+          "path": "/category/paraguay/",
+          "title": "パラグアイ生活 - 南米おやじ",
+          "pageviews": 14
+        },
+        {
+          "path": "/category/ijuu-junbi/",
+          "title": "移住準備・お金 - 南米おやじ",
+          "pageviews": 12
+        },
+        {
+          "path": "/paraguay-immigration-cost/",
+          "title": "パラグアイ移住の費用は80万円｜永住権取得の全手順を在住者が解説 - 南米おやじ",
+          "pageviews": 8
+        },
+        {
+          "path": "/kaigai-zaitaku-fukugyo/",
+          "title": "海外在住でも在宅ワーク・副業で月5〜20万円｜おすすめ12選と始め方【2026年版】 - 南米おやじ",
+          "pageviews": 7
+        },
+        {
+          "path": "/paraguay-visa-types/",
+          "title": "パラグアイのビザの種類と取得方法を在住者が徹底解説【2026年版】 - 南米おやじ",
+          "pageviews": 5
+        },
+        {
+          "path": "/about/",
+          "title": "運営者について | 南米おやじ - 南米おやじ",
+          "pageviews": 4
+        },
+        {
+          "path": "/ai-sidejob-tools/",
+          "title": "AI副業おすすめツール7選【2026年版】海外在住者が実際に使って稼いだ方法 - 南米おやじ",
+          "pageviews": 4
+        },
+        {
+          "path": "/category/kids/",
+          "title": "子育て・教育 - 南米おやじ",
+          "pageviews": 4
+        },
+        {
+          "path": "/category/paraguay/page/2/",
+          "title": "パラグアイ生活 - 南米おやじ",
+          "pageviews": 4
+        }
+      ],
+      "traffic_sources": [
+        {
+          "channel": "Organic Search",
+          "sessions": 38,
+          "percentage": 57.6
+        },
+        {
+          "channel": "Organic Social",
+          "sessions": 15,
+          "percentage": 22.7
+        },
+        {
+          "channel": "Direct",
+          "sessions": 7,
+          "percentage": 10.6
+        },
+        {
+          "channel": "Referral",
+          "sessions": 5,
+          "percentage": 7.6
+        },
+        {
+          "channel": "Unassigned",
+          "sessions": 3,
+          "percentage": 4.5
+        }
+      ]
+    },
+    "otona-match.com": {
+      "period": {
+        "start": "2026-03-21",
+        "end": "2026-03-28"
+      },
+      "summary": {
+        "sessions": 28,
+        "pageviews": 34,
+        "users": 27
+      },
+      "prev_week": {
+        "sessions": 50,
+        "pageviews": 138,
+        "users": 48
+      },
+      "changes": {
+        "sessions_pct": -44.0,
+        "pageviews_pct": -75.4,
+        "users_pct": -43.8
+      },
+      "top_pages": [
+        {
+          "path": "/",
+          "title": "大人のマッチングナビ | 30代・40代のための出会い系・マッチングアプリ徹底比較ガイド",
+          "pageviews": 24
+        },
+        {
+          "path": "/matching-app-2kai-me-date/",
+          "title": "マッチングアプリの2回目デートに誘うコツ｜脈ありサインと成功テクニック | 大人のマッチングナビ",
+          "pageviews": 2
+        },
+        {
+          "path": "/matching-app-price-comparison/",
+          "title": "マッチングアプリ料金比較【2026年最新】｜主要10アプリの月額を一覧表で丸わかり | 大人のマッチングナビ",
+          "pageviews": 2
+        },
+        {
+          "path": "/category/deaikei/",
+          "title": "出会い系サイト | 大人のマッチングナビ",
+          "pageviews": 1
+        },
+        {
+          "path": "/category/matching-apps/",
+          "title": "マッチングアプリ | 大人のマッチングナビ",
+          "pageviews": 1
+        },
+        {
+          "path": "/matching-app-date-basho/",
+          "title": "【2026年】マッチングアプリ初デートの場所おすすめ10選｜失敗しない店選びのコツ | 大人のマッチングナビ",
+          "pageviews": 1
+        },
+        {
+          "path": "/sakura-gyosha-miwakekata/",
+          "title": "【要注意】マッチングアプリのサクラ・業者の見分け方7選｜特徴と対処法を解説 | 大人のマッチングナビ",
+          "pageviews": 1
+        },
+        {
+          "path": "/wakuwaku-mail-hyoban/",
+          "title": "ワクワクメールの評判は本当？口コミ・料金・安全性を利用者300人の声で検証【2026年最新】 | 大人のマッチングナビ",
+          "pageviews": 1
+        },
+        {
+          "path": "/with-review/",
+          "title": "with（ウィズ）の評判と本音レビュー｜性格診断マッチングは本当に当たる？ | 大人のマッチングナビ",
+          "pageviews": 1
+        }
+      ],
+      "traffic_sources": [
+        {
+          "channel": "Direct",
+          "sessions": 19,
+          "percentage": 67.9
+        },
+        {
+          "channel": "Organic Search",
+          "sessions": 5,
+          "percentage": 17.9
+        },
+        {
+          "channel": "Referral",
+          "sessions": 4,
+          "percentage": 14.3
+        }
+      ]
+    },
+    "sim-hikaku.online": {
+      "period": {
+        "start": "2026-03-21",
+        "end": "2026-03-28"
+      },
+      "summary": {
+        "sessions": 26,
+        "pageviews": 28,
+        "users": 26
+      },
+      "prev_week": {
+        "sessions": 29,
+        "pageviews": 45,
+        "users": 28
+      },
+      "changes": {
+        "sessions_pct": -10.3,
+        "pageviews_pct": -37.8,
+        "users_pct": -7.1
+      },
+      "top_pages": [
+        {
+          "path": "/",
+          "title": "SIM比較オンライン",
+          "pageviews": 24
+        },
+        {
+          "path": "/category/ryokin-hikaku/",
+          "title": "料金比較 | SIM比較オンライン",
+          "pageviews": 1
+        },
+        {
+          "path": "/kakuyasu-sim-apn-settei/",
+          "title": "格安SIM APN設定図解｜iPhone・Android | SIM比較オンライン",
+          "pageviews": 1
+        },
+        {
+          "path": "/kakuyasu-sim-hikaku-povo/",
+          "title": "【2026年】povo2.0 vs 格安SIM6社比較｜基本料0円の落とし穴と最安の選び方 | SIM比較オンライン",
+          "pageviews": 1
+        },
+        {
+          "path": "/kakuyasu-sim-ryokin-hikaku-ichiran/",
+          "title": "格安SIM料金比較20社【2026年3月】月額290円〜あなたに最安のプランは？ | SIM比較オンライン",
+          "pageviews": 1
+        }
+      ],
+      "traffic_sources": [
+        {
+          "channel": "Direct",
+          "sessions": 24,
+          "percentage": 92.3
+        },
+        {
+          "channel": "Organic Search",
+          "sessions": 1,
+          "percentage": 3.8
+        },
+        {
+          "channel": "Unassigned",
+          "sessions": 1,
+          "percentage": 3.8
+        }
+      ]
+    }
+  }
+}
