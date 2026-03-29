@@ -88,12 +88,13 @@
       "links": [
         {
           "name": "ワクワクメール",
-          "status": "active",
+          "status": "broken",
           "html": "<a href=\"https://px.a8.net/svt/ejp?a8mat=4AZGCF+F75EHM+1KZ4+601S2\" rel=\"nofollow\">運営20年の実績！<br>安心できる恋活マッチング</a><img border=\"0\" width=\"1\" height=\"1\" src=\"https://www14.a8.net/0.gif?a8mat=4AZGCF+F75EHM+1KZ4+601S2\" alt=\"\">",
           "anchor_text": ["ワクワクメール"],
           "commission": "会員登録",
           "asp": "A8.net",
-          "context": "出会い系レビュー・安全な使い方記事で使用"
+          "context": "出会い系レビュー・安全な使い方記事で使用",
+          "note": "2026-03-20リンクチェックで500エラー、2026-03-29再確認で403。A8管理画面でプログラム状態要確認。34記事に影響"
         },
         {
           "name": "ハッピーメール",
