@@ -44,7 +44,7 @@
 - **nambei-oyaji.com**: 南米おやじの海外生活ラボ（主力、116記事）→ [blog-seo-rules.md](blog-seo-rules.md)
 - **otona-match.com**: 大人のマッチングナビ（132記事）→ [otona-match-site.md](otona-match-site.md)
 - **sim-hikaku.online**: SIM比較オンライン（107記事）→ [sim-hikaku-site.md](sim-hikaku-site.md)
-- **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用、累計30記事）→ [hatena-blog-business.md](hatena-blog-business.md)
+- **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用、累計31記事）→ [hatena-blog-business.md](hatena-blog-business.md)
 - **3サイト合計: 400記事**（2026-03-28 CSV同期確認: nambei136+otona161+sim113）
 
 ## ブログデザイン・フォーマット
@@ -117,9 +117,11 @@
 - **Hash & Encode Tool PP**: Chrome Web Store審査完了待ち→URL: `https://homepage-three-ochre.vercel.app/privacy-policy-hash-encode-tool.html`
 
 ## 緊急対応事項
-- **otona-match.com PV急落**: [project_otona_match_pv_drop.md](project_otona_match_pv_drop.md) — PV -75%、GSCペナルティ確認が急務
+- **otona-match.com PV急落**: [project_otona_match_pv_drop.md](project_otona_match_pv_drop.md) — 原因特定済み（70記事一括投稿）、重複整理・リンク修正完了、回復待ち(2-4週)
+- **Indexing API日次送信**: [project_indexing_api_daily.md](project_indexing_api_daily.md) — sim完了、otona104件3/30朝送信、keisan残282件、pseo残5013件
 
 ## PDCA実行記録
+- **2026-03-29**: [pdca-2026-03-29.md](pdca-2026-03-29.md) — otona-match PV急落対応（GSC登録・重複整理・リンク修正）、Indexing API送信（sim全完了・keisan178件）、はてな正常確認
 - **2026-03-28 夜（Session3）**: [pdca-2026-03-28-session3.md](pdca-2026-03-28-session3.md) — **30件改善**。内部リンク741本、Dev.to10記事公開、はてな9記事投稿、PDCAスクリプト5箇所修正、GA4レポート生成
 - **2026-03-28 午後**: [pdca-2026-03-28-session2.md](pdca-2026-03-28-session2.md) — 22タスク自動+手動対応。全10 VS Code拡張パブリッシュ、Apify 9本デプロイ、city-cost-pseoデプロイ、Gumroad 2商品出品、Fiverr Gig2出品、Playwright自動化スクリプト2本作成
 - **2026-03-28 午前**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列+朝4タスク。Sheets Sync復旧、X投稿v2移行、CTR改善、内部リンク強化
