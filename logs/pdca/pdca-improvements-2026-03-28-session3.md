@@ -57,8 +57,33 @@ sheets-reader@sheets-sync-489022.iam.gserviceaccount.com
 - pSEO: 未計測（推定5,056件）
 → 優先度順に約25日で全件送信完了予定
 
-## バックグラウンドエージェント（実行中）
-- 3サイトCTR改善案作成
-- sim-hikaku内部リンク強化
-- X投稿エラー調査・修正
-- Dev.to記事SEO改善案
+## 追加完了した改善（セッション後半）
+
+### 9. 3サイトCTR改善 — WordPressタイトル直接更新（5記事）
+| サイト | 記事 | 旧CTR | インプレ | アクション |
+|--------|------|-------|---------|-----------|
+| sim-hikaku.online | kakuyasu-sim-ryokin-hikaku-ichiran | 0% | 92 | タイトル更新済 |
+| sim-hikaku.online | sub-kaisen-kakuyasu-sim-osusume | 0% | 18 | タイトル更新済 |
+| otona-match.com | matching-app-ranking-2026 | 0% | 15 | タイトル更新済 |
+| otona-match.com | marrish-review | 0% | 17 | タイトル更新済 |
+| nambei-oyaji.com | data-entry-automation | 0% | 8 | タイトル更新済 |
+
+### 10. X投稿 @prodhq27 スクリプト新規作成
+- 根本原因: Task Schedulerが参照するスクリプトが存在しなかった
+- 15本のツイートキューでローテーション投稿するスクリプト作成済み
+- 要手動: APIキーをx-credentials.jsonに設定
+
+### 11. Dev.to API統計取得修正
+- 認証なしAPI→認証付きAPIに変更（Views 0→175の正確な値取得）
+- 8記事のSEO改善案をファイルに保存
+
+### 12. Dev.to記事SEO改善案
+- Views 0の根本原因: ニッチタグ・否定形タイトル
+- 成功パターン分析: IP Geolocation(52) > Trending(52) > Screenshot(37)
+- 11本のドラフト記事を改善後に公開推奨
+
+## 要手動対応（3件）
+
+1. **GSC認証**: `sheets-reader@sheets-sync-489022.iam.gserviceaccount.com`を3サイトのSearch Consoleに追加
+2. **@prodhq27 APIキー**: `gumroad-notion/config/x-credentials.json`にX APIキーを設定
+3. **Dev.toドラフト公開**: 重複タイトルを整理後、ユニークな記事を公開
