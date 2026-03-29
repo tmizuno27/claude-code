@@ -1,0 +1,61 @@
+{
+  "store": "AsuInk",
+  "total_listings": 150,
+  "product_types": ["tshirt", "mug", "poster"],
+  "prices": {
+    "tshirt": 24.99,
+    "mug": 17.99,
+    "poster": 19.99
+  },
+  "listings": [
+    {
+      "id": "L001",
+      "design_id": "D01",
+      "niche": "japanese-zen",
+      "design_name": "Wabi-Sabi Circle",
+      "product": "tshirt",
+      "title": "Wabi-Sabi Enso Circle Japanese Zen T-Shirt | Minimalist Brushstroke Unisex Tee | Mindfulness Gift",
+      "tags": ["wabi sabi shirt", "zen tshirt", "enso circle tee", "japanese minimalist", "mindfulness gift", "meditation shirt", "kanji tshirt", "buddhist shirt", "spiritual gift", "yoga shirt", "japanese art tee", "minimalist shirt", "zen gift"],
+      "description": "Embrace the Japanese philosophy of wabi-sabi with this minimalist enso circle design.\n\nThe enso (円相) represents the moment when the mind is free to let the body create. This authentic brushstroke design captures the essence of imperfection, impermanence, and incompleteness that defines true beauty.\n\n✦ PERFECT FOR:\n• Meditation and yoga practitioners\n• Japanese culture enthusiasts\n• Minimalist lifestyle lovers\n• Mindfulness gift seekers\n• Philosophy and art lovers\n\n✦ PRODUCT DETAILS:\n• Unisex fitted tee\n• 100% combed ringspun cotton (heather colors: 52% cotton / 48% polyester)\n• Shoulder-to-shoulder taping\n• Side-seamed\n• Available in sizes XS–3XL\n\n✦ CARE INSTRUCTIONS:\nMachine wash cold, tumble dry low. Do not bleach.\n\n✦ SHIPPING:\nAll items are printed on demand. Please allow 3-7 business days for production + shipping time.\n\nMake it yours or give it as a thoughtful gift — comes in a poly bag, ready for gifting.\n\n侘び寂び — Finding beauty in imperfection.",
+      "category": "Clothing > Shirts & Tops > T-Shirts",
+      "price": 24.99,
+      "sections": ["Zen Collection", "Japanese Art"],
+      "shipping_profile": "standard-us",
+      "quantity": 999,
+      "sku": "ASUINK-D01-TS"
+    },
+    {
+      "id": "L002",
+      "design_id": "D01",
+      "niche": "japanese-zen",
+      "design_name": "Wabi-Sabi Circle",
+      "product": "mug",
+      "title": "Wabi-Sabi Enso Circle Coffee Mug | Japanese Zen 11oz Ceramic Cup | Mindfulness Tea Mug Gift",
+      "tags": ["wabi sabi mug", "zen coffee mug", "japanese mug", "enso mug", "mindfulness mug", "meditation gift", "tea mug", "kanji mug", "spiritual mug", "yoga mug", "japanese gift", "minimalist mug", "zen gift mug"],
+      "description": "Start your morning with intention. This wabi-sabi enso circle mug brings Japanese zen philosophy to your daily ritual.\n\nThe enso brushstroke represents completeness, infinity, and the universe — reminding you to find perfection in imperfection with every sip.\n\n✦ PRODUCT DETAILS:\n• 11 fl oz ceramic mug\n• High-quality, durable ceramic\n• Lead and BPA-free\n• Available in white or black\n• Dishwasher safe\n• Microwave safe\n\n✦ PERFECT FOR:\n• Morning coffee ritual\n• Tea ceremony enthusiasts\n• Meditation practitioners\n• Japanese culture lovers\n• Unique gift for yogis\n\n✦ CARE:\nDishwasher safe (top rack recommended for longer print life).\n\n✦ SHIPPING:\nPrinted on demand — please allow 3-7 business days production time.\n\n侘び寂び — The beauty found in imperfection.",
+      "category": "Home & Living > Kitchen & Dining > Mugs",
+      "price": 17.99,
+      "sections": ["Zen Collection", "Kitchen & Mugs"],
+      "shipping_profile": "standard-us",
+      "quantity": 999,
+      "sku": "ASUINK-D01-MG"
+    },
+    {
+      "id": "L003",
+      "design_id": "D01",
+      "niche": "japanese-zen",
+      "design_name": "Wabi-Sabi Circle",
+      "product": "poster",
+      "title": "Wabi-Sabi Enso Circle Art Print | Japanese Zen Wall Art | Minimalist Brushstroke Poster | Meditation Room Decor",
+      "tags": ["wabi sabi print", "enso circle art", "japanese wall art", "zen art print", "minimalist poster", "meditation decor", "yoga studio art", "japanese art print", "brushstroke wall art", "zen home decor", "mindfulness art", "japanese calligraphy", "wall art gift"],
+      "description": "Transform any space into a sanctuary of calm with this authentic enso circle art print.\n\nHand-drawn in the tradition of Japanese sumi-e ink painting, this minimalist brushstroke captures the philosophy of wabi-sabi — finding beauty in imperfection, simplicity, and transience.\n\n✦ AVAILABLE SIZES:\n• 8×10 inches\n• 11×14 inches\n• 16×20 inches\n• 18×24 inches\n• 24×36 inches\n\n✦ PRODUCT DETAILS:\n• Premium matte poster paper\n• Vivid, fade-resistant print\n• Ships in protective tube packaging\n• Unframed (frame easily at any local frame shop)\n\n✦ PERFECT FOR:\n• Meditation room or yoga studio\n• Minimalist home decor\n• Office calm corner\n• Japanese art enthusiast\n• Housewarming gift\n\n✦ SHIPPING:\nPrinted on demand. Allow 3-5 business days production + shipping time.\n\nEach print is made to order — unique, intentional, and yours.\n\n侘び寂び",
+      "category": "Art & Collectibles > Prints > Digital Prints",
+      "price": 19.99,
+      "sections": ["Zen Collection", "Wall Art & Prints"],
+      "shipping_profile": "standard-us-poster",
+      "quantity": 999,
+      "sku": "ASUINK-D01-PT"
+    }
+  ],
+  "note": "このJSONは最初の3リスティング（Design 1 × 3商品）のサンプル。全150リスティングはCSVファイルに一括出力済み。"
+}

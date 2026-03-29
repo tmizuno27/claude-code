@@ -315,36 +315,36 @@ def draw_gradient_bg(img: Image.Image, color1: tuple, color2: tuple) -> None:
 
 
 def draw_decorative_shapes(draw: ImageDraw.ImageDraw, accent_rgb: tuple) -> None:
-    """Draw subtle geometric decoration."""
+    """Draw glowing geometric decoration."""
     ar, ag, ab = accent_rgb
 
-    # Large blurred circle — top-right
-    for r_offset in range(180, 0, -20):
-        alpha = int(20 * (1 - r_offset / 200))
-        color = (ar, ag, ab, alpha)
-        x, y = WIDTH - 120, -80
-        draw.ellipse([x - r_offset, y - r_offset, x + r_offset, y + r_offset],
-                     fill=color)
+    # Glow circle — top-right corner
+    cx, cy = WIDTH - 80, -60
+    for r in range(260, 0, -10):
+        alpha = max(0, int(90 * (1 - r / 270)))
+        draw.ellipse([cx - r, cy - r, cx + r, cy + r],
+                     fill=(ar, ag, ab, alpha))
 
-    # Medium circle — bottom-left
-    for r_offset in range(120, 0, -15):
-        alpha = int(15 * (1 - r_offset / 130))
-        color = (ar, ag, ab, alpha)
-        x, y = 80, HEIGHT + 60
-        draw.ellipse([x - r_offset, y - r_offset, x + r_offset, y + r_offset],
-                     fill=color)
+    # Glow circle — bottom-left corner
+    cx2, cy2 = 60, HEIGHT + 40
+    for r in range(180, 0, -10):
+        alpha = max(0, int(70 * (1 - r / 190)))
+        draw.ellipse([cx2 - r, cy2 - r, cx2 + r, cy2 + r],
+                     fill=(ar, ag, ab, alpha))
 
-    # Accent bar — left edge
-    bar_h = 200
+    # Accent bar — left edge (thick, vivid)
+    bar_h = 220
     bar_y = (HEIGHT - bar_h) // 2
-    draw.rectangle([0, bar_y, 6, bar_y + bar_h], fill=(ar, ag, ab, 220))
+    draw.rectangle([0, bar_y, 8, bar_y + bar_h], fill=(ar, ag, ab, 255))
+    # Subtle inner glow of the bar
+    draw.rectangle([8, bar_y + 20, 18, bar_y + bar_h - 20], fill=(ar, ag, ab, 80))
 
 
 def draw_grid_dots(draw: ImageDraw.ImageDraw) -> None:
     """Draw subtle dot-grid background texture."""
     for x in range(80, WIDTH, 60):
         for y in range(60, HEIGHT, 60):
-            draw.ellipse([x - 1, y - 1, x + 1, y + 1], fill=(255, 255, 255, 18))
+            draw.ellipse([x - 1, y - 1, x + 1, y + 1], fill=(255, 255, 255, 30))
 
 
 def load_font(path: str, size: int) -> ImageFont.FreeTypeFont:
@@ -480,7 +480,7 @@ def generate_thumbnail(product: dict) -> Path:
     sw = sub_bb[2] - sub_bb[0]
     draw.text((center_x - sw // 2, subtitle_y),
               product["subtitle"], font=subtitle_font,
-              fill=(200, 200, 200, 220))
+              fill=(220, 220, 240, 240))
 
     # Bottom brand strip
     brand_font = load_font(FONT_LIGHT, 22)
