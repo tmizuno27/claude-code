@@ -45,7 +45,7 @@
 - **otona-match.com**: 大人のマッチングナビ（132記事）→ [otona-match-site.md](otona-match-site.md)
 - **sim-hikaku.online**: SIM比較オンライン（107記事）→ [sim-hikaku-site.md](sim-hikaku-site.md)
 - **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用）→ [hatena-blog-business.md](hatena-blog-business.md)
-- **3サイト合計: 355記事**（2026-03-27確認）
+- **3サイト合計: 400記事**（2026-03-28 CSV同期確認: nambei136+otona161+sim113）
 
 ## ブログデザイン・フォーマット
 - **デザイン確定版**: [blog-design-golden-state.md](blog-design-golden-state.md) — Apple風カラー・frosted glass
