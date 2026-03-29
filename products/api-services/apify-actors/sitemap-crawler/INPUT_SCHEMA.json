@@ -1,0 +1,51 @@
+{
+  "title": "Sitemap Crawler Input",
+  "description": "Extract all URLs from XML sitemaps, including nested sitemap indexes. Optionally check each URL for HTTP status codes.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sitemapUrls": {
+      "title": "Sitemap URLs",
+      "type": "array",
+      "description": "One or more sitemap XML URLs to crawl. Supports sitemap index files (auto-discovers child sitemaps). If not provided, the Actor will auto-discover sitemaps via /sitemap.xml and robots.txt.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://example.com/sitemap.xml"]
+    },
+    "websiteUrl": {
+      "title": "Website URL (for auto-discovery)",
+      "type": "string",
+      "description": "If no sitemap URLs are provided, enter the website root URL here. The Actor will auto-discover sitemaps via /sitemap.xml and robots.txt.",
+      "editor": "textfield",
+      "prefill": "https://example.com"
+    },
+    "checkHttpStatus": {
+      "title": "Check HTTP Status of Each URL",
+      "type": "boolean",
+      "description": "When enabled, sends a HEAD request to each URL to check if it returns 200, 301, 404, etc. Significantly increases runtime for large sitemaps.",
+      "default": false
+    },
+    "filterPattern": {
+      "title": "URL Filter Pattern (regex)",
+      "type": "string",
+      "description": "Optional regex pattern to filter URLs. Only URLs matching this pattern will be included. Example: '/blog/' to only return blog URLs.",
+      "editor": "textfield"
+    },
+    "maxUrls": {
+      "title": "Max URLs to Extract",
+      "type": "integer",
+      "description": "Maximum total URLs to extract across all sitemaps (0 = unlimited). Use to limit very large sitemaps.",
+      "default": 0,
+      "minimum": 0,
+      "editor": "number"
+    },
+    "outputFormat": {
+      "title": "Output Format",
+      "type": "string",
+      "description": "'full' returns all sitemap fields (url, lastmod, changefreq, priority). 'urls-only' returns a simple list of URLs for easy copy-paste.",
+      "default": "full",
+      "enum": ["full", "urls-only"],
+      "editor": "select"
+    }
+  }
+}

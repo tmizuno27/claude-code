@@ -35,96 +35,128 @@
     "keyword": "MNP 手続き 方法 比較",
     "type": "question",
     "priority": 5,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/mnp-tetsuzuki-houhou/"
   },
   {
     "keyword": "MNP 手続き 方法 料金",
     "type": "question",
     "priority": 6,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/mnp-tetsuzuki-houhou/"
   },
   {
     "keyword": "MNP 手続き 方法 速度",
     "type": "question",
     "priority": 7,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/mnp-tetsuzuki-houhou/"
   },
   {
     "keyword": "MNP 手続き 方法 評判",
     "type": "question",
     "priority": 8,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/mnp-tetsuzuki-houhou/"
   },
   {
     "keyword": "esim 対応 格安sim",
     "type": "longtail",
     "priority": 9,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/esim-taiou-kakuyasu-sim/"
   },
   {
     "keyword": "格安sim 家族割 ドコモ",
     "type": "longtail",
     "priority": 10,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-kazokuwari-docomo/"
   },
   {
     "keyword": "格安SIM 速度 比較 とは",
     "type": "question",
     "priority": 11,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 比較",
     "type": "question",
     "priority": 12,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 料金",
     "type": "question",
     "priority": 13,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 速度",
     "type": "question",
     "priority": 14,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 評判",
     "type": "question",
     "priority": 15,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 方法",
     "type": "question",
     "priority": 16,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安SIM 速度 比較 設定",
     "type": "question",
     "priority": 17,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-sokudo-hikaku-2026/"
   },
   {
     "keyword": "格安 sim mineo 評判",
     "type": "question",
     "priority": 18,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/kakuyasu-sim-mineo-hyoban/"
   },
   {
     "keyword": "iijmio au 回線 評判",
     "type": "question",
     "priority": 19,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/iijmio-au-kaisen-hyoban/"
   },
   {
     "keyword": "ドコモ 格安sim 速度 比較",
     "type": "question",
     "priority": 20,
-    "status": "pending"
+    "status": "processed",
+    "processed_date": "2026-03-29",
+    "article_url": "https://sim-hikaku.online/docomo-kakuyasu-sim-sokudo-hikaku/"
   }
 ]
