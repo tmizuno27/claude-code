@@ -648,14 +648,25 @@ def pdca_devto():
     logger.report("# 11. Dev.to（技術記事）")
     logger.report("")
 
-    # Dev.to API（APIキーなしでも公開記事は取得可能）
-    username = "miccho27"
+    # Dev.to API（認証付きで正確なViews取得）
+    devto_config_path = PRODUCTS_DIR / "api-services" / "marketing" / "dev-to-config.json"
+    devto_api_key = ""
+    if devto_config_path.exists():
+        try:
+            devto_cfg = json.loads(devto_config_path.read_text(encoding="utf-8"))
+            devto_api_key = devto_cfg.get("api_key", "")
+        except Exception:
+            pass
+
+    headers = {"Accept": "application/json"}
+    if devto_api_key:
+        headers["api-key"] = devto_api_key
+        api_url = "https://dev.to/api/articles/me/all?per_page=50"
+    else:
+        api_url = "https://dev.to/api/articles?username=miccho27&per_page=30"
+
     try:
-        resp = requests.get(
-            f"https://dev.to/api/articles?username={username}&per_page=30",
-            headers={"Accept": "application/json"},
-            timeout=15,
-        )
+        resp = requests.get(api_url, headers=headers, timeout=15)
         if resp.status_code == 200:
             articles = resp.json()
             total_views = sum(a.get("page_views_count", 0) for a in articles)
