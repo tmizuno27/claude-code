@@ -83,10 +83,14 @@ export async function POST(req: NextRequest) {
       suggestions: result.suggestions,
       summary,
     });
-  } catch (error) {
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Analysis failed" },
-      { status: 500 }
-    );
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : "Analysis failed";
+    // Classify WP API auth errors as 401 for better UX
+    const status =
+      message.includes("401") || message.toLowerCase().includes("unauthorized")
+        ? 401
+        : 500;
+    return NextResponse.json({ error: message }, { status });
   }
 }

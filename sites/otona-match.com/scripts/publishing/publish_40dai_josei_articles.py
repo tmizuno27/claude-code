@@ -10,14 +10,7 @@ import csv
 from datetime import datetime
 
 ARTICLES = [
-    {
-        "title": "婚活40代女性の現実とは？成功するための5つの戦略を解説",
-        "slug": "konkatsu-40dai-josei-genjitsu",
-        "file": "konkatsu-40dai-josei-genjitsu.html",
-        "categories": [4],  # konkatsu
-        "excerpt": "婚活40代女性の現実をデータと体験談で解説。マッチングアプリや結婚相談所での成功戦略、直面する壁と突破口を具体的にまとめました。40代でも婚活成功は可能です。",
-        "focus_kw": "婚活 40代 女性 現実",
-    },
+    # ID:2565 konkatsu-40dai-josei-genjitsu は投稿済み (2026-03-29)
     {
         "title": "婚活40代女性の服装完全ガイド｜好印象を与えるスタイリング術",
         "slug": "konkatsu-40dai-josei-fuku",
@@ -67,7 +60,7 @@ def update_csv(article_id, slug, title, category):
         "word_count": "2000",
         "affiliate_count": "3",
         "internal_links": "3",
-        "\u7d2fPV": "0",
+        "\u7d2f\u8a08PV": "0",
         "wp_url": f"https://otona-match.com/{slug}/",
         "notes": f"メインKW：{slug.replace('-', ' ')}",
     }
@@ -111,7 +104,7 @@ def main():
                 title=article["title"],
                 category="konkatsu",
             )
-            print(f"  ✓ 成功: https://otona-match.com/{article['slug']}/\n")
+            print(f"  OK: https://otona-match.com/{article['slug']}/\n")
         else:
             print(f"  ✗ 失敗\n")
 

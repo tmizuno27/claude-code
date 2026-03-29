@@ -1,28 +1,51 @@
 import Link from 'next/link';
 import { getTools, getCategoryList, getComparisonPairs } from '@/lib/tools';
 
+export const metadata = {
+  title: 'AI Tool Compare — Find the Best AI Tool for You in 2026',
+  description: `Compare ${329}+ AI tools side-by-side. Data-driven analysis of features, pricing & ratings. Find the best AI writing, image, coding, and productivity tools.`,
+  openGraph: {
+    title: 'AI Tool Compare — Find the Best AI Tool for You in 2026',
+    description: 'Compare 329+ AI tools side-by-side. Data-driven analysis to find the right AI writing, image, coding, video, and productivity tools.',
+  },
+};
+
+const websiteLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'AI Tool Compare',
+  url: 'https://ai-tool-compare-nu.vercel.app/',
+  description: 'Compare AI tools side-by-side. Data-driven analysis of features, pricing, and ratings.',
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: 'https://ai-tool-compare-nu.vercel.app/category/{search_term_string}/',
+    'query-input': 'required name=search_term_string',
+  },
+};
+
 export default function HomePage() {
   const tools = getTools();
   const categories = getCategoryList();
   const pairs = getComparisonPairs();
-  const topPairs = pairs.slice(0, 10);
+  const topPairs = pairs.slice(0, 12);
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteLd) }} />
       <section className="hero">
         <div className="container">
           <h1>Find the Best AI Tool for You</h1>
           <p>
-            Detailed side-by-side comparisons of the top AI and SaaS tools.
+            Detailed side-by-side comparisons of the top AI tools.
             Data-driven analysis to help you make the right choice.
           </p>
           <div className="hero-stats">
             <div className="hero-stat">
-              <div className="num">{tools.length}</div>
+              <div className="num">{tools.length}+</div>
               <div className="label">Tools Analyzed</div>
             </div>
             <div className="hero-stat">
-              <div className="num">{pairs.length}</div>
+              <div className="num">{pairs.length.toLocaleString()}</div>
               <div className="label">Comparisons</div>
             </div>
             <div className="hero-stat">

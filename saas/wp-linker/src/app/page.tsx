@@ -329,7 +329,7 @@ export default function LandingPage() {
             Simple, transparent pricing
           </h2>
           <p className="text-gray-600 text-center mb-12">
-            Start free forever. Upgrade when you need more power.
+            Start free — no credit card, no time limit. Upgrade only when your site outgrows 30 posts.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -445,20 +445,20 @@ export default function LandingPage() {
       <section className="py-20 px-6 bg-blue-600">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Stop losing SEO value to orphan posts
+            Stop losing traffic to orphan posts
           </h2>
           <p className="text-blue-100 mb-8 text-lg">
-            Connect your WordPress site in 30 seconds. Free forever for small sites.
+            30 seconds to connect. Instant results. Free forever for up to 30 posts.
           </p>
           <a
             href="/auth"
-            className="inline-flex items-center gap-2 py-3 px-8 bg-white hover:bg-gray-100 text-blue-600 font-semibold rounded-xl transition text-lg"
+            className="inline-flex items-center gap-2 py-3 px-8 bg-white hover:bg-gray-50 text-blue-600 font-semibold rounded-xl transition text-lg shadow-lg"
           >
-            Find My Orphan Posts Free
+            Scan My WordPress Site — Free
             <ArrowRight className="w-5 h-5" />
           </a>
           <p className="text-blue-200 text-sm mt-4">
-            No credit card required. Setup takes 30 seconds.
+            No credit card. No plugin. Results in under 2 minutes.
           </p>
         </div>
       </section>

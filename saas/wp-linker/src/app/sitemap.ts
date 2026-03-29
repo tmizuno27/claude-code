@@ -1,18 +1,20 @@
 import type { MetadataRoute } from "next";
 
+const SITE_URL = "https://wp-linker.vercel.app";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://wp-linker.vercel.app",
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: "https://wp-linker.vercel.app/auth",
+      url: `${SITE_URL}/auth`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.5,
+      priority: 0.3,
     },
   ];
 }

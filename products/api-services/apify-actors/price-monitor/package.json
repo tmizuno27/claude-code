@@ -1,0 +1,17 @@
+{
+  "name": "price-monitor",
+  "version": "1.0.0",
+  "description": "Monitor product prices across Amazon, Rakuten, and any e-commerce site — get alerts when prices drop",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.2",
+    "node-html-parser": "^6.1.13"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
