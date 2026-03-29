@@ -1,0 +1,60 @@
+{
+  "title": "SERP Checker Input",
+  "description": "Check keyword rankings in Google search results. Track which position your URL holds for target keywords.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keywords": {
+      "title": "Keywords to Check",
+      "type": "array",
+      "description": "List of keywords to check rankings for. Each keyword triggers one Google search.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["best coffee maker", "how to learn python"]
+    },
+    "targetUrl": {
+      "title": "Target URL (for rank tracking)",
+      "type": "string",
+      "description": "Optional. Your domain or URL to track position for (e.g., 'example.com'). When set, each result shows your rank position for that URL.",
+      "editor": "textfield"
+    },
+    "countryCode": {
+      "title": "Country Code",
+      "type": "string",
+      "description": "Google search country (gl parameter). Examples: 'us' (US), 'jp' (Japan), 'gb' (UK), 'de' (Germany), 'fr' (France), 'au' (Australia).",
+      "default": "us",
+      "editor": "textfield"
+    },
+    "languageCode": {
+      "title": "Language Code",
+      "type": "string",
+      "description": "Language for search results (hl parameter). Examples: 'en' (English), 'ja' (Japanese), 'es' (Spanish), 'de' (German).",
+      "default": "en",
+      "editor": "textfield"
+    },
+    "numResults": {
+      "title": "Number of Results Per Keyword",
+      "type": "integer",
+      "description": "How many SERP results to extract per keyword (top 10, 20, 50, or 100).",
+      "default": 10,
+      "enum": [10, 20, 50, 100],
+      "editor": "select"
+    },
+    "includeFeatures": {
+      "title": "Include SERP Features",
+      "type": "boolean",
+      "description": "When enabled, detects featured snippets, People Also Ask, local packs, and knowledge panels in the results.",
+      "default": true
+    },
+    "delayMs": {
+      "title": "Request Delay (ms)",
+      "type": "integer",
+      "description": "Delay between searches to avoid rate limiting. Minimum recommended: 2000ms.",
+      "default": 3000,
+      "minimum": 1000,
+      "maximum": 10000,
+      "editor": "number"
+    }
+  },
+  "required": ["keywords"]
+}

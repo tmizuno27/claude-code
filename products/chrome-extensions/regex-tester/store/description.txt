@@ -1,17 +1,52 @@
-Test regular expressions directly in your browser. Enter a pattern and a test string to see matches highlighted instantly.
+Regex Tester - Real-Time Regular Expression Testing in Chrome
 
-Features:
-- Matches are highlighted as you type
-- Capture groups are displayed with their index
-- Supports flags: global, case-insensitive, multiline, dotAll, unicode
-- Includes preset patterns for common use cases (email, URL, phone number)
-- Shows match count and execution time
-- Save your own patterns for later use
+The fastest way to test and debug regular expressions directly in your browser. No external tools, no copy-pasting — instant regex matching with powerful developer features.
 
-How it works:
-1. Click the extension icon to open the popup
-2. Enter your regex pattern and test string
-3. Matches appear highlighted in the text below
+FEATURES:
 
-Privacy:
-All processing happens locally in your browser. No data is sent to any server.
+Real-Time Pattern Matching
+- Matches are highlighted as you type — see results instantly
+- Live feedback speeds up regex development and debugging
+
+Capture Group Display
+- All capture groups shown with their index number
+- Named capture groups supported
+- Understand exactly what your pattern captures
+
+Regex Flags Support
+- Global (g), Case-Insensitive (i), Multiline (m), DotAll (s), Unicode (u)
+- Toggle flags on/off with one click
+
+Built-In Pattern Library
+- Preset patterns for common use cases: email, URL, phone number, IP address, date formats, and more
+- Load any preset with one click as a starting point
+
+Match Statistics
+- Shows total match count and execution time
+- Know immediately if your pattern is working correctly
+
+Save Your Patterns
+- Save custom regex patterns for reuse across sessions
+- Never rebuild a complex pattern from scratch
+
+100% Local Processing
+- All regex processing happens entirely in your browser
+- No data is sent to any server
+- No tracking, no analytics, no data collection
+
+HOW TO USE:
+1. Click the Regex Tester icon in your toolbar
+2. Enter your regex pattern
+3. Paste your test string
+4. See matches highlighted instantly as you type
+
+PERFECT FOR:
+- Developers writing and debugging regular expressions
+- Data engineers building text parsing logic
+- QA engineers validating input patterns
+- Students learning regular expression syntax
+- Anyone who needs fast, reliable regex testing without leaving the browser
+
+Fast, lightweight, and completely private. Regex Tester is the essential developer tool for regular expressions in Chrome.
+
+Category: Developer Tools

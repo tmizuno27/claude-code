@@ -9,15 +9,17 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const cat = getCategoryBySlug(slug);
   if (!cat) return { title: 'Category Not Found' };
+  const toolCount = cat.tools.length;
+  const pairCount = getComparisonPairs().filter(p => p.category === slug).length;
   return {
-    title: `Best ${cat.name} Tools Compared (2026)`,
-    description: `Compare the top ${cat.name.toLowerCase()} tools side-by-side. Features, pricing, and ratings for ${cat.tools.length} tools.`,
+    title: `Best ${cat.name} Tools in 2026 — ${toolCount} Tools Compared`,
+    description: `We analyzed ${toolCount} ${cat.name.toLowerCase()} tools across ${pairCount} comparisons. See rankings, pricing, features & expert picks to find the best tool for your needs.`,
     alternates: {
       canonical: `/category/${slug}/`,
     },
     openGraph: {
-      title: `Best ${cat.name} Tools Compared (2026)`,
-      description: `Compare the top ${cat.name.toLowerCase()} tools. ${cat.tools.length} tools reviewed.`,
+      title: `Best ${cat.name} Tools (2026): Top ${toolCount} Compared`,
+      description: `Compare ${toolCount} ${cat.name.toLowerCase()} tools side-by-side. Features, pricing, and ratings updated for 2026.`,
     },
   };
 }

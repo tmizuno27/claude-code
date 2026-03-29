@@ -96,10 +96,51 @@ export default async function ComparePage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+      />
+      {/* Sticky CTA Bar */}
+      <div className="sticky-cta-bar">
+        <div className="sticky-cta-inner">
+          <span className="sticky-cta-label">{toolA.name} vs {toolB.name}</span>
+          <div className="sticky-cta-buttons">
+            <a
+              href={toolA.affiliate_url || toolA.website}
+              target="_blank"
+              rel={toolA.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="sticky-cta-btn sticky-cta-btn-a"
+            >
+              Try {toolA.name} {toolA.free_plan ? '(Free)' : ''}
+            </a>
+            <a
+              href={toolB.affiliate_url || toolB.website}
+              target="_blank"
+              rel={toolB.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="sticky-cta-btn sticky-cta-btn-b"
+            >
+              Try {toolB.name} {toolB.free_plan ? '(Free)' : ''}
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="compare-header">
         <div className="container">
+          <nav className="breadcrumb" aria-label="breadcrumb">
+            <Link href="/">Home</Link>
+            <span className="breadcrumb-sep"> › </span>
+            <Link href={`/category/${pair.category}/`}>{pair.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</Link>
+            <span className="breadcrumb-sep"> › </span>
+            <span>{toolA.name} vs {toolB.name}</span>
+          </nav>
           <h1>{toolA.name} vs {toolB.name}</h1>
-          <p className="subtitle">Comprehensive comparison for 2026 — features, pricing, and verdict</p>
+          <p className="subtitle">Comprehensive comparison for 2026 — features, pricing, and expert verdict</p>
+          <div className="compare-header-meta">
+            <span>Updated: {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</span>
+            <span> · </span>
+            <span>5 min read</span>
+          </div>
         </div>
       </div>
 

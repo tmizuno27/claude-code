@@ -1,40 +1,42 @@
 {
   "title": "Google Maps Scraper Input",
-  "description": "Search for businesses or scrape specific place URLs on Google Maps.",
+  "description": "Search for local businesses by keyword or scrape specific Google Maps place URLs. No Google API key required.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "searchQuery": {
       "title": "Search Query",
       "type": "string",
-      "description": "Search query (e.g., 'restaurants in Tokyo').",
-      "editor": "textfield"
+      "description": "Business search query in natural language. Examples: 'restaurants in Tokyo', 'dentists near Chicago Loop', 'coffee shops in Shibuya'. Use specific location names for targeted results.",
+      "editor": "textfield",
+      "prefill": "coffee shops in Tokyo"
     },
     "placeUrls": {
-      "title": "Place URLs",
+      "title": "Google Maps Place URLs",
       "type": "array",
-      "description": "List of Google Maps place URLs to scrape.",
+      "description": "For direct place scraping, paste specific Google Maps place URLs. Use this when you already know which businesses to scrape.",
       "editor": "stringList",
       "items": { "type": "string" }
     },
     "maxResults": {
       "title": "Max Results",
       "type": "integer",
-      "description": "Maximum number of search results.",
+      "description": "Maximum number of business listings to return from search results (1-100). Google Maps typically shows up to 60 results per query.",
       "default": 20,
       "minimum": 1,
-      "maximum": 100
+      "maximum": 100,
+      "editor": "number"
     },
-    "includeReviews": {
-      "title": "Include Reviews",
+    "includeDetails": {
+      "title": "Include Detailed Info (Opening Hours, etc.)",
       "type": "boolean",
-      "description": "Fetch detailed place info including reviews.",
+      "description": "When enabled, fetches each place's detail page to get opening hours, price level, and additional attributes. Significantly increases runtime for large result sets.",
       "default": false
     },
     "language": {
       "title": "Language",
       "type": "string",
-      "description": "Language code for results (e.g., 'en', 'ja', 'es').",
+      "description": "Language code for result labels and descriptions. Examples: 'en' (English), 'ja' (Japanese), 'es' (Spanish), 'de' (German), 'fr' (French), 'zh-CN' (Chinese Simplified).",
       "default": "en",
       "editor": "textfield"
     }

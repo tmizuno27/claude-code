@@ -1,0 +1,17 @@
+{
+  "name": "serp-checker",
+  "version": "1.0.0",
+  "description": "Free Google SERP rank checker — track keyword positions in Google search results without a subscription",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.2",
+    "node-html-parser": "^6.1.13"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

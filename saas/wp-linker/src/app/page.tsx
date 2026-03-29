@@ -14,23 +14,23 @@ import {
 const features = [
   {
     icon: Link2,
-    title: "Smart Internal Linking",
-    desc: "AI analyzes your content and suggests the most relevant internal links between posts. Boost SEO with one click.",
+    title: "Smart Internal Link Suggestions",
+    desc: "Analyzes keyword overlap between posts and surfaces the most relevant internal links you're missing. Apply them in seconds.",
   },
   {
     icon: AlertTriangle,
     title: "Orphan Post Detection",
-    desc: "Find posts with zero incoming links that search engines struggle to discover. Fix link coverage gaps instantly.",
+    desc: "Finds posts with zero incoming links that Google can't discover. Fixing orphan posts is one of the fastest SEO wins available.",
   },
   {
     icon: BarChart3,
     title: "Link Coverage Score",
-    desc: "See your site's overall internal linking health at a glance. Track improvements over time.",
+    desc: "See your site's internal linking health as a single score. Track improvements after each analysis to confirm SEO progress.",
   },
   {
     icon: Shield,
-    title: "No Plugin Required",
-    desc: "Works via WordPress REST API. No plugin to install, no conflicts, no performance impact on your site.",
+    title: "No Plugin, No Risk",
+    desc: "Runs entirely via WordPress REST API. Nothing to install, no plugin conflicts, no slowdowns — just connect and analyze.",
   },
 ];
 

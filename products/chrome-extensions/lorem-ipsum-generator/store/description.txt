@@ -1,21 +1,49 @@
-Lorem Ipsum Generator -- Generate Dummy Text with One Click
+Lorem Ipsum Generator - Instant Placeholder Text for Designers & Developers
 
-Quickly generate placeholder text for your designs and development projects. Supports multiple formats and lengths.
+Stop wasting time manually typing dummy text. Generate lorem ipsum placeholder text in seconds, right from your browser toolbar.
 
 FEATURES:
-- Generate paragraphs, sentences, words, or lists
-- Adjustable quantity (1-100 units)
-- One-click copy to clipboard
-- Clean, minimal interface
-- Works offline -- no internet needed
 
-HOW IT WORKS:
-1. Click the extension icon
-2. Choose format (paragraphs, sentences, words, or list)
-3. Set the quantity
+Multiple Output Formats
+- Paragraphs - for layout and body content mockups
+- Sentences - for shorter text snippets
+- Words - for labels, titles, and buttons
+- Lists - for bullet-point and navigation mockups
+
+Adjustable Quantity
+- Generate 1 to 100 units of text
+- Fine-tune the exact amount you need for each project
+
+One-Click Copy
+- Instantly copy generated text to clipboard with a single click
+- Paste directly into Figma, Sketch, Adobe XD, HTML, or any editor
+
+Clean, Distraction-Free Interface
+- Minimal design that doesn't slow you down
+- Open, generate, copy — three steps, done
+
+Works Fully Offline
+- No internet connection required
+- All generation happens locally in your browser
+- No API calls, no waiting
+
+100% Private
+- No data collected, transmitted, or stored externally
+- Zero network requests of any kind
+
+HOW TO USE:
+1. Click the Lorem Ipsum Generator icon in your toolbar
+2. Choose your output format (paragraphs, sentences, words, or list)
+3. Set the quantity using the slider
 4. Click Generate and copy to clipboard
 
-PRIVACY:
-This extension runs entirely locally. No data is collected, transmitted, or stored externally. Zero network requests.
+PERFECT FOR:
+- UI/UX designers prototyping layouts in Figma or Sketch
+- Front-end developers building HTML/CSS templates
+- Web designers filling page layouts before real content arrives
+- Content creators mocking up article structures
+- Anyone who needs placeholder text fast, without leaving the browser
 
-Perfect for designers, developers, content creators, and anyone who needs placeholder text quickly.
+Lightweight, instant, and completely offline. Lorem Ipsum Generator is the quickest way to fill your designs with placeholder text.
+
+Category: Productivity

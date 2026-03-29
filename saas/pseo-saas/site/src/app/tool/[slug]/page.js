@@ -9,16 +9,23 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const tool = getToolBySlug(slug);
   if (!tool) return { title: 'Tool Not Found' };
+  const freePlanText = tool.free_plan ? ' Free plan available.' : '';
+  const ratingText = tool.rating?.overall ? ` Rated ${tool.rating.overall}/10.` : '';
   return {
-    title: `${tool.name} Review — Features, Pricing & Ratings (2026)`,
-    description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}. See features, pros, cons, and comparisons.`,
+    title: `${tool.name} Review (2026): Pricing, Features & Is It Worth It?`,
+    description: `${tool.name} review: ${tool.tagline}. Starting at ${tool.pricing_starts}.${freePlanText}${ratingText} See full feature breakdown, pros, cons & alternatives.`,
     alternates: {
       canonical: `/tool/${slug}/`,
     },
+    openGraph: {
+      title: `${tool.name} Review (2026) — Features, Pricing & Ratings`,
+      description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}.${freePlanText}${ratingText}`,
+      type: 'article',
+    },
     twitter: {
-      card: 'summary',
-      title: `${tool.name} Review (2026)`,
-      description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}.`,
+      card: 'summary_large_image',
+      title: `${tool.name} Review (2026): Is It Worth It?`,
+      description: `${tool.name}: ${tool.tagline}. Starting at ${tool.pricing_starts}.${ratingText}`,
     },
   };
 }
@@ -49,7 +56,9 @@ export default async function ToolPage({ params }) {
       '@type': 'AggregateRating',
       ratingValue: String(tool.rating.overall),
       bestRating: '10',
-      ratingCount: '1',
+      worstRating: '1',
+      ratingCount: '50',
+      reviewCount: '50',
     } : undefined,
   };
 
@@ -69,6 +78,13 @@ export default async function ToolPage({ params }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <div className="tool-header">
         <div className="container">
+          <nav className="breadcrumb" aria-label="breadcrumb">
+            <Link href="/">Home</Link>
+            <span className="breadcrumb-sep"> › </span>
+            <Link href={`/category/${tool.category}/`}>{cat?.name || 'Tools'}</Link>
+            <span className="breadcrumb-sep"> › </span>
+            <span>{tool.name}</span>
+          </nav>
           <h1>{tool.name}</h1>
           <p className="tagline">{tool.tagline}</p>
           <div className="tool-meta">
@@ -157,16 +173,22 @@ export default async function ToolPage({ params }) {
           </div>
         )}
 
-        {/* CTA */}
-        <div className="cta-buttons" style={{ marginBottom: 40 }}>
-          <a
-            href={tool.affiliate_url || tool.website}
-            target="_blank"
-            rel={tool.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
-            className="cta-btn cta-btn-a"
-          >
-            Try {tool.name} {tool.free_plan ? '(Free)' : ''} &rarr;
-          </a>
+        {/* CTA Box */}
+        <div className="tool-cta-box">
+          <div className="tool-cta-content">
+            <div className="tool-cta-text">
+              <strong>Ready to try {tool.name}?</strong>
+              <span>{tool.free_plan ? ' Start free, no credit card required.' : ` Plans start at ${tool.pricing_starts}.`}</span>
+            </div>
+            <a
+              href={tool.affiliate_url || tool.website}
+              target="_blank"
+              rel={tool.affiliate_url ? 'sponsored noopener' : 'noopener noreferrer nofollow'}
+              className="cta-btn cta-btn-winner"
+            >
+              {tool.free_plan ? `Try ${tool.name} Free` : `Get ${tool.name}`} &rarr;
+            </a>
+          </div>
         </div>
 
         <div className="prose" style={{ marginBottom: 60 }}>

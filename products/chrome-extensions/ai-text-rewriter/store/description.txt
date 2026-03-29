@@ -1,21 +1,51 @@
-AI Text Rewriter -- Rewrite Any Text with AI, Right in Your Browser
+AI Text Rewriter - Rewrite Any Text with AI, Right in Your Browser
 
-Highlight any text on a webpage and instantly rewrite it using AI. Choose from multiple rewriting styles to fit your needs.
+Highlight any text on a webpage and instantly rewrite it using AI. No subscription, no monthly fee — use your own OpenAI API key (BYOK) and pay only for what you use.
 
 FEATURES:
-- Select text on any page and rewrite with one click
-- 5 rewriting modes: Casual, Professional, Shorter, Longer, Fix Grammar
-- Bring Your Own Key (BYOK) -- uses your OpenAI API key, no subscription needed
-- Results appear instantly in a clean popup
-- Works on any website
 
-HOW IT WORKS:
-1. Enter your OpenAI API key in the extension settings (stored locally)
-2. Select any text on a webpage
-3. Right-click and choose a rewriting style, or use the popup
-4. Get the rewritten text instantly
+5 Rewriting Modes
+- Casual — make text friendly and conversational
+- Professional — elevate tone for business communication
+- Shorter — condense text without losing key points
+- Longer — expand ideas with more detail
+- Fix Grammar — correct grammar and spelling errors
+
+Select & Rewrite in One Click
+- Highlight any text on any webpage
+- Right-click and choose your rewriting style
+- Or use the popup for manual input
+- Results appear in a clean overlay instantly
+
+Bring Your Own Key (BYOK)
+- Uses your own OpenAI API key — no middleman subscription
+- Your key is stored locally in your browser only
+- Pay only for actual API usage (typically fractions of a cent per rewrite)
+- No recurring fees, no locked-in plans
+
+Works on Any Website
+- Blog posts, emails, documents, social media, forms — anywhere text appears
 
 PRIVACY:
-Your API key is stored locally in your browser. Selected text is sent to OpenAI API for processing. No data is collected or stored by the extension developer.
+- Your API key is stored locally in your browser only
+- Selected text is sent directly to OpenAI API for processing
+- No data is collected, logged, or stored by the extension developer
+- No third-party tracking or analytics
 
-Perfect for writers, marketers, students, and anyone who wants to quickly improve their text.
+HOW IT WORKS:
+1. Enter your OpenAI API key in extension settings (one-time setup)
+2. Select any text on a webpage
+3. Right-click and choose a rewriting style, or open the popup
+4. Get AI-rewritten text instantly
+
+PERFECT FOR:
+- Writers improving drafts on the fly
+- Marketers adapting copy for different audiences
+- Non-native English speakers polishing their writing
+- Students improving essay clarity and tone
+- Professionals upgrading email and report language
+- Anyone who wants to write better, faster
+
+No subscription. No tracking. Just smarter writing with AI.
+
+Category: Productivity

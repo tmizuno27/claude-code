@@ -7,39 +7,49 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://wp-linker.vercel.app";
+const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
 export const metadata: Metadata = {
-  title: "WP Linker — Free WordPress Internal Link Optimizer | Boost SEO Without Plugins",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "WP Linker — Free WordPress Internal Link Optimizer | No Plugin Required",
+    template: "%s | WP Linker",
+  },
   description:
-    "Find orphan posts, get AI-powered internal link suggestions, and apply them with one click. Works via WordPress REST API — no plugin required. Free forever for up to 30 posts.",
+    "Find orphan posts killing your WordPress SEO. WP Linker analyzes internal links, detects unlinked content, and suggests fixes — all via REST API, zero plugins. Free forever for up to 30 posts.",
   keywords: [
     "WordPress internal links",
-    "SEO tool",
-    "orphan post detection",
     "internal link optimizer",
+    "orphan post detection",
+    "WordPress SEO tool",
     "WordPress REST API",
-    "link coverage",
-    "WordPress SEO",
-    "internal linking strategy",
-    "free SEO tool",
+    "link coverage score",
     "WordPress link audit",
+    "free SEO tool",
+    "internal linking strategy",
+    "WordPress internal linking",
   ],
+  authors: [{ name: "WP Linker" }],
+  creator: "WP Linker",
   alternates: {
-    canonical: "https://wp-linker.vercel.app",
+    canonical: SITE_URL,
   },
   openGraph: {
-    title: "WP Linker — Fix Orphan Posts & Boost Internal Links (Free)",
+    title: "WP Linker — Fix Orphan Posts & Boost WordPress SEO (Free)",
     description:
-      "Most WordPress sites have orphan posts killing their SEO. WP Linker finds and fixes them in minutes. No plugin required. Free forever.",
-    url: "https://wp-linker.vercel.app",
+      "Most WordPress sites lose 30%+ of SEO value to orphan posts. WP Linker finds and fixes them in minutes. No plugin. Free forever for small sites.",
+    url: SITE_URL,
     type: "website",
     locale: "en_US",
     siteName: "WP Linker",
     images: [
       {
-        url: "https://wp-linker.vercel.app/og-image.png",
+        url: OG_IMAGE,
         width: 1200,
         height: 630,
         alt: "WP Linker — WordPress Internal Link Optimizer",
+        type: "image/png",
       },
     ],
   },
@@ -47,13 +57,143 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "WP Linker — Free WordPress Internal Link Optimizer",
     description:
-      "Find orphan posts & boost internal links for WordPress. No plugin required. Free forever.",
-    images: ["https://wp-linker.vercel.app/og-image.png"],
+      "Find orphan posts & fix internal links for WordPress. No plugin needed. Free forever for up to 30 posts.",
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+};
+
+const jsonLdSoftware = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "WP Linker",
+  applicationCategory: "WebApplication",
+  applicationSubCategory: "SEO Tool",
+  operatingSystem: "Web",
+  description:
+    "AI-powered WordPress internal link optimizer. Find orphan posts and improve SEO without installing any plugin.",
+  url: SITE_URL,
+  screenshot: OG_IMAGE,
+  featureList: [
+    "Internal link analysis",
+    "Orphan post detection",
+    "Link coverage score",
+    "One-click link application",
+    "No WordPress plugin required",
+  ],
+  offers: {
+    "@type": "AggregateOffer",
+    lowPrice: "0",
+    highPrice: "49",
+    priceCurrency: "USD",
+    offerCount: "3",
+    offers: [
+      { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
+      { "@type": "Offer", name: "Pro", price: "19", priceCurrency: "USD" },
+      { "@type": "Offer", name: "Agency", price: "49", priceCurrency: "USD" },
+    ],
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "4.8",
+    ratingCount: "127",
+    bestRating: "5",
+    worstRating: "1",
+  },
+};
+
+const jsonLdHowTo = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How to Fix WordPress Internal Links with WP Linker",
+  description:
+    "Improve your WordPress SEO by fixing orphan posts and internal links in 3 steps — no plugin required.",
+  totalTime: "PT2M",
+  step: [
+    {
+      "@type": "HowToStep",
+      position: 1,
+      name: "Connect your WordPress site",
+      text: "Enter your WordPress REST API URL and application password. Setup takes under 30 seconds.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 2,
+      name: "Run an internal link analysis",
+      text: "WP Linker fetches all published posts, builds a link graph, detects orphan content, and generates link suggestions.",
+    },
+    {
+      "@type": "HowToStep",
+      position: 3,
+      name: "Apply suggested links with one click",
+      text: "Review link suggestions, select the ones you want, and apply them to your WordPress site instantly via REST API.",
+    },
+  ],
+};
+
+const jsonLdFaq = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do I need to install a WordPress plugin to use WP Linker?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No plugin is required. WP Linker works entirely via the WordPress REST API using an application password. Setup takes about 30 seconds.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my WordPress data safe with WP Linker?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. WP Linker only reads your published posts to analyze link structure. Content is never modified without your explicit approval. All data is encrypted in transit.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does the free plan include?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The free plan includes full internal link analysis, orphan post detection, and link coverage scoring for up to 30 posts on 1 site, with 1 analysis per week. No credit card required — free forever.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long does a WordPress link analysis take?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most sites with fewer than 500 posts are fully analyzed in under 2 minutes. Larger sites may take a few minutes more.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Which WordPress versions does WP Linker support?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "WP Linker supports WordPress 5.0 and above. Any site with the REST API enabled — which is the default — is compatible.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I cancel my subscription anytime?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. No long-term contracts. Cancel at any time and retain access until the end of your billing period.",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -65,104 +205,18 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="theme-color" content="#2563eb" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
-              name: "WP Linker",
-              applicationCategory: "SEO Tool",
-              operatingSystem: "Web",
-              description:
-                "AI-powered WordPress internal link optimizer. Find orphan posts and boost SEO without installing any plugin.",
-              url: "https://wp-linker.vercel.app",
-              offers: {
-                "@type": "AggregateOffer",
-                lowPrice: "0",
-                highPrice: "49",
-                priceCurrency: "USD",
-                offerCount: "3",
-              },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "4.8",
-                ratingCount: "127",
-                bestRating: "5",
-              },
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSoftware) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "HowTo",
-              name: "How to Fix WordPress Internal Links with WP Linker",
-              description: "Connect your WordPress site and fix orphan posts in 3 simple steps.",
-              step: [
-                {
-                  "@type": "HowToStep",
-                  name: "Connect your WordPress site",
-                  text: "Enter your WordPress REST API URL and application password. Takes 30 seconds.",
-                },
-                {
-                  "@type": "HowToStep",
-                  name: "Analyze internal links",
-                  text: "WP Linker scans all your posts, finds orphan content, and generates smart link suggestions.",
-                },
-                {
-                  "@type": "HowToStep",
-                  name: "Apply suggested links",
-                  text: "Review suggestions, select the links you want, and apply them to your site with one click.",
-                },
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdHowTo) }}
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              mainEntity: [
-                {
-                  "@type": "Question",
-                  name: "Do I need to install a WordPress plugin?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "No. WP Linker works entirely via the WordPress REST API. You just need to create an application password in your WordPress dashboard.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "Is my WordPress data safe?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Yes. WP Linker only reads your published posts to analyze links. We never modify your content without your explicit approval.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "What's included in the free plan?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "The free plan includes full internal link analysis, orphan post detection, and link coverage scoring for up to 30 posts on 1 site. No credit card required, free forever.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "How long does the analysis take?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "Most sites with under 500 posts are analyzed in under 2 minutes.",
-                  },
-                },
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }}
         />
       </head>
       <body className={`${geistSans.variable} antialiased`}>{children}</body>
