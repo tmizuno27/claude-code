@@ -54,6 +54,10 @@
 - **トップページ**: [blog-frontpage-design.md](blog-frontpage-design.md) — PC版完成、モバイル未完
 - **トップページ復元点**: [front-page-savepoint.md](front-page-savepoint.md) — コミットa90ce7f8で復元可能
 
+## GSC（Google Search Console）
+- **otona-match.com**: 2026-03-29 所有権証明完了（ConoHa WING DNS TXT）。Rank Math未使用、Cocoonがcanonical出力
+- **nambei-oyaji.com / sim-hikaku.online**: サービスアカウント `sheets-reader@sheets-sync-489022.iam.gserviceaccount.com` で認証
+
 ## WordPress REST API（nambei-oyaji.com）
 - 認証: `nambei-oyaji.com/config/secrets.json` + `wp-credentials.json`
 - トップページID: 47、カテゴリ: paraguay, side-business, ijuu-junbi
