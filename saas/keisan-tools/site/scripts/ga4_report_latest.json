@@ -1,15 +1,27 @@
 {
-  "generated_at": "2026-03-26T07:54:12.461016",
+  "generated_at": "2026-03-28T21:36:46.391329",
   "period_days": 7,
   "property_id": "529807198",
   "overview": {
-    "sessions": 1,
-    "pageviews": 1,
-    "users": 1
+    "sessions": 20,
+    "pageviews": 20,
+    "users": 19
   },
   "top_pages": [
     {
       "path": "/",
+      "pageviews": 16
+    },
+    {
+      "path": "/money/dividend-reinvestment/",
+      "pageviews": 2
+    },
+    {
+      "path": "/life/packing-list/",
+      "pageviews": 1
+    },
+    {
+      "path": "/life/point-value/",
       "pageviews": 1
     }
   ]
