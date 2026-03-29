@@ -1,0 +1,17 @@
+{
+  "name": "sitemap-crawler",
+  "version": "1.0.0",
+  "description": "Extract all URLs from XML sitemaps (including sitemap index) and optionally audit each page",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "apify": "^3.2.2",
+    "node-html-parser": "^6.1.13"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

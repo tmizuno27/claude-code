@@ -50,6 +50,15 @@ Quick Currency Converterは再提出済み（2026-03-20）、審査待ち。
 
 ## インフラ
 - デベロッパーアカウント: t.mizuno27（登録料$5）
-- プライバシーポリシー: GitHub Pages（https://tmizuno27.github.io/claude-code/infrastructure/homepage/privacy-policy-*.html）
+- プライバシーポリシー: Vercel（https://homepage-three-ochre.vercel.app/privacy-policy-{ext}.html）※GitHub Pages無効化済み
 - プロジェクトパス: `claude-code/products/chrome-extensions/`
 - 全拡張: Apple風ダークUI、Manifest V3
+
+## Tab Manager CWS提出手順（提出準備完了）
+1. CWSダッシュボード: https://chrome.google.com/webstore/devconsole
+2. 新規アイテム → ZIPアップロード: `tab-manager/store/extension.zip`
+3. Short description: `tab-manager/store/short-description.txt`
+4. Detailed description: `tab-manager/store/description.txt`
+5. Screenshots: `tab-manager/store-assets/screenshot-1280x800.png`
+6. Promo tile: `tab-manager/store-assets/promo-440x280.png`
+7. Privacy policy URL: `https://homepage-three-ochre.vercel.app/privacy-policy-tab-manager.html`

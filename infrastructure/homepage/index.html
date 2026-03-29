@@ -1317,12 +1317,16 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.cat-card, .saas-card, .gumroad-item, .product-chip, .ext-chip, .platform-badge').forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(16px)';
-      el.style.transition = `opacity 0.5s ease ${i * 0.03}s, transform 0.5s ease ${i * 0.03}s, border-color 0.3s, background 0.3s`;
-      observer.observe(el);
-    });
+    // Only animate if user prefers motion
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced) {
+      document.querySelectorAll('.cat-card, .saas-card, .gumroad-item, .product-chip, .ext-chip, .platform-badge').forEach((el, i) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = `opacity 0.5s ease ${Math.min(i * 0.03, 0.4)}s, transform 0.5s ease ${Math.min(i * 0.03, 0.4)}s, border-color 0.3s, background 0.3s`;
+        observer.observe(el);
+      });
+    }
   </script>
 
 </body>
