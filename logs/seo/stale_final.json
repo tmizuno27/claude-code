@@ -1,0 +1,68 @@
+{
+  "nambei-oyaji.com": {
+    "priority_a": [],
+    "priority_b": [],
+    "priority_c": []
+  },
+  "otona-match.com": {
+    "priority_a": [
+      {
+        "title": "marrish（マリッシュ）の評判・口コミ｜再婚・バツイチ向けアプリの実力を徹底検証",
+        "permalink": "",
+        "published": "",
+        "notes": "既存ID:138を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      },
+      {
+        "title": "youbride（ユーブライド）の評判・口コミ｜30代40代の婚活アプリの実力を徹底検証",
+        "permalink": "",
+        "published": "",
+        "notes": "既存ID:147を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      },
+      {
+        "title": "Omiai（オミアイ）の評判・口コミ2026年最新｜真剣婚活アプリの実力を徹底検証",
+        "permalink": "",
+        "published": "",
+        "notes": "既存ID:132を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      },
+      {
+        "title": "tapple（タップル）の評判・口コミ2026年最新｜おでかけ機能で即デートできるアプリの実力を徹底検証",
+        "permalink": "",
+        "published": "",
+        "notes": "既存ID:135を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      },
+      {
+        "title": "ゼクシィ縁結びの評判・口コミ2026年最新｜リクルートの婚活アプリの実力を徹底検証",
+        "permalink": "",
+        "published": "",
+        "notes": "既存記事を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      },
+      {
+        "title": "40代におすすめのマッチングアプリ7選｜中高年でも出会えるアプリの選び方",
+        "permalink": "",
+        "published": "",
+        "notes": "既存ID:143を上書き",
+        "reason": "ステータス=リライト用（未公開・リライト待ち）"
+      }
+    ],
+    "priority_b": [],
+    "priority_c": []
+  },
+  "sim-hikaku.online": {
+    "priority_a": [
+      {
+        "title": "povo・格安SIM速度比較｜2024年版リアル測定データ",
+        "permalink": "https://sim-hikaku.online/sim-povo/",
+        "published": "2026-03-20",
+        "pv": 0,
+        "reason": "古い年号「2024年」をタイトルに含む"
+      }
+    ],
+    "priority_b": [],
+    "priority_c": []
+  }
+}
