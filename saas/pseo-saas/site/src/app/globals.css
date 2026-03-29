@@ -642,3 +642,125 @@ a:hover {
 .verdict-cta .cta-btn {
   display: inline-flex;
 }
+
+/* Sticky CTA Bar */
+.sticky-cta-bar {
+  position: sticky;
+  bottom: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.97);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+  padding: 12px 20px;
+}
+.sticky-cta-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.sticky-cta-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex: 1;
+  min-width: 140px;
+}
+.sticky-cta-buttons {
+  display: flex;
+  gap: 10px;
+}
+.sticky-cta-btn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+.sticky-cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  text-decoration: none;
+}
+.sticky-cta-btn-a {
+  background: var(--accent);
+  color: #fff;
+}
+.sticky-cta-btn-b {
+  background: var(--green);
+  color: #fff;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.breadcrumb a {
+  color: var(--text-muted);
+}
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+.breadcrumb-sep {
+  margin: 0 2px;
+  color: var(--text-muted);
+}
+
+/* Compare Header Meta */
+.compare-header-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+/* Tool CTA Box */
+.tool-cta-box {
+  background: linear-gradient(135deg, var(--accent-light) 0%, #f0fdf4 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 40px 0;
+}
+.tool-cta-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.tool-cta-text {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.tool-cta-text strong {
+  color: var(--text);
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .sticky-cta-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .sticky-cta-buttons {
+    flex-direction: column;
+  }
+  .sticky-cta-btn {
+    text-align: center;
+  }
+  .tool-cta-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .tool-cta-content .cta-btn {
+    text-align: center;
+  }
+}

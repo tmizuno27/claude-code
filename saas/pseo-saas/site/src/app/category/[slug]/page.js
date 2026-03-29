@@ -41,11 +41,32 @@ export default async function CategoryPage({ params }) {
     ],
   };
 
+  const itemListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `Best ${cat.name} Tools`,
+    description: `Top ${tools.length} ${cat.name} tools compared`,
+    numberOfItems: tools.length,
+    itemListElement: tools.slice(0, 10).map((tool, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: tool.name,
+      description: tool.tagline,
+      url: `https://ai-tool-compare-nu.vercel.app/tool/${tool.slug}/`,
+    })),
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <div className="cat-header">
         <div className="container">
+          <nav className="breadcrumb" aria-label="breadcrumb">
+            <Link href="/">Home</Link>
+            <span className="breadcrumb-sep"> › </span>
+            <span>{cat.name}</span>
+          </nav>
           <h1>{cat.emoji} {cat.name}</h1>
           <p>{cat.description} — {tools.length} tools, {pairs.length} comparisons</p>
         </div>

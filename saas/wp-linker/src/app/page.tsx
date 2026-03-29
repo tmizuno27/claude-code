@@ -48,7 +48,7 @@ const plans = [
       "1 analysis per week",
       "Link coverage score",
     ],
-    cta: "Get Started Free",
+    cta: "Start Free — No Credit Card",
     highlight: false,
   },
   {
@@ -158,31 +158,31 @@ export default function LandingPage() {
             No WordPress plugin required
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
-            Fix your internal links.
+            Your WordPress SEO has
             <br />
-            <span className="text-blue-600">Boost your SEO.</span>
+            <span className="text-blue-600">orphan posts bleeding traffic.</span>
           </h1>
           <p className="text-lg text-gray-600 mb-4 max-w-2xl mx-auto">
-            WP Linker analyzes your WordPress posts, finds orphan content, and
-            suggests the most relevant internal links — all via REST API, no
-            plugin needed.
+            WP Linker scans your WordPress site, finds posts Google can&apos;t
+            discover, and suggests the exact internal links to fix them — all
+            via REST API. No plugin. No setup headaches.
           </p>
           <p className="text-sm text-gray-400 mb-8">
-            Free forever for up to 30 posts. No credit card required.
+            Free forever for up to 30 posts. No credit card required. Setup in 30 seconds.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/auth"
-              className="w-full sm:w-auto py-3 px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 text-lg"
+              className="w-full sm:w-auto py-3 px-8 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition flex items-center justify-center gap-2 text-lg shadow-lg shadow-blue-600/25"
             >
-              Scan My Site Free
+              Find My Orphan Posts — Free
               <ArrowRight className="w-5 h-5" />
             </a>
             <a
               href="#features"
               className="w-full sm:w-auto py-3 px-8 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl transition text-lg text-center"
             >
-              Learn More
+              See How It Works
             </a>
           </div>
           <div className="flex items-center justify-center gap-6 mt-8 text-sm text-gray-500">
@@ -206,16 +206,16 @@ export default function LandingPage() {
       <section className="bg-gray-50 py-8 border-y border-gray-100">
         <div className="max-w-4xl mx-auto grid grid-cols-3 gap-4 text-center px-4">
           <div>
-            <p className="text-3xl font-bold text-gray-900">500+</p>
+            <p className="text-3xl font-bold text-blue-600">500+</p>
             <p className="text-sm text-gray-500">Sites analyzed</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-gray-900">3x</p>
+            <p className="text-3xl font-bold text-blue-600">3x</p>
             <p className="text-sm text-gray-500">Faster than manual linking</p>
           </div>
           <div>
-            <p className="text-3xl font-bold text-gray-900">0</p>
-            <p className="text-sm text-gray-500">Plugins to install</p>
+            <p className="text-3xl font-bold text-blue-600">$0</p>
+            <p className="text-sm text-gray-500">Forever free for small sites</p>
           </div>
         </div>
       </section>
