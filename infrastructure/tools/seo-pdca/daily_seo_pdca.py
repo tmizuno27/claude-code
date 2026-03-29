@@ -106,10 +106,14 @@ logger = Logger()
 
 
 def get_gsc_service():
-    creds = service_account.Credentials.from_service_account_file(
-        str(CRED_PATH), scopes=GSC_SCOPES
-    )
-    return build("searchconsole", "v1", credentials=creds)
+    try:
+        creds = service_account.Credentials.from_service_account_file(
+            str(CRED_PATH), scopes=GSC_SCOPES
+        )
+        return build("searchconsole", "v1", credentials=creds)
+    except Exception as e:
+        logger.log(f"  GSC認証失敗: {e}")
+        return None
 
 
 def get_wp_session(site_cfg):
