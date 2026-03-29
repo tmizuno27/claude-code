@@ -1,0 +1,34 @@
+{
+  "title": "SEO Analyzer Input",
+  "description": "Configure which URLs to audit and what analysis depth to perform.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "URLs to Analyze",
+      "type": "array",
+      "description": "List of webpage URLs to run SEO audits on. Accepts full URLs (https://example.com/page).",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://example.com"]
+    },
+    "analysisType": {
+      "title": "Analysis Type",
+      "type": "string",
+      "description": "'full' returns all 15+ SEO factors with scoring. 'basic' returns only title, meta description, and headings for faster runs.",
+      "default": "full",
+      "enum": ["full", "basic"],
+      "editor": "select"
+    },
+    "fetchTimeoutMs": {
+      "title": "Fetch Timeout (ms)",
+      "type": "integer",
+      "description": "Maximum time in milliseconds to wait for a page to load before timing out.",
+      "default": 30000,
+      "minimum": 5000,
+      "maximum": 60000,
+      "editor": "number"
+    }
+  },
+  "required": ["urls"]
+}
