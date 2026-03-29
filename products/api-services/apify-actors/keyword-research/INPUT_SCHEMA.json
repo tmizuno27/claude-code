@@ -19,35 +19,31 @@
       "default": "en",
       "editor": "textfield"
     },
-    "country": {
-      "title": "Country Code",
-      "type": "string",
-      "description": "Two-letter country code for localized suggestions. Examples: 'us', 'jp', 'gb', 'de', 'fr', 'br'.",
-      "default": "us",
-      "editor": "textfield"
-    },
-    "includeQuestions": {
-      "title": "Include Question Keywords",
-      "type": "boolean",
-      "description": "When enabled, automatically generates question variants for each seed keyword (who, what, when, where, why, how).",
-      "default": true
-    },
-    "minScore": {
-      "title": "Minimum Keyword Score",
+    "topN": {
+      "title": "Top N Results",
       "type": "integer",
-      "description": "Filter results to only keywords with a longtail score >= this value (0-100). Higher scores indicate better long-tail targeting potential.",
-      "default": 0,
-      "minimum": 0,
-      "maximum": 100,
+      "description": "Number of top-ranked keyword suggestions to output (1-200). Keywords are ranked by longtail score.",
+      "default": 20,
+      "minimum": 1,
+      "maximum": 200,
       "editor": "number"
     },
-    "maxSuggestionsPerSeed": {
-      "title": "Max Suggestions Per Seed Keyword",
+    "maxQuestionPatterns": {
+      "title": "Question Pattern Variants Per Seed",
       "type": "integer",
-      "description": "Maximum number of autocomplete suggestions to fetch per seed keyword.",
-      "default": 10,
-      "minimum": 1,
-      "maximum": 50,
+      "description": "Number of question/intent suffix variants to generate per seed keyword (e.g., 'keyword + how to', 'keyword + best'). Max 12.",
+      "default": 4,
+      "minimum": 0,
+      "maximum": 12,
+      "editor": "number"
+    },
+    "requestDelaySeconds": {
+      "title": "Request Delay (seconds)",
+      "type": "number",
+      "description": "Delay in seconds between Google Suggest API requests to avoid rate limiting.",
+      "default": 1.0,
+      "minimum": 0.5,
+      "maximum": 10.0,
       "editor": "number"
     }
   },
