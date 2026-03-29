@@ -113,7 +113,8 @@ High-quality tileable designs for textile, wallpaper, and surface design.
 | 支払い | PayPal / Payoneer（最低 $35） |
 
 ### Step 1: アカウント作成
-1. https://submit.shutterstock.com/ にアクセス
+
+1. [submit.shutterstock.com](https://submit.shutterstock.com/) にアクセス
 2. 「Join as Contributor」をクリック
 3. メールアドレスとパスワードで登録
 4. 国: **Paraguay** を選択
@@ -180,7 +181,7 @@ High-quality tileable designs for textile, wallpaper, and surface design.
 
 ## 即実行チェックリスト
 
-- [ ] Adobe Stock アカウント開設（https://contributor.stock.adobe.com/）
+- [ ] Adobe Stock アカウント開設（[contributor.stock.adobe.com](https://contributor.stock.adobe.com/)）
 - [ ] W-8BEN 提出
 - [ ] `adobe_stock_metadata.csv` 準備済み（914行）
 - [ ] 画像をJPEG変換（output/upscaled/ の914枚）

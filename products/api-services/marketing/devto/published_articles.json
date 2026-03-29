@@ -10,5 +10,17 @@
     "url": "https://dev.to/miccho27/build-a-multi-source-news-feed-in-10-lines-free-news-aggregator-api-newsapi-alternative-b5",
     "published": false,
     "published_at": "2026-03-29T13:23:47Z"
+  },
+  "13-pdf-generator-api-article.md": {
+    "devto_id": 3425284,
+    "url": "https://dev.to/miccho27/generate-pdfs-from-html-markdown-or-url-via-api-free-no-puppeteer-setup-required-2on7",
+    "published": false,
+    "published_at": "2026-03-29T13:24:36Z"
+  },
+  "14-cloudflare-workers-24-apis-article.md": {
+    "devto_id": 3425288,
+    "url": "https://dev.to/miccho27/i-built-24-apis-on-cloudflare-workers-heres-what-i-learned-and-what-id-do-differently-2fg8",
+    "published": false,
+    "published_at": "2026-03-29T13:25:17Z"
   }
 }
