@@ -29,16 +29,31 @@ SITES = {
         "name": "sim-hikaku.online",
         "url": "https://sim-hikaku.online",
         "dir": os.path.join(BASE_DIR, "sites", "sim-hikaku.online"),
+        "priority": 1,  # アフィリエイト収益直結
+    },
+    "keisan-tools": {
+        "name": "keisan-tools.com",
+        "url": "https://keisan-tools.com",
+        "dir": os.path.join(BASE_DIR, "saas", "keisan-tools", "site"),
+        "priority": 2,  # 463ツール、AdSense候補
     },
     "nambei-oyaji": {
         "name": "nambei-oyaji.com",
         "url": "https://nambei-oyaji.com",
         "dir": os.path.join(BASE_DIR, "sites", "nambei-oyaji.com"),
+        "priority": 3,
     },
     "otona-match": {
         "name": "otona-match.com",
         "url": "https://otona-match.com",
         "dir": os.path.join(BASE_DIR, "sites", "otona-match.com"),
+        "priority": 4,
+    },
+    "pseo": {
+        "name": "ai-tool-compare-nu.vercel.app",
+        "url": "https://ai-tool-compare-nu.vercel.app",
+        "dir": os.path.join(BASE_DIR, "saas", "pseo-saas"),
+        "priority": 5,  # 5,056ページ、長期
     },
 }
 
