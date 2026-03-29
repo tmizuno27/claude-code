@@ -44,7 +44,7 @@
 - **nambei-oyaji.com**: 南米おやじの海外生活ラボ（主力、116記事）→ [blog-seo-rules.md](blog-seo-rules.md)
 - **otona-match.com**: 大人のマッチングナビ（132記事）→ [otona-match-site.md](otona-match-site.md)
 - **sim-hikaku.online**: SIM比較オンライン（107記事）→ [sim-hikaku-site.md](sim-hikaku-site.md)
-- **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用）→ [hatena-blog-business.md](hatena-blog-business.md)
+- **nambei-oyaji.hatenablog.com**: 南米おやじの海外生活メモ（本家送客用、累計30記事）→ [hatena-blog-business.md](hatena-blog-business.md)
 - **3サイト合計: 400記事**（2026-03-28 CSV同期確認: nambei136+otona161+sim113）
 
 ## ブログデザイン・フォーマット
@@ -82,7 +82,7 @@
 - **タスク共通ルール**: [feedback_blog_tasks_shared.md](feedback_blog_tasks_shared.md)
 
 ## デジタルプロダクト事業
-- **RapidAPI（24本・収益$0）**: [rapidapi-business.md](rapidapi-business.md) — 上位5本クロスセル実装済、Dev.to記事3本準備済
+- **RapidAPI（24本・収益$0）**: [rapidapi-business.md](rapidapi-business.md) — 24/24正常稼働、Screenshot API修正デプロイ済、Dev.to18記事公開済
 - **Apify（9 Actor全デプロイ完了）**: [apify-business.md](apify-business.md) — バグ修正・構造修正済
 - **Apify公開作業中断**: [apify-actor-pending.md](apify-actor-pending.md) — Actor jmtLVhG6qPqjc0b34
 - **Chrome拡張（2/11本公開、PP公開済）**: [chrome-extensions-business.md](chrome-extensions-business.md)
@@ -116,7 +116,14 @@
 - **RapidAPI更新**: provider.rapidapi.comダウン復旧待ち→自動スクリプトで更新
 - **Hash & Encode Tool PP**: Chrome Web Store審査完了待ち→URL: `https://homepage-three-ochre.vercel.app/privacy-policy-hash-encode-tool.html`
 
+## 緊急対応事項
+- **otona-match.com PV急落**: [project_otona_match_pv_drop.md](project_otona_match_pv_drop.md) — PV -75%、GSCペナルティ確認が急務
+
 ## PDCA実行記録
+- **2026-03-28 夜（Session3）**: [pdca-2026-03-28-session3.md](pdca-2026-03-28-session3.md) — **30件改善**。内部リンク741本、Dev.to10記事公開、はてな9記事投稿、PDCAスクリプト5箇所修正、GA4レポート生成
 - **2026-03-28 午後**: [pdca-2026-03-28-session2.md](pdca-2026-03-28-session2.md) — 22タスク自動+手動対応。全10 VS Code拡張パブリッシュ、Apify 9本デプロイ、city-cost-pseoデプロイ、Gumroad 2商品出品、Fiverr Gig2出品、Playwright自動化スクリプト2本作成
 - **2026-03-28 午前**: [pdca-2026-03-28.md](pdca-2026-03-28.md) — 22チーム並列+朝4タスク。Sheets Sync復旧、X投稿v2移行、CTR改善、内部リンク強化
 - **2026-03-27**: [pdca-2026-03-27.md](pdca-2026-03-27.md) — GA4修正、pSEO GSC送信、ダッシュボードバグ修正3件、GitHub Pages無効化
+
+## 新規リファレンス
+- **週次GA4スクリプト**: [feedback_weekly_analytics_script.md](feedback_weekly_analytics_script.md) — `infrastructure/tools/weekly_analytics_report.py`（Task Scheduler登録推奨）
