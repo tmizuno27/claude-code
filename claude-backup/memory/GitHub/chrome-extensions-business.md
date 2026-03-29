@@ -1,8 +1,15 @@
 ---
 name: Chrome拡張ポートフォリオ事業
-description: Chrome拡張11本（公開2+審査待ち8+新規1）。プライバシーポリシー公開済み(keisan-tools.com/chrome-privacy/)、AI Text Rewriter v1.2.0バグ修正済み
+description: Chrome拡張11本（公開2+審査待ち9）。全PPurl設定済み(homepage-three-ochre.vercel.app)。Tab Manager CWS提出準備完了。
 type: project
 ---
+
+## 2026-03-29更新
+- **合計11本**（公開2: AI Text Rewriter + Regex Tester、審査中8本、Tab Manager: 提出準備完了）
+- **Tab Manager**: アイコン生成+ZIP作成+store素材整備→CWS提出可能状態
+- **プライバシーポリシーURL**: 全11本 `https://homepage-three-ochre.vercel.app/privacy-policy-{ext}.html` に統一済み（GitHub Pages無効化のためVercelに移行）
+- **ストア説明文SEO強化**: Regex Tester（大幅改善）、Lorem Ipsum Generator（強化）、AI Text Rewriter（BYOK訴求強化）
+- **フリーミアム実装済み**: AI Text Rewriter（10回/日制限）、Regex Tester（Gumroad）、Tab Manager（3セッション制限）
 
 ## 2026-03-28更新
 - **合計11本**（新規Tab Manager追加）

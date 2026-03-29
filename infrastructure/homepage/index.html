@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>miccho27 — Developer Tools, APIs & Digital Products</title>
+  <meta name="description" content="24 APIs on RapidAPI, 35 digital products on Gumroad, 11 Chrome extensions, 10 VS Code extensions, 9 Apify actors, and 3 SaaS products. Built by miccho27.">
+  <meta name="keywords" content="RapidAPI, Chrome extension, VS Code extension, Notion template, Apify actor, SaaS, developer tools, miccho27">
+  <meta name="author" content="miccho27">
+  <link rel="canonical" href="https://homepage-three-ochre.vercel.app/">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://homepage-three-ochre.vercel.app/">
+  <meta property="og:title" content="miccho27 — Developer Tools, APIs & Digital Products">
+  <meta property="og:description" content="24 APIs · 35 digital products · 11 Chrome extensions · 10 VS Code extensions · 9 Apify actors · 3 SaaS tools. All built by one developer.">
+  <meta property="og:image" content="https://homepage-three-ochre.vercel.app/og-image.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="miccho27 Products">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@prodhq27">
+  <meta name="twitter:title" content="miccho27 — Developer Tools, APIs & Digital Products">
+  <meta name="twitter:description" content="24 APIs · 35 digital products · 11 Chrome extensions · 10 VS Code extensions · 9 Apify actors · 3 SaaS tools.">
+  <meta name="twitter:image" content="https://homepage-three-ochre.vercel.app/og-image.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "miccho27",
+    "url": "https://homepage-three-ochre.vercel.app/",
+    "sameAs": [
+      "https://rapidapi.com/user/t-mizuno27",
+      "https://tatsuya27.gumroad.com",
+      "https://marketplace.visualstudio.com/publishers/miccho27",
+      "https://apify.com/miccho27",
+      "https://twitter.com/prodhq27"
+    ],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "RapidAPI Developer APIs",
+        "url": "https://rapidapi.com/user/t-mizuno27"
+      },
+      {
+        "@type": "Offer",
+        "name": "Notion Templates & AI Prompts",
+        "url": "https://tatsuya27.gumroad.com"
+      },
+      {
+        "@type": "Offer",
+        "name": "WP Linker SaaS",
+        "url": "https://wp-linker.vercel.app"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+    :root {
+      --bg: #050508;
+      --bg2: #0a0a10;
+      --surface: rgba(255,255,255,0.04);
+      --surface-hover: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.18);
+      --text: #e8e8f0;
+      --text-muted: rgba(232,232,240,0.45);
+      --text-dim: rgba(232,232,240,0.25);
+
+      --accent-api: #00d4ff;
+      --accent-gumroad: #ff6b6b;
+      --accent-chrome: #4ade80;
+      --accent-vscode: #818cf8;
+      --accent-apify: #f59e0b;
+      --accent-saas: #e879f9;
+
+      --glow-api: rgba(0,212,255,0.15);
+      --glow-gumroad: rgba(255,107,107,0.15);
+      --glow-chrome: rgba(74,222,128,0.15);
+      --glow-vscode: rgba(129,140,248,0.15);
+      --glow-apify: rgba(245,158,11,0.15);
+      --glow-saas: rgba(232,121,249,0.15);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── Noise texture overlay ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* ─── Ambient background orbs ─── */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.35;
+    }
+    .bg-orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, #00d4ff22, transparent 70%);
+      top: -200px; right: -100px;
+      animation: drift1 20s ease-in-out infinite alternate;
+    }
+    .bg-orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #e879f922, transparent 70%);
+      bottom: 20%; left: -150px;
+      animation: drift2 25s ease-in-out infinite alternate;
+    }
+    .bg-orb-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #818cf822, transparent 70%);
+      top: 40%; right: 10%;
+      animation: drift3 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift1 { from { transform: translate(0,0); } to { transform: translate(-60px, 80px); } }
+    @keyframes drift2 { from { transform: translate(0,0); } to { transform: translate(80px, -60px); } }
+    @keyframes drift3 { from { transform: translate(0,0); } to { transform: translate(-40px, 60px); } }
+
+    /* ─── Layout wrappers ─── */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── Navigation ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 24px;
+      background: rgba(5,5,8,0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span {
+      background: linear-gradient(135deg, #00d4ff, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #fff !important;
+      padding: 7px 18px;
+      border-radius: 8px;
+      font-size: 0.825rem !important;
+      transition: background 0.2s, border-color 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: rgba(255,255,255,0.1) !important;
+      border-color: rgba(255,255,255,0.22) !important;
+      color: #fff !important;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 0 80px;
+    }
+    .hero-inner {
+      max-width: 760px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,212,255,0.08);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 100px;
+      padding: 6px 14px 6px 10px;
+      font-size: 0.8rem;
+      color: var(--accent-api);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+      margin-bottom: 32px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-api);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.035em;
+      color: #fff;
+      animation: fadeUp 0.8s ease 0.1s both;
+    }
+    .hero h1 .accent-line {
+      background: linear-gradient(135deg, #00d4ff 0%, #818cf8 50%, #e879f9 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-desc {
+      margin-top: 24px;
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.7;
+      max-width: 560px;
+      animation: fadeUp 0.8s ease 0.2s both;
+    }
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-top: 48px;
+      animation: fadeUp 0.8s ease 0.3s both;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .stat-divider {
+      width: 1px;
+      height: 44px;
+      background: var(--border);
+      align-self: center;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s ease 0.4s both;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #00d4ff, #818cf8);
+      color: #000;
+      font-weight: 600;
+      font-size: 0.925rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 400;
+      font-size: 0.925rem;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .btn-secondary:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-1px);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── Section headers ─── */
+    .section {
+      padding: 80px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .section-header {
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+    .section-sub {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 520px;
+    }
+
+    /* ─── Category cards ─── */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) { .categories-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .categories-grid { grid-template-columns: 1fr; } }
+
+    .cat-card {
+      position: relative;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      overflow: hidden;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .cat-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-color, rgba(255,255,255,0.2));
+    }
+    .cat-card:hover::before { opacity: 1; }
+
+    .cat-card[data-color="api"] { --card-color: var(--accent-api); }
+    .cat-card[data-color="api"]::before { background: var(--glow-api); }
+    .cat-card[data-color="gumroad"] { --card-color: var(--accent-gumroad); }
+    .cat-card[data-color="gumroad"]::before { background: var(--glow-gumroad); }
+    .cat-card[data-color="chrome"] { --card-color: var(--accent-chrome); }
+    .cat-card[data-color="chrome"]::before { background: var(--glow-chrome); }
+    .cat-card[data-color="vscode"] { --card-color: var(--accent-vscode); }
+    .cat-card[data-color="vscode"]::before { background: var(--glow-vscode); }
+    .cat-card[data-color="apify"] { --card-color: var(--accent-apify); }
+    .cat-card[data-color="apify"]::before { background: var(--glow-apify); }
+    .cat-card[data-color="saas"] { --card-color: var(--accent-saas); }
+    .cat-card[data-color="saas"]::before { background: var(--glow-saas); }
+
+    .cat-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .cat-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .cat-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid;
+    }
+    .cat-card[data-color="api"] .cat-badge { color: var(--accent-api); border-color: rgba(0,212,255,0.3); background: rgba(0,212,255,0.08); }
+    .cat-card[data-color="gumroad"] .cat-badge { color: var(--accent-gumroad); border-color: rgba(255,107,107,0.3); background: rgba(255,107,107,0.08); }
+    .cat-card[data-color="chrome"] .cat-badge { color: var(--accent-chrome); border-color: rgba(74,222,128,0.3); background: rgba(74,222,128,0.08); }
+    .cat-card[data-color="vscode"] .cat-badge { color: var(--accent-vscode); border-color: rgba(129,140,248,0.3); background: rgba(129,140,248,0.08); }
+    .cat-card[data-color="apify"] .cat-badge { color: var(--accent-apify); border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.08); }
+    .cat-card[data-color="saas"] .cat-badge { color: var(--accent-saas); border-color: rgba(232,121,249,0.3); background: rgba(232,121,249,0.08); }
+
+    .cat-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .cat-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .cat-products {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .cat-product-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+    .cat-product-item::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--card-color, rgba(255,255,255,0.3));
+      flex-shrink: 0;
+    }
+    .cat-footer {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .cat-count {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--card-color, #fff);
+      letter-spacing: -0.04em;
+    }
+    .cat-link {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s;
+    }
+    .cat-card:hover .cat-link { color: var(--card-color, #fff); }
+    .cat-link-arrow {
+      transition: transform 0.2s;
+    }
+    .cat-card:hover .cat-link-arrow { transform: translateX(4px); }
+
+    /* ─── RapidAPI product list ─── */
+    .products-section { padding: 80px 0; position: relative; z-index: 1; }
+    .products-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 900px) { .products-list { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 600px) { .products-list { grid-template-columns: repeat(2, 1fr); } }
+
+    .product-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .product-chip:hover {
+      background: var(--surface-hover);
+      border-color: rgba(0,212,255,0.25);
+    }
+    .product-chip-num {
+      font-size: 0.7rem;
+      color: var(--accent-api);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .product-chip-name {
+      font-size: 0.825rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+
+    /* ─── Featured SaaS cards ─── */
+    .saas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 800px) { .saas-grid { grid-template-columns: 1fr; } }
+
+    .saas-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+    .saas-card:hover {
+      border-color: rgba(232,121,249,0.3);
+      background: rgba(232,121,249,0.04);
+      transform: translateY(-3px);
+    }
+    .saas-card-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-saas);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .saas-card-tag::before {
+      content: '';
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent-saas);
+    }
+    .saas-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.025em;
+    }
+    .saas-card-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+    .saas-card-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .saas-url {
+      font-size: 0.775rem;
+      color: var(--text-dim);
+      font-family: 'DM Mono', monospace;
+    }
+    .saas-arrow {
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .saas-card:hover .saas-arrow {
+      border-color: var(--accent-saas);
+      color: var(--accent-saas);
+    }
+
+    /* ─── Gumroad list ─── */
+    .gumroad-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 800px) { .gumroad-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 500px) { .gumroad-grid { grid-template-columns: 1fr; } }
+
+    .gumroad-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .gumroad-item:hover {
+      background: rgba(255,107,107,0.05);
+      border-color: rgba(255,107,107,0.2);
+      transform: translateY(-2px);
+    }
+    .gumroad-item-left { flex: 1; }
+    .gumroad-item-name {
+      font-size: 0.875rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    .gumroad-item-type {
+      font-size: 0.72rem;
+      color: var(--accent-gumroad);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      margin-top: 3px;
+    }
+    .gumroad-item-price {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.975rem;
+      font-weight: 700;
+      color: var(--accent-gumroad);
+      white-space: nowrap;
+    }
+
+    /* ─── Extension grids ─── */
+    .ext-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .ext-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .ext-chip.chrome:hover { background: rgba(74,222,128,0.05); border-color: rgba(74,222,128,0.25); }
+    .ext-chip.vscode:hover { background: rgba(129,140,248,0.05); border-color: rgba(129,140,248,0.25); }
+    .ext-chip.apify:hover { background: rgba(245,158,11,0.05); border-color: rgba(245,158,11,0.25); }
+    .ext-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .ext-name {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    .ext-status {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── Social proof / Platforms bar ─── */
+    .platforms-section {
+      padding: 60px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .platforms-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .platform-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 18px;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .platform-badge:hover {
+      background: var(--surface-hover);
+      border-color: var(--border-hover);
+    }
+    .platform-badge-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .platform-badge-count {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      padding: 48px 0;
+      position: relative;
+      z-index: 1;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy {
+      font-size: 0.775rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── Mobile nav toggle ─── */
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      font-size: 1.25rem;
+      padding: 4px;
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient orbs -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo"><span>miccho27</span></a>
+      <ul class="nav-links">
+        <li><a href="#apis">APIs</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#extensions">Extensions</a></li>
+        <li><a href="#saas">SaaS</a></li>
+        <li><a href="https://twitter.com/prodhq27" target="_blank" rel="noopener" class="nav-cta">Follow →</a></li>
+      </ul>
+      <button class="nav-mobile-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          Building in public · Paraguay
+        </div>
+        <h1>
+          Tools built for<br>
+          <span class="accent-line">developers & makers</span>
+        </h1>
+        <p class="hero-desc">
+          APIs, browser extensions, VS Code tools, Notion templates, Apify actors, and SaaS products — all crafted by one developer, shipped continuously.
+        </p>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num">24</span>
+            <span class="stat-label">Live APIs</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">35</span>
+            <span class="stat-label">Digital Products</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">21</span>
+            <span class="stat-label">Extensions</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">SaaS Tools</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="btn-primary">
+            Browse APIs →
+          </a>
+          <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="btn-secondary">
+            Shop on Gumroad
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Categories overview -->
+  <section class="section" id="overview">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color: var(--text-muted);">What I build</p>
+        <h2 class="section-title">6 product categories,<br>one developer.</h2>
+        <p class="section-sub">From serverless APIs to Notion templates — everything runs at $0 infra cost.</p>
+      </div>
+
+      <div class="categories-grid">
+
+        <!-- RapidAPI -->
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="cat-card" data-color="api">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">⚡</div>
+            <span class="cat-badge">RapidAPI</span>
+          </div>
+          <div>
+            <div class="cat-name">Developer APIs</div>
+            <div class="cat-desc">Cloudflare Workers–hosted APIs for common developer tasks. Free tier available on every API.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">QR Code · Email Validation · WHOIS</span>
+            <span class="cat-product-item">Screenshot · SEO Analyzer · NLP Text</span>
+            <span class="cat-product-item">Currency · AI Generation · PDF · +15 more</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">24</span>
+            <span class="cat-link">Explore APIs <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+        <!-- Gumroad -->
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="cat-card" data-color="gumroad">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">📦</div>
+            <span class="cat-badge">Gumroad</span>
+          </div>
+          <div>
+            <div class="cat-name">Digital Products</div>
+            <div class="cat-desc">Notion templates, AI prompt packs, and automation playbooks. Buy once, use forever.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">Notion: Life OS · Freelance Business OS</span>
+            <span class="cat-product-item">CRM · Content Creator Dashboard</span>
+            <span class="cat-product-item">AI Prompt Packs · n8n Templates</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">35</span>
+            <span class="cat-link">Shop now <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+        <!-- Chrome Extensions -->
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="cat-card" data-color="chrome">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">🌐</div>
+            <span class="cat-badge">Chrome Web Store</span>
+          </div>
+          <div>
+            <div class="cat-name">Chrome Extensions</div>
+            <div class="cat-desc">Manifest V3 extensions with Apple-style dark UI. Privacy-first, no data collection.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">SEO Inspector · JSON Formatter Pro</span>
+            <span class="cat-product-item">AI Text Rewriter · Color Picker</span>
+            <span class="cat-product-item">Domain WHOIS · Page Speed · +5 more</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">11</span>
+            <span class="cat-link">View extensions <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+        <!-- VS Code -->
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="cat-card" data-color="vscode">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">💡</div>
+            <span class="cat-badge">VS Code Marketplace</span>
+          </div>
+          <div>
+            <div class="cat-name">VS Code Extensions</div>
+            <div class="cat-desc">Productivity tools for daily development workflows. All free on the marketplace.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">Paste & Transform · Debug Log Cleaner</span>
+            <span class="cat-product-item">Env File Lens · Commit Crafter</span>
+            <span class="cat-product-item">Markdown Table Pro · i18n Helper · +4</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">10</span>
+            <span class="cat-link">Get extensions <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+        <!-- Apify -->
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="cat-card" data-color="apify">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">🤖</div>
+            <span class="cat-badge">Apify Store</span>
+          </div>
+          <div>
+            <div class="cat-name">Apify Actors</div>
+            <div class="cat-desc">Web scraping and data extraction actors. Pay-per-result pricing, no server management.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">SEO Analyzer · Social Video Downloader</span>
+            <span class="cat-product-item">Keyword Research · Trends Aggregator</span>
+            <span class="cat-product-item">Company Data Enricher · +4 more</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">9</span>
+            <span class="cat-link">Browse actors <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+        <!-- SaaS -->
+        <a href="#saas" class="cat-card" data-color="saas">
+          <div class="cat-card-top">
+            <div class="cat-icon-wrap">🚀</div>
+            <span class="cat-badge">SaaS</span>
+          </div>
+          <div>
+            <div class="cat-name">SaaS Products</div>
+            <div class="cat-desc">Web applications solving specific problems for WordPress users, developers, and researchers.</div>
+          </div>
+          <div class="cat-products">
+            <span class="cat-product-item">WP Linker — internal link optimizer</span>
+            <span class="cat-product-item">pSEO AI Tools — 5,056 comparison pages</span>
+            <span class="cat-product-item">Keisan Tools — 463 calculators</span>
+          </div>
+          <div class="cat-footer">
+            <span class="cat-count">3</span>
+            <span class="cat-link">See SaaS <span class="cat-link-arrow">→</span></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- RapidAPI full list -->
+  <section class="products-section" id="apis">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color: var(--accent-api);">RapidAPI · Cloudflare Workers</p>
+        <h2 class="section-title">24 Developer APIs</h2>
+        <p class="section-sub">All APIs hosted on Cloudflare's edge network. 100% uptime, free tier on every endpoint.</p>
+      </div>
+
+      <div class="products-list">
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">01</span><span class="product-chip-name">QR Code Generator</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">02</span><span class="product-chip-name">Email Validation</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">03</span><span class="product-chip-name">Link Preview & Metadata</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">04</span><span class="product-chip-name">Website Screenshot</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">05</span><span class="product-chip-name">Text Analysis & NLP</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">06</span><span class="product-chip-name">IP Geolocation</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">07</span><span class="product-chip-name">URL Shortener</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">08</span><span class="product-chip-name">JSON Formatter</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">09</span><span class="product-chip-name">Hash & Encoding</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">10</span><span class="product-chip-name">Currency Exchange Rate</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">11</span><span class="product-chip-name">AI Text Generation (Llama 3.1)</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">12</span><span class="product-chip-name">Social Video Downloader</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">13</span><span class="product-chip-name">Crypto Data Aggregator</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">14</span><span class="product-chip-name">SEO Analyzer</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">15</span><span class="product-chip-name">Weather Intelligence</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">16</span><span class="product-chip-name">WHOIS Domain Info</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">17</span><span class="product-chip-name">News Aggregator</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">18</span><span class="product-chip-name">AI Translation (m2m100)</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">19</span><span class="product-chip-name">Trends Aggregator</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">20</span><span class="product-chip-name">Company Data Enrichment</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">21</span><span class="product-chip-name">WP Internal Link Optimizer</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">22</span><span class="product-chip-name">PDF Generator</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">23</span><span class="product-chip-name">Placeholder Image</span></a>
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="product-chip"><span class="product-chip-num">24</span><span class="product-chip-name">Markdown Converter</span></a>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center;">
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="btn-primary" style="display: inline-flex;">
+          View all APIs on RapidAPI →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Gumroad products -->
+  <section class="section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color: var(--accent-gumroad);">Gumroad · tatsuya27.gumroad.com</p>
+        <h2 class="section-title">35 Digital Products</h2>
+        <p class="section-sub">Notion templates, AI prompt packs, and automation playbooks. Instant download after purchase.</p>
+      </div>
+
+      <div class="gumroad-grid">
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Freelance Business OS</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$19</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Life OS — Second Brain</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$19</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Digital Products Business OS</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$19</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Small Business CRM</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$17</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Content Creator Dashboard</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$15</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Side Hustle Tracker</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$12</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Social Media Planner</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$14</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Book & Learning Tracker</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$9</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Job Search Tracker</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$9</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Student Study Hub</div><div class="gumroad-item-type">Notion Template</div></div><span class="gumroad-item-price">$9</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Social Media Marketing Mega Prompts</div><div class="gumroad-item-type">AI Prompt Pack</div></div><span class="gumroad-item-price">$12</span></a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="gumroad-item"><div class="gumroad-item-left"><div class="gumroad-item-name">Ultimate Bundle — All 10 Templates</div><div class="gumroad-item-type">Bundle</div></div><span class="gumroad-item-price">$49</span></a>
+      </div>
+
+      <div style="margin-top: 24px; text-align: center;">
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="btn-primary" style="background: linear-gradient(135deg, #ff6b6b, #ff8c42); display: inline-flex;">
+          Browse all 35 products →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Extensions -->
+  <section class="section" id="extensions">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color: var(--accent-chrome);">Chrome · VS Code · Apify</p>
+        <h2 class="section-title">30 Extensions & Actors</h2>
+        <p class="section-sub">Browser extensions, editor plugins, and web automation actors — all free to install.</p>
+      </div>
+
+      <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; font-weight: 500;">Chrome Extensions (11)</p>
+      <div class="ext-grid" style="margin-bottom: 32px;">
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🔍</span><div><div class="ext-name">SEO Inspector</div><div class="ext-status">Published</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">📄</span><div><div class="ext-name">JSON Formatter Pro</div><div class="ext-status">Published</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🤖</span><div><div class="ext-name">AI Text Rewriter</div><div class="ext-status">Published</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🎨</span><div><div class="ext-name">Color Picker</div><div class="ext-status">Published</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🌐</span><div><div class="ext-name">Domain WHOIS Lookup</div><div class="ext-status">Published</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">💱</span><div><div class="ext-name">Quick Currency Converter</div><div class="ext-status">Under review</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">⚡</span><div><div class="ext-name">Page Speed Checker</div><div class="ext-status">Under review</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🔐</span><div><div class="ext-name">Hash & Encode Tool</div><div class="ext-status">Under review</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">📝</span><div><div class="ext-name">Lorem Ipsum Generator</div><div class="ext-status">Under review</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">🔧</span><div><div class="ext-name">Regex Tester</div><div class="ext-status">Under review</div></div></a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="ext-chip chrome"><span class="ext-icon">📑</span><div><div class="ext-name">Tab Manager & Session Saver</div><div class="ext-status">Pending submit</div></div></a>
+      </div>
+
+      <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; font-weight: 500;">VS Code Extensions (10)</p>
+      <div class="ext-grid" style="margin-bottom: 32px;">
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">📋</span><div><div class="ext-name">Paste & Transform</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">🧹</span><div><div class="ext-name">Debug Log Cleaner</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">🔍</span><div><div class="ext-name">Env File Lens</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">✍️</span><div><div class="ext-name">Commit Crafter</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">📌</span><div><div class="ext-name">File Sticky Notes</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">📊</span><div><div class="ext-name">Markdown Table Pro</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">📡</span><div><div class="ext-name">API Response Viewer</div><div class="ext-status">miccho27</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">🌍</span><div><div class="ext-name">i18n Helper</div><div class="ext-status">miccho27-dev</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">🗂️</span><div><div class="ext-name">Smart Folding</div><div class="ext-status">miccho27-dev</div></div></a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="ext-chip vscode"><span class="ext-icon">📸</span><div><div class="ext-name">Doc Snapshot</div><div class="ext-status">miccho27-dev</div></div></a>
+      </div>
+
+      <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 14px; font-weight: 500;">Apify Actors (9)</p>
+      <div class="ext-grid">
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">🔍</span><div><div class="ext-name">SEO Analyzer</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">📹</span><div><div class="ext-name">Social Video Downloader</div><div class="ext-status">$2.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">📈</span><div><div class="ext-name">Keyword Research</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">📊</span><div><div class="ext-name">Trends Aggregator</div><div class="ext-status">$2.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">🏢</span><div><div class="ext-name">Company Data Enricher</div><div class="ext-status">$5.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">🔬</span><div><div class="ext-name">Website Tech Detector</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">🛒</span><div><div class="ext-name">Amazon Product Scraper</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">📧</span><div><div class="ext-name">Email Finder</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="ext-chip apify"><span class="ext-icon">🗺️</span><div><div class="ext-name">Google Maps Scraper</div><div class="ext-status">$3.00 / 1K results</div></div></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SaaS -->
+  <section class="section" id="saas">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label" style="color: var(--accent-saas);">SaaS · Web Applications</p>
+        <h2 class="section-title">3 SaaS Products</h2>
+        <p class="section-sub">Hosted web applications built with Next.js, deployed on Vercel.</p>
+      </div>
+
+      <div class="saas-grid">
+        <a href="https://wp-linker.vercel.app" target="_blank" rel="noopener" class="saas-card">
+          <span class="saas-card-tag">SaaS · Free Tier Available</span>
+          <div class="saas-card-name">WP Linker</div>
+          <div class="saas-card-desc">Automated internal link optimizer for WordPress. Analyze your posts, discover link opportunities, and boost your SEO with one click. Free plan: 30 posts / week.</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">Free $0</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">Pro $19/mo</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">Agency $49/mo</span>
+          </div>
+          <div class="saas-card-meta">
+            <span class="saas-url">wp-linker.vercel.app</span>
+            <span class="saas-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://ai-tool-compare-nu.vercel.app" target="_blank" rel="noopener" class="saas-card">
+          <span class="saas-card-tag">pSEO · 5,056 Pages</span>
+          <div class="saas-card-name">AI Tool Compare</div>
+          <div class="saas-card-desc">Programmatic SEO site comparing 291 AI tools across 12 categories. Find the best AI tools for writing, coding, image generation, and more.</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">Free</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">291 AI Tools</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">12 Categories</span>
+          </div>
+          <div class="saas-card-meta">
+            <span class="saas-url">ai-tool-compare-nu.vercel.app</span>
+            <span class="saas-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="https://keisan-tools.com" target="_blank" rel="noopener" class="saas-card">
+          <span class="saas-card-tag">Tools · AdSense Monetized</span>
+          <div class="saas-card-name">Keisan Tools</div>
+          <div class="saas-card-desc">463 high-precision calculators and simulation tools. Money, health, business, math, and unit conversion tools for everyday decisions.</div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">Free</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">463 Calculators</span>
+            <span style="font-size: 0.72rem; padding: 3px 10px; border-radius: 100px; background: rgba(232,121,249,0.08); border: 1px solid rgba(232,121,249,0.2); color: var(--accent-saas);">7 Categories</span>
+          </div>
+          <div class="saas-card-meta">
+            <span class="saas-url">keisan-tools.com</span>
+            <span class="saas-arrow">→</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Platforms bar -->
+  <section class="platforms-section">
+    <div class="container">
+      <p style="font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px; font-weight: 500;">Find me on these platforms</p>
+      <div class="platforms-row">
+        <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">⚡</span>
+          <div><div class="platform-badge-label">RapidAPI</div><div class="platform-badge-count">24 APIs</div></div>
+        </a>
+        <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">📦</span>
+          <div><div class="platform-badge-label">Gumroad</div><div class="platform-badge-count">35 Products</div></div>
+        </a>
+        <a href="https://chrome.google.com/webstore/search/miccho27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">🌐</span>
+          <div><div class="platform-badge-label">Chrome Web Store</div><div class="platform-badge-count">11 Extensions</div></div>
+        </a>
+        <a href="https://marketplace.visualstudio.com/publishers/miccho27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">💡</span>
+          <div><div class="platform-badge-label">VS Code Marketplace</div><div class="platform-badge-count">10 Extensions</div></div>
+        </a>
+        <a href="https://apify.com/miccho27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">🤖</span>
+          <div><div class="platform-badge-label">Apify Store</div><div class="platform-badge-count">9 Actors</div></div>
+        </a>
+        <a href="https://twitter.com/prodhq27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">𝕏</span>
+          <div><div class="platform-badge-label">Twitter / X</div><div class="platform-badge-count">@prodhq27</div></div>
+        </a>
+        <a href="https://dev.to/miccho27" target="_blank" rel="noopener" class="platform-badge">
+          <span style="font-size: 1rem;">✍️</span>
+          <div><div class="platform-badge-label">Dev.to</div><div class="platform-badge-count">miccho27</div></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">miccho27</div>
+          <div class="footer-copy" style="margin-top: 4px;">Building in Paraguay · © 2026</div>
+        </div>
+        <div class="footer-links">
+          <a href="https://rapidapi.com/user/t-mizuno27" target="_blank" rel="noopener">APIs</a>
+          <a href="https://tatsuya27.gumroad.com" target="_blank" rel="noopener">Gumroad</a>
+          <a href="https://wp-linker.vercel.app" target="_blank" rel="noopener">WP Linker</a>
+          <a href="https://keisan-tools.com" target="_blank" rel="noopener">Keisan Tools</a>
+          <a href="https://apify.com/miccho27" target="_blank" rel="noopener">Apify</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="https://twitter.com/prodhq27" target="_blank" rel="noopener">@prodhq27</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.cat-card, .saas-card, .gumroad-item, .product-chip, .ext-chip, .platform-badge').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = `opacity 0.5s ease ${i * 0.03}s, transform 0.5s ease ${i * 0.03}s, border-color 0.3s, background 0.3s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

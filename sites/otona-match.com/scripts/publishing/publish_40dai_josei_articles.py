@@ -11,6 +11,27 @@ from datetime import datetime
 
 ARTICLES = [
     # ID:2565 konkatsu-40dai-josei-genjitsu は投稿済み (2026-03-29)
+    # ID:2566 konkatsu-40dai-josei-fuku は投稿済み (2026-03-29)
+    {
+        "title": "無職・専業主婦の40代女性が婚活で成功するための戦略と注意点",
+        "slug": "konkatsu-40dai-josei-mushoku",
+        "file": "konkatsu-40dai-josei-mushoku.html",
+        "categories": [4],
+        "excerpt": "無職・専業主婦の40代女性が婚活で直面する現実と成功戦略を解説。プロフィールの書き方、選ぶべきサービス、費用を抑えた婚活方法を体験談とともに紹介します。",
+        "focus_kw": "婚活 40代 女性 無職",
+    },
+    {
+        "title": "婚活40代女性の条件設定ガイド｜何を妥協して何を守るべきか",
+        "slug": "konkatsu-40dai-josei-joken",
+        "file": "konkatsu-40dai-josei-joken.html",
+        "categories": [4],
+        "excerpt": "婚活40代女性が設定すべき条件と妥協点を解説。NG条件・核心条件・条件設定フレームワークを具体的に紹介。体験談から学ぶ、40代婚活成功のための正しい条件の見直し方。",
+        "focus_kw": "婚活 40代 女性 条件",
+    },
+]
+
+# ダミー（削除）
+_UNUSED = [
     {
         "title": "婚活40代女性の服装完全ガイド｜好印象を与えるスタイリング術",
         "slug": "konkatsu-40dai-josei-fuku",

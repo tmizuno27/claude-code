@@ -1,0 +1,59 @@
+{
+  "title": "Price Monitor Input",
+  "description": "Monitor product prices on Amazon, and any e-commerce website. Set price alert thresholds to detect drops.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "products": {
+      "title": "Products to Monitor",
+      "type": "array",
+      "description": "List of product objects to monitor. Each product has a url and optional targetPrice for alert.",
+      "editor": "json",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string", "description": "Product page URL" },
+          "name": { "type": "string", "description": "Optional product name for easier identification" },
+          "targetPrice": { "type": "number", "description": "Alert threshold — flag if price drops below this value" }
+        },
+        "required": ["url"]
+      },
+      "prefill": [
+        {
+          "url": "https://www.amazon.com/dp/B08N5WRWNW",
+          "name": "Echo Dot 4th Gen",
+          "targetPrice": 30
+        }
+      ]
+    },
+    "currency": {
+      "title": "Currency Symbol",
+      "type": "string",
+      "description": "Currency symbol used for price parsing (e.g., '$', '¥', '€', '£', 'R$'). Used to improve price extraction accuracy.",
+      "default": "$",
+      "editor": "textfield"
+    },
+    "extractReviews": {
+      "title": "Extract Review Score",
+      "type": "boolean",
+      "description": "When enabled, also extracts the product's average rating and review count.",
+      "default": true
+    },
+    "checkAvailability": {
+      "title": "Check Stock Availability",
+      "type": "boolean",
+      "description": "When enabled, attempts to detect if the product is in stock or out of stock.",
+      "default": true
+    },
+    "delayMs": {
+      "title": "Request Delay (ms)",
+      "type": "integer",
+      "description": "Delay between product page requests in milliseconds.",
+      "default": 2000,
+      "minimum": 1000,
+      "maximum": 10000,
+      "editor": "number"
+    }
+  },
+  "required": ["products"]
+}

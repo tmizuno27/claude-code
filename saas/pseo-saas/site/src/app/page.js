@@ -83,6 +83,11 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+          <div style={{ textAlign: 'center', marginTop: 32 }}>
+            <Link href="/category/ai-chatbot/" className="cta-btn cta-btn-a" style={{ display: 'inline-flex', maxWidth: 300 }}>
+              Browse All Comparisons &rarr;
+            </Link>
+          </div>
         </div>
       </section>
     </>
