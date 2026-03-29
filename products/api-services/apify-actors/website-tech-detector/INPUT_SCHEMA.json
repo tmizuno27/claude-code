@@ -1,0 +1,37 @@
+{
+  "title": "Website Tech Stack Detector Input",
+  "description": "Provide website URLs to detect technologies, frameworks, CMS, analytics tools, and more.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Website URLs",
+      "type": "array",
+      "description": "List of website URLs to analyze. Use the homepage URL for best results (e.g., https://example.com).",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://example.com", "https://shopify.com"]
+    },
+    "categories": {
+      "title": "Technology Categories to Detect",
+      "type": "array",
+      "description": "Filter detection to specific technology categories. Leave empty to detect all 80+ technologies.",
+      "editor": "checkboxes",
+      "items": {
+        "type": "string",
+        "enum": ["cms", "framework", "analytics", "cdn", "payments", "marketing", "hosting", "security", "performance"]
+      },
+      "prefill": []
+    },
+    "fetchTimeoutMs": {
+      "title": "Fetch Timeout (ms)",
+      "type": "integer",
+      "description": "Maximum time to wait for a website to load before timing out.",
+      "default": 20000,
+      "minimum": 5000,
+      "maximum": 60000,
+      "editor": "number"
+    }
+  },
+  "required": ["urls"]
+}

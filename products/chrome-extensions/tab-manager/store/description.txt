@@ -1,0 +1,50 @@
+Tab Manager & Session Saver - Smart Tab Productivity
+
+Tired of tab overload? Tab Manager & Session Saver helps you take control of your browser tabs with powerful organization tools.
+
+KEY FEATURES:
+
+** Tab Overview **
+- See all open tabs at a glance with titles, URLs, and favicons
+- Instantly search and filter through your tabs
+- Click any tab to switch to it
+- Close tabs directly from the popup
+
+** Session Management **
+- Save your current tab set with a custom name
+- Restore saved sessions with one click
+- Never lose your research context again
+
+** Duplicate Detection **
+- Automatically highlights duplicate tabs
+- One-click removal of all duplicates
+- Keep your browser clean and fast
+
+** Drag & Drop Organization **
+- Reorder tabs by dragging within the popup
+- Changes reflect in your actual browser tabs
+
+** Dark Mode **
+- Beautiful light and dark themes
+- Matches your system preference
+
+** Pro Features (Upgrade) **
+- Unlimited session saves (Free: 3 sessions)
+- Export sessions as JSON backup
+- Import sessions from backup files
+
+KEYBOARD SHORTCUT:
+Press Ctrl+Shift+T (Cmd+Shift+T on Mac) to instantly open Tab Manager.
+
+PRIVACY:
+- No data collection whatsoever
+- All data stored locally on your device
+- No analytics, no tracking, no external servers
+- Minimal permissions: only "tabs" and "storage"
+
+Perfect for researchers, developers, students, and anyone who works with many tabs. Save hours every week with smarter tab management.
+
+SUPPORT:
+Found a bug or have a suggestion? Leave a review or contact us through the Chrome Web Store.
+
+Category: Productivity

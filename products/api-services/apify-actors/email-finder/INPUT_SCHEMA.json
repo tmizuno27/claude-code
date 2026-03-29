@@ -1,35 +1,51 @@
 {
   "title": "Email Finder Input",
-  "description": "Find email addresses, phone numbers, and social links from websites.",
+  "description": "Find email addresses, phone numbers, and social media links from any website. No API key required.",
   "type": "object",
   "schemaVersion": 1,
   "properties": {
     "urls": {
       "title": "Website URLs",
       "type": "array",
-      "description": "List of website URLs to scan for contact information.",
+      "description": "List of website URLs to scan for contact information. Use company homepages or contact pages for best results.",
       "editor": "stringList",
-      "items": { "type": "string" }
+      "items": { "type": "string" },
+      "prefill": ["https://example.com"]
     },
     "scanDepth": {
       "title": "Scan Depth",
       "type": "string",
-      "description": "'homepage' scans only the main page. 'deep' also scans /contact, /about, /team pages.",
+      "description": "'homepage' scans only the provided URL. 'deep' also automatically crawls /contact, /about, /team, and /company pages for more comprehensive results (slower but higher recall).",
       "default": "homepage",
       "enum": ["homepage", "deep"],
       "editor": "select"
     },
     "includePhones": {
-      "title": "Include Phone Numbers",
+      "title": "Extract Phone Numbers",
       "type": "boolean",
-      "description": "Extract phone numbers from pages.",
+      "description": "Extract phone numbers from text content and tel: links.",
       "default": true
     },
     "includeSocial": {
-      "title": "Include Social Links",
+      "title": "Extract Social Media Links",
       "type": "boolean",
-      "description": "Extract social media profile URLs.",
+      "description": "Detect and extract links to Facebook, Twitter/X, LinkedIn, Instagram, YouTube, TikTok, and GitHub profiles.",
       "default": true
+    },
+    "filterNoreply": {
+      "title": "Filter No-Reply / Fake Emails",
+      "type": "boolean",
+      "description": "When enabled, automatically removes common false positives like noreply@, no-reply@, example@, and image filenames that match email patterns.",
+      "default": true
+    },
+    "delayMs": {
+      "title": "Request Delay (ms)",
+      "type": "integer",
+      "description": "Delay between requests in milliseconds. Increase for large batches to avoid rate limiting.",
+      "default": 1000,
+      "minimum": 500,
+      "maximum": 10000,
+      "editor": "number"
     }
   },
   "required": ["urls"]

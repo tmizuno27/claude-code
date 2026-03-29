@@ -1,0 +1,49 @@
+{
+  "title": "Company Data Enricher Input",
+  "description": "Provide domains, company names, or Wikidata IDs to enrich with public company data.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "domains": {
+      "title": "Company Domains",
+      "type": "array",
+      "description": "List of company website domains to enrich. Plain domain (e.g., 'stripe.com') or full URL (e.g., 'https://stripe.com'). Do not include paths.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["stripe.com", "notion.so"]
+    },
+    "queries": {
+      "title": "Company Name Searches",
+      "type": "array",
+      "description": "Search by company name. Returns the best-matching public company with available data.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": []
+    },
+    "wikidataIds": {
+      "title": "Wikidata IDs",
+      "type": "array",
+      "description": "Wikidata entity IDs for direct lookup (e.g., 'Q95' for Google). Provides structured data from Wikipedia's knowledge graph.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": []
+    },
+    "mode": {
+      "title": "Enrichment Mode",
+      "type": "string",
+      "description": "'enrich' fetches all available data fields. 'quick' fetches only basic metadata (faster but less detailed).",
+      "default": "enrich",
+      "enum": ["enrich", "quick"],
+      "editor": "select"
+    },
+    "delayMs": {
+      "title": "Request Delay (ms)",
+      "type": "integer",
+      "description": "Delay in milliseconds between requests to avoid rate limiting. Increase for large batches.",
+      "default": 1000,
+      "minimum": 500,
+      "maximum": 5000,
+      "editor": "number"
+    }
+  }
+}

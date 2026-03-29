@@ -1,0 +1,35 @@
+{
+  "title": "Trends Aggregator Input",
+  "description": "Select sources and configure options for multi-platform trending topic aggregation.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "sources": {
+      "title": "Sources to Fetch",
+      "type": "array",
+      "description": "Select which platforms to aggregate trends from. Leave empty to fetch all sources.",
+      "editor": "checkboxes",
+      "items": {
+        "type": "string",
+        "enum": ["google", "hackernews", "reddit", "github", "producthunt"]
+      },
+      "prefill": ["google", "hackernews", "reddit", "github", "producthunt"]
+    },
+    "googleGeo": {
+      "title": "Google Trends Country",
+      "type": "string",
+      "description": "Two-letter country code for Google Daily Search Trends. Examples: 'US', 'JP', 'GB', 'DE', 'FR', 'BR', 'IN'.",
+      "default": "US",
+      "editor": "textfield"
+    },
+    "limit": {
+      "title": "Results Per Source",
+      "type": "integer",
+      "description": "Maximum number of trending items to fetch per source (1-50).",
+      "default": 25,
+      "minimum": 1,
+      "maximum": 50,
+      "editor": "number"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "title": "Keyword Research Input",
+  "description": "Configure seed keywords, language, and scoring options.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "keywords": {
+      "title": "Seed Keywords",
+      "type": "array",
+      "description": "List of seed keywords to expand. Each keyword generates multiple autocomplete suggestions.",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["best coffee maker", "how to learn python"]
+    },
+    "language": {
+      "title": "Language / Locale",
+      "type": "string",
+      "description": "Google Suggest locale code. Examples: 'en' (English), 'ja' (Japanese), 'es' (Spanish), 'de' (German), 'fr' (French), 'pt' (Portuguese).",
+      "default": "en",
+      "editor": "textfield"
+    },
+    "country": {
+      "title": "Country Code",
+      "type": "string",
+      "description": "Two-letter country code for localized suggestions. Examples: 'us', 'jp', 'gb', 'de', 'fr', 'br'.",
+      "default": "us",
+      "editor": "textfield"
+    },
+    "includeQuestions": {
+      "title": "Include Question Keywords",
+      "type": "boolean",
+      "description": "When enabled, automatically generates question variants for each seed keyword (who, what, when, where, why, how).",
+      "default": true
+    },
+    "minScore": {
+      "title": "Minimum Keyword Score",
+      "type": "integer",
+      "description": "Filter results to only keywords with a longtail score >= this value (0-100). Higher scores indicate better long-tail targeting potential.",
+      "default": 0,
+      "minimum": 0,
+      "maximum": 100,
+      "editor": "number"
+    },
+    "maxSuggestionsPerSeed": {
+      "title": "Max Suggestions Per Seed Keyword",
+      "type": "integer",
+      "description": "Maximum number of autocomplete suggestions to fetch per seed keyword.",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 50,
+      "editor": "number"
+    }
+  },
+  "required": ["keywords"]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Social Video Downloader Input",
+  "description": "Provide video URLs from YouTube, TikTok, Instagram, X (Twitter), or Facebook.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "urls": {
+      "title": "Video URLs",
+      "type": "array",
+      "description": "List of video URLs to extract. Supports YouTube (youtube.com/watch, youtu.be), TikTok (tiktok.com/@user/video), Instagram (instagram.com/p/, /reel/), X/Twitter (twitter.com/i/status, x.com/i/status), Facebook (facebook.com/video).",
+      "editor": "stringList",
+      "items": { "type": "string" },
+      "prefill": ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"]
+    },
+    "includeSubtitles": {
+      "title": "Include Subtitles / Captions",
+      "type": "boolean",
+      "description": "When enabled, attempts to extract available subtitle tracks and caption data for YouTube videos.",
+      "default": false
+    },
+    "proxyConfig": {
+      "title": "Proxy Configuration",
+      "type": "object",
+      "description": "Apify Proxy configuration for geo-restricted or rate-limited content.",
+      "editor": "proxy",
+      "prefill": { "useApifyProxy": false }
+    }
+  },
+  "required": ["urls"]
+}

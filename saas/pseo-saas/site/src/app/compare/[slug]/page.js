@@ -12,20 +12,23 @@ export async function generateMetadata({ params }) {
   const pair = getComparisonPairs().find(p => p.slug === slug);
   if (!pair) return { title: 'Comparison Not Found' };
   const { toolA, toolB } = pair;
+  const winnerName = (toolA.rating?.overall || 0) >= (toolB.rating?.overall || 0) ? toolA.name : toolB.name;
+  const catName = pair.category.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
   return {
-    title: `${toolA.name} vs ${toolB.name}: Which is Better in 2026?`,
-    description: `Detailed comparison of ${toolA.name} and ${toolB.name}. Compare features, pricing, ratings, pros & cons to find the best option for your needs.`,
+    title: `${toolA.name} vs ${toolB.name} (2026): Features, Pricing & Which to Choose`,
+    description: `${toolA.name} vs ${toolB.name}: We compared features, pricing, pros & cons side-by-side. ${winnerName} wins on overall score. See our full ${catName} comparison to pick the right tool.`,
     alternates: {
       canonical: `/compare/${slug}/`,
     },
     openGraph: {
-      title: `${toolA.name} vs ${toolB.name} Comparison`,
-      description: `Side-by-side comparison of ${toolA.name} (${toolA.rating?.overall || 0}/10) and ${toolB.name} (${toolB.rating?.overall || 0}/10). Features, pricing, and honest verdict.`,
+      title: `${toolA.name} vs ${toolB.name}: Full Comparison (2026)`,
+      description: `${toolA.name} scores ${toolA.rating?.overall || 0}/10 vs ${toolB.name} scores ${toolB.rating?.overall || 0}/10. Compare features, pricing, and get our expert verdict.`,
+      type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${toolA.name} vs ${toolB.name}: Which is Better in 2026?`,
-      description: `Side-by-side comparison of ${toolA.name} and ${toolB.name}. Features, pricing, and honest verdict.`,
+      title: `${toolA.name} vs ${toolB.name} (2026) — Which Is Better?`,
+      description: `${toolA.name} scores ${toolA.rating?.overall || 0}/10 vs ${toolB.name} scores ${toolB.rating?.overall || 0}/10. Full side-by-side comparison with verdict.`,
     },
   };
 }
@@ -55,6 +58,22 @@ export default async function ComparePage({ params }) {
         text: faq.answer,
       },
     })),
+  };
+
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `${toolA.name} vs ${toolB.name}: Features, Pricing & Verdict (2026)`,
+    description: `Detailed comparison of ${toolA.name} and ${toolB.name} covering features, pricing, pros and cons.`,
+    url: `https://ai-tool-compare-nu.vercel.app/compare/${pair.slug}/`,
+    datePublished: '2026-01-01',
+    dateModified: new Date().toISOString().split('T')[0],
+    author: { '@type': 'Organization', name: 'AI Tool Compare' },
+    publisher: {
+      '@type': 'Organization',
+      name: 'AI Tool Compare',
+      url: 'https://ai-tool-compare-nu.vercel.app/',
+    },
   };
 
   const breadcrumbLd = {
